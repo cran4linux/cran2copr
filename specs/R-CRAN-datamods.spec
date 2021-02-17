@@ -1,42 +1,44 @@
-%global packname  gnomonicM
+%global packname  datamods
 %global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Natural Mortality for Different Life Stages
+Summary:          Modules to Import and Manipulate Data in 'Shiny'
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-minqa 
-BuildRequires:    R-CRAN-triangle 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-kableExtra 
-Requires:         R-CRAN-minqa 
-Requires:         R-CRAN-triangle 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-shiny >= 1.5.0
+BuildRequires:    R-CRAN-shinyWidgets >= 0.5.3
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rio 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-shiny >= 1.5.0
+Requires:         R-CRAN-shinyWidgets >= 0.5.3
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rio 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-tools 
 
 %description
-Estimate natural mortality (M) throughout the life history for organisms,
-mainly fish and invertebrates, based on gnomonic interval approach
-proposed by Caddy (1996) <doi:10.1051/alr:1996023> and Martinez-Aguilar et
-al. (2005) <doi:10.1016/j.fishres.2004.04.008>. It includes estimation of
-duration of each gnomonic interval (life stage), the constant probability
-of death (G), and some basic plots.
+'Shiny' modules to import data into an application or 'addin' from various
+sources, and to manipulate them after that.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,42 +1,34 @@
-%global packname  gnomonicM
-%global packver   1.0.1
+%global packname  caRecall
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Natural Mortality for Different Life Stages
+Summary:          Government of Canada Vehicle Recalls Database API Wrapper
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-minqa 
-BuildRequires:    R-CRAN-triangle 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-kableExtra 
-Requires:         R-CRAN-minqa 
-Requires:         R-CRAN-triangle 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-tibble 
 
 %description
-Estimate natural mortality (M) throughout the life history for organisms,
-mainly fish and invertebrates, based on gnomonic interval approach
-proposed by Caddy (1996) <doi:10.1051/alr:1996023> and Martinez-Aguilar et
-al. (2005) <doi:10.1016/j.fishres.2004.04.008>. It includes estimation of
-duration of each gnomonic interval (life stage), the constant probability
-of death (G), and some basic plots.
+Provides API access to the Government of Canada Vehicle Recalls Database
+<https://tc.api.canada.ca/en/detail?api=VRDB> used by the Defect
+Investigations and Recalls Division for vehicles, tires, and child car
+seats. The API wrapper provides access to recall summary information
+searched using make, model, and year range, as well as detailed recall
+information searched using recall number.
 
 %prep
 %setup -q -c -n %{packname}

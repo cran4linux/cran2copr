@@ -1,42 +1,39 @@
-%global packname  gnomonicM
-%global packver   1.0.1
+%global packname  lavacreg
+%global packver   0.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Natural Mortality for Different Life Stages
+Summary:          Latent Variable Count Regression Models
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildArch:        noarch
-BuildRequires:    R-CRAN-minqa 
-BuildRequires:    R-CRAN-triangle 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-fastGHQuad 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-kableExtra 
-Requires:         R-CRAN-minqa 
-Requires:         R-CRAN-triangle 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-fastGHQuad 
+Requires:         R-CRAN-pracma 
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-kableExtra 
 
 %description
-Estimate natural mortality (M) throughout the life history for organisms,
-mainly fish and invertebrates, based on gnomonic interval approach
-proposed by Caddy (1996) <doi:10.1051/alr:1996023> and Martinez-Aguilar et
-al. (2005) <doi:10.1016/j.fishres.2004.04.008>. It includes estimation of
-duration of each gnomonic interval (life stage), the constant probability
-of death (G), and some basic plots.
+Estimation of a multi-group count regression models (i.e., Poisson,
+negative binomial) with latent covariates. This packages provides two
+extensions compared to ordinary count regression models based on a
+generalized linear model: First, measurement models for the predictors can
+be specified allowing to account for measurement error. Second, the count
+regression can be simultaneously estimated in multiple groups with
+stochastic group weights. The marginal maximum likelihood estimation is
+described in Kiefer & Mayer (2020) <doi:10.1080/00273171.2020.1751027>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,42 +1,39 @@
-%global packname  gnomonicM
+%global packname  bestridge
 %global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Natural Mortality for Different Life Stages
+Summary:          Best Subset Ridge Regression in Linear, Logistic, Poisson and CoxPH Models
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildArch:        noarch
-BuildRequires:    R-CRAN-minqa 
-BuildRequires:    R-CRAN-triangle 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-kableExtra 
-Requires:         R-CRAN-minqa 
-Requires:         R-CRAN-triangle 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-kableExtra 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Matrix >= 1.2.6
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-pheatmap 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Matrix >= 1.2.6
+Requires:         R-CRAN-Rcpp >= 1.0.3
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-pheatmap 
+Requires:         R-CRAN-survival 
 
 %description
-Estimate natural mortality (M) throughout the life history for organisms,
-mainly fish and invertebrates, based on gnomonic interval approach
-proposed by Caddy (1996) <doi:10.1051/alr:1996023> and Martinez-Aguilar et
-al. (2005) <doi:10.1016/j.fishres.2004.04.008>. It includes estimation of
-duration of each gnomonic interval (life stage), the constant probability
-of death (G), and some basic plots.
+An implementation of best subset ridge regression in generalized linear
+model and Cox proportional hazard model via the primal dual active set
+algorithm proposed by Wen, C., Zhang, A., Quan, S. and Wang, X. (2020)
+<doi:10.18637/jss.v094.i04>. The algorithm formulates coefficient
+parameters and residuals as primal and dual variables and utilizes
+efficient active set selection strategies based on the complementarity of
+the primal and dual variables.
 
 %prep
 %setup -q -c -n %{packname}

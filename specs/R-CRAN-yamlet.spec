@@ -1,9 +1,9 @@
 %global packname  yamlet
-%global packver   0.6.5
+%global packver   0.6.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.6.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Versatile Curation of Table Metadata
 

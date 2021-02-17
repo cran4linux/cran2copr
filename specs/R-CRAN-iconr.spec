@@ -1,11 +1,11 @@
-%global packname  dataverse
-%global packver   0.3.0
+%global packname  iconr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for Dataverse 4 Repositories
+Summary:          Graphical and Spatial Analysis for Prehistoric Iconography
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,26 +15,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-readr 
-Requires:         R-stats 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-rgdal 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 Requires:         R-utils 
-Requires:         R-CRAN-xml2 
 
 %description
-Provides access to Dataverse APIs <https://dataverse.org/> (versions 4-5),
-enabling data search, retrieval, and deposit. For Dataverse versions <=
-3.0, use the archived 'dvn' package
-<https://cran.r-project.org/package=dvn>.
+Set of formal methods for studying archaeological iconographic datasets
+(rock-art, pottery decoration, stelae, etc.) using network and spatial
+analysis (Alexander 2008 <doi:10.11588/propylaeumdok.00000512>; Huet 2018
+<https://hal.archives-ouvertes.fr/hal-02913656>).
 
 %prep
 %setup -q -c -n %{packname}

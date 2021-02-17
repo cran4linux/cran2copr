@@ -1,42 +1,24 @@
-%global packname  gnomonicM
-%global packver   1.0.1
+%global packname  marginalizedRisk
+%global packver   2021.2-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2021.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Natural Mortality for Different Life Stages
+Summary:          Estimating Marginalized Risk
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-minqa 
-BuildRequires:    R-CRAN-triangle 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-kableExtra 
-Requires:         R-CRAN-minqa 
-Requires:         R-CRAN-triangle 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-kableExtra 
 
 %description
-Estimate natural mortality (M) throughout the life history for organisms,
-mainly fish and invertebrates, based on gnomonic interval approach
-proposed by Caddy (1996) <doi:10.1051/alr:1996023> and Martinez-Aguilar et
-al. (2005) <doi:10.1016/j.fishres.2004.04.008>. It includes estimation of
-duration of each gnomonic interval (life stage), the constant probability
-of death (G), and some basic plots.
+Estimates risk as a function of a marker by integrating over other
+covariates in a conditional risk model.
 
 %prep
 %setup -q -c -n %{packname}

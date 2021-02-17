@@ -1,9 +1,9 @@
 %global packname  deldir
-%global packver   0.2-9
+%global packver   0.2-10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.2.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Delaunay Triangulation and Dirichlet (Voronoi) Tessellation
 
@@ -24,7 +24,8 @@ Calculates the Delaunay triangulation and the Dirichlet or Voronoi
 tessellation (with respect to the entire plane) of a planar point set.
 Plots triangulations and tessellations in various ways.  Clips
 tessellations to sub-windows. Calculates perimeters of tessellations.
-Summarises information about the tiles of the tessellation.
+Summarises information about the tiles of the tessellation. Calculates the
+centroidal Voronoi (Dirichlet) tessellation using Lloyd's algorithm.
 
 %prep
 %setup -q -c -n %{packname}

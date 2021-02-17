@@ -1,36 +1,49 @@
-%global packname  ClusterBootstrap
-%global packver   1.1.2
+%global packname  bp
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyze Clustered Data with Generalized Linear Models using the Cluster Bootstrap
+Summary:          Blood Pressure Analysis in R
 
-License:          GPL-3 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-parallel 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-paletteer 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-gtable 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-paletteer 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-gtable 
 
 %description
-Provides functionality for the analysis of clustered data using the
-cluster bootstrap.
+A comprehensive package to aid in the analysis of blood pressure data of
+all forms by providing both descriptive and visualization tools for
+researchers.
 
 %prep
 %setup -q -c -n %{packname}

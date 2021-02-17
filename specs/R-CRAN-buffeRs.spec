@@ -1,42 +1,30 @@
-%global packname  spcosa
-%global packver   0.3-11
+%global packname  buffeRs
+%global packver   0.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.11
+Version:          0.21
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Coverage Sampling and Random Sampling from Compact Geographical Strata
+Summary:          Buffer Generation for Spatial Models
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         java
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rgdal >= 1.5.19
-BuildRequires:    R-CRAN-sp >= 1.1.0
-BuildRequires:    R-CRAN-ggplot2 >= 1.0.0
-BuildRequires:    R-CRAN-rJava >= 0.9.3
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-rgdal >= 1.5.19
-Requires:         R-CRAN-sp >= 1.1.0
-Requires:         R-CRAN-ggplot2 >= 1.0.0
-Requires:         R-CRAN-rJava >= 0.9.3
-Requires:         R-methods 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-sf 
 
 %description
-Spatial coverage sampling and random sampling from compact geographical
-strata created by k-means. See Walvoort et al. (2010)
-<doi:10.1016/j.cageo.2010.04.005> for details.
+Generates non-circular simple feature geometries e.g. for the use as
+buffers in model-building.
 
 %prep
 %setup -q -c -n %{packname}
-sed -i '/Sexpr/d' %{packname}/man/spcosa-package.Rd
+
 # fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping

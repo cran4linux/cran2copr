@@ -1,9 +1,9 @@
 %global packname  mgcv
-%global packver   1.8-33
+%global packver   1.8-34
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.33
+Version:          1.8.34
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mixed GAM Computation Vehicle with Automatic Smoothness Estimation
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-nlme >= 3.1.64
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 

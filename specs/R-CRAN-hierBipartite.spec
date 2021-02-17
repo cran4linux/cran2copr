@@ -1,36 +1,40 @@
-%global packname  ClusterBootstrap
-%global packver   1.1.2
+%global packname  hierBipartite
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyze Clustered Data with Generalized Linear Models using the Cluster Bootstrap
+Summary:          Bipartite Graph-Based Hierarchical Clustering
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-irlba 
 Requires:         R-parallel 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-irlba 
 
 %description
-Provides functionality for the analysis of clustered data using the
-cluster bootstrap.
+Bipartite graph-based hierarchical clustering, developed for
+pharmacogenomic datasets and datasets sharing the same data structure. The
+goal is to construct a hierarchical clustering of groups of samples based
+on association patterns between two sets of variables. In the context of
+pharmacogenomic datasets, the samples are cell lines, and the two sets of
+variables are typically expression levels and drug sensitivity values. For
+this method, sparse canonical correlation analysis from Lee, W., Lee, D.,
+Lee, Y. and Pawitan, Y. (2011) <doi:10.2202/1544-6115.1638> is first
+applied to extract association patterns for each group of samples. Then, a
+nuclear norm-based dissimilarity measure is used to construct a
+dissimilarity matrix between groups based on the extracted associations.
+Finally, hierarchical clustering is applied.
 
 %prep
 %setup -q -c -n %{packname}

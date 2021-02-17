@@ -1,9 +1,9 @@
 %global packname  parzer
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parse Messy Geographic Coordinates
 
@@ -15,7 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.2
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-Rcpp >= 1.0.2
+Requires:         R-CRAN-withr 
 
 %description
 Parse geographic coordinates from various formats to decimal degree

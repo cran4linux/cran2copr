@@ -1,42 +1,39 @@
-%global packname  gnomonicM
-%global packver   1.0.1
+%global packname  mbr
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Natural Mortality for Different Life Stages
+Summary:          Mass Balance Reconstruction
 
-License:          GPL-2
+License:          GPL (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-minqa 
-BuildRequires:    R-CRAN-triangle 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplR 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-kableExtra 
-Requires:         R-CRAN-minqa 
-Requires:         R-CRAN-triangle 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplR 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-Rfast 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-kableExtra 
 
 %description
-Estimate natural mortality (M) throughout the life history for organisms,
-mainly fish and invertebrates, based on gnomonic interval approach
-proposed by Caddy (1996) <doi:10.1051/alr:1996023> and Martinez-Aguilar et
-al. (2005) <doi:10.1016/j.fishres.2004.04.008>. It includes estimation of
-duration of each gnomonic interval (life stage), the constant probability
-of death (G), and some basic plots.
+Mass-balance-adjusted Regression algorithm for streamflow reconstruction
+at sub-annual resolution (e.g., seasonal or monthly). The algorithm
+implements a penalty term to minimize the differences between the total
+sub-annual flows and the annual flow. The method is described in Nguyen et
+al (2020) <DOI:10.1002/essoar.10504791.1>.
 
 %prep
 %setup -q -c -n %{packname}

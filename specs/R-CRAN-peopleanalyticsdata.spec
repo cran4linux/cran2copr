@@ -1,9 +1,9 @@
 %global packname  peopleanalyticsdata
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Sets for Keith McNulty's Handbook of Regression Modeling in People Analytics
 
@@ -18,8 +18,8 @@ BuildArch:        noarch
 
 %description
 Data sets for statistical inference modeling related to People Analytics.
-Contains eleven data sets from the book "Handbook of Regression Modeling
-in People Analytics" by Keith McNulty (2020).
+Contains various data sets from the book 'Handbook of Regression Modeling
+in People Analytics' by Keith McNulty (2020).
 
 %prep
 %setup -q -c -n %{packname}

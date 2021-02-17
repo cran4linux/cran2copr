@@ -1,9 +1,9 @@
 %global packname  IPDFileCheck
-%global packver   0.6.4
+%global packver   0.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Basic Functions to Check Readability, Consistency, and Content of an Individual Participant Data File
 
@@ -21,12 +21,16 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-eeptools 
+BuildRequires:    R-CRAN-hash 
+BuildRequires:    R-CRAN-kableExtra 
 Requires:         R-CRAN-testthat >= 1.0.2
 Requires:         R-CRAN-GlobalOptions >= 0.1.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-methods 
 Requires:         R-CRAN-eeptools 
+Requires:         R-CRAN-hash 
+Requires:         R-CRAN-kableExtra 
 
 %description
 Basic checks needed with an individual level participant data from

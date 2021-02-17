@@ -1,13 +1,13 @@
-%global packname  gnomonicM
-%global packver   1.0.1
+%global packname  batchr
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Natural Mortality for Different Life Stages
+Summary:          Batch Process Files
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,28 +15,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-minqa 
-BuildRequires:    R-CRAN-triangle 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-chk 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-hms 
+BuildRequires:    R-CRAN-hmstimer 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-kableExtra 
-Requires:         R-CRAN-minqa 
-Requires:         R-CRAN-triangle 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-yesno 
+Requires:         R-CRAN-chk 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-hms 
+Requires:         R-CRAN-hmstimer 
+Requires:         R-parallel 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-yesno 
 
 %description
-Estimate natural mortality (M) throughout the life history for organisms,
-mainly fish and invertebrates, based on gnomonic interval approach
-proposed by Caddy (1996) <doi:10.1051/alr:1996023> and Martinez-Aguilar et
-al. (2005) <doi:10.1016/j.fishres.2004.04.008>. It includes estimation of
-duration of each gnomonic interval (life stage), the constant probability
-of death (G), and some basic plots.
+Processes multiple files with a user-supplied function. The key design
+principle is that only files which were last modified before the directory
+was configured are processed. A hidden file stores the configuration time
+and function etc while successfully processed files are automatically
+touched to update their modification date. As a result batch processing
+can be stopped and restarted and any files created (or modified or
+deleted) during processing are ignored.
 
 %prep
 %setup -q -c -n %{packname}

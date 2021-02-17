@@ -1,42 +1,52 @@
-%global packname  gnomonicM
-%global packver   1.0.1
+%global packname  jlsm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Natural Mortality for Different Life Stages
+Summary:          Joint Latent Space Model for Social Networks with Multivariate Attributes
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-minqa 
-BuildRequires:    R-CRAN-triangle 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-kableExtra 
-Requires:         R-CRAN-minqa 
-Requires:         R-CRAN-triangle 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-ellipse 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-lvm4net 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-network 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-MASS 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-kableExtra 
+Requires:         R-graphics 
+Requires:         R-CRAN-ellipse 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-expm 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-lvm4net 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-network 
+Requires:         R-CRAN-Matrix 
+Requires:         R-grDevices 
 
 %description
-Estimate natural mortality (M) throughout the life history for organisms,
-mainly fish and invertebrates, based on gnomonic interval approach
-proposed by Caddy (1996) <doi:10.1051/alr:1996023> and Martinez-Aguilar et
-al. (2005) <doi:10.1016/j.fishres.2004.04.008>. It includes estimation of
-duration of each gnomonic interval (life stage), the constant probability
-of death (G), and some basic plots.
+Joint latent space models for social networks and multivariate attributes
+using a fast inference approach (Wang et al. (2019) <arXiv:1910.12128>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  FSelector
-%global packver   0.32
+%global packver   0.33
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.32
+Version:          0.33
 Release:          1%{?dist}%{?buildtag}
 Summary:          Selecting Attributes
 
@@ -15,14 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-RWeka 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-entropy 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-RWeka 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-RWeka 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-entropy 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-RWeka 
 
 %description
 Functions for selecting attributes from a given dataset. Attribute subset
