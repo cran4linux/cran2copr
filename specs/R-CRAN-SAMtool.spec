@@ -1,9 +1,9 @@
 %global packname  SAMtool
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stock Assessment Methods Toolkit
 
@@ -21,10 +21,10 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-gplots 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-snowfall 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-MSEtool >= 3.0.0
 Requires:         R-CRAN-TMB 
@@ -33,10 +33,10 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-gplots 
 Requires:         R-graphics 
 Requires:         R-methods 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-snowfall 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-rmarkdown 
 
 %description
 Simulation tools for closed-loop simulation are provided for the 'MSEtool'

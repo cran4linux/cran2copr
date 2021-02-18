@@ -1,9 +1,9 @@
 %global packname  RSmallTelescopes
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Empirical Small Telescopes Analysis
 
@@ -18,9 +18,9 @@ BuildArch:        noarch
 
 %description
 We provide functions to perform an empirical small telescopes analysis.
-This package contains 2 functions, SimulatePower() and EstimatePower().
-Users only need to call SimulatePower() to conduct the analysis. For more
-information on small telescopes analysis see Uri Simonsohn (2015)
+This package contains 2 functions, SmallTelescopes() and EstimatePower().
+Users only need to call SmallTelescopes() to conduct the analysis. For
+more information on small telescopes analysis see Uri Simonsohn (2015)
 <doi:10.1177/0956797614567341>.
 
 %prep

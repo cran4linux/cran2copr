@@ -1,9 +1,9 @@
 %global packname  descstat
-%global packver   0.1-0
+%global packver   0.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Descriptive Statistics
 
@@ -15,21 +15,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-magrittr 
 
 %description
 A toolbox for descriptive statistics, based on the computation of
-frequency, bins and contingency tables. Several statistical functions and
-plot methods are provided to describe univariate or bivariate
-distributions of factors, integer series and numerical series either
-provided as individual values or as bins.
+frequency and contingency tables. Several statistical functions and plot
+methods are provided to describe univariate or bivariate distributions of
+factors, integer series and numerical series either provided as individual
+values or as bins.
 
 %prep
 %setup -q -c -n %{packname}

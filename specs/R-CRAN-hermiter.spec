@@ -1,9 +1,9 @@
 %global packname  hermiter
-%global packver   2.0.2
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Sequential and Batch Estimation of Univariate and Bivariate Probability Density Functions and Cumulative Distribution Functions along with Quantiles (Univariate) and Spearman's Correlation (Bivariate)
 

@@ -1,11 +1,11 @@
 %global packname  hesim
-%global packver   0.4.2
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Health-Economic Simulation Modeling and Decision Analysis
+Summary:          Health Economic Simulation Modeling and Decision Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,6 +17,7 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.16
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-flexsurv 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-msm 
 BuildRequires:    R-CRAN-R6 
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-RcppArmadillo
 Requires:         R-CRAN-Rcpp >= 0.12.16
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-flexsurv 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-msm 
 Requires:         R-CRAN-R6 
@@ -34,7 +36,7 @@ Requires:         R-CRAN-survival
 
 %description
 A modular and computationally efficient R package for parameterizing,
-simulating, and analyzing health-economic simulation models. The package
+simulating, and analyzing health economic simulation models. The package
 supports cohort discrete time state transition models (Briggs et al. 1998)
 <doi:10.2165/00019053-199813040-00003>, N-state partitioned survival
 models (Glasziou et al. 1990) <doi:10.1002/sim.4780091106>, and

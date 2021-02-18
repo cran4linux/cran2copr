@@ -1,9 +1,9 @@
 %global packname  NHSDataDictionaRy
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          NHS Data Dictionary Toolset for NHS Lookups
 
@@ -21,12 +21,14 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
 
 %description
 Providing a common set of simplified web scraping tools for working with

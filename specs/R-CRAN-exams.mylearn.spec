@@ -1,9 +1,9 @@
 %global packname  exams.mylearn
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Question Generation in the 'MyLearn' XML Format
 
@@ -12,19 +12,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-exams >= 2.3.4
 BuildRequires:    R-CRAN-stringi >= 1.4.6
 BuildRequires:    R-CRAN-glue >= 1.4.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-xml2 >= 1.2.5
+BuildRequires:    R-CRAN-pkgbuild >= 1.1.0
 Requires:         R-CRAN-exams >= 2.3.4
 Requires:         R-CRAN-stringi >= 1.4.6
 Requires:         R-CRAN-glue >= 1.4.0
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-xml2 >= 1.2.5
+Requires:         R-CRAN-pkgbuild >= 1.1.0
 
 %description
 Randomized multiple-select and single-select question generation for the

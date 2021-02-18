@@ -1,9 +1,9 @@
 %global packname  genpathmox
-%global packver   0.5
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Pathmox Approach Segmentation Tree Analysis
 
@@ -31,17 +31,17 @@ Requires:         R-methods
 Requires:         R-CRAN-quantreg 
 
 %description
-Provides a very interesting solution for handling segmentation variables
-in complex statistical methodology. It contains en extended version of the
-"Pathmox" algorithm (Lamberti, Sanchez and
-Aluja,(2016)<doi:10.1002/asmb.2168>) in the context of Partial Least
-Squares Path Modeling including the F-block test (to detect the
-responsible latent endogenous equations of the difference), the
-F-coefficient (to detect the path coefficients responsible of the
-difference) and the "invariance" test (to realize a comparison between the
-sub-models' latent variables). Furthermore, the package contains a
-generalized version of the "Pathmox" algorithm to approach different
-methodologies: linear regression and least absolute regression models.
+It provides an interesting solution for handling a high number of
+segmentation variables in partial least squares structural equation
+modeling. The package implements the "Pathmox" algorithm (Lamberti,
+Sanchez, and Aluja,(2016)<doi:10.1002/asmb.2168>) including the
+F-coefficient test (Lamberti, Sanchez, and
+Aluja,(2017)<doi:10.1002/asmb.2270>) to detect the path coefficients
+responsible for the identified differences), the hybrid multi-group
+approach (Lamberti (2021) <doi:10.1007/s11135-021-01096-9>) and the
+classical multi-group approaches (parametric and permutation approaches).
+The package also includes an extension of the "Pathmox" algorithm to the
+case of linear regression models.
 
 %prep
 %setup -q -c -n %{packname}
