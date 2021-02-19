@@ -54,6 +54,23 @@ delete_builds <- function(ids) {
   copr_call("delete-build", paste(ids, collapse=" "))
 }
 
+do.call.retry <- function(what, args, ..., n=10, wait=60, skip=FALSE) {
+  repeat {
+    out <- try(do.call(what, args, ...), silent=TRUE)
+    errored <- inherits(out, "try-error")
+    n <- n - 1
+    if (n == 0 || !errored)
+      break
+    message("  Retrying in ", wait, " seconds (", n, " retries left)...")
+    Sys.sleep(wait)
+  }
+  if (errored) {
+    if (skip) return(NA)
+    stop(out, call.=FALSE)
+  }
+  out
+}
+
 .build <- function(x, type=c("spec", "repo"), id, chroots) {
   type <- match.arg(type)
   pkg <- sub("\\.spec", "", basename(x))
@@ -64,7 +81,7 @@ delete_builds <- function(ids) {
     if (!is.null(chroots)) paste("-r", chroots, collapse=" "),
     getOption("copr.repo"), paste0(if (type == "repo") "--name ", x)
   )
-  out <- do.call(copr_call, as.list(args))
+  out <- do.call.retry(copr_call, as.list(args))
   out <- grep("Created builds", out, value=TRUE)
   out <- as.numeric(strsplit(out, ": ")[[1]][2])
   message("  Build ", out, " for ", pkg, " created from ", type)
