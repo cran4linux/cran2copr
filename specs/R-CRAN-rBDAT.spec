@@ -1,29 +1,30 @@
-%global packname  Pareto
-%global packver   2.4.0
+%global packname  rBDAT
+%global packver   0.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          0.9.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Pareto, Piecewise Pareto and Generalized Pareto Distribution
+Summary:          Implementation of BDAT Tree Taper Fortran Functions
 
-License:          GPL (>= 2)
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+Requires:         R-utils 
+Requires:         R-graphics 
 
 %description
-Utilities for the Pareto, piecewise Pareto and generalized Pareto
-distribution that are useful for reinsurance pricing. In particular, the
-package provides a non-trivial algorithm that can be used to match the
-expected losses of a tower of reinsurance layers with a layer-independent
-collective risk model. The theoretical background of the matching
-algorithm and most other methods are described in Ulrich Riegel (2018)
-<doi:10.1007/s13385-018-0177-3>.
+Implementing the BDAT tree taper Fortran routines, which were developed
+for the German National Forest Inventory (NFI), to calculate diameters,
+volume, assortments, double bark thickness and biomass for different tree
+species based on tree characteristics and sorting information. See Kublin
+(2003) <doi:10.1046/j.1439-0337.2003.00183.x> for details.
 
 %prep
 %setup -q -c -n %{packname}

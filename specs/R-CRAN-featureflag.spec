@@ -1,29 +1,26 @@
-%global packname  Pareto
-%global packver   2.4.0
+%global packname  featureflag
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Pareto, Piecewise Pareto and Generalized Pareto Distribution
+Summary:          Turn Features On and Off using Feature Flags
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 
 %description
-Utilities for the Pareto, piecewise Pareto and generalized Pareto
-distribution that are useful for reinsurance pricing. In particular, the
-package provides a non-trivial algorithm that can be used to match the
-expected losses of a tower of reinsurance layers with a layer-independent
-collective risk model. The theoretical background of the matching
-algorithm and most other methods are described in Ulrich Riegel (2018)
-<doi:10.1007/s13385-018-0177-3>.
+Feature flags allow developers to turn features of their software on and
+off in form of configuration. This package provides functions for creating
+feature flags in code. It exposes an interface for defining own feature
+flags which are enabled based on custom criteria.
 
 %prep
 %setup -q -c -n %{packname}

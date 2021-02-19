@@ -1,9 +1,9 @@
 %global packname  ralger
-%global packver   2.2.1
+%global packver   2.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Web Scraping
 
@@ -15,10 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-stringr 
@@ -26,10 +24,8 @@ BuildRequires:    R-CRAN-robotstxt
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-testthat 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 

@@ -1,29 +1,33 @@
-%global packname  Pareto
-%global packver   2.4.0
+%global packname  mapaccuracy
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Pareto, Piecewise Pareto and Generalized Pareto Distribution
+Summary:          Unbiased Thematic Map Accuracy and Area
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-reshape 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-gtools 
+Requires:         R-CRAN-reshape 
+Requires:         R-stats 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-gtools 
 
 %description
-Utilities for the Pareto, piecewise Pareto and generalized Pareto
-distribution that are useful for reinsurance pricing. In particular, the
-package provides a non-trivial algorithm that can be used to match the
-expected losses of a tower of reinsurance layers with a layer-independent
-collective risk model. The theoretical background of the matching
-algorithm and most other methods are described in Ulrich Riegel (2018)
-<doi:10.1007/s13385-018-0177-3>.
+Unbiased estimators of overall and per-class thematic map accuracy and
+area published in Olofsson et al. (2014) <doi:10.1016/j.rse.2014.02.015>
+and Stehman (2014) <doi:10.1080/01431161.2014.930207>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  arcos
-%global packver   1.25
+%global packver   1.27
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.25
+Version:          1.27
 Release:          1%{?dist}%{?buildtag}
 Summary:          Load ARCOS Prescription Data Prepared by the Washington Post
 
