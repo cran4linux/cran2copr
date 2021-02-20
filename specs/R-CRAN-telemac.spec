@@ -1,52 +1,55 @@
-%global packname  broom
-%global packver   0.7.5
+%global packname  telemac
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Statistical Objects into Tidy Tibbles
+Summary:          R Interface to the TELEMAC Model Suite
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-generics >= 0.0.2
-BuildRequires:    R-CRAN-backports 
-BuildRequires:    R-CRAN-ellipsis 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-gstat 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-tibble >= 3.0.0
+BuildRequires:    R-CRAN-sys 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-generics >= 0.0.2
-Requires:         R-CRAN-backports 
-Requires:         R-CRAN-ellipsis 
-Requires:         R-CRAN-glue 
-Requires:         R-methods 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-gstat 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sp 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-sys 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Summarizes key information about statistical objects in tidy tibbles. This
-makes it easy to report results, create plots and consistently work with
-large numbers of models at once. Broom provides three verbs that each
-provide different types of information about a model. tidy() summarizes
-information about model components such as coefficients of a regression.
-glance() reports information about an entire model, such as goodness of
-fit measures like AIC and BIC. augment() adds information about individual
-observations to a dataset, such as fitted values or influence measures.
+An R interface to the TELEMAC suite for modelling of free surface flow.
+This includes methods for model initialisation, simulation, and
+visualisation. So far only the TELEMAC-2D module for 2-dimensional
+hydrodynamic modelling is implemented.
 
 %prep
 %setup -q -c -n %{packname}

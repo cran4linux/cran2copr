@@ -1,13 +1,13 @@
-%global packname  classyfireR
-%global packver   0.3.6
+%global packname  RTTWebClient
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to the ClassyFire RESTful API
+Summary:          Web Client to 'TickTrader'
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,39 +15,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-clisymbols 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-CRAN-tidyjson 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-clisymbols 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-base64enc 
 Requires:         R-methods 
-Requires:         R-CRAN-rjson 
-Requires:         R-CRAN-tidyjson 
-Requires:         R-CRAN-tidyr 
 
 %description
-Access to the ClassyFire RESTful API <http://classyfire.wishartlab.com>.
-Retrieve existing entity classifications and submit new entities for
-classification.
+R Web Client to 'TickTrader' platform. Provides you access to 'TickTrader'
+platform through Web API
+<https://ttlivewebapi.fxopen.net:8443/api/doc/index>.
 
 %prep
 %setup -q -c -n %{packname}

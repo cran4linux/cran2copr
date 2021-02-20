@@ -1,28 +1,35 @@
-%global packname  nhlapi
-%global packver   0.1.3
+%global packname  reactablefmtr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Minimum-Dependency 'R' Interface to the 'NHL' API
+Summary:          Simplify Formatting of Tables Made with 'Reactable'
 
-License:          AGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-reactable >= 0.2.0
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-reactable >= 0.2.0
+Requires:         R-grDevices 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-shiny 
 
 %description
-Retrieves and processes the data exposed by the open 'NHL' API. This
-includes information on players, teams, games, tournaments, drafts,
-standings, schedules and other endpoints. A lower-level interface to
-access the data via URLs directly is also provided.
+Streamlines the process of applying formats and styles to tables using
+'reactable'. Style your 'reactable' table with conditional formatting,
+color scales, data bars, and icons.
 
 %prep
 %setup -q -c -n %{packname}

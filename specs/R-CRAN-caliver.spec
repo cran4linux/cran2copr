@@ -1,28 +1,42 @@
-%global packname  nhlapi
-%global packver   0.1.3
+%global packname  caliver
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Minimum-Dependency 'R' Interface to the 'NHL' API
+Summary:          Calibration and Verification of Gridded Model Outputs
 
-License:          AGPL-3
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-rworldmap 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ncdf4 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-rworldmap 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-Retrieves and processes the data exposed by the open 'NHL' API. This
-includes information on players, teams, games, tournaments, drafts,
-standings, schedules and other endpoints. A lower-level interface to
-access the data via URLs directly is also provided.
+Utility functions for the post-processing, calibration and validation of
+grid model outputs. Initial test cases include the outputs of the
+following forest fire models: GEFF and RISICO. The package is described in
+Vitolo et al. (2018) "Caliver: An R package for CALIbration and
+VERification of forest fire gridded model outputs"
+<doi:10.1371/journal.pone.0189419>.
 
 %prep
 %setup -q -c -n %{packname}

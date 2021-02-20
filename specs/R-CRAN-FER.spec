@@ -1,28 +1,30 @@
-%global packname  nhlapi
-%global packver   0.1.3
+%global packname  FER
+%global packver   0.91
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.91
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Minimum-Dependency 'R' Interface to the 'NHL' API
+Summary:          Financial Engineering in R (FER)
 
-License:          AGPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.3.1
+Requires:         R-core >= 3.3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-devtools 
+Requires:         R-stats 
+Requires:         R-CRAN-statmod 
+Requires:         R-CRAN-devtools 
 
 %description
-Retrieves and processes the data exposed by the open 'NHL' API. This
-includes information on players, teams, games, tournaments, drafts,
-standings, schedules and other endpoints. A lower-level interface to
-access the data via URLs directly is also provided.
+R implementations of standard financial engineering codes; vanilla option
+pricing models such as Black-Scholes, Bachelier, CEV, and SABR.
 
 %prep
 %setup -q -c -n %{packname}

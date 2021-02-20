@@ -1,9 +1,9 @@
 %global packname  kim
-%global packver   0.2.71
+%global packver   0.2.96
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.71
+Version:          0.2.96
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Behavioral Science Researchers
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-devtools
 BuildRequires:    R-CRAN-effsize 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggridges 
+BuildRequires:    R-CRAN-interactions 
 BuildRequires:    R-CRAN-lemon 
 BuildRequires:    R-CRAN-lm.beta 
 BuildRequires:    R-CRAN-mediation 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-devtools
 Requires:         R-CRAN-effsize 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggridges 
+Requires:         R-CRAN-interactions 
 Requires:         R-CRAN-lemon 
 Requires:         R-CRAN-lm.beta 
 Requires:         R-CRAN-mediation 

@@ -1,9 +1,9 @@
 %global packname  ggstatsplot
-%global packver   0.6.8
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.8
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'ggplot2' Based Plots with Statistical Details
 
@@ -15,38 +15,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ipmisc >= 5.0.2
-BuildRequires:    R-CRAN-pairwiseComparisons >= 3.1.2
-BuildRequires:    R-CRAN-ggrepel >= 0.9.0
-BuildRequires:    R-CRAN-statsExpressions >= 0.7.0
-BuildRequires:    R-CRAN-insight >= 0.12.0
+BuildRequires:    R-CRAN-ipmisc >= 6.0.0
+BuildRequires:    R-CRAN-pairwiseComparisons >= 3.1.3
+BuildRequires:    R-CRAN-statsExpressions >= 0.7.1
+BuildRequires:    R-CRAN-correlation >= 0.6.0
+BuildRequires:    R-CRAN-insight >= 0.13.0
 BuildRequires:    R-CRAN-parameters >= 0.11.0
-BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggcorrplot 
 BuildRequires:    R-CRAN-ggExtra 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-ggsignif 
 BuildRequires:    R-CRAN-paletteer 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-performance 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ipmisc >= 5.0.2
-Requires:         R-CRAN-pairwiseComparisons >= 3.1.2
-Requires:         R-CRAN-ggrepel >= 0.9.0
-Requires:         R-CRAN-statsExpressions >= 0.7.0
-Requires:         R-CRAN-insight >= 0.12.0
+Requires:         R-CRAN-ipmisc >= 6.0.0
+Requires:         R-CRAN-pairwiseComparisons >= 3.1.3
+Requires:         R-CRAN-statsExpressions >= 0.7.1
+Requires:         R-CRAN-correlation >= 0.6.0
+Requires:         R-CRAN-insight >= 0.13.0
 Requires:         R-CRAN-parameters >= 0.11.0
-Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggcorrplot 
 Requires:         R-CRAN-ggExtra 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-ggsignif 
 Requires:         R-CRAN-paletteer 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-performance 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
@@ -60,10 +62,10 @@ statistical tests included in the plots themselves. It provides an easier
 API to generate information-rich plots for statistical analysis of
 continuous (violin plots, scatterplots, histograms, dot plots,
 dot-and-whisker plots) or categorical (pie and bar charts) data.
-Currently, it supports the most common types of statistical tests:
-parametric, nonparametric, robust, and Bayesian versions of t-test/ANOVA,
-correlation analyses, contingency table analysis, meta-analysis, and
-regression analyses.
+Currently, it supports the most common types of statistical approaches and
+tests: parametric, nonparametric, robust, and Bayesian versions of
+t-test/ANOVA, correlation analyses, contingency table analysis,
+meta-analysis, and regression analyses.
 
 %prep
 %setup -q -c -n %{packname}

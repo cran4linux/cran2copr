@@ -1,13 +1,13 @@
-%global packname  nhlapi
-%global packver   0.1.3
+%global packname  uk2us
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Minimum-Dependency 'R' Interface to the 'NHL' API
+Summary:          Convert Words Between UK and US English
 
-License:          AGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,14 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-jsonlite 
 
 %description
-Retrieves and processes the data exposed by the open 'NHL' API. This
-includes information on players, teams, games, tournaments, drafts,
-standings, schedules and other endpoints. A lower-level interface to
-access the data via URLs directly is also provided.
+Functions for converting between UK and US spellings of English words.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  cmsaf
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Toolbox for CM SAF NetCDF Data
 
@@ -34,6 +34,8 @@ BuildRequires:    R-CRAN-cmsafvis >= 1.0.0
 BuildRequires:    R-CRAN-colourpicker >= 1.0
 BuildRequires:    R-CRAN-maptools >= 0.9
 BuildRequires:    R-CRAN-shinyFiles >= 0.8.0
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-SearchTrees 
 Requires:         R-tcltk >= 3.5
 Requires:         R-CRAN-maps >= 3.3
 Requires:         R-CRAN-raster >= 3.0
@@ -53,6 +55,8 @@ Requires:         R-CRAN-cmsafvis >= 1.0.0
 Requires:         R-CRAN-colourpicker >= 1.0
 Requires:         R-CRAN-maptools >= 0.9
 Requires:         R-CRAN-shinyFiles >= 0.8.0
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-SearchTrees 
 
 %description
 The Satellite Application Facility on Climate Monitoring (CM SAF) is a
@@ -69,8 +73,8 @@ to prepare, manipulate, analyse and visualize CM SAF NetCDF formatted
 data. Other CF conform NetCDF data with time, longitude and latitude
 dimension should be applicable, but there is no guarantee for an
 error-free application. CM SAF climate data records are provided for free
-via (<https://wui.cmsaf.eu>). Detailed information and test data are
-provided on the CM SAF webpage (<http://www.cmsaf.eu/R_toolbox>).
+via (<https://wui.cmsaf.eu/safira>). Detailed information and test data
+are provided on the CM SAF webpage (<http://www.cmsaf.eu/R_toolbox>).
 
 %prep
 %setup -q -c -n %{packname}

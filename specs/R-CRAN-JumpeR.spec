@@ -1,11 +1,11 @@
-%global packname  rinat
-%global packver   0.1.7
+%global packname  JumpeR
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access 'iNaturalist' Data Through APIs
+Summary:          Importing and Working with Track and Field Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,23 +15,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-sp 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-maps 
-Requires:         R-CRAN-sp 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-pdftools 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-SwimmeR 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-pdftools 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-SwimmeR 
+Requires:         R-CRAN-xml2 
 
 %description
-A programmatic interface to the API provided by the 'iNaturalist' website
-<https://www.inaturalist.org/> to download species occurrence data
-submitted by citizen scientists.
+Primarily used to convert human readable track and field results into
+dataframes for further analysis.  Results can come from central
+repositories like <https://www.flashresults.com/> or
+<http://www.deltatiming.com/>, or from individual team sites, like those
+for colleges.  Also contains functions useful for working with track and
+field data.
 
 %prep
 %setup -q -c -n %{packname}

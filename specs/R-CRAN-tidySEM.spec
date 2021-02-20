@@ -1,9 +1,9 @@
 %global packname  tidySEM
-%global packver   0.1.3
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Structural Equation Modeling
 

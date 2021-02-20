@@ -1,9 +1,9 @@
 %global packname  googleVis
-%global packver   0.6.9
+%global packver   0.6.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.9
+Version:          0.6.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to Google Charts
 

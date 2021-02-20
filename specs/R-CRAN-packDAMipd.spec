@@ -1,9 +1,9 @@
 %global packname  packDAMipd
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Decision Analysis Modelling Package with Parameters Estimation Ability from Individual Patient Level Data
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-reshape2 
@@ -40,6 +41,12 @@ BuildRequires:    R-CRAN-gvlma
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-relaimpo 
 BuildRequires:    R-CRAN-tm 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-hash 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-reshape2 
@@ -65,6 +72,11 @@ Requires:         R-CRAN-gvlma
 Requires:         R-methods 
 Requires:         R-CRAN-relaimpo 
 Requires:         R-CRAN-tm 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-hash 
 
 %description
 A collection of functions to construct Markov model for model-based

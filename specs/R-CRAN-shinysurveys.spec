@@ -1,13 +1,13 @@
-%global packname  nhlapi
-%global packver   0.1.3
+%global packname  shinysurveys
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Minimum-Dependency 'R' Interface to the 'NHL' API
+Summary:          Create and Deploy Surveys in 'Shiny'
 
-License:          AGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,14 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-sass 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-sass 
 
 %description
-Retrieves and processes the data exposed by the open 'NHL' API. This
-includes information on players, teams, games, tournaments, drafts,
-standings, schedules and other endpoints. A lower-level interface to
-access the data via URLs directly is also provided.
+Easily create and deploy surveys in 'Shiny'. This package includes a
+minimalistic framework similar to 'Google Forms' that allows for url-based
+user tracking, customizable submit actions, easy survey-theming, and more.
 
 %prep
 %setup -q -c -n %{packname}
