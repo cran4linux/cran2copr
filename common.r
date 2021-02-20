@@ -380,9 +380,6 @@ pkg_exceptions <- function(tpl, pkg, path) {
     npsp=,robeth=,robustbase=,rootSolve=,sequoia=,subplex=,VGAM=paste(
       "test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R &&",
       "echo \"FFLAGS=$(R CMD config FFLAGS) -fallow-argument-mismatch\" > ~/.R/Makevars"),
-    RcppCWB=paste(
-      "test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R &&",
-      "find %{packname} -name Makefile -exec sed -i '/^all:.*/i CFLAGS+=-fcommon' {} \\;"),
     rPython = "export RPYTHON_PYTHON_VERSION=3",
     RcppParallel = "export RCPP_PARALLEL_BACKEND=tinythread",
     Rmpi = "%{_openmpi_load}"

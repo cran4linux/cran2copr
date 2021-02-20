@@ -52,7 +52,6 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R && find %{packname} -name Makefile -exec sed -i '/^all:.*/i CFLAGS+=-fcommon' {} \;
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
