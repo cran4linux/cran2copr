@@ -1,9 +1,9 @@
 %global packname  quanteda.textstats
-%global packver   0.91
+%global packver   0.92
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.91
+Version:          0.92
 Release:          1%{?dist}%{?buildtag}
 Summary:          Textual Statistics for the Quantitative Analysis of Textual Data
 
@@ -14,23 +14,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-data.table >= 1.9.6
-BuildRequires:    R-CRAN-Matrix >= 1.2
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.7.600.1.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-CRAN-proxyC >= 0.1.4
 BuildRequires:    R-CRAN-quanteda 
-BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nsyllable 
 BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-data.table >= 1.9.6
-Requires:         R-CRAN-Matrix >= 1.2
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-CRAN-proxyC >= 0.1.4
 Requires:         R-CRAN-quanteda 
-Requires:         R-CRAN-digest 
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-nsyllable 
 Requires:         R-CRAN-RcppParallel 

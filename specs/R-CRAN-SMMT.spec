@@ -1,9 +1,9 @@
 %global packname  SMMT
-%global packver   1.0.5
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Swiss Municipal Data Merger Tool Maps Municipalities Over Time
 
@@ -19,10 +19,14 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-XML 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-xml2 
 
 %description
 In Switzerland, the landscape of municipalities is changing rapidly mainly

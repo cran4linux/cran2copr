@@ -1,9 +1,9 @@
 %global packname  UKFE
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          UK Flood Estimation
 
@@ -19,14 +19,14 @@ BuildArch:        noarch
 %description
 Functions to implement the methods of the Flood Estimation Handbook (FEH),
 associated updates and the revitalised flood hydrograph model (ReFH).
-Currently the packages uses NRFA peak flow dataset version 9. Aside from
+Currently the package uses NRFA peak flow dataset version 9. Aside from
 FEH functionality, further hydrological functions are available. Most of
 the methods implemented in this package are described in one or more of
 the following: "Flood Estimation Handbook", Centre for Ecology & Hydrology
 (1999, ISBN:0 948540 94 X). "Flood Estimation Handbook Supplementary
 Report No. 1", Kjeldsen (2007, ISBN:0 903741 15 7). "Regional Frequency
 Analysis - an approach based on L-moments", Hosking & Wallis (1997, ISBN:
-978 0 521 01940 8). "Proposal of the ‘extreme rank plot’ for extreme value
+978 0 521 01940 8). "Proposal of the extreme rank plot for extreme value
 analysis: with an emphasis on flood frequency studies", Hammond (2019,
 <doi:10.2166/nh.2019.157>). "Making better use of local data in flood
 frequency estimation", Environment Agency (2017, ISBN: 978 1 84911 387 8).

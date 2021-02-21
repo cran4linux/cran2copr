@@ -1,9 +1,9 @@
 %global packname  epos
-%global packver   0.1.3
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Epilepsy Ontologies' Similarities
 
@@ -23,6 +23,9 @@ BuildRequires:    R-CRAN-TopKLists
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-mongolite 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-VennDiagram 
+BuildRequires:    R-CRAN-cowplot 
 Requires:         R-CRAN-hash 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-testthat 
@@ -31,24 +34,21 @@ Requires:         R-CRAN-TopKLists
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-xtable 
 Requires:         R-CRAN-mongolite 
+Requires:         R-stats 
+Requires:         R-CRAN-VennDiagram 
+Requires:         R-CRAN-cowplot 
 
 %description
 Analysis and visualization of similarities between epilepsy ontologies
 based on text mining results by comparing ranked lists of co-occurring
-drug terms in the corpus of LIVIVO. The ranked result lists of
-neurological drug terms co-occurring with named entities from the epilepsy
-ontologies EpSO, ESSO, and EPILONT are aggregated in order to generate two
-different results: an overview table of drugs that are relevant to
-epilepsy created with the method createNeuroTable, and a plot of tanimoto
-similarity coefficients between the aggregated list of drug terms against
-the list of drug terms from each of the ontologies created with the method
-createTanimotoBaseline(). The alignment of the Top-K Ranked Lists is
-conducted using the R-package TopKLists
-<https://cran.r-project.org/package=TopKLists>. The source data to create
-the ranked lists of drug names is produced using the text mining workflows
-described in Mueller, Bernd and Hagelstein, Alexandra (2016)
-<doi:10.4126/FRL01-006408558> and Mueller, Bernd et al. (2017)
-<doi:10.1007/978-3-319-58694-6_22>.
+drug terms in the BioASQ corpus. The ranked result lists of neurological
+drug terms co-occurring with terms from the epilepsy ontologies EpSO,
+ESSO, EPILONT, EPISEM and FENICS undergo further analysis. The source data
+to create the ranked lists of drug names is produced using the text mining
+workflows described in Mueller, Bernd and Hagelstein, Alexandra (2016)
+<doi:10.4126/FRL01-006408558>, Mueller, Bernd et al. (2017)
+<doi:10.1007/978-3-319-58694-6_22> and Mueller, Bernd and
+Rebholz-Schuhmann, Dietrich (2020) <doi:10.1007/978-3-030-43887-6_52>.
 
 %prep
 %setup -q -c -n %{packname}

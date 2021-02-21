@@ -1,9 +1,9 @@
 %global packname  tsibble
-%global packver   0.9.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Temporal Data Frames and Tools
 
@@ -23,7 +23,7 @@ BuildRequires:    R-CRAN-rlang >= 0.4.6
 BuildRequires:    R-CRAN-anytime >= 0.3.1
 BuildRequires:    R-CRAN-vctrs >= 0.3.1
 BuildRequires:    R-CRAN-ellipsis >= 0.3.0
-BuildRequires:    R-CRAN-purrr >= 0.2.3
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-tibble >= 3.0.0
@@ -34,7 +34,7 @@ Requires:         R-CRAN-rlang >= 0.4.6
 Requires:         R-CRAN-anytime >= 0.3.1
 Requires:         R-CRAN-vctrs >= 0.3.1
 Requires:         R-CRAN-ellipsis >= 0.3.0
-Requires:         R-CRAN-purrr >= 0.2.3
+Requires:         R-CRAN-generics 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-methods 
 
