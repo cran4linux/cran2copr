@@ -1,40 +1,37 @@
-%global packname  parameters
-%global packver   0.12.0
+%global packname  qrcmNP
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Processing of Model Parameters
+Summary:          Nonlinear and Penalized Quantile Regression Coefficients Modeling
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bayestestR >= 0.8.2
-BuildRequires:    R-CRAN-insight 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-qrcm >= 3.0
+BuildRequires:    R-CRAN-survival >= 2.4.1
 BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-bayestestR >= 0.8.2
-Requires:         R-CRAN-insight 
-Requires:         R-methods 
+Requires:         R-CRAN-qrcm >= 3.0
+Requires:         R-CRAN-survival >= 2.4.1
 Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-utils 
 
 %description
-Utilities for processing the parameters of various statistical models.
-Beyond computing p values, CIs, and other indices for a wide variety of
-models (see support list of insight; Lüdecke, Waggoner & Makowski (2019)
-<doi:10.21105/joss.01412>), this package implements features like
-bootstrapping or simulating of parameters and models, feature reduction
-(feature extraction and variable selection) as well as functions to
-describe data and variable characteristics (e.g. skewness, kurtosis,
-smoothness or distribution).
+Nonlinear and Penalized parametric modeling of quantile regression
+coefficient functions. Sottile G, Frumento P, Chiodi M and Bottai M (2020)
+<doi:10.1177/1471082X19825523>.
 
 %prep
 %setup -q -c -n %{packname}

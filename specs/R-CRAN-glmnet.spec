@@ -1,9 +1,9 @@
 %global packname  glmnet
-%global packver   4.1
+%global packver   4.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1
+Version:          4.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lasso and Elastic-Net Regularized Generalized Linear Models
 

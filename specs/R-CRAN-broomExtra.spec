@@ -1,9 +1,9 @@
 %global packname  broomExtra
-%global packver   4.2.0
+%global packver   4.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.0
+Version:          4.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Enhancements for 'broom' and 'easystats' Package Families
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-broom >= 0.7.4
 Requires:         R-CRAN-performance >= 0.7.0
 Requires:         R-CRAN-parameters >= 0.11.0
@@ -32,7 +31,6 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-lifecycle 
 
 %description
 Provides helper functions that assist in data analysis workflows involving

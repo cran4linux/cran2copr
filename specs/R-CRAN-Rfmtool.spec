@@ -1,35 +1,32 @@
-%global packname  tablet
-%global packver   0.2.6
+%global packname  Rfmtool
+%global packver   4.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          4.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tabulate Descriptive Statistics in Multiple Formats
+Summary:          Fuzzy Measure Tools
 
-License:          GPL-3
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.2
-BuildRequires:    R-CRAN-kableExtra >= 0.9.0
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr >= 1.0.2
-Requires:         R-CRAN-kableExtra >= 0.9.0
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-devel >= 2.9.2
+Requires:         R-core >= 2.9.2
 
 %description
-Creates a table of descriptive statistics for factor and numeric columns
-in a data frame. Displays these by groups, if any. Highly customizable,
-with support for 'html' and 'pdf' provided by 'kableExtra'. Respects
-original column order, column labels, and factor level order. See
-?tablet.data.frame and vignettes.
+Various tools for handling fuzzy measures, calculating Shapley value and
+interaction index, Choquet and Sugeno integrals, as well as fitting fuzzy
+measures to empirical data are provided. Construction of fuzzy measures
+from empirical data is done by solving a linear programming problem by
+using 'lpsolve' package, whose source in C adapted to the R environment is
+included. The description of the basic theory of fuzzy measures is in the
+manual in the Doc folder in this package. Please refer to the following:
+[1] <https://personal-sites.deakin.edu.au/~gleb/fmtools.html> [2] G.
+Beliakov, H. Bustince, T. Calvo, 'A Practical Guide to Averaging',
+Springer, (2016, ISBN: 978-3-319-24753-3). [3] G. Beliakov, S. James, J-Z.
+Wu, 'Discrete Fuzzy Measures', Springer, (2020, ISBN: 978-3-030-15305-2).
 
 %prep
 %setup -q -c -n %{packname}

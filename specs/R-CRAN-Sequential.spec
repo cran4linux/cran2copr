@@ -1,9 +1,9 @@
 %global packname  Sequential
-%global packver   3.3
+%global packver   3.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3
+Version:          3.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exact Sequential Analysis for Poisson and Binomial Data
 
