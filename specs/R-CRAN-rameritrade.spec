@@ -1,9 +1,9 @@
 %global packname  rameritrade
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          'TD Ameritrade' API Interface for R
 
@@ -29,7 +29,8 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-magrittr 
 
 %description
-Use R to interface with the 'TD Ameritrade' API, including authentication,
+Use R to interface with the 'TD Ameritrade' API
+<https://developer.tdameritrade.com/>. Functions include authentication,
 trading, price requests, account information, and option chains. A user
 will need a TD brokerage account and TD Ameritrade developer app. See
 README for authentication process and examples.

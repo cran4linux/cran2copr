@@ -1,13 +1,13 @@
-%global packname  fmtr
-%global packver   1.5.0
+%global packname  trawl
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Apply Formats to Data
+Summary:          Estimation and Simulation of Trawl Processes
 
-License:          CC0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,21 +15,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-DEoptim 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-CRAN-Runuran 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-squash 
+BuildRequires:    R-CRAN-TSA 
+Requires:         R-CRAN-DEoptim 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-graphics 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-rootSolve 
+Requires:         R-CRAN-Runuran 
 Requires:         R-stats 
-Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-squash 
+Requires:         R-CRAN-TSA 
 
 %description
-Contains a set of functions that can be used to apply formats to data
-frames or vectors.  The package aims to provide to functionality similar
-to that of SAS® formats. Formats are assigned to the format attribute on
-data frame columns.  Then when the fdata() function is called, a new data
-frame is created with the column data formatted as specified.  The package
-also contains a value() function to create a user-defined format, similar
-to a SAS® user-defined format.
+Contains R functions for simulating and estimating integer-valued trawl
+processes as described in the article Veraart (2019),"Modeling, simulation
+and inference for multivariate time series of counts using trawl
+processes", Journal of Multivariate Analysis, 169, pages 110-129,
+<doi:10.1016/j.jmva.2018.08.012> and for simulating random vectors from
+the bivariate negative binomial and the bi- and trivariate logarithmic
+series distributions.
 
 %prep
 %setup -q -c -n %{packname}

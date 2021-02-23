@@ -1,9 +1,9 @@
 %global packname  sirus
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stable and Interpretable RUle Set
 
@@ -34,10 +34,11 @@ aggregation principle of random forests is kept, but instead of
 aggregating predictions, SIRUS aggregates the forest structure: the most
 frequent nodes of the forest are selected to form a stable rule ensemble
 model. The algorithm is fully described in the following articles: Benard
-C., Biau G., da Veiga S., Scornet E. (2019) <arXiv:1908.06852> for
-classification, and Benard C., Biau G., da Veiga S., Scornet E. (2020)
-<arXiv:2004.14841> for regression. This R package is a fork from the
-project ranger (<https://github.com/imbs-hl/ranger>).
+C., Biau G., da Veiga S., Scornet E. (2021), Electron. J. Statist.,
+15:427-505 <DOI:10.1214/20-EJS1792> for classification, and Benard C.,
+Biau G., da Veiga S., Scornet E. (2020) <arXiv:2004.14841> for regression.
+This R package is a fork from the project ranger
+(<https://github.com/imbs-hl/ranger>).
 
 %prep
 %setup -q -c -n %{packname}

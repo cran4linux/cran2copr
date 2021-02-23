@@ -1,13 +1,13 @@
 %global packname  pillar
-%global packver   1.4.7
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.7
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Coloured Formatting for Columns
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-fansi 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-crayon >= 1.3.4
 Requires:         R-CRAN-utf8 >= 1.1.0
 Requires:         R-CRAN-rlang >= 0.3.0
@@ -31,6 +32,7 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-ellipsis 
 Requires:         R-CRAN-fansi 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-utils 
 
 %description
 Provides 'pillar' and 'colonnade' generics designed for formatting columns

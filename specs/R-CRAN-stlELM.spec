@@ -1,41 +1,29 @@
-%global packname  noctua
-%global packver   2.0.0
+%global packname  stlELM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Connect to 'AWS Athena' using R 'AWS SDK' 'paws' ('DBI' Interface)
+Summary:          Hybrid Forecasting Model Based on STL Decomposition and ELM
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.12.4
-BuildRequires:    R-CRAN-DBI >= 0.7
-BuildRequires:    R-CRAN-paws >= 0.1.5
-BuildRequires:    R-CRAN-uuid >= 0.1.4
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table >= 1.12.4
-Requires:         R-CRAN-DBI >= 0.7
-Requires:         R-CRAN-paws >= 0.1.5
-Requires:         R-CRAN-uuid >= 0.1.4
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-nnfor 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-nnfor 
 
 %description
-Designed to be compatible with the 'R' package 'DBI' (Database Interface)
-when connecting to Amazon Web Service ('AWS') Athena
-<https://aws.amazon.com/athena/>. To do this the 'R' 'AWS' Software
-Development Kit ('SDK') 'paws' <https://github.com/paws-r/paws> is used as
-a driver.
+Univariate time series forecasting with STL decomposition based Extreme
+Learning Machine hybrid model. For method details see Xiong T, Li C, Bao Y
+(2018). <doi:10.1016/j.neucom.2017.11.053>.
 
 %prep
 %setup -q -c -n %{packname}

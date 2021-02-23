@@ -1,37 +1,28 @@
-%global packname  bssm
-%global packver   1.1.3-1
+%global packname  dematel
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Inference of Non-Linear and Non-Gaussian State Space Models
+Summary:          Decision Making Trial and Evaluation Laboratory Technique in R
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-coda >= 0.18.1
-BuildRequires:    R-CRAN-Rcpp >= 0.12.3
-BuildRequires:    R-CRAN-diagis 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-ramcmc 
-BuildRequires:    R-CRAN-sitmo 
-Requires:         R-CRAN-coda >= 0.18.1
-Requires:         R-CRAN-Rcpp >= 0.12.3
-Requires:         R-CRAN-diagis 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-knitr 
 
 %description
-Efficient methods for Bayesian inference of state space models via
-particle Markov chain Monte Carlo (MCMC) and MCMC based on parallel
-importance sampling type weighted estimators (Vihola, Helske, and Franks,
-2020, <doi:10.1111/sjos.12492>). Gaussian, Poisson, binomial, negative
-binomial, and Gamma observation densities and basic stochastic volatility
-models with linear-Gaussian state dynamics, as well as general non-linear
-Gaussian models and discretised diffusion models are supported.
+Developed to Solve the Multi-Criteria Decision Making Problems with
+Decision Making Trial and Evaluation Laboratory Technique in R.
 
 %prep
 %setup -q -c -n %{packname}

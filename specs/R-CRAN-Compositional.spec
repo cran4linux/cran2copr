@@ -1,9 +1,9 @@
 %global packname  Compositional
-%global packver   4.3
+%global packver   4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3
+Version:          4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 
@@ -55,7 +55,7 @@ Regression, classification, contour plots, hypothesis testing and fitting
 of distributions for compositional data are some of the functions
 included. The standard textbook for such data is John Aitchison's (1986)
 "The statistical analysis of compositional data". Relevant papers include
-a) Tsagris M.T., Preston S. and Wood A.T.A. (2011) A data-based power
+a) Tsagris M.T., Preston S. and Wood A.T.A. (2011). A data-based power
 transformation for compositional data. Fourth International International
 Workshop on Compositional Data Analysis. b) Tsagris M. (2014). The k-NN
 algorithm for compositional data: a revised approach with and without zero
@@ -70,8 +70,8 @@ alpha-transformation. Journal of Classification, 33(2):243--261.
 <doi:10.1007/s00357-016-9207-5>. f) Tsagris M., Preston S. and Wood A.T.A.
 (2017). Nonparametric hypothesis testing for equality of means on the
 simplex. Journal of Statistical Computation and Simulation, 87(2):
-406--422. <doi:10.1080/00949655.2016.1216554> g) Tsagris M. and Stewart C.
-(2018). A Dirichlet regression model for compositional data with zeros.
+406--422. <doi:10.1080/00949655.2016.1216554>. g) Tsagris M. and Stewart
+C. (2018). A Dirichlet regression model for compositional data with zeros.
 Lobachevskii Journal of Mathematics, 39(3): 398--412.
 <doi:10.1134/S1995080218030198>. h) Alenazi A. (2019). Regression for
 compositional data with compositional data as predictor variables with or

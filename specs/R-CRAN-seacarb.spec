@@ -1,9 +1,9 @@
 %global packname  seacarb
-%global packver   3.2.15
+%global packver   3.2.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.15
+Version:          3.2.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Seawater Carbonate Chemistry
 

@@ -1,41 +1,29 @@
-%global packname  noctua
-%global packver   2.0.0
+%global packname  simul
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Connect to 'AWS Athena' using R 'AWS SDK' 'paws' ('DBI' Interface)
+Summary:          Fast Simultaneous Confidence Bands Based on the Efficient Influence Function and Multiplier Bootstrap
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.12.4
-BuildRequires:    R-CRAN-DBI >= 0.7
-BuildRequires:    R-CRAN-paws >= 0.1.5
-BuildRequires:    R-CRAN-uuid >= 0.1.4
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table >= 1.12.4
-Requires:         R-CRAN-DBI >= 0.7
-Requires:         R-CRAN-paws >= 0.1.5
-Requires:         R-CRAN-uuid >= 0.1.4
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Designed to be compatible with the 'R' package 'DBI' (Database Interface)
-when connecting to Amazon Web Service ('AWS') Athena
-<https://aws.amazon.com/athena/>. To do this the 'R' 'AWS' Software
-Development Kit ('SDK') 'paws' <https://github.com/paws-r/paws> is used as
-a driver.
+Compute critical values for constructing uniform (simultaneous) confidence
+bands. The critical value is calculated using a multiplier bootstrap of
+the empirical efficient influence function as described by Kennedy (2019)
+<doi:10.1080/01621459.2017.1422737>. The multiplier bootstrap does not
+require resampling of the data but only simulation of the multipliers and
+is thus computationally efficient.
 
 %prep
 %setup -q -c -n %{packname}

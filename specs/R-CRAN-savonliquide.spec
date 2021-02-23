@@ -1,11 +1,11 @@
 %global packname  savonliquide
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Check for Color Contrast Accessibility
+Summary:          Accessibility Toolbox for 'R' Users
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,17 +16,17 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-crayon 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-crayon 
 
 %description
-Allows the user to generate a report from the 'Contrast Checker' API. The
-report generates a contrast ratio that will be useful when considering
-colors accessibility. For more info see
-<https://webaim.org/resources/contrastchecker/>.
+Provides a toolbox that allows the user to implement accessibility related
+concepts.
 
 %prep
 %setup -q -c -n %{packname}

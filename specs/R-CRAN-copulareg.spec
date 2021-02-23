@@ -1,13 +1,13 @@
-%global packname  lavaanPlot
-%global packver   0.6.0
+%global packname  copulareg
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Path Diagrams for Lavaan Models via DiagrammeR
+Summary:          Copula Regression
 
-License:          GPL (>= 2)
+License:          MIT + file LICENCE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,21 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-CRAN-DiagrammeR 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-lavaan 
-Requires:         R-CRAN-DiagrammeR 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rvinecopulib >= 0.5.4.1.0
+Requires:         R-CRAN-rvinecopulib >= 0.5.4.1.0
 
 %description
-Plots path diagrams from models in lavaan using the plotting functionality
-from the DiagrammeR package. DiagrammeR provides nice path diagrams via
-Graphviz, and these functions make it easy to generate these diagrams from
-a lavaan path model without having to write the DOT language graph
-specification.
+Fits multivariate models in an R-vine pair copula construction framework,
+in such a way that the conditional copula can be easily evaluated. In
+addition, the package implements functionality to compute or approximate
+the conditional expectation via the conditional copula.
 
 %prep
 %setup -q -c -n %{packname}

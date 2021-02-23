@@ -1,13 +1,13 @@
-%global packname  broom.helpers
-%global packver   1.2.0
+%global packname  JBrowseR
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helpers for Model Coefficients Tibbles
+Summary:          An R Interface to the JBrowse 2 Genome Browser
 
-License:          GPL-3
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,34 +15,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-labelled 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-reactR 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-labelled 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-httpuv 
+BuildRequires:    R-CRAN-mime 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-reactR 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-httpuv 
+Requires:         R-CRAN-mime 
+Requires:         R-CRAN-cli 
 
 %description
-Provides suite of functions to work with regression model 'broom::tidy()'
-tibbles.  The suite includes functions to group regression model terms by
-variable, insert reference and header rows for categorical variables, add
-variable labels, and more.
+Provides an R interface to the JBrowse 2 genome browser. Enables embedding
+a JB2 genome browser in a Shiny app or R Markdown document. The browser
+can also be launched from an interactive R console. The browser can be
+loaded with a variety of common genomics data types, and can be used with
+a custom theme.
 
 %prep
 %setup -q -c -n %{packname}

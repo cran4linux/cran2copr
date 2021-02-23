@@ -1,48 +1,55 @@
-%global packname  broom.helpers
-%global packver   1.2.0
+%global packname  elaborator
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helpers for Model Coefficients Tibbles
+Summary:          A 'shiny' Application for Exploring Laboratory Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-seriation 
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-labelled 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-bsplus 
+BuildRequires:    R-CRAN-dendextend 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-shape 
+BuildRequires:    R-CRAN-shinyWidgets 
+BuildRequires:    R-CRAN-shinydashboard 
+Requires:         R-CRAN-seriation 
+Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-labelled 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-bsplus 
+Requires:         R-CRAN-dendextend 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-shape 
+Requires:         R-CRAN-shinyWidgets 
+Requires:         R-CRAN-shinydashboard 
 
 %description
-Provides suite of functions to work with regression model 'broom::tidy()'
-tibbles.  The suite includes functions to group regression model terms by
-variable, insert reference and header rows for categorical variables, add
-variable labels, and more.
+A novel concept for generating knowledge and gaining insights into
+laboratory data. You will be able to efficiently and easily explore your
+laboratory data from different perspectives.
 
 %prep
 %setup -q -c -n %{packname}

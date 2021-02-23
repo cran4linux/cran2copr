@@ -1,31 +1,51 @@
-%global packname  TLMoments
-%global packver   0.7.5.1
+%global packname  JOPS
+%global packver   0.1.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5.1
+Version:          0.1.13
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate TL-Moments and Convert Them to Distribution Parameters
+Summary:          Practical Smoothing with P-Splines
 
-License:          GPL (>= 2)
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-hypergeo 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-SpATS 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-fds 
+BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-spam 
+BuildRequires:    R-CRAN-SemiPar 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-hypergeo 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-SpATS 
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-fds 
+Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-spam 
+Requires:         R-CRAN-SemiPar 
 Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-Calculates empirical TL-moments (trimmed L-moments) of arbitrary order and
-trimming, and converts them to distribution parameters.
+Functions and data to reproduce all plots in the book "Practical
+Smoothing. The Joys of P-splines" by Paul H.C. Eilers and Brian D. Marx
+(2021, ISBN:978-1108482950).
 
 %prep
 %setup -q -c -n %{packname}

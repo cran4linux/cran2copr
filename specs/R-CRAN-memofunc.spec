@@ -1,13 +1,13 @@
-%global packname  rangeMapper
-%global packver   2.0.1
+%global packname  memofunc
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Platform for the Study of Macro-Ecology of Life History Traits
+Summary:          Function Memoization
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,37 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-progressr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-uuid 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-exactextractr 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-progressr 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-uuid 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-exactextractr 
 
 %description
-Tools for generation of (life-history) traits and diversity maps on
-hexagonal or square grids. Valcu et al.(2012)
-<doi:10.1111/j.1466-8238.2011.00739.x>.
+A simple way to memoize function results to improve performance by
+eliminating unnecessary computation or data retrieval activities.
 
 %prep
 %setup -q -c -n %{packname}

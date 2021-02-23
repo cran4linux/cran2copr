@@ -1,47 +1,53 @@
-%global packname  ggprism
-%global packver   1.0.2
+%global packname  lvmisc
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A 'ggplot2' Extension Inspired by 'GraphPad Prism'
+Summary:          Veras Miscellaneous
 
-License:          GPL (>= 3.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
-BuildRequires:    R-CRAN-scales >= 0.5.0
-BuildRequires:    R-CRAN-rlang >= 0.3.0
-BuildRequires:    R-CRAN-gtable >= 0.1.1
-BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 0.4.6
+BuildRequires:    R-CRAN-vctrs >= 0.3.0
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-grid 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rsample 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.2.0
-Requires:         R-CRAN-scales >= 0.5.0
-Requires:         R-CRAN-rlang >= 0.3.0
-Requires:         R-CRAN-gtable >= 0.1.1
-Requires:         R-CRAN-digest 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-rlang >= 0.4.6
+Requires:         R-CRAN-vctrs >= 0.3.0
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
-Requires:         R-grid 
+Requires:         R-grDevices 
+Requires:         R-methods 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rsample 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Provides various themes, palettes, and other functions that are used to
-customise ggplots to look like they were made in 'GraphPad Prism'. The
-'Prism'-look is achieved with theme_prism() and scale_fill|colour_prism(),
-axes can be changed with custom guides like guide_prism_minor(), and
-significance indicators added with add_pvalue().
+Contains a collection of useful functions for basic data computation and
+manipulation, wrapper functions for generating 'ggplot2' graphics,
+including statistical model diagnostic plots, methods for computing
+statistical models quality measures (such as AIC, BIC, r squared, root
+mean squared error) and general utilities.
 
 %prep
 %setup -q -c -n %{packname}
