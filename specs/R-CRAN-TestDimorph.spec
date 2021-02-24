@@ -1,9 +1,9 @@
 %global packname  TestDimorph
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis Of The Interpopulation Difference In Degree of Sexual Dimorphism Using Summary Statistics
 
@@ -44,7 +44,10 @@ Requires:         R-utils
 Offers a solution for the unavailability of raw data in most
 anthropological studies by facilitating the calculations of several sexual
 dimorphism related analyses using the published summary statistics of
-metric data (mean, standard deviation and sex specific sample size).
+metric data (mean, standard deviation and sex specific sample size) as
+illustrated by the works of Greene, D. L. (1989)
+<doi:10.1002/ajpa.1330790113> and Konigsberg, L. W. (1991)
+<doi:10.1002/ajpa.1330840110>.
 
 %prep
 %setup -q -c -n %{packname}

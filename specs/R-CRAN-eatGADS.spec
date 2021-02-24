@@ -1,9 +1,9 @@
 %global packname  eatGADS
-%global packver   0.15.2
+%global packver   0.16.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.2
+Version:          0.16.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Management of Large Hierarchical Data
 
@@ -17,14 +17,14 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-haven >= 2.1.0
 BuildRequires:    R-CRAN-eatDB >= 0.4.1
-BuildRequires:    R-CRAN-eatTools >= 0.1.3
+BuildRequires:    R-CRAN-eatTools >= 0.4.0
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-hms 
 Requires:         R-CRAN-haven >= 2.1.0
 Requires:         R-CRAN-eatDB >= 0.4.1
-Requires:         R-CRAN-eatTools >= 0.1.3
+Requires:         R-CRAN-eatTools >= 0.4.0
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-data.table 

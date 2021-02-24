@@ -1,9 +1,9 @@
 %global packname  healthyR
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hospital Data Analysis Workflow Tools
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-writexl 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-sqldf 
 Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-writexl 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-sqldf 
 
 %description
 Hospital data analysis workflow tools, modeling, and automations. This

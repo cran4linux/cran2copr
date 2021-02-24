@@ -1,9 +1,9 @@
 %global packname  CoxICPen
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variable Selection for Cox's Model with Interval-Censored Data
 
@@ -20,8 +20,9 @@ Requires:         R-CRAN-foreach
 
 %description
 Perform variable selection for Cox regression model with interval-censored
-data by using the methods proposed in Zhao et al. (2020) and Wu et al.
-(2020). Can deal with both low-dimensional and high-dimensional data.
+data. Can deal with both low-dimensional and high-dimensional data.
+Case-cohort design can be incorporated. Two sets of covariates scenario
+can also be considered. The references are listed in the URL below.
 
 %prep
 %setup -q -c -n %{packname}

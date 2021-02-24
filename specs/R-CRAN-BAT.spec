@@ -1,9 +1,9 @@
 %global packname  BAT
-%global packver   2.4.2
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.2
+Version:          2.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Biodiversity Assessment Tools
 
@@ -20,7 +20,6 @@ BuildRequires:    R-graphics
 BuildRequires:    R-CRAN-hypervolume 
 BuildRequires:    R-CRAN-nls2 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-spatstat 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vegan 
@@ -29,7 +28,6 @@ Requires:         R-graphics
 Requires:         R-CRAN-hypervolume 
 Requires:         R-CRAN-nls2 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-spatstat 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-vegan 
@@ -38,8 +36,9 @@ Requires:         R-CRAN-vegan
 Includes algorithms to assess alpha and beta diversity in all their
 dimensions (taxonomic, phylogenetic and functional). It allows performing
 a number of analyses based on species identities/abundances,
-phylogenetic/functional trees, convex-hulls or kernel density
-n-dimensional hypervolumes depicting species relationships.
+phylogenetic/functional distances, trees, convex-hulls or kernel density
+n-dimensional hypervolumes depicting species relationships. Cardoso et al.
+(2015) <doi:10.1111/2041-210X.12310>.
 
 %prep
 %setup -q -c -n %{packname}

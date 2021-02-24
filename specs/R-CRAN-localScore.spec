@@ -1,40 +1,33 @@
-%global packname  loon
-%global packver   1.3.2
+%global packname  localScore
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Statistical Data Visualization
+Summary:          Package for Sequence Analysis by Local Score
 
-License:          GPL-2
+License:          GPL (>= 2) | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    xorg-x11-server-Xvfb
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-tcltk 
-BuildRequires:    R-tools 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.16
 BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-methods 
-Requires:         R-tcltk 
-Requires:         R-tools 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+Requires:         R-CRAN-Rcpp >= 0.12.16
 Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-gridExtra 
 
 %description
-An extendable toolkit for interactive data visualization and exploration.
+Functionalities for calculating the local score and calculating
+statistical relevance (p-value) to find a local Score in a sequence of
+given distribution (S. Mercier and J.-J. Daudin (2001)
+<https://hal.archives-ouvertes.fr/hal-00714174> ; S. Karlin and S.
+Altschul (1990) <https://www.pnas.org/content/87/6/2264> ; S. Mercier, D.
+Cellier and F. Charlot (2003)
+<https://hal.archives-ouvertes.fr/hal-00937529v1> ; A. Lagnoux, S. Mercier
+and P. Valois (2017) <doi:10.1093/bioinformatics/btw699> ).
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,7 +45,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %install
 
 mkdir -p %{buildroot}%{rlibdir}
-xvfb-run %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 # remove buildroot from installed files

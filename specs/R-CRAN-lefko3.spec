@@ -1,9 +1,9 @@
 %global packname  lefko3
-%global packver   3.2.0
+%global packver   3.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          3.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Historical and Ahistorical Population Projection Matrix Analysis
 
@@ -19,7 +19,9 @@ BuildRequires:    R-CRAN-glmmTMB
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-MuMIn 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pscl 
+BuildRequires:    R-CRAN-snow 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-RcppArmadillo 
@@ -28,14 +30,16 @@ Requires:         R-CRAN-glmmTMB
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-MuMIn 
+Requires:         R-parallel 
 Requires:         R-CRAN-pscl 
+Requires:         R-CRAN-snow 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 
 %description
 Creates matrix population models for use in population ecological
 analyses. Specializes on the construction of historical matrices, which
-are 2d matrices comprising 3 time intervals of demographic information.
+are 2d matrices comprising 3 consecutive times of demographic information.
 Estimates both raw and function-based forms of historical and standard
 ahistorical matrices. It also estimates function-based age-by-stage
 matrices. Methodology based on Ehrlen (2000)

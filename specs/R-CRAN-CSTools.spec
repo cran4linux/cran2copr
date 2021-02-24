@@ -1,11 +1,11 @@
 %global packname  CSTools
-%global packver   3.1.0
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
-Release:          2%{?dist}%{?buildtag}
-Summary:          Assessing Skill of Climate Forecasts on Seasonal-to-DecadalTimescales
+Version:          4.0.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          Assessing Skill of Climate Forecasts on Seasonal-to-Decadal Timescales
 
 License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,13 +14,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-multiApply >= 2.1.1
 BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-qmap 
+BuildRequires:    R-CRAN-easyVerification 
 BuildRequires:    R-CRAN-s2dverification 
 BuildRequires:    R-CRAN-s2dv 
 BuildRequires:    R-CRAN-rainfarmr 
-BuildRequires:    R-CRAN-qmap 
 BuildRequires:    R-CRAN-ClimProjDiags 
 BuildRequires:    R-CRAN-ncdf4 
 BuildRequires:    R-CRAN-plyr 
@@ -36,10 +36,11 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-verification 
 Requires:         R-CRAN-multiApply >= 2.1.1
 Requires:         R-CRAN-maps 
+Requires:         R-CRAN-qmap 
+Requires:         R-CRAN-easyVerification 
 Requires:         R-CRAN-s2dverification 
 Requires:         R-CRAN-s2dv 
 Requires:         R-CRAN-rainfarmr 
-Requires:         R-CRAN-qmap 
 Requires:         R-CRAN-ClimProjDiags 
 Requires:         R-CRAN-ncdf4 
 Requires:         R-CRAN-plyr 
@@ -68,16 +69,21 @@ project MEDSCOPE and the H2020 S2S4E project. Doblas-Reyes et al. (2005)
 <doi:10.1175/JCLI4070.1>. Terzago et al. (2018)
 <doi:10.5194/nhess-18-2825-2018>. Torralba et al. (2017)
 <doi:10.1175/JAMC-D-16-0204.1>. D'Onofrio et al. (2014)
-<doi:10.1175/JHM-D-13-096.1>. Van Schaeybroeck et al. (2019)
+<doi:10.1175/JHM-D-13-096.1>. Verfaillie et al. (2017)
+<doi:10.5194/gmd-10-4257-2017>. Van Schaeybroeck et al. (2019)
 <doi:10.1016/B978-0-12-812372-0.00010-8>. Yiou et al. (2013)
 <doi:10.1007/s00382-012-1626-3>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -87,6 +93,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

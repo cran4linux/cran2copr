@@ -1,39 +1,32 @@
-%global packname  rhcoclust
-%global packver   1.0.0
+%global packname  regioncode
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Robust Hierarchical Co-Clustering to Identify Significant Co-Cluster
+Summary:          Convert Region Names and Division Codes of China Over Years
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tcR 
-Requires:         R-CRAN-fields 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-CRAN-igraph 
-Requires:         R-stats 
-Requires:         R-CRAN-tcR 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-textshaping 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-textshaping 
 
 %description
-Here we performs robust hierarchical co-clustering between row and column
-entities of a data matrix in absence and presence of outlying
-observations. It can be used to explore important co-clusters consisting
-of important samples and their regulatory significant features. Please see
-Hasan, Badsha and Mollah (2020) <doi:10.1101/2020.05.13.094946>.
+A fast tool to conquer the difficulties to convert various region names
+and administration division codes of Chinese regions. The current version
+enables seamlessly converting Chinese regions' formal names, common-used
+names, and codes between each other at the city level from 1986 to 2019.
 
 %prep
 %setup -q -c -n %{packname}

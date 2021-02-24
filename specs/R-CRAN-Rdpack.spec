@@ -1,9 +1,9 @@
 %global packname  Rdpack
-%global packver   2.1
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Update and Manipulate Rd Documentation Objects
 
@@ -19,12 +19,10 @@ BuildRequires:    R-CRAN-rbibutils >= 1.3
 BuildRequires:    R-methods 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-gbRd 
 Requires:         R-CRAN-rbibutils >= 1.3
 Requires:         R-methods 
 Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-CRAN-gbRd 
 
 %description
 Functions for manipulation of R documentation objects, including functions

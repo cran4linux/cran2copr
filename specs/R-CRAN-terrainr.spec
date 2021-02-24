@@ -1,13 +1,13 @@
-%global packname  CausalImpact
-%global packver   1.2.6
+%global packname  terrainr
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inferring Causal Effects using Bayesian Structural Time-Series Models
+Summary:          Landscape Visualizations in R and 'Unity'
 
-License:          Apache License 2.0 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,24 +15,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bsts >= 0.9.0
-BuildRequires:    R-CRAN-assertthat >= 0.2.0
-BuildRequires:    R-CRAN-Boom 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magick >= 2.5.0
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-gdalUtils 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-units 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-bsts >= 0.9.0
-Requires:         R-CRAN-assertthat >= 0.2.0
-Requires:         R-CRAN-Boom 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magick >= 2.5.0
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-gdalUtils 
+Requires:         R-methods 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-units 
+Requires:         R-grDevices 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-zoo 
 
 %description
-Implements a Bayesian approach to causal impact estimation in time series,
-as described in Brodersen et al. (2015) <DOI:10.1214/14-AOAS788>. See the
-package documentation on GitHub <https://google.github.io/CausalImpact/>
-to get started.
+Functions for the retrieval, manipulation, and visualization of
+'geospatial' data, with an aim towards producing '3D' landscape
+visualizations in the 'Unity' '3D' rendering engine. Functions are also
+provided for retrieving elevation data and base map tiles from the 'USGS'
+National Map ('<https://apps.nationalmap.gov/services/>').
 
 %prep
 %setup -q -c -n %{packname}

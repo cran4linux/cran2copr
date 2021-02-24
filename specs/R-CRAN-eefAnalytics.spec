@@ -1,9 +1,9 @@
 %global packname  eefAnalytics
-%global packver   1.0.8
+%global packver   1.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Analytical Methods for Evaluating Educational Interventions using Randomised Controlled Trials Designs
 
@@ -17,27 +17,29 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rstanarm 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-metafor 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-CRAN-rstanarm 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-methods 
 
 %description
-The eefAnalytics provides tools for analysing data from evaluations of
-educational interventions using a randomised controlled trial designs. It
-provides analytical tools to perform sensitivity analysis using different
-methods(e.g. frequentist models with bootstrapping and permutations
-options, Bayesian models). The functions contained in this package can be
-used for simple individual randomised trials, cluster randomised trials
-and multisite trials. The methods can also be used more widely beyond
-education trials. This package can be used to evaluate other interventions
-designs using Frequentist and Bayesian multilevel models.
+Analysing data from evaluations of educational interventions using a
+randomised controlled trial design. Various analytical tools to perform
+sensitivity analysis using different methods are supported (e.g.
+frequentist models with bootstrapping and permutations options, Bayesian
+models). The included commands can be used for simple randomised trials,
+cluster randomised trials and multisite trials. The methods can also be
+used more widely beyond education trials. This package can be used to
+evaluate other intervention designs using Frequentist and Bayesian
+multilevel models.
 
 %prep
 %setup -q -c -n %{packname}

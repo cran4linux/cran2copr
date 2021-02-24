@@ -1,9 +1,9 @@
 %global packname  MXM
-%global packver   1.5.0
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Feature Selection (Including Multiple Solutions) and Bayesian Networks
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
@@ -90,7 +90,8 @@ Applied Artificial Intelligence, 33(2):101-123.
 I. (2019). Forward-Backward Selection with Early Dropping. Journal of
 Machine Learning Research 20: 1-39. h) The gamma-OMP algorithm for feature
 selection with application to gene expression data. IEEE/ACM Transactions
-on Computational Biology and Bioinformatics (Accepted for publication).
+on Computational Biology and Bioinformatics (Accepted for publication)
+<doi:10.1109/TCBB.2020.3029952>.
 
 %prep
 %setup -q -c -n %{packname}

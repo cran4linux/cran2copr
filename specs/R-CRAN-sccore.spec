@@ -1,9 +1,9 @@
 %global packname  sccore
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Core Utilities for Single-Cell RNA-Seq
 
@@ -20,11 +20,13 @@ BuildRequires:    R-CRAN-ggrepel
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-irlba 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbmcapply 
+BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
@@ -41,11 +43,13 @@ Requires:         R-CRAN-ggrepel
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-irlba 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-CRAN-pROC 
 Requires:         R-parallel 
+Requires:         R-CRAN-pbmcapply 
+Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 

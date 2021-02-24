@@ -1,9 +1,9 @@
 %global packname  pagoda2
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Single Cell Analysis and Differential Expression
 
@@ -83,7 +83,7 @@ subpopulations and run differential expression within individual samples.
 datasets of approximately 1e6 cells. The companion web application allows
 users to explore which gene expression patterns form the different
 subpopulations within your data. The package also serves as the primary
-method for preprocessing data for Conos,
+method for preprocessing data for conos,
 <https://github.com/kharchenkolab/conos>. This package interacts with data
 available through the 'p2data' package, which is available in a 'drat'
 repository. To access this data package, see the instructions at
