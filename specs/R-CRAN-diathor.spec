@@ -1,9 +1,9 @@
 %global packname  diathor
-%global packver   0.0.1
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Ecological Information and Diatom Based Indices
 
@@ -19,10 +19,18 @@ BuildRequires:    R-CRAN-stringdist
 BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-stringdist 
 Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
 Calculates ecological information and biotic indices for diatoms in a

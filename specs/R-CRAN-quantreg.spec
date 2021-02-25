@@ -1,9 +1,9 @@
 %global packname  quantreg
-%global packver   5.83
+%global packver   5.85
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.83
+Version:          5.85
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantile Regression
 
@@ -34,7 +34,9 @@ Estimation and inference methods for models of conditional quantiles:
 Linear and nonlinear parametric and non-parametric (total variation
 penalized) models for conditional quantiles of a univariate response and
 several methods for handling censored survival data.  Portfolio selection
-methods based on expected shortfall risk are also now included.
+methods based on expected shortfall risk are also now included. See
+Koenker (2006) <doi:10.1017/CBO9780511754098> and Koenker et al (2017)
+<doi:10.1201/9781315120256>.
 
 %prep
 %setup -q -c -n %{packname}

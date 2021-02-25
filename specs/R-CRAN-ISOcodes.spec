@@ -1,9 +1,9 @@
 %global packname  ISOcodes
-%global packver   2020.12.04
+%global packver   2021.02.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2020.12.04
+Version:          2021.02.24
 Release:          1%{?dist}%{?buildtag}
 Summary:          Selected ISO Codes
 

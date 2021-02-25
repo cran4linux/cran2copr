@@ -1,35 +1,30 @@
-%global packname  PivotalR
-%global packver   0.1.18.4
+%global packname  stlTDNN
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.18.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Fast, Easy-to-Use Tool for Manipulating Tables in Databases and a Wrapper of MADlib
+Summary:          STL Decomposition and TDNN Hybrid Time Series Forecasting
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-semver 
-Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-semver 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-nnfor 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-nnfor 
 
 %description
-Provides an R interface for the 'VMware Data Stack' running on
-'PostgreSQL' or 'Greenplum' databases with parallel and distributed
-computation ability for big data processing. 'PivotalR' provides an R
-interface to various database operations on tables or views. These
-operations are almost the same as the corresponding native R operations.
-Thus users of R do not need to learn 'SQL' when they operate on objects in
-the database. It also provides a wrapper for 'Apache MADlib', which is an
-open-source library for parallel and scalable in-database analytics.
+Implementation of hybrid STL decomposition based time delay neural network
+model for univariate time series forecasting. For method details see Jha G
+K, Sinha, K (2014). <doi:10.1007/s00521-012-1264-z>, Xiong T, Li C, Bao Y
+(2018). <doi:10.1016/j.neucom.2017.11.053>.
 
 %prep
 %setup -q -c -n %{packname}

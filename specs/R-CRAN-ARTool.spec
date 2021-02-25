@@ -1,9 +1,9 @@
 %global packname  ARTool
-%global packver   0.10.8
+%global packver   0.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.8
+Version:          0.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Aligned Rank Transform
 
@@ -20,11 +20,13 @@ BuildRequires:    R-CRAN-lme4
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-emmeans 
 Requires:         R-CRAN-car >= 2.0.24
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-emmeans 
 
 %description
 The Aligned Rank Transform for nonparametric factorial ANOVAs as described

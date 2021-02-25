@@ -1,9 +1,9 @@
 %global packname  LWFBrook90R
-%global packver   0.4.3
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate Evapotranspiration and Soil Moisture with the SVAT Model LWF-Brook90
 
@@ -33,14 +33,15 @@ Requires:         R-methods
 
 %description
 Provides a flexible and easy-to use interface for the soil vegetation
-atmosphere transport (SVAT) model LWF-BROOK90 as described in Hammel &
-Kennel (2001, ISBN:978-3-933506-16-0) and Federer et al. (2003)
-<doi:10.1175/1525-7541(2003)004%%3C1276:SOAETS%%3E2.0.CO;2>. The model
-simulates daily transpiration, interception, soil and snow evaporation,
-streamflow and soil water fluxes through a soil profile covered with
-vegetation. A set of high-level functions for model set up, execution and
-parallelization provides easy access to plot-level SVAT simulations, as
-well as multi-run and large-scale applications.
+atmosphere transport (SVAT) model LWF-BROOK90, written in Fortran. The
+model simulates daily transpiration, interception, soil and snow
+evaporation, streamflow and soil water fluxes through a soil profile
+covered with vegetation, as described in Hammel & Kennel (2001,
+ISBN:978-3-933506-16-0) and Federer et al. (2003)
+<doi:10.1175/1525-7541(2003)004%%3C1276:SOAETS%%3E2.0.CO;2>. A set of
+high-level functions for model set up, execution and parallelization
+provides easy access to plot-level SVAT simulations, as well as multi-run
+and large-scale applications.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,26 +1,36 @@
-%global packname  blaster
-%global packver   1.0
+%global packname  steps
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Native R Implementation of an Efficient BLAST-Like Algorithm
+Summary:          Spatially- and Temporally-Explicit Population Simulator
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-Requires:         R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-rasterVis 
+BuildRequires:    R-CRAN-viridisLite 
+BuildRequires:    R-CRAN-memuse 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-rasterVis 
+Requires:         R-CRAN-viridisLite 
+Requires:         R-CRAN-memuse 
 
 %description
-Implementation of an efficient BLAST-like sequence comparison algorithm,
-written in C++11 and using native R datatypes. Blaster is based on
-'nsearch' - Schmid et al 2018; <doi:10.1101/399782>.
+Software to simulate population change across space and time.
 
 %prep
 %setup -q -c -n %{packname}

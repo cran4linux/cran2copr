@@ -1,11 +1,11 @@
-%global packname  renv
-%global packver   0.13.0
+%global packname  optimLanduse
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.0
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Project Environments
+Summary:          Robust Land-Use Optimization
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,15 +15,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-lpSolveAPI >= 5.5.2.0.17.7
+BuildRequires:    R-CRAN-tidyr >= 1.1.2
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-lpSolveAPI >= 5.5.2.0.17.7
+Requires:         R-CRAN-tidyr >= 1.1.2
+Requires:         R-CRAN-dplyr >= 1.0.0
 
 %description
-A dependency management toolkit for R. Using 'renv', you can create and
-manage project-local R libraries, save the state of these libraries to a
-'lockfile', and later restore your library as required. Together, these
-tools can help make your projects more isolated, portable, and
-reproducible.
+Robust multi-criteria land-allocation optimization that explicitly
+accounts for the uncertainty of the indicators in the objective function.
+Solves the problem of allocating scarce land to various land-use options
+with regard to multiple, coequal indicators. The method aims to find the
+land allocation that represents the indicator composition with the best
+possible trade-off under uncertainty. optimLanduse includes the actual
+optimization procedure as described by Knoke et al. (2016)
+<doi:10.1038/ncomms11877> and the post-hoc calculation of the portfolio
+performance as presented by Gosling et al. (2020)
+<doi:10.1007/s10457-020-00519-0>.
 
 %prep
 %setup -q -c -n %{packname}

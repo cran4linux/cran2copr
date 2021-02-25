@@ -1,24 +1,38 @@
-%global packname  marginalRisk
-%global packver   2021.1-7
+%global packname  flightplanning
+%global packver   0.8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2021.1.7
+Version:          0.8.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimating Marginal Risk
+Summary:          UAV Flight Planning
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
 BuildArch:        noarch
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-CRAN-sp 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-methods 
+Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-rgeos 
+Requires:         R-CRAN-sp 
 
 %description
-Estimates risk as a function of a marker by integrating over other
-covariates in a conditional risk model.
+Utility functions for creating flight plans for unmanned aerial vehicles
+(UAV), specially for the Litchi Hub platform. It calculates the flight and
+camera settings based on the camera specifications, exporting the flight
+plan CSV format ready to import into Litchi Hub.
 
 %prep
 %setup -q -c -n %{packname}

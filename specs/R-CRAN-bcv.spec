@@ -1,41 +1,27 @@
-%global packname  LTRCforests
-%global packver   0.5.5
+%global packname  bcv
+%global packver   1.0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          1.0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ensemble Methods for Survival Data with Time-Varying Covariates
+Summary:          Cross-Validation for the SVD (Bi-Cross-Validation)
 
-License:          GPL (>= 2)
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-ipred 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-prodlim 
-BuildRequires:    R-CRAN-partykit 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-ipred 
-Requires:         R-parallel 
-Requires:         R-CRAN-prodlim 
-Requires:         R-CRAN-partykit 
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-Implements the conditional inference forest and relative risk forest
-algorithm to modeling left-truncated right-censored data with
-time-invariant covariates, and (left-truncated) right-censored survival
-data with time-varying covariates. It also provides functions to tune the
-parameters and evaluate the model fit. See Yao et al. (2020)
-<arXiv:2006.00567>.
+Methods for choosing the rank of an SVD approximation via cross
+validation.  The package provides both Gabriel-style "block" holdouts and
+Wold-style "speckled" holdouts.  It also includes an implementation of the
+SVDImpute algorithm.  For more information about Bi-cross-validation, see
+Owen & Perry's 2009 AoAS article (at <arXiv:0908.2062>) and Perry's 2009
+PhD thesis (at <arXiv:0909.3052>).
 
 %prep
 %setup -q -c -n %{packname}

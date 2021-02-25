@@ -1,9 +1,9 @@
 %global packname  medrxivr
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access and Search MedRxiv and BioRxiv Preprint Data
 
@@ -27,6 +27,8 @@ BuildRequires:    R-CRAN-bib2df
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-methods 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-curl 
@@ -39,6 +41,8 @@ Requires:         R-CRAN-bib2df
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-data.table 
 
 %description
 An increasingly important source of health-related bibliographic content
