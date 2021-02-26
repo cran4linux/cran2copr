@@ -358,17 +358,7 @@ pkg_exceptions <- function(tpl, pkg, path) {
     uavRmp = paste0(
       "sed -i '1d' %{packname}/inst/python/io_solo_params_community.py\n",
       "find %{packname} -type f -exec ",
-      "sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \\;"),
-    RcppParallel = paste0(
-      "grep -B4 CXX11STD %{packname}/src/Makevars.in > %{packname}/src/Makevars.in.new\n",
-      "echo 'PKG_LIBS = -ltbb -ltbbmalloc' >> %{packname}/src/Makevars.in.new\n",
-      "mv %{packname}/src/Makevars.in.new %{packname}/src/Makevars.in\n",
-      "rm -rf %{packname}/src/tbb\n",
-      "sed -i '/tbbLdFlags <- fun/a return(paste0(\"-L\",",
-      " asBuildPath(dirname(tbbLibPath())), \" -ltbb -ltbbmalloc\"))'",
-      " %{packname}/R/build.R\n",
-      "sed -i '/tbbLibPath <- fun/a return(\"%{_libdir}/libtbb.so.2\")'",
-      " %{packname}/R/build.R")
+      "sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \\;")
   ))
 
   # install
@@ -381,15 +371,16 @@ pkg_exceptions <- function(tpl, pkg, path) {
       "test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R &&",
       "echo \"FFLAGS=$(R CMD config FFLAGS) -fallow-argument-mismatch\" > ~/.R/Makevars"),
     rPython = "export RPYTHON_PYTHON_VERSION=3",
-    RcppParallel = "export RCPP_PARALLEL_BACKEND=tinythread",
+    RcppParallel = paste0(
+      "export TBB_INC=%{_includedir}/tbb\n",
+      "export TBB_LIB=%{_libdir}"),
     Rmpi = "%{_openmpi_load}"
   ))
   install <- grep("CMD INSTALL", tpl)
   tpl[install] <- paste0(tpl[install], switch(
     pkg,
     udunits2 = "\\\n  --configure-args='--with-udunits2-include=/usr/include/udunits2'",
-    proj4 = "\\\n --configure-vars='PKG_CPPFLAGS=-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H'",
-    RcppParallel = "\nln -s %{_libdir} %{buildroot}%{rlibdir}/%{packname}/lib"
+    proj4 = "\\\n --configure-vars='PKG_CPPFLAGS=-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H'"
   ))
 
   # other

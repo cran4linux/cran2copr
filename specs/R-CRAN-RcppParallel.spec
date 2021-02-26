@@ -51,5 +51,12 @@ rm -f %{buildroot}%{rlibdir}/R.css
 # remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
+%pretrans -p <lua>
+path = "/usr/local/lib/R/library/RcppParallel/lib"
+st = posix.stat(path)
+if st and st.type == "link" then
+  os.remove(path)
+end
+
 %files
 %{rlibdir}/%{packname}
