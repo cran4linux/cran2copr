@@ -1,9 +1,9 @@
 %global packname  powerEQTL
-%global packver   0.2.2
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power and Sample Size Calculation for eQTL Analysis
 
@@ -16,7 +16,15 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-GLMMadaptive 
+BuildRequires:    R-CRAN-glmmTMB 
+BuildRequires:    R-parallel 
 Requires:         R-stats 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-GLMMadaptive 
+Requires:         R-CRAN-glmmTMB 
+Requires:         R-parallel 
 
 %description
 Power and sample size calculation for eQTL analysis based on ANOVA or

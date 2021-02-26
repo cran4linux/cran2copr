@@ -1,9 +1,9 @@
 %global packname  PSweight
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Propensity Score Weighting for Causal Inference with Observational Studies and Randomized Trials
 
@@ -19,10 +19,14 @@ BuildRequires:    R-CRAN-nnet
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-gbm 
+BuildRequires:    R-CRAN-SuperLearner 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-gbm 
+Requires:         R-CRAN-SuperLearner 
 
 %description
 Supports propensity score weighting analysis of observational studies and

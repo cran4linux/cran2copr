@@ -1,29 +1,36 @@
-%global packname  bayesefa
-%global packver   0.0.0.4
+%global packname  RespirAnalyzer
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.0.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Exploratory Factor
+Summary:          Analysis Functions of Respiratory Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-CRAN-psych 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.2
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-Rcpp >= 1.0.2
+Requires:         R-CRAN-signal 
+Requires:         R-CRAN-pracma 
 
 %description
-Exploratory Bayesian factor analysis of continuous, mixed-type, and
-bounded continuous variables using the mode-jumping algorithm of Man and
-Culpepper (2020) <doi:10.1080/01621459.2020.1773833>.
+Provides functions for the complete analysis of respiratory data. Consists
+of a set of functions that allow to preprocessing respiratory data,
+calculate both regular statistics and nonlinear statistics, conduct group
+comparison and visualize the results. Especially, Power Spectral Density
+('PSD') (A. Eke (2000) <doi:10.1007/s004249900135>), 'MultiScale
+Entropy(MSE)' ('Madalena Costa(2002)' <doi:10.1103/PhysRevLett.89.068102>)
+and 'MultiFractal Detrended Fluctuation Analysis(MFDFA)' ('Jan
+W.Kantelhardt' (2002) <doi:10.1016/S0378-4371(02)01383-3>) were applied
+for the analysis of respiratory data.
 
 %prep
 %setup -q -c -n %{packname}

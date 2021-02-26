@@ -1,35 +1,38 @@
-%global packname  psychReport
-%global packver   3.0.0
+%global packname  subtee
+%global packver   0.3-7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          0.3.7.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reproducible Reports in Psychology
+Summary:          Subgroup Treatment Effect Estimation in Clinical Trials
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ez 
-BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-dplyr >= 1.0
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ez 
-Requires:         R-CRAN-xtable 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-matrixStats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-matrixStats 
 
 %description
-Helper functions for producing reports in Psychology (Reproducible
-Research). Provides required formatted strings (APA style) for use in
-'Knitr'/'Latex' integration within *.Rnw files.
+Naive and adjusted treatment effect estimation for subgroups. Model
+averaging (Bornkamp et.al, 2016 <doi:10.1002/pst.1796>) and bagging
+(Rosenkranz, 2016 <doi:10.1002/bimj.201500147>) are proposed to address
+the problem of selection bias in treatment effect estimates for subgroups.
+The package can be used for all commonly encountered type of outcomes in
+clinical trials (continuous, binary, survival, count). Additional
+functions are provided to build the subgroup variables to be used and to
+plot the results using forest plots.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  mapSpain
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Administrative Boundaries of Spain
 
@@ -33,8 +33,10 @@ Requires:         R-CRAN-png >= 0.1.5
 %description
 Administrative Boundaries of Spain at several levels (CCAA, Provinces,
 Municipalities) based on the GISCO Eurostat database
-<https://ec.europa.eu/eurostat/web/gisco>. It also provides a 'leaflet'
-plugin and the ability of downloading and processing static tiles.
+<https://ec.europa.eu/eurostat/web/gisco> and 'CartoBase SIANE' from
+'Instituto Geografico Nacional' <https://www.ign.es/>. It also provides a
+'leaflet' plugin and the ability of downloading and processing static
+tiles.
 
 %prep
 %setup -q -c -n %{packname}

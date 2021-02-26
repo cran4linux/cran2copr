@@ -1,9 +1,9 @@
 %global packname  tibble
-%global packver   3.0.6
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.6
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Data Frames
 
@@ -14,26 +14,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-pillar >= 1.4.3
-BuildRequires:    R-CRAN-crayon >= 1.3.4
+BuildRequires:    R-CRAN-pillar >= 1.5.0
 BuildRequires:    R-CRAN-rlang >= 0.4.3
 BuildRequires:    R-CRAN-fansi >= 0.4.0
 BuildRequires:    R-CRAN-vctrs >= 0.3.2
 BuildRequires:    R-CRAN-ellipsis >= 0.2.0
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pkgconfig 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-pillar >= 1.4.3
-Requires:         R-CRAN-crayon >= 1.3.4
+Requires:         R-CRAN-pillar >= 1.5.0
 Requires:         R-CRAN-rlang >= 0.4.3
 Requires:         R-CRAN-fansi >= 0.4.0
 Requires:         R-CRAN-vctrs >= 0.3.2
 Requires:         R-CRAN-ellipsis >= 0.2.0
 Requires:         R-CRAN-lifecycle >= 0.2.0
-Requires:         R-CRAN-cli 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-pkgconfig 

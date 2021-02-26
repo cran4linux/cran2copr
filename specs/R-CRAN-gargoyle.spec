@@ -1,35 +1,30 @@
-%global packname  psychReport
-%global packver   3.0.0
+%global packname  gargoyle
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reproducible Reports in Psychology
+Summary:          An Event-Based Mechanism for 'Shiny'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ez 
-BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-dplyr >= 1.0
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ez 
-Requires:         R-CRAN-xtable 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-attempt 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-attempt 
 
 %description
-Helper functions for producing reports in Psychology (Reproducible
-Research). Provides required formatted strings (APA style) for use in
-'Knitr'/'Latex' integration within *.Rnw files.
+An event-Based framework for building 'Shiny' apps. Instead of relying on
+standard 'Shiny' reactive objects, this package allow to relying on a
+lighter set of triggers, so that reactive contexts can be invalidated with
+more control.
 
 %prep
 %setup -q -c -n %{packname}

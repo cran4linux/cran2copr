@@ -1,35 +1,32 @@
-%global packname  psychReport
-%global packver   3.0.0
+%global packname  DiallelAnalysisR
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reproducible Reports in Psychology
+Summary:          Diallel Analysis with R
 
-License:          MIT + file LICENSE
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ez 
-BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-dplyr >= 1.0
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ez 
-Requires:         R-CRAN-xtable 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
 
 %description
-Helper functions for producing reports in Psychology (Reproducible
-Research). Provides required formatted strings (APA style) for use in
-'Knitr'/'Latex' integration within *.Rnw files.
+Performs Diallel Analysis with R using Griffing's and Hayman's approaches.
+Four different Methods (1: Method-I (Parents + F1's + reciprocals); 2:
+Method-II (Parents and one set of F1's); 3: Method-III (One set of F1's
+and reciprocals); 4: Method-IV (One set of F1's only)) and two Models (1:
+Fixed Effects Model; 2: Random Effects Model) can be applied using
+Griffing's approach.
 
 %prep
 %setup -q -c -n %{packname}

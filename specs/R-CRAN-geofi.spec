@@ -1,33 +1,43 @@
-%global packname  matrixprofiler
-%global packver   0.1.3
+%global packname  geofi
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Matrix Profile for R
+Summary:          Access Finnish Geospatial Data
 
-License:          GPL-3
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-RcppParallel >= 4.4.4
-BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-CRAN-RcppThread >= 0.5.0
-BuildRequires:    R-CRAN-RcppProgress >= 0.4.0
-Requires:         R-CRAN-RcppParallel >= 4.4.4
-Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-xml2 >= 1.2.0
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httpcache 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-xml2 >= 1.2.0
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httpcache 
+Requires:         R-CRAN-httr 
+Requires:         R-methods 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-yaml 
 
 %description
-This is the core functions needed by the 'tsmp' package.  The low level
-and carefully checked mathematical functions are here. These are
-implementations of the Matrix Profile concept that was created by CS-UCR
-<http://www.cs.ucr.edu/~eamonn/MatrixProfile.html>.
+Tools for reading Finnish open geospatial data in R.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  NFCP
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          N-Factor Commodity Pricing Through Term Structure Estimation
 
@@ -16,6 +16,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-FKF.SP 
+BuildRequires:    R-CRAN-LSMRealOptions 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-parallel 
@@ -25,6 +26,7 @@ BuildRequires:    R-CRAN-mathjaxr
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-curl 
 Requires:         R-CRAN-FKF.SP 
+Requires:         R-CRAN-LSMRealOptions 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-parallel 

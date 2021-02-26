@@ -1,9 +1,9 @@
 %global packname  constants
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reference on Constants, Units and Uncertainty
 
@@ -26,7 +26,8 @@ interdisciplinary committee of the International Council for Science which
 periodically provides the internationally accepted set of values of the
 fundamental physical constants. This package contains the "2018 CODATA"
 version, published on May 2019: Eite Tiesinga, Peter J. Mohr, David B.
-Newell, and Barry N. Taylor (2020) <http://physics.nist.gov/constants>.
+Newell, and Barry N. Taylor (2020)
+<https://physics.nist.gov/cuu/Constants/>.
 
 %prep
 %setup -q -c -n %{packname}

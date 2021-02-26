@@ -1,35 +1,31 @@
-%global packname  psychReport
-%global packver   3.0.0
+%global packname  blocklength
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reproducible Reports in Psychology
+Summary:          Select Optimal Block-Length to Bootstrap Dependent Data (Block Bootstrap)
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ez 
-BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-dplyr >= 1.0
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ez 
-Requires:         R-CRAN-xtable 
+BuildRequires:    R-CRAN-tseries 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-tseries 
+Requires:         R-stats 
 
 %description
-Helper functions for producing reports in Psychology (Reproducible
-Research). Provides required formatted strings (APA style) for use in
-'Knitr'/'Latex' integration within *.Rnw files.
+A set of functions to select the optimal block-length for a dependent
+bootstrap (block-bootstrap). Includes the Hall, Horowitz, and Jing (1995)
+<doi:10.1093/biomet/82.3.561#'> cross-validation method and the Politis
+and White (2004) <doi:10.1081/ETC-120028836> Spectral Density Plug-in
+method with a corresponding set of S3 plot methods.
 
 %prep
 %setup -q -c -n %{packname}

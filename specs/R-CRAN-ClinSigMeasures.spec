@@ -1,35 +1,27 @@
-%global packname  psychReport
-%global packver   3.0.0
+%global packname  ClinSigMeasures
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reproducible Reports in Psychology
+Summary:          Clinical Significance Measures
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ez 
-BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-dplyr >= 1.0
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ez 
-Requires:         R-CRAN-xtable 
 
 %description
-Helper functions for producing reports in Psychology (Reproducible
-Research). Provides required formatted strings (APA style) for use in
-'Knitr'/'Latex' integration within *.Rnw files.
+Provides measures of effect sizes from summarized continuous variables as
+well as diagnostic accuracy statistics for 2x2 table data. Includes
+functions for Cohen's d, Cohen's q, partial eta-squared, coefficient of
+variation, odds ratio, likelihood ratios, sensitivity, specificity,
+positive and negative predictive values, and Youden index.
 
 %prep
 %setup -q -c -n %{packname}

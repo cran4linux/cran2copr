@@ -1,9 +1,9 @@
 %global packname  mitre
-%global packver   0.1.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cybersecurity MITRE Standards Data and Digraphs
 
@@ -12,28 +12,42 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-visNetwork 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-RJSONIO 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-visNetwork 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-curl 
+Requires:         R-CRAN-RJSONIO 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-rlang 
 
 %description
 Extract, transform and load MITRE standards. This package gives you an
 approach to cybersecurity data sets. All data sets are build on runtime
 downloading raw data from MITRE public services. MITRE
 <https://www.mitre.org/> is a government-funded research organization
-based in Bedford and McLean. Current version includes Shield framework
-from: <https://github.com/MITRECND/mitrecnd.github.io/tree/master/_data>.
-Soon to be included other standards.
+based in Bedford and McLean. Current version includes most used standards
+as data frames. It also provide a list of nodes and edges with all
+relationships.
 
 %prep
 %setup -q -c -n %{packname}
