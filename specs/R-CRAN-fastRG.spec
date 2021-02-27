@@ -1,13 +1,13 @@
-%global packname  broom.helpers
-%global packver   1.2.1
+%global packname  fastRG
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helpers for Model Coefficients Tibbles
+Summary:          Sample Generalized Random Dot Product Graphs in Linear Time
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,34 +15,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-labelled 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-ellipsis 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-labelled 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidygraph 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-RSpectra 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidygraph 
 
 %description
-Provides suite of functions to work with regression model 'broom::tidy()'
-tibbles.  The suite includes functions to group regression model terms by
-variable, insert reference and header rows for categorical variables, add
-variable labels, and more.
+Samples generalized random product graph, a generalization of a broad
+class of network models. Given matrices X, S, and Y with with non-negative
+entries, samples a matrix with expectation X S Y^T and independent Poisson
+or Bernoulli entries. The algorithm first samples the number of edges and
+then puts them down one-by-one.  As a result it is O(m) where m is the
+number of edges, a dramatic improvement over element-wise algorithms that
+which require O(n^2) operations to sample a random graph, where n is the
+number of nodes.
 
 %prep
 %setup -q -c -n %{packname}

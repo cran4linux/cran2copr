@@ -1,34 +1,38 @@
-%global packname  subniche
-%global packver   1.4
+%global packname  rgeoda
+%global packver   0.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          0.0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Within Outlying Mean Indexes: Refining the OMI Analysis
+Summary:          R Library for Spatial Data Analysis
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ade4 
-BuildRequires:    R-CRAN-siar 
-BuildRequires:    R-CRAN-polyclip 
-BuildRequires:    R-CRAN-wordcloud 
-Requires:         R-CRAN-ade4 
-Requires:         R-CRAN-siar 
-Requires:         R-CRAN-polyclip 
-Requires:         R-CRAN-wordcloud 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-wkb 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-methods 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-wkb 
+Requires:         R-CRAN-sf 
 
 %description
-Complementary indexes calculation to the Outlying Mean Index analysis to
-explore niche shift of a community and biological constraint within an
-Euclidean space, with graphical displays. For details see Karasiewicz et
-al. (2017) <doi:10.7717/Peerj.3364>.
+Provides spatial data analysis functionalities including Exploratory
+Spatial Data Analysis, Spatial Cluster Detection and Clustering Analysis,
+Regionalization, etc. based on the C++ source code of 'GeoDa', which is an
+open-source software tool that serves as an introduction to spatial data
+analysis. The 'GeoDa' software and its documentation are available at
+<https://geodacenter.github.io>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  gtsummary
-%global packver   1.3.6
+%global packver   1.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.6
+Version:          1.3.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Presentation-Ready Data Summary and Analytic Result Tables
 

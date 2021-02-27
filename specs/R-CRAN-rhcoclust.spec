@@ -1,34 +1,37 @@
-%global packname  subniche
-%global packver   1.4
+%global packname  rhcoclust
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Within Outlying Mean Indexes: Refining the OMI Analysis
+Summary:          Robust Hierarchical Co-Clustering to Identify Significant Co-Cluster
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ade4 
-BuildRequires:    R-CRAN-siar 
-BuildRequires:    R-CRAN-polyclip 
-BuildRequires:    R-CRAN-wordcloud 
-Requires:         R-CRAN-ade4 
-Requires:         R-CRAN-siar 
-Requires:         R-CRAN-polyclip 
-Requires:         R-CRAN-wordcloud 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-fields 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-CRAN-igraph 
+Requires:         R-stats 
 
 %description
-Complementary indexes calculation to the Outlying Mean Index analysis to
-explore niche shift of a community and biological constraint within an
-Euclidean space, with graphical displays. For details see Karasiewicz et
-al. (2017) <doi:10.7717/Peerj.3364>.
+Here we performs robust hierarchical co-clustering between row and column
+entities of a data matrix in absence and presence of outlying
+observations. It can be used to explore important co-clusters consisting
+of important samples and their regulatory significant features. Please see
+Hasan, Badsha and Mollah (2020) <doi:10.1101/2020.05.13.094946>.
 
 %prep
 %setup -q -c -n %{packname}

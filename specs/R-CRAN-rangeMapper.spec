@@ -1,40 +1,51 @@
-%global packname  SpATS
-%global packver   1.0-12
+%global packname  rangeMapper
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.12
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Analysis of Field Trials with Splines
+Summary:          A Platform for the Study of Macro-Ecology of Life History Traits
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-plot3Drgl 
-BuildRequires:    R-CRAN-spam 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-methods 
-Requires:         R-stats 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-exactextractr 
 Requires:         R-graphics 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-plot3Drgl 
-Requires:         R-CRAN-spam 
-Requires:         R-CRAN-data.table 
 Requires:         R-methods 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-exactextractr 
 
 %description
-Analysis of field trial experiments by modelling spatial trends using
-two-dimensional Penalised spline (P-spline) models.
+Tools for generation of (life-history) traits and diversity maps on
+hexagonal or square grids. Valcu et al.(2012)
+<doi:10.1111/j.1466-8238.2011.00739.x>.
 
 %prep
 %setup -q -c -n %{packname}

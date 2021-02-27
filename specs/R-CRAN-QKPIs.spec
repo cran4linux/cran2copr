@@ -1,13 +1,13 @@
-%global packname  subniche
-%global packver   1.4
+%global packname  QKPIs
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Within Outlying Mean Indexes: Refining the OMI Analysis
+Summary:          Quantitative Key Performance Indicators
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,20 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ade4 
-BuildRequires:    R-CRAN-siar 
-BuildRequires:    R-CRAN-polyclip 
-BuildRequires:    R-CRAN-wordcloud 
-Requires:         R-CRAN-ade4 
-Requires:         R-CRAN-siar 
-Requires:         R-CRAN-polyclip 
-Requires:         R-CRAN-wordcloud 
 
 %description
-Complementary indexes calculation to the Outlying Mean Index analysis to
-explore niche shift of a community and biological constraint within an
-Euclidean space, with graphical displays. For details see Karasiewicz et
-al. (2017) <doi:10.7717/Peerj.3364>.
+It calculates key performance indicators as quantitative metrics for sales
+and overall labour effectiveness. Wikipedia (2021)
+<https://en.wikipedia.org/wiki/Overall_labor_effectiveness>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  TwoArmSurvSim
-%global packver   0.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate Survival Data for Randomized Clinical Trials
 
@@ -18,9 +18,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-blockrand 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-simsurv 
 Requires:         R-CRAN-blockrand 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-simsurv 
 
 %description
 A system to simulate clinical trials with time to event endpoints. Event

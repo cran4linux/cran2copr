@@ -1,34 +1,31 @@
-%global packname  subniche
-%global packver   1.4
+%global packname  rheroicons
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Within Outlying Mean Indexes: Refining the OMI Analysis
+Summary:          A Zero Dependency 'SVG' Icon Library for 'Shiny'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ade4 
-BuildRequires:    R-CRAN-siar 
-BuildRequires:    R-CRAN-polyclip 
-BuildRequires:    R-CRAN-wordcloud 
-Requires:         R-CRAN-ade4 
-Requires:         R-CRAN-siar 
-Requires:         R-CRAN-polyclip 
-Requires:         R-CRAN-wordcloud 
+BuildRequires:    R-CRAN-shiny >= 1.5.0
+BuildRequires:    R-CRAN-htmltools >= 0.5.0
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-shiny >= 1.5.0
+Requires:         R-CRAN-htmltools >= 0.5.0
+Requires:         R-CRAN-stringr 
 
 %description
-Complementary indexes calculation to the Outlying Mean Index analysis to
-explore niche shift of a community and biological constraint within an
-Euclidean space, with graphical displays. For details see Karasiewicz et
-al. (2017) <doi:10.7717/Peerj.3364>.
+An implementation of the 'Heroicons' icon library for 'shiny' applications
+and other 'R' web-based projects. You can search, render, and customize
+icons without 'CSS' or 'JavaScript' dependencies.
 
 %prep
 %setup -q -c -n %{packname}

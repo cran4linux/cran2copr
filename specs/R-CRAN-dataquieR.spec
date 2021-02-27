@@ -1,13 +1,13 @@
 %global packname  dataquieR
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Quality in Epidemiological Research
 
-License:          CC BY 4.0
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,14 +18,14 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 2.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.2
 BuildRequires:    R-CRAN-cowplot >= 0.9.4
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-MultinomialCI 
-BuildRequires:    R-CRAN-R.devices 
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-MultinomialCI 
 BuildRequires:    R-CRAN-parallelMap 
+BuildRequires:    R-CRAN-R.devices 
 BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-robustbase 
@@ -33,14 +33,14 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-ggplot2 >= 2.1.0
 Requires:         R-CRAN-dplyr >= 1.0.2
 Requires:         R-CRAN-cowplot >= 0.9.4
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-MultinomialCI 
-Requires:         R-CRAN-R.devices 
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-MultinomialCI 
 Requires:         R-CRAN-parallelMap 
+Requires:         R-CRAN-R.devices 
 Requires:         R-CRAN-reshape 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-robustbase 

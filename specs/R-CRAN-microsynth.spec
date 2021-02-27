@@ -1,9 +1,9 @@
 %global packname  microsynth
-%global packver   2.0.17
+%global packver   2.0.31
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.17
+Version:          2.0.31
 Release:          1%{?dist}%{?buildtag}
 Summary:          Synthetic Control Methods with Micro- And Meso-Level Data
 

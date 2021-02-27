@@ -1,13 +1,13 @@
-%global packname  subniche
-%global packver   1.4
+%global packname  sgat
+%global packver   0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Within Outlying Mean Indexes: Refining the OMI Analysis
+Summary:          Extract Information from Google's "Popular Times"
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,20 +15,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ade4 
-BuildRequires:    R-CRAN-siar 
-BuildRequires:    R-CRAN-polyclip 
-BuildRequires:    R-CRAN-wordcloud 
-Requires:         R-CRAN-ade4 
-Requires:         R-CRAN-siar 
-Requires:         R-CRAN-polyclip 
-Requires:         R-CRAN-wordcloud 
+BuildRequires:    R-CRAN-RSelenium 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-qdapRegex 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-RSelenium 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-qdapRegex 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-plyr 
+Requires:         R-utils 
 
 %description
-Complementary indexes calculation to the Outlying Mean Index analysis to
-explore niche shift of a community and biological constraint within an
-Euclidean space, with graphical displays. For details see Karasiewicz et
-al. (2017) <doi:10.7717/Peerj.3364>.
+Once you've identified a real life place, such as a shop, a restaurant, a
+bar, etc. use this package to simulate a Google search and retrieve its
+"Popular Times" and geographic location information and save them in
+Comma-Separated Values files. This package also downloads a list of
+restaurants and bars of Ushuaia city, Argentina.
 
 %prep
 %setup -q -c -n %{packname}

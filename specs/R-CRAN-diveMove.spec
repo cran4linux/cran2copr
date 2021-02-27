@@ -1,34 +1,38 @@
-%global packname  subniche
-%global packver   1.4
+%global packname  diveMove
+%global packver   1.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.5.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Within Outlying Mean Indexes: Refining the OMI Analysis
+Summary:          Dive Analysis and Calibration
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ade4 
-BuildRequires:    R-CRAN-siar 
-BuildRequires:    R-CRAN-polyclip 
-BuildRequires:    R-CRAN-wordcloud 
-Requires:         R-CRAN-ade4 
-Requires:         R-CRAN-siar 
-Requires:         R-CRAN-polyclip 
-Requires:         R-CRAN-wordcloud 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-methods 
+BuildRequires:    R-stats4 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-KernSmooth 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-uniReg 
+Requires:         R-methods 
+Requires:         R-stats4 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-KernSmooth 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-uniReg 
 
 %description
-Complementary indexes calculation to the Outlying Mean Index analysis to
-explore niche shift of a community and biological constraint within an
-Euclidean space, with graphical displays. For details see Karasiewicz et
-al. (2017) <doi:10.7717/Peerj.3364>.
+Utilities to represent, visualize, filter, analyse, and summarize
+time-depth recorder (TDR) data.  Miscellaneous functions for handling
+location data are also provided.
 
 %prep
 %setup -q -c -n %{packname}

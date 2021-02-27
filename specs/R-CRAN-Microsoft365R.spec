@@ -1,9 +1,9 @@
 %global packname  Microsoft365R
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'Microsoft 365' Suite of Cloud Services
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-AzureGraph >= 1.2.0
+BuildRequires:    R-CRAN-AzureGraph >= 1.2.1
 BuildRequires:    R-CRAN-AzureAuth 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-curl 
@@ -23,7 +23,8 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-AzureGraph >= 1.2.0
+BuildRequires:    R-CRAN-mime 
+Requires:         R-CRAN-AzureGraph >= 1.2.1
 Requires:         R-CRAN-AzureAuth 
 Requires:         R-utils 
 Requires:         R-CRAN-curl 
@@ -31,14 +32,15 @@ Requires:         R-CRAN-httr
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-mime 
 
 %description
 An interface to the 'Microsoft 365' (formerly known as 'Office 365') suite
 of cloud services, building on the framework supplied by the 'AzureGraph'
-package. Enables access from R to data stored in 'SharePoint Online' and
-'OneDrive', including the ability to list drive folder contents, upload
-and download files, and retrieve data lists. Both personal 'OneDrive' and
-'OneDrive for Business' accounts are supported.
+package. Enables access from R to data stored in 'Teams', 'SharePoint
+Online' and 'OneDrive', including the ability to list drive folder
+contents, upload and download files, send messages, and retrieve data
+lists.
 
 %prep
 %setup -q -c -n %{packname}

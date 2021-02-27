@@ -1,34 +1,37 @@
-%global packname  subniche
-%global packver   1.4
+%global packname  twangContinuous
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Within Outlying Mean Indexes: Refining the OMI Analysis
+Summary:          Toolkit for Weighting and Analysis of Nonequivalent Groups - Continuous Exposures
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ade4 
-BuildRequires:    R-CRAN-siar 
-BuildRequires:    R-CRAN-polyclip 
-BuildRequires:    R-CRAN-wordcloud 
-Requires:         R-CRAN-ade4 
-Requires:         R-CRAN-siar 
-Requires:         R-CRAN-polyclip 
-Requires:         R-CRAN-wordcloud 
+BuildRequires:    R-CRAN-gbm >= 2.1.3
+BuildRequires:    R-CRAN-lattice >= 0.20.35
+BuildRequires:    R-CRAN-Rcpp >= 0.12.19
+BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-xtable 
+Requires:         R-CRAN-gbm >= 2.1.3
+Requires:         R-CRAN-lattice >= 0.20.35
+Requires:         R-CRAN-Rcpp >= 0.12.19
+Requires:         R-CRAN-survey 
+Requires:         R-CRAN-xtable 
 
 %description
-Complementary indexes calculation to the Outlying Mean Index analysis to
-explore niche shift of a community and biological constraint within an
-Euclidean space, with graphical displays. For details see Karasiewicz et
-al. (2017) <doi:10.7717/Peerj.3364>.
+Provides functions for propensity score estimation and weighting for
+continuous exposures as described in Zhu, Y., Coffman, D. L., & Ghosh, D.
+(2015). A boosting algorithm for estimating generalized propensity scores
+with continuous treatments. Journal of Causal Inference, 3(1), 25-40.
+<doi:10.1515/jci-2014-0022>.
 
 %prep
 %setup -q -c -n %{packname}

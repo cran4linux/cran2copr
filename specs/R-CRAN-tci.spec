@@ -1,31 +1,45 @@
-%global packname  nilde
-%global packver   1.1-4
+%global packname  tci
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonnegative Integer Solutions of Linear Diophantine Equations with Applications
+Summary:          Target Controlled Infusion (TCI)
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.0
-Requires:         R-core >= 2.15.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-Requires:         R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-reshape 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-graphics 
+Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-reshape 
 
 %description
-Routines for enumerating all existing nonnegative integer solutions of a
-linear Diophantine equation. The package provides routines for solving
-0-1, bounded and unbounded knapsack problems; 0-1, bounded and unbounded
-subset sum problems; additive partitioning of natural numbers; and
-one-dimensional bin-packing problem.
+Implementation of target-controlled infusion algorithms for compartmental
+pharmacokinetic and pharmacokinetic-pharmacodynamic models. Jacobs (1990)
+<doi:10.1109/10.43622>; Marsh et al. (1991) <doi:10.1093/bja/67.1.41>;
+Shafer and Gregg (1993) <doi:10.1007/BF01070999>; Schnider et al. (1998)
+<doi:10.1097/00000542-199805000-00006>; Abuhelwa, Foster, and Upton (2015)
+<doi:10.1016/j.vascn.2015.03.004>; Eleveld et al. (2018)
+<doi:10.1016/j.bja.2018.01.018>.
 
 %prep
 %setup -q -c -n %{packname}

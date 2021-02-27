@@ -1,9 +1,9 @@
 %global packname  adespatial
-%global packver   0.3-10
+%global packver   0.3-13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
+Version:          0.3.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Multiscale Spatial Analysis
 
