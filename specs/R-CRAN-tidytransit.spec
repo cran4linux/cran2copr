@@ -1,9 +1,9 @@
 %global packname  tidytransit
-%global packver   0.7.2
+%global packver   0.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.7.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read, Validate, Analyze, and Map Files in the General Transit Feed Specification
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-hms
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-checkmate 
 Requires:         R-CRAN-zip >= 2.0.1
 Requires:         R-CRAN-data.table >= 1.12.8
 Requires:         R-CRAN-dplyr 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-hms
 Requires:         R-CRAN-tidyr 
 Requires:         R-tools 
 Requires:         R-CRAN-digest 
+Requires:         R-CRAN-checkmate 
 
 %description
 Read General Transit Feed Specification (GTFS) zipfiles into a list of R
