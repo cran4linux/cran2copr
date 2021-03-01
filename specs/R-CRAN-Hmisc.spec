@@ -1,9 +1,9 @@
 %global packname  Hmisc
-%global packver   4.4-2
+%global packver   4.5-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.2
+Version:          4.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Harrell Miscellaneous
 
@@ -54,9 +54,9 @@ Requires:         R-CRAN-base64enc
 %description
 Contains many functions useful for data analysis, high-level graphics,
 utility operations, functions for computing sample size and power,
-importing and annotating datasets, imputing missing values, advanced table
-making, variable clustering, character string manipulation, conversion of
-R objects to LaTeX and html code, and recoding variables.
+simulation, importing and annotating datasets, imputing missing values,
+advanced table making, variable clustering, character string manipulation,
+conversion of R objects to LaTeX and html code, and recoding variables.
 
 %prep
 %setup -q -c -n %{packname}

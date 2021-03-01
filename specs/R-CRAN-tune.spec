@@ -1,9 +1,9 @@
 %global packname  tune
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Tuning Tools
 
@@ -15,46 +15,42 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 2.1.3
+BuildRequires:    R-CRAN-tibble >= 3.1.0
 BuildRequires:    R-CRAN-cli >= 2.0.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-purrr >= 0.3.2
 BuildRequires:    R-CRAN-vctrs >= 0.3.0
 BuildRequires:    R-CRAN-workflows >= 0.2.1
-BuildRequires:    R-CRAN-hardhat >= 0.1.5
 BuildRequires:    R-CRAN-parsnip >= 0.1.4
 BuildRequires:    R-CRAN-recipes >= 0.1.15
 BuildRequires:    R-CRAN-generics >= 0.1.0
 BuildRequires:    R-CRAN-dials >= 0.0.9
-BuildRequires:    R-CRAN-rsample >= 0.0.8
+BuildRequires:    R-CRAN-rsample >= 0.0.9
 BuildRequires:    R-CRAN-yardstick >= 0.0.7
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-GPfit 
-BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-tibble >= 2.1.3
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-tibble >= 3.1.0
 Requires:         R-CRAN-cli >= 2.0.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-purrr >= 0.3.2
 Requires:         R-CRAN-vctrs >= 0.3.0
 Requires:         R-CRAN-workflows >= 0.2.1
-Requires:         R-CRAN-hardhat >= 0.1.5
 Requires:         R-CRAN-parsnip >= 0.1.4
 Requires:         R-CRAN-recipes >= 0.1.15
 Requires:         R-CRAN-generics >= 0.1.0
 Requires:         R-CRAN-dials >= 0.0.9
-Requires:         R-CRAN-rsample >= 0.0.8
+Requires:         R-CRAN-rsample >= 0.0.9
 Requires:         R-CRAN-yardstick >= 0.0.7
-Requires:         R-utils 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-GPfit 
-Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-tidyr 
 
 %description
 The ability to tune models is important. 'tune' contains functions and
