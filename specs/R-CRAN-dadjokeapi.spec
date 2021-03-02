@@ -1,37 +1,35 @@
-%global packname  IndependenceTests
-%global packver   0.5
+%global packname  dadjokeapi
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Parametric Tests of Independence Between Random Vectors
+Summary:          Return a Random Dad Joke
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
-BuildRequires:    R-CRAN-xtable 
-BuildRequires:    R-CRAN-CompQuadForm 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Runuran 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-xtable 
-Requires:         R-CRAN-CompQuadForm 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Runuran 
-Requires:         R-parallel 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-beepr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-png 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-beepr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-png 
 
 %description
-Functions for non-parametric tests of independence (mutual or serial)
-between some quantitative random vectors, as described in Bilodeau M. and
-Lafaye de Micheaux P. (2009) <doi:10.1016/j.jspi.2008.11.006>, in Beran
-R., Bilodeau M. and Lafaye de Micheaux P. (2007)
-<doi:10.1016/j.jmva.2007.01.009> and in Fan Y., Lafaye de Micheaux P.,
-Penev S. and Salopek D. (2017) <doi:10.1016/j.jmva.2016.09.014>.
+What is funnier than a dad joke?  A dad joke in R!  This package utilizes
+the API for <https://icanhazdadjoke.com> and returns dad jokes from
+several API endpoints.
 
 %prep
 %setup -q -c -n %{packname}

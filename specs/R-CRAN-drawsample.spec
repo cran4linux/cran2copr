@@ -1,9 +1,9 @@
 %global packname  drawsample
-%global packver   0.1.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Draw Samples with the Desired Properties from a Data Set
 
@@ -19,10 +19,30 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-moments 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinycssloaders 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-xlsx 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-psych 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-moments 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinycssloaders 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-xlsx 
+Requires:         R-utils 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 
 %description
 A tool to sample data with the desired properties.Samples can be drawn by

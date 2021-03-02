@@ -1,23 +1,43 @@
-%global packname  mathjaxr
-%global packver   1.4-0
+%global packname  mapsf
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Using 'Mathjax' in Rd Files
+Summary:          Thematic Cartography
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-classInt 
+BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-classInt 
+Requires:         R-graphics 
+Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-grDevices 
 
 %description
-Provides 'MathJax' and macros to enable its use within Rd files for
-rendering equations in the HTML help files.
+Create and integrate thematic maps in your workflow. This package helps to
+design various cartographic representations such as proportional symbols,
+choropleth or typology maps. It also offers several functions to display
+layout elements that improve the graphic presentation of maps (e.g. scale
+bar, north arrow, title, labels). 'mapsf' maps 'sf' objects on 'base'
+graphics.
 
 %prep
 %setup -q -c -n %{packname}

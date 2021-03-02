@@ -1,9 +1,9 @@
 %global packname  powerSurvEpi
-%global packver   0.1.1
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power and Sample Size Calculation for Survival Analysis of Epidemiological Studies
 
@@ -17,8 +17,10 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-pracma 
 Requires:         R-stats 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-pracma 
 
 %description
 Functions to calculate power and sample size for testing main effect or
@@ -28,7 +30,8 @@ covariate of the interest and other covariates. Some calculations also
 take into account the competing risks and stratified analysis. This
 package also includes a set of functions to calculate power and sample
 size for testing main effect in the survival analysis of randomized
-clinical trials.
+clinical trials and conditional logistic regression for nested
+case-control study.
 
 %prep
 %setup -q -c -n %{packname}

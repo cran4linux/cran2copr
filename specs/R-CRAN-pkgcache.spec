@@ -1,9 +1,9 @@
 %global packname  pkgcache
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cache 'CRAN'-Like Metadata and R Packages
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-assertthat
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-filelock 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-prettyunits 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rappdirs 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-assertthat
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-filelock 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-prettyunits 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rappdirs 

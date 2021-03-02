@@ -1,43 +1,48 @@
-%global packname  MASSExtra
-%global packver   1.1.1
+%global packname  SignacX
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Some 'MASS' Enhancements
+Summary:          Cell Type Identification and Discovery from Single Cell Gene Expression Data
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Seurat >= 3.2.0
+BuildRequires:    R-CRAN-jsonlite >= 1.5
+BuildRequires:    R-CRAN-igraph >= 1.2.1
+BuildRequires:    R-CRAN-RColorBrewer >= 1.1.2
+BuildRequires:    R-CRAN-neuralnet 
+BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-pbmcapply 
+BuildRequires:    R-CRAN-RJSONIO 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-demoKde 
+Requires:         R-CRAN-Seurat >= 3.2.0
+Requires:         R-CRAN-jsonlite >= 1.5
+Requires:         R-CRAN-igraph >= 1.2.1
+Requires:         R-CRAN-RColorBrewer >= 1.1.2
+Requires:         R-CRAN-neuralnet 
+Requires:         R-CRAN-lme4 
 Requires:         R-methods 
-Requires:         R-graphics 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-pbmcapply 
+Requires:         R-CRAN-RJSONIO 
 Requires:         R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-utils 
-Requires:         R-grDevices 
-Requires:         R-CRAN-demoKde 
 
 %description
-Some enhancements, extensions and additions to the facilities of the
-recommended 'MASS' package that are useful mainly for teaching purposes,
-with more convenient default settings and user interfaces. Key functions
-from 'MASS' are imported and re-exported to avoid masking conflicts.  In
-addition we provide some additional functions mainly used to illustrate
-coding paradigms and techniques, such as Gramm-Schmidt orthogonalisation
-and generalised eigenvalue problems.
+An implementation of neural networks trained with flow-sorted gene
+expression data to classify cellular phenotypes in single cell
+RNA-sequencing data. See Chamberlain M et al. (2021)
+<doi:10.1101/2021.02.01.429207> for more details.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  fftwtools
-%global packver   0.9-10
+%global packver   0.9-11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.10
+Version:          0.9.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wrapper for 'FFTW3' Includes: One-Dimensional, Two-Dimensional, Three-Dimensional, and Multivariate Transforms
 

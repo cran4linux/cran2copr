@@ -1,23 +1,39 @@
-%global packname  mathjaxr
-%global packver   1.4-0
+%global packname  KernelICA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Using 'Mathjax' in Rd Files
+Summary:          Kernel Independent Component Analysis
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-inline 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ManifoldOptim 
+BuildRequires:    R-CRAN-JADE 
+BuildRequires:    R-CRAN-ICtest 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-inline 
+Requires:         R-methods 
+Requires:         R-CRAN-ManifoldOptim 
+Requires:         R-CRAN-JADE 
+Requires:         R-CRAN-ICtest 
 
 %description
-Provides 'MathJax' and macros to enable its use within Rd files for
-rendering equations in the HTML help files.
+The kernel independent component analysis (kernel ICA) method introduced
+by Bach and Jordan (2003) <doi:10.1162/153244303768966085>. The incomplete
+Cholesky decomposition used in kernel ICA is provided as separate
+function.
 
 %prep
 %setup -q -c -n %{packname}

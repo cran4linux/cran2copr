@@ -1,13 +1,13 @@
-%global packname  RPushbullet
-%global packver   0.3.4
+%global packname  ggside
+%global packver   0.0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to the Pushbullet Messaging Service
+Summary:          Side Grammar Graphics
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,20 +15,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-curl 
+Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-grid 
+Requires:         R-CRAN-gtable 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 Requires:         R-utils 
+Requires:         R-CRAN-glue 
 Requires:         R-stats 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-curl 
 
 %description
-An R interface to the Pushbullet messaging service which provides fast and
-efficient notifications (and file transfer) between computers, phones and
-tablets.  An account has to be registered at the site
-<https://www.pushbullet.com> site to obtain a (free) API key.
+The grammar of graphics as shown in 'ggplot2' has provided an expressive
+API for users to build plots. 'ggside' extends 'ggplot2' by allowing users
+to add graphical information about one of the main panel's axis using a
+familiar 'ggplot2' style API with tidy data. This package is particularly
+useful for visualising metadata on a discrete axis, or summary graphics on
+a continuous axis such as a boxplot or a density distribution.
 
 %prep
 %setup -q -c -n %{packname}

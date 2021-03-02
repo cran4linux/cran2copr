@@ -1,23 +1,39 @@
-%global packname  mathjaxr
-%global packver   1.4-0
+%global packname  PolicyPortfolios
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Using 'Mathjax' in Rd Files
+Summary:          Tools for Managing, Measuring and Visualizing Policy Portfolios
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.0
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-ineq 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-CRAN-dplyr >= 1.0
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-ineq 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-reshape2 
 
 %description
-Provides 'MathJax' and macros to enable its use within Rd files for
-rendering equations in the HTML help files.
+Tools for simplifying the creation and management of data structures
+suitable for dealing with policy portfolios, that is, two-dimensional
+spaces of policy instruments and policy targets. The package also allows
+to generate measures of portfolio characteristics and facilitates their
+visualization.
 
 %prep
 %setup -q -c -n %{packname}

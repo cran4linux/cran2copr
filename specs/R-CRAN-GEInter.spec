@@ -1,9 +1,9 @@
 %global packname  GEInter
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Gene-Environment Interaction Analysis
 
@@ -19,24 +19,24 @@ BuildRequires:    R-CRAN-survAUC
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-pcaPP 
-BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Hmisc 
 Requires:         R-CRAN-survAUC 
 Requires:         R-CRAN-MASS 
 Requires:         R-splines 
 Requires:         R-CRAN-pcaPP 
-Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-quantreg 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-CRAN-Hmisc 
 
 %description
 For the risk, progression, and response to treatment of many complex
@@ -45,7 +45,7 @@ interactions play important roles beyond the main genetic and
 environmental effects. In practical interaction analyses, outliers in
 response variables and covariates are not uncommon. In addition,
 missingness in environmental factors is routinely encountered in
-epidemiological studies. The developed package consists of four robust
+epidemiological studies. The developed package consists of five robust
 approaches to address the outliers problems, among which two approaches
 can also accommodate missingness in environmental factors. Both continuous
 and right censored responses are considered. The proposed approaches are

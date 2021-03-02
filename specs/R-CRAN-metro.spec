@@ -1,23 +1,37 @@
-%global packname  mathjaxr
-%global packver   1.4-0
+%global packname  metro
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Using 'Mathjax' in Rd Files
+Summary:          Washington Metropolitan Area Transit Authority API
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble >= 3.0.4
+BuildRequires:    R-CRAN-jsonlite >= 1.7.1
+BuildRequires:    R-CRAN-httr >= 1.4.2
+BuildRequires:    R-CRAN-hms >= 1.0.0
+BuildRequires:    R-CRAN-geodist >= 0.0.6
+Requires:         R-CRAN-tibble >= 3.0.4
+Requires:         R-CRAN-jsonlite >= 1.7.1
+Requires:         R-CRAN-httr >= 1.4.2
+Requires:         R-CRAN-hms >= 1.0.0
+Requires:         R-CRAN-geodist >= 0.0.6
 
 %description
-Provides 'MathJax' and macros to enable its use within Rd files for
-rendering equations in the HTML help files.
+The Washington Metropolitan Area Transit Authority is a government agency
+operating light rail and passenger buses in the Washington D.C. area. With
+a free developer account, access their 'Metro Transparent Data Sets API'
+<https://developer.wmata.com/> to return data frames of transit data for
+easy analysis.
 
 %prep
 %setup -q -c -n %{packname}

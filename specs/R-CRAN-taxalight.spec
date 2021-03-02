@@ -1,34 +1,36 @@
-%global packname  RPushbullet
-%global packver   0.3.4
+%global packname  taxalight
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to the Pushbullet Messaging Service
+Summary:          A Lightweight and Lightning-Fast Taxonomic Naming Interface
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-curl 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-thor 
+BuildRequires:    R-CRAN-contentid 
+Requires:         R-CRAN-thor 
+Requires:         R-CRAN-contentid 
 
 %description
-An R interface to the Pushbullet messaging service which provides fast and
-efficient notifications (and file transfer) between computers, phones and
-tablets.  An account has to be registered at the site
-<https://www.pushbullet.com> site to obtain a (free) API key.
+Creates a local Lightning Memory-Mapped Database ('LMDB') of many commonly
+used taxonomic authorities and provides functions that can quickly query
+this data. Supported taxonomic authorities include the Integrated
+Taxonomic Information System ('ITIS'), National Center for Biotechnology
+Information ('NCBI'), Global Biodiversity Information Facility ('GBIF'),
+Catalogue of Life ('COL'), and Open Tree Taxonomy ('OTT'). Name and
+identifier resolution using 'LMDB' can be hundreds of times faster than
+either relational databases or internet-based queries. Precise data
+provenance information for data derived from naming providers is also
+included.
 
 %prep
 %setup -q -c -n %{packname}

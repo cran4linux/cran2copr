@@ -1,9 +1,9 @@
 %global packname  BIRDS
-%global packver   0.1.2
+%global packver   0.1.27.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.27.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Biodiversity Information Review and Decision Support
 
@@ -21,14 +21,11 @@ BuildRequires:    R-CRAN-geosphere >= 1.5
 BuildRequires:    R-CRAN-rgdal >= 1.5
 BuildRequires:    R-CRAN-sp >= 1.4.4
 BuildRequires:    R-CRAN-stringr >= 1.4
-BuildRequires:    R-CRAN-shiny >= 1.0
 BuildRequires:    R-CRAN-sf >= 0.7
-BuildRequires:    R-CRAN-mapedit >= 0.5
 BuildRequires:    R-CRAN-rgeos >= 0.4
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-esquisse 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nnet 
@@ -37,20 +34,18 @@ BuildRequires:    R-CRAN-shotGroups
 BuildRequires:    R-CRAN-taxize 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-leaflet >= 2.0
 Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-geosphere >= 1.5
 Requires:         R-CRAN-rgdal >= 1.5
 Requires:         R-CRAN-sp >= 1.4.4
 Requires:         R-CRAN-stringr >= 1.4
-Requires:         R-CRAN-shiny >= 1.0
 Requires:         R-CRAN-sf >= 0.7
-Requires:         R-CRAN-mapedit >= 0.5
 Requires:         R-CRAN-rgeos >= 0.4
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dbscan 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-esquisse 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-nnet 
@@ -59,6 +54,7 @@ Requires:         R-CRAN-shotGroups
 Requires:         R-CRAN-taxize 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
 
 %description
 It helps making the evaluation and preparation of biodiversity data easy,
@@ -80,12 +76,9 @@ the ways data has been generated - containing opportunistically collected
 presence-only data together with and data from systematic monitoring
 programs. The set of tools provided is aimed at understanding the process
 that generated the data (i.e. observing, recording and reporting species
-into databases). There is a non-vital function on this package
-(makeDggrid()) that depends the package 'dggridR' that is no longer on
-CRAN. You can find it here <https://github.com/r-barnes/dggridR>.
-References: Ruete (2015) <doi:10.3897/BDJ.3.e5361>; Szabo, Vesk, Baxter &
-Possingham (2010) <doi:10.1890/09-0877.1>; Telfer, Preston 6 Rothery
-(2002) <doi:10.1016/S0006-3207(02)00050-2>.
+into databases). References: Ruete (2015) <doi:10.3897/BDJ.3.e5361>;
+Szabo, Vesk, Baxter & Possingham (2010) <doi:10.1890/09-0877.1>; Telfer,
+Preston 6 Rothery (2002) <doi:10.1016/S0006-3207(02)00050-2>.
 
 %prep
 %setup -q -c -n %{packname}

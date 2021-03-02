@@ -1,44 +1,53 @@
-%global packname  vimp
-%global packver   2.1.9
+%global packname  data.validator
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.9
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Perform Inference on Algorithm-Agnostic Variable Importance
+Summary:          Automatic Data Validation and Reporting
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SuperLearner 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-assertr >= 2.8
+BuildRequires:    R-CRAN-shiny.semantic >= 0.3.3
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ROCR 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-SuperLearner 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-assertr >= 2.8
+Requires:         R-CRAN-shiny.semantic >= 0.3.3
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ROCR 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-tibble 
 
 %description
-Calculate point estimates of and valid confidence intervals for
-nonparametric, algorithm-agnostic variable importance measures in high and
-low dimensions, using flexible estimators of the underlying regression
-functions. For more information about the methods, please see Williamson
-et al. (Biometrics, 2020), Williamson et al. (arXiv, 2020+)
-<arXiv:2004.03683>, and Williamson and Feng (ICML, 2020).
+Validate dataset by columns and rows using convenient predicates inspired
+by 'assertr' package. Generate good looking HTML report or print console
+output to display in logs of your data processing pipeline.
 
 %prep
 %setup -q -c -n %{packname}
