@@ -1,11 +1,11 @@
 %global packname  tiff
-%global packver   0.1-6
+%global packver   0.1-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read and write TIFF images
+Summary:          Read and Write TIFF Images
 
 License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,9 +18,9 @@ BuildRequires:    R-devel >= 2.9.0
 Requires:         R-core >= 2.9.0
 
 %description
-This package provides an easy and simple way to read, write and display
-bitmap images stored in the TIFF format. It can read and write both files
-and in-memory raw vectors.
+Functions to read, write and display bitmap images stored in the TIFF
+format. It can read and write both files and in-memory raw vectors,
+including native image representation.
 
 %prep
 %setup -q -c -n %{packname}

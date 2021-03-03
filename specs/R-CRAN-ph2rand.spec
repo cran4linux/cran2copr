@@ -1,39 +1,41 @@
-%global packname  rpact
-%global packver   3.0.4
+%global packname  ph2rand
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Confirmatory Adaptive Clinical Trial Design and Analysis
+Summary:          Randomized Phase II Oncology Trials with Bernoulli Outcomes
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-methods 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-tools 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Design and analysis of confirmatory adaptive clinical trials with
-continuous, binary, and survival endpoints according to the methods
-described in the monograph by Wassmer and Brannath (2016)
-<doi:10.1007/978-3-319-32562-0>. This includes classical group sequential
-as well as multi-stage adaptive hypotheses tests that are based on the
-combination testing principle.
+Provides functions to assist with the design of randomized comparative
+phase II oncology trials that assume their primary outcome variable is
+Bernoulli distributed. Specifically, support is provided to (a) perform a
+sample size calculation when using one of several published designs, (b)
+evaluate the operating characteristics of a given design (both
+analytically and via simulation), and (c) produce informative plots.
 
 %prep
 %setup -q -c -n %{packname}

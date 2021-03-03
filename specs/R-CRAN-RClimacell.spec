@@ -1,9 +1,9 @@
 %global packname  RClimacell
-%global packver   0.1.0
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Wrapper for the 'Climacell' API
 
@@ -21,16 +21,20 @@ BuildRequires:    R-CRAN-lubridate >= 1.7.9.2
 BuildRequires:    R-CRAN-httr >= 1.4.2
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-parsedate >= 1.2.0
+BuildRequires:    R-CRAN-tidyr >= 1.1.2
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.10
+BuildRequires:    R-CRAN-assertthat >= 0.2.1
 Requires:         R-CRAN-tibble >= 3.0.6
 Requires:         R-CRAN-magrittr >= 2.0.1
 Requires:         R-CRAN-lubridate >= 1.7.9.2
 Requires:         R-CRAN-httr >= 1.4.2
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-parsedate >= 1.2.0
+Requires:         R-CRAN-tidyr >= 1.1.2
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.10
+Requires:         R-CRAN-assertthat >= 0.2.1
 
 %description
 'Climacell' is a weather platform that provides hyper-local forecasts and

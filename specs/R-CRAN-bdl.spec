@@ -1,11 +1,11 @@
-%global packname  sen2r
-%global packver   1.4.1
+%global packname  bdl
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Find, Download and Process Sentinel-2 Data
+Summary:          Interface and Tools for 'BDL' API
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,43 +15,43 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf >= 0.9.2
-BuildRequires:    R-CRAN-stars >= 0.4.1
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-geojsonio 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-RcppTOML 
-Requires:         R-CRAN-sf >= 0.9.2
-Requires:         R-CRAN-stars >= 0.4.1
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-randomcoloR 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-tmaptools 
+BuildRequires:    R-CRAN-tmap 
 Requires:         R-methods 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-XML 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-geojsonio 
-Requires:         R-CRAN-foreach 
-Requires:         R-parallel 
-Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-RcppTOML 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-randomcoloR 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-tmaptools 
+Requires:         R-CRAN-tmap 
 
 %description
-Functions to download Sentinel-2 optical images and perform preliminary
-processing operations. 'sen2r' provides the instruments required to easily
-perform (and eventually automate) the steps necessary to build a complete
-Sentinel-2 processing chain. A Graphical User Interface to facilitate data
-processing is also provided. For additional documentation refer to the
-following article: Ranghetti et al. (2020)
-<doi:10.1016/j.cageo.2020.104473>.
+Interface to Local Data Bank ('Bank Danych Lokalnych' - 'bdl') API
+<https://api.stat.gov.pl/Home/BdlApi?lang=en> with set of useful tools
+like quick plotting and map generating using data from bank.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,40 @@
-%global packname  rpact
-%global packver   3.0.4
+%global packname  divDyn
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.4
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Confirmatory Adaptive Clinical Trial Design and Analysis
+Summary:          Diversity Dynamics using Fossil Sampling Data
 
-License:          LGPL-3
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-methods 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
-Requires:         R-utils 
 Requires:         R-graphics 
-Requires:         R-tools 
+Requires:         R-grDevices 
 
 %description
-Design and analysis of confirmatory adaptive clinical trials with
-continuous, binary, and survival endpoints according to the methods
-described in the monograph by Wassmer and Brannath (2016)
-<doi:10.1007/978-3-319-32562-0>. This includes classical group sequential
-as well as multi-stage adaptive hypotheses tests that are based on the
-combination testing principle.
+Functions to describe sampling and diversity dynamics of fossil occurrence
+datasets (e.g. from the Paleobiology Database). The package includes
+methods to calculate range- and occurrence-based metrics of taxonomic
+richness, extinction and origination rates, along with traditional
+sampling measures. A powerful subsampling tool is also included that
+implements frequently used sampling standardization methods in a multiple
+bin-framework. The plotting of time series and the occurrence data can be
+simplified by the functions incorporated in the package, as well other
+calculations, such as environmental affinities and extinction selectivity
+testing. Details can be found in: Kocsis, A.T.; Reddin, C.J.; Alroy, J.
+and Kiessling, W. (2019) <doi:10.1101/423780>.
 
 %prep
 %setup -q -c -n %{packname}

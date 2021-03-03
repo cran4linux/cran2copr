@@ -1,39 +1,33 @@
-%global packname  rpact
-%global packver   3.0.4
+%global packname  pipenostics
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.4
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Confirmatory Adaptive Clinical Trial Design and Analysis
+Summary:          Diagnostics, Reliability and Predictive Maintenance of Pipeline Systems
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-tools 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+Requires:         R-CRAN-checkmate 
 
 %description
-Design and analysis of confirmatory adaptive clinical trials with
-continuous, binary, and survival endpoints according to the methods
-described in the monograph by Wassmer and Brannath (2016)
-<doi:10.1007/978-3-319-32562-0>. This includes classical group sequential
-as well as multi-stage adaptive hypotheses tests that are based on the
-combination testing principle.
+Functions representing some useful empirical and data-driven models of
+heat losses, corrosion diagnostics, reliability and predictive maintenance
+of pipeline systems. The package is an option for digital transformation
+of technical engineering departments of heat generating and heat
+transferring companies. Methods are described in Timashev et al. (2016)
+<doi:10.1007/978-3-319-25307-7>, A.C.Reddy (2017)
+<doi:10.1016/j.matpr.2017.07.081>, Minenergo (2008)
+<https://docs.cntd.ru/document/902148459>, Minenergo (2005)
+<http://www.complexdoc.ru/ntdtext/547103>.
 
 %prep
 %setup -q -c -n %{packname}

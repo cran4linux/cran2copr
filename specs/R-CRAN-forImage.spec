@@ -1,30 +1,38 @@
-%global packname  MatrixModels
-%global packver   0.5-0
+%global packname  forImage
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modelling with Sparse and Dense Matrices
+Summary:          Foraminiferal Image Analysis and Test Measurement
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix >= 1.1.5
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix >= 1.1.5
-Requires:         R-stats 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-reticulate 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-reticulate 
 
 %description
-Modelling with sparse and dense 'Matrix' matrices, using modular
-prediction and response module classes.
+The goal of this collection of functions is to provide an easy to use tool
+for the measurement of foraminifera and other unicellulars organisms size.
+With functions developed to guide foraminiferal test biovolume
+calculations and cell biomass estimations. The volume function includes
+several microalgae models geometric adaptations based on Hillebrand et al.
+(1999) <doi:10.1046/j.1529-8817.1999.3520403.x>, Sun and Liu (2003)
+<doi:10.1093/plankt/fbg096> and Vadrucci, Cabrini and Basset (2007)
+<doi:10.1285/i1825229Xv1n2p83>.
 
 %prep
 %setup -q -c -n %{packname}

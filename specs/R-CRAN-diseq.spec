@@ -1,9 +1,9 @@
 %global packname  diseq
-%global packver   0.1.3
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation Methods for Markets in Equilibrium and Disequilibrium
 
@@ -22,7 +22,9 @@ BuildRequires:    R-CRAN-bbmle >= 1.0.20
 BuildRequires:    R-CRAN-tidyr >= 1.0.2
 BuildRequires:    R-CRAN-dplyr >= 0.7.6
 BuildRequires:    R-CRAN-rlang >= 0.2.1
+BuildRequires:    R-grid 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppGSL 
 BuildRequires:    R-CRAN-RcppParallel 
@@ -34,24 +36,28 @@ Requires:         R-CRAN-bbmle >= 1.0.20
 Requires:         R-CRAN-tidyr >= 1.0.2
 Requires:         R-CRAN-dplyr >= 0.7.6
 Requires:         R-CRAN-rlang >= 0.2.1
+Requires:         R-grid 
 Requires:         R-methods 
+Requires:         R-CRAN-png 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RcppGSL 
 Requires:         R-CRAN-RcppParallel 
 
 %description
 Provides estimation methods for markets in equilibrium and disequilibrium.
-Specifically, it supports the estimation of an equilibrium and four
-disequilibrium models with both correlated and independent shocks. It also
-provides post-estimation analysis tools, such as aggregation and marginal
-effects calculations. The estimation methods are based on full information
-maximum likelihood techniques given in Maddala and Nelson (1974)
+Supports the estimation of an equilibrium and four disequilibrium models
+with both correlated and independent shocks. Also provides post-estimation
+analysis tools, such as aggregation, marginal effect, and shortage
+calculations. The estimation methods are based on full information maximum
+likelihood techniques given in Maddala and Nelson (1974)
 <doi:10.2307/1914215>. They are implemented using the analytic derivative
 expressions calculated in Karapanagiotis (2020)
-<doi:10.2139/ssrn.3525622>. The equilibrium estimation constitutes a
-special case of a system of simultaneous equations. The disequilibrium
-models, instead, replace the market clearing condition with a short side
-rule and allow for different specifications of price dynamics.
+<doi:10.2139/ssrn.3525622>. Standard errors can be estimated by adjusting
+for heteroscedasticity or clustering. The equilibrium estimation
+constitutes a case of a system of linear, simultaneous equations. The
+disequilibrium models, instead, replace the market-clearing condition with
+a non-linear, short-side rule and allow for different specifications of
+price dynamics.
 
 %prep
 %setup -q -c -n %{packname}

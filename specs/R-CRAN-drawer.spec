@@ -1,44 +1,44 @@
-%global packname  UncertainInterval
-%global packver   0.7.0
+%global packname  drawer
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Uncertain Interval Methods for Three-Way Cut-Point Determination in Test Results
+Summary:          An Interactive HTML Image Editing Tool
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-bsplus 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-car 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-bsplus 
 Requires:         R-utils 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-nloptr 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-psych 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-stringr 
 
 %description
-Functions for the determination of an uncertain interval, that is, a range
-of test scores that is inconclusive and does not allow a classification
-other than 'Uncertain' (Reference: J.A. Landsheer (2016)
-<doi:10.1371/journal.pone.0166007>).
+An interactive image editing tool that can be added as part of the HTML in
+Shiny, R markdown or any type of HTML document. Often times, plots, photos
+are embedded in the web application/file. 'drawer' can take screenshots of
+these image-like elements, or any part of the HTML document and send to an
+image editing space called 'canvas' to allow users immediately edit the
+screenshot(s) within the same document. Users can quickly combine, compare
+different screenshots, upload their own images and maybe make a scientific
+figure.
 
 %prep
 %setup -q -c -n %{packname}

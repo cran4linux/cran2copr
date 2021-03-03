@@ -1,9 +1,9 @@
 %global packname  mixture
-%global packver   2.0.2
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mixture Models for Clustering and Classification
 
@@ -24,9 +24,9 @@ Requires:         R-CRAN-lattice >= 0.20
 
 %description
 An implementation of 14 parsimonious mixture models for model-based
-clustering or model-based classification. Gaussian, generalized
-hyperbolic, variance-gamma or skew-t mixtures are available. All
-approaches work with missing data. Celeux and Govaert (1995)
+clustering or model-based classification. Gaussian, Student's t,
+generalized hyperbolic, variance-gamma or skew-t mixtures are available.
+All approaches work with missing data. Celeux and Govaert (1995)
 <doi:10.1016/0031-3203(94)00125-6>, Browne and McNicholas (2014)
 <doi:10.1007/s11634-013-0139-1>, Browne and McNicholas (2015)
 <doi:10.1002/cjs.11246>.

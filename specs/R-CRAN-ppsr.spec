@@ -1,13 +1,13 @@
-%global packname  jfa
-%global packver   0.5.1
+%global packname  ppsr
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian and Classical Audit Sampling
+Summary:          Predictive Power Score
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,14 +15,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rpart >= 4.1.15
+BuildRequires:    R-parallel >= 4.0.3
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.3
+BuildRequires:    R-CRAN-withr >= 2.4.1
+BuildRequires:    R-CRAN-gridExtra >= 2.3
+BuildRequires:    R-CRAN-parsnip >= 0.1.5
+Requires:         R-CRAN-rpart >= 4.1.15
+Requires:         R-parallel >= 4.0.3
+Requires:         R-CRAN-ggplot2 >= 3.3.3
+Requires:         R-CRAN-withr >= 2.4.1
+Requires:         R-CRAN-gridExtra >= 2.3
+Requires:         R-CRAN-parsnip >= 0.1.5
 
 %description
-Implements the audit sampling workflow as discussed in Derks et al. (2019)
-<doi:10.31234/osf.io/9f6ub>. The package makes it easy for an auditor to
-plan an audit sample, sample from the population, and evaluating that
-sample using various confidence bounds according to the International
-Standards on Auditing. Furthermore, the package implements Bayesian
-equivalents of these methods.
+The PPS is an asymmetric, data-type-agnostic score that can detect linear
+or non-linear relationships between two columns. The score ranges from 0
+(no predictive power) to 1 (perfect predictive power). It can be useful
+for data exploration purposes, in the same way correlation analysis is.
+For more information on PPS, see Wetschoreck (2020)
+<https://towardsdatascience.com/rip-correlation-introducing-the-predictive-power-score-3d90808b9598>
+or github <https://github.com/paulvanderlaken/ppsr>.
 
 %prep
 %setup -q -c -n %{packname}

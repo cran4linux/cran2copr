@@ -1,46 +1,47 @@
-%global packname  DatabaseConnector
-%global packver   4.0.0
+%global packname  troopdata
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Connecting to Various Database Platforms
+Summary:          Tools for Analyzing Cross-National Military Deployment and Basing Data
 
-License:          Apache License
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SqlRender >= 1.6.3
-BuildRequires:    R-CRAN-DBI >= 1.0.0
-BuildRequires:    R-CRAN-rJava 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-countrycode 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-readstata13 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-urltools 
-BuildRequires:    R-CRAN-bit64 
-Requires:         R-CRAN-SqlRender >= 1.6.3
-Requires:         R-CRAN-DBI >= 1.0.0
-Requires:         R-CRAN-rJava 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-haven 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-countrycode 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-readstata13 
 Requires:         R-CRAN-rlang 
-Requires:         R-utils 
-Requires:         R-CRAN-urltools 
-Requires:         R-CRAN-bit64 
+Requires:         R-CRAN-haven 
 
 %description
-An R 'DataBase Interface' ('DBI') compatible interface to various database
-platforms ('PostgreSQL', 'Oracle', 'Microsoft SQL Server', 'Amazon
-Redshift', 'Microsoft Parallel Database Warehouse', 'IBM Netezza', 'Apache
-Impala', 'Google BigQuery', and 'SQLite'). Also includes support for
-fetching data as 'Andromeda' objects. Uses 'Java Database Connectivity'
-('JDBC') to connect to databases (except SQLite).
+These functions generate data frames on troop deployments and military
+basing using U.S. Department of Defense data on overseas military
+deployments initially compiled by Kane (2012) and Vine (2015) and
+subsequently updated by Allen, Flynn, Martinez Machain, and Stravers
+(2020). This package provides functions for pulling country-year troop
+deployment and basing data. Subsequent versions will hopefully include
+cross-national data on deploying countries.
 
 %prep
 %setup -q -c -n %{packname}

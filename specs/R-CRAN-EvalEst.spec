@@ -1,39 +1,39 @@
-%global packname  rpact
-%global packver   3.0.4
+%global packname  EvalEst
+%global packver   2021.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.4
+Version:          2021.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Confirmatory Adaptive Clinical Trial Design and Analysis
+Summary:          Dynamic Systems Estimation - Extensions
 
-License:          LGPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 2.5.0
+Requires:         R-core >= 2.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tframe >= 2007.5.3
+BuildRequires:    R-CRAN-dse >= 2007.10.1
+BuildRequires:    R-CRAN-tfplot 
+BuildRequires:    R-CRAN-setRNG 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-methods 
+Requires:         R-CRAN-tframe >= 2007.5.3
+Requires:         R-CRAN-dse >= 2007.10.1
+Requires:         R-CRAN-tfplot 
+Requires:         R-CRAN-setRNG 
 Requires:         R-stats 
-Requires:         R-utils 
 Requires:         R-graphics 
-Requires:         R-tools 
 
 %description
-Design and analysis of confirmatory adaptive clinical trials with
-continuous, binary, and survival endpoints according to the methods
-described in the monograph by Wassmer and Brannath (2016)
-<doi:10.1007/978-3-319-32562-0>. This includes classical group sequential
-as well as multi-stage adaptive hypotheses tests that are based on the
-combination testing principle.
+Provides functions for evaluating (time series) model estimation methods.
+These facilitate Monte Carlo experiments of repeated simulations and
+estimations. Also provides methods for looking at the distribution of the
+results from these experiments, including model roots (which are an
+equivalence class invariant).
 
 %prep
 %setup -q -c -n %{packname}

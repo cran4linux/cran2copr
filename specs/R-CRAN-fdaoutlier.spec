@@ -1,9 +1,9 @@
 %global packname  fdaoutlier
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Outlier Detection Tools for Functional Data Analysis
 
@@ -19,8 +19,14 @@ Requires:         R-CRAN-MASS
 
 %description
 A collection of functions for outlier detection in functional data
-analysis. Methods implemented include directional outlyingness, MS-plot,
-total variation depth, and sequential transformations among others.
+analysis. Methods implemented include directional outlyingness by Dai and
+Genton (2019) <doi:10.1016/j.csda.2018.03.017>, MS-plot by Dai and Genton
+(2018) <doi:10.1080/10618600.2018.1473781>, total variation depth and
+modified shape similarity index by Huang and Sun (2019)
+<doi:10.1080/00401706.2019.1574241>, and sequential transformations by Dai
+et al. (2020) <doi:10.1016/j.csda.2020.106960 among others. Additional
+outlier detection tools and depths for functional data like functional
+boxplot, (modified) band depth etc., are also available.
 
 %prep
 %setup -q -c -n %{packname}

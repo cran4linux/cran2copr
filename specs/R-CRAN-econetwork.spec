@@ -1,9 +1,9 @@
 %global packname  econetwork
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzing Ecological Networks
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-Matrix.utils
 BuildRequires:    R-CRAN-blockmodels 
 BuildRequires:    R-CRAN-bipartite 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-gsl 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-RcppGSL 
 Requires:         R-stats 
@@ -31,7 +30,6 @@ Requires:         R-CRAN-Matrix.utils
 Requires:         R-CRAN-blockmodels 
 Requires:         R-CRAN-bipartite 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-gsl 
 
 %description
 A collection of advanced tools, methods and models specifically designed
