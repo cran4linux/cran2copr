@@ -1,10 +1,10 @@
 %global packname  rstpm2
-%global packver   1.5.1
+%global packver   1.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
-Release:          3%{?dist}%{?buildtag}
+Version:          1.5.2
+Release:          1%{?dist}%{?buildtag}
 Summary:          Smooth Survival Models, Including Generalized Survival Models
 
 License:          GPL-2 | GPL-3
@@ -17,24 +17,25 @@ Requires:         R-core >= 3.0.2
 BuildRequires:    R-CRAN-bbmle >= 1.0.20
 BuildRequires:    R-CRAN-Rcpp >= 0.10.2
 BuildRequires:    R-methods 
-BuildRequires:    R-survival 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-splines 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-mgcv 
+BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-fastGHQuad 
 BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-utils 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-bbmle >= 1.0.20
 Requires:         R-CRAN-Rcpp >= 0.10.2
 Requires:         R-methods 
-Requires:         R-survival 
+Requires:         R-CRAN-survival 
 Requires:         R-splines 
 Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-mgcv 
+Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-fastGHQuad 
 Requires:         R-CRAN-deSolve 
 Requires:         R-utils 
@@ -53,18 +54,25 @@ any smooth parametric smoothers for time. We have also extended the model
 to include any smooth penalized smoothers from the 'mgcv' package, using
 penalized likelihood. These models include left truncation, right
 censoring, interval censoring, gamma frailties and normal random effects
-<doi:10.1002/sim.7451>. For the smooth AFTs, S(t|x) = S_0(t*eta(t,x)),
-where the baseline survival function S_0(t)=exp(-exp(eta_0(t))) is
-modelled for natural splines for eta_0, and the time-dependent cumulative
-acceleration factor eta(t,x)=int_0^t exp(eta_1(u,x)) du for log
-acceleration factor eta_1(u,x). The Markov multi-state models allow for a
-range of models with smooth transitions to predict transition
-probabilities, length of stay, utilities and costs, with differences,
-ratios and standardisation.
+<doi:10.1002/sim.7451>, and copulas. For the smooth AFTs, S(t|x) =
+S_0(t*eta(t,x)), where the baseline survival function
+S_0(t)=exp(-exp(eta_0(t))) is modelled for natural splines for eta_0, and
+the time-dependent cumulative acceleration factor eta(t,x)=int_0^t
+exp(eta_1(u,x)) du for log acceleration factor eta_1(u,x). The Markov
+multi-state models allow for a range of models with smooth transitions to
+predict transition probabilities, length of stay, utilities and costs,
+with differences, ratios and standardisation.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -72,43 +80,10 @@ ratios and standardisation.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/aft.aux
-%doc %{rlibdir}/%{packname}/aft.pdf
-%doc %{rlibdir}/%{packname}/auto
-%doc %{rlibdir}/%{packname}/competing_risks.R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/fig1-README.md.jpg
-%doc %{rlibdir}/%{packname}/fig2-README.md.jpg
-%doc %{rlibdir}/%{packname}/math.aux
-%doc %{rlibdir}/%{packname}/math.fdb_latexmk
-%doc %{rlibdir}/%{packname}/math.fls
-%doc %{rlibdir}/%{packname}/math.html
-%doc %{rlibdir}/%{packname}/math.input
-%doc %{rlibdir}/%{packname}/math.org
-%doc %{rlibdir}/%{packname}/math.out
-%doc %{rlibdir}/%{packname}/math.toc
-%doc %{rlibdir}/%{packname}/model.bug
-%doc %{rlibdir}/%{packname}/pstpm2.out
-%doc %{rlibdir}/%{packname}/Rcpp-tests.R
-%doc %{rlibdir}/%{packname}/test.do
-%doc %{rlibdir}/%{packname}/Thumbs.db
-%doc %{rlibdir}/%{packname}/tutorial
-%doc %{rlibdir}/%{packname}/tvc-cox.R
-%doc %{rlibdir}/%{packname}/unitTests
-%doc %{rlibdir}/%{packname}/working_code.R
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

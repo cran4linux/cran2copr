@@ -1,28 +1,32 @@
-%global packname  bcr
-%global packver   0.1.1
+%global packname  LST
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Moroccan Financial Data
+Summary:          Land Surface Temperature Retrieval
 
-License:          MIT + file LICENSE
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-raster 
+Requires:         R-CRAN-raster 
 
 %description
-Get Moroccan Stock Prices (historical data and intraday changes), Market
-and Sector Indices and bonds. See <https://www.leboursier.ma/>.
+Calculates Land Surface Temperature from Landsat band 10 and 11. Land
+surface temperature retrieval from LANDSAT TM 5. Sobrino JA, Jiménez-Muñoz
+JC, Paolini L (2004). <doi:10.1016/j.rse.2004.02.003>. Mapping land
+surface emissivity from NDVI: Application to European, African, and South
+American areas. Valor E (1996). <doi:10.1016/0034-4257(96)00039-9>. On the
+relationship between thermal emissivity and the normalized difference
+vegetation index for natural surfaces. Van de Griend AA, Owe M (1993).
+<doi:10.1080/01431169308904400>.
 
 %prep
 %setup -q -c -n %{packname}

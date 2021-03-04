@@ -1,40 +1,42 @@
-%global packname  gargle
-%global packver   1.0.0
+%global packname  microservices
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Working with Google APIs
+Summary:          Breakdown a Monolithic Application to a Suite of Services
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.4.0
-BuildRequires:    R-CRAN-fs >= 1.3.1
-BuildRequires:    R-CRAN-glue >= 1.3.0
-BuildRequires:    R-CRAN-rlang >= 0.4.2
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-config 
+BuildRequires:    R-CRAN-desc 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-httr >= 1.4.0
-Requires:         R-CRAN-fs >= 1.3.1
-Requires:         R-CRAN-glue >= 1.3.0
-Requires:         R-CRAN-rlang >= 0.4.2
-Requires:         R-CRAN-jsonlite 
-Requires:         R-stats 
+Requires:         R-CRAN-config 
+Requires:         R-CRAN-desc 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-withr 
 
 %description
-Provides utilities for working with Google APIs
-<https://developers.google.com/apis-explorer>.  This includes functions
-and classes for handling common credential types and for preparing,
-executing, and processing HTTP requests.
+'Microservice' architectural style is an approach to developing a single
+application as a suite of small services, each running in its own process
+and communicating with lightweight mechanisms, often an 'HTTP' resource
+'API'. These services are built around business capabilities and
+independently deployable by fully automated deployment machinery. There is
+a bare minimum of centralized management of these services, which may be
+written in different programming languages and use different data storage
+technologies.
 
 %prep
 %setup -q -c -n %{packname}

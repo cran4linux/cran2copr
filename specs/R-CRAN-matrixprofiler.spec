@@ -1,27 +1,33 @@
-%global packname  isoband
-%global packver   0.2.4
+%global packname  matrixprofiler
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate Isolines and Isobands from Regularly Spaced Elevation Grids
+Summary:          Matrix Profile for R
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-grid 
-BuildRequires:    R-utils 
-Requires:         R-grid 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildRequires:    R-CRAN-RcppParallel >= 4.4.4
+BuildRequires:    R-CRAN-checkmate >= 2.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-CRAN-RcppThread >= 0.5.0
+BuildRequires:    R-CRAN-RcppProgress >= 0.4.0
+Requires:         R-CRAN-RcppParallel >= 4.4.4
+Requires:         R-CRAN-checkmate >= 2.0.0
+Requires:         R-CRAN-Rcpp >= 1.0.3
 
 %description
-A fast C++ implementation to generate contour lines (isolines) and contour
-polygons (isobands) from regularly spaced grids containing elevation data.
+This is the core functions needed by the 'tsmp' package.  The low level
+and carefully checked mathematical functions are here. These are
+implementations of the Matrix Profile concept that was created by CS-UCR
+<http://www.cs.ucr.edu/~eamonn/MatrixProfile.html>.
 
 %prep
 %setup -q -c -n %{packname}

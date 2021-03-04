@@ -1,9 +1,9 @@
 %global packname  packDAMipd
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Decision Analysis Modelling Package with Parameters Estimation Ability from Individual Patient Level Data
 
@@ -46,6 +46,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-hash 
+BuildRequires:    R-CRAN-haven 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-data.table 
@@ -77,6 +78,7 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-hash 
+Requires:         R-CRAN-haven 
 
 %description
 A collection of functions to construct Markov model for model-based

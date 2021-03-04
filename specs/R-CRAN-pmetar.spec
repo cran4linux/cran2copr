@@ -1,9 +1,9 @@
 %global packname  pmetar
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Processing METAR Weather Reports
 
@@ -18,6 +18,7 @@ BuildArch:        noarch
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-RCurl 
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-stringr
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-RCurl 
