@@ -1,35 +1,31 @@
-%global packname  kofdata
-%global packver   0.1.4
+%global packname  prompt
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Get Data from the 'KOF Datenservice' API
+Summary:          Dynamic 'R' Prompt
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 1.1
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-jsonlite >= 1.1
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-zoo 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-cli 
 
 %description
-Read Swiss time series data from the 'KOF Datenservice' API,
-<https://datenservice.kof.ethz.ch>. The API provides macro economic time
-series data mostly about Switzerland. The package itself is a set of
-wrappers around the 'KOF Datenservice' API. The 'kofdata' package is able
-to consume public information as well as data that requires an API token.
+Set the 'R' prompt dynamically, from a function. The package contains some
+examples to include various useful dynamic information in the prompt: the
+status of the last command (success or failure); the amount of memory
+allocated by the current 'R' process; the name of the R package(s) loaded
+by 'pkgload' and/or 'devtools'; various 'git' information: the name of the
+active branch, whether it is dirty, if it needs pushes pulls. You can also
+create your own prompt if you don't like the predefined examples.
 
 %prep
 %setup -q -c -n %{packname}

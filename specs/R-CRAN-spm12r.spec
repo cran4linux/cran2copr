@@ -1,9 +1,9 @@
 %global packname  spm12r
-%global packver   2.8.2
+%global packver   2.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.2
+Version:          2.8.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wrapper Functions for 'SPM' (Statistical Parametric Mapping) Version 12 from the 'Wellcome' Trust Centre for 'Neuroimaging'
 

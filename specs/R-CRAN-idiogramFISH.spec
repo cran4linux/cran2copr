@@ -1,9 +1,9 @@
 %global packname  idiogramFISH
-%global packver   2.0.0
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Shiny App. Idiograms with Marks and Karyotype Indices
 
@@ -16,9 +16,11 @@ BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 
@@ -26,16 +28,16 @@ Requires:         R-CRAN-tidyr
 Plot idiograms of karyotypes, plasmids, circular chr. having a set of
 data.frames for chromosome data and optionally mark data. Two styles of
 chromosomes can be used: without or with visible chromatids (when not
-circular). Supports micrometers, cM and Mb or any unit. Two styles of
-centromeres are available: triangular and rounded; and six styles of
-marks: square (squareLeft), dots, cM (cMLeft), cenStyle, upArrow,
-downArrow; its legend (label) can be drawn inline or to the right of
-karyotypes. Idiograms can also be plotted in concentric circles. It is
-possible to calculate chromosome indices by Levan et al. (1964)
-<doi:10.1111/j.1601-5223.1964.tb01953.x>, karyotype indices of Watanabe et
-al. (1999) <doi:10.1007/PL00013869> and Romero-Zarco (1986)
-<doi:10.2307/1221906> and classify chromosomes by morphology Guerra (1986)
-and Levan et al. (1964).
+circular). Supports micrometers, cM and Mb or any unit. Three styles of
+centromeres are available: triangular, rounded and inProtein; and six
+styles of marks are available: square (squareLeft), dots, cM (cMLeft),
+cenStyle, upArrow (downArrow), exProtein (inProtein); its legend (label)
+can be drawn inline or to the right of karyotypes. Idiograms can also be
+plotted in concentric circles. It is possible to calculate chromosome
+indices by Levan et al. (1964) <doi:10.1111/j.1601-5223.1964.tb01953.x>,
+karyotype indices of Watanabe et al. (1999) <doi:10.1007/PL00013869> and
+Romero-Zarco (1986) <doi:10.2307/1221906> and classify chromosomes by
+morphology Guerra (1986) and Levan et al. (1964).
 
 %prep
 %setup -q -c -n %{packname}

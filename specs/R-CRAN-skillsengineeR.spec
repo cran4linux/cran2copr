@@ -1,28 +1,32 @@
-%global packname  listdtr
-%global packver   1.1
+%global packname  skillsengineeR
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          List-Based Rules for Dynamic Treatment Regimes
+Summary:          A Light-Weight Wrapper for the 'SkillsEngine' API
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-usethis 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-usethis 
 
 %description
-Construction of list-based rules, i.e. a list of if-then clauses, to
-estimate the optimal dynamic treatment regime. Details can be found at
-Zhang et al (2018) <doi:10.1080/01621459.2017.1345743>.
+Light-weight wrapper surrounding the 'SkillsEngine' Analytics API
+<https://skillsengine.com/apis> and corresponding endpoints. It also
+provides functionality for convenient setting and retrieving of
+authorization keys.
 
 %prep
 %setup -q -c -n %{packname}

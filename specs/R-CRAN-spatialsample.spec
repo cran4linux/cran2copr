@@ -1,40 +1,43 @@
-%global packname  butcher
-%global packver   0.1.3
+%global packname  spatialsample
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model Butcher
+Summary:          Spatial Resampling Infrastructure
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 2.1.1
-BuildRequires:    R-CRAN-usethis >= 1.5.0
-BuildRequires:    R-CRAN-lobstr >= 1.1.1
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-vctrs >= 0.3.6
+BuildRequires:    R-CRAN-rsample >= 0.0.9
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-tibble >= 2.1.1
-Requires:         R-CRAN-usethis >= 1.5.0
-Requires:         R-CRAN-lobstr >= 1.1.1
-Requires:         R-CRAN-fs 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-vctrs >= 0.3.6
+Requires:         R-CRAN-rsample >= 0.0.9
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-utils 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Provides a set of five S3 generics to axe components of fitted model
-objects and help reduce the size of model objects saved to disk.
+Functions and classes for spatial resampling to use with the 'rsample'
+package, such as spatial cross-validation (Brenning, 2012)
+<doi:10.1109/IGARSS.2012.6352393>. The scope of 'rsample' and
+'spatialsample' is to provide the basic building blocks for creating and
+analyzing resamples of a spatial data set, but neither package includes
+functions for modeling or computing statistics. The resampled spatial data
+sets created by 'spatialsample' do not contain much overhead in memory.
 
 %prep
 %setup -q -c -n %{packname}

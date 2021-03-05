@@ -1,9 +1,9 @@
 %global packname  campfin
-%global packver   1.0.4
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wrangle Campaign Finance Data
 
@@ -29,7 +29,6 @@ BuildRequires:    R-CRAN-stringdist >= 0.9.5.2
 BuildRequires:    R-CRAN-dplyr >= 0.8.3
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-purrr >= 0.3.2
-BuildRequires:    R-CRAN-here >= 0.1
 Requires:         R-CRAN-ggplot2 >= 3.2.1
 Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-lubridate >= 1.7.4
@@ -44,7 +43,6 @@ Requires:         R-CRAN-stringdist >= 0.9.5.2
 Requires:         R-CRAN-dplyr >= 0.8.3
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-purrr >= 0.3.2
-Requires:         R-CRAN-here >= 0.1
 
 %description
 Explore and normalize American campaign finance data. Created by the

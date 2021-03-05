@@ -1,9 +1,9 @@
 %global packname  TLMoments
-%global packver   0.7.5.1
+%global packver   0.7.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5.1
+Version:          0.7.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate TL-Moments and Convert Them to Distribution Parameters
 
@@ -18,10 +18,12 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-CRAN-hypergeo 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-lmomco 
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-CRAN-hypergeo 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
+Requires:         R-CRAN-lmomco 
 
 %description
 Calculates empirical TL-moments (trimmed L-moments) of arbitrary order and

@@ -1,9 +1,9 @@
 %global packname  deepMOU
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clustering of Short Texts by Mixture of Unigrams and Its Deep Extensions
 
@@ -21,8 +21,6 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-entropy 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-skmeans 
@@ -31,8 +29,6 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-entropy 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-MASS 
 
@@ -44,8 +40,8 @@ Expectation-Maximization algorithm (Nigam, K. et al. (2000).
 estimated by Gradient Descent (Anderlucci, Viroli (2020)
 <doi:10.1007/s11634-020-00399-3>) and Deep Mixture of Multinomials whose
 estimates are obtained with Gibbs sampling scheme (Viroli, Anderlucci
-(2020) <arXiv:1902.06615v2>). There are also functions for graphical
-representation of clusters obtained.
+(2020) <doi:10.1007/s11222-020-09989-9>). There are also functions for
+graphical representation of clusters obtained.
 
 %prep
 %setup -q -c -n %{packname}

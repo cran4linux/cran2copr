@@ -1,28 +1,40 @@
-%global packname  listdtr
-%global packver   1.1
+%global packname  hlidacr
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          List-Based Rules for Dynamic Treatment Regimes
+Summary:          Access Data from the 'Hlídač Státu' API
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-urltools 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-urltools 
 
 %description
-Construction of list-based rules, i.e. a list of if-then clauses, to
-estimate the optimal dynamic treatment regime. Details can be found at
-Zhang et al (2018) <doi:10.1080/01621459.2017.1345743>.
+Provides access to datasets published by 'Hlídač státu'
+<https://www.hlidacstatu.cz/>, a Czech watchdog, via their API.
 
 %prep
 %setup -q -c -n %{packname}

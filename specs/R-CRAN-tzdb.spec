@@ -1,11 +1,11 @@
-%global packname  rinat
-%global packver   0.1.7
+%global packname  tzdb
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access 'iNaturalist' Data Through APIs
+Summary:          Time Zone Database Information
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,23 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-sp 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-maps 
-Requires:         R-CRAN-sp 
 
 %description
-A programmatic interface to the API provided by the 'iNaturalist' website
-<https://www.inaturalist.org/> to download species occurrence data
-submitted by citizen scientists.
+Provides an up-to-date copy of the Internet Assigned Numbers Authority
+(IANA) Time Zone Database. It is updated periodically to reflect changes
+made by political bodies to time zone boundaries, UTC offsets, and
+daylight saving time rules.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,28 +1,43 @@
-%global packname  listdtr
-%global packver   1.1
+%global packname  ImageFusion
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          List-Based Rules for Dynamic Treatment Regimes
+Summary:          Temporal Fusion of Raster Images
 
-License:          GPL (>= 2)
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.2
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 1.0.2
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-rgdal 
+Requires:         R-parallel 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
 
 %description
-Construction of list-based rules, i.e. a list of if-then clauses, to
-estimate the optimal dynamic treatment regime. Details can be found at
-Zhang et al (2018) <doi:10.1080/01621459.2017.1345743>.
+Temporal fusion of raster image time series. Provides implementation of
+various fusion algorithms in C++.
 
 %prep
 %setup -q -c -n %{packname}

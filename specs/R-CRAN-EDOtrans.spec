@@ -1,44 +1,44 @@
-%global packname  wildlifeDI
-%global packver   0.4.0
+%global packname  EDOtrans
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Indices of Dynamic Interaction for Wildlife Tracking Data
+Summary:          Euclidean Distance-Optimized Data Transformation
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-adehabitatLT 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-ABCanalysis 
+BuildRequires:    R-CRAN-AdaptGauss 
+BuildRequires:    R-CRAN-DistributionOptimization 
+BuildRequires:    R-CRAN-ClusterR 
+BuildRequires:    R-CRAN-DataVisualizations 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-adehabitatLT 
-Requires:         R-CRAN-dplyr 
-Requires:         R-graphics 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-ABCanalysis 
+Requires:         R-CRAN-AdaptGauss 
+Requires:         R-CRAN-DistributionOptimization 
+Requires:         R-CRAN-ClusterR 
+Requires:         R-CRAN-DataVisualizations 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
+Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-CRAN-rlang 
 
 %description
-Dynamic interaction refers to spatial-temporal associations in the
-movements of two (or more) animals. This package provides tools for
-calculating a suite of indices used for quantifying dynamic interaction
-with wildlife telemetry data. For more information on each of the methods
-employed see the references within. The package (as of version >= 0.3)
-also has new tools for automating contact analysis in large tracking
-datasets. The package draws heavily on the classes and methods developed
-in the 'adehabitat' packages.
+A data transformation method which takes into account the special property
+of scale non-invariance with a breakpoint at 1 of the Euclidean distance.
 
 %prep
 %setup -q -c -n %{packname}

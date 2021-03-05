@@ -1,9 +1,9 @@
 %global packname  chronicle
-%global packver   0.2.1
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Grammar for Creating R Markdown Reports
 
@@ -28,7 +28,9 @@ BuildRequires:    R-CRAN-prettydoc
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-rmdformats 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-skimr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-zoo 
@@ -45,7 +47,9 @@ Requires:         R-CRAN-prettydoc
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-rmdformats 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-skimr 
 Requires:         R-stats 
 Requires:         R-CRAN-viridis 
 Requires:         R-CRAN-zoo 

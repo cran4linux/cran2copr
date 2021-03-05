@@ -1,9 +1,9 @@
 %global packname  nse2r
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fetch Data from 'National Stock Exchange (India)'
 
@@ -15,11 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rvest 

@@ -1,9 +1,9 @@
 %global packname  xaringan
-%global packver   0.19
+%global packver   0.20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.19
+Version:          0.20
 Release:          1%{?dist}%{?buildtag}
 Summary:          Presentation Ninja
 
@@ -15,16 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rmarkdown >= 2.7
 BuildRequires:    R-CRAN-knitr >= 1.30
 BuildRequires:    R-CRAN-xfun >= 0.18
 BuildRequires:    R-CRAN-servr >= 0.13
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-rmarkdown 
+Requires:         R-CRAN-rmarkdown >= 2.7
 Requires:         R-CRAN-knitr >= 1.30
 Requires:         R-CRAN-xfun >= 0.18
 Requires:         R-CRAN-servr >= 0.13
 Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-rmarkdown 
 
 %description
 Create HTML5 slides with R Markdown and the JavaScript library 'remark.js'

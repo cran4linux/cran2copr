@@ -1,28 +1,37 @@
-%global packname  listdtr
-%global packver   1.1
+%global packname  lwqs
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          List-Based Rules for Dynamic Treatment Regimes
+Summary:          Lagged Weighted Quantile Sum Regression
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-gWQS 
+BuildRequires:    R-CRAN-gamm4 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-gWQS 
+Requires:         R-CRAN-gamm4 
 
 %description
-Construction of list-based rules, i.e. a list of if-then clauses, to
-estimate the optimal dynamic treatment regime. Details can be found at
-Zhang et al (2018) <doi:10.1080/01621459.2017.1345743>.
+Wrapper functions for the implementation of lagged weighted quantile sum
+regression, as per 'Gennings et al' (2020)
+<doi:10.1016/j.envres.2020.109529>.
 
 %prep
 %setup -q -c -n %{packname}

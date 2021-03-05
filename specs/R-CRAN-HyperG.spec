@@ -1,13 +1,13 @@
-%global packname  wildlifeDI
-%global packver   0.4.0
+%global packname  HyperG
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Indices of Dynamic Interaction for Wildlife Tracking Data
+Summary:          Hypergraphs in R
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,30 +15,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-adehabitatLT 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-proxy 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-adehabitatLT 
-Requires:         R-CRAN-dplyr 
-Requires:         R-graphics 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-proxy 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-gtools 
+Requires:         R-grDevices 
+Requires:         R-CRAN-Matrix 
 Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Dynamic interaction refers to spatial-temporal associations in the
-movements of two (or more) animals. This package provides tools for
-calculating a suite of indices used for quantifying dynamic interaction
-with wildlife telemetry data. For more information on each of the methods
-employed see the references within. The package (as of version >= 0.3)
-also has new tools for automating contact analysis in large tracking
-datasets. The package draws heavily on the classes and methods developed
-in the 'adehabitat' packages.
+Implements various tools for storing and analyzing hypergraphs. Handles
+basic undirected, unweighted hypergraphs, and various ways of creating
+hypergraphs from a number of representations, and converting between
+graphs and hypergraphs.
 
 %prep
 %setup -q -c -n %{packname}

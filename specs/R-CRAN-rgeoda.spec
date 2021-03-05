@@ -1,9 +1,9 @@
 %global packname  rgeoda
-%global packver   0.0.8
+%global packver   0.0.8-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Library for Spatial Data Analysis
 
@@ -17,13 +17,11 @@ Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.1
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-wkb 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-Rcpp >= 1.0.1
 Requires:         R-methods 
 Requires:         R-CRAN-digest 
-Requires:         R-CRAN-wkb 
 Requires:         R-CRAN-sf 
 
 %description

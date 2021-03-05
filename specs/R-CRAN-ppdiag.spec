@@ -1,44 +1,32 @@
-%global packname  wildlifeDI
-%global packver   0.4.0
+%global packname  ppdiag
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Indices of Dynamic Interaction for Wildlife Tracking Data
+Summary:          Diagnosis and Visualizations Tools for Temporal Point Processes
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-adehabitatLT 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-adehabitatLT 
-Requires:         R-CRAN-dplyr 
 Requires:         R-graphics 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
 Requires:         R-stats 
 
 %description
-Dynamic interaction refers to spatial-temporal associations in the
-movements of two (or more) animals. This package provides tools for
-calculating a suite of indices used for quantifying dynamic interaction
-with wildlife telemetry data. For more information on each of the methods
-employed see the references within. The package (as of version >= 0.3)
-also has new tools for automating contact analysis in large tracking
-datasets. The package draws heavily on the classes and methods developed
-in the 'adehabitat' packages.
+A suite of diagnostic tools for univariate point processes. This includes
+tools for simulating and fitting both common and more complex temporal
+point processes. We also include functions to visualise these point
+processes and collect existing diagnostic tools of Brown et al. (2002)
+<doi:10.1162/08997660252741149> and Wu et al. (2020) <arxiv:2001.09359>,
+which can be used to assess the fit of a chosen point process model.
 
 %prep
 %setup -q -c -n %{packname}

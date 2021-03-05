@@ -1,9 +1,9 @@
 %global packname  pacviz
-%global packver   1.0.0.5
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0.5
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pac-Man Visualization Package
 

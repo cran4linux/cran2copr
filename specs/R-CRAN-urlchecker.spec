@@ -1,36 +1,33 @@
-%global packname  ppendemic
-%global packver   0.1.1
+%global packname  urlchecker
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Red Book of Endemic Plants of Peru
+Summary:          Run CRAN URL Checks from Older R Versions
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-curl 
+Requires:         R-tools 
+Requires:         R-CRAN-xml2 
 
 %description
-Gives help to access the information from "The Red Book of Endemic Plants
-of Peru".  The package contains a database with cleaned and standardized
-botanical data including occurrence and taxonomic data. The original
-source could be found in "León, Blanca, Nigel Pitman, y José Roque.
-(2006). Introducción a Las Plantas Endémicas Del
-Perú"<doi:10.15381/rpb.v13i2.1782><https://revistasinvestigacion.unmsm.edu.pe/index.php/rpb/issue/view/153>.
+Provide the URL checking tools available in R 4.1+ as a package for
+earlier versions of R. Also uses concurrent requests so can be much faster
+than the serial versions.
 
 %prep
 %setup -q -c -n %{packname}

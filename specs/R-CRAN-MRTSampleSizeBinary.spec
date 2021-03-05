@@ -1,13 +1,13 @@
-%global packname  ICBioMark
+%global packname  MRTSampleSizeBinary
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data-Driven Design of Targeted Gene Panels for Estimating Immunotherapy Biomarkers
+Summary:          Sample Size Calculator for MRT with Binary Outcomes
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,37 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-latex2exp 
-BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gglasso 
-BuildRequires:    R-CRAN-PRROC 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-latex2exp 
-Requires:         R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gglasso 
-Requires:         R-CRAN-PRROC 
+Requires:         R-CRAN-Matrix 
+Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
 
 %description
-Implementation of the methodology proposed in 'Data-driven design of
-targeted gene panels for estimating immunotherapy biomarkers', Bradley and
-Cannings (2021) <arXiv:2102.04296>. This package allows the user to fit
-generative models of mutation from an annotated mutation dataset, and then
-further to produce tunable linear estimators of exome-wide biomarkers. It
-also contains functions to simulate mutation annotated format (MAF) data,
-as well as to analyse the output and performance of models.
+Provides a sample size calculator for micro-randomized trials (MRTs) with
+binary outcomes based on methodology developed in Qian et al. (2020)
+<doi:10.1093/biomet/asaa070>. Also provides a power calculator when the
+sample size is input by the user.
 
 %prep
 %setup -q -c -n %{packname}
