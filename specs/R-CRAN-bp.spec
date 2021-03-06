@@ -1,9 +1,9 @@
 %global packname  bp
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Blood Pressure Analysis in R
 
@@ -21,10 +21,7 @@ BuildRequires:    R-CRAN-lubridate
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-paletteer 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-gtable 
 Requires:         R-CRAN-dplyr 
@@ -33,10 +30,7 @@ Requires:         R-CRAN-lubridate
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-paletteer 
-Requires:         R-CRAN-scales 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-png 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-gtable 
 

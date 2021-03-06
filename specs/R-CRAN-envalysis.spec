@@ -1,9 +1,9 @@
 %global packname  envalysis
-%global packver   0.4.2
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions for Environmental Analyses
 
@@ -16,17 +16,19 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-drc 
+BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-drc 
+Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-ggplot2 
 
 %description
 Small toolbox for data analyses in environmental chemistry and
 ecotoxicology. Provides, for example, calibration() to calculate
-calibration curves and corresponding limits of detection (LODs) and
-quantification (LOQs) according to German DIN 32645:2008-11. texture()
+calibration curves and corresponding limits of detection (LODs) and limits
+of quantification (LOQs) according to German DIN 32645 (2008). texture()
 makes it easy to estimate soil particle size distributions from hydrometer
-measurements (ASTM D422-63(2007)e2).
+measurements (ASTM D422-63, 2007).
 
 %prep
 %setup -q -c -n %{packname}

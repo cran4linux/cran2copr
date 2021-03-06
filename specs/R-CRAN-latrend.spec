@@ -1,11 +1,11 @@
 %global packname  latrend
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Framework for Clustering Longitudinal Data
+Summary:          A Framework for Clustering Longitudinal Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,42 +15,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-caret >= 6.0
-BuildRequires:    R-CRAN-mclust >= 5.4.5
-BuildRequires:    R-stats >= 3.6.0
-BuildRequires:    R-methods >= 3.6.0
-BuildRequires:    R-CRAN-R.utils >= 2.9.0
-BuildRequires:    R-CRAN-longitudinalData >= 2.4.1
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
-BuildRequires:    R-CRAN-plyr >= 1.8.4
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-foreach >= 1.4.7
-BuildRequires:    R-CRAN-clusterCrit >= 1.2.8
 BuildRequires:    R-CRAN-data.table >= 1.12.0
-BuildRequires:    R-CRAN-lme4 >= 1.1
-BuildRequires:    R-CRAN-scales >= 1.0.0
-BuildRequires:    R-CRAN-matrixStats >= 0.55.0
-BuildRequires:    R-CRAN-mclustcomp >= 0.3.1
 BuildRequires:    R-CRAN-stackoverflow >= 0.3.0
 BuildRequires:    R-CRAN-assertthat >= 0.2.1
-Requires:         R-CRAN-caret >= 6.0
-Requires:         R-CRAN-mclust >= 5.4.5
-Requires:         R-stats >= 3.6.0
-Requires:         R-methods >= 3.6.0
-Requires:         R-CRAN-R.utils >= 2.9.0
-Requires:         R-CRAN-longitudinalData >= 2.4.1
-Requires:         R-CRAN-ggplot2 >= 2.2.1
-Requires:         R-CRAN-plyr >= 1.8.4
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-foreach >= 1.4.7
-Requires:         R-CRAN-clusterCrit >= 1.2.8
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-longitudinalData 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-clusterCrit 
+BuildRequires:    R-CRAN-mclustcomp 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-mclust 
 Requires:         R-CRAN-data.table >= 1.12.0
-Requires:         R-CRAN-lme4 >= 1.1
-Requires:         R-CRAN-scales >= 1.0.0
-Requires:         R-CRAN-matrixStats >= 0.55.0
-Requires:         R-CRAN-mclustcomp >= 0.3.1
 Requires:         R-CRAN-stackoverflow >= 0.3.0
 Requires:         R-CRAN-assertthat >= 0.2.1
+Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-longitudinalData 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-clusterCrit 
+Requires:         R-CRAN-mclustcomp 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-mclust 
 
 %description
 A framework for clustering longitudinal datasets in a standardized way.

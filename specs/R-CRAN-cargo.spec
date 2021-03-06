@@ -1,32 +1,27 @@
-%global packname  desc
-%global packver   1.3.0
+%global packname  cargo
+%global packver   0.1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.1.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulate DESCRIPTION Files
+Summary:          Download and Run Cargo, the Rust Package Manager
 
-License:          MIT + file LICENSE
+License:          MIT + file LICENSE | Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-rprojroot 
-Requires:         R-utils 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-rprojroot 
 
 %description
-Tools to read, write, create, and manipulate DESCRIPTION files. It is
-intended for packages that create or manipulate other packages.
+Tools are provided to download, install, and run 'Cargo'
+<https://doc.rust-lang.org/cargo/> (the 'Rust'
+<https://www.rust-lang.org/> package manager). Other packages based on
+Rust can declare 'LinkingTo: cargo' in their DESCRIPTION file and then
+access Cargo during the installation of their source package.
 
 %prep
 %setup -q -c -n %{packname}

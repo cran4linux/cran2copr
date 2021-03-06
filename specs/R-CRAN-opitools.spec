@@ -1,44 +1,50 @@
-%global packname  JumpeR
-%global packver   0.1.3
+%global packname  opitools
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Importing and Working with Track and Field Data
+Summary:          A Tool for Analyzing Opinions in a Text Document
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidytext 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-pdftools 
-BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-SwimmeR 
-BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-likert 
+BuildRequires:    R-CRAN-cowplot 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidytext 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-pdftools 
-Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-SwimmeR 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-likert 
+Requires:         R-CRAN-cowplot 
 
 %description
-Primarily used to convert human readable track and field results into
-dataframes for further analysis.  Results can come from central
-repositories like <https://www.flashresults.com/> or
-<http://www.deltatiming.com/>, or from individual team sites, like those
-for colleges.  Also contains functions useful for working with track and
-field data.
+This tool analyzes the opinions inherent in a text document relating to a
+specific subject (A), and assesses the impacts that opinion expressed with
+respect to another subject (B) have on subject A. This package is
+specifically designed for application to social media datasets, such as
+Twitter and Facebook. The utility of the package has been demonstrated in
+Adepeju and Jimoh (2021) <doi:10.31235/osf.io/c32qh> in the assessment of
+impacts of COVID-19 pandemic on public opinions concerning neighborhood
+policing across England and Wales.
 
 %prep
 %setup -q -c -n %{packname}

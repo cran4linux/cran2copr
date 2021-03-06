@@ -1,11 +1,11 @@
 %global packname  FER
-%global packver   0.93
+%global packver   0.94
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.93
+Version:          0.94
 Release:          1%{?dist}%{?buildtag}
-Summary:          Financial Engineering in R (FER)
+Summary:          Financial Engineering in R
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}

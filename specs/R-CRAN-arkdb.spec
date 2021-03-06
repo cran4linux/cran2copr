@@ -1,9 +1,9 @@
 %global packname  arkdb
-%global packver   0.0.8
+%global packver   0.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.0.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Archive and Unarchive Databases Using Flat Files
 
@@ -12,19 +12,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-rappdirs 
 Requires:         R-CRAN-DBI 
 Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-rappdirs 
 
 %description
 Flat text files provide a robust, compressible, and portable way to store

@@ -1,32 +1,40 @@
-%global packname  desc
-%global packver   1.3.0
+%global packname  wdnr.gis
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulate DESCRIPTION Files
+Summary:          Pull Spatial Layers from 'WDNR ArcGIS REST API'
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-rprojroot 
-Requires:         R-utils 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-rprojroot 
+BuildRequires:    R-CRAN-arcpullr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-arcpullr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
 
 %description
-Tools to read, write, create, and manipulate DESCRIPTION files. It is
-intended for packages that create or manipulate other packages.
+Functions for finding and pulling data from the 'Wisconsin Department of
+Natural Resources ArcGIS REST APIs'
+<https://dnrmaps.wi.gov/arcgis/rest/services> and
+<https://dnrmaps.wi.gov/arcgis2/rest/services>.
 
 %prep
 %setup -q -c -n %{packname}

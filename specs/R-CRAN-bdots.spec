@@ -1,47 +1,39 @@
-%global packname  clusterSEs
-%global packver   2.6.4
+%global packname  bdots
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Cluster-Robust p-Values and Confidence Intervals
+Summary:          Bootstrapped Differences of Time Series
 
-License:          GPL (>= 2)
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-AER 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-plm 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-CRAN-lmtest 
-BuildRequires:    R-CRAN-mlogit 
+BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-dfidx 
-Requires:         R-CRAN-AER 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-plm 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-parallel 
 Requires:         R-stats 
-Requires:         R-CRAN-sandwich 
-Requires:         R-CRAN-lmtest 
-Requires:         R-CRAN-mlogit 
+Requires:         R-graphics 
 Requires:         R-utils 
-Requires:         R-CRAN-dfidx 
 
 %description
-Calculate p-values and confidence intervals using cluster-adjusted
-t-statistics (based on Ibragimov and Muller (2010)
-<DOI:10.1198/jbes.2009.08046>, pairs cluster bootstrapped t-statistics,
-and wild cluster bootstrapped t-statistics (the latter two techniques
-based on Cameron, Gelbach, and Miller (2008) <DOI:10.1162/rest.90.3.414>.
-Procedures are included for use with GLM, ivreg, plm (pooling or fixed
-effects), and mlogit models.
+Analyze differences among time series curves with p-value adjustment for
+multiple comparisons introduced in Oleson et al (2015)
+<DOI:10.1177/0962280215607411>.
 
 %prep
 %setup -q -c -n %{packname}

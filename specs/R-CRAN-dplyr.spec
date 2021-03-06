@@ -1,9 +1,9 @@
 %global packname  dplyr
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Grammar of Data Manipulation
 
@@ -18,9 +18,9 @@ BuildRequires:    R-CRAN-tibble >= 2.1.3
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-glue >= 1.3.2
 BuildRequires:    R-CRAN-tidyselect >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 0.4.9
+BuildRequires:    R-CRAN-lifecycle >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 0.4.10
 BuildRequires:    R-CRAN-vctrs >= 0.3.5
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-methods 
@@ -30,9 +30,9 @@ Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-glue >= 1.3.2
 Requires:         R-CRAN-tidyselect >= 1.1.0
-Requires:         R-CRAN-rlang >= 0.4.9
+Requires:         R-CRAN-lifecycle >= 1.0.0
+Requires:         R-CRAN-rlang >= 0.4.10
 Requires:         R-CRAN-vctrs >= 0.3.5
-Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-CRAN-ellipsis 
 Requires:         R-CRAN-generics 
 Requires:         R-methods 

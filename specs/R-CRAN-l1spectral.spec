@@ -1,11 +1,11 @@
-%global packname  RTTWebClient
-%global packver   0.1.0
+%global packname  l1spectral
+%global packver   0.99.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.99.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Web Client to 'TickTrader'
+Summary:          An L1-Version of the Spectral Clustering
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,24 +14,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-base64enc 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-Rcpp >= 0.12.5
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-NMI 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-cvTools 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.5
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-NMI 
+Requires:         R-grDevices 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-cvTools 
 
 %description
-R Web Client to 'TickTrader' platform. Provides you access to 'TickTrader'
-platform through Web API
-<https://ttlivewebapi.fxopen.net:8443/api/doc/index>.
+Provides an l1-version of the spectral clustering algorithm devoted to
+robustly clustering highly perturbed graphs using l1-penalty. This
+algorithm is described with more details in the preprint C. Champion, M.
+Champion, M. Blazère, R. Burcelin and J.M. Loubes, "l1-spectral clustering
+algorithm: a robust spectral clustering using Lasso regularization"
+(2021).
 
 %prep
 %setup -q -c -n %{packname}

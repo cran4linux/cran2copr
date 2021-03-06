@@ -1,9 +1,9 @@
 %global packname  RcppEnsmallen
-%global packver   0.2.15.0.1
+%global packver   0.2.16.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.15.0.1
+Version:          0.2.16.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Header-Only C++ Mathematical Optimization Library for 'Armadillo'
 

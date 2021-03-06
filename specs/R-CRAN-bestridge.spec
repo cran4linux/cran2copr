@@ -1,11 +1,11 @@
 %global packname  bestridge
-%global packver   1.0.1
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Best Subset Ridge Regression in Linear, Logistic, Poisson and CoxPH Models
+Summary:          A Comprehensive R Package for Best Subset Selection
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,13 +27,14 @@ Requires:         R-CRAN-pheatmap
 Requires:         R-CRAN-survival 
 
 %description
-An implementation of best subset ridge regression in generalized linear
-model and Cox proportional hazard model via the primal dual active set
-algorithm proposed by Wen, C., Zhang, A., Quan, S. and Wang, X. (2020)
-<doi:10.18637/jss.v094.i04>. The algorithm formulates coefficient
-parameters and residuals as primal and dual variables and utilizes
-efficient active set selection strategies based on the complementarity of
-the primal and dual variables.
+The bestridge package is designed to provide a one-stand service for users
+to successfully carry out best ridge regression in various complex
+situations via the primal dual active set algorithm proposed by Wen, C.,
+Zhang, A., Quan, S. and Wang, X. (2020) <doi:10.18637/jss.v094.i04>. This
+package allows users to perform the regression, classification, count
+regression and censored regression for (ultra) high dimensional data, and
+it also supports advanced usages like group variable selection and
+nuisance variable selection.
 
 %prep
 %setup -q -c -n %{packname}

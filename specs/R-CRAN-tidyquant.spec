@@ -1,9 +1,9 @@
 %global packname  tidyquant
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Quantitative Financial Analysis
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-alphavantager >= 0.1.2
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-PerformanceAnalytics 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-lazyeval 
@@ -50,6 +51,7 @@ Requires:         R-CRAN-alphavantager >= 0.1.2
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-PerformanceAnalytics 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-lazyeval 

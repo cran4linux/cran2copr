@@ -1,32 +1,38 @@
-%global packname  desc
-%global packver   1.3.0
+%global packname  appler
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulate DESCRIPTION Files
+Summary:          'Apple App Store' and 'iTunes' Data Extraction
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-rprojroot 
-Requires:         R-utils 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-rprojroot 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-lubridate 
 
 %description
-Tools to read, write, create, and manipulate DESCRIPTION files. It is
-intended for packages that create or manipulate other packages.
+Using 'Apple App Store' <https://www.apple.com/app-store/> web scraping
+and 'iTunes' API
+<https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/>
+to extract content information, app ratings and reviews.
 
 %prep
 %setup -q -c -n %{packname}

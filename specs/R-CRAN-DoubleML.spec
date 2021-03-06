@@ -1,9 +1,9 @@
 %global packname  DoubleML
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Double Machine Learning in R
 
@@ -19,6 +19,7 @@ BuildRequires:    R-CRAN-R6 >= 2.4.1
 BuildRequires:    R-CRAN-data.table >= 1.12.8
 BuildRequires:    R-CRAN-mlr3 >= 0.5.0
 BuildRequires:    R-CRAN-mlr3tuning >= 0.3.0
+BuildRequires:    R-CRAN-mlr3learners >= 0.3.0
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-mvtnorm 
@@ -29,6 +30,7 @@ Requires:         R-CRAN-R6 >= 2.4.1
 Requires:         R-CRAN-data.table >= 1.12.8
 Requires:         R-CRAN-mlr3 >= 0.5.0
 Requires:         R-CRAN-mlr3tuning >= 0.3.0
+Requires:         R-CRAN-mlr3learners >= 0.3.0
 Requires:         R-stats 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-mvtnorm 

@@ -1,47 +1,39 @@
-%global packname  clusterSEs
-%global packver   2.6.4
+%global packname  basifoR
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.4
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Cluster-Robust p-Values and Confidence Intervals
+Summary:          Retrieval and Processing of the Spanish National Forest Inventory
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-AER 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-plm 
+BuildRequires:    R-CRAN-RODBC 
+BuildRequires:    R-CRAN-foreign 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-measurements 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-CRAN-lmtest 
-BuildRequires:    R-CRAN-mlogit 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-dfidx 
-Requires:         R-CRAN-AER 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-plm 
+Requires:         R-CRAN-RODBC 
+Requires:         R-CRAN-foreign 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-measurements 
 Requires:         R-stats 
-Requires:         R-CRAN-sandwich 
-Requires:         R-CRAN-lmtest 
-Requires:         R-CRAN-mlogit 
 Requires:         R-utils 
-Requires:         R-CRAN-dfidx 
 
 %description
-Calculate p-values and confidence intervals using cluster-adjusted
-t-statistics (based on Ibragimov and Muller (2010)
-<DOI:10.1198/jbes.2009.08046>, pairs cluster bootstrapped t-statistics,
-and wild cluster bootstrapped t-statistics (the latter two techniques
-based on Cameron, Gelbach, and Miller (2008) <DOI:10.1162/rest.90.3.414>.
-Procedures are included for use with GLM, ivreg, plm (pooling or fixed
-effects), and mlogit models.
+Data sets of the Spanish National Forest Inventory are processed to
+compute tree metrics and statistics. Function dendroMetrics() controls
+most of the routines.
 
 %prep
 %setup -q -c -n %{packname}
