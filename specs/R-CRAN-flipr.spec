@@ -1,9 +1,9 @@
 %global packname  flipr
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Inference via Permutations in R
 
@@ -12,19 +12,32 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-viridisLite 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-viridisLite 
 
 %description
-A flexible permutation framework for hypothesis testing, ANOVA and
-regression analysis of complex data.
+A flexible permutation framework for making inference such as point
+estimation, confidence intervals or hypothesis testing, on any kind of
+data, be it univariate, multivariate, or more complex such as
+network-valued data, topological data, functional data or density-valued
+data.
 
 %prep
 %setup -q -c -n %{packname}

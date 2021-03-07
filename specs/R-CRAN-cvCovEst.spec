@@ -1,9 +1,9 @@
 %global packname  cvCovEst
-%global packver   0.3.1
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cross-Validated Covariance Matrix Estimation
 
@@ -12,15 +12,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-origami 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-coop 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-rlang 
@@ -30,8 +29,6 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-RColorBrewer 
@@ -40,7 +37,6 @@ Requires:         R-CRAN-Matrix
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-origami 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-coop 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-rlang 
@@ -50,8 +46,6 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-RSpectra 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-RColorBrewer 
@@ -61,7 +55,7 @@ An efficient cross-validated approach for covariance matrix estimation,
 particularly useful in high-dimensional settings. This method relies upon
 the theory of loss-based estimator selection to identify the optimal
 estimator of the covariance matrix from among a prespecified set of
-candidate.
+candidates.
 
 %prep
 %setup -q -c -n %{packname}

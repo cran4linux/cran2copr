@@ -1,31 +1,40 @@
-%global packname  rchallenge
-%global packver   1.3.3
+%global packname  kuniezu
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Simple Data Science Challenge System
+Summary:          Assistance on the National Geography of Japan
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         pandoc
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.6
-BuildRequires:    R-CRAN-rmarkdown >= 0.5
-Requires:         R-CRAN-knitr >= 1.6
-Requires:         R-CRAN-rmarkdown >= 0.5
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-leaflet >= 2.0.3
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-sf >= 0.9.1
+BuildRequires:    R-CRAN-dplyr >= 0.8.5
+BuildRequires:    R-CRAN-purrr >= 0.3.3
+BuildRequires:    R-CRAN-parzer >= 0.1.4
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-leaflet >= 2.0.3
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-sf >= 0.9.1
+Requires:         R-CRAN-dplyr >= 0.8.5
+Requires:         R-CRAN-purrr >= 0.3.3
+Requires:         R-CRAN-parzer >= 0.1.4
 
 %description
-A simple data science challenge system using R Markdown and 'Dropbox'
-<https://www.dropbox.com/>. It requires no network configuration, does not
-depend on external platforms like e.g. 'Kaggle' <https://www.kaggle.com/>
-and can be easily installed on a personal computer.
+Data set on Japan's national geography. Provides tools for efficient
+processing and visualization of unique coordinate systems.
 
 %prep
 %setup -q -c -n %{packname}

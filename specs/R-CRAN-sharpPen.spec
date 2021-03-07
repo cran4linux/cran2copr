@@ -1,9 +1,9 @@
 %global packname  sharpPen
-%global packver   1.6
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Penalized Data Sharpening for Local Polynomial Regression
 

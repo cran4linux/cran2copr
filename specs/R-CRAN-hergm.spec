@@ -1,11 +1,11 @@
-%global packname  aceEditor
-%global packver   1.0.1
+%global packname  hergm
+%global packver   4.1-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          4.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          The 'Ace' Editor as a HTML Widget
+Summary:          Hierarchical Exponential-Family Random Graph Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,22 +14,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-htmlwidgets >= 1.5.3
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-reactR 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-htmlwidgets >= 1.5.3
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-reactR 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-Rcpp >= 0.12.7
+BuildRequires:    R-CRAN-ergm 
+BuildRequires:    R-CRAN-latentnet 
+BuildRequires:    R-CRAN-mcgibbsit 
+BuildRequires:    R-CRAN-network 
+BuildRequires:    R-CRAN-sna 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mlergm 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-intergraph 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-Rcpp >= 0.12.7
+Requires:         R-CRAN-ergm 
+Requires:         R-CRAN-latentnet 
+Requires:         R-CRAN-mcgibbsit 
+Requires:         R-CRAN-network 
+Requires:         R-CRAN-sna 
+Requires:         R-methods 
+Requires:         R-CRAN-mlergm 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-intergraph 
+Requires:         R-parallel 
+Requires:         R-CRAN-stringr 
 
 %description
-Wraps the 'Ace' editor in a HTML widget. The 'Ace' editor has support for
-many languages. It can be opened in the viewer pane of 'RStudio', and this
-provides a second source editor.
+Hierarchical exponential-family random graph models with local dependence.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  groupdata2
-%global packver   1.4.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creating Groups from Data
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-rlang >= 0.4.4
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-checkmate >= 2.0.0
@@ -34,6 +35,7 @@ Requires:         R-CRAN-rlang >= 0.4.4
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-purrr 
 Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 
 %description

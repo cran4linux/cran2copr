@@ -1,9 +1,9 @@
 %global packname  rAmCharts4
-%global packver   1.3.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the JavaScript Library 'amCharts 4'
 
@@ -15,8 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-htmlwidgets >= 1.5.3
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-reactR 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-jsonlite 
@@ -28,8 +28,8 @@ BuildRequires:    R-CRAN-xml2
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
+Requires:         R-CRAN-htmlwidgets >= 1.5.3
 Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-reactR 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-jsonlite 
