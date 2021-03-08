@@ -1,32 +1,26 @@
-%global packname  Rfmtool
-%global packver   4.1.0
+%global packname  blaster
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fuzzy Measure Tools
+Summary:          Native R Implementation of an Efficient BLAST-Like Algorithm
 
-License:          LGPL-3
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.9.2
-Requires:         R-core >= 2.9.2
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-Rcpp >= 1.0.5
 
 %description
-Various tools for handling fuzzy measures, calculating Shapley value and
-interaction index, Choquet and Sugeno integrals, as well as fitting fuzzy
-measures to empirical data are provided. Construction of fuzzy measures
-from empirical data is done by solving a linear programming problem by
-using 'lpsolve' package, whose source in C adapted to the R environment is
-included. The description of the basic theory of fuzzy measures is in the
-manual in the Doc folder in this package. Please refer to the following:
-[1] <https://personal-sites.deakin.edu.au/~gleb/fmtools.html> [2] G.
-Beliakov, H. Bustince, T. Calvo, 'A Practical Guide to Averaging',
-Springer, (2016, ISBN: 978-3-319-24753-3). [3] G. Beliakov, S. James, J-Z.
-Wu, 'Discrete Fuzzy Measures', Springer, (2020, ISBN: 978-3-030-15305-2).
+Implementation of an efficient BLAST-like sequence comparison algorithm,
+written in C++11 and using native R datatypes. Blaster is based on
+'nsearch' - Schmid et al 2018; <doi:10.1101/399782>.
 
 %prep
 %setup -q -c -n %{packname}

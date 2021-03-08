@@ -1,9 +1,9 @@
 %global packname  mlr3verse
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Install and Load the 'mlr3' Package Family
 
@@ -15,9 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-mlr3tuning >= 0.7.0
+BuildRequires:    R-CRAN-paradox >= 0.6.0
+BuildRequires:    R-CRAN-mlr3 >= 0.11.0
 BuildRequires:    R-CRAN-bbotk 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-mlr3 
 BuildRequires:    R-CRAN-mlr3cluster 
 BuildRequires:    R-CRAN-mlr3data 
 BuildRequires:    R-CRAN-mlr3filters 
@@ -26,12 +28,12 @@ BuildRequires:    R-CRAN-mlr3learners
 BuildRequires:    R-CRAN-mlr3misc 
 BuildRequires:    R-CRAN-mlr3pipelines 
 BuildRequires:    R-CRAN-mlr3proba 
-BuildRequires:    R-CRAN-mlr3tuning 
 BuildRequires:    R-CRAN-mlr3viz 
-BuildRequires:    R-CRAN-paradox 
+Requires:         R-CRAN-mlr3tuning >= 0.7.0
+Requires:         R-CRAN-paradox >= 0.6.0
+Requires:         R-CRAN-mlr3 >= 0.11.0
 Requires:         R-CRAN-bbotk 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-mlr3 
 Requires:         R-CRAN-mlr3cluster 
 Requires:         R-CRAN-mlr3data 
 Requires:         R-CRAN-mlr3filters 
@@ -40,9 +42,7 @@ Requires:         R-CRAN-mlr3learners
 Requires:         R-CRAN-mlr3misc 
 Requires:         R-CRAN-mlr3pipelines 
 Requires:         R-CRAN-mlr3proba 
-Requires:         R-CRAN-mlr3tuning 
 Requires:         R-CRAN-mlr3viz 
-Requires:         R-CRAN-paradox 
 
 %description
 The 'mlr3' package family is a set of packages for machine-learning

@@ -1,23 +1,23 @@
 %global packname  qs
-%global packver   0.23.6
+%global packver   0.24.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.23.6
+Version:          0.24.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quick Serialization of R Objects
 
-License:          GPL-3 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-stringfish >= 0.14.1
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildRequires:    R-CRAN-stringfish >= 0.15.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RApiSerialize 
-Requires:         R-CRAN-stringfish >= 0.14.1
+Requires:         R-CRAN-stringfish >= 0.15.0
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RApiSerialize 
 

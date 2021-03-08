@@ -1,11 +1,11 @@
-%global packname  ralger
-%global packver   2.2.3
+%global packname  JumpeR
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Web Scraping
+Summary:          Importing and Working with Track and Field Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,27 +15,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-pdftools 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-robotstxt 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-SwimmeR 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-pdftools 
+Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-robotstxt 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-SwimmeR 
+Requires:         R-CRAN-xml2 
 
 %description
-The goal of 'ralger' is to facilitate web scraping in R.
+Primarily used to convert human readable track and field results into
+dataframes for further analysis.  Results can come from central
+repositories like <https://www.flashresults.com/> or
+<http://www.deltatiming.com/>, or from individual team sites, like those
+for colleges.  Also contains functions useful for working with track and
+field data.
 
 %prep
 %setup -q -c -n %{packname}

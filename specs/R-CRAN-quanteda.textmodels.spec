@@ -1,9 +1,9 @@
 %global packname  quanteda.textmodels
-%global packver   0.9.2
+%global packver   0.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.9.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scaling Models and Classifiers for Textual Data
 
@@ -19,7 +19,6 @@ BuildRequires:    R-CRAN-Matrix >= 1.2
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.7.600.1.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-LiblineaR 
 BuildRequires:    R-CRAN-RSpectra 
@@ -30,7 +29,6 @@ Requires:         R-CRAN-quanteda >= 2.0
 Requires:         R-CRAN-Matrix >= 1.2
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-methods 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-LiblineaR 
 Requires:         R-CRAN-RSpectra 

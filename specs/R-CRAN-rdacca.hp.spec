@@ -1,9 +1,9 @@
 %global packname  rdacca.hp
-%global packver   0.5-5
+%global packver   0.5-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          0.5.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical and Variation Partitioning for Canonical Analysis
 

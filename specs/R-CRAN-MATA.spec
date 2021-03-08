@@ -1,11 +1,11 @@
 %global packname  MATA
-%global packver   0.5
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model-Averaged Tail Area Wald (MATA-Wald) Confidence Interval
+Summary:          Model-Averaged Tail Area (MATA) Confidence Interval and Distribution
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,8 +18,10 @@ BuildArch:        noarch
 
 %description
 Calculates Model-Averaged Tail Area Wald (MATA-Wald) confidence intervals,
-which are constructed using single-model estimators and model weights. See
-Turek and Fletcher (2012) <doi:10.1016/j.csda.2012.03.002> for details.
+and MATA-Wald confidence densities and distributions, which are
+constructed using single-model frequentist estimators and model weights.
+See Turek and Fletcher (2012) <doi:10.1016/j.csda.2012.03.002> and
+Fletcher et al (2019) <doi:10.1007/s10651-019-00432-5> for details.
 
 %prep
 %setup -q -c -n %{packname}
