@@ -1,9 +1,9 @@
 %global packname  mokken
-%global packver   3.0.4
+%global packver   3.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.4
+Version:          3.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conducts Mokken Scale Analysis
 

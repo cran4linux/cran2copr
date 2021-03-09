@@ -1,13 +1,13 @@
-%global packname  mlr3spatiotempcv
-%global packver   0.2.0
+%global packname  pkglite
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatiotemporal Resampling Methods for 'mlr3'
+Summary:          Compact Package Representations
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,28 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mlr3 >= 0.7.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.7.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-paradox 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-mlr3 >= 0.7.0
-Requires:         R-CRAN-mlr3misc >= 0.7.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-paradox 
-Requires:         R-CRAN-R6 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-remotes 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-remotes 
 
 %description
-Extends the mlr3 ML framework with spatio-temporal resampling methods to
-account for the presence of spatiotemporal autocorrelation (STAC) in
-predictor variables. STAC may cause highly biased performance estimates in
-cross-validation if ignored.
+A tool, grammar, and standard to represent and exchange R package source
+code as text files. Converts one or more source packages to a text file
+and restores the package structures from the file.
 
 %prep
 %setup -q -c -n %{packname}

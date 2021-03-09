@@ -1,13 +1,13 @@
-%global packname  mlr3spatiotempcv
-%global packver   0.2.0
+%global packname  aopdata
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatiotemporal Resampling Methods for 'mlr3'
+Summary:          Data from the 'Access to Opportunities Project (AOP)'
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,28 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mlr3 >= 0.7.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.7.0
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-httr >= 1.4.1
+BuildRequires:    R-CRAN-sf >= 0.9.3
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-paradox 
-BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-mlr3 >= 0.7.0
-Requires:         R-CRAN-mlr3misc >= 0.7.0
-Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-httr >= 1.4.1
+Requires:         R-CRAN-sf >= 0.9.3
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-paradox 
-Requires:         R-CRAN-R6 
 Requires:         R-utils 
 
 %description
-Extends the mlr3 ML framework with spatio-temporal resampling methods to
-account for the presence of spatiotemporal autocorrelation (STAC) in
-predictor variables. STAC may cause highly biased performance estimates in
-cross-validation if ignored.
+Download data from the 'Access to Opportunities Project (AOP)'. The
+'aopdata' package brings annual estimates of access to employment, health
+and education services by transport mode, as well as data on the spatial
+distribution of population, schools and health-care facilities at a fine
+spatial resolution for all cities included in the study. More info on the
+'AOP' website <https://www.ipea.gov.br/acessooportunidades/en/>.
 
 %prep
 %setup -q -c -n %{packname}

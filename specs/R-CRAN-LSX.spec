@@ -1,9 +1,9 @@
 %global packname  LSX
-%global packver   0.9.6
+%global packver   0.9.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          0.9.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model for Semisupervised Text Analysis Based on Word Embeddings
 
@@ -17,7 +17,6 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-quanteda >= 2.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-quanteda.textmodels 
 BuildRequires:    R-CRAN-quanteda.textstats 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-digest 
@@ -36,7 +35,6 @@ BuildRequires:    R-CRAN-e1071
 BuildRequires:    R-CRAN-locfit 
 Requires:         R-CRAN-quanteda >= 2.0
 Requires:         R-methods 
-Requires:         R-CRAN-quanteda.textmodels 
 Requires:         R-CRAN-quanteda.textstats 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-digest 

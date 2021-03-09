@@ -1,42 +1,35 @@
-%global packname  mlr3spatiotempcv
-%global packver   0.2.0
+%global packname  DOVE
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatiotemporal Resampling Methods for 'mlr3'
+Summary:          Durability of Vaccine Efficacy
 
-License:          LGPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mlr3 >= 0.7.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.7.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-paradox 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-mlr3 >= 0.7.0
-Requires:         R-CRAN-mlr3misc >= 0.7.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-paradox 
-Requires:         R-CRAN-R6 
-Requires:         R-utils 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-survival 
 
 %description
-Extends the mlr3 ML framework with spatio-temporal resampling methods to
-account for the presence of spatiotemporal autocorrelation (STAC) in
-predictor variables. STAC may cause highly biased performance estimates in
-cross-validation if ignored.
+Implements a nonparametric maximum likelihood method for evaluating the
+durability of vaccine efficacy in a randomized, placebo-controlled
+clinical trial with staggered enrollment of participants and potential
+crossover of placebo recipients. Lin, D. Y., Zeng, D., and Gilbert, P. B.
+(2021) <doi:10.1101/2021.01.13.21249779>.
 
 %prep
 %setup -q -c -n %{packname}

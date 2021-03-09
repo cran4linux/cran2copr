@@ -1,9 +1,9 @@
 %global packname  OpenMx
-%global packver   2.18.1
+%global packver   2.19.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.18.1
+Version:          2.19.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extended Structural Equation Modelling
 
@@ -18,16 +18,16 @@ BuildRequires:    R-CRAN-StanHeaders >= 2.10.0.2
 BuildRequires:    R-CRAN-BH >= 1.69.0.1
 BuildRequires:    R-CRAN-rpf >= 0.45
 BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-MASS 
-BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-digest 
-Requires:         R-MASS 
-Requires:         R-Matrix 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-parallel 
@@ -48,9 +48,13 @@ Pritikin, Zahery, Brick, Kirkpatrick, Estabrook, Bates, Maes, & Boker
 %prep
 %setup -q -c -n %{packname}
 find %{packname} -type f -exec sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \;
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -60,6 +64,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

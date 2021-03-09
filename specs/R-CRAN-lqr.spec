@@ -1,9 +1,9 @@
 %global packname  lqr
-%global packver   3.31
+%global packver   3.41
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.31
+Version:          3.41
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Linear Quantile Regression
 

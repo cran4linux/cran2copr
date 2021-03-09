@@ -1,41 +1,37 @@
-%global packname  waldo
-%global packver   0.2.5
+%global packname  htmltab
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Find Differences Between R Objects
+Summary:          Assemble Data Frames from HTML Tables
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.4.10
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-diffobj 
-BuildRequires:    R-CRAN-fansi 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rematch2 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-rlang >= 0.4.10
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-diffobj 
-Requires:         R-CRAN-fansi 
-Requires:         R-CRAN-glue 
-Requires:         R-methods 
-Requires:         R-CRAN-rematch2 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-XML >= 3.98.1.3
+BuildRequires:    R-CRAN-httr >= 1.0.0
+Requires:         R-CRAN-XML >= 3.98.1.3
+Requires:         R-CRAN-httr >= 1.0.0
 
 %description
-Compare complex R objects and reveal the key differences.  Designed
-particularly for use in testing packages where being able to quickly
-isolate key differences makes understanding test failures much easier.
+HTML tables are a valuable data source but extracting and recasting these
+data into a useful format can be tedious. This package allows to collect
+structured information from HTML tables. It is similar to
+`readHTMLTable()` of the XML package but provides three major advantages.
+First, the function automatically expands row and column spans in the
+header and body cells. Second, users are given more control over the
+identification of header and body rows which will end up in the R table,
+including semantic header information that appear throughout the body.
+Third, the function preprocesses table code, corrects common types of
+malformations, removes unneeded parts and so helps to alleviate the need
+for tedious post-processing.
 
 %prep
 %setup -q -c -n %{packname}

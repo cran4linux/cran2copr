@@ -1,40 +1,60 @@
-%global packname  labelled
-%global packver   2.8.0
+%global packname  crosstable
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulating Labelled Data
+Summary:          Crosstables for Descriptive Analyses
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-haven >= 2.3.1
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-flextable >= 0.5.8
+BuildRequires:    R-CRAN-rlang >= 0.4.7
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-ellipsis 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-nortest 
+BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-haven >= 2.3.1
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-flextable >= 0.5.8
+Requires:         R-CRAN-rlang >= 0.4.7
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-nortest 
+Requires:         R-CRAN-officer 
+Requires:         R-CRAN-purrr 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Work with labelled data imported from 'SPSS' or 'Stata' with 'haven' or
-'foreign'. This package provides useful functions to deal with
-"haven_labelled" and "haven_labelled_spss" classes introduced by 'haven'
-package.
+Create descriptive tables for continuous and categorical variables. Apply
+summary statistics and counting function, with or without a grouping
+variable, and create beautiful reports using 'rmarkdown' or 'officer'. You
+can also compute statistical tests and effect sizes if needed.
 
 %prep
 %setup -q -c -n %{packname}

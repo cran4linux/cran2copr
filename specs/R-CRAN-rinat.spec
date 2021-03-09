@@ -1,42 +1,39 @@
-%global packname  mlr3spatiotempcv
-%global packver   0.2.0
+%global packname  rinat
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatiotemporal Resampling Methods for 'mlr3'
+Summary:          Access 'iNaturalist' Data Through APIs
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mlr3 >= 0.7.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.7.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-paradox 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-mlr3 >= 0.7.0
-Requires:         R-CRAN-mlr3misc >= 0.7.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-sp 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-paradox 
-Requires:         R-CRAN-R6 
-Requires:         R-utils 
+Requires:         R-CRAN-maps 
+Requires:         R-CRAN-sp 
 
 %description
-Extends the mlr3 ML framework with spatio-temporal resampling methods to
-account for the presence of spatiotemporal autocorrelation (STAC) in
-predictor variables. STAC may cause highly biased performance estimates in
-cross-validation if ignored.
+A programmatic interface to the API provided by the 'iNaturalist' website
+<https://www.inaturalist.org/> to download species occurrence data
+submitted by citizen scientists.
 
 %prep
 %setup -q -c -n %{packname}

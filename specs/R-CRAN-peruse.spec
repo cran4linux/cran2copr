@@ -1,9 +1,9 @@
 %global packname  peruse
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Tidy API for Sequence Iteration and Set Comprehension
 
@@ -17,10 +17,8 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-purrr 
 
 %description
 A friendly API for sequence iteration and set comprehension.
