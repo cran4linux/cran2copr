@@ -1,9 +1,9 @@
 %global packname  MCMCglmm
-%global packver   2.30
+%global packver   2.31
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.30
+Version:          2.31
 Release:          1%{?dist}%{?buildtag}
 Summary:          MCMC Generalised Linear Mixed Models
 
@@ -30,7 +30,7 @@ Requires:         R-CRAN-cubature
 Requires:         R-methods 
 
 %description
-Fits Multi-response Generalised Linear Mixed Models (and related models)
+Fits Multivariate Generalised Linear Mixed Models (and related models)
 using Markov chain Monte Carlo techniques.
 
 %prep

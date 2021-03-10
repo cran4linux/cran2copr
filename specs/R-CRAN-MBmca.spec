@@ -1,28 +1,38 @@
-%global packname  paws.security.identity
-%global packver   0.1.11
+%global packname  MBmca
+%global packver   1.0.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.11
+Version:          1.0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Amazon Web Services Security, Identity, & Compliance Services
+Summary:          Nucleic Acid Melting Curve Analysis
 
-License:          Apache License (>= 2.0)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.3.0
-Requires:         R-CRAN-paws.common >= 0.3.0
+BuildRequires:    R-CRAN-robustbase >= 0.9
+BuildRequires:    R-CRAN-chipPCR >= 0.0.7
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-robustbase >= 0.9
+Requires:         R-CRAN-chipPCR >= 0.0.7
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Interface to Amazon Web Services security, identity, and compliance
-services, including the 'Identity & Access Management' ('IAM') service for
-managing access to services and resources, and more
-<https://aws.amazon.com/>.
+Lightweight utilities for nucleic acid melting curve analysis are
+important in life sciences and diagnostics. This software can be used for
+the analysis and presentation of melting curve data from microbead-based
+assays (surface melting curve analysis) and reactions in solution (e.g.,
+quantitative PCR (qPCR), real-time isothermal Amplification). Further
+information are described in detail in two publications in The R Journal [
+<https://journal.r-project.org/archive/2013-2/roediger-bohm-schimke.pdf>;
+<https://journal.r-project.org/archive/2015-1/RJ-2015-1.pdf>].
 
 %prep
 %setup -q -c -n %{packname}

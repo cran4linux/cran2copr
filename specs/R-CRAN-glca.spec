@@ -1,11 +1,11 @@
 %global packname  glca
-%global packver   1.1.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          An R Package for Estimating a Group-Effect in Latent Class Analysis
+Summary:          Estimating a Group-Effect in Latent Class Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,8 +16,12 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
 Fits latent class analysis (LCA) including group variable and covariates.

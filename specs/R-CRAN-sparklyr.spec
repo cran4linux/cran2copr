@@ -1,9 +1,9 @@
 %global packname  sparklyr
-%global packver   1.5.2
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to Apache Spark
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-rlang >= 0.1.4
 BuildRequires:    R-CRAN-ellipsis >= 0.1.0
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-blob 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-forge 
 BuildRequires:    R-CRAN-generics 
@@ -43,8 +44,8 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-jsonlite >= 1.4
@@ -59,6 +60,7 @@ Requires:         R-CRAN-rlang >= 0.1.4
 Requires:         R-CRAN-ellipsis >= 0.1.0
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-blob 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-forge 
 Requires:         R-CRAN-generics 
@@ -74,8 +76,8 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-xml2 
 

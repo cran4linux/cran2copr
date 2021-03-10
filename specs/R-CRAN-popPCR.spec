@@ -1,9 +1,9 @@
 %global packname  popPCR
-%global packver   0.1.0
+%global packver   0.1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classify Digital PCR Droplets by Fitting Fluorescence Populations
 
@@ -18,16 +18,12 @@ BuildRequires:    R-graphics
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-KernSmooth 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-grDevices 
-Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-KernSmooth 
 
 %description
 Estimates DNA target concentration by classifying digital PCR (polymerase

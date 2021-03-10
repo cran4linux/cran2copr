@@ -1,28 +1,33 @@
-%global packname  paws.security.identity
-%global packver   0.1.11
+%global packname  g3viz
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.11
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Amazon Web Services Security, Identity, & Compliance Services
+Summary:          Interactively Visualize Genetic Mutation Data using a Lollipop-Diagram
 
-License:          Apache License (>= 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.3.0
-Requires:         R-CRAN-paws.common >= 0.3.0
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-cgdsr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-htmlwidgets 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-cgdsr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
-Interface to Amazon Web Services security, identity, and compliance
-services, including the 'Identity & Access Management' ('IAM') service for
-managing access to services and resources, and more
-<https://aws.amazon.com/>.
+R interface for 'g3-lollipop' JavaScript library. Visualize genetic
+mutation data using an interactive lollipop diagram in RStudio or your
+browser.
 
 %prep
 %setup -q -c -n %{packname}

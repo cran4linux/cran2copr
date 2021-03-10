@@ -1,9 +1,9 @@
 %global packname  smmR
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation, Estimation and Reliability of Semi-Markov Models
 
@@ -14,17 +14,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-seqinr 
 BuildRequires:    R-CRAN-DiscreteWeibull 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-seqinr 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-seqinr 
 Requires:         R-CRAN-DiscreteWeibull 
-Requires:         R-CRAN-MASS 
-Requires:         R-graphics 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-seqinr 
 
 %description
 Performs parametric and non-parametric estimation and simulation for

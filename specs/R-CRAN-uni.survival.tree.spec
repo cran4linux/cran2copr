@@ -1,11 +1,11 @@
 %global packname  uni.survival.tree
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Survival Tree Based on Stabilized Score Tests
+Summary:          A Survival Tree Based on Stabilized Score Tests for High-dimensional Covariates
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,14 +21,15 @@ Requires:         R-CRAN-survival
 Requires:         R-CRAN-compound.Cox 
 
 %description
-A classification (decision) tree is constructed from survival data. The
-method is a robust version of the logrank tree, where the variance is
-stabilized. This function returns a classification tree for a given
-survival dataset. The decision of making inner nodes (splitting criterion)
-is based on the univariate score tests. The decision of declaring terminal
-nodes (stopping criterion) is the P-value threshold given by an argument.
-This tree construction algorithm is proposed by Emura et al. (2021, in
-review).
+A classification (decision) tree is constructed from survival data with
+high-dimensional covariates. The method is a robust version of the logrank
+tree, where the variance is stabilized. The main function "uni.tree"
+returns a classification tree for a given survival dataset. The inner
+nodes (splitting criterion) are selected by minimizing the P-value of the
+two-sample the score tests. The decision of declaring terminal nodes
+(stopping criterion) is the P-value threshold given by an argument
+(specified by user). This tree construction algorithm is proposed by Emura
+et al. (2021, in review).
 
 %prep
 %setup -q -c -n %{packname}

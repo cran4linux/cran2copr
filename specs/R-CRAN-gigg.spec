@@ -1,28 +1,31 @@
-%global packname  paws.security.identity
-%global packver   0.1.11
+%global packname  gigg
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.11
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Amazon Web Services Security, Identity, & Compliance Services
+Summary:          Group Inverse-Gamma Gamma Shrinkage for Sparse Regression with Grouping Structure
 
-License:          Apache License (>= 2.0)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.3.0
-Requires:         R-CRAN-paws.common >= 0.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Interface to Amazon Web Services security, identity, and compliance
-services, including the 'Identity & Access Management' ('IAM') service for
-managing access to services and resources, and more
-<https://aws.amazon.com/>.
+A Gibbs sampler corresponding to a Group Inverse-Gamma Gamma (GIGG)
+regression model with adjustment covariates. Hyperparameters in the GIGG
+prior specification can either be fixed by the user or can be estimated
+via Marginal Maximum Likelihood Estimation. Jonathan Boss, Jyotishka
+Datta, Xin Wang, Sung Kyun Park, Jian Kang, Bhramar Mukherjee (2021)
+<arXiv:2102.10670>.
 
 %prep
 %setup -q -c -n %{packname}

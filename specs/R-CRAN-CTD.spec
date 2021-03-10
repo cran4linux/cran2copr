@@ -1,9 +1,9 @@
 %global packname  CTD
-%global packver   0.99.8
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Method for 'Connecting The Dots' in Weighted Graphs
 
@@ -27,10 +27,11 @@ Requires:         R-grDevices
 Requires:         R-graphics 
 
 %description
-A method for pattern discovery in weighted graphs. Two use cases are
-achieved: 1) Given a weighted graph and a subset of its nodes, do the
-nodes show significant connectedness? 2) Given a weighted graph and two
-subsets of its nodes, are the subsets close neighbors or distant?
+A method for pattern discovery in weighted graphs as outlined in
+Thistlethwaite et al. (2021) <doi:10.1371/journal.pcbi.1008550>. Two use
+cases are achieved: 1) Given a weighted graph and a subset of its nodes,
+do the nodes show significant connectedness? 2) Given a weighted graph and
+two subsets of its nodes, are the subsets close neighbors or distant?
 
 %prep
 %setup -q -c -n %{packname}

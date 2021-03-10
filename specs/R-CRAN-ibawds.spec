@@ -1,28 +1,36 @@
-%global packname  paws.security.identity
-%global packver   0.1.11
+%global packname  ibawds
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.11
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Amazon Web Services Security, Identity, & Compliance Services
+Summary:          Functions and Datasets for the Data Science Course at IBAW
 
-License:          Apache License (>= 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.3.0
-Requires:         R-CRAN-paws.common >= 0.3.0
+BuildRequires:    R-CRAN-dslabs 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-dslabs 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-magrittr 
 
 %description
-Interface to Amazon Web Services security, identity, and compliance
-services, including the 'Identity & Access Management' ('IAM') service for
-managing access to services and resources, and more
-<https://aws.amazon.com/>.
+A collection of useful functions and datasets for the Data Science Course
+at IBAW in Lucerne.
 
 %prep
 %setup -q -c -n %{packname}

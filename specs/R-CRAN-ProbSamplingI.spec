@@ -1,13 +1,13 @@
-%global packname  paws.security.identity
-%global packver   0.1.11
+%global packname  ProbSamplingI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.11
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Amazon Web Services Security, Identity, & Compliance Services
+Summary:          Probabilistic Sampling Design and Strategies
 
-License:          Apache License (>= 2.0)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,14 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.3.0
-Requires:         R-CRAN-paws.common >= 0.3.0
 
 %description
-Interface to Amazon Web Services security, identity, and compliance
-services, including the 'Identity & Access Management' ('IAM') service for
-managing access to services and resources, and more
-<https://aws.amazon.com/>.
+It allows the user to determine sample sizes, select probabilistic
+samples, make estimates of different parameters for the total finite
+population and in studio domains, using the main design drawings.
 
 %prep
 %setup -q -c -n %{packname}

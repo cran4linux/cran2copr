@@ -1,29 +1,37 @@
-%global packname  simul
+%global packname  RTTWebClient
 %global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Simultaneous Confidence Bands Based on the Efficient Influence Function and Multiplier Bootstrap
+Summary:          Web Client to 'TickTrader'
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-base64enc 
+Requires:         R-methods 
 
 %description
-Compute critical values for constructing uniform (simultaneous) confidence
-bands. The critical value is calculated using a multiplier bootstrap of
-the empirical efficient influence function as described by Kennedy (2019)
-<doi:10.1080/01621459.2017.1422737>. The multiplier bootstrap does not
-require resampling of the data but only simulation of the multipliers and
-is thus computationally efficient.
+R Web Client to 'TickTrader' platform. Provides you access to 'TickTrader'
+platform through Web API
+<https://ttlivewebapi.fxopen.net:8443/api/doc/index>.
 
 %prep
 %setup -q -c -n %{packname}

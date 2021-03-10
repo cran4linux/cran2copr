@@ -1,9 +1,9 @@
 %global packname  spsComps
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'systemPipeShiny' UI and Server Components
 
@@ -24,12 +24,9 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-bsplus 
 BuildRequires:    R-CRAN-shinyFiles 
 BuildRequires:    R-CRAN-shinyWidgets 
-BuildRequires:    R-CRAN-shinydashboardPlus 
 BuildRequires:    R-CRAN-shinytoastr 
 BuildRequires:    R-CRAN-shinyAce 
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-shinydashboard 
-BuildRequires:    R-CRAN-shinyjqui 
 BuildRequires:    R-CRAN-vroom 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-utils 
@@ -42,12 +39,9 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-bsplus 
 Requires:         R-CRAN-shinyFiles 
 Requires:         R-CRAN-shinyWidgets 
-Requires:         R-CRAN-shinydashboardPlus 
 Requires:         R-CRAN-shinytoastr 
 Requires:         R-CRAN-shinyAce 
 Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-shinydashboard 
-Requires:         R-CRAN-shinyjqui 
 Requires:         R-CRAN-vroom 
 Requires:         R-CRAN-dplyr 
 Requires:         R-utils 

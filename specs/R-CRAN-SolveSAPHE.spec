@@ -1,28 +1,32 @@
-%global packname  paws.security.identity
-%global packver   0.1.11
+%global packname  SolveSAPHE
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.11
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Amazon Web Services Security, Identity, & Compliance Services
+Summary:          Solver Suite for Alkalinity-PH Equations
 
-License:          Apache License (>= 2.0)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.3.0
-Requires:         R-CRAN-paws.common >= 0.3.0
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Interface to Amazon Web Services security, identity, and compliance
-services, including the 'Identity & Access Management' ('IAM') service for
-managing access to services and resources, and more
-<https://aws.amazon.com/>.
+Universal and robust algorithm for solving the total alkalinity-pH
+equation presented in G. Munhoven (2013) <doi:10.5194/gmd-6-1367-2013> and
+G. Munhoven (2021) <doi:10.5194/gmd-2020-447>. The total alkalinity-pH
+equation relates total alkalinity and pH for a given set of acid-base
+concentrations in a given water sample, among which carbonic acid. This
+package is particularly useful in marine chemistry involving dissolved
+inorganic carbon. Original package in Fortran can be found at
+<doi:10.5281/zenodo.4328965>.
 
 %prep
 %setup -q -c -n %{packname}

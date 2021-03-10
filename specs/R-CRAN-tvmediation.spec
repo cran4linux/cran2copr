@@ -1,28 +1,36 @@
-%global packname  paws.security.identity
-%global packver   0.1.11
+%global packname  tvmediation
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.11
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Amazon Web Services Security, Identity, & Compliance Services
+Summary:          Time Varying Mediation Analysis
 
-License:          Apache License (>= 2.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.3.0
-Requires:         R-CRAN-paws.common >= 0.3.0
+BuildRequires:    R-stats >= 4.0.3
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.3
+BuildRequires:    R-CRAN-dplyr >= 1.0.4
+BuildRequires:    R-CRAN-kedd >= 1.0.3
+BuildRequires:    R-CRAN-locpol >= 0.7.0
+Requires:         R-stats >= 4.0.3
+Requires:         R-CRAN-ggplot2 >= 3.3.3
+Requires:         R-CRAN-dplyr >= 1.0.4
+Requires:         R-CRAN-kedd >= 1.0.3
+Requires:         R-CRAN-locpol >= 0.7.0
 
 %description
-Interface to Amazon Web Services security, identity, and compliance
-services, including the 'Identity & Access Management' ('IAM') service for
-managing access to services and resources, and more
-<https://aws.amazon.com/>.
+Provides functions for estimating mediation effects that vary over time as
+described in Cai, X., Piper, M. E., Li, R., & Coffman, D. L. (2020).
+Estimation and inference for the mediation effect in a time-varying
+mediation model. <arXiv:2008.11797>.
 
 %prep
 %setup -q -c -n %{packname}
