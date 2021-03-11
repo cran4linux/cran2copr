@@ -1,9 +1,9 @@
 %global packname  packager
-%global packver   1.10.0
+%global packver   1.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.0
+Version:          1.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create, Build and Maintain Packages
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fritools >= 1.2.0
+BuildRequires:    R-CRAN-fritools >= 1.3.0
 BuildRequires:    R-CRAN-fakemake >= 1.10.1
 BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-checkmate 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-codetools
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-cyclocomp 
 BuildRequires:    R-CRAN-desc 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-gert 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-pkgbuild 
@@ -32,11 +33,9 @@ BuildRequires:    R-CRAN-remotes
 BuildRequires:    R-CRAN-rhub 
 BuildRequires:    R-CRAN-rprojroot 
 BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-CRAN-whisker 
 BuildRequires:    R-CRAN-whoami 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-fritools >= 1.2.0
+Requires:         R-CRAN-fritools >= 1.3.0
 Requires:         R-CRAN-fakemake >= 1.10.1
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-checkmate 
@@ -44,6 +43,7 @@ Requires:         R-CRAN-codetools
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-cyclocomp 
 Requires:         R-CRAN-desc 
+Requires:         R-CRAN-fs 
 Requires:         R-CRAN-gert 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-pkgbuild 
@@ -53,10 +53,8 @@ Requires:         R-CRAN-remotes
 Requires:         R-CRAN-rhub 
 Requires:         R-CRAN-rprojroot 
 Requires:         R-tools 
-Requires:         R-CRAN-usethis 
 Requires:         R-CRAN-whisker 
 Requires:         R-CRAN-whoami 
-Requires:         R-CRAN-withr 
 
 %description
 Helper functions for package creation, building and maintenance. Designed

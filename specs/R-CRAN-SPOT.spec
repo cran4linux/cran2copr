@@ -1,9 +1,9 @@
 %global packname  SPOT
-%global packver   2.1.10
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.10
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sequential Parameter Optimization Toolbox
 
@@ -24,7 +24,6 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-DEoptim 
 BuildRequires:    R-CRAN-rgenoud 
-BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-rsm 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-ggplot2 
@@ -33,6 +32,8 @@ BuildRequires:    R-CRAN-SimInf
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-rpart.plot 
 BuildRequires:    R-CRAN-smoof 
+BuildRequires:    R-CRAN-laGP 
+BuildRequires:    R-CRAN-sensitivity 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-ranger 
 Requires:         R-stats 
@@ -42,7 +43,6 @@ Requires:         R-grDevices
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-DEoptim 
 Requires:         R-CRAN-rgenoud 
-Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-rsm 
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-ggplot2 
@@ -51,6 +51,8 @@ Requires:         R-CRAN-SimInf
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-rpart.plot 
 Requires:         R-CRAN-smoof 
+Requires:         R-CRAN-laGP 
+Requires:         R-CRAN-sensitivity 
 
 %description
 A set of tools for model-based optimization and tuning of algorithms. It

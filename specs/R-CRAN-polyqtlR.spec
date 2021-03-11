@@ -1,9 +1,9 @@
 %global packname  polyqtlR
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          QTL Analysis in Autopolyploid Bi-Parental F1 Populations
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-knitr
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.19
 Requires:         R-CRAN-abind 
@@ -34,15 +33,14 @@ Requires:         R-CRAN-knitr
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-rmarkdown 
 
 %description
-Quantitative trait loci (QTL) analysis in polyploid bi-parental F1
-populations. For all ploidy levels, identity-by-descent (IBD)
-probabilities can be estimated. Significance thresholds, exploring QTL
-allele effects and visualising results are provided. The methods have been
-largely described in the dissertation of P.M. Bourke in 2018
-<doi:10.18174/444415>.
+Quantitative trait loci (QTL) analysis and exploration of meiotic patterns
+in autopolyploid bi-parental F1 populations. For all ploidy levels,
+identity-by-descent (IBD) probabilities can be estimated. Significance
+thresholds, exploring QTL allele effects and visualising results are
+provided. The methods have been largely described in the dissertation of
+P.M. Bourke in 2018 <doi:10.18174/444415>.
 
 %prep
 %setup -q -c -n %{packname}

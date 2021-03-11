@@ -1,42 +1,31 @@
-%global packname  lavaan
-%global packver   0.6-8
+%global packname  mcwr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Latent Variable Analysis
+Summary:          Markov Chains with Rewards
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats4 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mnormt 
-BuildRequires:    R-CRAN-pbivnorm 
-BuildRequires:    R-CRAN-numDeriv 
-Requires:         R-methods 
-Requires:         R-stats4 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mnormt 
-Requires:         R-CRAN-pbivnorm 
-Requires:         R-CRAN-numDeriv 
 
 %description
-Fit a variety of latent variable models, including confirmatory factor
-analysis, structural equation modeling and latent growth curve models.
+In the context of multistate models, which are popular in sociology,
+demography, and epidemiology, Markov chain with rewards calculations can
+help to refine transition timings and so obtain more accurate estimates.
+The package code accommodates up to nine transient states and irregular
+age (time) intervals. Traditional demographic life tables result as a
+special case. Formulas and methods involved are explained in detail in the
+accompanying article: Schneider / Myrskyla / van Raalte (2021): Flexible
+Transition Timing in Discrete-Time Multistate Life Tables Using Markov
+Chains with Rewards, MPIDR Working Paper WP-2021-002.
 
 %prep
 %setup -q -c -n %{packname}

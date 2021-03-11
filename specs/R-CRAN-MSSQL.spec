@@ -1,13 +1,13 @@
-%global packname  skillsengineeR
-%global packver   0.2.0
+%global packname  MSSQL
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Light-Weight Wrapper for the 'SkillsEngine' API
+Summary:          Tools to Work with Microsoft SQL Server Databases via 'RODBC'
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,18 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-usethis 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-usethis 
+BuildRequires:    R-CRAN-RODBC 
+Requires:         R-CRAN-RODBC 
 
 %description
-Light-weight wrapper surrounding the 'SkillsEngine' Analytics API
-<https://skillsengine.com/apis> and corresponding endpoints. It also
-provides functionality for convenient setting and retrieving of
-authorization keys.
+Tools that extend the functionality of the 'RODBC' package to work with
+Microsoft SQL Server databases. Makes it easier to browse the database and
+examine individual tables and views.
 
 %prep
 %setup -q -c -n %{packname}

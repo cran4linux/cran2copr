@@ -1,42 +1,42 @@
-%global packname  lavaan
-%global packver   0.6-8
+%global packname  schemr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Latent Variable Analysis
+Summary:          Convert Images to Usable Color Schemes
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-apcluster 
+BuildRequires:    R-CRAN-OpenImageR 
 BuildRequires:    R-methods 
-BuildRequires:    R-stats4 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mnormt 
-BuildRequires:    R-CRAN-pbivnorm 
-BuildRequires:    R-CRAN-numDeriv 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-apcluster 
+Requires:         R-CRAN-OpenImageR 
 Requires:         R-methods 
-Requires:         R-stats4 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mnormt 
-Requires:         R-CRAN-pbivnorm 
-Requires:         R-CRAN-numDeriv 
 
 %description
-Fit a variety of latent variable models, including confirmatory factor
-analysis, structural equation modeling and latent growth curve models.
+A fast and adaptable tool to convert photos and images into usable colour
+schemes for data visualisation. Contains functionality to extract colour
+palettes from images, as well for the conversion of images between colour
+spaces.
 
 %prep
 %setup -q -c -n %{packname}

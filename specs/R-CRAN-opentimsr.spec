@@ -1,9 +1,9 @@
 %global packname  opentimsr
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Open-Source Loader for Bruker's timsTOF Data Files
 
@@ -25,10 +25,8 @@ Requires:         R-CRAN-RSQLite
 
 %description
 A free, open-source package designed for handling .tdf data files produced
-by Bruker's 'timsTOF' mass spectrometers, as described
-<https://www.bruker.com/service/support-upgrades/software-downloads/mass-spectrometry.html>
-(after registering). Fast, free, crossplatform, with no reading through
-EULAs or messing with binary .dll files involved.
+by Bruker's 'timsTOF' mass spectrometers. Fast, free, crossplatform, with
+no reading through EULAs or messing with binary .dll files involved.
 
 %prep
 %setup -q -c -n %{packname}

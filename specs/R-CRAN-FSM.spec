@@ -1,42 +1,28 @@
-%global packname  lavaan
-%global packver   0.6-8
+%global packname  FSM
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Latent Variable Analysis
+Summary:          Finite Selection Model
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats4 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mnormt 
-BuildRequires:    R-CRAN-pbivnorm 
-BuildRequires:    R-CRAN-numDeriv 
-Requires:         R-methods 
-Requires:         R-stats4 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mnormt 
-Requires:         R-CRAN-pbivnorm 
-Requires:         R-CRAN-numDeriv 
 
 %description
-Fit a variety of latent variable models, including confirmatory factor
-analysis, structural equation modeling and latent growth curve models.
+Randomized and balanced allocation of units to treatment groups using the
+Finite Selection Model (FSM). The FSM was originally proposed and
+developed at the RAND corporation by Carl Morris to enhance the
+experimental design for the now famous Health Insurance Experiment. See
+Morris (1979) <doi:10.1016/0304-4076(79)90053-8> for details on the
+original version of the FSM.
 
 %prep
 %setup -q -c -n %{packname}

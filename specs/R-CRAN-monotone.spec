@@ -1,42 +1,24 @@
-%global packname  lavaan
-%global packver   0.6-8
+%global packname  monotone
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Latent Variable Analysis
+Summary:          Performs Monotone Regression
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
-BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats4 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mnormt 
-BuildRequires:    R-CRAN-pbivnorm 
-BuildRequires:    R-CRAN-numDeriv 
-Requires:         R-methods 
-Requires:         R-stats4 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mnormt 
-Requires:         R-CRAN-pbivnorm 
-Requires:         R-CRAN-numDeriv 
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-Fit a variety of latent variable models, including confirmatory factor
-analysis, structural equation modeling and latent growth curve models.
+A fast up-and-down-blocks implementation for the pool-adjacent-violators
+algorithm for simple linear ordered monotone regression, including two
+spin-off functions for unimodal and bivariate monotone regression.
 
 %prep
 %setup -q -c -n %{packname}

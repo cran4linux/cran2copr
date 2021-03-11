@@ -1,9 +1,9 @@
 %global packname  tram
-%global packver   0.5-2
+%global packver   0.6-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transformation Models
 
@@ -14,9 +14,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-mlt >= 1.2.0
-BuildRequires:    R-CRAN-basefun >= 1.0.5
-BuildRequires:    R-CRAN-variables >= 1.0.2
+BuildRequires:    R-CRAN-mlt >= 1.2.4
+BuildRequires:    R-CRAN-basefun >= 1.0.8
+BuildRequires:    R-CRAN-variables >= 1.0.4
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-multcomp 
 BuildRequires:    R-CRAN-sandwich 
@@ -25,9 +25,9 @@ BuildRequires:    R-CRAN-survival
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-mlt >= 1.2.0
-Requires:         R-CRAN-basefun >= 1.0.5
-Requires:         R-CRAN-variables >= 1.0.2
+Requires:         R-CRAN-mlt >= 1.2.4
+Requires:         R-CRAN-basefun >= 1.0.8
+Requires:         R-CRAN-variables >= 1.0.4
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-multcomp 
 Requires:         R-CRAN-sandwich 
