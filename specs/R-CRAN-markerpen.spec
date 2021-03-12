@@ -1,39 +1,34 @@
-%global packname  rbacon
-%global packver   2.5.2
+%global packname  markerpen
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Age-Depth Modelling using Bayesian Statistics
+Summary:          Marker Gene Detection via Penalized Principal Component Analysis
 
-License:          GPL (>= 2)
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-coda >= 0.19.1
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-IntCal >= 0.1.3
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-coda >= 0.19.1
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-IntCal >= 0.1.3
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-RSpectra 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-An approach to age-depth modelling that uses Bayesian statistics to
-reconstruct accumulation histories for deposits, through combining
-radiocarbon and other dates with prior information. See Blaauw & Christen
-(2011).
+Implementation of the 'MarkerPen' algorithm, short for marker gene
+detection via penalized principal component analysis, described in the
+paper by Qiu, Wang, Lei, and Roeder (2020,
+<doi:10.1101/2020.11.07.373043>). 'MarkerPen' is a semi-supervised
+algorithm for detecting marker genes by combining prior marker information
+with bulk transcriptome data.
 
 %prep
 %setup -q -c -n %{packname}

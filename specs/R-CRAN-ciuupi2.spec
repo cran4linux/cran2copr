@@ -1,11 +1,11 @@
-%global packname  MABOUST
+%global packname  ciuupi2
 %global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multi-Armed Bayesian Ordinal Utility-Based Sequential Trial
+Summary:          Kabaila and Giri (2009) Confidence Interval
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,14 +14,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.18
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.18
+BuildArch:        noarch
+BuildRequires:    R-CRAN-functional 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-PreciseSums 
+BuildRequires:    R-CRAN-statmod 
+Requires:         R-CRAN-functional 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-PreciseSums 
+Requires:         R-CRAN-statmod 
 
 %description
-Conducts and simulates the MABOUST design, including making interim
-decisions to stop a treatment for inferiority or stop the trial early for
-superiority or equivalency.
+Computes a confidence interval for a specified linear combination of the
+regression parameters in a linear regression model with iid normal errors
+with unknown variance when there is uncertain prior information that a
+distinct specified linear combination of the regression parameters takes a
+specified number. This confidence interval, found by numerical nonlinear
+constrained optimization, has the required minimum coverage and utilizes
+this uncertain prior information through desirable expected length
+properties. This confidence interval is proposed by Kabaila, P. and Giri,
+K. (2009) <doi:10.1016/j.jspi.2009.03.018>.
 
 %prep
 %setup -q -c -n %{packname}

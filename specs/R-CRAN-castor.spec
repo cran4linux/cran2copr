@@ -1,9 +1,9 @@
 %global packname  castor
-%global packver   1.6.6
+%global packver   1.6.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.6
+Version:          1.6.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Phylogenetics on Large Trees
 

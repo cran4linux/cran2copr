@@ -1,27 +1,44 @@
-%global packname  bcv
-%global packver   1.0.1.3
+%global packname  TDAkit
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cross-Validation for the SVD (Bi-Cross-Validation)
+Summary:          Toolkit for Topological Data Analysis
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-TDAstats 
+BuildRequires:    R-CRAN-energy 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-maotai 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-TDAstats 
+Requires:         R-CRAN-energy 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-maotai 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Methods for choosing the rank of an SVD approximation via cross
-validation.  The package provides both Gabriel-style "block" holdouts and
-Wold-style "speckled" holdouts.  It also includes an implementation of the
-SVDImpute algorithm.  For more information about Bi-cross-validation, see
-Owen & Perry's 2009 AoAS article (at <arXiv:0908.2062>) and Perry's 2009
-PhD thesis (at <arXiv:0909.3052>).
+Topological data analysis studies structure and shape of the data using
+topological features. We provide a variety of algorithms to learn with
+persistent homology of the data based on functional summaries for
+clustering, hypothesis testing, visualization, and others. We refer to
+Wasserman (2018) <doi:10.1146/annurev-statistics-031017-100045> for a
+statistical perspective on the topic.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
-%global packname  rsqliteadmin
-%global packver   1.0.0
+%global packname  VulnToolkit
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A GUI to Manage SQLite Databases
+Summary:          Analysis of Tidal Datasets
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,36 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-config 
-BuildRequires:    R-CRAN-golem 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-shinyFiles 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-shinyAce 
-BuildRequires:    R-CRAN-shinyjqui 
-BuildRequires:    R-CRAN-shinydashboard 
-BuildRequires:    R-CRAN-disk.frame 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-config 
-Requires:         R-CRAN-golem 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-shinyFiles 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-shinyAce 
-Requires:         R-CRAN-shinyjqui 
-Requires:         R-CRAN-shinydashboard 
-Requires:         R-CRAN-disk.frame 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-plyr 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-plyr 
 
 %description
-A comprehensive tool written in R Shiny to explore, manage and update
-SQLite Databases.
+Contains functions for analysis and summary of tidal datasets. Also
+provides access to tidal data collected by the National Oceanic and
+Atmospheric Administration's Center for Operational Oceanographic Products
+and Services. For detailed description and application examples, see Hill,
+T.D. and S.C. Anisfeld (2021) <doi:10.6084/m9.figshare.14161202.v1> and
+Hill, T.D. and S.C. Anisfeld (2015) <doi:10.1016/j.ecss.2015.06.004>.
 
 %prep
 %setup -q -c -n %{packname}

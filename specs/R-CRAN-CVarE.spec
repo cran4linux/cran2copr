@@ -1,39 +1,36 @@
-%global packname  rbacon
-%global packver   2.5.2
+%global packname  CVarE
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.2
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Age-Depth Modelling using Bayesian Statistics
+Summary:          Conditional Variance Estimator for Sufficient Dimension Reduction
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-coda >= 0.19.1
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-IntCal >= 0.1.3
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-coda >= 0.19.1
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-IntCal >= 0.1.3
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-mda 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-mda 
 
 %description
-An approach to age-depth modelling that uses Bayesian statistics to
-reconstruct accumulation histories for deposits, through combining
-radiocarbon and other dates with prior information. See Blaauw & Christen
-(2011).
+Implementation of the CVE (Conditional Variance Estimation) method
+proposed by Fertl, L. and Bura, E. (2021) <arXiv:2102.08782> and the ECVE
+(Ensemble Conditional Variance Estimation) method introduced in Fertl, L.
+and Bura, E. (2021) <arXiv:2102.13435>. CVE and ECVE are sufficient
+dimension reduction methods in regressions with continuous response and
+predictors. CVE applies to general additive error regression models while
+ECVE generalizes to non-additive error regression models. They operate
+under the assumption that the predictors can be replaced by a lower
+dimensional projection without loss of information. It is a semiparametric
+forward regression model based exhaustive sufficient dimension reduction
+estimation method that is shown to be consistent under mild assumptions.
 
 %prep
 %setup -q -c -n %{packname}
