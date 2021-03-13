@@ -1,37 +1,26 @@
-%global packname  MCMCglmm
-%global packver   2.32
+%global packname  pixarfilms
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.32
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          MCMC Generalised Linear Mixed Models
+Summary:          Pixar Films and Achievements
 
-License:          GPL (>= 2)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-corpcor 
-BuildRequires:    R-CRAN-tensorA 
-BuildRequires:    R-CRAN-cubature 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-corpcor 
-Requires:         R-CRAN-tensorA 
-Requires:         R-CRAN-cubature 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-tibble 
 
 %description
-Fits Multivariate Generalised Linear Mixed Models (and related models)
-using Markov chain Monte Carlo techniques.
+Data about Disney Pixar films provided by Wikipedia. This package contains
+data about the films, the people involved, and their awards.
 
 %prep
 %setup -q -c -n %{packname}

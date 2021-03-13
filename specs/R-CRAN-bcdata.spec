@@ -1,9 +1,9 @@
 %global packname  bcdata
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Search and Retrieve Data from the BC Data Catalogue
 
@@ -18,8 +18,8 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite >= 1.6
 BuildRequires:    R-CRAN-dbplyr >= 1.3.0
 BuildRequires:    R-CRAN-readr >= 1.3
+BuildRequires:    R-CRAN-crul >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.1
-BuildRequires:    R-CRAN-crul >= 0.7.4
 BuildRequires:    R-CRAN-sf >= 0.7
 BuildRequires:    R-CRAN-rlang >= 0.3.1
 BuildRequires:    R-CRAN-tidyselect >= 0.2.5
@@ -37,8 +37,8 @@ BuildRequires:    R-CRAN-xml2
 Requires:         R-CRAN-jsonlite >= 1.6
 Requires:         R-CRAN-dbplyr >= 1.3.0
 Requires:         R-CRAN-readr >= 1.3
+Requires:         R-CRAN-crul >= 1.1.0
 Requires:         R-CRAN-dplyr >= 0.8.1
-Requires:         R-CRAN-crul >= 0.7.4
 Requires:         R-CRAN-sf >= 0.7
 Requires:         R-CRAN-rlang >= 0.3.1
 Requires:         R-CRAN-tidyselect >= 0.2.5

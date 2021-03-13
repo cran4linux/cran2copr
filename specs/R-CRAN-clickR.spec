@@ -1,11 +1,11 @@
 %global packname  clickR
-%global packver   0.5.27
+%global packver   0.6.64
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.27
+Version:          0.6.64
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fix Data and Create Report Tables from Different Objects
+Summary:          Semi-Automatic Preprocessing of Messy Data with Change Tracking for Dataset Cleaning
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-lme4
 BuildRequires:    R-CRAN-lmerTest 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-CRAN-xtable 
 Requires:         R-CRAN-beeswarm 
 Requires:         R-CRAN-boot 
@@ -30,12 +31,13 @@ Requires:         R-CRAN-lme4
 Requires:         R-CRAN-lmerTest 
 Requires:         R-methods 
 Requires:         R-CRAN-officer 
+Requires:         R-CRAN-stringdist 
 Requires:         R-CRAN-xtable 
 
 %description
-Tools for assessing data quality, performing exploratory analysis, fixing
-data errors in numerical, factor and date variables and creating report
-tables from models and summaries.
+Tools for assessing data quality, performing exploratory analysis, and
+semi-automatic preprocessing of messy data with change tracking for
+integral dataset cleaning.
 
 %prep
 %setup -q -c -n %{packname}

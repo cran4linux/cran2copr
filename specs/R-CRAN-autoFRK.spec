@@ -1,9 +1,9 @@
 %global packname  autoFRK
-%global packver   1.3.3
+%global packver   1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Fixed Rank Kriging
 
@@ -12,15 +12,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-fields >= 6.9
 BuildRequires:    R-CRAN-LatticeKrig >= 5.4
 BuildRequires:    R-CRAN-spam 
 BuildRequires:    R-CRAN-filehashSQLite 
 BuildRequires:    R-CRAN-filehash 
-BuildRequires:    R-MASS 
-BuildRequires:    R-mgcv 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-filematrix 
 BuildRequires:    R-CRAN-Rcpp 
@@ -33,8 +33,8 @@ Requires:         R-CRAN-LatticeKrig >= 5.4
 Requires:         R-CRAN-spam 
 Requires:         R-CRAN-filehashSQLite 
 Requires:         R-CRAN-filehash 
-Requires:         R-MASS 
-Requires:         R-mgcv 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-filematrix 
 Requires:         R-CRAN-Rcpp 
@@ -60,9 +60,13 @@ stationary structure in the spatial covariance, which utilizes
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -72,6 +76,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

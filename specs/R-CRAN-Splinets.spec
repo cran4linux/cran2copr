@@ -1,39 +1,34 @@
-%global packname  geostatsp
-%global packver   1.8.4
+%global packname  Splinets
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geostatistical Modelling with Likelihood and Bayes
+Summary:          Functional Data Analysis using Splines and Orthogonal Spline Bases
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Matrix >= 1.2.0
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-numDeriv 
+BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Matrix >= 1.2.0
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-numDeriv 
 Requires:         R-methods 
-Requires:         R-stats 
 
 %description
-Geostatistical modelling facilities using 'Raster' and 'SpatialPoints'
-objects are provided. Non-Gaussian models are fit using 'INLA', and
-Gaussian geostatistical models use Maximum Likelihood Estimation.  For
-details see Brown (2015) <doi:10.18637/jss.v063.i12>.
+Splines are efficiently represented through their Taylor expansion at the
+knots. The representation accounts for the support sets and is thus
+suitable for sparse functional data. The B-splines and orthogonal bases of
+splines that reside on small total support are implemented. The orthogonal
+bases and are utilized for functional data analysis. Random spline
+generator is implemented as well as all fundamental algebraic and calculus
+operations on splines. The optimal, in the least square sense, functional
+fit to data consisting of sampled values of functions as well as splines
+build over another set of knots is obtained. Podgórski, K. (2021)
+<arXiv:2102.00733>.
 
 %prep
 %setup -q -c -n %{packname}

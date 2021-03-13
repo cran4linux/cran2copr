@@ -1,9 +1,9 @@
 %global packname  AirSensor
-%global packver   1.0.2
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Process and Display Data from Air Quality Sensors
 
@@ -15,12 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-PWFSLSmoke >= 1.2.100
+BuildRequires:    R-CRAN-PWFSLSmoke >= 1.2.111
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-worldmet >= 0.9.2
-BuildRequires:    R-CRAN-MazamaSpatialUtils >= 0.6.3
-BuildRequires:    R-CRAN-MazamaCoreUtils >= 0.4.2
-BuildRequires:    R-CRAN-MazamaLocationUtils >= 0.1.6
+BuildRequires:    R-CRAN-MazamaSpatialUtils >= 0.7.3
+BuildRequires:    R-CRAN-MazamaCoreUtils >= 0.4.6
+BuildRequires:    R-CRAN-MazamaLocationUtils >= 0.1.13
 BuildRequires:    R-CRAN-countrycode 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-dygraphs 
@@ -49,12 +49,12 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-PWFSLSmoke >= 1.2.100
+Requires:         R-CRAN-PWFSLSmoke >= 1.2.111
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-worldmet >= 0.9.2
-Requires:         R-CRAN-MazamaSpatialUtils >= 0.6.3
-Requires:         R-CRAN-MazamaCoreUtils >= 0.4.2
-Requires:         R-CRAN-MazamaLocationUtils >= 0.1.6
+Requires:         R-CRAN-MazamaSpatialUtils >= 0.7.3
+Requires:         R-CRAN-MazamaCoreUtils >= 0.4.6
+Requires:         R-CRAN-MazamaLocationUtils >= 0.1.13
 Requires:         R-CRAN-countrycode 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-dygraphs 

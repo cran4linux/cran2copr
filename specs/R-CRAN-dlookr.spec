@@ -1,9 +1,9 @@
 %global packname  dlookr
-%global packver   0.4.2
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Data Diagnosis, Exploration, Transformation
 
@@ -17,13 +17,13 @@ Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-knitr >= 1.22
+BuildRequires:    R-CRAN-corrplot >= 0.84
+BuildRequires:    R-CRAN-hrbrthemes >= 0.8.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.6
+BuildRequires:    R-CRAN-extrafont >= 0.17
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-corrplot 
-BuildRequires:    R-CRAN-extrafont 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-hrbrthemes 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
@@ -40,13 +40,13 @@ BuildRequires:    R-CRAN-tidyselect
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-knitr >= 1.22
+Requires:         R-CRAN-corrplot >= 0.84
+Requires:         R-CRAN-hrbrthemes >= 0.8.0
 Requires:         R-CRAN-dplyr >= 0.7.6
+Requires:         R-CRAN-extrafont >= 0.17
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-corrplot 
-Requires:         R-CRAN-extrafont 
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-hrbrthemes 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 

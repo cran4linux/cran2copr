@@ -1,37 +1,26 @@
-%global packname  MCMCglmm
-%global packver   2.32
+%global packname  pkgnews
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.32
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          MCMC Generalised Linear Mixed Models
+Summary:          Retrieve R Package News Files
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-corpcor 
-BuildRequires:    R-CRAN-tensorA 
-BuildRequires:    R-CRAN-cubature 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-corpcor 
-Requires:         R-CRAN-tensorA 
-Requires:         R-CRAN-cubature 
-Requires:         R-methods 
+BuildArch:        noarch
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
-Fits Multivariate Generalised Linear Mixed Models (and related models)
-using Markov chain Monte Carlo techniques.
+Read R package news files, regardless of whether or not the package is
+installed.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  discoveR
-%global packver   2.1.7
+%global packver   2.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.7
+Version:          2.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploratory Data Analysis System
 
@@ -12,9 +12,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-shinydashboardPlus >= 2.0.0
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
@@ -30,12 +31,13 @@ BuildRequires:    R-CRAN-shinyjs
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-shinyAce 
 BuildRequires:    R-CRAN-ggdendro 
+BuildRequires:    R-CRAN-echarts4r 
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-highcharter 
+BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-colourpicker 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-shinycustomloader 
-BuildRequires:    R-CRAN-shinydashboardPlus 
+Requires:         R-CRAN-shinydashboardPlus >= 2.0.0
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
@@ -51,12 +53,12 @@ Requires:         R-CRAN-shinyjs
 Requires:         R-graphics 
 Requires:         R-CRAN-shinyAce 
 Requires:         R-CRAN-ggdendro 
+Requires:         R-CRAN-echarts4r 
 Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-highcharter 
+Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-colourpicker 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-shinycustomloader 
-Requires:         R-CRAN-shinydashboardPlus 
 
 %description
 Performs an exploratory data analysis through a 'shiny' interface. It

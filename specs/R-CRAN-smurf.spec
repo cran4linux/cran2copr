@@ -1,9 +1,9 @@
 %global packname  smurf
-%global packver   1.0.7
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse Multi-Type Regularized Feature Modeling
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildRequires:    R-CRAN-glmnet >= 4.0
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.8.300.1.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
@@ -41,9 +41,10 @@ Requires:         R-CRAN-speedglm
 Requires:         R-stats 
 
 %description
-Implementation of the SMuRF algorithm of Devriendt et al. (2018)
-<arXiv:1810.03136> to fit generalized linear models (GLMs) with multiple
-types of predictors via regularized maximum likelihood.
+Implementation of the SMuRF algorithm of Devriendt et al. (2021)
+<doi:10.1016/j.insmatheco.2020.11.010> to fit generalized linear models
+(GLMs) with multiple types of predictors via regularized maximum
+likelihood.
 
 %prep
 %setup -q -c -n %{packname}

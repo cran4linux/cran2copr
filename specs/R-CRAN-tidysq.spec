@@ -1,37 +1,41 @@
-%global packname  MCMCglmm
-%global packver   2.32
+%global packname  tidysq
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.32
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          MCMC Generalised Linear Mixed Models
+Summary:          Tidy Processing and Analysis of Biological Sequences
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-corpcor 
-BuildRequires:    R-CRAN-tensorA 
-BuildRequires:    R-CRAN-cubature 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-corpcor 
-Requires:         R-CRAN-tensorA 
-Requires:         R-CRAN-cubature 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-tibble >= 2.1.3
+BuildRequires:    R-CRAN-cli >= 2.0.0
+BuildRequires:    R-CRAN-checkmate >= 1.9.0
+BuildRequires:    R-CRAN-pillar >= 1.4.2
+BuildRequires:    R-CRAN-crayon >= 1.3.4
+BuildRequires:    R-CRAN-dplyr >= 1.0.2
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-vctrs >= 0.3.0
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-tibble >= 2.1.3
+Requires:         R-CRAN-cli >= 2.0.0
+Requires:         R-CRAN-checkmate >= 1.9.0
+Requires:         R-CRAN-pillar >= 1.4.2
+Requires:         R-CRAN-crayon >= 1.3.4
+Requires:         R-CRAN-dplyr >= 1.0.2
+Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-vctrs >= 0.3.0
 
 %description
-Fits Multivariate Generalised Linear Mixed Models (and related models)
-using Markov chain Monte Carlo techniques.
+A tidy approach to analysis of biological sequences. All processing and
+data-storage functions are heavily optimized to allow the fastest and most
+efficient data storage.
 
 %prep
 %setup -q -c -n %{packname}

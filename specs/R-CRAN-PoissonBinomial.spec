@@ -1,9 +1,9 @@
 %global packname  PoissonBinomial
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Computation of Ordinary and Generalized Poisson Binomial Distributions
 
@@ -16,7 +16,6 @@ BuildRequires:    fftw-devel >= 3
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-Rcpp >= 1.0.3
 
 %description
