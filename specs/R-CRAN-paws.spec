@@ -1,9 +1,9 @@
 %global packname  paws
-%global packver   0.1.10
+%global packver   0.1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.1.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Amazon Web Services Software Development Kit
 
@@ -15,28 +15,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.compute >= 0.1.10
-BuildRequires:    R-CRAN-paws.storage >= 0.1.10
-BuildRequires:    R-CRAN-paws.database >= 0.1.10
-BuildRequires:    R-CRAN-paws.networking >= 0.1.10
-BuildRequires:    R-CRAN-paws.management >= 0.1.10
-BuildRequires:    R-CRAN-paws.machine.learning >= 0.1.10
-BuildRequires:    R-CRAN-paws.analytics >= 0.1.10
-BuildRequires:    R-CRAN-paws.security.identity >= 0.1.10
-BuildRequires:    R-CRAN-paws.application.integration >= 0.1.10
-BuildRequires:    R-CRAN-paws.cost.management >= 0.1.10
-BuildRequires:    R-CRAN-paws.customer.engagement >= 0.1.10
-Requires:         R-CRAN-paws.compute >= 0.1.10
-Requires:         R-CRAN-paws.storage >= 0.1.10
-Requires:         R-CRAN-paws.database >= 0.1.10
-Requires:         R-CRAN-paws.networking >= 0.1.10
-Requires:         R-CRAN-paws.management >= 0.1.10
-Requires:         R-CRAN-paws.machine.learning >= 0.1.10
-Requires:         R-CRAN-paws.analytics >= 0.1.10
-Requires:         R-CRAN-paws.security.identity >= 0.1.10
-Requires:         R-CRAN-paws.application.integration >= 0.1.10
-Requires:         R-CRAN-paws.cost.management >= 0.1.10
-Requires:         R-CRAN-paws.customer.engagement >= 0.1.10
+BuildRequires:    R-CRAN-paws.compute >= 0.1.11
+BuildRequires:    R-CRAN-paws.storage >= 0.1.11
+BuildRequires:    R-CRAN-paws.database >= 0.1.11
+BuildRequires:    R-CRAN-paws.networking >= 0.1.11
+BuildRequires:    R-CRAN-paws.management >= 0.1.11
+BuildRequires:    R-CRAN-paws.machine.learning >= 0.1.11
+BuildRequires:    R-CRAN-paws.analytics >= 0.1.11
+BuildRequires:    R-CRAN-paws.security.identity >= 0.1.11
+BuildRequires:    R-CRAN-paws.application.integration >= 0.1.11
+BuildRequires:    R-CRAN-paws.cost.management >= 0.1.11
+BuildRequires:    R-CRAN-paws.customer.engagement >= 0.1.11
+Requires:         R-CRAN-paws.compute >= 0.1.11
+Requires:         R-CRAN-paws.storage >= 0.1.11
+Requires:         R-CRAN-paws.database >= 0.1.11
+Requires:         R-CRAN-paws.networking >= 0.1.11
+Requires:         R-CRAN-paws.management >= 0.1.11
+Requires:         R-CRAN-paws.machine.learning >= 0.1.11
+Requires:         R-CRAN-paws.analytics >= 0.1.11
+Requires:         R-CRAN-paws.security.identity >= 0.1.11
+Requires:         R-CRAN-paws.application.integration >= 0.1.11
+Requires:         R-CRAN-paws.cost.management >= 0.1.11
+Requires:         R-CRAN-paws.customer.engagement >= 0.1.11
 
 %description
 Interface to Amazon Web Services <https://aws.amazon.com>, including

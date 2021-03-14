@@ -1,42 +1,50 @@
-%global packname  gsDesign
-%global packver   3.2.0
+%global packname  RAQSAPI
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Group Sequential Design
+Summary:          A R Interface to the US EPA Air Quality System Data Mart API
 
-License:          GPL (>= 3)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-ggplot2 >= 0.9.2
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-tools 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-ggplot2 >= 0.9.2
-Requires:         R-stats 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Derives group sequential designs and describes their properties.
+Retrieve air monitoring data and associated metadata from the US
+Environmental Protection Agency's Air Quality System service using
+functions. See <https://aqs.epa.gov/aqsweb/documents/data_api.html> for
+details about the US EPA Data Mart API.
 
 %prep
 %setup -q -c -n %{packname}
