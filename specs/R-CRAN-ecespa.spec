@@ -1,9 +1,9 @@
 %global packname  ecespa
-%global packver   1.1-12
+%global packver   1.1-13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.12
+Version:          1.1.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Spatial Point Pattern Analysis
 
@@ -14,8 +14,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-spatstat 
-Requires:         R-CRAN-spatstat 
+BuildRequires:    R-CRAN-spatstat >= 2.0.0
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.core 
+Requires:         R-CRAN-spatstat >= 2.0.0
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.core 
 
 %description
 Some wrappers, functions and data sets for for spatial point pattern

@@ -1,9 +1,9 @@
 %global packname  brms
-%global packver   2.14.4
+%global packver   2.15.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.14.4
+Version:          2.15.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Regression Models using 'Stan'
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-projpred >= 2.0.0
 BuildRequires:    R-CRAN-mgcv >= 1.8.13
 BuildRequires:    R-CRAN-bayesplot >= 1.5.0
 BuildRequires:    R-CRAN-glue >= 1.3.0
+BuildRequires:    R-CRAN-future >= 1.19.0
 BuildRequires:    R-CRAN-Matrix >= 1.1.1
 BuildRequires:    R-CRAN-bridgesampling >= 0.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
@@ -33,7 +34,6 @@ BuildRequires:    R-CRAN-nleqslv
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-future 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-parallel 
@@ -49,6 +49,7 @@ Requires:         R-CRAN-projpred >= 2.0.0
 Requires:         R-CRAN-mgcv >= 1.8.13
 Requires:         R-CRAN-bayesplot >= 1.5.0
 Requires:         R-CRAN-glue >= 1.3.0
+Requires:         R-CRAN-future >= 1.19.0
 Requires:         R-CRAN-Matrix >= 1.1.1
 Requires:         R-CRAN-bridgesampling >= 0.3.0
 Requires:         R-CRAN-Rcpp >= 0.12.0
@@ -58,7 +59,6 @@ Requires:         R-CRAN-nleqslv
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-abind 
-Requires:         R-CRAN-future 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-parallel 

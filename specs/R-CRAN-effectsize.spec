@@ -1,9 +1,9 @@
 %global packname  effectsize
-%global packver   0.4.3
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Indices of Effect Size and Standardized Parameters
 
@@ -12,25 +12,26 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bayestestR >= 0.8.0
-BuildRequires:    R-CRAN-insight >= 0.12.0
-BuildRequires:    R-CRAN-parameters >= 0.11.0
+BuildRequires:    R-CRAN-bayestestR >= 0.8.2
+BuildRequires:    R-CRAN-insight >= 0.13.1
+BuildRequires:    R-CRAN-parameters >= 0.12.0
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-bayestestR >= 0.8.0
-Requires:         R-CRAN-insight >= 0.12.0
-Requires:         R-CRAN-parameters >= 0.11.0
+Requires:         R-CRAN-bayestestR >= 0.8.2
+Requires:         R-CRAN-insight >= 0.13.1
+Requires:         R-CRAN-parameters >= 0.12.0
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
 Provide utilities to work with indices of effect size and standardized
-parameters for a wide variety of models (see support list of insight;
-Lüdecke, Waggoner & Makowski (2019) <doi:10.21105/joss.01412>), allowing
-computation and conversion of indices such as Cohen's d, r, odds, etc.
+parameters for a wide variety of models (see list of supported models in
+insight; Lüdecke, Waggoner & Makowski (2019) <doi:10.21105/joss.01412>),
+allowing computation of and conversion between indices such as Cohen's d,
+r, odds, etc.
 
 %prep
 %setup -q -c -n %{packname}

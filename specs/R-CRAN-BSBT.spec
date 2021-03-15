@@ -1,9 +1,9 @@
 %global packname  BSBT
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Bayesian Spatial Bradley--Terry Model
 
@@ -18,13 +18,13 @@ BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-expm 
 Requires:         R-stats 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-utils 
+Requires:         R-CRAN-expm 
 
 %description
 An implementation of the Bayesian Spatial Bradley--Terry (BSBT) model. It

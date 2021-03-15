@@ -1,9 +1,9 @@
 %global packname  babsim.hospital
-%global packver   11.5.14
+%global packver   11.7.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          11.5.14
+Version:          11.7.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bartz & Bartz Simulation Hospital
 
@@ -16,6 +16,8 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-SPOT 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
@@ -26,13 +28,16 @@ BuildRequires:    R-CRAN-markovchain
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-padr 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-simmer 
 BuildRequires:    R-CRAN-slider 
+BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-SPOT 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
@@ -43,11 +48,12 @@ Requires:         R-CRAN-markovchain
 Requires:         R-methods 
 Requires:         R-CRAN-padr 
 Requires:         R-parallel 
-Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-simmer 
 Requires:         R-CRAN-slider 
+Requires:         R-CRAN-testthat 
+Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-xml2 
 
 %description

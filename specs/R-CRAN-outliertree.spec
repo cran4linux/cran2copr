@@ -1,9 +1,9 @@
 %global packname  outliertree
-%global packver   1.3.4
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explainable Outlier Detection Through Decision Tree Conditioning
 

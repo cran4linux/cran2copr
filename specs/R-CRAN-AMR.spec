@@ -1,11 +1,11 @@
 %global packname  AMR
-%global packver   1.5.0
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Antimicrobial Resistance Analysis
+Summary:          Antimicrobial Resistance Data Analysis
 
 License:          GPL-2 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,8 +20,8 @@ BuildArch:        noarch
 Functions to simplify the analysis and prediction of Antimicrobial
 Resistance (AMR) and to work with microbial and antimicrobial properties
 by using evidence-based methods, like those defined by Leclercq et al.
-(2013) <doi:10.1111/j.1469-0691.2011.03703.x> and the Clinical and
-Laboratory Standards Institute (2014) <isbn: 1-56238-899-1>.
+(2013) <doi:10.1111/j.1469-0691.2011.03703.x> and containing reference
+data such as LPSN <doi:10.1099/ijsem.0.004332>.
 
 %prep
 %setup -q -c -n %{packname}

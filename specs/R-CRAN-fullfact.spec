@@ -1,9 +1,9 @@
 %global packname  fullfact
-%global packver   1.4
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Full Factorial Breeding Analysis
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-afex 
@@ -22,19 +22,8 @@ Requires:         R-CRAN-afex
 
 %description
 We facilitate the analysis of full factorial mating designs with
-mixed-effects models. The observed data functions extract the variance
-explained by random and fixed effects and provide their significance. We
-then calculate the additive genetic, nonadditive genetic, and maternal
-variance components explaining the phenotype. In particular, we integrate
-nonnormal error structures for estimating these components for nonnormal
-data types. The resampled data functions are used to produce bootstrap
-confidence intervals, which can then be plotted using a simple function.
-This package will facilitate the analyses of full factorial mating designs
-in R, especially for the analysis of binary, proportion, and/or count data
-types and for the ability to incorporate additional random and fixed
-effects and power analyses. The paper associated with the package
-including worked examples is: Houde ALS, Pitcher TE (2016)
-<doi:10.1002/ece3.1943>.
+mixed-effects models. There are now six vignettes containing detailed
+examples.
 
 %prep
 %setup -q -c -n %{packname}

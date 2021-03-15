@@ -1,9 +1,9 @@
 %global packname  NutrienTrackeR
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Food Composition Information and Dietary Assessment
 
@@ -28,7 +28,8 @@ calculates the intake levels for both macronutrient and micronutrients,
 and compares them with the recommended dietary allowances (RDA). It
 includes a number of visualization tools, such as time series plots of
 nutrient intake, and pie-charts showing the main foods contributing to the
-intake level of a given nutrient.
+intake level of a given nutrient. A shiny app exposing the main
+functionalities of the package is also provided.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global packname  ModStatR
-%global packver   1.3.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
-Release:          3%{?dist}%{?buildtag}
+Version:          1.3.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Modelling in Action with R
 
 License:          GPL-3
@@ -16,17 +16,13 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-boot 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-BioStatR 
+BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-jmuOutlier 
 BuildRequires:    R-CRAN-ellipse 
 BuildRequires:    R-CRAN-hypergeo 
 BuildRequires:    R-CRAN-gsl 
 Requires:         R-stats 
-Requires:         R-boot 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-BioStatR 
+Requires:         R-CRAN-boot 
 Requires:         R-CRAN-jmuOutlier 
 Requires:         R-CRAN-ellipse 
 Requires:         R-CRAN-hypergeo 
@@ -52,6 +48,13 @@ nutrition analyses.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -59,21 +62,10 @@ nutrition analyses.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%doc %{rlibdir}/%{packname}/demo
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/_pkgdown.yml
-%doc %{rlibdir}/%{packname}/CITATION
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
