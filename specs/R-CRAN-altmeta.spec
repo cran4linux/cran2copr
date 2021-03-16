@@ -1,9 +1,9 @@
 %global packname  altmeta
-%global packver   3.2
+%global packver   3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2
+Version:          3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Alternative Meta-Analysis Methods
 
@@ -51,7 +51,9 @@ for synthesizing sensitivities, specificities, etc. (Reitsma et al., 2005
 <doi:10.1016/j.jclinepi.2006.06.011>); - meta-analysis methods for
 synthesizing proportions (Lin and Chu, 2020
 <doi:10.1097/ede.0000000000001232>); - models for multivariate
-meta-analysis (Lin and Chu, 2018 <doi:10.1002/jrsm.1293>).
+meta-analysis (Lin and Chu, 2018 <doi:10.1002/jrsm.1293>); - measures of
+inconsistency degrees of freedom in Bayesian network meta-analysis (Lin,
+2020 <doi:10.1080/10543406.2020.1852247>).
 
 %prep
 %setup -q -c -n %{packname}

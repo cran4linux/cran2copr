@@ -1,58 +1,42 @@
-%global packname  swfscMisc
-%global packver   1.4.3
+%global packname  gghilbertstrings
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Functions for Southwest Fisheries Science Center
+Summary:          A Fast 'ggplot2'-Based Implementation of Hilbert Curves
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-kknn 
-BuildRequires:    R-CRAN-mapdata 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-kknn 
-Requires:         R-CRAN-mapdata 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-maps 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-stats 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
 
 %description
-Collection of conversion, analytical, geodesic, mapping, and plotting
-functions. Used to support packages and code written by researchers at the
-Southwest Fisheries Science Center of the National Oceanic and Atmospheric
-Administration.
+A set of functions that help to create plots based on Hilbert curves.
+Hilbert curves are used to map one dimensional data into the 2D plane. The
+package provides a function that generate a 2D coordinate from an integer
+position. As a specific use case the package provides a function that
+allows mapping a character column in a data frame into 2D space using
+'ggplot2'. This allows visually comparing long lists of URLs, words, genes
+or other data that has a fixed order and position.
 
 %prep
 %setup -q -c -n %{packname}

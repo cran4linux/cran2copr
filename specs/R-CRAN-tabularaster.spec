@@ -1,9 +1,9 @@
 %global packname  tabularaster
-%global packver   0.6.6
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.6
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Tools for 'Raster' Data
 
@@ -20,14 +20,14 @@ BuildRequires:    R-CRAN-fasterize
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-silicate 
-BuildRequires:    R-CRAN-spatstat 
+BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fasterize 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-silicate 
-Requires:         R-CRAN-spatstat 
+Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-tibble 
 
 %description

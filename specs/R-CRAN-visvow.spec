@@ -1,9 +1,9 @@
 %global packname  visvow
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visible Vowels: Visualization of Vowel Variation
 
@@ -37,6 +37,8 @@ BuildRequires:    R-CRAN-plyr
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-svglite 
 BuildRequires:    R-CRAN-Cairo 
+BuildRequires:    R-CRAN-tikzDevice 
+BuildRequires:    R-CRAN-shinybusy 
 BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyBS 
@@ -60,6 +62,8 @@ Requires:         R-CRAN-plyr
 Requires:         R-grid 
 Requires:         R-CRAN-svglite 
 Requires:         R-CRAN-Cairo 
+Requires:         R-CRAN-tikzDevice 
+Requires:         R-CRAN-shinybusy 
 Requires:         R-CRAN-Rdpack 
 
 %description

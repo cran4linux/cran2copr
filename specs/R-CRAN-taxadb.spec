@@ -1,9 +1,9 @@
 %global packname  taxadb
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A High-Performance Local Taxonomic Database Interface
 
@@ -12,10 +12,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arkdb >= 0.0.6
+BuildRequires:    R-CRAN-arkdb > 0.0.10
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-tibble 
@@ -33,7 +33,7 @@ BuildRequires:    R-CRAN-curl
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-duckdb 
 BuildRequires:    R-CRAN-contentid 
-Requires:         R-CRAN-arkdb >= 0.0.6
+Requires:         R-CRAN-arkdb > 0.0.10
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-tibble 

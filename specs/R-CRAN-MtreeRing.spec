@@ -1,11 +1,11 @@
 %global packname  MtreeRing
-%global packver   1.4.2
+%global packver   1.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
-Release:          3%{?dist}%{?buildtag}
-Summary:          A Shiny Application for Automatic Measurements of Tree-RingWidths on Digital Images
+Version:          1.4.4
+Release:          1%{?dist}%{?buildtag}
+Summary:          A Shiny Application for Automatic Measurements of Tree-Ring Widths on Digital Images
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,7 +23,7 @@ BuildRequires:    R-CRAN-bmp
 BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-imager 
 BuildRequires:    R-CRAN-dplR 
-BuildRequires:    R-CRAN-spatstat 
+BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-measuRing 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-dplyr 
@@ -37,7 +37,7 @@ Requires:         R-CRAN-bmp
 Requires:         R-CRAN-magick 
 Requires:         R-CRAN-imager 
 Requires:         R-CRAN-dplR 
-Requires:         R-CRAN-spatstat 
+Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-measuRing 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-dplyr 
@@ -56,6 +56,13 @@ export ring-width series in standard file formats.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -63,23 +70,10 @@ export ring-width series in standard file formats.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/001.png
-%doc %{rlibdir}/%{packname}/missing_pith.png
-%doc %{rlibdir}/%{packname}/mtr_app
-%doc %{rlibdir}/%{packname}/README-img001.png
-%doc %{rlibdir}/%{packname}/README-img002.png
-%doc %{rlibdir}/%{packname}/RingCorrection.png
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

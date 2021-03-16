@@ -1,39 +1,40 @@
-%global packname  splithalfr
-%global packver   2.1.0
+%global packname  funcharts
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Split-Half Reliabilities
+Summary:          Functional Control Charts
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 2.1.1
-BuildRequires:    R-CRAN-psych >= 1.8.12
-BuildRequires:    R-CRAN-dplyr >= 0.8.1
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-bcaboot >= 0.2.1
-Requires:         R-CRAN-tibble >= 2.1.1
-Requires:         R-CRAN-psych >= 1.8.12
-Requires:         R-CRAN-dplyr >= 0.8.1
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-bcaboot >= 0.2.1
+BuildRequires:    R-CRAN-fda 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-patchwork 
+Requires:         R-CRAN-fda 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-parallel 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-patchwork 
 
 %description
-Estimates split-half reliabilities for scoring algorithms of reaction time
-(RT) tasks and questionnaires. The 'splithalfr' supports
-researcher-provided scoring algorithms, with six vignettes illustrating
-how on included datasets. The package provides four splitting methods
-(first-second, odd-even, permutated, Monte Carlo), the option to stratify
-splits by task design, a number of reliability coefficients, and the
-option to sub-sample data.
+Provides functional control charts for statistical process monitoring of
+functional data, using the methods of Capezza et al. (2020)
+<doi:10.1002/asmb.2507> and Centofanti et al. (2020)
+<doi:10.1080/00401706.2020.1753581>.
 
 %prep
 %setup -q -c -n %{packname}

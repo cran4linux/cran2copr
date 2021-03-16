@@ -1,9 +1,9 @@
 %global packname  VAM
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variance-Adjusted Mahalanobis
 
@@ -15,10 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-methods >= 4.0.0
+BuildRequires:    R-methods >= 3.6.0
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
-Requires:         R-methods >= 4.0.0
+Requires:         R-methods >= 3.6.0
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
 

@@ -1,9 +1,9 @@
 %global packname  apisensr
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'episensr' for Sensitivity Analysis of Epidemiological Results
 
@@ -20,9 +20,6 @@ BuildRequires:    R-CRAN-episensr >= 1.0.0
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-golem 
 BuildRequires:    R-CRAN-config 
-BuildRequires:    R-CRAN-processx 
-BuildRequires:    R-CRAN-attempt 
-BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-shinymaterial 
@@ -36,9 +33,6 @@ Requires:         R-CRAN-episensr >= 1.0.0
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-golem 
 Requires:         R-CRAN-config 
-Requires:         R-CRAN-processx 
-Requires:         R-CRAN-attempt 
-Requires:         R-CRAN-DT 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-shinymaterial 

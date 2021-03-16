@@ -1,9 +1,9 @@
 %global packname  behaviorchange
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Behavior Change Researchers and Professionals
 
@@ -15,23 +15,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
+BuildRequires:    R-methods >= 3.0
 BuildRequires:    R-CRAN-gridExtra >= 2.3
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
 BuildRequires:    R-CRAN-BiasedUrn >= 1.07
 BuildRequires:    R-CRAN-DiagrammeR >= 1.0.0
+BuildRequires:    R-CRAN-knitr >= 1.0
 BuildRequires:    R-CRAN-data.tree >= 0.7.5
 BuildRequires:    R-CRAN-viridis >= 0.5.1
+BuildRequires:    R-CRAN-rmdpartials >= 0.5.0
 BuildRequires:    R-CRAN-ufs >= 0.3.2
 BuildRequires:    R-CRAN-googlesheets4 >= 0.2.0
 BuildRequires:    R-CRAN-gtable >= 0.2.0
 BuildRequires:    R-CRAN-DiagrammeRsvg >= 0.1
 BuildRequires:    R-CRAN-yum >= 0.0.1
+Requires:         R-methods >= 3.0
 Requires:         R-CRAN-gridExtra >= 2.3
 Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-CRAN-BiasedUrn >= 1.07
 Requires:         R-CRAN-DiagrammeR >= 1.0.0
+Requires:         R-CRAN-knitr >= 1.0
 Requires:         R-CRAN-data.tree >= 0.7.5
 Requires:         R-CRAN-viridis >= 0.5.1
+Requires:         R-CRAN-rmdpartials >= 0.5.0
 Requires:         R-CRAN-ufs >= 0.3.2
 Requires:         R-CRAN-googlesheets4 >= 0.2.0
 Requires:         R-CRAN-gtable >= 0.2.0

@@ -1,39 +1,37 @@
-%global packname  splithalfr
-%global packver   2.1.0
+%global packname  stats19
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Split-Half Reliabilities
+Summary:          Work with Open Road Traffic Casualty Data from Great Britain
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 2.1.1
-BuildRequires:    R-CRAN-psych >= 1.8.12
-BuildRequires:    R-CRAN-dplyr >= 0.8.1
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-bcaboot >= 0.2.1
-Requires:         R-CRAN-tibble >= 2.1.1
-Requires:         R-CRAN-psych >= 1.8.12
-Requires:         R-CRAN-dplyr >= 0.8.1
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-bcaboot >= 0.2.1
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-readr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-readr 
 
 %description
-Estimates split-half reliabilities for scoring algorithms of reaction time
-(RT) tasks and questionnaires. The 'splithalfr' supports
-researcher-provided scoring algorithms, with six vignettes illustrating
-how on included datasets. The package provides four splitting methods
-(first-second, odd-even, permutated, Monte Carlo), the option to stratify
-splits by task design, a number of reliability coefficients, and the
-option to sub-sample data.
+Tools to help download, process and analyse the UK road collision data
+collected using the 'STATS19' form. The data are provided as 'CSV' files
+with detailed road safety data about the circumstances of car crashes and
+other incidents on the roads resulting in casualties in Great Britain from
+1979, the types (including make and model) of vehicles involved and the
+consequential casualties.  The statistics relate only to personal
+casualties on public roads that are reported to the police, and
+subsequently recorded, using the 'STATS19' accident reporting form. See
+the Department for Transport website
+<https://data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-safety-data>
+for more information on these data.
 
 %prep
 %setup -q -c -n %{packname}

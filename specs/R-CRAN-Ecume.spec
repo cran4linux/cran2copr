@@ -1,9 +1,9 @@
 %global packname  Ecume
-%global packver   0.9.0
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Equality of 2 (or k) Continuous Univariate and Multivariate Distributions
 
@@ -15,8 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-spatstat >= 2.0.0
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-spatstat 
+BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-dplyr 
@@ -25,8 +26,9 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-kernlab 
 BuildRequires:    R-CRAN-transport 
+Requires:         R-CRAN-spatstat >= 2.0.0
 Requires:         R-stats 
-Requires:         R-CRAN-spatstat 
+Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-dplyr 

@@ -1,9 +1,9 @@
 %global packname  CTP
-%global packver   2.0.0
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Closed Testing Procedure (CTP)
 
@@ -18,6 +18,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-clinfun 
 BuildRequires:    R-CRAN-diagram 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-MASS 
@@ -28,6 +29,7 @@ BuildRequires:    R-grid
 Requires:         R-CRAN-clinfun 
 Requires:         R-CRAN-diagram 
 Requires:         R-stats 
+Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-MASS 
@@ -37,11 +39,11 @@ Requires:         R-CRAN-Gmisc
 Requires:         R-grid 
 
 %description
-This is a package for constructing hypothesis trees based on the closure
-principle and analysing Closed Testing Procedures (CTP) using adjusted
-p-values. For reference, see Marcus, R., Peritz, E, and Gabriel, K.R.
-(1976) <doi:10.2307/2335748> and Bauer, P (1991)
-<doi:10.1002/sim.4780100609>.
+This is a package for constructing hypothesis trees for treatment
+comparisons based on the closure principle and analysing the corresponding
+Closed Testing Procedures (CTP) using adjusted p-values. For reference,
+see Marcus, R., Peritz, E, and Gabriel, K.R. (1976) <doi:10.2307/2335748>
+and Bauer, P (1991) <doi:10.1002/sim.4780100609>.
 
 %prep
 %setup -q -c -n %{packname}

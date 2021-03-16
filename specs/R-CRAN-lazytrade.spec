@@ -1,9 +1,9 @@
 %global packname  lazytrade
-%global packver   0.4.4
+%global packver   0.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Learn Computer and Data Science using Algorithmic Trading
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-ReinforcementLearning
 BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-dplyr 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-ReinforcementLearning
 Requires:         R-CRAN-openssl 
 Requires:         R-stats 
 Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Provide sets of functions and methods to learn and practice data science

@@ -1,9 +1,9 @@
 %global packname  gateR
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flow/Mass Cytometry Gating via Spatial Kernel Density Estimation
 
@@ -15,6 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-spatstat >= 2.0.0
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.core 
+BuildRequires:    R-CRAN-spatstat.linnet 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
@@ -22,10 +26,13 @@ BuildRequires:    R-CRAN-lifecycle
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-sparr 
 BuildRequires:    R-CRAN-SpatialPack 
-BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-spatstat >= 2.0.0
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.core 
+Requires:         R-CRAN-spatstat.linnet 
 Requires:         R-CRAN-fields 
 Requires:         R-graphics 
 Requires:         R-grDevices 
@@ -33,7 +40,6 @@ Requires:         R-CRAN-lifecycle
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-sparr 
 Requires:         R-CRAN-SpatialPack 
-Requires:         R-CRAN-spatstat.geom 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 

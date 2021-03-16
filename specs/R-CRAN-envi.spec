@@ -1,9 +1,9 @@
 %global packname  envi
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Environmental Interpolation using Spatial Kernel Density Estimation
 
@@ -15,44 +15,50 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-spatstat >= 2.0.0
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.core 
+BuildRequires:    R-CRAN-spatstat.linnet 
 BuildRequires:    R-CRAN-concaveman 
 BuildRequires:    R-CRAN-cvAUC 
-BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-doFuture 
+BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-future 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-iterators 
 BuildRequires:    R-CRAN-maptools 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pls 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-ROCR 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-sparr 
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.core 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+Requires:         R-CRAN-spatstat >= 2.0.0
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.core 
+Requires:         R-CRAN-spatstat.linnet 
 Requires:         R-CRAN-concaveman 
 Requires:         R-CRAN-cvAUC 
-Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-doFuture 
+Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-future 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-iterators 
 Requires:         R-CRAN-maptools 
-Requires:         R-parallel 
 Requires:         R-CRAN-pls 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-ROCR 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-sparr 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.core 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
 Estimates an ecological niche using occurrence data, covariates, and

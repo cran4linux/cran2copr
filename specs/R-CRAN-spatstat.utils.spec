@@ -1,9 +1,9 @@
 %global packname  spatstat.utils
-%global packver   2.0-0
+%global packver   2.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utility Functions for 'spatstat'
 
@@ -26,8 +26,8 @@ Requires:         R-utils
 Requires:         R-methods 
 
 %description
-Contains utility functions for the 'spatstat' package which may also be
-useful for other purposes.
+Contains utility functions for the 'spatstat' family of packages which may
+also be useful for other purposes.
 
 %prep
 %setup -q -c -n %{packname}

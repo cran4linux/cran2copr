@@ -1,9 +1,9 @@
 %global packname  IsoplotRgui
-%global packver   3.6.1
+%global packver   3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6.1
+Version:          3.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Web Interface to 'IsoplotR'
 
@@ -15,13 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-IsoplotR >= 3.7
 BuildRequires:    R-grDevices >= 3.6.2
-BuildRequires:    R-CRAN-IsoplotR >= 3.4
 BuildRequires:    R-CRAN-jsonlite >= 1.6.1
 BuildRequires:    R-CRAN-httpuv >= 1.5.4
 BuildRequires:    R-CRAN-later >= 1.0
+Requires:         R-CRAN-IsoplotR >= 3.7
 Requires:         R-grDevices >= 3.6.2
-Requires:         R-CRAN-IsoplotR >= 3.4
 Requires:         R-CRAN-jsonlite >= 1.6.1
 Requires:         R-CRAN-httpuv >= 1.5.4
 Requires:         R-CRAN-later >= 1.0

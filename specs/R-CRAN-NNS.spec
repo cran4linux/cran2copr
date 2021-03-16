@@ -1,9 +1,9 @@
 %global packname  NNS
-%global packver   0.6
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonlinear Nonparametric Statistics
 
@@ -19,6 +19,7 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dtw 
+BuildRequires:    R-CRAN-dynlm 
 BuildRequires:    R-CRAN-meboot 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-Rfast 
@@ -29,6 +30,7 @@ Requires:         R-CRAN-doParallel
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dtw 
+Requires:         R-CRAN-dynlm 
 Requires:         R-CRAN-meboot 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-Rfast 

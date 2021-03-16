@@ -1,9 +1,9 @@
 %global packname  kim
-%global packver   0.2.96
+%global packver   0.2.133
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.96
+Version:          0.2.133
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Behavioral Science Researchers
 

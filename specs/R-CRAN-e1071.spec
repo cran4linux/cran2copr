@@ -1,9 +1,9 @@
 %global packname  e1071
-%global packver   1.7-4
+%global packver   1.7-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.4
+Version:          1.7.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Misc Functions of the Department of Statistics, Probability Theory Group (Formerly: E1071), TU Wien
 
@@ -20,17 +20,19 @@ BuildRequires:    R-CRAN-class
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-proxy 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-class 
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-utils 
+Requires:         R-CRAN-proxy 
 
 %description
 Functions for latent class analysis, short time Fourier transform, fuzzy
 clustering, support vector machines, shortest path computation, bagged
-clustering, naive Bayes classifier, ...
+clustering, naive Bayes classifier, generalized k-nearest neighbour ...
 
 %prep
 %setup -q -c -n %{packname}
