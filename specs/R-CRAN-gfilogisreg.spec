@@ -1,9 +1,9 @@
 %global packname  gfilogisreg
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Fiducial Inference for Binary Logistic Regression Models
 
@@ -14,18 +14,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-spatstat >= 2.0.0
 BuildRequires:    R-CRAN-rcdd 
 BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-spatstat 
+BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-EigenR 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-roptim 
 BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-spatstat >= 2.0.0
 Requires:         R-CRAN-rcdd 
 Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-spatstat 
+Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-EigenR 
 Requires:         R-stats 
 Requires:         R-CRAN-Rcpp 

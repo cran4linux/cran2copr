@@ -1,9 +1,9 @@
 %global packname  survival
-%global packver   3.2-9
+%global packver   3.2-10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.9
+Version:          3.2.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Survival Analysis
 

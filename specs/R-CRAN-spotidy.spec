@@ -1,13 +1,13 @@
-%global packname  mergedblocks
-%global packver   1.1.0
+%global packname  spotidy
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Merged Block Randomization
+Summary:          Providing Convenience Functions to Connect R with the Spotify API
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,15 +15,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-randomizeR 
-Requires:         R-CRAN-randomizeR 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-httr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-httr 
 
 %description
-Package to carry out merged block randomization (Van der Pas (2019),
-<doi:10.1177/1740774519827957>), a restricted randomization method
-designed for small clinical trials (at most 100 subjects) or trials with
-small strata, for example in multicentre trials. It can be used for more
-than two groups or unequal randomization ratios.
+Providing convenience functions to connect R with the 'Spotify'
+application programming interface ('API'). At first it aims to help
+setting up the OAuth2.0 Authentication flow. The default output of the
+get_*() functions is tidy, but optionally the functions could return the
+raw response from the 'API' as well. The search_*() and get_*() functions
+can be combined. See the vignette for more information and examples and
+the official Spotify for Developers website
+<https://developer.spotify.com/documentation/web-api/> for information
+about the Web 'API'.
 
 %prep
 %setup -q -c -n %{packname}

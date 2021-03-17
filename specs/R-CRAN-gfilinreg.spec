@@ -1,9 +1,9 @@
 %global packname  gfilinreg
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Fiducial Inference for Low-Dimensional Robust Linear Regression
 
@@ -14,22 +14,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-spatstat >= 2.0.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-lazyeval 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-spatstat 
+BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-EigenR 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-memuse 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-spatstat >= 2.0.0
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-lazyeval 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-spatstat 
+Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-EigenR 
 Requires:         R-CRAN-data.table 
 Requires:         R-parallel 

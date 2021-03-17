@@ -1,9 +1,9 @@
 %global packname  Rilostat
-%global packver   1.1.5
+%global packver   1.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          ILO Open Data via Ilostat Bulk Download Facility or SDMX Web Service
 
@@ -18,7 +18,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.0.6
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-readr >= 1.4.0
-BuildRequires:    R-CRAN-tidyr >= 1.1.2
 BuildRequires:    R-CRAN-dplyr >= 1.0.4
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-haven 
@@ -29,7 +28,6 @@ BuildRequires:    R-CRAN-DT
 Requires:         R-CRAN-tibble >= 3.0.6
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-readr >= 1.4.0
-Requires:         R-CRAN-tidyr >= 1.1.2
 Requires:         R-CRAN-dplyr >= 1.0.4
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-haven 

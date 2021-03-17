@@ -1,42 +1,38 @@
-%global packname  Inflect
-%global packver   1.1.0
+%global packname  snpsettest
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Melt Curve Fitting and Melt Shift Analysis
+Summary:          A Set-Based Association Test using GWAS Summary Statistics
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-writexl 
-BuildRequires:    R-CRAN-optimr 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-gaston 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-UpSetR 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-writexl 
-Requires:         R-CRAN-optimr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-gaston 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-UpSetR 
+Requires:         R-CRAN-Rcpp 
 
 %description
-This program analyzes raw abundance data from a cellular thermal shift
-experiment and calculates melt temperatures and melt shifts for each
-protein in the experiment. Reference to software development can be found
-at <doi:10.1021/acs.jproteome.0c00872>.
+The goal of 'snpsettest' is to provide simple tools that perform set-based
+association tests (e.g., gene-based association tests) using GWAS
+(genome-wide association study) summary statistics. A set-based
+association test in this package is based on the statistical model
+described in VEGAS (versatile gene-based association study), which
+combines the effects of a set of SNPs accounting for linkage
+disequilibrium between markers. This package uses a different approach
+from the original VEGAS implementation to compute set-level p values more
+efficiently, as described in
+<https://github.com/HimesGroup/snpsettest/wiki/Statistical-test-in-snpsettest>.
 
 %prep
 %setup -q -c -n %{packname}

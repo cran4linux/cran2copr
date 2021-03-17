@@ -1,13 +1,13 @@
-%global packname  mergedblocks
-%global packver   1.1.0
+%global packname  nestr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Merged Block Randomization
+Summary:          Build Nesting or Hierarchical Structures
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,15 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-randomizeR 
-Requires:         R-CRAN-randomizeR 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Package to carry out merged block randomization (Van der Pas (2019),
-<doi:10.1177/1740774519827957>), a restricted randomization method
-designed for small clinical trials (at most 100 subjects) or trials with
-small strata, for example in multicentre trials. It can be used for more
-than two groups or unequal randomization ratios.
+Facilitates building a nesting or hierarchical structure as a list or data
+frame by using a human friendly syntax.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  graph4lg
-%global packver   1.0.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Build Graphs for Landscape Genetics Analysis
 
@@ -22,13 +22,15 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-spatstat 
-BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.core 
+BuildRequires:    R-CRAN-spatstat.linnet 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pegas 
-BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-sf 
@@ -36,7 +38,7 @@ BuildRequires:    R-CRAN-diveRsity
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-gdistance 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-foreign 
+BuildRequires:    R-CRAN-foreign 
 BuildRequires:    R-CRAN-ecodist 
 BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-adegenet 
@@ -46,13 +48,15 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-stats 
-Requires:         R-CRAN-spatstat 
-Requires:         R-Matrix 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.core 
+Requires:         R-CRAN-spatstat.linnet 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-vegan 
 Requires:         R-utils 
 Requires:         R-methods 
 Requires:         R-CRAN-pegas 
-Requires:         R-MASS 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-sf 
@@ -60,7 +64,7 @@ Requires:         R-CRAN-diveRsity
 Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-gdistance 
 Requires:         R-CRAN-raster 
-Requires:         R-foreign 
+Requires:         R-CRAN-foreign 
 Requires:         R-CRAN-ecodist 
 Requires:         R-CRAN-Rdpack 
 
@@ -84,9 +88,13 @@ landscape genetics to create graphs, described by Dyer et Nason (2004)
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -96,6 +104,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

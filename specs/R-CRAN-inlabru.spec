@@ -1,49 +1,64 @@
 %global packname  inlabru
-%global packver   2.1.13
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.13
-Release:          3%{?dist}%{?buildtag}
-Summary:          Spatial Inference using Integrated Nested Laplace Approximation
+Version:          2.3.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          Bayesian Latent Gaussian Modelling using INLA and Extensions
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-sp >= 1.4.2
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-utils 
-BuildRequires:    R-Matrix 
-Requires:         R-CRAN-sp 
-Requires:         R-stats 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-sp >= 1.4.2
 Requires:         R-CRAN-ggplot2 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-rgeos 
 Requires:         R-utils 
-Requires:         R-Matrix 
+Requires:         R-CRAN-withr 
 
 %description
-Facilitates spatial modeling using integrated nested Laplace approximation
-via the INLA package (<http://www.r-inla.org>). Additionally, implements a
-log Gaussian Cox process likelihood for modeling univariate and spatial
-point processes based on ecological survey data. See Yuan Yuan, Fabian E.
-Bachl, Finn Lindgren, David L. Borchers, Janine B. Illian, Stephen T.
-Buckland, Havard Rue, Tim Gerrodette (2017), <arXiv:1604.06013>.
+Facilitates spatial and general latent Gaussian modeling using integrated
+nested Laplace approximation via the INLA package
+(<https://www.r-inla.org>). Additionally, extends the GAM-like model class
+to more general nonlinear predictor expressions, and implements a log
+Gaussian Cox process likelihood for modeling univariate and spatial point
+processes based on ecological survey data. Model components are specified
+with general inputs and mapping methods to the latent variables, and the
+predictors are specified via general R expressions, with separate
+expressions for each observation likelihood model in multi-likelihood
+models. A prediction method based on fast Monte Carlo sampling allows
+posterior prediction of general expressions of the latent variables.
+Ecology-focused introduction in Bachl, Lindgren, Borchers, and Illian
+(2019) <doi:10.1111/2041-210X.13168>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -51,21 +66,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/examples
-%doc %{rlibdir}/%{packname}/misc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

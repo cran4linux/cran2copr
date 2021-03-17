@@ -1,29 +1,27 @@
-%global packname  mergedblocks
-%global packver   1.1.0
+%global packname  bcv
+%global packver   1.0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Merged Block Randomization
+Summary:          Cross-Validation for the SVD (Bi-Cross-Validation)
 
-License:          GPL-3
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-randomizeR 
-Requires:         R-CRAN-randomizeR 
 
 %description
-Package to carry out merged block randomization (Van der Pas (2019),
-<doi:10.1177/1740774519827957>), a restricted randomization method
-designed for small clinical trials (at most 100 subjects) or trials with
-small strata, for example in multicentre trials. It can be used for more
-than two groups or unequal randomization ratios.
+Methods for choosing the rank of an SVD approximation via cross
+validation.  The package provides both Gabriel-style "block" holdouts and
+Wold-style "speckled" holdouts.  It also includes an implementation of the
+SVDImpute algorithm.  For more information about Bi-cross-validation, see
+Owen & Perry's 2009 AoAS article (at <arXiv:0908.2062>) and Perry's 2009
+PhD thesis (at <arXiv:0909.3052>).
 
 %prep
 %setup -q -c -n %{packname}

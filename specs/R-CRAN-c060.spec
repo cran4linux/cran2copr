@@ -1,9 +1,9 @@
 %global packname  c060
-%global packver   0.2-6
+%global packver   0.2-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extended Inference for Lasso and Elastic-Net Regularized Cox and Generalized Linear Models
 

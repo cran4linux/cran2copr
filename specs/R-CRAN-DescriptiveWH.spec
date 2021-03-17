@@ -1,11 +1,11 @@
-%global packname  mergedblocks
-%global packver   1.1.0
+%global packname  DescriptiveWH
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Merged Block Randomization
+Summary:          Descriptive Statistics
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,15 +15,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-randomizeR 
-Requires:         R-CRAN-randomizeR 
+BuildRequires:    R-stats >= 3.6.3
+BuildRequires:    R-graphics >= 3.6.3
+Requires:         R-stats >= 3.6.3
+Requires:         R-graphics >= 3.6.3
 
 %description
-Package to carry out merged block randomization (Van der Pas (2019),
-<doi:10.1177/1740774519827957>), a restricted randomization method
-designed for small clinical trials (at most 100 subjects) or trials with
-small strata, for example in multicentre trials. It can be used for more
-than two groups or unequal randomization ratios.
+Exploratory analysis of a data base. Using the functions of this package
+is possible to filter the data set detecting atypical values (outliers)
+and to perform exploratory analysis through visual inspection or
+dispersion measures. With this package you can explore the structure of
+your data using several parameters at the same time joining statistical
+parameters with different graphics. Finally, this package aid to confirm
+or reject the hypothesis that your data structure presents a normal
+distribution. Therefore this package is useful to get a previous insight
+of your data before to carry out statistical analysis.
 
 %prep
 %setup -q -c -n %{packname}

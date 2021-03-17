@@ -1,29 +1,30 @@
-%global packname  mergedblocks
-%global packver   1.1.0
+%global packname  tkRplotR
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Merged Block Randomization
+Summary:          Display Resizable Plots
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    xorg-x11-server-Xvfb
+Requires:         tcl >= 8.6
+Requires:         tk >= 8.6
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-randomizeR 
-Requires:         R-CRAN-randomizeR 
+BuildRequires:    R-tcltk 
+BuildRequires:    R-grDevices 
+Requires:         R-tcltk 
+Requires:         R-grDevices 
 
 %description
-Package to carry out merged block randomization (Van der Pas (2019),
-<doi:10.1177/1740774519827957>), a restricted randomization method
-designed for small clinical trials (at most 100 subjects) or trials with
-small strata, for example in multicentre trials. It can be used for more
-than two groups or unequal randomization ratios.
+Display a plot in a Tk canvas.
 
 %prep
 %setup -q -c -n %{packname}
@@ -41,7 +42,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %install
 
 mkdir -p %{buildroot}%{rlibdir}
-%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+xvfb-run %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 # remove buildroot from installed files

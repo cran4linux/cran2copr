@@ -1,9 +1,9 @@
 %global packname  gfilmm
-%global packver   2.0.2
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Fiducial Inference for Normal Linear Mixed Models
 
@@ -14,20 +14,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-spatstat >= 2.0.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-CRAN-lazyeval 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-spatstat 
+BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-rgr 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-spatstat >= 2.0.0
 Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-CRAN-lazyeval 
 Requires:         R-stats 
-Requires:         R-CRAN-spatstat 
+Requires:         R-CRAN-spatstat.geom 
 Requires:         R-utils 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-rgr 

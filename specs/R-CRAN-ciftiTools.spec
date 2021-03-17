@@ -1,9 +1,9 @@
 %global packname  ciftiTools
-%global packver   0.1.6.0
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Reading and Visualizing CIFTI Brain Files
 
@@ -16,16 +16,22 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-gifti > 0.7.5
+BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-oro.nifti 
 BuildRequires:    R-CRAN-RNifti 
 BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-gifti > 0.7.5
+Requires:         R-CRAN-fields 
 Requires:         R-grDevices 
 Requires:         R-CRAN-oro.nifti 
 Requires:         R-CRAN-RNifti 
 Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-viridisLite 
 Requires:         R-CRAN-xml2 
 
 %description

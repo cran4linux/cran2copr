@@ -1,13 +1,13 @@
-%global packname  APML
-%global packver   0.0.1
+%global packname  r6methods
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Approach for Machine-Learning Modelling
+Summary:          Make Methods for R6 Classes
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,32 +15,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-h2o 
-BuildRequires:    R-CRAN-DMwR 
-BuildRequires:    R-CRAN-dummies 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-miniUI 
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-pROC 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-h2o 
-Requires:         R-CRAN-DMwR 
-Requires:         R-CRAN-dummies 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-miniUI 
+Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-pROC 
-Requires:         R-CRAN-survival 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-purrr 
 
 %description
-We include 1) data cleaning including variable scaling, missing values and
-unbalanced variables identification and removing, and strategies for
-variable balance improving; 2) modeling based on random forest and
-gradient boosted model including feature selection, model training,
-cross-validation and external testing. For more information, please see
-H2O.ai (Oct. 2016). R Interface for H2O, R package version 3.10.0.8.
-<https://github.com/h2oai/h2o-3>; Zhang W (2016).
-<doi:10.1016/j.scitotenv.2016.02.023>.
+Generate boilerplate code for R6 classes. Given R6 class create getters
+and/or setters for selected class fields or use RStudio addins to insert
+methods straight into class definition.
 
 %prep
 %setup -q -c -n %{packname}

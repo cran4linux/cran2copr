@@ -1,9 +1,9 @@
 %global packname  trip
-%global packver   1.8.0
+%global packver   1.8.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.0
+Version:          1.8.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for the Analysis of Animal Track Data
 
@@ -17,13 +17,13 @@ Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-traipse >= 0.2.0
 BuildRequires:    R-CRAN-geodist 
-BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-reproj 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-spatstat 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.core 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-crsmeta 
@@ -31,13 +31,13 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-traipse >= 0.2.0
 Requires:         R-CRAN-geodist 
-Requires:         R-CRAN-maptools 
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-reproj 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-spatstat 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.core 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-viridis 
 Requires:         R-CRAN-crsmeta 

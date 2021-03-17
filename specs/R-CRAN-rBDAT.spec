@@ -1,9 +1,9 @@
 %global packname  rBDAT
-%global packver   0.9.7
+%global packver   0.9.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7
+Version:          0.9.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Implementation of BDAT Tree Taper Fortran Functions
 
