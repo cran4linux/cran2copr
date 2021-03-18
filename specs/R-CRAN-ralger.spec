@@ -1,39 +1,41 @@
-%global packname  gdm
-%global packver   1.4.2.2
+%global packname  ralger
+%global packver   2.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2.2
+Version:          2.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Dissimilarity Modeling
+Summary:          Easy Web Scraping
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.2
-Requires:         R-core >= 2.15.2
-BuildRequires:    R-CRAN-Rcpp >= 0.10.4
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 0.10.4
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
-Requires:         R-parallel 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-vegan 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-robotstxt 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-robotstxt 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-stringi 
 
 %description
-A toolkit with functions to fit, plot, summarize, and apply Generalized
-Dissimilarity Models.
+The goal of 'ralger' is to facilitate web scraping in R.
 
 %prep
 %setup -q -c -n %{packname}

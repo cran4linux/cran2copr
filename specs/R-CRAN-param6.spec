@@ -1,39 +1,33 @@
-%global packname  gdm
-%global packver   1.4.2.2
+%global packname  param6
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Dissimilarity Modeling
+Summary:          A Fast and Lightweight R6 Parameter Interface
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.2
-Requires:         R-core >= 2.15.2
-BuildRequires:    R-CRAN-Rcpp >= 0.10.4
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 0.10.4
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
-Requires:         R-parallel 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-vegan 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-set6 >= 0.2.0
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-set6 >= 0.2.0
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-R6 
 
 %description
-A toolkit with functions to fit, plot, summarize, and apply Generalized
-Dissimilarity Models.
+By making use of 'set6', alongside the S3 and R6 paradigms, this package
+provides a fast and lightweight R6 interface for parameters and parameter
+sets.
 
 %prep
 %setup -q -c -n %{packname}

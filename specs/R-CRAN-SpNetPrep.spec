@@ -1,10 +1,10 @@
 %global packname  SpNetPrep
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
-Release:          3%{?dist}%{?buildtag}
+Version:          1.2
+Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Network Preprocessing for Spatial Statistics
 
 License:          GPL-2
@@ -15,7 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat 
+BuildRequires:    R-CRAN-spatstat >= 2.0.0
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.core 
+BuildRequires:    R-CRAN-spatstat.linnet 
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-sp 
@@ -24,7 +27,10 @@ BuildRequires:    R-CRAN-maptools
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-shinythemes 
 BuildRequires:    R-CRAN-prodlim 
-Requires:         R-CRAN-spatstat 
+Requires:         R-CRAN-spatstat >= 2.0.0
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.core 
+Requires:         R-CRAN-spatstat.linnet 
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-sp 
@@ -43,6 +49,13 @@ two previous steps to the performance of a spatial statistics analysis.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -50,19 +63,10 @@ two previous steps to the performance of a spatial statistics analysis.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/shiny
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

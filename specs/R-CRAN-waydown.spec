@@ -1,39 +1,32 @@
-%global packname  gdm
-%global packver   1.4.2.2
+%global packname  waydown
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Dissimilarity Modeling
+Summary:          Computation of Approximate Potentials for Weakly Non-Gradient Fields
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.2
-Requires:         R-core >= 2.15.2
-BuildRequires:    R-CRAN-Rcpp >= 0.10.4
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 0.10.4
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
-Requires:         R-parallel 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-vegan 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-Matrix 
 
 %description
-A toolkit with functions to fit, plot, summarize, and apply Generalized
-Dissimilarity Models.
+Computation of approximate potentials for both gradient and non gradient
+fields. It is known from physics that only gradient fields, also known as
+conservative, have a well defined potential function. Here we present an
+algorithm, based on the classical Helmholtz decomposition, to obtain an
+approximate potential function for non gradient fields. More information
+in Rodríguez-Sánchez (2020) <doi:10.1371/journal.pcbi.1007788>.
 
 %prep
 %setup -q -c -n %{packname}

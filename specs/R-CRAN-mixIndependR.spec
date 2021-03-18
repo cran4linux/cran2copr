@@ -1,9 +1,9 @@
 %global packname  mixIndependR
-%global packver   0.4.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genetics and Independence Testing of Mixed Genetic Panels
 

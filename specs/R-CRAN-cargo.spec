@@ -1,9 +1,9 @@
 %global packname  cargo
-%global packver   0.1.19
+%global packver   0.1.28
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.19
+Version:          0.1.28
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Run Cargo, the Rust Package Manager
 
@@ -12,16 +12,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
-Tools are provided to download, install, and run 'Cargo'
-<https://doc.rust-lang.org/cargo/> (the 'Rust'
-<https://www.rust-lang.org/> package manager). Other packages based on
-Rust can declare 'LinkingTo: cargo' in their DESCRIPTION file and then
-access Cargo during the installation of their source package.
+Help is provided to run 'Cargo' <https://doc.rust-lang.org/cargo/> (the
+'Rust' <https://www.rust-lang.org/> package manager). Other packages based
+on Rust can declare 'LinkingTo: cargo' in their DESCRIPTION file and then
+use Cargo during the installation of their source package.
 
 %prep
 %setup -q -c -n %{packname}

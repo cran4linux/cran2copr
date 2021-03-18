@@ -1,39 +1,28 @@
-%global packname  gdm
-%global packver   1.4.2.2
+%global packname  DTAplots
+%global packver   1.0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2.2
+Version:          1.0.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Dissimilarity Modeling
+Summary:          Creates Plots Accompanying Bayesian Diagnostic Test Accuracy Meta-Analyses
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.2
-Requires:         R-core >= 2.15.2
-BuildRequires:    R-CRAN-Rcpp >= 0.10.4
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 0.10.4
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
-Requires:         R-parallel 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-vegan 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 
 %description
-A toolkit with functions to fit, plot, summarize, and apply Generalized
-Dissimilarity Models.
+Function to create forest plots. Functions to use posterior samples from
+Bayesian bivariate meta-analysis model, Bayesian hierarchical summary
+receiver operating characteristic (HSROC) meta-analysis model or Bayesian
+latent class (LC) meta-analysis model to create Summary Receiver Operating
+Characteristic (SROC) plots using methods described by Harbord et al
+(2007)<doi:10.1093/biostatistics/kxl004>.
 
 %prep
 %setup -q -c -n %{packname}

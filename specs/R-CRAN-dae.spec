@@ -1,9 +1,9 @@
 %global packname  dae
-%global packver   3.1-32
+%global packver   3.1-37
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.32
+Version:          3.1.37
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions Useful in the Design and ANOVA of Experiments
 

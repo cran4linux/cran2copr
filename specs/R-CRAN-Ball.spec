@@ -1,9 +1,9 @@
 %global packname  Ball
-%global packver   1.3.10
+%global packver   1.3.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.10
+Version:          1.3.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Inference and Sure Independence Screening via Ball Statistics
 
@@ -31,7 +31,7 @@ covariance <doi:10.1080/01621459.2018.1543600>, and ball correlation
 in metric spaces, e.g, shape, directional, compositional and symmetric
 positive definite matrix data. The ball divergence and ball covariance
 based distribution-free tests are implemented to detecting distribution
-difference and association in metric spaces <arXiv:1811.03750>.
+difference and association in metric spaces <doi:10.18637/jss.v097.i06>.
 Furthermore, several generic non-parametric feature selection procedures
 based on ball correlation, BCor-SIS and all of its variants, are
 implemented to tackle the challenge in the context of ultra high

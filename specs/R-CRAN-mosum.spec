@@ -1,9 +1,9 @@
 %global packname  mosum
-%global packver   1.2.4
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Moving Sum Based Procedures for Changes in the Mean
 
@@ -26,7 +26,8 @@ Implementations of MOSUM-based statistical procedures and algorithms for
 detecting multiple changes in the mean. This comprises the MOSUM procedure
 for estimating multiple mean changes from Eichinger and Kirch (2018)
 <doi:10.3150/16-BEJ887> and the multiscale algorithmic extensions from Cho
-and Kirch (2019) <arXiv:1910.12486>.
+and Kirch (2019) <arXiv:1910.12486>. See Meier, Kirch and Cho (2021)
+<doi:10.18637/jss.v097.i08> which accompanies the R package.
 
 %prep
 %setup -q -c -n %{packname}

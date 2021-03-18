@@ -1,9 +1,9 @@
 %global packname  ROCnReg
-%global packver   1.0-4
+%global packver   1.0-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          ROC Curve Inference with and without Covariates
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-spatstat >= 2.0.0
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
@@ -23,11 +24,12 @@ BuildRequires:    R-CRAN-np
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-nor1mix 
-BuildRequires:    R-CRAN-spatstat 
+BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-pbivnorm 
 BuildRequires:    R-parallel 
+Requires:         R-CRAN-spatstat >= 2.0.0
 Requires:         R-stats 
 Requires:         R-grDevices 
 Requires:         R-graphics 
@@ -36,7 +38,7 @@ Requires:         R-CRAN-np
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-moments 
 Requires:         R-CRAN-nor1mix 
-Requires:         R-CRAN-spatstat 
+Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-pbivnorm 
