@@ -1,13 +1,13 @@
-%global packname  GMZTests
-%global packver   0.1.4
+%global packname  locatexec
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Tests
+Summary:          Detection and Localization of Executable Files
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,29 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-DCCA 
-BuildRequires:    R-CRAN-PerformanceAnalytics 
-BuildRequires:    R-CRAN-nonlinearTseries 
-BuildRequires:    R-CRAN-fitdistrplus 
-BuildRequires:    R-CRAN-fgpt 
-BuildRequires:    R-CRAN-tseries 
-Requires:         R-stats 
-Requires:         R-CRAN-DCCA 
-Requires:         R-CRAN-PerformanceAnalytics 
-Requires:         R-CRAN-nonlinearTseries 
-Requires:         R-CRAN-fitdistrplus 
-Requires:         R-CRAN-fgpt 
-Requires:         R-CRAN-tseries 
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
-A collection of functions to perform statistical tests of the following
-methods: Detrended Fluctuation Analysis, RHODCCA
-coefficient,<doi:10.1103/PhysRevE.84.066118>, DMC coefficient, SILVA-FILHO
-et al. (2021) <doi:10.1016/j.physa.2020.125285>, Delta RHODCCA
-coefficient, Guedes et al. (2018) <doi:10.1016/j.physa.2018.02.148> and
-<doi:10.1016/j.dib.2018.03.080> , Delta DMCA coefficient and Delta DMC
-coefficient.
+A set of functions to locate some programs available on the user machine.
+The package provides functions to locate 'Node.js', 'npm', 'LibreOffice',
+'Microsoft Word', 'Microsoft PowerPoint', 'Microsoft Excel', 'Python',
+'pip', 'Mozilla Firefox' and 'Google Chrome'. User can test the
+availability of a program with eventually a version and call it with
+function system2() or system(). This allows the use of a single function
+to retrieve the path to a program regardless of the operating system and
+its configuration.
 
 %prep
 %setup -q -c -n %{packname}

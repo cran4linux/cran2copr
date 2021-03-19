@@ -1,13 +1,13 @@
-%global packname  GMZTests
-%global packver   0.1.4
+%global packname  PesticideLoadIndicator
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Tests
+Summary:          Computes Danish Pesticide Load Indicator
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,29 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-DCCA 
-BuildRequires:    R-CRAN-PerformanceAnalytics 
-BuildRequires:    R-CRAN-nonlinearTseries 
-BuildRequires:    R-CRAN-fitdistrplus 
-BuildRequires:    R-CRAN-fgpt 
-BuildRequires:    R-CRAN-tseries 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-readxl 
 Requires:         R-stats 
-Requires:         R-CRAN-DCCA 
-Requires:         R-CRAN-PerformanceAnalytics 
-Requires:         R-CRAN-nonlinearTseries 
-Requires:         R-CRAN-fitdistrplus 
-Requires:         R-CRAN-fgpt 
-Requires:         R-CRAN-tseries 
+Requires:         R-CRAN-stringr 
 
 %description
-A collection of functions to perform statistical tests of the following
-methods: Detrended Fluctuation Analysis, RHODCCA
-coefficient,<doi:10.1103/PhysRevE.84.066118>, DMC coefficient, SILVA-FILHO
-et al. (2021) <doi:10.1016/j.physa.2020.125285>, Delta RHODCCA
-coefficient, Guedes et al. (2018) <doi:10.1016/j.physa.2018.02.148> and
-<doi:10.1016/j.dib.2018.03.080> , Delta DMCA coefficient and Delta DMC
-coefficient.
+Computes the Danish Pesticide Load Indicator as described in Kudsk et al.
+(2018) <doi:10.1016/j.landusepol.2017.11.010> and Moehring et al. (2019)
+<doi:10.1016/j.scitotenv.2018.07.287> for pesticide use data. Additionally
+offers the possibility to directly link pesticide use data to pesticide
+properties given access to the Pesticide properties database (Lewis et
+al., 2016) <doi:10.1080/10807039.2015.1133242>.
 
 %prep
 %setup -q -c -n %{packname}

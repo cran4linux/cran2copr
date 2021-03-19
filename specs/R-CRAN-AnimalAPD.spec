@@ -1,11 +1,11 @@
-%global packname  spatstat.linnet
-%global packver   2.0-0
+%global packname  AnimalAPD
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linear Networks Functionality of the 'spatstat' Family
+Summary:          Compare Activity Patterns with Activity Probability Density (APD)
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,31 +14,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-spatstat.utils >= 2.1.0
-BuildRequires:    R-CRAN-spatstat.data >= 2.0
-BuildRequires:    R-CRAN-spatstat.geom >= 1.65.0
-BuildRequires:    R-CRAN-spatstat.core >= 1.65.0
-BuildRequires:    R-stats 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-brms 
+BuildRequires:    R-CRAN-circular 
+BuildRequires:    R-CRAN-overlap 
 BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-spatstat.utils >= 2.1.0
-Requires:         R-CRAN-spatstat.data >= 2.0
-Requires:         R-CRAN-spatstat.geom >= 1.65.0
-Requires:         R-CRAN-spatstat.core >= 1.65.0
-Requires:         R-stats 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-loo 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-activityGCMM 
+Requires:         R-CRAN-brms 
+Requires:         R-CRAN-circular 
+Requires:         R-CRAN-overlap 
 Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-Matrix 
+Requires:         R-stats 
+Requires:         R-CRAN-loo 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-activityGCMM 
 
 %description
-Defines types of spatial data on a linear network and provides
-functionality for geometrical operations, data analysis and modelling of
-data on a linear network, in the 'spatstat' family of packages.
+Calculation and analyses of Activity Probability Density (APD) for
+comparing animal activity patterns with automated Bayesian model selection
+using 'STAN'. See Campbell et al. (in press) "A new approach to comparing
+animal temporal activity: a more informative, robust, and flexible method
+that controls for nested data, quantifies relationship asymmetries, and
+allows linear modelling of temporal behaviour."
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,48 +1,44 @@
-%global packname  scipub
-%global packver   1.2.2
+%global packname  meedr
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Summarize Data for Scientific Publication
+Summary:          Macroeconomic Expectations Data in R using the Central Bank of Brazil API
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gghalves 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-lubridate 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gghalves 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-purrr 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-lubridate 
 
 %description
-Create and format tables and APA statistics for scientific publication.
-This includes making a 'Table 1' to summarize demographics across groups,
-correlation tables with significance indicated by stars, and extracting
-formatted statistical summarizes from simple tests for in-text notation.
-The package also includes functions for Winsorizing data based on a
-Z-statistic cutoff.
+Provides quick and easy access to market expectations data to the main
+macroeconomic indicators in the Focus report, made available by the
+Central Bank of Brazil through the Expectations System data API
+<https://dadosabertos.bcb.gov.br/>. This package offers an R interface to
+the API and other advantages, such as using a caching system and the
+option to use all the machine's cores (parallel computing).
 
 %prep
 %setup -q -c -n %{packname}

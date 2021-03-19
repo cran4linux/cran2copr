@@ -1,9 +1,9 @@
 %global packname  Seurat
-%global packver   4.0.0
+%global packver   4.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.0
+Version:          4.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Single Cell Genomics
 
@@ -56,7 +56,8 @@ BuildRequires:    R-CRAN-Rtsne
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-SeuratObject 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-spatstat 
+BuildRequires:    R-CRAN-spatstat.core 
+BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-tools 
@@ -105,7 +106,8 @@ Requires:         R-CRAN-Rtsne
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-SeuratObject 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-spatstat 
+Requires:         R-CRAN-spatstat.core 
+Requires:         R-CRAN-spatstat.geom 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-tools 

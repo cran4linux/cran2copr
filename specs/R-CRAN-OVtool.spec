@@ -1,48 +1,65 @@
-%global packname  scipub
-%global packver   1.2.2
+%global packname  OVtool
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Summarize Data for Scientific Publication
+Summary:          Omitted Variable Tool
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Amelia 
+BuildRequires:    R-CRAN-EnvStats 
+BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gghalves 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-metR 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-survey 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-twang 
+BuildRequires:    R-CRAN-varhandle 
+Requires:         R-CRAN-Amelia 
+Requires:         R-CRAN-EnvStats 
+Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gghalves 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-metR 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-survey 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-twang 
+Requires:         R-CRAN-varhandle 
 
 %description
-Create and format tables and APA statistics for scientific publication.
-This includes making a 'Table 1' to summarize demographics across groups,
-correlation tables with significance indicated by stars, and extracting
-formatted statistical summarizes from simple tests for in-text notation.
-The package also includes functions for Winsorizing data based on a
-Z-statistic cutoff.
+This tool was designed to assess the sensitivity of research findings to
+omitted variables when estimating causal effects using propensity score
+(PS) weighting. This tool produces graphics and summary results that will
+enable a researcher to quantify the impact an omitted variable would have
+on their results. Burgette et al. (2021) describe the methodology behind
+the primary function in this package, ov_sim. The method is demonstrated
+in Griffin et al. (2020) <doi:10.1016/j.jsat.2020.108075>.
 
 %prep
 %setup -q -c -n %{packname}

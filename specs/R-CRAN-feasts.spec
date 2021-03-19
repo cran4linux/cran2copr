@@ -1,9 +1,9 @@
 %global packname  feasts
-%global packver   0.1.7
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Feature Extraction and Statistics for Time Series
 
@@ -21,7 +21,7 @@ BuildRequires:    R-CRAN-scales >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tsibble >= 0.9.0
 BuildRequires:    R-CRAN-tidyr >= 0.8.3
-BuildRequires:    R-CRAN-fabletools >= 0.2.0
+BuildRequires:    R-CRAN-fabletools >= 0.3.1
 BuildRequires:    R-CRAN-rlang >= 0.2.0
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-lubridate 
@@ -35,7 +35,7 @@ Requires:         R-CRAN-scales >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tsibble >= 0.9.0
 Requires:         R-CRAN-tidyr >= 0.8.3
-Requires:         R-CRAN-fabletools >= 0.2.0
+Requires:         R-CRAN-fabletools >= 0.3.1
 Requires:         R-CRAN-rlang >= 0.2.0
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-lubridate 

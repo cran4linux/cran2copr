@@ -1,9 +1,9 @@
 %global packname  svars
-%global packver   1.3.6
+%global packver   1.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.6
+Version:          1.3.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data-Driven Identification of SVAR Models
 
@@ -42,7 +42,8 @@ Requires:         R-CRAN-Rcpp
 
 %description
 Implements data-driven identification methods for structural vector
-autoregressive (SVAR) models. Based on an existing VAR model object
+autoregressive (SVAR) models as described in Lange et al. (2021)
+<doi:10.18637/jss.v097.i05>. Based on an existing VAR model object
 (provided by e.g. VAR() from the 'vars' package), the structural impact
 matrix is obtained via data-driven identification techniques (i.e. changes
 in volatility (Rigobon, R. (2003) <doi:10.1162/003465303772815727>),

@@ -1,43 +1,39 @@
-%global packname  GMZTests
-%global packver   0.1.4
+%global packname  geostatsp
+%global packver   1.8.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.8.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Tests
+Summary:          Geostatistical Modelling with Likelihood and Bayes
 
-License:          GPL-3
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Matrix >= 1.2.0
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-DCCA 
-BuildRequires:    R-CRAN-PerformanceAnalytics 
-BuildRequires:    R-CRAN-nonlinearTseries 
-BuildRequires:    R-CRAN-fitdistrplus 
-BuildRequires:    R-CRAN-fgpt 
-BuildRequires:    R-CRAN-tseries 
+Requires:         R-CRAN-Matrix >= 1.2.0
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-DCCA 
-Requires:         R-CRAN-PerformanceAnalytics 
-Requires:         R-CRAN-nonlinearTseries 
-Requires:         R-CRAN-fitdistrplus 
-Requires:         R-CRAN-fgpt 
-Requires:         R-CRAN-tseries 
 
 %description
-A collection of functions to perform statistical tests of the following
-methods: Detrended Fluctuation Analysis, RHODCCA
-coefficient,<doi:10.1103/PhysRevE.84.066118>, DMC coefficient, SILVA-FILHO
-et al. (2021) <doi:10.1016/j.physa.2020.125285>, Delta RHODCCA
-coefficient, Guedes et al. (2018) <doi:10.1016/j.physa.2018.02.148> and
-<doi:10.1016/j.dib.2018.03.080> , Delta DMCA coefficient and Delta DMC
-coefficient.
+Geostatistical modelling facilities using 'Raster' and 'SpatialPoints'
+objects are provided. Non-Gaussian models are fit using 'INLA', and
+Gaussian geostatistical models use Maximum Likelihood Estimation.  For
+details see Brown (2015) <doi:10.18637/jss.v063.i12>.
 
 %prep
 %setup -q -c -n %{packname}

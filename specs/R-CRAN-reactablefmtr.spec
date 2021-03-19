@@ -1,9 +1,9 @@
 %global packname  reactablefmtr
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplify Formatting of Tables Made with 'Reactable'
 
@@ -16,15 +16,17 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-reactable >= 0.2.0
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-reactable >= 0.2.0
+Requires:         R-CRAN-dplyr 
 Requires:         R-grDevices 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-stringr 
 
 %description
 Streamlines the process of applying formats and styles to tables using

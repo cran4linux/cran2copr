@@ -1,9 +1,9 @@
 %global packname  interleave
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Converts Tabular Data to Interleaved Vectors
 
@@ -14,9 +14,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-geometries 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-geometries 
+BuildRequires:    R-CRAN-geometries 
 Requires:         R-CRAN-Rcpp 
 
 %description

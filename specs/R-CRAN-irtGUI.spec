@@ -1,9 +1,9 @@
 %global packname  irtGUI
-%global packver   0.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Item Response Theory Analysis with a Graphic User Interface
 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-mirt
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-WrightMap 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-xlsx 
+BuildRequires:    R-CRAN-writexl 
 BuildRequires:    R-CRAN-irtoys 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-shiny 
@@ -37,7 +37,7 @@ Requires:         R-CRAN-mirt
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-WrightMap 
 Requires:         R-grDevices 
-Requires:         R-CRAN-xlsx 
+Requires:         R-CRAN-writexl 
 Requires:         R-CRAN-irtoys 
 
 %description

@@ -1,30 +1,39 @@
-%global packname  bgumbel
-%global packver   0.0.1
+%global packname  spidR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bimodal Gumbel Distribution
+Summary:          Spider Biodiversity Tools
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-MCMCpack 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rgbif 
+BuildRequires:    R-CRAN-rworldmap 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rgbif 
+Requires:         R-CRAN-rworldmap 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Bimodal Gumbel distribution. General functions for performing extreme
-value analysis.
+Allows the user to connect with the World Spider Catalogue
+(<https://wsc.nmbe.ch/>) and the World Spider Trait
+(<https://spidertraits.sci.muni.cz/>) databases.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,31 @@
-%global packname  slider
-%global packver   0.2.0
+%global packname  thunder
+%global packver   0.0.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.0.12
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sliding Window Functions
+Summary:          Computation and Visualisation of Atmospheric Convective Parameters
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-rlang >= 0.4.5
-BuildRequires:    R-CRAN-vctrs >= 0.3.6
-BuildRequires:    R-CRAN-ellipsis >= 0.3.1
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-warp 
-Requires:         R-CRAN-rlang >= 0.4.5
-Requires:         R-CRAN-vctrs >= 0.3.6
-Requires:         R-CRAN-ellipsis >= 0.3.1
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-warp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.9.4
+BuildRequires:    R-CRAN-climate 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-aiRthermo 
+Requires:         R-CRAN-Rcpp >= 0.12.9.4
+Requires:         R-CRAN-climate 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-aiRthermo 
 
 %description
-Provides type-stable rolling window functions over any R data type.
-Cumulative and expanding windows are also supported. For more advanced
-usage, an index can be used as a secondary vector that defines how sliding
-windows are to be created.
+R tool for calculating over 100 atmospheric convection indices from
+rawinsonde profiles.
 
 %prep
 %setup -q -c -n %{packname}
