@@ -1,9 +1,9 @@
 %global packname  summarytools
-%global packver   0.9.8
+%global packver   0.9.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.8
+Version:          0.9.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Quickly and Neatly Summarize Data
 

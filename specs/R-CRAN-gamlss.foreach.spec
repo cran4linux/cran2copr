@@ -1,44 +1,39 @@
-%global packname  osrm
-%global packver   3.4.1
+%global packname  gamlss.foreach
+%global packver   1.0-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.1
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface Between R and the OpenStreetMap-Based Routing Service OSRM
+Summary:          Parallel Computations for Distributional Regression
 
-License:          GPL-3
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 2.2.1
+Requires:         R-core >= 2.2.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-isoband 
+BuildRequires:    R-CRAN-gamlss 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-googlePolylines 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-curl 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-isoband 
+BuildRequires:    R-CRAN-gamlss.data 
+BuildRequires:    R-CRAN-gamlss.dist 
+BuildRequires:    R-CRAN-glmnet 
+Requires:         R-CRAN-gamlss 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
 Requires:         R-methods 
-Requires:         R-CRAN-googlePolylines 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-sf 
+Requires:         R-CRAN-gamlss.data 
+Requires:         R-CRAN-gamlss.dist 
+Requires:         R-CRAN-glmnet 
 
 %description
-An interface between R and the 'OSRM' API. 'OSRM' is a routing service
-based on 'OpenStreetMap' data. See <http://project-osrm.org/> for more
-information. This package allows to compute routes, trips, isochrones and
-travel distances matrices (travel time and kilometric distance).
+Computational intensive calculations for Generalized Additive Models for
+Location Scale and Shape, Rigby and Stasinopoulos (2005),
+<doi:10.1111/j.1467-9876.2005.00510.x>.
 
 %prep
 %setup -q -c -n %{packname}

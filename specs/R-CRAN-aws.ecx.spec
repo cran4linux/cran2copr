@@ -1,44 +1,43 @@
-%global packname  osrm
-%global packver   3.4.1
+%global packname  aws.ecx
+%global packver   0.99.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.1
+Version:          0.99.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface Between R and the OpenStreetMap-Based Routing Service OSRM
+Summary:          Communicating with AWS EC2 and ECS using AWS REST APIs
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-isoband 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-googlePolylines 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-curl 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-isoband 
+BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-CRAN-aws.signature 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-utils 
 Requires:         R-methods 
-Requires:         R-CRAN-googlePolylines 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-sf 
+Requires:         R-CRAN-rjson 
+Requires:         R-CRAN-aws.signature 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-xml2 
+Requires:         R-utils 
 
 %description
-An interface between R and the 'OSRM' API. 'OSRM' is a routing service
-based on 'OpenStreetMap' data. See <http://project-osrm.org/> for more
-information. This package allows to compute routes, trips, isochrones and
-travel distances matrices (travel time and kilometric distance).
+Providing the functions for communicating with Amazon Web Services(AWS)
+Elastic Compute Cloud(EC2) and Elastic Container Service(ECS). The
+functions will have the prefix 'ecs_' or 'ec2_' depending on the class of
+the API. The request will be sent via the REST API and the parameters are
+given by the function argument. The credentials can be set via
+'aws_set_credentials'. The EC2 documentation can be found at
+<https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html> and
+ECS can be found at
+<https://docs.aws.amazon.com/AmazonECS/latest/APIReference/Welcome.html>.
 
 %prep
 %setup -q -c -n %{packname}

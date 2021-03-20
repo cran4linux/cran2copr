@@ -1,44 +1,27 @@
-%global packname  osrm
-%global packver   3.4.1
+%global packname  typed
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface Between R and the OpenStreetMap-Based Routing Service OSRM
+Summary:          Support Types for Variables, Arguments, and Return Values
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-isoband 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-googlePolylines 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-curl 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-isoband 
-Requires:         R-methods 
-Requires:         R-CRAN-googlePolylines 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-CRAN-waldo 
+Requires:         R-CRAN-waldo 
 
 %description
-An interface between R and the 'OSRM' API. 'OSRM' is a routing service
-based on 'OpenStreetMap' data. See <http://project-osrm.org/> for more
-information. This package allows to compute routes, trips, isochrones and
-travel distances matrices (travel time and kilometric distance).
+A type system for R. It supports setting variable types in a script or the
+body of a function, so variables can't be assigned illegal values.
+Moreover it supports setting argument and return types for functions.
 
 %prep
 %setup -q -c -n %{packname}

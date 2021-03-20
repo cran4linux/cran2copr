@@ -1,39 +1,27 @@
-%global packname  L0Learn
-%global packver   2.0.0
+%global packname  VorteksExport
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Algorithms for Best Subset Selection
+Summary:          Export Dataframes to 'Vorteks' Software
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.13
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.13
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Highly optimized toolkit for approximately solving L0-regularized learning
-problems (a.k.a. best subset selection). The algorithms are based on
-coordinate descent and local combinatorial search. For more details, check
-the paper by Hazimeh and Mazumder (2020); the link is provided in the URL
-field below.
+Export dataframes and automatically start importing into 'Vorteks'.
+'Vorteks Visualization Environment (VVE)' and 'Vorteks Data Manager (VDM)'
+will start an import. 'Vorteks Processing Environment (VPE)' will start a
+new project and add a file reader with the dataframe file already set.
+Warning: WINDOWS ONLY. Requires installation of 'Vorteks' software.
 
 %prep
 %setup -q -c -n %{packname}

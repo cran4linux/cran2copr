@@ -1,44 +1,40 @@
-%global packname  osrm
-%global packver   3.4.1
+%global packname  CSGo
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.1
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface Between R and the OpenStreetMap-Based Routing Service OSRM
+Summary:          Collecting Counter Strike Global Offensive Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-fuzzyjoin 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-isoband 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-googlePolylines 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-fuzzyjoin 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-curl 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-isoband 
-Requires:         R-methods 
-Requires:         R-CRAN-googlePolylines 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-sf 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
 
 %description
-An interface between R and the 'OSRM' API. 'OSRM' is a routing service
-based on 'OpenStreetMap' data. See <http://project-osrm.org/> for more
-information. This package allows to compute routes, trips, isochrones and
-travel distances matrices (travel time and kilometric distance).
+An implementation of calls designed to collect and organize in an easy way
+the data from the Steam API specifically for the Counter-Strike Global
+Offensive Game (CS Go)
+<https://developer.valvesoftware.com/wiki/Steam_Web_API>.
 
 %prep
 %setup -q -c -n %{packname}
