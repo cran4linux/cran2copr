@@ -1,9 +1,9 @@
 %global packname  ClustImpute
-%global packver   0.1.7
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          K-means clustering with build-in missing data imputation
 
@@ -19,17 +19,30 @@ BuildRequires:    R-CRAN-ClusterR
 BuildRequires:    R-CRAN-copula 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-knitr 
 Requires:         R-CRAN-ClusterR 
 Requires:         R-CRAN-copula 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-knitr 
 
 %description
-This clustering algorithm deals with missing data via weights that are
-imposed on missings and successively increased. See the vignette for
-details.
+This k-means algorithm is able to cluster data with missing values and as
+a by-product completes the data set. The implementation can deal with
+missing values in multiple variables and is computationally efficient
+since it iteratively uses the current cluster assignment to define a
+plausible distribution for missing value imputation. Weights are used to
+shrink early random draws for missing values (i.e., draws based on the
+cluster assignments after few iterations) towards the global mean of each
+feature. This shrinkage slowly fades out after a fixed number of
+iterations to reflect the increasing credibility of cluster assignments.
+See the vignette for details.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  colordistance
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distance Metrics for Image Color Similarity
 
@@ -19,7 +19,6 @@ BuildRequires:    R-CRAN-jpeg
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-clue 
-BuildRequires:    R-CRAN-spatstat 
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-emdist 
@@ -30,11 +29,11 @@ BuildRequires:    R-CRAN-abind
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-qpdf 
+BuildRequires:    R-CRAN-spatstat.geom 
 Requires:         R-CRAN-jpeg 
 Requires:         R-CRAN-png 
 Requires:         R-stats 
 Requires:         R-CRAN-clue 
-Requires:         R-CRAN-spatstat 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-emdist 
@@ -45,6 +44,7 @@ Requires:         R-CRAN-abind
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-qpdf 
+Requires:         R-CRAN-spatstat.geom 
 
 %description
 Loads and displays images, selectively masks specified background colors,

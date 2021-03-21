@@ -1,9 +1,9 @@
 %global packname  fritools
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for the Forest Research Institute of the State Baden-Wuerttemberg
 
@@ -16,7 +16,9 @@ BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
+BuildRequires:    R-stats 
 Requires:         R-methods 
+Requires:         R-stats 
 
 %description
 Miscellaneous utilities, tools and helper functions for finding and
@@ -27,7 +29,7 @@ workspace. These are utilities for packages
 <https://CRAN.R-project.org/package=fakemake>,
 <https://CRAN.R-project.org/package=packager> and
 <https://CRAN.R-project.org/package=rasciidoc>. Does not import or depend
-on any third party party package, but on core R only (i.e it may depend on
+on any third party package, but on core R only (i.e it may depend on
 packages with priority 'base').
 
 %prep

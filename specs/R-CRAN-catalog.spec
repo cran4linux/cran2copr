@@ -1,26 +1,32 @@
-%global packname  box
-%global packver   1.0.1
+%global packname  catalog
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Write Reusable, Composable and Modular R Code
+Summary:          Access the 'Spark Catalog' API via 'sparklyr'
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-tools 
-Requires:         R-tools 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-sparklyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-sparklyr 
 
 %description
-A modern module system for R. Organise code into hierarchical, composable,
-reusable modules, and use it effortlessly across projects via a flexible,
-declarative dependency loading syntax.
+Gain access to the 'Spark Catalog' API making use of the 'sparklyr' API.
+'Catalog'
+<https://spark.apache.org/docs/2.4.3/api/java/org/apache/spark/sql/catalog/Catalog.html>
+is the interface for managing a metastore (aka metadata catalog) of
+relational entities (e.g. database(s), tables, functions, table columns
+and temporary views).
 
 %prep
 %setup -q -c -n %{packname}

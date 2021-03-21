@@ -1,9 +1,9 @@
 %global packname  RTaxometrics
-%global packver   3.1
+%global packver   3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1
+Version:          3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Taxometric Analysis
 
@@ -18,7 +18,7 @@ BuildArch:        noarch
 
 %description
 We provide functions to perform taxometric analyses. This package contains
-44 functions, but only 5 should be called directly by users. CheckData()
+46 functions, but only 5 should be called directly by users. CheckData()
 should be run prior to any taxometric analysis to ensure that the data are
 appropriate for taxometric analysis. RunTaxometrics() performs taxometric
 analyses for a sample of data. RunCCFIProfile() performs a series of

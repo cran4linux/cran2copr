@@ -1,26 +1,35 @@
-%global packname  box
-%global packver   1.0.1
+%global packname  exams2sakai
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Write Reusable, Composable and Modular R Code
+Summary:          Automatic Generation of Exams in R for 'Sakai'
 
-License:          MIT + file LICENSE
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-tools 
-Requires:         R-tools 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-exams >= 2.3.6
+BuildRequires:    R-CRAN-stringi >= 1.4.6
+BuildRequires:    R-CRAN-glue >= 1.4.0
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-xml2 >= 1.2.5
+Requires:         R-CRAN-exams >= 2.3.6
+Requires:         R-CRAN-stringi >= 1.4.6
+Requires:         R-CRAN-glue >= 1.4.0
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-xml2 >= 1.2.5
 
 %description
-A modern module system for R. Organise code into hierarchical, composable,
-reusable modules, and use it effortlessly across projects via a flexible,
-declarative dependency loading syntax.
+Automatic Generation of Exams in R for 'Sakai'. Question templates in the
+form of the 'exams' package (see <http://www.r-exams.org/>) are
+transformed into XML format required by 'Sakai'.
 
 %prep
 %setup -q -c -n %{packname}
