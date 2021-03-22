@@ -1,11 +1,11 @@
 %global packname  this.path
-%global packver   0.4.3
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Get Executing Script's Path, from 'RStudio', 'RGui', 'Rterm' and 'Rscript' (Command-Line / / Terminal), and when using 'source'
+Summary:          Get Executing Script's Path, from 'RStudio', 'RGui', 'Rterm' and 'Rscript' (Command-Line / / Terminal), and When Using 'source'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,8 +22,8 @@ Requires:         R-utils
 Determine the full path of the executing script. Works when running a line
 or selection from an open R script in 'RStudio' and 'RGui', when using
 'source' and 'sys.source' and 'debugSource' ('RStudio' exclusive) and
-'testthat::source_file', and when running R from the command-line / /
-terminal.
+'testthat::source_file', and when running R from the Windows command-line
+/ / Unix terminal.
 
 %prep
 %setup -q -c -n %{packname}

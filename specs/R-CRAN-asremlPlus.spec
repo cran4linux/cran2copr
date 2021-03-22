@@ -1,9 +1,9 @@
 %global packname  asremlPlus
-%global packver   4.2-26
+%global packver   4.2-32
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.26
+Version:          4.2.32
 Release:          1%{?dist}%{?buildtag}
 Summary:          Augments 'ASReml-R' in Fitting Mixed Models and Packages Generally in Exploring Prediction Differences
 
@@ -62,9 +62,9 @@ computationally efficient algorithm for fitting mixed models using
 Residual Maximum Likelihood. It is a commercial package that can be
 purchased from 'VSNi' <https://www.vsni.co.uk/> as 'asreml-R', who will
 supply a zip file for local installation/updating (see
-<https://asreml.org/>). It is not needed for functions that are methods
-for 'alldiffs' and 'data.frame' objects. The package 'asremPlus' can also
-be installed from <http://chris.brien.name/rpackages/>.
+<https://asreml.kb.vsni.co.uk/>). It is not needed for functions that are
+methods for 'alldiffs' and 'data.frame' objects. The package 'asremPlus'
+can also be installed from <http://chris.brien.name/rpackages/>.
 
 %prep
 %setup -q -c -n %{packname}

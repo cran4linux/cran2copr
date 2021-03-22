@@ -1,9 +1,9 @@
 %global packname  pchc
-%global packver   0.4
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Network Learning with the PCHC and Related Algorithms
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bigmemory 
 BuildRequires:    R-CRAN-bigstatsr 
@@ -33,11 +33,13 @@ Requires:         R-stats
 %description
 Bayesian network learning using the PCHC algorithm. PCHC stands for PC
 Hill-Climbing. It is a new hybrid algorithm that used PC to construct the
-skeleton of the BN and then utilizes the Hill-Climbing greedy search. The
-relevant papers are a) Tsagris M. (2021). "A new scalable Bayesian network
-learning algorithm with applications to economics". Computational
-Economics (To appear). <doi:10.1007/s10614-020-10065-7>. b) Tsagris M.
-(2020). The FEDHC Bayesian network learning algorithm. <arXiv:2012.00113>.
+skeleton of the BN and then utilizes the Hill-Climbing greedy search. More
+algorithms and variants have been added, such as MMHC, FEDHC, and the Tabu
+search variants, PCTABU, MMTABU and FEDTABU. The relevant papers are a)
+Tsagris M. (2021). A new scalable Bayesian network learning algorithm with
+applications to economics. Computational Economics, 57(1): 341-367.
+<doi:10.1007/s10614-020-10065-7>. b) Tsagris M. (2020). The FEDHC Bayesian
+network learning algorithm. <arXiv:2012.00113>.
 
 %prep
 %setup -q -c -n %{packname}

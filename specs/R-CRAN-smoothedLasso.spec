@@ -1,9 +1,9 @@
 %global packname  smoothedLasso
-%global packver   1.5
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Framework to Smooth L1 Penalized Regression Operators using Nesterov Smoothing
 
@@ -36,7 +36,8 @@ to the smoothed objective functions as well as on their respective
 minimizers (see G. Hahn, S.M. Lutz, N. Laha, C. Lange (2020)
 <doi:10.1101/2020.09.17.301788>). A progressive smoothing approach is
 provided which iteratively smoothes the objective function, resulting in
-more stable regression estimates.
+more stable regression estimates. A function to perform cross validation
+for selection of the regularization parameter is provided.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global packname  ROpenCVLite
-%global packver   4.50.0
+%global packver   4.51.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.50.0
+Version:          4.51.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Install 'OpenCV'
+Summary:          Helper Package for Installing OpenCV with R
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}

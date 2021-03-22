@@ -1,9 +1,9 @@
 %global packname  LinearDetect
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Change Point Detection in High-Dimensional Linear Regression Models
 
@@ -19,8 +19,6 @@ BuildRequires:    R-graphics
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-factoextra 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-sparsevar 
@@ -30,8 +28,6 @@ Requires:         R-graphics
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-factoextra 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-xtable 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-sparsevar 

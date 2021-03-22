@@ -1,9 +1,9 @@
 %global packname  poppr
-%global packver   2.9.0
+%global packver   2.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.0
+Version:          2.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genetic Analysis of Populations with Mixed Reproduction
 
@@ -24,7 +24,6 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-phangorn 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ade4 
 BuildRequires:    R-CRAN-pegas 
@@ -44,7 +43,6 @@ Requires:         R-grDevices
 Requires:         R-utils 
 Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-phangorn 
 Requires:         R-methods 
 Requires:         R-CRAN-ade4 
 Requires:         R-CRAN-pegas 
