@@ -1,27 +1,36 @@
-%global packname  libgeos
-%global packver   3.8.1-4
+%global packname  rappsflyer
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8.1.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Source Geometry Engine ('GEOS') C API
+Summary:          Work with AppsFlyer API
 
-License:          LGPL (>= 2.1)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-retry 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-lgr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-retry 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-lgr 
 
 %description
-Provides the Open Source Geometry Engine ('GEOS') as a C API that can be
-used to write high-performance C and C++ geometry operations using R as an
-interface. Headers are provided to make linking to and using these
-functions from C++ code as easy and as safe as possible. This package
-contains an internal copy of the 'GEOS' library to guarantee the best
-possible consistency on multiple platforms.
+Loading data from AppsFlyer Pull API
+<https://support.appsflyer.com/hc/en-us/articles/207034346-Using-Pull-API-aggregate-data>.
 
 %prep
 %setup -q -c -n %{packname}

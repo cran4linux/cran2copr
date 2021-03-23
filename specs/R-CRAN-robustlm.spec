@@ -1,27 +1,31 @@
-%global packname  libgeos
-%global packver   3.8.1-4
+%global packname  robustlm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Source Geometry Engine ('GEOS') C API
+Summary:          Robust Variable Selection with Exponential Squared Loss
 
-License:          LGPL (>= 2.1)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-matrixStats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-matrixStats 
 
 %description
-Provides the Open Source Geometry Engine ('GEOS') as a C API that can be
-used to write high-performance C and C++ geometry operations using R as an
-interface. Headers are provided to make linking to and using these
-functions from C++ code as easy and as safe as possible. This package
-contains an internal copy of the 'GEOS' library to guarantee the best
-possible consistency on multiple platforms.
+Computationally efficient tool for performing variable selection and
+obtaining robust estimates, which implements robust variable selection
+procedure proposed by Wang, X., Jiang, Y., Wang, S., Zhang, H. (2013)
+<doi:10.1080/01621459.2013.766613>. Users can enjoy the near optimal,
+consistent, and oracle properties of the procedures.
 
 %prep
 %setup -q -c -n %{packname}

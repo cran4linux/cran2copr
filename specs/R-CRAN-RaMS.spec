@@ -1,27 +1,35 @@
-%global packname  libgeos
-%global packver   3.8.1-4
+%global packname  RaMS
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8.1.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Source Geometry Engine ('GEOS') C API
+Summary:          R Access to Mass-Spec Data
 
-License:          LGPL (>= 2.1)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-data.table 
+Requires:         R-utils 
 
 %description
-Provides the Open Source Geometry Engine ('GEOS') as a C API that can be
-used to write high-performance C and C++ geometry operations using R as an
-interface. Headers are provided to make linking to and using these
-functions from C++ code as easy and as safe as possible. This package
-contains an internal copy of the 'GEOS' library to guarantee the best
-possible consistency on multiple platforms.
+R-based access to mass-spectrometry (MS) data. While many packages exist
+to process MS data, many of these make it difficult to access the
+underlying mass-to-charge ratio (m/z), intensity, and retention time of
+the files themselves. This package is designed to format MS data in a tidy
+fashion and allows the user perform the plotting and analysis.
 
 %prep
 %setup -q -c -n %{packname}

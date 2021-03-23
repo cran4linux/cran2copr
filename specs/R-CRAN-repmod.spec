@@ -1,27 +1,38 @@
-%global packname  libgeos
-%global packver   3.8.1-4
+%global packname  repmod
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8.1.4
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Source Geometry Engine ('GEOS') C API
+Summary:          Create Report Table from Different Objects
 
-License:          LGPL (>= 2.1)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-lmerTest 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-xtable 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-lmerTest 
+Requires:         R-methods 
+Requires:         R-CRAN-officer 
+Requires:         R-CRAN-xtable 
 
 %description
-Provides the Open Source Geometry Engine ('GEOS') as a C API that can be
-used to write high-performance C and C++ geometry operations using R as an
-interface. Headers are provided to make linking to and using these
-functions from C++ code as easy and as safe as possible. This package
-contains an internal copy of the 'GEOS' library to guarantee the best
-possible consistency on multiple platforms.
+Tools for generating descriptives and report tables for different models,
+data.frames and tables and exporting them to different formats.
 
 %prep
 %setup -q -c -n %{packname}

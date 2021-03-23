@@ -1,9 +1,9 @@
 %global packname  mitre
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cybersecurity MITRE Standards Data and Digraphs
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-igraph 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-tidyr 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-igraph 
 
 %description
 Extract, transform and load MITRE standards. This package gives you an

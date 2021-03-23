@@ -1,27 +1,47 @@
-%global packname  libgeos
-%global packver   3.8.1-4
+%global packname  rKolada
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8.1.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Source Geometry Engine ('GEOS') C API
+Summary:          Access Data from the 'Kolada' Database
 
-License:          LGPL (>= 2.1)
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-urltools 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-urltools 
 
 %description
-Provides the Open Source Geometry Engine ('GEOS') as a C API that can be
-used to write high-performance C and C++ geometry operations using R as an
-interface. Headers are provided to make linking to and using these
-functions from C++ code as easy and as safe as possible. This package
-contains an internal copy of the 'GEOS' library to guarantee the best
-possible consistency on multiple platforms.
+Methods for downloading and processing data and metadata from 'Kolada',
+the official Swedish regions and municipalities database
+<https://kolada.se/>.
 
 %prep
 %setup -q -c -n %{packname}

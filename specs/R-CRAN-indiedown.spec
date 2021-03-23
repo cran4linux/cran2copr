@@ -1,42 +1,39 @@
-%global packname  UCSCXenaTools
-%global packver   1.4.3
+%global packname  indiedown
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Explore Datasets from UCSC Xena Data Hubs
+Summary:          Individual R Markdown Templates
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-gfonts 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-readr 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-gfonts 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-withr 
 
 %description
-Download and explore datasets from UCSC Xena data hubs, which are a
-collection of UCSC-hosted public databases such as TCGA, ICGC, TARGET,
-GTEx, CCLE, and others. Databases are normalized so they can be combined,
-linked, filtered, explored and downloaded.
+Simplifies the generation of customized R Markdown PDF templates. A
+template may include an individual logo, typography, geometry or color
+scheme. The package provides a skeleton with detailed instructions for
+customizations. The skeleton can be modified by changing defaults in the
+'YAML' header, by adding additional 'LaTeX' commands or by applying
+dynamic adjustments in R. Individual corporate design elements, such as a
+title page, can be added as R functions that produce 'LaTeX' code.
 
 %prep
 %setup -q -c -n %{packname}

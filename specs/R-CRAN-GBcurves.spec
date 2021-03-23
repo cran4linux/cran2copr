@@ -1,42 +1,45 @@
-%global packname  UCSCXenaTools
-%global packver   1.4.3
+%global packname  GBcurves
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Explore Datasets from UCSC Xena Data Hubs
+Summary:          Yield Curves of Brazil, China, and Russia
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-functional 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-xts 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-functional 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-readr 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rvest 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-xts 
 
 %description
-Download and explore datasets from UCSC Xena data hubs, which are a
-collection of UCSC-hosted public databases such as TCGA, ICGC, TARGET,
-GTEx, CCLE, and others. Databases are normalized so they can be combined,
-linked, filtered, explored and downloaded.
+Downloads and interpolates the Brazilian, Chinese, and Russian yield
+curves directly from <http://www.b3.com.br/>,
+<http://yield.chinabond.com.cn>, and <https://www.cbr.ru>, respectively.
 
 %prep
 %setup -q -c -n %{packname}

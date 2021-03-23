@@ -1,9 +1,9 @@
 %global packname  eye
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Eye Data
 
@@ -15,27 +15,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.0.4
-BuildRequires:    R-CRAN-cli >= 2.2.0
+BuildRequires:    R-CRAN-tibble >= 3.1.0
+BuildRequires:    R-CRAN-cli >= 2.3.1
 BuildRequires:    R-CRAN-magrittr >= 2.0.1
-BuildRequires:    R-CRAN-lubridate >= 1.7.9.2
+BuildRequires:    R-CRAN-lubridate >= 1.7.10
+BuildRequires:    R-CRAN-pillar >= 1.5.1
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-english >= 1.2.5
-BuildRequires:    R-CRAN-tidyr >= 1.1.2
+BuildRequires:    R-CRAN-tidyr >= 1.1.3
 BuildRequires:    R-CRAN-tidyselect >= 1.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.2
-BuildRequires:    R-CRAN-rlang >= 0.4.9
+BuildRequires:    R-CRAN-dplyr >= 1.0.5
+BuildRequires:    R-CRAN-rlang >= 0.4.10
 BuildRequires:    R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-tibble >= 3.0.4
-Requires:         R-CRAN-cli >= 2.2.0
+Requires:         R-CRAN-tibble >= 3.1.0
+Requires:         R-CRAN-cli >= 2.3.1
 Requires:         R-CRAN-magrittr >= 2.0.1
-Requires:         R-CRAN-lubridate >= 1.7.9.2
+Requires:         R-CRAN-lubridate >= 1.7.10
+Requires:         R-CRAN-pillar >= 1.5.1
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-english >= 1.2.5
-Requires:         R-CRAN-tidyr >= 1.1.2
+Requires:         R-CRAN-tidyr >= 1.1.3
 Requires:         R-CRAN-tidyselect >= 1.1.0
-Requires:         R-CRAN-dplyr >= 1.0.2
-Requires:         R-CRAN-rlang >= 0.4.9
+Requires:         R-CRAN-dplyr >= 1.0.5
+Requires:         R-CRAN-rlang >= 0.4.10
 Requires:         R-CRAN-purrr >= 0.3.4
 
 %description

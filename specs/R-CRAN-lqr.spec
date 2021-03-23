@@ -1,9 +1,9 @@
 %global packname  lqr
-%global packver   3.41
+%global packver   3.43
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.41
+Version:          3.43
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Linear Quantile Regression
 
@@ -17,13 +17,13 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-spatstat 
+BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-MomTrunc 
 BuildRequires:    R-CRAN-quantreg 
 Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-spatstat 
+Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-MomTrunc 
 Requires:         R-CRAN-quantreg 

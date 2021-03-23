@@ -1,9 +1,9 @@
 %global packname  seminr
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Domain-Specific Language for Building and Estimating Structural Equation Models
 
@@ -17,11 +17,9 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-glue 
 Requires:         R-parallel 
 Requires:         R-CRAN-lavaan 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-glue 
 
 %description

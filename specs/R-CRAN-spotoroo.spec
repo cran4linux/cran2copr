@@ -1,33 +1,43 @@
-%global packname  diffobj
-%global packver   0.3.4
+%global packname  spotoroo
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diffs for R Objects
+Summary:          Spatiotemporal Clustering of Satellite Hot Spot Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-crayon >= 1.3.2
-BuildRequires:    R-tools 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-cli >= 2.3.0
+BuildRequires:    R-CRAN-progress >= 1.2.2
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-ggExtra >= 0.9
+BuildRequires:    R-CRAN-ggbeeswarm >= 0.6.0
+BuildRequires:    R-CRAN-geodist >= 0.0.4
 BuildRequires:    R-stats 
-Requires:         R-CRAN-crayon >= 1.3.2
-Requires:         R-tools 
-Requires:         R-methods 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-ggrepel 
+Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-cli >= 2.3.0
+Requires:         R-CRAN-progress >= 1.2.2
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-ggExtra >= 0.9
+Requires:         R-CRAN-ggbeeswarm >= 0.6.0
+Requires:         R-CRAN-geodist >= 0.0.4
 Requires:         R-stats 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-ggrepel 
 
 %description
-Generate a colorized diff of two R objects for an intuitive visualization
-of their differences.
+An algorithm to cluster satellite hot spot data spatially and temporally.
 
 %prep
 %setup -q -c -n %{packname}

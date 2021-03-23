@@ -1,13 +1,13 @@
-%global packname  UCSCXenaTools
-%global packver   1.4.3
+%global packname  decorators
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Explore Datasets from UCSC Xena Data Hubs
+Summary:          Extend the Behaviour of a Function without Explicitly Modifying it
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,28 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-readr 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-purrr 
 
 %description
-Download and explore datasets from UCSC Xena data hubs, which are a
-collection of UCSC-hosted public databases such as TCGA, ICGC, TARGET,
-GTEx, CCLE, and others. Databases are normalized so they can be combined,
-linked, filtered, explored and downloaded.
+A decorator is a function that receives a function, extends its behaviour,
+and returned the altered function. Any caller that uses the decorated
+function uses the same interface as it were the original, undecorated
+function. Decorators serve two primary uses: (1) Enhancing the response of
+a function as it sends data to a second component; (2) Supporting multiple
+optional behaviours. An example of the first use is a timer decorator that
+runs a function, outputs its execution time on the console, and returns
+the original function's result. An example of the second use is input type
+validation decorator that during running time tests whether the caller has
+passed input arguments of a particular class. Decorators can reduce
+execution time, say by memoization, or reduce bugs by adding defensive
+programming routines.
 
 %prep
 %setup -q -c -n %{packname}

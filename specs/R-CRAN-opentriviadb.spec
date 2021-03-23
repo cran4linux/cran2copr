@@ -1,27 +1,34 @@
-%global packname  libgeos
-%global packver   3.8.1-4
+%global packname  opentriviadb
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8.1.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Source Geometry Engine ('GEOS') C API
+Summary:          Interface to the 'Open Trivia Database'
 
-License:          LGPL (>= 2.1)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-httr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-httr 
 
 %description
-Provides the Open Source Geometry Engine ('GEOS') as a C API that can be
-used to write high-performance C and C++ geometry operations using R as an
-interface. Headers are provided to make linking to and using these
-functions from C++ code as easy and as safe as possible. This package
-contains an internal copy of the 'GEOS' library to guarantee the best
-possible consistency on multiple platforms.
+The 'Open Trivia Database'<https://opentdb.com/> is a open source, user
+contributed, database of trivia questions and answers. This package
+provides an interface to download and access questions and answers from
+within R.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  DSAIDE
-%global packver   0.9.0
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamical Systems Approach to Infectious Disease Epidemiology (Ecology/Evolution)
 
@@ -12,37 +12,35 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-XML >= 3.98
-BuildRequires:    R-utils >= 3.4
-BuildRequires:    R-CRAN-gridExtra >= 2.3
-BuildRequires:    R-CRAN-adaptivetau >= 2.2
-BuildRequires:    R-CRAN-ggplot2 >= 2.2
 BuildRequires:    R-CRAN-shiny >= 1.2
-BuildRequires:    R-CRAN-deSolve >= 1.13
-BuildRequires:    R-CRAN-dplyr >= 0.7.4
-BuildRequires:    R-CRAN-lhs >= 0.15
+BuildRequires:    R-CRAN-adaptivetau 
+BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-lhs 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-XML >= 3.98
-Requires:         R-utils >= 3.4
-Requires:         R-CRAN-gridExtra >= 2.3
-Requires:         R-CRAN-adaptivetau >= 2.2
-Requires:         R-CRAN-ggplot2 >= 2.2
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-XML 
 Requires:         R-CRAN-shiny >= 1.2
-Requires:         R-CRAN-deSolve >= 1.13
-Requires:         R-CRAN-dplyr >= 0.7.4
-Requires:         R-CRAN-lhs >= 0.15
+Requires:         R-CRAN-adaptivetau 
+Requires:         R-CRAN-deSolve 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-lhs 
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-XML 
 
 %description
 Exploration of simulation models (apps) of various infectious disease

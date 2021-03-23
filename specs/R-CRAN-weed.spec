@@ -1,51 +1,55 @@
-%global packname  dynutils
+%global packname  weed
 %global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Common Functionality for the 'dynverse' Packages
+Summary:          Wrangler for Emergency Events Database
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-desc 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-proxyC 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-remotes 
+BuildRequires:    R-CRAN-tidytext 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-desc 
+BuildRequires:    R-CRAN-geonames 
+BuildRequires:    R-CRAN-countrycode 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-here 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-CRAN-proxyC 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-remotes 
+Requires:         R-CRAN-tidytext 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-geonames 
+Requires:         R-CRAN-countrycode 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rgeos 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-here 
 
 %description
-Provides common functionality for the 'dynverse' packages. 'dynverse' is
-created to support the development, execution, and benchmarking of
-trajectory inference methods. For more information, check out
-<https://dynverse.org>.
+Makes research involving EMDAT and related datasets easier. These Datasets
+are manually filled and have several formatting and compatibility issues.
+Weed aims to resolve these with its functions.
 
 %prep
 %setup -q -c -n %{packname}

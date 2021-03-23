@@ -1,9 +1,9 @@
 %global packname  insurancerating
-%global packver   0.6.4
+%global packver   0.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analytic Insurance Rating Techniques
 
@@ -17,6 +17,7 @@ Requires:         R-core >= 3.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ciTools 
 BuildRequires:    R-CRAN-classInt 
+BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-DHARMa 
 BuildRequires:    R-CRAN-dplyr 
@@ -27,10 +28,13 @@ BuildRequires:    R-CRAN-lubridate
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-ciTools 
 Requires:         R-CRAN-classInt 
+Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-DHARMa 
 Requires:         R-CRAN-dplyr 
@@ -41,8 +45,10 @@ Requires:         R-CRAN-lubridate
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
 Methods for insurance rating. It helps actuaries to implement GLMs within

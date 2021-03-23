@@ -1,9 +1,9 @@
 %global packname  GEInter
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Gene-Environment Interaction Analysis
 
@@ -12,31 +12,31 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-survAUC 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-pcaPP 
+BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-Hmisc 
 Requires:         R-CRAN-survAUC 
 Requires:         R-CRAN-MASS 
 Requires:         R-splines 
 Requires:         R-CRAN-pcaPP 
+Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-quantreg 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-graphics 
-Requires:         R-CRAN-Hmisc 
 
 %description
 For the risk, progression, and response to treatment of many complex

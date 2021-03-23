@@ -1,42 +1,53 @@
-%global packname  UCSCXenaTools
-%global packver   1.4.3
+%global packname  jsontools
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Explore Datasets from UCSC Xena Data Hubs
+Summary:          Working with JSON Vectors
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-bit64 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-readr 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-bit64 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-withr 
 
 %description
-Download and explore datasets from UCSC Xena data hubs, which are a
-collection of UCSC-hosted public databases such as TCGA, ICGC, TARGET,
-GTEx, CCLE, and others. Databases are normalized so they can be combined,
-linked, filtered, explored and downloaded.
+A toolbox for working with JSON vectors similar to the functions
+'Postgres' provides to work with JSON columns. It supports in parsing and
+formatting JSON, extracting data from JSON, and modifying JSON data.
 
 %prep
 %setup -q -c -n %{packname}

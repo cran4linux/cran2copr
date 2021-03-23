@@ -1,27 +1,38 @@
-%global packname  libgeos
-%global packver   3.8.1-4
+%global packname  essurvey
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8.1.4
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Source Geometry Engine ('GEOS') C API
+Summary:          Download Data from the European Social Survey on the Fly
 
-License:          LGPL (>= 2.1)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-haven >= 2.1.0
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-haven >= 2.1.0
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
-Provides the Open Source Geometry Engine ('GEOS') as a C API that can be
-used to write high-performance C and C++ geometry operations using R as an
-interface. Headers are provided to make linking to and using these
-functions from C++ code as easy and as safe as possible. This package
-contains an internal copy of the 'GEOS' library to guarantee the best
-possible consistency on multiple platforms.
+Download data from the European Social Survey directly from their website
+<http://www.europeansocialsurvey.org/>. There are two families of
+functions that allow you to download and interactively check all countries
+and rounds available.
 
 %prep
 %setup -q -c -n %{packname}

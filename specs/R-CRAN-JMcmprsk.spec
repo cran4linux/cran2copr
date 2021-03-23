@@ -1,9 +1,9 @@
 %global packname  JMcmprsk
-%global packver   0.9.9
+%global packver   0.9.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.9
+Version:          0.9.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Models for Longitudinal and Competing Risks Data
 

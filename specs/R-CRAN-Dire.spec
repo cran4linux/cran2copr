@@ -1,42 +1,42 @@
-%global packname  UCSCXenaTools
-%global packver   1.4.3
+%global packname  Dire
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Explore Datasets from UCSC Xena Data Hubs
+Summary:          Linear Regressions with a Latent Outcome Variable
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-minqa 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-iterators 
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-minqa 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-iterators 
 Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Download and explore datasets from UCSC Xena data hubs, which are a
-collection of UCSC-hosted public databases such as TCGA, ICGC, TARGET,
-GTEx, CCLE, and others. Databases are normalized so they can be combined,
-linked, filtered, explored and downloaded.
+Fit linear models, estimating score distributions for groups of people,
+following Cohen and Jiang (1999) <doi:10.2307/2669917>. In this model, the
+response is a latent trait (such as student ability) and raw item
+responses are combined with item difficulties in an item response theory
+(IRT) framework to form a density for each unit (student). This latent
+trait is then integrated out. This software is intended to fit the same
+models as the existing software 'AM' <http://am.air.org/>.
 
 %prep
 %setup -q -c -n %{packname}

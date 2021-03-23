@@ -1,27 +1,35 @@
-%global packname  libgeos
-%global packver   3.8.1-4
+%global packname  sdpdth
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8.1.4
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Source Geometry Engine ('GEOS') C API
+Summary:          M-Estimator for Threshold Spatial Dynamic Panel Data Model
 
-License:          LGPL (>= 2.1)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-rCMA 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-rJava 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-rCMA 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-rJava 
+Requires:         R-CRAN-Matrix 
 
 %description
-Provides the Open Source Geometry Engine ('GEOS') as a C API that can be
-used to write high-performance C and C++ geometry operations using R as an
-interface. Headers are provided to make linking to and using these
-functions from C++ code as easy and as safe as possible. This package
-contains an internal copy of the 'GEOS' library to guarantee the best
-possible consistency on multiple platforms.
+M-estimator for threshold and non-threshold spatial dynamic panel data
+model. Yang, Z (2018) <doi:10.1016/j.jeconom.2017.08.019>. Wu, J.,
+Matsuda, Y (2021) <doi:10.1007/s43071-021-00008-1>.
 
 %prep
 %setup -q -c -n %{packname}

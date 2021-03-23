@@ -1,27 +1,32 @@
-%global packname  libgeos
-%global packver   3.8.1-4
+%global packname  isodistrreg
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Source Geometry Engine ('GEOS') C API
+Summary:          Isotonic Distributional Regression (IDR)
 
-License:          LGPL (>= 2.1)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-osqp 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-osqp 
+Requires:         R-CRAN-Matrix 
+Requires:         R-utils 
 
 %description
-Provides the Open Source Geometry Engine ('GEOS') as a C API that can be
-used to write high-performance C and C++ geometry operations using R as an
-interface. Headers are provided to make linking to and using these
-functions from C++ code as easy and as safe as possible. This package
-contains an internal copy of the 'GEOS' library to guarantee the best
-possible consistency on multiple platforms.
+Distributional regression under stochastic order restrictions for numeric
+and binary response variables and partially ordered covariates. See Henzi,
+Ziegel, Gneiting (2020) <arXiv:1909.03725>.
 
 %prep
 %setup -q -c -n %{packname}
