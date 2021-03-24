@@ -1,9 +1,9 @@
 %global packname  rcompanion
-%global packver   2.3.27
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.27
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Support Extension Education Program Evaluation
 

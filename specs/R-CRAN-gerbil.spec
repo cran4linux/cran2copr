@@ -1,50 +1,53 @@
-%global packname  cricketr
-%global packver   0.0.26
+%global packname  gerbil
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.26
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyze Cricketers and Cricket Teams Based on ESPN Cricinfo Statsguru
+Summary:          Generalized Efficient Regression-Based Imputation with Latent Processes
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scatterplot3d 
-BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-base 
+BuildRequires:    R-CRAN-DescTools 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scatterplot3d 
-Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-XML 
+Requires:         R-base 
+Requires:         R-CRAN-DescTools 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-parallel 
+Requires:         R-CRAN-pbapply 
 Requires:         R-stats 
+Requires:         R-CRAN-truncnorm 
 Requires:         R-utils 
 
 %description
-Tools for analyzing performances of cricketers based on stats in ESPN
-Cricinfo Statsguru. The toolset can be used for analysis of Tests,ODIs and
-Twenty20 matches of both batsmen and bowlers. The package can also be used
-to analyze team performances.
+Implements a new multiple imputation method that draws imputations from a
+latent joint multivariate normal model which underpins generally
+structured data. This model is constructed using a sequence of flexible
+conditional linear models that enables the resulting procedure to be
+efficiently implemented on high dimensional datasets in practice.
 
 %prep
 %setup -q -c -n %{packname}

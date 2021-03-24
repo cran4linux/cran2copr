@@ -1,35 +1,37 @@
-%global packname  powerEQTL
-%global packver   0.2.9
+%global packname  bpnreg
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power and Sample Size Calculation for eQTL Analysis
+Summary:          Bayesian Projected Normal Regression Models for Circular Data
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-GLMMadaptive 
-BuildRequires:    R-CRAN-glmmTMB 
-BuildRequires:    R-parallel 
-Requires:         R-stats 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-GLMMadaptive 
-Requires:         R-CRAN-glmmTMB 
-Requires:         R-parallel 
+BuildRequires:    R-methods >= 3.6.0
+BuildRequires:    R-CRAN-haven >= 2.1.1
+BuildRequires:    R-CRAN-BH >= 1.69.0.1
+BuildRequires:    R-CRAN-Rcpp >= 1.0.2
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.10.1.2.0
+Requires:         R-methods >= 3.6.0
+Requires:         R-CRAN-haven >= 2.1.1
+Requires:         R-CRAN-Rcpp >= 1.0.2
 
 %description
-Power and sample size calculation for eQTL analysis based on ANOVA or
-simple linear regression. It can also calculate power/sample size for
-testing the association of a SNP to a continuous type phenotype.
+Fitting Bayesian multiple and mixed-effect regression models for circular
+data based on the projected normal distribution. Both continuous and
+categorical predictors can be included. Sampling from the posterior is
+performed via an MCMC algorithm. Posterior descriptives of all parameters,
+model fit statistics and Bayes factors for hypothesis tests for inequality
+constrained hypotheses are provided. See Cremers, Mulder & Klugkist (2018)
+<doi:10.1111/bmsp.12108> and Nuñez-Antonio & Guttiérez-Peña (2014)
+<doi:10.1016/j.csda.2012.07.025>.
 
 %prep
 %setup -q -c -n %{packname}

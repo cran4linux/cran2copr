@@ -1,9 +1,9 @@
 %global packname  hsrecombi
-%global packver   0.3.2
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of Recombination Rate and Maternal LD in Half-Sibs
 
@@ -20,25 +20,32 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-curl 
 Requires:         R-CRAN-Rcpp >= 1.0.3
 Requires:         R-CRAN-hsphase 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-rlist 
 Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-curl 
 
 %description
 Paternal recombination rate and maternal linkage disequilibrium (LD) are
 estimated for pairs of biallelic markers such as single nucleotide
-polymorphisms (SNPs) from progeny genotypes and sire haplotypes. At least
-one sire has to be double heterozygous at the investigated pairs of SNPs.
-The implementation relies on paternal half-sib families. If maternal half-
-sib families are used, the roles of sire/dam are swapped. Multiple
-families can be considered. Hampel, Teuscher, Gomez-Raya, Doschoris,
-Wittenburg (2018) "Estimation of recombination rate and maternal linkage
-disequilibrium in half-sibs" <doi:10.3389/fgene.2018.00186>. Gomez-Raya
-(2012) "Maximum likelihood estimation of linkage disequilibrium in
-half-sib families" <doi:10.1534/genetics.111.137521>.
+polymorphisms (SNPs) from progeny genotypes and sire haplotypes. The
+implementation relies on paternal half-sib families. If maternal half-sib
+families are used, the roles of sire/dam are swapped. Multiple families
+can be considered. For parameter estimation, at least one sire has to be
+double heterozygous at the investigated pairs of SNPs. Based on
+recombination rates, genetic distances between markers can be estimated.
+Markers with unusually large recombination rate to markers in close
+proximity can be discarded in this derivation. *A pipeline is available at
+github* <https://github.com/wittenburg/hsrecombi> Hampel, Teuscher,
+Gomez-Raya, Doschoris, Wittenburg (2018) "Estimation of recombination rate
+and maternal linkage disequilibrium in half-sibs"
+<doi:10.3389/fgene.2018.00186>. Gomez-Raya (2012) "Maximum likelihood
+estimation of linkage disequilibrium in half-sib families"
+<doi:10.1534/genetics.111.137521>.
 
 %prep
 %setup -q -c -n %{packname}

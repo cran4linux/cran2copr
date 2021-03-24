@@ -1,42 +1,33 @@
-%global packname  IRISSeismic
-%global packver   1.6.2
+%global packname  MultOrdRS
+%global packver   0.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classes and Methods for Seismic Data Analysis
+Summary:          Model Multivariate Ordinal Responses Including Response Styles
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-seismicRoll >= 1.1.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-seismicRoll >= 1.1.0
-Requires:         R-methods 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-signal 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-XML 
-Requires:         R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.12.4
+BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.4
+Requires:         R-CRAN-statmod 
 
 %description
-Provides classes and methods for seismic data analysis. The base classes
-and methods are inspired by the python code found in the 'ObsPy' python
-toolbox <https://github.com/obspy/obspy>. Additional classes and methods
-support data returned by web services provided by the 'IRIS DMC'
-<http://service.iris.edu/>.
+In the case of multivariate ordinal responses, parameter estimates can be
+severely biased if personal response styles are ignored. This packages
+provides methods to account for personal response styles and to explain
+the effects of covariates on the response style, as proposed by
+Schauberger and Tutz 2021 <doi:10.1177/1471082X20978034>. The method is
+implemented both for the multivariate cumulative model and the
+multivariate adjacent categories model.
 
 %prep
 %setup -q -c -n %{packname}

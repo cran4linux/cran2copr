@@ -1,29 +1,28 @@
-%global packname  powerMediation
-%global packver   0.3.4
+%global packname  mcreplicate
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power/Sample Size Calculation for Mediation Analysis
+Summary:          Multi-Core Replicate
 
-License:          GPL (>= 2)
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-parallel 
+Requires:         R-parallel 
 
 %description
-Functions to calculate power and sample size for testing (1) mediation
-effects; (2) the slope in a simple linear regression; (3) odds ratio in a
-simple logistic regression; (4) mean change for longitudinal study with 2
-time points; (5) interaction effect in 2-way ANOVA; and (6) the slope in a
-simple Poisson regression.
+Multi-core replication function to make it easier to do fast Monte Carlo
+simulation. Based on the mcreplicate() function from the 'rethinking'
+package. The 'rethinking' package requires installing 'rstan', which is
+onerous to install, while also not adding capabilities to this function.
 
 %prep
 %setup -q -c -n %{packname}

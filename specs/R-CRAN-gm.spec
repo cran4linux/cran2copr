@@ -1,57 +1,50 @@
-%global packname  ymlthis
-%global packver   0.1.4
+%global packname  gm
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Write 'YAML' for 'R Markdown', 'bookdown', 'blogdown', and More
+Summary:          Generate Musical Scores Easily and Show Them Anywhere
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-usethis >= 1.5.0
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-purrr >= 0.3.2
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-miniUI 
-BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyBS 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-whoami 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-usethis >= 1.5.0
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-purrr >= 0.3.2
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-fs 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-magick 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-miniUI 
-Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyBS 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-whoami 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-yaml 
+Requires:         R-utils 
 
 %description
-Write 'YAML' front matter for R Markdown and related documents. yml_*()
-functions write 'YAML' and use_*() functions let you write the resulting
-'YAML' to your clipboard or to .yml files related to your project.
+Provides a simple and intuitive language, with which you can create
+complex music easily. Takes care of all the dirty technical details in
+converting your music to musical scores and audio files. Works in 'R
+Markdown' documents <https://rmarkdown.rstudio.com/>, R 'Jupyter
+Notebooks' <https://jupyter.org/>, and 'RStudio' <https://rstudio.com/>,
+so you can embed musical scores and audio files anywhere. Internally, uses
+'MusicXML' <https://www.musicxml.com/> to represent musical scores, and
+'MuseScore' <https://musescore.org/> to convert 'MusicXML'.
 
 %prep
 %setup -q -c -n %{packname}

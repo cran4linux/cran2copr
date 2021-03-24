@@ -1,9 +1,9 @@
 %global packname  iccde
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computation of the Double-Entry Intraclass Correlation
 
@@ -27,9 +27,8 @@ intraclass correlation is calculated. If the profiles comprise scores such
 as sum scores from various personality scales, it is recommended to
 standardize each individual score before entering into the function
 (McCrae, 2008). In case of missing values, the function will automatically
-use pairwise deletion. For details, see Furr (2010)
-<doi:10.1080/00223890903379134> or McCrae (2008)
-<doi:10.1080/00223890701845104>.
+use pairwise deletion. See Furr (2010) <doi:10.1080/00223890903379134> or
+McCrae (2008) <doi:10.1080/00223890701845104> for details.
 
 %prep
 %setup -q -c -n %{packname}

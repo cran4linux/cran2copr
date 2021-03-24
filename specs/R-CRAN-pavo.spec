@@ -1,9 +1,9 @@
 %global packname  pavo
-%global packver   2.6.1
+%global packver   2.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.1
+Version:          2.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Perceptual Analysis, Visualization and Organization of Spectral Colour Data
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-geometry >= 0.4.0
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-farver 
 BuildRequires:    R-CRAN-plot3D 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-sp 
@@ -29,6 +30,7 @@ Requires:         R-CRAN-geometry >= 0.4.0
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-magick 
+Requires:         R-CRAN-farver 
 Requires:         R-CRAN-plot3D 
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-sp 

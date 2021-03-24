@@ -1,42 +1,43 @@
-%global packname  gimme
-%global packver   0.7-5
+%global packname  ADMUR
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Group Iterative Multiple Model Estimation
+Summary:          Ancient Demographic Modelling Using Radiocarbon
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-imputeTS >= 3.0
-BuildRequires:    R-CRAN-igraph >= 1.0.0
-BuildRequires:    R-CRAN-MIIVsem >= 0.5.4
-BuildRequires:    R-CRAN-lavaan >= 0.5.19
-BuildRequires:    R-CRAN-qgraph 
-BuildRequires:    R-CRAN-data.tree 
-BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-mathjaxr 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-imputeTS >= 3.0
-Requires:         R-CRAN-igraph >= 1.0.0
-Requires:         R-CRAN-MIIVsem >= 0.5.4
-Requires:         R-CRAN-lavaan >= 0.5.19
-Requires:         R-CRAN-qgraph 
-Requires:         R-CRAN-data.tree 
-Requires:         R-CRAN-nloptr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-zoo 
 Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-mathjaxr 
 Requires:         R-stats 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-zoo 
 
 %description
-Automated identification and estimation of group- and individual-level
-relations in time series data.
+Provides tools to directly model underlying population dynamics using date
+datasets (radiocarbon and other) with a Continuous Piecewise Linear (CPL)
+model framework. Various other model types included. Taphonomic loss
+included optionally as a power function. Model comparison framework using
+BIC. Package also calibrates 14C samples, generates Summed Probability
+Distributions (SPD), and performs SPD simulation analysis to generate a
+Goodness-of-fit test for the best selected model. Details about the method
+can be found in Timpson A., Barberena R., Thomas M. G., Mendez C., Manning
+K. (2020) <doi:10.1098/rstb.2019.0723>.
 
 %prep
 %setup -q -c -n %{packname}

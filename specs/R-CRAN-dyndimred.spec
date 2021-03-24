@@ -1,42 +1,38 @@
-%global packname  IRISSeismic
-%global packver   1.6.2
+%global packname  dyndimred
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classes and Methods for Seismic Data Analysis
+Summary:          Dimensionality Reduction Methods in a Common Format
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-seismicRoll >= 1.1.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dynutils >= 1.0.5
+BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-CRAN-lmds 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-seismicRoll >= 1.1.0
-Requires:         R-methods 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-signal 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-XML 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dynutils >= 1.0.5
+Requires:         R-CRAN-irlba 
+Requires:         R-CRAN-lmds 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides classes and methods for seismic data analysis. The base classes
-and methods are inspired by the python code found in the 'ObsPy' python
-toolbox <https://github.com/obspy/obspy>. Additional classes and methods
-support data returned by web services provided by the 'IRIS DMC'
-<http://service.iris.edu/>.
+Provides a common interface for applying dimensionality reduction methods,
+such as Principal Component Analysis ('PCA'), Independent Component
+Analysis ('ICA'), diffusion maps, Locally-Linear Embedding ('LLE'),
+t-distributed Stochastic Neighbor Embedding ('t-SNE'), and Uniform
+Manifold Approximation and Projection ('UMAP'). Has built-in support for
+sparse matrices.
 
 %prep
 %setup -q -c -n %{packname}

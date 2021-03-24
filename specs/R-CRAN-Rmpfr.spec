@@ -1,9 +1,9 @@
 %global packname  Rmpfr
-%global packver   0.8-2
+%global packver   0.8-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.8.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          R MPFR - Multiple Precision Floating-Point Reliable
 

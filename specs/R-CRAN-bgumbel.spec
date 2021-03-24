@@ -1,29 +1,34 @@
-%global packname  powerMediation
-%global packver   0.3.4
+%global packname  bgumbel
+%global packver   0.0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power/Sample Size Calculation for Mediation Analysis
+Summary:          Bimodal Gumbel Distribution
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-SparseM 
+BuildRequires:    R-CRAN-coda 
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-SparseM 
+Requires:         R-CRAN-coda 
 
 %description
-Functions to calculate power and sample size for testing (1) mediation
-effects; (2) the slope in a simple linear regression; (3) odds ratio in a
-simple logistic regression; (4) mean change for longitudinal study with 2
-time points; (5) interaction effect in 2-way ANOVA; and (6) the slope in a
-simple Poisson regression.
+Bimodal Gumbel distribution. General functions for performing extreme
+value analysis.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  Compositional
-%global packver   4.4
+%global packver   4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4
+Version:          4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 
@@ -21,12 +21,14 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-CRAN-emplik 
 BuildRequires:    R-CRAN-FlexDir 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mda 
 BuildRequires:    R-CRAN-mixture 
 BuildRequires:    R-CRAN-NlcOptim 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pchc 
 BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-Rfast2 
@@ -38,12 +40,14 @@ Requires:         R-CRAN-doParallel
 Requires:         R-CRAN-emplik 
 Requires:         R-CRAN-FlexDir 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mda 
 Requires:         R-CRAN-mixture 
 Requires:         R-CRAN-NlcOptim 
 Requires:         R-CRAN-nnet 
 Requires:         R-parallel 
+Requires:         R-CRAN-pchc 
 Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-Rfast2 
@@ -54,7 +58,7 @@ Requires:         R-stats
 Regression, classification, contour plots, hypothesis testing and fitting
 of distributions for compositional data are some of the functions
 included. The standard textbook for such data is John Aitchison's (1986)
-"The statistical analysis of compositional data". Relevant papers include
+"The statistical analysis of compositional data". Relevant papers include:
 a) Tsagris M.T., Preston S. and Wood A.T.A. (2011). A data-based power
 transformation for compositional data. Fourth International International
 Workshop on Compositional Data Analysis. b) Tsagris M. (2014). The k-NN
@@ -72,7 +76,7 @@ alpha-transformation. Journal of Classification, 33(2):243--261.
 simplex. Journal of Statistical Computation and Simulation, 87(2):
 406--422. <doi:10.1080/00949655.2016.1216554>. g) Tsagris M. and Stewart
 C. (2018). A Dirichlet regression model for compositional data with zeros.
-Lobachevskii Journal of Mathematics, 39(3): 398--412.
+Lobachevskii Journal of Mathematics,39(3): 398--412.
 <doi:10.1134/S1995080218030198>. h) Alenazi A. (2019). Regression for
 compositional data with compositional data as predictor variables with or
 without zero values. Journal of Data Science, 17(1): 219--238.

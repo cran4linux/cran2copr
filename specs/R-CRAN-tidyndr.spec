@@ -1,47 +1,50 @@
-%global packname  RClimacell
-%global packver   0.1.4
+%global packname  tidyndr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Wrapper for the 'Climacell' API
+Summary:          Analysis of the Nigeria National Data Repository (NDR)
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.0.6
+BuildRequires:    R-CRAN-janitor >= 2.1.0
 BuildRequires:    R-CRAN-magrittr >= 2.0.1
 BuildRequires:    R-CRAN-lubridate >= 1.7.9.2
-BuildRequires:    R-CRAN-httr >= 1.4.2
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-tidyr >= 1.1.2
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-vroom >= 1.3.2
+BuildRequires:    R-CRAN-dplyr >= 1.0.3
 BuildRequires:    R-CRAN-rlang >= 0.4.10
-BuildRequires:    R-CRAN-assertthat >= 0.2.1
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-tibble >= 3.0.6
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-janitor >= 2.1.0
 Requires:         R-CRAN-magrittr >= 2.0.1
 Requires:         R-CRAN-lubridate >= 1.7.9.2
-Requires:         R-CRAN-httr >= 1.4.2
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-tidyr >= 1.1.2
-Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-vroom >= 1.3.2
+Requires:         R-CRAN-dplyr >= 1.0.3
 Requires:         R-CRAN-rlang >= 0.4.10
-Requires:         R-CRAN-assertthat >= 0.2.1
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-forcats 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-'Climacell' is a weather platform that provides hyper-local forecasts and
-weather data. This package enables the user to query the core layers of
-the time line interface of the 'Climacell' v4 API
-<https://www.climacell.co/weather-api/>. This package requires a valid API
-key. See vignettes for instructions on use.
+The goal is to simplify routine analysis of the Nigeria National Data
+Repository (NDR) <https://ndr.shieldnigeriaproject.com> using the PEPFAR
+Monitoring, Evaluation, and Reporting (MER) indicators (see
+<https://datim.zendesk.com/hc/en-us/articles/360000084446-MER-Indicator-Reference-Guides>).
+It is designed to import in to R patient-level line-list downloaded as
+'csv' file from the front-end of the NDR.
 
 %prep
 %setup -q -c -n %{packname}

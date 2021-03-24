@@ -1,29 +1,32 @@
-%global packname  powerMediation
-%global packver   0.3.4
+%global packname  asteRisk
+%global packver   0.99.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.99.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power/Sample Size Calculation for Mediation Analysis
+Summary:          Computation of Satellite Position
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
 
 %description
-Functions to calculate power and sample size for testing (1) mediation
-effects; (2) the slope in a simple linear regression; (3) odds ratio in a
-simple logistic regression; (4) mean change for longitudinal study with 2
-time points; (5) interaction effect in 2-way ANOVA; and (6) the slope in a
-simple Poisson regression.
+Provides basic functionalities to calculate the position of satellites
+given a known state vector. The package includes implementations of the
+SGP4 and SDP4 simplified perturbation models to propagate orbital state
+vectors, as well as utilities to read TLE files and convert coordinates
+between different frames of reference. Felix R. Hoots, Ronald L. Roehrich
+and T.S. Kelso (1988)
+<https://celestrak.com/NORAD/documentation/spacetrk.pdf>. David Vallado,
+Paul Crawford, Richard Hujsak and T.S. Kelso (2012)
+<doi:10.2514/6.2006-6753>. Felix R. Hoots, Paul W. Schumacher Jr. and
+Robert A. Glover (2014) <doi:10.2514/1.9161>.
 
 %prep
 %setup -q -c -n %{packname}

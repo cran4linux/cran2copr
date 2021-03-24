@@ -1,13 +1,13 @@
-%global packname  powerMediation
-%global packver   0.3.4
+%global packname  SurviMChd
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power/Sample Size Calculation for Mediation Analysis
+Summary:          High Dimensional Survival Data Analysis with Markov Chain Monte Carlo
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,15 +15,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-Rdpack >= 0.7
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-R2OpenBUGS 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-icenReg 
+BuildRequires:    R-CRAN-ICBayes 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-Rdpack >= 0.7
+Requires:         R-CRAN-survival 
+Requires:         R-utils 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-R2OpenBUGS 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-icenReg 
+Requires:         R-CRAN-ICBayes 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
 
 %description
-Functions to calculate power and sample size for testing (1) mediation
-effects; (2) the slope in a simple linear regression; (3) odds ratio in a
-simple logistic regression; (4) mean change for longitudinal study with 2
-time points; (5) interaction effect in 2-way ANOVA; and (6) the slope in a
-simple Poisson regression.
+High dimensional survival data analysis with Markov Chain Monte
+Carlo(MCMC). Currently support frailty data analysis. Allows for Weibull
+and Exponential distribution. Includes function for interval censored
+data.
 
 %prep
 %setup -q -c -n %{packname}

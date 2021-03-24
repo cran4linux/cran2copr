@@ -1,9 +1,9 @@
 %global packname  processx
-%global packver   3.4.5
+%global packver   3.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.5
+Version:          3.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Execute and Control System Processes
 
