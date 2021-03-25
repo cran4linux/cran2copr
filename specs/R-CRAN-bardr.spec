@@ -1,37 +1,24 @@
-%global packname  RTTWebClient
-%global packver   0.1.1
+%global packname  bardr
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Web Client to 'TickTrader'
+Summary:          Complete Works of William Shakespeare in Tidy Format
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-base64enc 
-Requires:         R-methods 
 
 %description
-R Web Client to 'TickTrader' platform. Provides you access to 'TickTrader'
-platform through Web API
-<https://ttlivewebapi.fxopen.net:8443/api/doc/index>.
+Provides R data structures for Shakespeare's complete works, as provided
+by Project Gutenberg <https:www.gutenberg.org/ebooks/100>.
 
 %prep
 %setup -q -c -n %{packname}
