@@ -1,9 +1,9 @@
 %global packname  piecepackr
-%global packver   1.6.5
+%global packver   1.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.5
+Version:          1.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Board Game Graphics
 
@@ -44,10 +44,10 @@ Requires:         R-tools
 Requires:         R-utils 
 
 %description
-Functions to make board game graphics.  By default makes game diagrams,
+Functions to make board game graphics.  Specializes in game diagrams,
 animations, and "Print & Play" layouts for the 'piecepack'
-<https://www.ludism.org/ppwiki> but can be configured to make graphics for
-other board game systems.
+<https://www.ludism.org/ppwiki> but can make graphics for other board game
+systems.  Includes configurations for several public domain game systems.
 
 %prep
 %setup -q -c -n %{packname}

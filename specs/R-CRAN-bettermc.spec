@@ -1,34 +1,32 @@
-%global packname  opentriviadb
-%global packver   1.0.0
+%global packname  bettermc
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'Open Trivia Database'
+Summary:          Enhanced Fork-Based Parallelization
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-checkmate 
+Requires:         R-parallel 
 
 %description
-The 'Open Trivia Database'<https://opentdb.com/> is a open source, user
-contributed, database of trivia questions and answers. This package
-provides an interface to download and access questions and answers from
-within R.
+Drop-in replacement for 'parallel::mclapply()' adding e.g. tracebacks,
+crash dumps, retries, condition handling, improved seeding, progress bars
+and faster inter process communication. Some of the internal functions are
+also exported for other use: 'etry()' (extended try),
+'copy2shm()/allocate_from_shm()' (copy to and allocate from POSIX shared
+memory), 'char_map/map2char()' (split a character vector into its unique
+elements and a mapping on these) and various semaphore related functions.
 
 %prep
 %setup -q -c -n %{packname}

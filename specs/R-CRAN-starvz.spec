@@ -1,9 +1,9 @@
 %global packname  starvz
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R-Based Visualization Techniques for Task-Based Applications
 
@@ -14,7 +14,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-arrow >= 0.17.0
+BuildRequires:    R-CRAN-arrow >= 3.0.0
+BuildRequires:    R-CRAN-readr >= 1.4.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.6
 BuildRequires:    R-methods 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
@@ -27,7 +29,6 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-lpSolve 
@@ -36,9 +37,10 @@ BuildRequires:    R-CRAN-data.tree
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-flexmix 
 BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-arrow >= 0.17.0
+Requires:         R-CRAN-arrow >= 3.0.0
+Requires:         R-CRAN-readr >= 1.4.0
 Requires:         R-methods 
 Requires:         R-grDevices 
 Requires:         R-stats 
@@ -51,7 +53,6 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-lpSolve 
@@ -60,6 +61,7 @@ Requires:         R-CRAN-data.tree
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-car 
+Requires:         R-CRAN-flexmix 
 
 %description
 Performance analysis workflow that combines the power of the R language
@@ -75,9 +77,13 @@ multi-node HPC (High-performance computing) platforms.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -87,6 +93,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

@@ -1,33 +1,38 @@
-%global packname  CalSim
-%global packver   0.5.2
+%global packname  opdisDownsampling
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Calibration Simplex
+Summary:          Optimal Distribution Preserving Down-Sampling of Bio-Medical Data
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat >= 2.0.0
-BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-caTools 
+BuildRequires:    R-CRAN-twosamples 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbmcapply 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ExactMultinom 
-Requires:         R-CRAN-spatstat >= 2.0.0
-Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-caTools 
+Requires:         R-CRAN-twosamples 
+Requires:         R-CRAN-pracma 
+Requires:         R-parallel 
+Requires:         R-CRAN-pbmcapply 
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-ExactMultinom 
 
 %description
-Generates the calibration simplex (a generalization of the reliability
-diagram) for three-category probability forecasts, as proposed by Wilks
-(2013) <doi:10.1175/WAF-D-13-00027.1>.
+An optimized method for distribution-preserving class-proportional
+down-sampling of bio-medical data.
 
 %prep
 %setup -q -c -n %{packname}
