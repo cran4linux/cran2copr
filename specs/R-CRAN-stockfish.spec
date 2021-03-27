@@ -1,44 +1,28 @@
-%global packname  ForestGapR
-%global packver   0.0.3
+%global packname  stockfish
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tropical Forest Canopy Gaps Analysis
+Summary:          Analyze Chess Games with the 'Stockfish' Engine
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-VGAM 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-spatstat 
-BuildRequires:    R-CRAN-poweRlaw 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-VGAM 
-Requires:         R-CRAN-sp 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-spatstat 
-Requires:         R-CRAN-poweRlaw 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-processx 
+Requires:         R-CRAN-R6 
 
 %description
-Set of tools for detecting and analyzing Airborne Laser Scanning-derived
-Tropical Forest Canopy Gaps.
+An implementation of the UCI open communication protocol that ships with
+'Stockfish 11' <https://stockfishchess.org/>, a very popular, open source,
+powerful chess engine written in C++.
 
 %prep
 %setup -q -c -n %{packname}
