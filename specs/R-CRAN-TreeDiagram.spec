@@ -1,9 +1,9 @@
 %global packname  TreeDiagram
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tree Diagram
 
@@ -12,24 +12,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-tree 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-spatstat 
-BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-tree 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-spatstat 
-Requires:         R-utils 
 Requires:         R-stats 
 
 %description

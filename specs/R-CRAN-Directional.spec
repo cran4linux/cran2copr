@@ -1,9 +1,9 @@
 %global packname  Directional
-%global packver   4.8
+%global packver   4.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.8
+Version:          4.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of R Functions for Directional Data Analysis
 
@@ -33,8 +33,8 @@ Requires:         R-CRAN-Rfast2
 Requires:         R-CRAN-rgl 
 
 %description
-A collection of functions for directional data (including massive, with
-millions of observations, data) analysis. Hypothesis testing, discriminant
+A collection of functions for directional data (including massive data,
+with millions of observations) analysis. Hypothesis testing, discriminant
 and regression analysis, MLE of distributions and more are included. The
 standard textbook for such data is the "Directional Statistics" by Mardia,
 K. V. and Jupp, P. E. (2000). Other references include a) Phillip J.

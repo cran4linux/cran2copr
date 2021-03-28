@@ -1,9 +1,9 @@
 %global packname  pedprobr
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Probability Computations on Pedigrees
 
@@ -24,9 +24,10 @@ Requires:         R-CRAN-pedmut
 An implementation of the Elston-Stewart algorithm for calculating pedigree
 likelihoods given genetic marker data (Elston and Stewart (1971)
 <doi:10.1159/000152448>). The standard algorithm is extended to allow
-inbred founders. Mutation modelling is supported by the 'pedmut' package.
-'pedprobr' is part of the ped suite, a collection of packages for pedigree
-analysis in R, based on 'pedtools' for handling pedigrees and markers.
+inbred founders. 'pedprobr' is part of the ped suite, a collection of
+packages for pedigree analysis in R, based on 'pedtools' for handling
+pedigrees and markers. Mutation modelling is supported by the 'pedmut'
+package.
 
 %prep
 %setup -q -c -n %{packname}

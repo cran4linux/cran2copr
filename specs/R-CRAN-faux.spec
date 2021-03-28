@@ -1,9 +1,9 @@
 %global packname  faux
-%global packver   0.0.1.6
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation for Factorial Designs
 
@@ -20,11 +20,13 @@ BuildRequires:    R-CRAN-lme4
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-rlang 
 
 %description
 Create datasets with factorial structure through simulation by specifying

@@ -1,9 +1,9 @@
 %global packname  albatross
-%global packver   0.2-0
+%global packver   0.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          PARAFAC Analysis of Fluorescence Excitation-Emission Matrices
 
@@ -12,17 +12,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-multiway >= 1.0.4
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-multiway >= 1.0.4
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-lattice 
 Requires:         R-parallel 
+Requires:         R-CRAN-Matrix 
 
 %description
 Perform parallel factor analysis (PARAFAC: Hitchcock, 1927)

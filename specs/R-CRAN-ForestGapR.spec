@@ -1,31 +1,44 @@
-%global packname  fflr
-%global packver   0.3.15
+%global packname  ForestGapR
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.15
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collect ESPN Fantasy Football Data
+Summary:          Tropical Forest Canopy Gaps Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 2.1.3
-BuildRequires:    R-CRAN-jsonlite >= 1.7.0
-BuildRequires:    R-CRAN-httr >= 1.4.2
-Requires:         R-CRAN-tibble >= 2.1.3
-Requires:         R-CRAN-jsonlite >= 1.7.0
-Requires:         R-CRAN-httr >= 1.4.2
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-CRAN-spatstat 
+BuildRequires:    R-CRAN-poweRlaw 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-VGAM 
+Requires:         R-CRAN-sp 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-rgeos 
+Requires:         R-CRAN-spatstat 
+Requires:         R-CRAN-poweRlaw 
 
 %description
-Format the raw data from the ESPN fantasy football API
-<https://fantasy.espn.com/apis/v3/games/ffl/> into tidy tables. Scrape
-data on public leagues, rosters, athletes, and matches.
+Set of tools for detecting and analyzing Airborne Laser Scanning-derived
+Tropical Forest Canopy Gaps.
 
 %prep
 %setup -q -c -n %{packname}

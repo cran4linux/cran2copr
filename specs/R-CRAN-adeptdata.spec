@@ -1,38 +1,24 @@
-%global packname  rdecision
-%global packver   1.0.2
+%global packname  adeptdata
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Decision Analytic Modelling in Health Economics
+Summary:          Accelerometry Data Sets
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.4.2
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-grid 
-Requires:         R-CRAN-rlang >= 0.4.2
-Requires:         R-CRAN-R6 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-grid 
 
 %description
-Classes and functions for modelling health care interventions using cohort
-models (decision trees). Mechanisms are provided for associating an
-uncertainty distribution with each source variable and for ensuring
-transparency of the mathematical relationships between variables. The
-package terminology follows Briggs et al "Decision Modelling for Health
-Economic Evaluation" (2006, ISBN:978-0-19-852662-9).
+Created to host raw accelerometry data sets and their derivatives which
+are used in the corresponding 'adept' package.
 
 %prep
 %setup -q -c -n %{packname}

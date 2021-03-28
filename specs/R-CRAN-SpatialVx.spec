@@ -1,9 +1,9 @@
 %global packname  SpatialVx
-%global packver   0.7-1
+%global packver   0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Forecast Verification
 
@@ -16,10 +16,13 @@ BuildRequires:    R-devel >= 2.10.0
 Requires:         R-core >= 2.10.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-fields >= 6.8
-BuildRequires:    R-CRAN-spatstat 
+BuildRequires:    R-CRAN-spatstat >= 2.0.0
 BuildRequires:    R-CRAN-smoothie 
 BuildRequires:    R-CRAN-smatr 
 BuildRequires:    R-CRAN-turboEM 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.core 
+BuildRequires:    R-CRAN-spatstat.linnet 
 BuildRequires:    R-CRAN-distillery 
 BuildRequires:    R-CRAN-maps 
 BuildRequires:    R-CRAN-boot 
@@ -27,10 +30,13 @@ BuildRequires:    R-CRAN-CircStats
 BuildRequires:    R-CRAN-fastcluster 
 BuildRequires:    R-CRAN-waveslim 
 Requires:         R-CRAN-fields >= 6.8
-Requires:         R-CRAN-spatstat 
+Requires:         R-CRAN-spatstat >= 2.0.0
 Requires:         R-CRAN-smoothie 
 Requires:         R-CRAN-smatr 
 Requires:         R-CRAN-turboEM 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.core 
+Requires:         R-CRAN-spatstat.linnet 
 Requires:         R-CRAN-distillery 
 Requires:         R-CRAN-maps 
 Requires:         R-CRAN-boot 
