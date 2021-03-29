@@ -1,9 +1,9 @@
 %global packname  fontawesome
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Work with 'Font Awesome' Icons
 
@@ -12,17 +12,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.4
-BuildRequires:    R-CRAN-pointblank >= 0.6.0
 BuildRequires:    R-CRAN-htmltools >= 0.5.1.1
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr >= 1.0.4
-Requires:         R-CRAN-pointblank >= 0.6.0
+BuildRequires:    R-CRAN-rlang >= 0.4.10
 Requires:         R-CRAN-htmltools >= 0.5.1.1
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang >= 0.4.10
 
 %description
 Easily and flexibly insert 'Font Awesome' icons into 'R Markdown'

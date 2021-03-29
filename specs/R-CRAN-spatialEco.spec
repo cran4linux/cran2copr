@@ -1,9 +1,9 @@
 %global packname  spatialEco
-%global packver   1.3-5
+%global packver   1.3-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.5
+Version:          1.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Analysis and Modelling Utilities
 
@@ -12,13 +12,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-spatstat 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.core 
 BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-MASS 
@@ -26,7 +27,8 @@ BuildRequires:    R-methods
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-spatstat 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.core 
 Requires:         R-CRAN-spdep 
 Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-MASS 

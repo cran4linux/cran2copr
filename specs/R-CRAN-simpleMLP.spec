@@ -1,9 +1,9 @@
 %global packname  simpleMLP
-%global packver   0.2.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Multilayer Perceptron Neural Network
 
@@ -15,13 +15,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-readr 
-Requires:         R-stats 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-readr 
+Requires:         R-stats 
 
 %description
-Create, and train a multilayer perceptron, a type of feedforward, fully
+Create and train a multilayer perceptron, a type of feedforward, fully
 connected neural network. Features 2 ReLU hidden layers. Learn more about
 about the activation functions and backpropagation used by this network in
 Goodfellow et al. (2016, ISBN: 9780262035613) "Deep Learning".

@@ -1,9 +1,9 @@
 %global packname  CSGo
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collecting Counter Strike Global Offensive Data
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-fuzzyjoin 
 BuildRequires:    R-CRAN-purrr 
@@ -22,6 +22,8 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-extrafont 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-fuzzyjoin 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-httr 
@@ -29,6 +31,8 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-extrafont 
+Requires:         R-CRAN-ggplot2 
 
 %description
 An implementation of calls designed to collect and organize in an easy way

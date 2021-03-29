@@ -1,9 +1,9 @@
 %global packname  GNRS
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access the 'Geographic Name Resolution Service'
 
@@ -15,10 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rjson 
 BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-rjson 
 Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-jsonlite 
 

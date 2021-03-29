@@ -1,9 +1,9 @@
 %global packname  stats19
-%global packver   1.4.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Work with Open Road Traffic Casualty Data from Great Britain
 
@@ -17,8 +17,10 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-tools 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-readr 
+Requires:         R-tools 
 
 %description
 Tools to help download, process and analyse the UK road collision data

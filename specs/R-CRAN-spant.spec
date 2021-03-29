@@ -1,9 +1,9 @@
 %global packname  spant
-%global packver   1.10.0
+%global packver   1.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.0
+Version:          1.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          MR Spectroscopy Analysis Tools
 

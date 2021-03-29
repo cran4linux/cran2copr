@@ -1,9 +1,9 @@
 %global packname  caTools
-%global packver   1.18.1
+%global packver   1.18.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.18.1
+Version:          1.18.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools: Moving Window Statistics, GIF, Base64, ROC AUC, etc
 

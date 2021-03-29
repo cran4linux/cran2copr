@@ -1,9 +1,9 @@
 %global packname  ftExtra
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extensions for 'Flextable'
 
@@ -16,9 +16,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tidyselect >= 1.1.0
+BuildRequires:    R-CRAN-flextable >= 0.6.4
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-magrittr 
@@ -28,10 +28,11 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-xfun 
 BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-tidyselect >= 1.1.0
+Requires:         R-CRAN-flextable >= 0.6.4
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-magrittr 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-xfun 
 Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-vctrs 
 
 %description
 Build display tables easily by extending the functionality of the

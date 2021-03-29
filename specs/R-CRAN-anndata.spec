@@ -1,11 +1,11 @@
 %global packname  anndata
-%global packver   0.7.5.1
+%global packver   0.7.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5.1
+Version:          0.7.5.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Annotated Data
+Summary:          'anndata' for R
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,9 +25,9 @@ Requires:         R-CRAN-R6
 Requires:         R-CRAN-reticulate 
 
 %description
-An R wrapper for the Python package 'anndata'. Provides a scalable way of
-keeping track of data and learned annotations.  Used to read from and
-write to the h5ad file format.
+A 'reticulate' wrapper for the Python package 'anndata'. Provides a
+scalable way of keeping track of data and learned annotations.  Used to
+read from and write to the h5ad file format.
 
 %prep
 %setup -q -c -n %{packname}

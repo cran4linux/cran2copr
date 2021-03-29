@@ -1,9 +1,9 @@
 %global packname  pcoxtime
-%global packver   1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Penalized Cox Proportional Hazard Model for Time-Dependent Covariates
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-prodlim 
 BuildRequires:    R-CRAN-riskRegression 
 BuildRequires:    R-CRAN-PermAlgo 
+BuildRequires:    R-CRAN-pec 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.5
 Requires:         R-CRAN-survival 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-prodlim 
 Requires:         R-CRAN-riskRegression 
 Requires:         R-CRAN-PermAlgo 
+Requires:         R-CRAN-pec 
 
 %description
 Fits penalized models for both time-independent and time-dependent

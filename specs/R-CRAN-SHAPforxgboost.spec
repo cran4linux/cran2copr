@@ -1,9 +1,9 @@
 %global packname  SHAPforxgboost
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          SHAP Plots for 'XGBoost'
 
@@ -16,21 +16,21 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-CRAN-lightgbm >= 2.1
 BuildRequires:    R-CRAN-data.table >= 1.12.0
 BuildRequires:    R-CRAN-RColorBrewer >= 1.1.2
 BuildRequires:    R-CRAN-xgboost >= 0.81.0.0
 BuildRequires:    R-CRAN-ggExtra >= 0.8
 BuildRequires:    R-CRAN-ggforce >= 0.2.1.9000
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-BBmisc 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-lightgbm >= 2.1
 Requires:         R-CRAN-data.table >= 1.12.0
 Requires:         R-CRAN-RColorBrewer >= 1.1.2
 Requires:         R-CRAN-xgboost >= 0.81.0.0
 Requires:         R-CRAN-ggExtra >= 0.8
 Requires:         R-CRAN-ggforce >= 0.2.1.9000
+Requires:         R-stats 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-BBmisc 
 

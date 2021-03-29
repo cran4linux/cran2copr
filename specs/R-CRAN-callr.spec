@@ -1,9 +1,9 @@
 %global packname  callr
-%global packver   3.5.1
+%global packver   3.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.1
+Version:          3.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Call R from R
 
@@ -15,10 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-processx >= 3.4.4
+BuildRequires:    R-CRAN-processx >= 3.5.0
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-processx >= 3.4.4
+Requires:         R-CRAN-processx >= 3.5.0
 Requires:         R-CRAN-R6 
 Requires:         R-utils 
 

@@ -1,9 +1,9 @@
 %global packname  gausscov
-%global packver   0.0.13
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.13
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Gaussian Covariate Method for Variable Selection
 
