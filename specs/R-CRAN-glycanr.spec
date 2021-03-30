@@ -1,33 +1,37 @@
-%global packname  ChannelAttribution
-%global packver   2.0.4
+%global packname  glycanr
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Markov Model for Online Multi-Channel Attribution
+Summary:          Tools for Analysing N-Glycan Data
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.1.2
+Requires:         R-core >= 3.1.2
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 0.4.3
+BuildRequires:    R-CRAN-tidyr >= 0.3.1
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-coin 
+Requires:         R-CRAN-dplyr >= 0.4.3
+Requires:         R-CRAN-tidyr >= 0.3.1
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-coin 
 
 %description
-Advertisers use a variety of online marketing channels to reach consumers
-and they want to know the degree each channel contributes to their
-marketing success. This is called online multi-channel attribution
-problem. This package contains a probabilistic algorithm for the
-attribution problem. The model uses a k-order Markov representation to
-identify structural correlations in the customer journey data. The package
-also contains three heuristic algorithms (first-touch, last-touch and
-linear-touch approach) for the same problem. The algorithms are
-implemented in C++.
+Useful utilities in N-glycan data analysis. This package tries to fill the
+gap in N-glycan data analysis by providing easy to use functions for basic
+operations on data (see <https://en.wikipedia.org/wiki/Glycomics> for more
+details on Glycomics). At the moment 'glycanr' is mostly oriented to data
+obtained by UPLC (Ultra Performance Liquid Chromatography) and LCMS
+(Liquid chromatography–mass spectrometry) analysis of Plasma and IgG
+glycome.
 
 %prep
 %setup -q -c -n %{packname}

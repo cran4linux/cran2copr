@@ -1,9 +1,9 @@
 %global packname  taxlist
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Handling Taxonomic Lists
 
@@ -35,7 +35,7 @@ Requires:         R-CRAN-vegdata
 %description
 Handling taxonomic lists through objects of class 'taxlist'. This package
 provides functions to import species lists from 'Turboveg'
-(<https://www.synbiosys.alterra.nl/turboveg>) and the possibility to
+(<https://www.synbiosys.alterra.nl/turboveg/>) and the possibility to
 create backups from resulting R-objects. Also quick displays are
 implemented as summary-methods.
 

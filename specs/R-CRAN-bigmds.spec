@@ -1,9 +1,9 @@
 %global packname  bigmds
-%global packver   0.0.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multidimensional Scaling for Big Data
 
@@ -15,23 +15,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MCMCpack 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-pdist 
-Requires:         R-CRAN-MCMCpack 
 Requires:         R-stats 
 Requires:         R-CRAN-pdist 
 
 %description
-We present a set of algorithms for Multidimensional Scaling (MDS) to be
-used with large datasets. MDS is a statistic tool for reduction of
-dimensionality, using as input a distance matrix of dimensions n × n. When
-n is large, classical algorithms suffer from computational problems and
-MDS configuration can not be obtained. With this package, we address these
-problems by means of three algorithms: Divide and Conquer MDS, Fast MDS
-and MDS based on Gower interpolation. The main idea of these methods is
-based on partitioning the dataset into small pieces, where classical
-methods can work.
+MDS is a statistic tool for reduction of dimensionality, using as input a
+distance matrix of dimensions n × n. When n is large, classical algorithms
+suffer from computational problems and MDS configuration can not be
+obtained. With this package, we address these problems by means of three
+algorithms: - Divide and Conquer MDS developed by Delicado and
+Pachon-Garcia, (2020) <arXiv:2007.11919>. - Fast MDS, which is an
+implementation of Tynia, Y., L. Jinze, M. Leonard, and W. Wei, (2006). -
+MDS based on Gower interpolation, which uses Gower interpolation formula
+as described in Gower, J.C. and D.J, Hand (1995, ISBN: 978-0-412-71630-0).
+The main idea of these methods is based on partitioning the dataset into
+small pieces, where classical methods can work. In order to align all the
+solutions, it is used Procrustes formula as described in Borg, I. and
+Groenen, P. (2005, ISBN : 978-0-387-25150-9).
 
 %prep
 %setup -q -c -n %{packname}

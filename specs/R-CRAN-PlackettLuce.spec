@@ -1,9 +1,9 @@
 %global packname  PlackettLuce
-%global packver   0.3.2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plackett-Luce Models for Rankings
 
@@ -15,22 +15,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-CVXR 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-partykit 
 BuildRequires:    R-CRAN-psychotools 
 BuildRequires:    R-CRAN-psychotree 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-CRAN-qvcalc 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-CVXR 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-igraph 
 Requires:         R-methods 
 Requires:         R-CRAN-partykit 
 Requires:         R-CRAN-psychotools 
 Requires:         R-CRAN-psychotree 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-RSpectra 
 Requires:         R-CRAN-qvcalc 
 Requires:         R-CRAN-sandwich 

@@ -1,33 +1,36 @@
-%global packname  treefit
-%global packver   1.0.1
+%global packname  dvir
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The First Software for Quantitative Trajectory Inference
+Summary:          Disaster Victim Identification
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-pracma 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-CRAN-forrel >= 1.3.0
+BuildRequires:    R-CRAN-pedtools >= 0.9.7
+BuildRequires:    R-CRAN-pedprobr >= 0.4.0
+Requires:         R-CRAN-forrel >= 1.3.0
+Requires:         R-CRAN-pedtools >= 0.9.7
+Requires:         R-CRAN-pedprobr >= 0.4.0
 
 %description
-Perform two types of analysis: 1) checking the goodness-of-fit of tree
-models to your single-cell gene expression data; and 2) deciding which
-tree best fits your data.
+Joint DNA-based disaster victim identification (DVI), as described in
+Vigeland and Egeland (2021) <doi:10.21203/rs.3.rs-296414/v1>. Joint Victim
+identification is performed by optimising the joint likelihood of all
+genotyped individuals. Individual identification probabilities,
+conditional on all available information, are derived from the joint
+solution in the form of posterior pairing probabilities. 'dvir' is part of
+the 'ped suite' ecosystem for pedigree analysis, and relies in particular
+on 'forrel' for computation of likelihood ratios.
 
 %prep
 %setup -q -c -n %{packname}

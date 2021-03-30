@@ -1,9 +1,9 @@
 %global packname  i2dash
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Iterative and Interactive Dashboards
 
@@ -18,7 +18,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-flexdashboard 
-BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-assertive.sets 
 BuildRequires:    R-CRAN-assertive.types 
 BuildRequires:    R-CRAN-rmarkdown 
@@ -29,10 +28,11 @@ BuildRequires:    R-CRAN-ymlthis
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xfun 
+BuildRequires:    R-CRAN-htmltools 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-flexdashboard 
-Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-assertive.sets 
 Requires:         R-CRAN-assertive.types 
 Requires:         R-CRAN-rmarkdown 
@@ -43,6 +43,8 @@ Requires:         R-CRAN-ymlthis
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-xfun 
+Requires:         R-CRAN-htmltools 
 
 %description
 Create customized, web-based dashboards for data presentation, exploration

@@ -1,9 +1,9 @@
 %global packname  bigstatsr
-%global packver   1.3.1
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Tools for Filebacked Big Matrices
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildRequires:    R-CRAN-ggplot2 >= 3.0
+BuildRequires:    R-CRAN-ps >= 1.4
 BuildRequires:    R-CRAN-bigparallelr >= 0.2.3
 BuildRequires:    R-CRAN-rmio >= 0.1.3
 BuildRequires:    R-CRAN-bigassertr >= 0.1.1
@@ -29,6 +30,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-ggplot2 >= 3.0
+Requires:         R-CRAN-ps >= 1.4
 Requires:         R-CRAN-bigparallelr >= 0.2.3
 Requires:         R-CRAN-bigassertr >= 0.1.1
 Requires:         R-CRAN-cowplot 

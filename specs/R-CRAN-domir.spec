@@ -1,33 +1,34 @@
-%global packname  ChannelAttribution
-%global packver   2.0.4
+%global packname  domir
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Markov Model for Online Multi-Channel Attribution
+Summary:          Tools to Support Relative Importance Analysis
 
-License:          GPL-3 | file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-Advertisers use a variety of online marketing channels to reach consumers
-and they want to know the degree each channel contributes to their
-marketing success. This is called online multi-channel attribution
-problem. This package contains a probabilistic algorithm for the
-attribution problem. The model uses a k-order Markov representation to
-identify structural correlations in the customer journey data. The package
-also contains three heuristic algorithms (first-touch, last-touch and
-linear-touch approach) for the same problem. The algorithms are
-implemented in C++.
+Provides tools that support relative importance analysis focusing on
+dominance analysis.  Dominance analysis is a methodology for determining
+the relative importance of predictors/features/independent variables
+(Azen, R., & Budescu, D. V. (2003) <doi:10.1037/1082-989X.8.2.129>;
+Groemping, U. (2007) <doi:10.1198/000313007X188252>) as well as parameter
+estimates (Luchman, J. N, Lei, X., & Kaplan, S. (2020)
+<doi:10.47263/JASEM.4(2)02>). These tools are intended to extend relative
+importance analysis to, effectively, any statistical or machine learning
+function as defined or desired by the user-especially those where the user
+wants to use custom importance/fit metric or modeling function.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  pammtools
-%global packver   0.5.4
+%global packver   0.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.5.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Piece-Wise Exponential Additive Mixed Modeling Tools for Survival Analysis
 
@@ -47,18 +47,17 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-CRAN-pec 
 
 %description
-The Piece-wise exponential (Additive Mixed) Model (PAMM; Bender and
-Scheipl (2018) <doi: 10.1177/1471082X17748083>) is a powerful model class
-for the analysis of survival (or time-to-event) data, based on Generalized
+The Piece-wise exponential (Additive Mixed) Model (PAMM; Bender and others
+(2018) <doi: 10.1177/1471082X17748083>) is a powerful model class for the
+analysis of survival (or time-to-event) data, based on Generalized
 Additive (Mixed) Models (GA(M)Ms). It offers intuitive specification and
 robust estimation of complex survival models with stratified baseline
 hazards, random effects, time-varying effects, time-dependent covariates
-and cumulative effects (Bender and others (2018) <doi:
-10.1093/biostatistics/kxy003>, as well as support for left-truncated,
-competing risks and recurrent events data. pammtools provides tidy
-workflow for survival analysis with PAMMs, including data simulation,
-transformation and other functions for data preprocessing and model
-post-processing as well as visualization.
+and cumulative effects (Bender and others (2019)), as well as support for
+left-truncated, competing risks and recurrent events data. pammtools
+provides tidy workflow for survival analysis with PAMMs, including data
+simulation, transformation and other functions for data preprocessing and
+model post-processing as well as visualization.
 
 %prep
 %setup -q -c -n %{packname}

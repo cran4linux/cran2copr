@@ -1,33 +1,27 @@
-%global packname  ChannelAttribution
-%global packver   2.0.4
+%global packname  BSSprep
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Markov Model for Online Multi-Channel Attribution
+Summary:          Whitening Data as Preparation for Blind Source Separation
 
-License:          GPL-3 | file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp >= 0.11.0
 
 %description
-Advertisers use a variety of online marketing channels to reach consumers
-and they want to know the degree each channel contributes to their
-marketing success. This is called online multi-channel attribution
-problem. This package contains a probabilistic algorithm for the
-attribution problem. The model uses a k-order Markov representation to
-identify structural correlations in the customer journey data. The package
-also contains three heuristic algorithms (first-touch, last-touch and
-linear-touch approach) for the same problem. The algorithms are
-implemented in C++.
+Whitening is the first step of almost all blind source separation (BSS)
+methods. A fast implementation of whitening for BSS is implemented to
+serve as a lightweight dependency for packages providing BSS methods.
 
 %prep
 %setup -q -c -n %{packname}

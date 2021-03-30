@@ -1,9 +1,9 @@
 %global packname  SleepCycles
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sleep Cycle Detection
 
@@ -32,7 +32,7 @@ Requires:         R-CRAN-devtools
 Sleep cycles are largely detected according to the originally proposed
 criteria by Feinberg & Floyd (1979)
 <doi:10.1111/j.1469-8986.1979.tb02991.x> as described in Blume & Cajochen
-(2020) <doi:10.31219/osf.io/r2q8v>.
+(2021) <doi:10.1016/j.mex.2021.101318>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,33 +1,29 @@
-%global packname  ChannelAttribution
-%global packver   2.0.4
+%global packname  RSizeBiased
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Markov Model for Online Multi-Channel Attribution
+Summary:          Hypothesis Testing Based on R-Size Biased Samples
 
-License:          GPL-3 | file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-stats 
+Requires:         R-CRAN-pracma 
 
 %description
-Advertisers use a variety of online marketing channels to reach consumers
-and they want to know the degree each channel contributes to their
-marketing success. This is called online multi-channel attribution
-problem. This package contains a probabilistic algorithm for the
-attribution problem. The model uses a k-order Markov representation to
-identify structural correlations in the customer journey data. The package
-also contains three heuristic algorithms (first-touch, last-touch and
-linear-touch approach) for the same problem. The algorithms are
-implemented in C++.
+Provides functions and examples for testing hypothesis about the
+population mean and variance on samples drawn by r-size biased sampling
+schemes.
 
 %prep
 %setup -q -c -n %{packname}

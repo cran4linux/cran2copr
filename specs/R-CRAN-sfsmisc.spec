@@ -1,9 +1,9 @@
 %global packname  sfsmisc
-%global packver   1.1-9
+%global packver   1.1-10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.9
+Version:          1.1.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities from 'Seminar fuer Statistik' ETH Zurich
 

@@ -1,9 +1,9 @@
 %global packname  mclogit
-%global packver   0.8.6.4
+%global packver   0.8.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.6.4
+Version:          0.8.7.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multinomial Logit Models, with or without Random Effects or Overdispersion
 

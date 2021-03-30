@@ -1,9 +1,9 @@
 %global packname  modeltime
-%global packver   0.4.2
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Tidymodels Extension for Time Series Modeling
 
@@ -20,9 +20,9 @@ BuildRequires:    R-CRAN-xgboost >= 1.2.0.1
 BuildRequires:    R-CRAN-parsnip >= 0.1.4
 BuildRequires:    R-CRAN-workflows >= 0.1.3
 BuildRequires:    R-CRAN-rlang >= 0.1.2
+BuildRequires:    R-CRAN-yardstick >= 0.0.8
 BuildRequires:    R-CRAN-StanHeaders 
 BuildRequires:    R-CRAN-dials 
-BuildRequires:    R-CRAN-yardstick 
 BuildRequires:    R-CRAN-hardhat 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-plotly 
@@ -33,7 +33,6 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-slider 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-scales 
@@ -49,9 +48,9 @@ Requires:         R-CRAN-xgboost >= 1.2.0.1
 Requires:         R-CRAN-parsnip >= 0.1.4
 Requires:         R-CRAN-workflows >= 0.1.3
 Requires:         R-CRAN-rlang >= 0.1.2
+Requires:         R-CRAN-yardstick >= 0.0.8
 Requires:         R-CRAN-StanHeaders 
 Requires:         R-CRAN-dials 
-Requires:         R-CRAN-yardstick 
 Requires:         R-CRAN-hardhat 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-plotly 
@@ -62,7 +61,6 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-slider 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-scales 
