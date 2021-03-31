@@ -1,9 +1,9 @@
 %global packname  NHSDataDictionaRy
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          NHS Data Dictionary Toolset for NHS Lookups
 
@@ -38,7 +38,8 @@ usage is to access the data elements section of the NHS Data Dictionary to
 access key lookups. The benefits of having it in this package are that the
 lookups are the live lookups on the website and will not need to be
 maintained. This package was commissioned by the NHS-R community to
-provide this consistency of lookups.
+provide this consistency of lookups. The OpenSafely lookups have now been
+added <https://codelists.opensafely.org/>.
 
 %prep
 %setup -q -c -n %{packname}

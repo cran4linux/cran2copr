@@ -1,9 +1,9 @@
 %global packname  i2extras
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Work with 'incidence2' Objects
 
@@ -15,10 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-incidence2 >= 1.0.0
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-incidence2 
 BuildRequires:    R-CRAN-trending 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tibble 
@@ -27,10 +26,11 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-incidence2 >= 1.0.0
 Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-incidence2 
 Requires:         R-CRAN-trending 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
@@ -39,12 +39,14 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-ellipsis 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-tidyselect 
 
 %description
 Provides functions to work with 'incidence2' objects, including a
 simplified interface for trend fitting and peak estimation. This package
 is part of the RECON (<https://www.repidemicsconsortium.org/>) toolkit for
-outbreak analysis.
+outbreak analysis (<https://www.reconverse.org/).
 
 %prep
 %setup -q -c -n %{packname}

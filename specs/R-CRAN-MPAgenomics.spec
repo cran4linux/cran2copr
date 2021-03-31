@@ -1,13 +1,13 @@
-%global packname  tinytex
-%global packver   0.31
+%global packname  MPAgenomics
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.31
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions to Install and Maintain TeX Live, and Compile LaTeX Documents
+Summary:          Multi-Patient Analysis of Genomic Markers
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,15 +15,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xfun >= 0.19
-Requires:         R-CRAN-xfun >= 0.19
+BuildRequires:    R-CRAN-changepoint >= 1.1
+BuildRequires:    R-CRAN-HDPenReg >= 0.90
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-spikeslab 
+Requires:         R-CRAN-changepoint >= 1.1
+Requires:         R-CRAN-HDPenReg >= 0.90
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-spikeslab 
 
 %description
-Helper functions to install and maintain the 'LaTeX' distribution named
-'TinyTeX' (<https://yihui.org/tinytex/>), a lightweight, cross-platform,
-portable, and easy-to-maintain version of 'TeX Live'. This package also
-contains helper functions to compile 'LaTeX' documents, and install
-missing 'LaTeX' packages automatically.
+Preprocessing and analysis of genomic data. 'MPAgenomics' provides
+wrappers from commonly used packages to streamline their repeated
+manipulation, offering an easy-to-use pipeline. The segmentation of
+successive multiple profiles is performed with an automatic choice of
+parameters involved in the wrapped packages. Considering multiple profiles
+in the same time, 'MPAgenomics' wraps efficient penalized regression
+methods to select relevant markers associated with a given outcome.
+Grimonprez et al. (2014) <doi:10.1186/s12859-014-0394-y>.
 
 %prep
 %setup -q -c -n %{packname}

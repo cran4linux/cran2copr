@@ -1,34 +1,36 @@
-%global packname  tipitaka
-%global packver   0.1.2
+%global packname  doconv
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data and Tools for Analyzing the Pali Canon
+Summary:          Document Conversion to 'PDF' or 'PNG'
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-cpp11 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-pdftools 
+BuildRequires:    R-CRAN-locatexec 
+BuildRequires:    R-CRAN-rappdirs 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-pdftools 
+Requires:         R-CRAN-locatexec 
+Requires:         R-CRAN-rappdirs 
 
 %description
-Provides access to the complete Pali Canon, or Tipitaka, the canonical
-scripture for Theravadin Buddhists worldwide. Based on the Chattha
-Sangayana Tipitaka version 4 (Vipassana Research Institute, 1990).
+Functions to convert 'Microsoft Word' or 'Microsoft PowerPoint' documents
+to 'PDF' format and also for converting them into a thumbnail. In order to
+work, 'LibreOffice' must be installed on the machine and possibly 'python'
+and 'Microsoft Word'. If the latter is available, it can be used to
+produce PDF documents identical to the originals, otherwise, 'LibreOffice'
+is used.
 
 %prep
 %setup -q -c -n %{packname}

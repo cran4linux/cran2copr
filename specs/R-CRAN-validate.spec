@@ -1,9 +1,9 @@
 %global packname  validate
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Validation Infrastructure
 
@@ -32,7 +32,8 @@ Declare data validation rules and data quality indicators; confront data
 with them and analyze or visualize the results. The package supports rules
 that are per-field, in-record, cross-record or cross-dataset. Rules can be
 automatically analyzed for rule type and connectivity. See also Van der
-Loo and De Jonge (2018) <doi:10.1002/9781118897126>, chapter 6.
+Loo and De Jonge (2018) <doi:10.1002/9781118897126>, Chapter 6 and the JSS
+paper (2021) <doi:10.18637/jss.v097.i10>.
 
 %prep
 %setup -q -c -n %{packname}

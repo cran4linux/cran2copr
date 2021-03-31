@@ -1,9 +1,9 @@
 %global packname  MDMAPR
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Molecular Detection Mapping and Analysis Platform
 
@@ -36,6 +36,7 @@ BuildRequires:    R-CRAN-htmltools
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-bslib 
 Requires:         R-CRAN-RMySQL 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-DBI 
@@ -57,6 +58,7 @@ Requires:         R-CRAN-htmltools
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-stats 
+Requires:         R-CRAN-bslib 
 
 %description
 Runs a Shiny web application that merges raw 'qPCR' fluorescence data with

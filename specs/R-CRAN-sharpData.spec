@@ -1,9 +1,9 @@
 %global packname  sharpData
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Sharpening
 
@@ -24,14 +24,14 @@ Requires:         R-CRAN-quadprog
 %description
 Functions and data sets inspired by data sharpening - data perturbation to
 achieve improved performance in nonparametric estimation, as described in
-Choi, E., Hall, P. and Rousson, V. (2000) <doi:10.1214/aos/1015957396>.
-Capabilities for enhanced local linear regression function and derivative
-estimation are included, as well as an asymptotically correct iterated
-data sharpening estimator for any degree of local polynomial regression
-estimation. A cross-validation-based bandwidth selector is included which,
-in concert with the iterated sharpener, will often provide superior
-performance, according to a median integrated squared error criterion.
-Sample data sets are provided to illustrate function usage.
+Choi, E., Hall, P. and Rousson, V. (2000). Capabilities for enhanced local
+linear regression function and derivative estimation are included, as well
+as an asymptotically correct iterated data sharpening estimator for any
+degree of local polynomial regression estimation. A cross-validation-based
+bandwidth selector is included which, in concert with the iterated
+sharpener, will often provide superior performance, according to a median
+integrated squared error criterion.  Sample data sets are provided to
+illustrate function usage.
 
 %prep
 %setup -q -c -n %{packname}

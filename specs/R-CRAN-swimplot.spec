@@ -1,9 +1,9 @@
 %global packname  swimplot
-%global packver   1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Creating Swimmers Plots using 'ggplot2'
 
@@ -18,19 +18,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-magrittr 
-Requires:         R-utils 
 
 %description
 Used for creating swimmers plots with functions to customize the bars, add
-points, add lines, and add arrows.
+points, add lines, add text, and add arrows.
 
 %prep
 %setup -q -c -n %{packname}

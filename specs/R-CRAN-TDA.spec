@@ -1,33 +1,43 @@
-%global packname  grpreg
-%global packver   3.3.1
+%global packname  TDA
+%global packver   1.7.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.1
+Version:          1.7.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regularization Paths for Regression Models with Grouped Covariates
+Summary:          Statistical Tools for Topological Data Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+BuildRequires:    gmp-devel
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-BH >= 1.69.0.1
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-CRAN-FNN 
+Requires:         R-CRAN-igraph 
+Requires:         R-parallel 
+Requires:         R-CRAN-scales 
 
 %description
-Efficient algorithms for fitting the regularization path of linear
-regression, GLM, and Cox regression models with grouped penalties.  This
-includes group selection methods such as group lasso, group MCP, and group
-SCAD as well as bi-level selection methods such as the group exponential
-lasso, the composite MCP, and the group bridge.  For more information, see
-Breheny and Huang (2009) <doi:10.4310/sii.2009.v2.n3.a10>, Huang, Breheny,
-and Ma (2012) <doi:10.1214/12-sts392>, Breheny and Huang (2015)
-<doi:10.1007/s11222-013-9424-2>, and Breheny (2015)
-<doi:10.1111/biom.12300>, or visit the package homepage
-<https://pbreheny.github.io/grpreg/>.
+Tools for the statistical analysis of persistent homology and for density
+clustering. For that, this package provides an R interface for the
+efficient algorithms of the C++ libraries 'GUDHI'
+<http://gudhi.gforge.inria.fr/>, 'Dionysus'
+<https://www.mrzv.org/software/dionysus/>, and 'PHAT'
+<https://bitbucket.org/phat-code/phat/>. This package also implements the
+methods in Fasy et al. (2014) <doi:10.1214/14-AOS1252> and Chazal et al.
+(2014) <doi:10.1145/2582112.2582128> for analyzing the statistical
+significance of persistent homology features.
 
 %prep
 %setup -q -c -n %{packname}

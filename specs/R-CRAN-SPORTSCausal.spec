@@ -1,34 +1,39 @@
-%global packname  tipitaka
-%global packver   0.1.2
+%global packname  SPORTSCausal
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data and Tools for Analyzing the Pali Canon
+Summary:          Spillover Time Series Causal Inference
 
-License:          CC0
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-cpp11 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-CausalImpact 
+BuildRequires:    R-CRAN-keras 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-CausalImpact 
+Requires:         R-CRAN-keras 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-Provides access to the complete Pali Canon, or Tipitaka, the canonical
-scripture for Theravadin Buddhists worldwide. Based on the Chattha
-Sangayana Tipitaka version 4 (Vipassana Research Institute, 1990).
+A time series causal inference model for Randomized Controlled Trial (RCT)
+under spillover effect. 'SPORTSCausal' (Spillover Time Series Causal
+Inference) separates treatment effect and spillover effect from given
+responses of experiment group and control group by predicting the response
+without treatment. It reports both effects by fitting the Bayesian
+Structural Time Series (BSTS) model based on 'CausalImpact', as described
+in Brodersen et al. (2015) <doi:10.1214/14-AOAS788>.
 
 %prep
 %setup -q -c -n %{packname}

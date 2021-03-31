@@ -1,45 +1,57 @@
-%global packname  GenomeAdmixR
-%global packver   2.1.1
+%global packname  geometr
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulate Admixture of Genomes
+Summary:          Generate and Modify Interoperable Geometric Shapes
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggridges 
-BuildRequires:    R-CRAN-hierfstat 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-deldir 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-spatstat 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-vcfR 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggridges 
-Requires:         R-CRAN-hierfstat 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-deldir 
+Requires:         R-CRAN-dplyr 
+Requires:         R-grDevices 
+Requires:         R-grid 
 Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppParallel 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-spatstat 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-vcfR 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Individual-based simulations forward in time, simulating how patterns in
-ancestry along the genome change after admixture. Full description can be
-found in Janzen (2020) <doi:10.1101/2020.10.19.343491>.
+Provides tools that generate and process fully accessible and tidy
+geometric shapes. The package improves interoperability of spatial and
+other geometric classes by providing getters and setters that produce
+identical output from various classes.
 
 %prep
 %setup -q -c -n %{packname}

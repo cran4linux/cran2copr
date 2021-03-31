@@ -1,9 +1,9 @@
 %global packname  CARBayesST
-%global packver   3.1.1
+%global packver   3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatio-Temporal Generalised Linear Mixed Models for Areal Unit Data
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-gtools
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-MCMCpack 
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-spam 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-gtools
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-MCMCpack 
 Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-spam 
@@ -58,20 +60,20 @@ Requires:         R-CRAN-truncnorm
 Requires:         R-utils 
 
 %description
-Implements a class of spatio-temporal generalised linear mixed models for
-areal unit data, with inference in a Bayesian setting using Markov chain
-Monte Carlo (MCMC) simulation. The response variable can be binomial,
-Gaussian, or Poisson, but for some models only the binomial and Poisson
-data likelihoods are available. The spatio-temporal autocorrelation is
-modelled by random effects, which are assigned conditional autoregressive
-(CAR) style prior distributions. A number of different random effects
-structures are available, including models similar to Bernardinelli et al.
-(1995) <doi:10.1002/sim.4780142112>, Rushworth et al. (2014)
-<doi:10.1016/j.sste.2014.05.001> and Lee et al. (2016)
-<doi:10.1214/16-AOAS941>. Full details are given in the vignette
-accompanying this package. The creation of this package was supported by
-the Engineering and Physical Sciences Research Council (EPSRC) grant
-EP/J017442/1 and the Medical Research Council (MRC) grant MR/L022184/1.
+Implements a class of univariate and multivariate spatio-temporal
+generalised linear mixed models for areal unit data, with inference in a
+Bayesian setting using Markov chain Monte Carlo (MCMC) simulation. The
+response variable can be binomial, Gaussian, or Poisson, but for some
+models only the binomial and Poisson data likelihoods are available. The
+spatio-temporal autocorrelation is modelled by random effects, which are
+assigned conditional autoregressive (CAR) style prior distributions. A
+number of different random effects structures are available, including
+models similar to Bernardinelli et al. (1995) <doi:10.1002/sim.4780142112>
+and Rushworth et al. (2014) <doi:10.1016/j.sste.2014.05.001>. Full details
+are given in the vignette accompanying this package. The creation and
+development of this package was supported by the Engineering and Physical
+Sciences Research Council (EPSRC) grants EP/J017442/1 and EP/T004878/1 and
+the Medical Research Council (MRC) grant MR/L022184/1.
 
 %prep
 %setup -q -c -n %{packname}

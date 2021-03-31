@@ -1,9 +1,9 @@
 %global packname  stabm
-%global packver   1.1.4
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stability Measures for Feature Selection
 
@@ -29,8 +29,8 @@ Requires:         R-utils
 %description
 An implementation of many measures for the assessment of the stability of
 feature selection. Both simple measures and measures which take into
-account the similarities between features are available, see Bommert et
-al. (2017) <doi:10.1155/2017/7907163>.
+account the similarities between features are available, see Bommert
+(2020) <doi:10.17877/DE290R-21906>.
 
 %prep
 %setup -q -c -n %{packname}

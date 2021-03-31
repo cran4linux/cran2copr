@@ -1,41 +1,40 @@
-%global packname  mlr3db
-%global packver   0.4.0
+%global packname  msaeRB
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Base Backend for 'mlr3'
+Summary:          Ratio Benchmarking for Multivariate Small Area Estimation
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mlr3 >= 0.9.0
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-backports 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-mlr3misc 
-Requires:         R-CRAN-mlr3 >= 0.9.0
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-backports 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-mlr3misc 
+BuildRequires:    R-CRAN-magic 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-magic 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
 
 %description
-Extends the 'mlr3' package with a backend to transparently work with
-databases. Includes two extra backends: One relies on relies on the
-abstraction of package 'dbplyr' to interact with one of the many supported
-database management systems (DBMS). The other one is specialized for
-package 'duckdb'.
+Implements multivariate ratio benchmarking small area estimation. This
+package provides ratio benchmarking estimation for univariate and
+multivariate small area estimation and its MSE. In fact, MSE estimators
+for ratio benchmark are not readily available, so resampling method that
+called parametric bootstrap is applied. The ratio benchmark model and
+parametric bootstrap in this package are based on the model proposed in
+small area estimation. J.N.K Rao and Isabel Molina (2015, ISBN:
+978-1-118-73578-7).
 
 %prep
 %setup -q -c -n %{packname}

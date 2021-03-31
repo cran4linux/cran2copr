@@ -1,9 +1,9 @@
 %global packname  genpwr
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Calculations Under Genetic Model Misspecification
 
@@ -28,7 +28,8 @@ Requires:         R-utils
 
 %description
 Power and sample size calculations for genetic association studies
-allowing for misspecification of the model of genetic susceptibility.
+allowing for misspecification of the model of genetic susceptibility. "Hum
+Hered. 2019;84(6):256-271.<doi:10.1159/000508558>. Epub 2020 Jul 28."
 Power and/or sample size can be calculated for logistic (case/control
 study design) and linear (continuous phenotype) regression models, using
 additive, dominant, recessive or degree of freedom coding of the genetic

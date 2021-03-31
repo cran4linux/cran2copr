@@ -1,9 +1,9 @@
 %global packname  missRanger
-%global packver   2.1.1
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Imputation of Missing Values
 
@@ -15,12 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-ranger 
-Requires:         R-stats 
-Requires:         R-CRAN-FNN 
+BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-FNN 
+Requires:         R-stats 
 
 %description
 Alternative implementation of the beautiful 'MissForest' algorithm used to

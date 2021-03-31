@@ -1,34 +1,33 @@
-%global packname  tipitaka
-%global packver   0.1.2
+%global packname  TNRS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data and Tools for Analyzing the Pali Canon
+Summary:          Taxonomic Name Resolution Service
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-cpp11 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-rjson 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-rjson 
 
 %description
-Provides access to the complete Pali Canon, or Tipitaka, the canonical
-scripture for Theravadin Buddhists worldwide. Based on the Chattha
-Sangayana Tipitaka version 4 (Vipassana Research Institute, 1990).
+Provides access to the Taxonomic Name Resolution Service
+<https://github.com/ojalaquellueva/tnrsapi> through R.  The user supplies
+plant taxonomic names and the package returns resolved taxonomic names
+along with information on decisions.  Optionally, the package can also be
+used to parse taxonomic names.
 
 %prep
 %setup -q -c -n %{packname}

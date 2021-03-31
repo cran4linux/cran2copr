@@ -1,9 +1,9 @@
 %global packname  incidence2
-%global packver   0.2.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compute, Handle and Plot Incidence of Dated Events
 
@@ -15,28 +15,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-aweek >= 0.2.0
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang >= 0.1.2
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-aweek >= 0.2.0
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-grates 
+Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-ellipsis 
 Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-data.table 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-grates 
 
 %description
 Provides functions and classes to compute, handle and visualise incidence
@@ -44,7 +42,7 @@ from dated events for a defined time interval. Dates can be provided in
 various standard formats. The class 'incidence2' is used to store computed
 incidence and can be easily manipulated, subsetted, and plotted. This
 package is part of the RECON (<https://www.repidemicsconsortium.org/>)
-toolkit for outbreak analysis.
+toolkit for outbreak analysis (<https://www.reconverse.org>).
 
 %prep
 %setup -q -c -n %{packname}

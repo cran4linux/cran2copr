@@ -1,9 +1,9 @@
 %global packname  MPV
-%global packver   1.56
+%global packver   1.57
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.56
+Version:          1.57
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Sets from Montgomery, Peck and Vining
 

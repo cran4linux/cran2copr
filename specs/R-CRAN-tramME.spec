@@ -1,9 +1,9 @@
 %global packname  tramME
-%global packver   0.0.4
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transformation Models with Mixed Effects
 
@@ -25,6 +25,10 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-coneproj 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-TMB >= 1.7.15
 Requires:         R-CRAN-lme4 >= 1.1.19
@@ -37,14 +41,21 @@ Requires:         R-CRAN-Matrix
 Requires:         R-methods 
 Requires:         R-CRAN-nlme 
 Requires:         R-stats 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-coneproj 
 
 %description
 Likelihood-based estimation of mixed-effects transformation models using
-the Template Model Builder (TMB). The technical details of transformation
-models are given in Hothorn et al. (2018) <doi:10.1111/sjos.12291>. The
-random effects are assumed to be normally distributed on the scale of the
-transformation function, the marginal likelihood is evaluated using the
-Laplace approximation, and the gradients are calculated with automatic
+the Template Model Builder (TMB, Kristensen et al., 2016,
+<doi:10.18637/jss.v070.i05>). The technical details of transformation
+models are given in Hothorn et al. (2018, <doi:10.1111/sjos.12291>).
+Likelihood contributions of exact, randomly censored (left, right,
+interval) and truncated observations are supported. The random effects are
+assumed to be normally distributed on the scale of the transformation
+function, the marginal likelihood is evaluated using the Laplace
+approximation, and the gradients are calculated with automatic
 differentiation (AD).
 
 %prep

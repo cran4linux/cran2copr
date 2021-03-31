@@ -1,34 +1,32 @@
-%global packname  tipitaka
-%global packver   0.1.2
+%global packname  klassR
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data and Tools for Analyzing the Pali Canon
+Summary:          Classifications and Codelists for Statistics Norway
 
-License:          CC0
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-cpp11 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tm 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-tm 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Provides access to the complete Pali Canon, or Tipitaka, the canonical
-scripture for Theravadin Buddhists worldwide. Based on the Chattha
-Sangayana Tipitaka version 4 (Vipassana Research Institute, 1990).
+Functions to search, retrieve and apply classifications and codelists
+using Statistics Norway's API <https://www.ssb.no/klass> from the system
+'KLASS'. Retrieves classifications by date with options to choose
+language, hierarchical level and formatting.
 
 %prep
 %setup -q -c -n %{packname}

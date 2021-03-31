@@ -1,9 +1,9 @@
 %global packname  WDI
-%global packver   2.7.2
+%global packver   2.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.2
+Version:          2.7.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          World Development Indicators and Other World Bank Data
 
