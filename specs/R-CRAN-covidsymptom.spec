@@ -1,9 +1,9 @@
 %global packname  covidsymptom
-%global packver   0.9.1
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          COVID Symptom Study Sweden Open Dataset
 
@@ -15,16 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rio 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-remotes 
-BuildRequires:    R-CRAN-usethis 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-rio 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-remotes 
-Requires:         R-CRAN-usethis 
-Requires:         R-utils 
 
 %description
 The COVID Symptom Study is a non-commercial project that uses a free

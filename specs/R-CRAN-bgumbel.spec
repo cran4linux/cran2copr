@@ -1,9 +1,9 @@
 %global packname  bgumbel
-%global packver   0.0.2.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bimodal Gumbel Distribution
 
@@ -20,11 +20,13 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-CRAN-SparseM 
 BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-MCMCpack 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-quantreg 
 Requires:         R-CRAN-SparseM 
 Requires:         R-CRAN-coda 
+Requires:         R-stats 
 
 %description
 Bimodal Gumbel distribution. General functions for performing extreme

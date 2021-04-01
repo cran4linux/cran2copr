@@ -1,43 +1,40 @@
-%global packname  neurobase
-%global packver   1.32.0
+%global packname  ggfx
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.32.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Neuroconductor' Base Package with Helper Functions for 'nifti' Objects
+Summary:          Pixel Filters for 'ggplot2' and 'grid'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-oro.nifti >= 0.11.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-magick >= 2.7.1
+BuildRequires:    R-CRAN-ragg 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RNifti 
-Requires:         R-CRAN-oro.nifti >= 0.11.0
-Requires:         R-methods 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-R.utils 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-magick >= 2.7.1
+Requires:         R-CRAN-ragg 
+Requires:         R-grid 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-CRAN-RNifti 
+Requires:         R-CRAN-gtable 
+Requires:         R-CRAN-rlang 
 
 %description
-Base package for 'Neuroconductor', which includes many helper functions
-that interact with objects of class 'nifti', implemented by package
-'oro.nifti', for reading/writing and also other manipulation functions.
+Provides a range of filters that can be applied to layers from the
+'ggplot2' package and its extensions, along with other graphic elements
+such as guides and theme elements. The filters are applied at render time
+and thus uses the exact pixel dimensions needed.
 
 %prep
 %setup -q -c -n %{packname}

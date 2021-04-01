@@ -1,9 +1,9 @@
 %global packname  SoundShape
-%global packver   1.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sound Waves Onto Morphometric Data
 
@@ -46,7 +46,7 @@ go from sound waves to Principal Components Analysis, using tools
 extracted from traditional bioacoustics (i.e. 'tuneR' and 'seewave'
 packages), geometric morphometrics (i.e. 'geomorph' package) and
 multivariate analysis (e.g. 'stats' package). For more information, please
-see Rocha and Romano (in prep) and check 'SoundShape' repository on GitHub
+see Rocha and Romano (2021) and check 'SoundShape' repository on GitHub
 for news and updates <https://github.com/p-rocha/SoundShape>.
 
 %prep

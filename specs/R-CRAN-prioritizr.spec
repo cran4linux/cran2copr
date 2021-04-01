@@ -1,9 +1,9 @@
 %global packname  prioritizr
-%global packver   5.0.3
+%global packver   7.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.3
+Version:          7.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Systematic Conservation Prioritization in R
 
@@ -20,6 +20,8 @@ BuildRequires:    R-CRAN-fasterize >= 1.0.2
 BuildRequires:    R-CRAN-sf >= 0.8.0
 BuildRequires:    R-CRAN-assertthat >= 0.2.0
 BuildRequires:    R-CRAN-exactextractr >= 0.2.0
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.10.1.0.0
+BuildRequires:    R-CRAN-slam >= 0.1.48
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-proto 
@@ -36,7 +38,6 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-withr >= 2.3.0
 Requires:         R-CRAN-tibble >= 2.0.0
@@ -44,6 +45,7 @@ Requires:         R-CRAN-fasterize >= 1.0.2
 Requires:         R-CRAN-sf >= 0.8.0
 Requires:         R-CRAN-assertthat >= 0.2.0
 Requires:         R-CRAN-exactextractr >= 0.2.0
+Requires:         R-CRAN-slam >= 0.1.48
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-proto 
@@ -61,9 +63,23 @@ Requires:         R-CRAN-doParallel
 Requires:         R-CRAN-magrittr 
 
 %description
-Conservation prioritization using integer programming techniques. To solve
-large-scale problems, users should install the 'gurobi' optimizer
-(available from <https://www.gurobi.com/>).
+Systematic conservation prioritization using mixed integer linear
+programming (MILP). It provides a flexible interface for building and
+solving conservation planning problems. Once built, conservation planning
+problems can be solved using a variety of commercial and open-source exact
+algorithm solvers. By using exact algorithm solvers, solutions can be
+generated that are guaranteed to be optimal (or within a pre-specified
+optimality gap). Furthermore, conservation problems can be constructed to
+optimize the spatial allocation of different management actions or zones,
+meaning that conservation practitioners can identify solutions that
+benefit multiple stakeholders. To solve large-scale or complex
+conservation planning problems, users should install the Gurobi
+optimization software (available from <https://www.gurobi.com/>) and the
+'gurobi' R package (see Gurobi Installation Guide vignette for details).
+Additionally, the 'rcbc' R package (available at
+<https://github.com/dirkschumacher/rcbc>) can be used to generate
+solutions using the CBC optimization software
+(<https://projects.coin-or.org/Cbc>).
 
 %prep
 %setup -q -c -n %{packname}

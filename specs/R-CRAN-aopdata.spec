@@ -1,9 +1,9 @@
 %global packname  aopdata
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data from the 'Access to Opportunities Project (AOP)'
 
@@ -17,10 +17,12 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr >= 1.4.1
 BuildRequires:    R-CRAN-sf >= 0.9.3
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-httr >= 1.4.1
 Requires:         R-CRAN-sf >= 0.9.3
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-data.table 
 Requires:         R-utils 
 

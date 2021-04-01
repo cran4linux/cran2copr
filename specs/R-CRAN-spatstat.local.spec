@@ -1,9 +1,9 @@
 %global packname  spatstat.local
-%global packver   4.0-0
+%global packver   4.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.0
+Version:          4.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extension to 'spatstat' for Local Composite Likelihood
 
@@ -15,22 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat.geom >= 1.65.0
-BuildRequires:    R-CRAN-spatstat.core >= 1.65.0
-BuildRequires:    R-CRAN-spatstat.data 
-BuildRequires:    R-CRAN-spatstat.sparse 
+BuildRequires:    R-CRAN-spatstat.utils >= 2.1
+BuildRequires:    R-CRAN-spatstat.data >= 2.0
+BuildRequires:    R-CRAN-spatstat.sparse >= 2.0
+BuildRequires:    R-CRAN-spatstat.geom >= 2.0
+BuildRequires:    R-CRAN-spatstat.core >= 2.0
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-tensor 
-BuildRequires:    R-CRAN-spatstat.utils 
-Requires:         R-CRAN-spatstat.geom >= 1.65.0
-Requires:         R-CRAN-spatstat.core >= 1.65.0
-Requires:         R-CRAN-spatstat.data 
-Requires:         R-CRAN-spatstat.sparse 
+Requires:         R-CRAN-spatstat.utils >= 2.1
+Requires:         R-CRAN-spatstat.data >= 2.0
+Requires:         R-CRAN-spatstat.sparse >= 2.0
+Requires:         R-CRAN-spatstat.geom >= 2.0
+Requires:         R-CRAN-spatstat.core >= 2.0
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-tensor 
-Requires:         R-CRAN-spatstat.utils 
 
 %description
 Extension to the 'spatstat' package, enabling the user to fit point

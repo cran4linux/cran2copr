@@ -1,9 +1,9 @@
 %global packname  aRbs
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Find Arbitrage Opportunities for Sports Matches
 
@@ -28,6 +28,8 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-shinycssloaders 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-shinyBS 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-dplyr 
@@ -41,6 +43,8 @@ Requires:         R-stats
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-shinycssloaders 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-shinyBS 
 
 %description
 Money doesn't grow on trees. Arbitrage opportunities do. Find the best

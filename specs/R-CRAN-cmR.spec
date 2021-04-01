@@ -1,43 +1,37 @@
-%global packname  neurobase
-%global packver   1.32.0
+%global packname  cmR
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.32.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Neuroconductor' Base Package with Helper Functions for 'nifti' Objects
+Summary:          Analysis of Cardiac Magnetic Resonance Images
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-oro.nifti >= 0.11.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RNifti 
-Requires:         R-CRAN-oro.nifti >= 0.11.0
-Requires:         R-methods 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-R.utils 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-Matrix 
+Requires:         R-splines 
+Requires:         R-CRAN-fields 
 Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-CRAN-RNifti 
+Requires:         R-parallel 
 
 %description
-Base package for 'Neuroconductor', which includes many helper functions
-that interact with objects of class 'nifti', implemented by package
-'oro.nifti', for reading/writing and also other manipulation functions.
+Computes maximum response from Cardiac Magnetic Resonance Images using
+spatial and voxel wise spline based Bayesian model. This is an
+implementation of the methods described in Schmid (2011)
+<doi:10.1109/TMI.2011.2109733> "Voxel-Based Adaptive Spatio-Temporal
+Modelling of Perfusion Cardiovascular MRI". IEEE TMI 30(7) p. 1305 - 1313.
 
 %prep
 %setup -q -c -n %{packname}

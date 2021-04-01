@@ -1,43 +1,31 @@
-%global packname  neurobase
-%global packver   1.32.0
+%global packname  codeCollection
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.32.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Neuroconductor' Base Package with Helper Functions for 'nifti' Objects
+Summary:          Collection of Codes with Labels
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-oro.nifti >= 0.11.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RNifti 
-Requires:         R-CRAN-oro.nifti >= 0.11.0
-Requires:         R-methods 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-R.utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-CRAN-RNifti 
+BuildRequires:    R-CRAN-Epi 
+Requires:         R-CRAN-Epi 
 
 %description
-Base package for 'Neuroconductor', which includes many helper functions
-that interact with objects of class 'nifti', implemented by package
-'oro.nifti', for reading/writing and also other manipulation functions.
+Includes several classifications such as International Statistical
+Classification of Diseases and Related Health Problems 10th Revision
+(ICD10), Anatomical Therapeutic Chemical (ATC) Classification, The
+International Classification of Diseases for Oncology (ICD-O-3), and
+International Classification of Primary Care (ICPC). Includes function
+that adds descriptive label to code value.  Depending on classification
+following languages are available: English, Finnish, Swedish, and Latin.
 
 %prep
 %setup -q -c -n %{packname}

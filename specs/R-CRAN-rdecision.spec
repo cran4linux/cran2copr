@@ -1,32 +1,38 @@
-%global packname  seminr
-%global packver   2.0.1
+%global packname  rdecision
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Domain-Specific Language for Building and Estimating Structural Equation Models
+Summary:          Decision Analytic Modelling in Health Economics
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-parallel 
-Requires:         R-CRAN-lavaan 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-CRAN-rlang >= 0.4.2
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-rlang >= 0.4.2
+Requires:         R-grid 
+Requires:         R-CRAN-R6 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-A powerful, easy to syntax for specifying and estimating complex
-Structural Equation Models. Models can be estimated using Partial Least
-Squares Path Modeling or Covariance-Based Structural Equation Modeling or
-covariance based Confirmatory Factor Analysis.
+Classes and functions for modelling health care interventions using cohort
+models (decision trees). Mechanisms are provided for associating an
+uncertainty distribution with each source variable and for ensuring
+transparency of the mathematical relationships between variables. The
+package terminology follows Briggs "Decision Modelling for Health Economic
+Evaluation" (2006, ISBN:978-0-19-852662-9).
 
 %prep
 %setup -q -c -n %{packname}

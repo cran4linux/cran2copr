@@ -1,43 +1,27 @@
-%global packname  neurobase
-%global packver   1.32.0
+%global packname  survmixer
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.32.0
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Neuroconductor' Base Package with Helper Functions for 'nifti' Objects
+Summary:          Design of Clinical Trials with Survival Endpoints Based on Binary Responses
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-oro.nifti >= 0.11.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RNifti 
-Requires:         R-CRAN-oro.nifti >= 0.11.0
-Requires:         R-methods 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-R.utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
 Requires:         R-stats 
-Requires:         R-CRAN-RNifti 
 
 %description
-Base package for 'Neuroconductor', which includes many helper functions
-that interact with objects of class 'nifti', implemented by package
-'oro.nifti', for reading/writing and also other manipulation functions.
+Sample size and effect size calculations for survival endpoints based on
+mixture survival-by-response model. The methods implemented can be found
+in Bofill, Shen & Gómez (2021) <arXiv:2008.12887>.
 
 %prep
 %setup -q -c -n %{packname}

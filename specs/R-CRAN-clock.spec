@@ -1,35 +1,36 @@
-%global packname  randomForestSRC
-%global packver   2.11.0
+%global packname  clock
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.11.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Unified Random Forests for Survival, Regression, and Classification (RF-SRC)
+Summary:          Date-Time Types and Tools
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-data.tree 
-BuildRequires:    R-CRAN-DiagrammeR 
-Requires:         R-parallel 
-Requires:         R-CRAN-data.tree 
-Requires:         R-CRAN-DiagrammeR 
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
+BuildRequires:    R-CRAN-rlang >= 0.4.10
+BuildRequires:    R-CRAN-vctrs >= 0.3.7
+BuildRequires:    R-CRAN-ellipsis >= 0.3.1
+BuildRequires:    R-CRAN-cpp11 >= 0.2.6
+BuildRequires:    R-CRAN-tzdb >= 0.1.0
+Requires:         R-CRAN-rlang >= 0.4.10
+Requires:         R-CRAN-vctrs >= 0.3.7
+Requires:         R-CRAN-ellipsis >= 0.3.1
+Requires:         R-CRAN-tzdb >= 0.1.0
 
 %description
-Fast OpenMP parallel computing of Breiman's random forests for univariate,
-multivariate, unsupervised, survival, competing risks, class imbalanced
-classification and quantile regression. Extreme random forests and
-randomized splitting.  Suite of imputation methods for missing data.  Fast
-random forests using subsampling. Confidence regions and standard errors
-for variable importance. New improved holdout importance. Case-specific
-importance. Visualize trees on your Safari or Google Chrome browser.
-Anonymous random forests for data privacy.
+Provides a comprehensive library for date-time manipulations using a new
+family of orthogonal date-time classes (durations, time points,
+zoned-times, and calendars) that partition responsibilities so that the
+complexities of time zones are only considered when they are really
+needed. Capabilities include: date-time parsing, formatting, arithmetic,
+extraction and updating of components, and rounding.
 
 %prep
 %setup -q -c -n %{packname}

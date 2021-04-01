@@ -1,43 +1,35 @@
-%global packname  neurobase
-%global packver   1.32.0
+%global packname  SpatialKWD
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.32.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Neuroconductor' Base Package with Helper Functions for 'nifti' Objects
+Summary:          Spatial KWD for Large Spatial Maps
 
-License:          GPL-2
+License:          EUPL (>= 1.2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-oro.nifti >= 0.11.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RNifti 
-Requires:         R-CRAN-oro.nifti >= 0.11.0
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-methods 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-R.utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-CRAN-RNifti 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Base package for 'Neuroconductor', which includes many helper functions
-that interact with objects of class 'nifti', implemented by package
-'oro.nifti', for reading/writing and also other manipulation functions.
+Contains efficient implementations of Discrete Optimal Transport
+algorithms for the computation of Kantorovich-Wasserstein distances
+between pairs of large spatial maps (Bassetti, Gualandi, Veneroni (2020),
+<doi:10.1137/19M1261195>). All the algorithms are based on an ad-hoc
+implementation of the Network Simplex algorithm. The package has three
+main helper functions: compareOneToOne() (to compare two spatial maps),
+compareOneToMany() (to compare a reference maps with a list of other
+maps), and compareAll() (to compute a matrix of distances between a list
+of maps). In case of non-convex maps, the helper functions first build the
+convex-hull of the input bins and pads the weights with zeros.
 
 %prep
 %setup -q -c -n %{packname}

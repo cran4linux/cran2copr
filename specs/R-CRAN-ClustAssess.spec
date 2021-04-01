@@ -1,11 +1,11 @@
-%global packname  NHSDataDictionaRy
-%global packver   1.2.2
+%global packname  ClustAssess
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          NHS Data Dictionary Toolset for NHS Lookups
+Summary:          Tools for Assessing Clustering
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,32 +14,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fastcluster 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fastcluster 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Providing a common set of simplified web scraping tools for working with
-the NHS Data Dictionary
-<https://datadictionary.nhs.uk/data_elements_overview.html>. The intended
-usage is to access the data elements section of the NHS Data Dictionary to
-access key lookups. The benefits of having it in this package are that the
-lookups are the live lookups on the website and will not need to be
-maintained. This package was commissioned by the NHS-R community to
-provide this consistency of lookups. The OpenSafely lookups have now been
-added <https://codelists.opensafely.org/>.
+A set of tools for evaluating clustering similarity across methods and
+method stability using element-centric clustering comparison (Gates et al.
+(2019) <doi:10.1038/s41598-019-44892-y>). Additionally, this package
+enables data-wide assessment of clustering robustness using proportion of
+ambiguously clustered pairs (Senbabaoglu et al. (2014)
+<doi:10.1038/srep06207>), which can be used to infer the optimal number of
+clusters in the data.
 
 %prep
 %setup -q -c -n %{packname}

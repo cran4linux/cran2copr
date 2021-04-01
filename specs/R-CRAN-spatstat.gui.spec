@@ -1,9 +1,9 @@
 %global packname  spatstat.gui
-%global packver   1.2-0
+%global packver   2.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Graphics Functions for the 'spatstat' Package
 
@@ -15,11 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat.geom >= 1.65.0
-BuildRequires:    R-CRAN-spatstat.core >= 1.65.0
-BuildRequires:    R-CRAN-spatstat.linnet >= 1.65.0
-BuildRequires:    R-CRAN-spatstat.utils >= 1.18.0
-BuildRequires:    R-CRAN-spatstat.data 
+BuildRequires:    R-CRAN-spatstat.utils >= 2.1
+BuildRequires:    R-CRAN-spatstat.geom >= 2.0
+BuildRequires:    R-CRAN-spatstat.core >= 2.0
+BuildRequires:    R-CRAN-spatstat.linnet >= 2.0
+BuildRequires:    R-CRAN-spatstat.data >= 2.0
 BuildRequires:    R-CRAN-rpanel 
 BuildRequires:    R-tcltk 
 BuildRequires:    R-stats 
@@ -27,11 +27,11 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-spatstat.geom >= 1.65.0
-Requires:         R-CRAN-spatstat.core >= 1.65.0
-Requires:         R-CRAN-spatstat.linnet >= 1.65.0
-Requires:         R-CRAN-spatstat.utils >= 1.18.0
-Requires:         R-CRAN-spatstat.data 
+Requires:         R-CRAN-spatstat.utils >= 2.1
+Requires:         R-CRAN-spatstat.geom >= 2.0
+Requires:         R-CRAN-spatstat.core >= 2.0
+Requires:         R-CRAN-spatstat.linnet >= 2.0
+Requires:         R-CRAN-spatstat.data >= 2.0
 Requires:         R-CRAN-rpanel 
 Requires:         R-tcltk 
 Requires:         R-stats 

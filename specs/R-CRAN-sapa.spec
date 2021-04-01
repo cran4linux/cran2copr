@@ -1,43 +1,34 @@
-%global packname  neurobase
-%global packver   1.32.0
+%global packname  sapa
+%global packver   2.0-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.32.0
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Neuroconductor' Base Package with Helper Functions for 'nifti' Objects
+Summary:          Spectral Analysis for Physical Applications
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-oro.nifti >= 0.11.0
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildRequires:    R-CRAN-ifultools >= 2.0.22
+BuildRequires:    R-CRAN-splus2R >= 1.3.3
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RNifti 
-Requires:         R-CRAN-oro.nifti >= 0.11.0
+Requires:         R-CRAN-ifultools >= 2.0.22
+Requires:         R-CRAN-splus2R >= 1.3.3
 Requires:         R-methods 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-R.utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-CRAN-RNifti 
 
 %description
-Base package for 'Neuroconductor', which includes many helper functions
-that interact with objects of class 'nifti', implemented by package
-'oro.nifti', for reading/writing and also other manipulation functions.
+Software for book "Spectral Analysis for Physical Applications", Donald B.
+Percival and Andrew T. Walden (1993), <doi:10.1017/CBO9780511622762>,
+Cambridge University Press. Contains functionality for nonparametric
+spectral density estimation of time series, including direct spectral
+estimators, lag window estimators, estimators based on Welch's overlapped
+segment averaging (WOSA) and multitaper estimators based on discrete
+prolate spheroidal sequences (DPSS) and on sinusoidal tapers.
 
 %prep
 %setup -q -c -n %{packname}
