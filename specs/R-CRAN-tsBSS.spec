@@ -1,9 +1,9 @@
 %global packname  tsBSS
-%global packver   0.5.6
+%global packver   0.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.6
+Version:          0.5.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Blind Source Separation and Supervised Dimension Reduction for Time Series
 
@@ -17,6 +17,7 @@ Requires:         R-core
 BuildRequires:    R-CRAN-JADE >= 2.0.2
 BuildRequires:    R-CRAN-ICtest >= 0.3.2
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-CRAN-BSSprep 
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-parallel 
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-RcppArmadillo
 Requires:         R-CRAN-JADE >= 2.0.2
 Requires:         R-CRAN-ICtest >= 0.3.2
 Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-CRAN-BSSprep 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-boot 
 Requires:         R-parallel 

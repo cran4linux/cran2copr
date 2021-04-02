@@ -1,36 +1,30 @@
-%global packname  remotes
-%global packver   2.3.0
+%global packname  mockcpp
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Package Installation from Remote Repositories, Including 'GitHub'
+Summary:          Mocking in C++ with 'testthat'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE | BSL-1.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         subversion
-Requires:         git
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-testthat >= 2.1.0
+Requires:         R-CRAN-testthat >= 2.1.0
 
 %description
-Download and install R packages stored in 'GitHub', 'GitLab', 'Bitbucket',
-'Bioconductor', or plain 'subversion' or 'git' repositories. This package
-provides the 'install_*' functions in 'devtools'. Indeed most of the code
-was copied over from 'devtools'.
+A header only library integrating 'testthat' with 'trompeoeil' to provide
+mocking for C++ code in R packages. Mocking is a technique for making a
+fake version of a software service. You can mock services to test that
+your code interacts correctly with external interfaces, to make your tests
+deterministic, or to break your tests down into smaller units. 'testthat'
+provides a testing framework for R and C++ code in R packages.
+'trompeoeil' is a C++ header only library for mocking.
 
 %prep
 %setup -q -c -n %{packname}

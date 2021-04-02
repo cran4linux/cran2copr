@@ -1,9 +1,9 @@
 %global packname  PSweight
-%global packver   1.1.3
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Propensity Score Weighting for Causal Inference with Observational Studies and Randomized Trials
 

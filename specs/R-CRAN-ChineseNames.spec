@@ -1,36 +1,35 @@
-%global packname  remotes
-%global packver   2.3.0
+%global packname  ChineseNames
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Package Installation from Remote Repositories, Including 'GitHub'
+Summary:          Chinese Name Database 1930-2008
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         subversion
-Requires:         git
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-bruceR 
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-bruceR 
+Requires:         R-CRAN-data.table 
 
 %description
-Download and install R packages stored in 'GitHub', 'GitLab', 'Bitbucket',
-'Bioconductor', or plain 'subversion' or 'git' repositories. This package
-provides the 'install_*' functions in 'devtools'. Indeed most of the code
-was copied over from 'devtools'.
+A database of Chinese surnames and Chinese given names (1930-2008). This
+database contains nationwide frequency statistics of 1,806 Chinese
+surnames and 2,614 Chinese characters used in given names, covering about
+1.2 billion Han Chinese population (96.8%% of the Han Chinese
+household-registered population born from 1930 to 2008 and still alive in
+2008). This package also contains a function for computing multiple
+features of Chinese surnames and Chinese given names for scientific
+research (e.g., name uniqueness, name gender, name valence, and name
+warmth/competence).
 
 %prep
 %setup -q -c -n %{packname}

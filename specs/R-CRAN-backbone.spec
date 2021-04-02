@@ -1,9 +1,9 @@
 %global packname  backbone
-%global packver   1.3.1
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extracts the Backbone from Weighted Graphs
 
@@ -21,12 +21,14 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-network 
+BuildRequires:    R-CRAN-PoissonBinomial 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-network 
+Requires:         R-CRAN-PoissonBinomial 
 
 %description
 Provides methods for extracting from a weighted graph a binary or signed
@@ -37,7 +39,8 @@ stochastic degree sequence model (Neal, Z. P. (2014).
 <doi:10.1016/j.socnet.2014.06.001>), hypergeometric model (Neal, Z.
 (2013). <doi:10.1007/s13278-013-0107-y>), the fixed degree sequence model
 (Zweig, K. A., and Kaufmann, M. (2011). <doi:10.1007/s13278-011-0021-0>),
-as well as a universal threshold method.
+fixed column model, fixed fill model, as well as a universal threshold
+method.
 
 %prep
 %setup -q -c -n %{packname}

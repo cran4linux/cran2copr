@@ -1,36 +1,32 @@
-%global packname  remotes
-%global packver   2.3.0
+%global packname  rbiorxiv
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Package Installation from Remote Repositories, Including 'GitHub'
+Summary:          Client for the 'bioRxiv' API
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         subversion
-Requires:         git
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-curl >= 4.3
+BuildRequires:    R-CRAN-jsonlite >= 1.6.0
+BuildRequires:    R-CRAN-httr >= 1.4.0
+Requires:         R-CRAN-curl >= 4.3
+Requires:         R-CRAN-jsonlite >= 1.6.0
+Requires:         R-CRAN-httr >= 1.4.0
 
 %description
-Download and install R packages stored in 'GitHub', 'GitLab', 'Bitbucket',
-'Bioconductor', or plain 'subversion' or 'git' repositories. This package
-provides the 'install_*' functions in 'devtools'. Indeed most of the code
-was copied over from 'devtools'.
+R client for interacting with the 'bioRxiv' API
+<https://api.biorxiv.org/>. Functions include retrieving metadata of
+'bioRxiv' and 'medRxiv' preprints, details of published papers associated
+with preprints, and summary and usage statistics.
 
 %prep
 %setup -q -c -n %{packname}

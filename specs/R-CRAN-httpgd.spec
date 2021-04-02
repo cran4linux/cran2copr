@@ -1,9 +1,9 @@
 %global packname  httpgd
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'HTTP' Server Graphics Device
 
@@ -12,14 +12,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildRequires:    R-CRAN-BH >= 1.75.0
 BuildRequires:    R-CRAN-later >= 1.1.0
+BuildRequires:    R-CRAN-systemfonts >= 1.0.0
 BuildRequires:    R-CRAN-cpp11 >= 0.2.4
-BuildRequires:    R-CRAN-systemfonts >= 0.2.3
 Requires:         R-CRAN-later >= 1.1.0
-Requires:         R-CRAN-systemfonts >= 0.2.3
+Requires:         R-CRAN-systemfonts >= 1.0.0
 
 %description
 A graphics device for R that is accessible via network protocols. This

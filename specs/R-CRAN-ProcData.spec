@@ -1,36 +1,35 @@
-%global packname  remotes
-%global packver   2.3.0
+%global packname  ProcData
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Package Installation from Remote Repositories, Including 'GitHub'
+Summary:          Process Data Analysis
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         subversion
-Requires:         git
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-keras >= 2.2.4
+BuildRequires:    R-CRAN-Rcpp >= 0.12.16
+Requires:         R-CRAN-keras >= 2.2.4
+Requires:         R-CRAN-Rcpp >= 0.12.16
 
 %description
-Download and install R packages stored in 'GitHub', 'GitLab', 'Bitbucket',
-'Bioconductor', or plain 'subversion' or 'git' repositories. This package
-provides the 'install_*' functions in 'devtools'. Indeed most of the code
-was copied over from 'devtools'.
+Provides tools for exploratory process data analysis. Process data refers
+to the data describing participants' problem-solving processes in
+computer-based assessments. It is often recorded in computer log files.
+This package provides functions to read, process, and write process data.
+It also implements two feature extraction methods to compress the
+information stored in process data into standard numerical vectors. This
+package also provides recurrent neural network based models that relate
+response processes with other binary or scale variables of interest. The
+functions that involve training and evaluating neural networks are
+wrappers of functions in 'keras'.
 
 %prep
 %setup -q -c -n %{packname}

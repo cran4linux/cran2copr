@@ -1,36 +1,30 @@
-%global packname  remotes
-%global packver   2.3.0
+%global packname  relevance
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Package Installation from Remote Repositories, Including 'GitHub'
+Summary:          Calculate Relevance
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         subversion
-Requires:         git
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-tools 
 Requires:         R-utils 
 
 %description
-Download and install R packages stored in 'GitHub', 'GitLab', 'Bitbucket',
-'Bioconductor', or plain 'subversion' or 'git' repositories. This package
-provides the 'install_*' functions in 'devtools'. Indeed most of the code
-was copied over from 'devtools'.
+Calculates relevance and significance values for simple models and for
+many types of regression models. These are introduced in 'Stahel, Werner
+A.' (2021) "New relevance and significance measures to replace p-values."
+<https://stat.ethz.ch/~stahel/relevance/stahel-relevance2103.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

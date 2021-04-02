@@ -1,37 +1,38 @@
-%global packname  NetOrigin
-%global packver   1.1-2
+%global packname  bbdetection
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Origin Estimation for Propagation Processes on Complex Networks
+Summary:          Identification of Bull and Bear States of the Market
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.2
-Requires:         R-core >= 3.2.2
-BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-corpcor 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-corpcor 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.5
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-xtable 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-Rcpp >= 0.12.5
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Performs network-based source estimation. Different approaches are
-available: effective distance median, recursive backtracking, and
-centrality-based source estimation. Additionally, we provide public
-transportation network data as well as methods for data preparation,
-source estimation performance analysis and visualization.
+Implements two algorithms of detecting Bull and Bear markets in stock
+prices: the algorithm of Pagan and Sossounov (2002, <doi:10.1002/jae.664>)
+and the algorithm of Lunde and Timmermann (2004,
+<doi:10.1198/073500104000000136>). The package also contains functions for
+printing out the dating of the Bull and Bear states of the market, the
+descriptive statistics of the states, and functions for plotting the
+results. For the sake of convenience, the package includes the monthly and
+daily data on the prices (not adjusted for dividends) of the S&P 500 stock
+market index.
 
 %prep
 %setup -q -c -n %{packname}

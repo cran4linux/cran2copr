@@ -1,9 +1,9 @@
 %global packname  sisireg
-%global packver   0.8.1
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sign-Simplicity-Regression-Solver
 
@@ -25,8 +25,8 @@ is a nonparametric statistical model which is based on residual signs and
 simplicity assumptions on the regression function. Goal is to calculate
 the most parsimonious regression function satisfying the statistical
 adequacy requirements. Theory and functions are specified in Metzner
-(2020, ISBN: 9798682394203, "Trendbasierte Prognostik") and Metzner (2021,
-ISBN: 9798593470270, "Adäquates Maschinelles Lernen").
+(2020, ISBN: 979-8-68239-420-3, "Trendbasierte Prognostik") and Metzner
+(2021, ISBN: 979-8-59347-027-0, "Adäquates Maschinelles Lernen").
 
 %prep
 %setup -q -c -n %{packname}

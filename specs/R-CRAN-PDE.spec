@@ -1,11 +1,11 @@
 %global packname  PDE
-%global packver   1.1.2
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Sentences and Tables from PDFs with User Interface
+Summary:          Extract Tables and Sentences from PDFs with User Interface
 
 License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}

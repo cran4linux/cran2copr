@@ -1,9 +1,9 @@
 %global packname  RcmdrPlugin.UCA
-%global packver   4.3-4
+%global packver   4.4-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.4
+Version:          4.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          UCA Rcmdr Plug-in
 
@@ -17,12 +17,16 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Rcmdr >= 1.6
+BuildRequires:    R-CRAN-IQCC 
+BuildRequires:    R-CRAN-qcc 
 BuildRequires:    R-CRAN-qicharts2 
 BuildRequires:    R-CRAN-randtests 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-TeachingDemos 
 BuildRequires:    R-CRAN-tseries 
 Requires:         R-CRAN-Rcmdr >= 1.6
+Requires:         R-CRAN-IQCC 
+Requires:         R-CRAN-qcc 
 Requires:         R-CRAN-qicharts2 
 Requires:         R-CRAN-randtests 
 Requires:         R-CRAN-rmarkdown 

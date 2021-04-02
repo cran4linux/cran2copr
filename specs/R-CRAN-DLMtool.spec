@@ -1,9 +1,9 @@
 %global packname  DLMtool
-%global packver   6.0.0
+%global packver   6.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.0
+Version:          6.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data-Limited Methods Toolkit
 
@@ -31,7 +31,7 @@ Requires:         R-stats
 
 %description
 A collection of data-limited management procedures that can be evaluated
-with management strategy evaluation with the MSEtool package, or applied
+with management strategy evaluation with the 'MSEtool' package, or applied
 to fishery data to provide management recommendations.
 
 %prep

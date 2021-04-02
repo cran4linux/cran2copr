@@ -1,9 +1,9 @@
 %global packname  EValue
-%global packver   4.1.1
+%global packver   4.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.1
+Version:          4.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sensitivity Analyses for Unmeasured Confounding and Other Biases in Observational Studies and Meta-Analyses
 
@@ -33,10 +33,16 @@ Requires:         R-CRAN-MetaUtility
 Requires:         R-CRAN-dplyr 
 
 %description
-Conducts sensitivity analyses for unmeasured confounding,selection bias,
-and measurement error (individually or in combination) in individual
-studies. Also conducts sensitivity analyses for unmeasured confounding in
-meta-analyses.
+Conducts sensitivity analyses for unmeasured confounding, selection bias,
+and measurement error (individually or in combination; VanderWeele & Ding
+(2017) <doi:10.7326/M16-2607>; Smith & VanderWeele (2019)
+<doi:10.1097/EDE.0000000000001032>; VanderWeele & Li (2019)
+<doi:10.1093/aje/kwz133>; Smith & VanderWeele (2021) <arXiv:2005.02908>).
+Also conducts sensitivity analyses for unmeasured confounding in
+meta-analyses (Mathur & VanderWeele (2020a)
+<doi:10.1080/01621459.2018.1529598>; Mathur & VanderWeele (2020b)
+<doi:10.1097/EDE.0000000000001180>) and for additive measures of effect
+modification (Mathur et al., under review).
 
 %prep
 %setup -q -c -n %{packname}
