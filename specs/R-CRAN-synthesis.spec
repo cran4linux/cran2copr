@@ -1,32 +1,35 @@
 %global packname  synthesis
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate Synthetic Data from Statistical Models
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-graphics 
 Requires:         R-stats 
 Requires:         R-CRAN-MASS 
+Requires:         R-graphics 
 
 %description
 Generate synthetic time series from commonly used statistical models,
-including linear, nonlinear and chaotic systems. An application to testing
-a new method can be found in Jiang, Z., Sharma, A., & Johnson, F. (2020)
-<doi:10.1029/2019WR026962> associated with an open-source tool by Jiang,
-Z., Rashid, M. M., Johnson, F., & Sharma, A. (2020)
-<doi:10.1016/j.envsoft.2020.104907>.
+including linear, nonlinear and chaotic systems. Applications to testing
+methods can be found in Jiang, Z., Sharma, A., & Johnson, F. (2019)
+<doi:10.1016/j.advwatres.2019.103430> and Jiang, Z., Sharma, A., &
+Johnson, F. (2020) <doi:10.1029/2019WR026962> associated with an
+open-source tool by Jiang, Z., Rashid, M. M., Johnson, F., & Sharma, A.
+(2020) <doi:10.1016/j.envsoft.2020.104907>.
 
 %prep
 %setup -q -c -n %{packname}

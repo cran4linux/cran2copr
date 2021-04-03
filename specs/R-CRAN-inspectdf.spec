@@ -1,9 +1,9 @@
 %global packname  inspectdf
-%global packver   0.0.10
+%global packver   0.0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.10
+Version:          0.0.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inspection, Comparison and Visualisation of Data Frames
 

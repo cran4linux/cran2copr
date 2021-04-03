@@ -1,45 +1,42 @@
-%global packname  officer
-%global packver   0.3.18
+%global packname  mcunit
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.18
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulation of Microsoft Word and PowerPoint Documents
+Summary:          Unit Tests for MC Methods
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-zip >= 2.1.0
-BuildRequires:    R-CRAN-xml2 >= 1.1.0
-BuildRequires:    R-CRAN-uuid >= 0.1.4
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-simctest >= 2.6
+BuildRequires:    R-CRAN-testthat >= 2.3
+BuildRequires:    R-CRAN-Rdpack >= 0.7
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-zip >= 2.1.0
-Requires:         R-CRAN-xml2 >= 1.1.0
-Requires:         R-CRAN-uuid >= 0.1.4
-Requires:         R-CRAN-R6 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-simctest >= 2.6
+Requires:         R-CRAN-testthat >= 2.3
+Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-utils 
+Requires:         R-CRAN-rlang 
+Requires:         R-methods 
 
 %description
-Access and manipulate 'Microsoft Word' and 'Microsoft PowerPoint'
-documents from R. The package focuses on tabular and graphical reporting
-from R; it also provides two functions that let users get document content
-into data objects. A set of functions lets add and remove images, tables
-and paragraphs of text in new or existing documents. The package does not
-require any installation of Microsoft products to be able to write
-Microsoft files.
+Unit testing for Monte Carlo methods, particularly Markov Chain Monte
+Carlo (MCMC) methods, are implemented as extensions of the 'testthat'
+package. The MCMC methods check whether the MCMC chain has the correct
+invariant distribution. They do not check other properties of successful
+samplers such as whether the chain can reach all points, i.e. whether is
+recurrent. The tests require the ability to sample from the prior and to
+run steps of the MCMC chain. The methodology is described in Gandy and
+Scott (2020) <arXiv:2001.06465>.
 
 %prep
 %setup -q -c -n %{packname}

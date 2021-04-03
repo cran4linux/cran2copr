@@ -1,44 +1,37 @@
-%global packname  simfinR
-%global packver   0.2.3
+%global packname  cif
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Import Financial Data from the 'SimFin' Project
+Summary:          Cointegrated ICU Forecasting
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+Requires:         R-stats 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-digest 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-Uses the 'SimFin' (SIMmplifying FINnance) api at
-<https://simfin.com/data/access/api> to download financial data straight
-into your R session. It includes financial statements -- balance sheet,
-cash flow and income statement -- and adjusted daily price of stocks. The
-available data is comprehensive, going back to 2005 and available for
-quarters (Q1, Q2, Q3, Q4) and years (FY).
+Set of forecasting tools to predict ICU beds using a Vector Error
+Correction model with a single cointegrating vector. Method described in
+Berta, P. Lovaglio, P.G. Paruolo, P. Verzillo, S., 2020. "Real Time
+Forecasting of Covid-19 Intensive Care Units demand" Health, Econometrics
+and Data Group (HEDG) Working Papers 20/16, HEDG, Department of Economics,
+University of York,
+<https://www.york.ac.uk/media/economics/documents/hedg/workingpapers/2020/2016.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

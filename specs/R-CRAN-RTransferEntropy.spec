@@ -1,9 +1,9 @@
 %global packname  RTransferEntropy
-%global packver   0.2.13
+%global packver   0.2.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.13
+Version:          0.2.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Measuring Information Flow Between Time Series with Shannon and Renyi Transfer Entropy
 
@@ -14,10 +14,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.2
 Requires:         R-core >= 3.1.2
-BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future >= 1.19.0
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-future 
+Requires:         R-CRAN-future >= 1.19.0
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-Rcpp 
 

@@ -1,9 +1,9 @@
 %global packname  geomorph
-%global packver   3.3.2
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.2
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geometric Morphometric Analyses of 2D/3D Landmark Data
 
@@ -15,22 +15,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RRPP 
+BuildRequires:    R-CRAN-RRPP >= 1.0.0
 BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-jpeg 
 BuildRequires:    R-CRAN-ape 
-Requires:         R-CRAN-RRPP 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-RRPP >= 1.0.0
 Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-Matrix 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-jpeg 
 Requires:         R-CRAN-ape 
+Requires:         R-parallel 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Read, manipulate, and digitize landmark data, generate shape variables via

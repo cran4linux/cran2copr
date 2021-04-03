@@ -1,9 +1,9 @@
 %global packname  miWQS
-%global packver   0.4.2
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Imputation Using Weighted Quantile Sum Regression
 
@@ -61,20 +61,20 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-The `miWQS` package handles the uncertainty due to below the detection
-limit in a correlated component mixture problem.  Researchers want to
-determine if a set/mixture of continuous and correlated
-components/chemicals is associated with an outcome and if so, which
-components are important in that mixture. These components share a common
-outcome but are interval-censored between zero and low thresholds, or
-detection limits, that may be different across the components. The `miWQS`
-package applies the multiple imputation (MI) procedure to the weighted
-quantile sum regression (WQS) methodology for continuous, binary, or count
-outcomes (Hargarten & Wheeler (2020) <doi:10.1016/j.envres.2020.109466>).
-The imputation models are: bootstrapping imputation (Lubin et.al (2004)
-<doi:10.1289/ehp.7199>), univariate Bayesian imputation (Hargarten &
-Wheeler (2020) <doi:10.1016/j.envres.2020.109466>), and multivariate
-Bayesian regression imputation.
+The miWQS package handles the uncertainty due to below the detection limit
+in a correlated component mixture problem.  Researchers want to determine
+if a set/mixture of continuous and correlated components/chemicals is
+associated with an outcome and if so, which components are important in
+that mixture. These components share a common outcome but are
+interval-censored between zero and low thresholds, or detection limits,
+that may be different across the components. This package applies the
+multiple imputation (MI) procedure to the weighted quantile sum regression
+(WQS) methodology for continuous, binary, or count outcomes (Hargarten &
+Wheeler (2020) <doi:10.1016/j.envres.2020.109466>). The imputation models
+are: bootstrapping imputation (Lubin et.al (2004) <doi:10.1289/ehp.7199>),
+univariate Bayesian imputation (Hargarten & Wheeler (2020)
+<doi:10.1016/j.envres.2020.109466>), and multivariate Bayesian regression
+imputation.
 
 %prep
 %setup -q -c -n %{packname}

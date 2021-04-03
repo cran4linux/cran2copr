@@ -1,31 +1,34 @@
-%global packname  thunder
-%global packver   0.0.12
+%global packname  caROC
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.12
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Computation and Visualisation of Atmospheric Convective Parameters
+Summary:          Continuous Biomarker Evaluation with Adjustment of Covariates
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.9.4
-BuildRequires:    R-CRAN-climate 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-aiRthermo 
-Requires:         R-CRAN-Rcpp >= 0.12.9.4
-Requires:         R-CRAN-climate 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-aiRthermo 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-RColorBrewer 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
-R tool for calculating over 100 atmospheric convection indices from
-rawinsonde profiles.
+Compute covariate-adjusted specificity at controlled sensitivity level, or
+covariate-adjusted sensitivity at controlled specificity level, or
+covariate-adjust receiver operating characteristic curve, or
+covariate-adjusted thresholds at controlled sensitivity/specificity level.
+All statistics could also be computed for specific sub-populations given
+their covariate values. Methods are described in Ziyi Li, Yijian Huang,
+Datta Patil, Martin G. Sanda (2021+) "Covariate adjustment in continuous
+biomarker assessment".
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,45 +1,35 @@
-%global packname  officer
-%global packver   0.3.18
+%global packname  joyn
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.18
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulation of Microsoft Word and PowerPoint Documents
+Summary:          Tool for Diagnosis of Tables Joins and Complementary Join Features
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-zip >= 2.1.0
-BuildRequires:    R-CRAN-xml2 >= 1.1.0
-BuildRequires:    R-CRAN-uuid >= 0.1.4
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-zip >= 2.1.0
-Requires:         R-CRAN-xml2 >= 1.1.0
-Requires:         R-CRAN-uuid >= 0.1.4
-Requires:         R-CRAN-R6 
-Requires:         R-grDevices 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-cli 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-utils 
 
 %description
-Access and manipulate 'Microsoft Word' and 'Microsoft PowerPoint'
-documents from R. The package focuses on tabular and graphical reporting
-from R; it also provides two functions that let users get document content
-into data objects. A set of functions lets add and remove images, tables
-and paragraphs of text in new or existing documents. The package does not
-require any installation of Microsoft products to be able to write
-Microsoft files.
+Tool for diagnosis of joins of data frames. It combines the speed
+`data.table`, the flexibility of `dplyr`, and the diagnosis and features
+of the `merge` command in `Stata`.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global packname  RXshrink
-%global packver   1.7
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Maximum Likelihood Shrinkage using Generalized Ridge or Least Angle Regression Methods
+Summary:          Maximum Likelihood Shrinkage using Generalized Ridge or Least Angle Regression
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -28,14 +28,15 @@ Normal-distribution theory, some estimates are modified to be Unbiased or
 to have "Correct Range" when estimating either [1] the noncentrality of
 the F-ratio for testing that true Beta coefficients are Zeros or [2] the
 "relative" MSE Risk (i.e. MSE divided by true sigma-square, where the
-"relative" variance of OLS is known.) The unr.ridge() function implements
-the "Unrestricted Path" introduced in Obenchain (2020) <arXiv:2005.14291>.
-This "new" p-parameter Shrinkage-Path and that of eff.ridge() are both
-more efficient than the Paths used by qm.ridge(), aug.lars() and
-uc.lars(). Functions eff.aug() and eff.biv() augment the calculations made
-by eff.ridge() to provide plots of the bivariate confidence ellipses
-corresponding to any of the p*(p-1) possible pairs of shrunken regression
-coefficients.
+"relative" variance of OLS is known.) The eff.ridge() function implements
+the "Efficient Shrinkage Path" introduced in Obenchain (2021)
+<arXiv:2103.05161>. This new "p-Parameter" Shrinkage-Path always passes
+through the vector of regression coefficient estimates Most-Likely to
+achieve the overall Optimal Variance-Bias Trade-Off and is the shortest
+Path with this property. Functions eff.aug() and eff.biv() augment the
+calculations made by eff.ridge() to provide plots of the bivariate
+confidence ellipses corresponding to any of the p*(p-1) possible ordered
+pairs of shrunken regression coefficients.
 
 %prep
 %setup -q -c -n %{packname}

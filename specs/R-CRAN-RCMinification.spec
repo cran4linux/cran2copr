@@ -1,13 +1,13 @@
-%global packname  simfinR
-%global packver   0.2.3
+%global packname  RCMinification
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Import Financial Data from the 'SimFin' Project
+Summary:          Random Coefficient Minification Time Series Models
 
-License:          GPL-2
+License:          Unlimited
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,30 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-digest 
 
 %description
-Uses the 'SimFin' (SIMmplifying FINnance) api at
-<https://simfin.com/data/access/api> to download financial data straight
-into your R session. It includes financial statements -- balance sheet,
-cash flow and income statement -- and adjusted daily price of stocks. The
-available data is comprehensive, going back to 2005 and available for
-quarters (Q1, Q2, Q3, Q4) and years (FY).
+Functions and data sets for simulating and fitting minification and random
+coefficient minification time series models. The nth term in the model
+X[n] is a nonnegative random variable defined as A[n]*min(X[n-1], Y[n]),
+where the A's and Y's are sequences of independent random variables.
+Example data sets are provided where this kind of model can be justified
+on physical grounds and fits well.  Functions for simulating minification
+time series and for maximum likelihood estimation are included. More
+information can be found in Han, Braun and Loeppky (2018)
+<doi:10.1007/s00362-018-1000-6>.
 
 %prep
 %setup -q -c -n %{packname}

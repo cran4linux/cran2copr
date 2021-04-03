@@ -1,9 +1,9 @@
 %global packname  gargle
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Working with Google APIs
 
@@ -12,21 +12,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 2.3.1
 BuildRequires:    R-CRAN-httr >= 1.4.0
 BuildRequires:    R-CRAN-fs >= 1.3.1
 BuildRequires:    R-CRAN-glue >= 1.3.0
-BuildRequires:    R-CRAN-rlang >= 0.4.2
+BuildRequires:    R-CRAN-rlang >= 0.4.9
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-cli >= 2.3.1
 Requires:         R-CRAN-httr >= 1.4.0
 Requires:         R-CRAN-fs >= 1.3.1
 Requires:         R-CRAN-glue >= 1.3.0
-Requires:         R-CRAN-rlang >= 0.4.2
+Requires:         R-CRAN-rlang >= 0.4.9
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-rstudioapi 
 Requires:         R-stats 
 Requires:         R-CRAN-withr 
 

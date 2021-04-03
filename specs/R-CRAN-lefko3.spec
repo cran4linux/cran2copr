@@ -1,9 +1,9 @@
 %global packname  lefko3
-%global packver   3.3.2
+%global packver   3.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.2
+Version:          3.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Historical and Ahistorical Population Projection Matrix Analysis
 
@@ -20,8 +20,10 @@ BuildRequires:    R-CRAN-lme4
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-MuMIn 
 BuildRequires:    R-CRAN-pscl 
+BuildRequires:    R-CRAN-SparseM 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-VGAM 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.5
 Requires:         R-CRAN-glmmTMB 
@@ -29,8 +31,10 @@ Requires:         R-CRAN-lme4
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-MuMIn 
 Requires:         R-CRAN-pscl 
+Requires:         R-CRAN-SparseM 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-VGAM 
 
 %description
 Creates matrix population models for use in population ecological

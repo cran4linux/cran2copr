@@ -1,9 +1,9 @@
 %global packname  geodiv
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Calculating Gradient Surface Metrics
 
@@ -48,8 +48,7 @@ Requires:         R-CRAN-phonTools >= 0.2.2.1
 
 %description
 Methods for calculating gradient surface metrics for continuous analysis
-of landscape features. See github.com/bioXgeo/geodiv to report bugs or to
-download the working version of the package.
+of landscape features.
 
 %prep
 %setup -q -c -n %{packname}

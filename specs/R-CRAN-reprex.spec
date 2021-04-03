@@ -1,9 +1,9 @@
 %global packname  reprex
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prepare Reproducible Example Code via the Clipboard
 
@@ -16,25 +16,27 @@ Requires:         pandoc
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-callr >= 3.3.1
+BuildRequires:    R-CRAN-callr >= 3.6.0
+BuildRequires:    R-CRAN-cli >= 2.3.1
 BuildRequires:    R-CRAN-withr >= 2.3.0
 BuildRequires:    R-CRAN-knitr >= 1.23
 BuildRequires:    R-CRAN-clipr >= 0.4.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-callr >= 3.3.1
+Requires:         R-CRAN-callr >= 3.6.0
+Requires:         R-CRAN-cli >= 2.3.1
 Requires:         R-CRAN-withr >= 2.3.0
 Requires:         R-CRAN-knitr >= 1.23
 Requires:         R-CRAN-clipr >= 0.4.0
 Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-cli 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-rstudioapi 
 Requires:         R-utils 
 
 %description
