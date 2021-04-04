@@ -1,10 +1,10 @@
 %global packname  spdep
-%global packver   1.1-5
+%global packver   1.1-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
-Release:          2%{?dist}%{?buildtag}
+Version:          1.1.7
+Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Dependence: Weighting Schemes, Statistics
 
 License:          GPL (>= 2)
@@ -14,7 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
-BuildRequires:    R-boot >= 1.3.1
+BuildRequires:    R-CRAN-boot >= 1.3.1
 BuildRequires:    R-CRAN-sp >= 1.0
 BuildRequires:    R-CRAN-spData >= 0.2.6.0
 BuildRequires:    R-methods 
@@ -24,14 +24,14 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-LearnBayes 
-BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-CRAN-gmodels 
-BuildRequires:    R-nlme 
-Requires:         R-boot >= 1.3.1
+BuildRequires:    R-CRAN-nlme 
+Requires:         R-CRAN-boot >= 1.3.1
 Requires:         R-CRAN-sp >= 1.0
 Requires:         R-CRAN-spData >= 0.2.6.0
 Requires:         R-methods 
@@ -41,13 +41,13 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-Matrix 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-LearnBayes 
-Requires:         R-MASS 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-expm 
 Requires:         R-CRAN-gmodels 
-Requires:         R-nlme 
+Requires:         R-CRAN-nlme 
 
 %description
 A collection of functions to create spatial weights matrix objects from
@@ -58,7 +58,7 @@ collection of tests for spatial 'autocorrelation', including global
 'Morans I' and 'Gearys C' proposed by 'Cliff' and 'Ord' (1973, ISBN:
 0850860369) and (1981, ISBN: 0850860814), 'Hubert/Mantel' general cross
 product statistic, Empirical Bayes estimates and 'Assunção/Reis' (1999)
-<doi:10.1002/(SICI)1097-0258(19990830)18:16%3C2147::AID-SIM179%3E3.0.CO;2-I>
+<doi:10.1002/(SICI)1097-0258(19990830)18:16%%3C2147::AID-SIM179%%3E3.0.CO;2-I>
 Index, 'Getis/Ord' G ('Getis' and 'Ord' 1992)
 <doi:10.1111/j.1538-4632.1992.tb00261.x> and multicoloured join count
 statistics, 'APLE' ('Li 'et al.' ) <doi:10.1111/j.1538-4632.2007.00708.x>,
@@ -83,9 +83,13 @@ Some feed through adequately, others do not.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -95,6 +99,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

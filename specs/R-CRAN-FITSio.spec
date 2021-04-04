@@ -1,9 +1,9 @@
 %global packname  FITSio
-%global packver   2.1-5
+%global packver   2.1-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.5
+Version:          2.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          FITS (Flexible Image Transport System) Utilities
 
@@ -27,8 +27,8 @@ Higher-level functions allow: reading files composed of one or more
 headers and a single (perhaps multidimensional) image or single table;
 reading tables into data frames; generating vectors for image array axes;
 scaling and writing images as 16-bit integers.  Known incompletenesses are
-reading random group extensions, as well as bit, complex, and array
-descriptor data types in binary tables.
+reading random group extensions, as well as complex and array descriptor
+data types in binary tables.
 
 %prep
 %setup -q -c -n %{packname}

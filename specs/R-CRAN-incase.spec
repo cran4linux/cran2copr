@@ -1,9 +1,9 @@
 %global packname  incase
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pipe-Friendly Vector Replacement with Case Statements
 
@@ -15,20 +15,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-plu 
 BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-backports 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-plu 
 Requires:         R-CRAN-rlang 
 
 %description
 Offers a pipe-friendly alternative to the 'dplyr' functions case_when()
-and if_else().  These functions accept a vector as an optional first
+and if_else(), as well as a number of user-friendly simplifications for
+common use cases.  These functions accept a vector as an optional first
 argument, allowing conditional statements to be built using the 'magrittr'
-dot operator.  The functions also coerce all possible outputs to the same
-type, meaning you no longer have to worry about using specific typed
-variants of NA or explicitly declaring integer outputs.
+dot operator.  The functions also coerce all outputs to the same type,
+meaning you no longer have to worry about using specific typed variants of
+NA or explicitly declaring integer outputs, and evaluate outputs somewhat
+lazily, so you don't waste time on long operations that won't be used.
 
 %prep
 %setup -q -c -n %{packname}

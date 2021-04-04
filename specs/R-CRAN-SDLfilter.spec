@@ -1,9 +1,9 @@
 %global packname  SDLfilter
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Filtering and Assessing the Sample Size of Tracking Data
 
@@ -55,7 +55,7 @@ al. (2012) <doi:10.3354/meps09747> and Shimada et al. (2016)
 <doi:10.1007/s00227-015-2771-0>. Sample size for the analysis of animal
 distributions can be assessed by the conventional area-based approach or
 the alternative probability-based approach as described in Shimada et al.
-(under review).
+(2021) <doi:10.1111/2041-210X.13506>.
 
 %prep
 %setup -q -c -n %{packname}

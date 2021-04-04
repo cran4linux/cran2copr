@@ -1,9 +1,9 @@
 %global packname  provenance
-%global packver   3.0
+%global packver   3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0
+Version:          3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Toolbox for Sedimentary Provenance Analysis
 
