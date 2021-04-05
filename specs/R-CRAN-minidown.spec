@@ -1,9 +1,9 @@
 %global packname  minidown
-%global packver   0.0.3
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Simple Yet Powerful HTML Documents with Light Weight CSS Frameworks
 
@@ -26,10 +26,9 @@ Requires:         R-CRAN-xfun
 
 %description
 Create minimal, responsive, and style-agnostic HTML documents with the
-lightweight CSS frameworks such as 'sakura', 'Water.css', and 'mini.css'.
-Powerful features include floating table of contents as a sidebar, code
-folding of source, output, message, warning, and error, and accordion
-menus. They work without JavaScript.
+lightweight CSS frameworks such as 'sakura', 'Water.css', and 'spcss'.
+Powerful features include table of contents floating as a sidebar, folding
+codes and results, and more.
 
 %prep
 %setup -q -c -n %{packname}

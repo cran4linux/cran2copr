@@ -1,9 +1,9 @@
 %global packname  dataprep
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient and Flexible Data Preprocessing Tools
 
@@ -15,23 +15,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RcppRoll 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-RcppRoll 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-zoo 
 
 %description
@@ -40,19 +38,19 @@ deletion, and interpolation tools. These data preprocessing methods are
 developed based on the principles of completeness, accuracy, threshold
 method, and linear interpolation and through the setting of constraint
 conditions, time completion & recovery, and fast & efficient calculation
-of moving averages. Key preprocessing steps include deletions of variables
-and observations, outlier removal, and missing values (NA) interpolation,
+and grouping. Key preprocessing steps include deletions of variables and
+observations, outlier removal, and missing values (NA) interpolation,
 which are dependent on the incomplete and dispersed degrees of raw data.
 They clean data more accurately, keep more samples, and add no outliers
 after interpolation, compared with ordinary methods. Auto-identification
-of consecutive NA via moving averages is used in observation deletion,
-outlier removal, and NA interpolation; thus, new outliers are not
-generated in interpolation. Conditional extremum is proposed to realize
-point-by-point weighed outlier removal that saves non-outliers from being
-removed. Plus, time series interpolation with values to refer to within
-short periods further ensures reliable interpolation. These methods are
-based on and improved from the reference: Liang, C.-S., Wu, H., Li, H.-Y.,
-Zhang, Q., Li, Z. & He, K.-B. (2020)
+of consecutive NA via run-length based grouping is used in observation
+deletion, outlier removal, and NA interpolation; thus, new outliers are
+not generated in interpolation. Conditional extremum is proposed to
+realize point-by-point weighed outlier removal that saves non-outliers
+from being removed. Plus, time series interpolation with values to refer
+to within short periods further ensures reliable interpolation. These
+methods are based on and improved from the reference: Liang, C.-S., Wu,
+H., Li, H.-Y., Zhang, Q., Li, Z. & He, K.-B. (2020)
 <doi:10.1016/j.scitotenv.2020.140923>.
 
 %prep
