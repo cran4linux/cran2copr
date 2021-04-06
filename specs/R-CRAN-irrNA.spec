@@ -1,11 +1,11 @@
 %global packname  irrNA
-%global packver   0.2.0
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Coefficients of Interrater Reliability - Generalized for Randomly Incomplete Datasets
+Summary:          Coefficients of Interrater Reliability – Generalized for Randomly Incomplete Datasets
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}

@@ -1,32 +1,35 @@
-%global packname  webfakes
-%global packver   1.1.2
+%global packname  metabolighteR
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fake Web Apps for HTTP Testing
+Summary:          Interface to the 'Metabolights' REST API
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-crayon 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-crayon 
 
 %description
-Create a web app that makes it easier to test web clients without using
-the internet. It includes a web app framework with path matching,
-parameters and templates. Can parse various 'HTTP' request bodies. Can
-send 'JSON' data or files from the disk. Includes a web app that
-implements the <https://httpbin.org> web service.
+Access to the 'Metabolights' REST API
+<https://www.ebi.ac.uk/metabolights/index>. Retrieve elements of publicly
+available 'Metabolights' studies.
 
 %prep
 %setup -q -c -n %{packname}

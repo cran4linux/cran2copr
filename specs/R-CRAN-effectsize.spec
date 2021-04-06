@@ -1,9 +1,9 @@
 %global packname  effectsize
-%global packver   0.4.4
+%global packver   0.4.4-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.4.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Indices of Effect Size and Standardized Parameters
 
@@ -16,12 +16,12 @@ BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bayestestR >= 0.8.2
-BuildRequires:    R-CRAN-insight >= 0.13.1
+BuildRequires:    R-CRAN-insight >= 0.13.2
 BuildRequires:    R-CRAN-parameters >= 0.12.0
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-bayestestR >= 0.8.2
-Requires:         R-CRAN-insight >= 0.13.1
+Requires:         R-CRAN-insight >= 0.13.2
 Requires:         R-CRAN-parameters >= 0.12.0
 Requires:         R-stats 
 Requires:         R-utils 

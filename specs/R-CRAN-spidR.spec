@@ -1,9 +1,9 @@
 %global packname  spidR
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spider Biodiversity Tools
 
@@ -31,9 +31,12 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Allows the user to connect with the World Spider Catalogue
-(<https://wsc.nmbe.ch/>) and the World Spider Trait
-(<https://spidertraits.sci.muni.cz/>) databases.
+Allows the user to connect with the World Spider Catalogue (WSC;
+<https://wsc.nmbe.ch/>) and the World Spider Trait (WST;
+<https://spidertraits.sci.muni.cz/>) databases. Also performs several
+basic functions such as checking names validity, retrieving coordinate
+data from the Global Biodiversity Information Facility (GBIF;
+<https://www.gbif.org/>), and mapping.
 
 %prep
 %setup -q -c -n %{packname}

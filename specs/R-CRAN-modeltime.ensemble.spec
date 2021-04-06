@@ -1,9 +1,9 @@
 %global packname  modeltime.ensemble
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ensemble Algorithms for Time Series Forecasting with Modeltime
 
@@ -17,15 +17,15 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-timetk >= 2.5.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-modeltime >= 0.3.0
+BuildRequires:    R-CRAN-modeltime >= 0.5.1
+BuildRequires:    R-CRAN-workflows >= 0.2.1
+BuildRequires:    R-CRAN-parsnip >= 0.1.4
+BuildRequires:    R-CRAN-tune >= 0.1.2
 BuildRequires:    R-CRAN-rlang >= 0.1.2
+BuildRequires:    R-CRAN-recipes >= 0.1.15
 BuildRequires:    R-CRAN-modeltime.resample >= 0.1.0
-BuildRequires:    R-CRAN-tune 
 BuildRequires:    R-CRAN-rsample 
 BuildRequires:    R-CRAN-yardstick 
-BuildRequires:    R-CRAN-workflows 
-BuildRequires:    R-CRAN-parsnip 
-BuildRequires:    R-CRAN-recipes 
 BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
@@ -42,15 +42,15 @@ BuildRequires:    R-CRAN-progressr
 BuildRequires:    R-CRAN-tictoc 
 Requires:         R-CRAN-timetk >= 2.5.0
 Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-modeltime >= 0.3.0
+Requires:         R-CRAN-modeltime >= 0.5.1
+Requires:         R-CRAN-workflows >= 0.2.1
+Requires:         R-CRAN-parsnip >= 0.1.4
+Requires:         R-CRAN-tune >= 0.1.2
 Requires:         R-CRAN-rlang >= 0.1.2
+Requires:         R-CRAN-recipes >= 0.1.15
 Requires:         R-CRAN-modeltime.resample >= 0.1.0
-Requires:         R-CRAN-tune 
 Requires:         R-CRAN-rsample 
 Requires:         R-CRAN-yardstick 
-Requires:         R-CRAN-workflows 
-Requires:         R-CRAN-parsnip 
-Requires:         R-CRAN-recipes 
 Requires:         R-CRAN-dials 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 

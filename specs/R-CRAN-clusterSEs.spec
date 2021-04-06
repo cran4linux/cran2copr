@@ -1,9 +1,9 @@
 %global packname  clusterSEs
-%global packver   2.6.4
+%global packver   2.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.4
+Version:          2.6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Cluster-Robust p-Values and Confidence Intervals
 
@@ -15,22 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-mlogit >= 1.1.0
 BuildRequires:    R-CRAN-AER 
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-plm 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-lmtest 
-BuildRequires:    R-CRAN-mlogit 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-dfidx 
+Requires:         R-CRAN-mlogit >= 1.1.0
 Requires:         R-CRAN-AER 
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-plm 
 Requires:         R-stats 
 Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-lmtest 
-Requires:         R-CRAN-mlogit 
 Requires:         R-utils 
 Requires:         R-CRAN-dfidx 
 

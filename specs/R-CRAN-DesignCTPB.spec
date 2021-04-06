@@ -1,32 +1,37 @@
-%global packname  webfakes
-%global packver   1.1.2
+%global packname  DesignCTPB
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fake Web Apps for HTTP Testing
+Summary:          Design Clinical Trials with Potential Biomarker Effect
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-mnormt 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-plotly 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-mnormt 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-plotly 
 
 %description
-Create a web app that makes it easier to test web clients without using
-the internet. It includes a web app framework with path matching,
-parameters and templates. Can parse various 'HTTP' request bodies. Can
-send 'JSON' data or files from the disk. Includes a web app that
-implements the <https://httpbin.org> web service.
+Applying 'CUDA' 'GPUs' via 'Numba' for optimal clinical design. It allows
+the user to utilize a 'reticulate' 'Python' environment and run intensive
+Monte Carlo simulation to get the optimal cutoff for the clinical design
+with potential biomarker effect, which can guide the realistic clinical
+trials.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
-%global packname  lvmisc
+%global packname  modeltime.h2o
 %global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Veras Miscellaneous
+Summary:          Modeltime 'H2O' Machine Learning
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,39 +15,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 0.4.6
-BuildRequires:    R-CRAN-vctrs >= 0.3.0
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rsample 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-timetk >= 2.6.0
+BuildRequires:    R-CRAN-modeltime >= 0.4.1
+BuildRequires:    R-CRAN-parsnip >= 0.1.4
+BuildRequires:    R-CRAN-rlang >= 0.1.2
+BuildRequires:    R-CRAN-h2o 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-rlang >= 0.4.6
-Requires:         R-CRAN-vctrs >= 0.3.0
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
-Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rsample 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-fs 
+Requires:         R-CRAN-timetk >= 2.6.0
+Requires:         R-CRAN-modeltime >= 0.4.1
+Requires:         R-CRAN-parsnip >= 0.1.4
+Requires:         R-CRAN-rlang >= 0.1.2
+Requires:         R-CRAN-h2o 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-stats 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-fs 
 
 %description
-Contains a collection of useful functions for basic data computation and
-manipulation, wrapper functions for generating 'ggplot2' graphics,
-including statistical model diagnostic plots, methods for computing
-statistical models quality measures (such as AIC, BIC, r squared, root
-mean squared error) and general utilities.
+Use the 'H2O' machine learning library inside of 'modeltime'. Available
+models include 'AutoML' for Automatic Machine Learning. Please see H2O.ai
+for more information <https://github.com/h2oai/h2o-3>.
 
 %prep
 %setup -q -c -n %{packname}
