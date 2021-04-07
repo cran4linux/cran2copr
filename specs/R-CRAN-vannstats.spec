@@ -1,23 +1,43 @@
-%global packname  Rsymphony
-%global packver   0.1-31
+%global packname  vannstats
+%global packver   1.0.3.27
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.31
+Version:          1.0.3.27
 Release:          1%{?dist}%{?buildtag}
-Summary:          SYMPHONY in R
+Summary:          Simplified Statistics for Vann PA 606
 
-License:          EPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    coin-or-SYMPHONY-devel
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel >= 3.2.3
+Requires:         R-core >= 3.2.3
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-purrr 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-An R interface to the SYMPHONY solver for mixed-integer linear programs.
+Simplifies functions assess normality for bivariate and multivariate
+statistical techniques, including hst(), box(), and qq(). Plots designed
+to replicate those that would result from similar calls in 'SPSS'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,49 +1,50 @@
-%global packname  readrba
-%global packver   0.1.1
+%global packname  GetFREData
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Tidy Data from the Reserve Bank of Australia
+Summary:          Reading FRE Corporate Data of Public Traded Companies from B3
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-readxl >= 1.3.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-rvest >= 0.3.6
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-lubridate 
-Requires:         R-CRAN-readxl >= 1.3.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-rvest >= 0.3.6
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-XML 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-XML 
 
 %description
-Download up-to-date data from the Reserve Bank of Australia in a tidy data
-frame. Package includes functions to download current and historical
-statistical tables (<https://www.rba.gov.au/statistics/tables/>) and
-forecasts
-(<https://www.rba.gov.au/publications/smp/forecasts-archive.html>). Data
-includes a broad range of Australian macroeconomic and financial time
-series.
+Reads corporate data such as board composition and compensation for
+companies traded at B3, the Brazilian exchange <http://www.b3.com.br/>.
+All data is downloaded and imported from the ftp site
+<http://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/FRE/>.
 
 %prep
 %setup -q -c -n %{packname}

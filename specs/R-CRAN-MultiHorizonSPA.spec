@@ -1,46 +1,29 @@
-%global packname  RcmdrPlugin.RiskDemo
-%global packver   3.0
+%global packname  MultiHorizonSPA
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Commander Plug-in for Risk Demonstration
+Summary:          Multi Horizon Superior Predictive Ability
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    xorg-x11-server-Xvfb
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-matlab 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rcmdr 
-BuildRequires:    R-CRAN-demography 
-BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-ftsa 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-matlab 
 Requires:         R-stats 
-Requires:         R-CRAN-Rcmdr 
-Requires:         R-CRAN-demography 
-Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-ftsa 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-data.table 
 
 %description
-R Commander plug-in to demonstrate various actuarial and financial risks.
-It includes valuation of bonds and stocks, portfolio optimization,
-classical ruin theory, demography and epidemic.
+Run the Multi Horizon Superior Predictive Ability test to compare the
+predictive performance of two distinct models when jointly considering all
+horizons of a forecast path.
 
 %prep
 %setup -q -c -n %{packname}
@@ -58,7 +41,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %install
 
 mkdir -p %{buildroot}%{rlibdir}
-xvfb-run %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 # remove buildroot from installed files

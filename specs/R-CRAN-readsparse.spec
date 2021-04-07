@@ -1,23 +1,32 @@
-%global packname  Rsymphony
-%global packver   0.1-31
+%global packname  readsparse
+%global packver   0.1.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.31
+Version:          0.1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          SYMPHONY in R
+Summary:          Read and Write Sparse Matrices in 'SVMLight' and 'LibSVM' Formats
 
-License:          EPL
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    coin-or-SYMPHONY-devel
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
 
 %description
-An R interface to the SYMPHONY solver for mixed-integer linear programs.
+Read and write labelled sparse matrices in text format as used by software
+such as 'SVMLight', 'LibSVM', 'ThunderSVM', 'LibFM', 'xLearn', 'XGBoost',
+'LightGBM', and others. Supports labelled data for regression,
+classification (binary, multi-class, multi-label), and ranking (with 'qid'
+field), and can handle header metadata and comments in files.
 
 %prep
 %setup -q -c -n %{packname}

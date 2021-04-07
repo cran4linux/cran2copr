@@ -1,9 +1,9 @@
 %global packname  pkgload
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate Package Installation and Attach
 
@@ -19,7 +19,6 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-desc 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pkgbuild 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rprojroot 
 BuildRequires:    R-CRAN-rstudioapi 
@@ -29,7 +28,6 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-desc 
 Requires:         R-methods 
-Requires:         R-CRAN-pkgbuild 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rprojroot 
 Requires:         R-CRAN-rstudioapi 

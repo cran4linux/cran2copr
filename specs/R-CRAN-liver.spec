@@ -1,9 +1,9 @@
 %global packname  liver
-%global packver   1.5
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          "Eating the Liver of Data Science"
 
@@ -16,7 +16,9 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-class 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-class 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Provides a collection of helper functions that make various techniques

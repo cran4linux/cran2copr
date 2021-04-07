@@ -1,9 +1,9 @@
 %global packname  RJcluster
-%global packver   0.1.2
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          2.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          RJ Clustering Algorithm
 
@@ -36,7 +36,15 @@ Requires:         R-CRAN-foreach
 
 %description
 Clustering algorithm for high dimensional data. This algorithm is ideal
-for data where n << p.
+for data where N << P. Assuming that P feature measurements on N objects
+are arranged in an N×P matrix X, this package provides clustering based on
+the left Gram matrix XX^T. When the P-dimensional feature vectors of
+objects are drawn independently from a K distinct mixture distribution,
+the N-dimensional rows of the modified Gram matrix XX^T/P converges almost
+surely to K distinct cluster means. This transformation/projection thus
+allows the clusters to be tighter with order of P.  To simulate data, type
+"help('simulate_HD_data')" and to learn how to use the clustering
+algorithm, type "help('RJclust')".
 
 %prep
 %setup -q -c -n %{packname}

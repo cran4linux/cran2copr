@@ -1,23 +1,33 @@
-%global packname  Rsymphony
-%global packver   0.1-31
+%global packname  gamlss.lasso
+%global packver   1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.31
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          SYMPHONY in R
+Summary:          Extra Lasso-Type Additive Terms for GAMLSS
 
-License:          EPL
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    coin-or-SYMPHONY-devel
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel >= 2.15.0
+Requires:         R-core >= 2.15.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-gamlss >= 2.4.0
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-lars 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-gamlss >= 2.4.0
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-lars 
+Requires:         R-CRAN-Matrix 
 
 %description
-An R interface to the SYMPHONY solver for mixed-integer linear programs.
+Interface for extra high-dimensional smooth functions for Generalized
+Additive Models for Location Scale and Shape (GAMLSS) including lasso,
+ridge, elastic net and least angle regression.
 
 %prep
 %setup -q -c -n %{packname}

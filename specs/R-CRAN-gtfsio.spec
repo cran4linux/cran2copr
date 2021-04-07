@@ -1,23 +1,35 @@
-%global packname  Rsymphony
-%global packver   0.1-31
+%global packname  gtfsio
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.31
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          SYMPHONY in R
+Summary:          Read and Write General Transit Feed Specification (GTFS) Files
 
-License:          EPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    coin-or-SYMPHONY-devel
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-data.table 
+Requires:         R-utils 
+Requires:         R-CRAN-zip 
 
 %description
-An R interface to the SYMPHONY solver for mixed-integer linear programs.
+Tools for the development of packages related to General Transit Feed
+Specification (GTFS) files. Establishes a standard for representing GTFS
+feeds using R data types. Provides fast and flexible functions to read and
+write GTFS feeds while sticking to this standard. Defines a basic 'gtfs'
+class which is meant to be extended by packages that depend on it. And
+offers utility functions that support checking the structure of GTFS
+objects.
 
 %prep
 %setup -q -c -n %{packname}

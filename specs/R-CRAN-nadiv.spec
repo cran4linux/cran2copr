@@ -1,9 +1,9 @@
 %global packname  nadiv
-%global packver   2.17.0
+%global packver   2.17.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.17.0
+Version:          2.17.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          (Non)Additive Genetic Relatedness Matrices
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 

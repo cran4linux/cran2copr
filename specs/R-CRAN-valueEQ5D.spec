@@ -1,9 +1,9 @@
 %global packname  valueEQ5D
-%global packver   0.6.1
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scoring the EQ-5D Descriptive System
 
@@ -15,10 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-testthat 
 Requires:         R-utils 
 

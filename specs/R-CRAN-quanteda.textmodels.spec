@@ -1,9 +1,9 @@
 %global packname  quanteda.textmodels
-%global packver   0.9.3
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.9.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scaling Models and Classifiers for Textual Data
 

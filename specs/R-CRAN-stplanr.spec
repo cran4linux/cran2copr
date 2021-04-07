@@ -1,9 +1,9 @@
 %global packname  stplanr
-%global packver   0.8.1
+%global packver   0.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sustainable Transport Planning
 
@@ -35,6 +35,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-sfheaders 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-pbapply 
 Requires:         R-CRAN-curl >= 3.2
 Requires:         R-CRAN-raster >= 2.6.7
 Requires:         R-CRAN-geosphere >= 1.5.7
@@ -55,6 +56,7 @@ Requires:         R-methods
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-sfheaders 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-pbapply 
 
 %description
 Tools for transport planning with an emphasis on spatial transport data

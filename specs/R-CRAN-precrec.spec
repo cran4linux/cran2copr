@@ -1,9 +1,9 @@
 %global packname  precrec
-%global packver   0.12.1
+%global packver   0.12.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.1
+Version:          0.12.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Accurate Precision-Recall and ROC (Receiver Operator Characteristics) Curves
 

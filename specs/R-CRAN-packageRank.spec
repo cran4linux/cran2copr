@@ -1,9 +1,9 @@
 %global packname  packageRank
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computation and Visualization of Package Download Counts and Percentiles
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-R.utils
 BuildRequires:    R-CRAN-rversions 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-sugrrants 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table >= 1.12.2
 Requires:         R-CRAN-cranlogs 
@@ -38,6 +39,7 @@ Requires:         R-CRAN-R.utils
 Requires:         R-CRAN-rversions 
 Requires:         R-stats 
 Requires:         R-CRAN-sugrrants 
+Requires:         R-tools 
 Requires:         R-utils 
 
 %description

@@ -1,23 +1,29 @@
-%global packname  Rsymphony
-%global packver   0.1-31
+%global packname  fcci
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.31
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          SYMPHONY in R
+Summary:          Feldman-Cousins Confidence Intervals
 
-License:          EPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    coin-or-SYMPHONY-devel
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-rlang 
 
 %description
-An R interface to the SYMPHONY solver for mixed-integer linear programs.
+Provides support for building Feldman-Cousins confidence intervals [G. J.
+Feldman and R. D. Cousins (1998) <doi:10.1103/PhysRevD.57.3873>].
 
 %prep
 %setup -q -c -n %{packname}

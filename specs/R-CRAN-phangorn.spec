@@ -1,9 +1,9 @@
 %global packname  phangorn
-%global packver   2.6.2
+%global packver   2.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.2
+Version:          2.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Phylogenetic Reconstruction and Analysis
 
@@ -17,29 +17,29 @@ Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-ape >= 5.4
 BuildRequires:    R-CRAN-Rcpp >= 1.0.4
 BuildRequires:    R-CRAN-igraph >= 1.0
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-parallel 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-fastmatch 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-fastmatch 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-ape >= 5.4
 Requires:         R-CRAN-Rcpp >= 1.0.4
 Requires:         R-CRAN-igraph >= 1.0
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-Matrix 
-Requires:         R-parallel 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-stats 
+Requires:         R-CRAN-fastmatch 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-fastmatch 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-parallel 
+Requires:         R-CRAN-quadprog 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Allows for estimation of phylogenetic trees and networks using Maximum

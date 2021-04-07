@@ -1,23 +1,38 @@
-%global packname  Rsymphony
-%global packver   0.1-31
+%global packname  multiridge
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.31
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          SYMPHONY in R
+Summary:          Fast Cross-Validation for Multi-Penalty Ridge Regression
 
-License:          EPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    coin-or-SYMPHONY-devel
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-risksetROC 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-snowfall 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-risksetROC 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-snowfall 
 
 %description
-An R interface to the SYMPHONY solver for mixed-integer linear programs.
+Multi-penalty linear, logistic and cox ridge regression, including
+estimation of the penalty parameters by efficient (repeated)
+cross-validation and marginal likelihood maximization. Multiple
+high-dimensional data types that require penalization are allowed, as well
+as unpenalized variables. Paired and preferential data types can be
+specified. See Van de Wiel et al. (2021), <arXiv:2005.09301>.
 
 %prep
 %setup -q -c -n %{packname}
