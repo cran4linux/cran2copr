@@ -1,11 +1,11 @@
-%global packname  aopdata
-%global packver   0.2.1
+%global packname  rnpn
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data from the 'Access to Opportunities Project (AOP)'
+Summary:          Interface to the National 'Phenology' Network 'API'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,24 +15,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.4.1
-BuildRequires:    R-CRAN-sf >= 0.9.3
+BuildRequires:    R-CRAN-data.table >= 1.9.6
+BuildRequires:    R-CRAN-httr >= 1.1.0
+BuildRequires:    R-CRAN-sp >= 1.1.0
+BuildRequires:    R-CRAN-jsonlite >= 0.9.19
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-sf >= 0.9.3
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-data.table >= 1.9.6
+Requires:         R-CRAN-httr >= 1.1.0
+Requires:         R-CRAN-sp >= 1.1.0
+Requires:         R-CRAN-jsonlite >= 0.9.19
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-data.table 
-Requires:         R-utils 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-magrittr 
 
 %description
-Download data from the 'Access to Opportunities Project (AOP)'. The
-'aopdata' package brings annual estimates of access to employment, health
-and education services by transport mode, as well as data on the spatial
-distribution of population, schools and health-care facilities at a fine
-spatial resolution for all cities included in the study. More info on the
-'AOP' website <https://www.ipea.gov.br/acessooportunidades/en/>.
+Programmatic interface to the Web Service methods provided by the National
+'Phenology' Network (<https://usanpn.org/>), which includes data on
+various life history events that occur at specific times.
 
 %prep
 %setup -q -c -n %{packname}

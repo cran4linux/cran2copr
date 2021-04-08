@@ -1,11 +1,11 @@
 %global packname  plu
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pluralize Phrases
+Summary:          Dynamically Pluralize Phrases
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,12 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-backports 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringi 
 
 %description
 Converts English phrases to singular or plural form based on the length of

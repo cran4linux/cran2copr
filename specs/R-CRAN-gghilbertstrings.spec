@@ -1,31 +1,42 @@
-%global packname  akiFlagger
-%global packver   0.3.0
+%global packname  gghilbertstrings
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Flags Acute Kidney Injury (AKI)
+Summary:          A Fast 'ggplot2'-Based Implementation of Hilbert Curves
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rlang 
 
 %description
-Flagger to detect acute kidney injury (AKI) in a patient dataset.
+A set of functions that help to create plots based on Hilbert curves.
+Hilbert curves are used to map one dimensional data into the 2D plane. The
+package provides a function that generate a 2D coordinate from an integer
+position. As a specific use case the package provides a function that
+allows mapping a character column in a data frame into 2D space using
+'ggplot2'. This allows visually comparing long lists of URLs, words, genes
+or other data that has a fixed order and position.
 
 %prep
 %setup -q -c -n %{packname}

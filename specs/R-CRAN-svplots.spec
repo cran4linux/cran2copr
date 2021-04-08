@@ -1,33 +1,34 @@
-%global packname  HSAUR3
-%global packver   1.0-11
+%global packname  svplots
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.11
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Handbook of Statistical Analyses Using R (3rd Edition)
+Summary:          Sample Variance Plots (Sv-Plots)
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
 BuildArch:        noarch
-BuildRequires:    R-tools 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Functions, data sets, analyses and examples from the third edition of the
-book ''A Handbook of Statistical Analyses Using R'' (Torsten Hothorn and
-Brian S. Everitt, Chapman & Hall/CRC, 2014). The first chapter of the
-book, which is entitled ''An Introduction to R'', is completely included
-in this package, for all other chapters, a vignette containing all data
-analyses is available. In addition, Sweave source code for slides of
-selected chapters is included in this package (see HSAUR3/inst/slides).
-The publishers web page is
-'<http://www.crcpress.com/product/isbn/9781482204582>'.
+Two versions of sample variance plots, Sv-plot1 and Sv-plot2, will be
+provided illustrating the squared deviations from sample variance. Besides
+indicating the contribution of squared deviations for the sample
+variability, these plots are capable of detecting characteristics of the
+distribution such as symmetry, skewness and outliers. A remarkable
+graphical method based on Sv-plot2 can determine the decision on testing
+hypotheses over one or two population means. In sum, Sv-plots will be
+appealing visualization tools. Complete description of this methodology
+can be found in the article, Wijesuriya (2020)
+<doi:10.1080/03610918.2020.1851716>.
 
 %prep
 %setup -q -c -n %{packname}

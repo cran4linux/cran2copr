@@ -1,9 +1,9 @@
 %global packname  rNeighborGWAS
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Testing Neighbor Effects in Marker-Based Regressions
 
@@ -12,25 +12,26 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-gaston 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-RcppParallel 
 Requires:         R-CRAN-gaston 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-RcppParallel 
 Requires:         R-stats 
 Requires:         R-graphics 
-Requires:         R-CRAN-RcppParallel 
 
 %description
 To incorporate neighbor genotypic identity into genome-wide association
 studies, the package provides a set of functions for variation
 partitioning and association mapping. The theoretical background of the
-method is described in Sato et al. (2019) <doi:10.1101/845735>.
+method is described in Sato et al. (2021)
+<doi:10.1038/s41437-020-00401-w>.
 
 %prep
 %setup -q -c -n %{packname}

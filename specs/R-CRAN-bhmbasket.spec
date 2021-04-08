@@ -1,9 +1,9 @@
 %global packname  bhmbasket
-%global packver   0.9.1
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Hierarchical Models for Basket Trials
 
@@ -29,11 +29,13 @@ Provides functions for the evaluation of basket trial designs with binary
 endpoints. Operating characteristics of a basket trial design are assessed
 by simulating trial data according to scenarios, analyzing the data with
 Bayesian hierarchical models (BHMs), and assessing decision probabilities
-based on Go / No-go decision making. The BHMs proposed by Berry et al.
-(2013) <doi:10.1177/1740774513497539> and Neuenschwander et al. (2016)
-<doi:10.1002/pst.1730>, as well as a model that combines both approaches
-are implemented. Functions are provided to implement Bayesian decision
-rules as for example proposed by Fisch et al. (2015)
+on stratum and trial-level based on Go / No-go decision making. The
+package is build for high flexibility regarding decision rules, number of
+interim analyses, number of strata, and recruitment. The BHMs proposed by
+Berry et al. (2013) <doi:10.1177/1740774513497539> and Neuenschwander et
+al. (2016) <doi:10.1002/pst.1730>, as well as a model that combines both
+approaches are implemented. Functions are provided to implement Bayesian
+decision rules as for example proposed by Fisch et al. (2015)
 <doi:10.1177/2168479014533970>. In addition, posterior point estimates
 (mean/median) and credible intervals for response rates and some model
 parameters can be calculated. For simulated trial data, bias and mean

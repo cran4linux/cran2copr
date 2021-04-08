@@ -1,33 +1,36 @@
-%global packname  HSAUR3
-%global packver   1.0-11
+%global packname  TAF
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.11
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Handbook of Statistical Analyses Using R (3rd Edition)
+Summary:          Functions to Support the ICES Transparent Assessment Framework
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-stats 
 BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-grDevices 
+Requires:         R-CRAN-lattice 
+Requires:         R-stats 
 Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Functions, data sets, analyses and examples from the third edition of the
-book ''A Handbook of Statistical Analyses Using R'' (Torsten Hothorn and
-Brian S. Everitt, Chapman & Hall/CRC, 2014). The first chapter of the
-book, which is entitled ''An Introduction to R'', is completely included
-in this package, for all other chapters, a vignette containing all data
-analyses is available. In addition, Sweave source code for slides of
-selected chapters is included in this package (see HSAUR3/inst/slides).
-The publishers web page is
-'<http://www.crcpress.com/product/isbn/9781482204582>'.
+Functions to support the ICES Transparent Assessment Framework
+<https://taf.ices.dk> to organize data, methods, and results used in ICES
+assessments. ICES is an organization facilitating international
+collaboration in marine science.
 
 %prep
 %setup -q -c -n %{packname}

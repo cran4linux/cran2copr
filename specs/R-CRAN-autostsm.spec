@@ -1,9 +1,9 @@
 %global packname  autostsm
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Structural Time Series Models
 
@@ -55,10 +55,13 @@ Requires:         R-CRAN-tseries >= 0.1
 
 %description
 Automatic model selection for structural time series decomposition into
-trend, cycle, and seasonal components using the Kalman filter. See
-Koopman, Siem Jan and Marius Ooms (2012) "Forecasting Economic Time Series
-Using Unobserved Components Time Series Models
-<doi:10.1093/oxfordhb/9780195398649.013.0006>.
+trend, cycle, and seasonal components using the Kalman filter. Koopman,
+Siem Jan and Marius Ooms (2012) "Forecasting Economic Time Series Using
+Unobserved Components Time Series Models"
+<doi:10.1093/oxfordhb/9780195398649.013.0006>. Kim, Chang-Jin and Charles
+R. Nelson (1999) "State-Space Models with Regime Switching: Classical and
+Gibbs-Sampling Approaches with Applications"
+<doi:10.7551/mitpress/6444.001.0001><http://econ.korea.ac.kr/~cjkim/>.
 
 %prep
 %setup -q -c -n %{packname}

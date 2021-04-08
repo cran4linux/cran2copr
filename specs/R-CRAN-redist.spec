@@ -1,9 +1,9 @@
 %global packname  redist
-%global packver   2.0.2
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation Methods for Legislative Redistricting
 
@@ -16,43 +16,37 @@ BuildRequires:    gmp-devel
 BuildRequires:    libxml2-devel
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-lwgeom 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-servr 
 BuildRequires:    R-CRAN-sys 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-spdep 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-coda 
-Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-lwgeom 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-servr 
 Requires:         R-CRAN-sys 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-readr 
 
 %description
 Enables researchers to sample redistricting plans from a pre-specified

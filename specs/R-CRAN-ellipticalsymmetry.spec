@@ -1,9 +1,9 @@
 %global packname  ellipticalsymmetry
-%global packver   0.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Elliptical Symmetry Tests
 
@@ -17,17 +17,23 @@ Requires:         R-core >= 2.4.0
 BuildArch:        noarch
 BuildRequires:    R-stats >= 2.4.0
 BuildRequires:    R-datasets >= 2.4.0
+BuildRequires:    R-CRAN-doRNG >= 1.8.2
+BuildRequires:    R-CRAN-foreach >= 1.5.1
 BuildRequires:    R-CRAN-ICSNP >= 1.1.1
+BuildRequires:    R-CRAN-doParallel >= 1.0.16
 Requires:         R-stats >= 2.4.0
 Requires:         R-datasets >= 2.4.0
+Requires:         R-CRAN-doRNG >= 1.8.2
+Requires:         R-CRAN-foreach >= 1.5.1
 Requires:         R-CRAN-ICSNP >= 1.1.1
+Requires:         R-CRAN-doParallel >= 1.0.16
 
 %description
 Given the omnipresence of the assumption of elliptical symmetry, it is
 essential to be able to test whether that assumption actually holds true
 or not for the data at hand. This package provides several statistical
-tests for elliptical symmetry that are described in Babic et al. (2020)
-<arXiv:2011.12560>.
+tests for elliptical symmetry that are described in Babic et al. (2021)
+<arXiv:2011.12560v2>.
 
 %prep
 %setup -q -c -n %{packname}

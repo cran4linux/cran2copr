@@ -1,9 +1,9 @@
 %global packname  stevedata
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Steve's Toy Data for Teaching About a Variety of Methodological, Social, and Political Topics
 

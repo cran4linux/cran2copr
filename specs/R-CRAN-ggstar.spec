@@ -1,11 +1,11 @@
 %global packname  ggstar
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Star Layer for 'ggplot2'
+Summary:          Multiple Geometric Shape Point Layer for 'ggplot2'
 
 License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,8 +27,9 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-gridExtra 
 
 %description
-To create the regular polygon layer for easily discernible shapes, we
-developed the package, it can be easily used if you know the 'ggplot2'.
+To create the multiple polygonal point layer for easily discernible
+shapes, we developed the package, it is like the 'geom_point' of
+'ggplot2'. It can be used to draw the scatter plot.
 
 %prep
 %setup -q -c -n %{packname}
