@@ -1,9 +1,9 @@
 %global packname  percentiles
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate (Stratified) Percentiles
 
@@ -17,9 +17,11 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-assertive.types 
+BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-R6 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-assertive.types 
+Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-R6 
 
 %description

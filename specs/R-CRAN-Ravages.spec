@@ -1,9 +1,9 @@
 %global packname  Ravages
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rare Variant Analysis and Genetic Simulations
 
@@ -33,8 +33,8 @@ Requires:         R-CRAN-dfidx
 
 %description
 Rare variant association tests: burden tests (Bocher et al. 2019
-<doi:10.1002/gepi.22210>) and the Sequence Kernel Association Test; and
-genetic simulations.
+<doi:10.1002/gepi.22210>) and the Sequence Kernel Association Test (Bocher
+et al. 2021 <doi:10.1038/s41431-020-00792-8>); and genetic simulations.
 
 %prep
 %setup -q -c -n %{packname}

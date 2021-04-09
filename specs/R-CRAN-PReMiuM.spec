@@ -1,10 +1,10 @@
 %global packname  PReMiuM
-%global packver   3.2.3
+%global packver   3.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.3
-Release:          3%{?dist}%{?buildtag}
+Version:          3.2.5
+Release:          1%{?dist}%{?buildtag}
 Summary:          Dirichlet Process Bayesian Clustering, Profile Regression
 
 License:          GPL-2
@@ -12,29 +12,26 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    make
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-gamlss.dist >= 4.3.1
 BuildRequires:    R-CRAN-plotrix >= 3.6.6
 BuildRequires:    R-CRAN-ggplot2 >= 2.2
 BuildRequires:    R-CRAN-BH >= 1.65.0.1
 BuildRequires:    R-CRAN-rgdal >= 1.3.3
 BuildRequires:    R-CRAN-data.table >= 1.10.4.3
-BuildRequires:    R-CRAN-ald >= 1.1
 BuildRequires:    R-CRAN-spdep >= 0.7.7
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.13
-BuildRequires:    R-cluster 
+BuildRequires:    R-CRAN-cluster 
 Requires:         R-CRAN-gamlss.dist >= 4.3.1
 Requires:         R-CRAN-plotrix >= 3.6.6
 Requires:         R-CRAN-ggplot2 >= 2.2
 Requires:         R-CRAN-rgdal >= 1.3.3
 Requires:         R-CRAN-data.table >= 1.10.4.3
-Requires:         R-CRAN-ald >= 1.1
 Requires:         R-CRAN-spdep >= 0.7.7
 Requires:         R-CRAN-Rcpp >= 0.12.13
-Requires:         R-cluster 
+Requires:         R-CRAN-cluster 
 
 %description
 Bayesian clustering using a Dirichlet process mixture model. This model is
@@ -57,6 +54,13 @@ Hastie, Azizi, Papathomas and Richardson (2015)
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -64,19 +68,10 @@ Hastie, Azizi, Papathomas and Richardson (2015)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/shapes
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

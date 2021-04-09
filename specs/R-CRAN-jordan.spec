@@ -1,44 +1,39 @@
-%global packname  TMB
-%global packver   1.7.20
+%global packname  jordan
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.20
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Template Model Builder: A General Random Effect Tool Inspired by 'ADMB'
+Summary:          A Suite of Routines for Working with Jordan Algebras
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         gcc-c++
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-Matrix >= 1.0.12
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-onion >= 1.4.0
+BuildRequires:    R-CRAN-emulator 
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Matrix >= 1.0.12
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-mathjaxr 
+Requires:         R-CRAN-onion >= 1.4.0
+Requires:         R-CRAN-emulator 
 Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-mathjaxr 
 
 %description
-With this tool, a user should be able to quickly implement complex random
-effect models through simple C++ templates. The package combines 'CppAD'
-(C++ automatic differentiation), 'Eigen' (templated matrix-vector library)
-and 'CHOLMOD' (sparse matrix routines available from R) to obtain an
-efficient implementation of the applied Laplace approximation with exact
-derivatives. Key features are: Automatic sparseness detection, parallelism
-through 'BLAS' and parallel user templates.
+A Jordan algebra is an algebraic object originally designed to study
+observables in quantum mechanics.  Jordan algebras are commutative but
+non-associative; they satisfy the Jordan identity.  The package follows
+the ideas and notation of K. McCrimmon (2004, ISBN:0-387-95447-3) "A Taste
+of Jordan Algebras".
 
 %prep
 %setup -q -c -n %{packname}
-sed -ie '/onAttach/,+4d' %{packname}/R/zzz.R
+
 # fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping

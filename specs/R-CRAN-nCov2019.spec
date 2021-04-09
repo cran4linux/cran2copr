@@ -1,13 +1,13 @@
-%global packname  bpDir
-%global packver   0.1.2
+%global packname  nCov2019
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Boxplots for Directional Data
+Summary:          Exploring 'COVID'-19 Statistics
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,21 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-circular 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-circular 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-MASS 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-downloader 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-RColorBrewer 
+Requires:         R-CRAN-downloader 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
-Functions for drawing boxplots for data on (the boundary of) a unit circle
-(i.e., circular and axial data), from Buttarazzi D., Pandolfo G., Porzio
-G.C. (2018) <doi:10.1111/biom.12889>.
+Provides easy-to-use programming API to access real time and historical
+data of 'COVID'-19 cases, vaccine and therapeutics data, and a Shiny app
+to help users exploring the data.  Fetching data using API provided by
+<https://disease.sh> .
 
 %prep
 %setup -q -c -n %{packname}

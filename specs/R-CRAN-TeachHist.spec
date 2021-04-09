@@ -1,35 +1,35 @@
-%global packname  bpDir
+%global packname  TeachHist
 %global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Boxplots for Directional Data
+Summary:          A Collection of Amended Histograms Designed for Teaching Statistics
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-circular 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-circular 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-MASS 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
 
 %description
-Functions for drawing boxplots for data on (the boundary of) a unit circle
-(i.e., circular and axial data), from Buttarazzi D., Pandolfo G., Porzio
-G.C. (2018) <doi:10.1111/biom.12889>.
+Statistics students often have problems understanding the relation between
+a random variable's true scale and its z-values. To allow instructors to
+better better visualize histograms for these students, the package
+provides histograms with two horizontal axis containing z-values and the
+true scale of the variable. The function TeachHistDens() provides a
+density histogram with two axis. TeachHistCounts() and TeachHistRelFreq()
+are variations for count and relative frequency histograms, respectively.
+TeachConfInterv() and TeachHypTest() help instructors to visualize
+confidence levels and the results of hypothesis tests.
 
 %prep
 %setup -q -c -n %{packname}

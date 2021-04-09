@@ -1,9 +1,9 @@
 %global packname  TPLSr
-%global packver   1.0.1
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Thresholded Partial Least Squares Model for Neuroimaging Data
 
@@ -12,15 +12,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-plotly >= 4.9.2.1
 Requires:         R-CRAN-plotly >= 4.9.2.1
 
 %description
 Uses thresholded partial least squares algorithm to create a regression or
-classification model.
+classification model. For more information, see Lee, Bradlow, and Kable
+<doi:10.1101/2021.02.09.430524>.
 
 %prep
 %setup -q -c -n %{packname}

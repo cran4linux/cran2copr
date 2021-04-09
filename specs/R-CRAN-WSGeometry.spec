@@ -1,9 +1,9 @@
 %global packname  WSGeometry
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compute Wasserstein Barycenters, Geodesics, PCA and Distances
 
@@ -18,23 +18,23 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-transport 
 BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-CRAN-Rsymphony 
 BuildRequires:    R-CRAN-plot3D 
 BuildRequires:    R-CRAN-imager 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-lpSolve 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-transport 
 Requires:         R-CRAN-RSpectra 
 Requires:         R-CRAN-expm 
-Requires:         R-CRAN-Rsymphony 
 Requires:         R-CRAN-plot3D 
 Requires:         R-CRAN-imager 
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-CRAN-lpSolve 
 
 %description
 Includes a variety of methods to compute objects related to the

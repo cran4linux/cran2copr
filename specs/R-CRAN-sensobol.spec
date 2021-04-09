@@ -1,9 +1,9 @@
 %global packname  sensobol
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computation of Variance-Based Sensitivity Indices
 
@@ -55,7 +55,10 @@ total-order estimators. Sobol' indices can be computed either for models
 that yield a scalar as a model output or for systems of differential
 equations. The package also provides a suit of benchmark tests functions
 and several options to obtain publication-ready figures of the model
-output uncertainty and sensitivity-related analysis.
+output uncertainty and sensitivity-related analysis. An overview of
+Sobol'-based sensitivity indices can be found in Saltelli et al. (2008,
+ISBN:9780470059975) and in Puy, Lo Piano, Saltelli, and Levin (2021)
+<arXiv:2101.10103>.
 
 %prep
 %setup -q -c -n %{packname}

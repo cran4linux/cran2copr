@@ -1,10 +1,10 @@
 %global debug_package %{nil}
 %global packname  RxODE
-%global packver   1.0.6
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Facilities for Simulating from ODE-Based Models
 
@@ -17,12 +17,12 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-StanHeaders >= 2.21.0
 BuildRequires:    R-CRAN-cli >= 2.0.0
+BuildRequires:    R-CRAN-dparser >= 1.3.1.0
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.300.2.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-PreciseSums >= 0.3
 BuildRequires:    R-CRAN-lotri >= 0.2.2
 BuildRequires:    R-CRAN-Rcpp >= 0.12.3
-BuildRequires:    R-CRAN-dparser >= 0.1.8
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-checkmate 
@@ -42,7 +42,7 @@ Requires:         R-CRAN-cli >= 2.0.0
 Requires:         R-CRAN-PreciseSums >= 0.3
 Requires:         R-CRAN-lotri >= 0.2.2
 Requires:         R-CRAN-Rcpp >= 0.12.3
-Requires:         R-CRAN-dparser >= 0.1.8
+Requires:         R-CRAN-dparser >= 1.3.1.0
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-backports 
 Requires:         R-CRAN-checkmate 

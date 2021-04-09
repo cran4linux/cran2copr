@@ -1,35 +1,35 @@
-%global packname  bpDir
-%global packver   0.1.2
+%global packname  ZIprop
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Boxplots for Directional Data
+Summary:          Permutations Tests and Performance Indicator for Zero-Inflated Proportions Response
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-circular 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-circular 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-MASS 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-rgenoud 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-rgenoud 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-data.table 
+Requires:         R-parallel 
 
 %description
-Functions for drawing boxplots for data on (the boundary of) a unit circle
-(i.e., circular and axial data), from Buttarazzi D., Pandolfo G., Porzio
-G.C. (2018) <doi:10.1111/biom.12889>.
+Permutations tests to identify factor correlated to zero-inflated
+proportions response. Provide a performance indicator based on Spearman
+correlation to quantify the part of correlation explained by the selected
+set of factors. See details for the method at the following preprint e.g.:
+<https://hal.archives-ouvertes.fr/hal-02936779v3>.
 
 %prep
 %setup -q -c -n %{packname}

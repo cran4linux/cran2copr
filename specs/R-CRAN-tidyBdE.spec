@@ -1,13 +1,13 @@
-%global packname  bpDir
-%global packver   0.1.2
+%global packname  tidyBdE
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Boxplots for Directional Data
+Summary:          Download Data from Bank of Spain
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,21 +15,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-circular 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-circular 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-MASS 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-tibble >= 3.0.0
+BuildRequires:    R-CRAN-scales >= 1.1.0
+BuildRequires:    R-CRAN-readr >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 0.7.0
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-tibble >= 3.0.0
+Requires:         R-CRAN-scales >= 1.1.0
+Requires:         R-CRAN-readr >= 1.0.0
+Requires:         R-CRAN-dplyr >= 0.7.0
 
 %description
-Functions for drawing boxplots for data on (the boundary of) a unit circle
-(i.e., circular and axial data), from Buttarazzi D., Pandolfo G., Porzio
-G.C. (2018) <doi:10.1111/biom.12889>.
+Tools to download data series from 'Banco de España' ('BdE') on 'tibble'
+format. 'Banco de España' is the national central bank and, within the
+framework of the Single Supervisory Mechanism ('SSM'), the supervisor of
+the Spanish banking system along with the European Central Bank. This
+package is in no way sponsored endorsed or administered by 'Banco de
+España'.
 
 %prep
 %setup -q -c -n %{packname}

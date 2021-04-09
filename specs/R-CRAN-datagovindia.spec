@@ -1,11 +1,11 @@
-%global packname  vtable
-%global packver   1.3.1
+%global packname  datagovindia
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variable Table for Variable Documentation
+Summary:          Data.gov.in API Wrapper
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,25 +15,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-sjlabelled 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-knitr 
-Requires:         R-CRAN-kableExtra 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-sjlabelled 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-knitr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
 
 %description
-Automatically generates HTML variable documentation including variable
-names, labels, classes, value labels (if applicable), value ranges, and
-summary statistics. See the vignette "vtable" for a package overview.
+This wrapper allows the user to communicate with more than 80,000 API
+posted on data.gov.in - open data platform of the government of India
+<https:data.gov.in/ogpl_apis>. It also allows the user to search for the
+API required through the universe of the API with a better interface than
+the one the official website provides. Once a user has the ID by using the
+API discovery functionalities, it allows one to converse with the API
+using a consistent format across all available API.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,44 +1,44 @@
-%global packname  TMB
-%global packver   1.7.20
+%global packname  VEwaning
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.20
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Template Model Builder: A General Random Effect Tool Inspired by 'ADMB'
+Summary:          Vaccine Efficacy Over Time
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         gcc-c++
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-Matrix >= 1.0.12
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Matrix >= 1.0.12
-Requires:         R-graphics 
-Requires:         R-methods 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-survival 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-graphics 
+Requires:         R-CRAN-ggplot2 
 
 %description
-With this tool, a user should be able to quickly implement complex random
-effect models through simple C++ templates. The package combines 'CppAD'
-(C++ automatic differentiation), 'Eigen' (templated matrix-vector library)
-and 'CHOLMOD' (sparse matrix routines available from R) to obtain an
-efficient implementation of the applied Laplace approximation with exact
-derivatives. Key features are: Automatic sparseness detection, parallelism
-through 'BLAS' and parallel user templates.
+Implements methods for inference on potential waning of vaccine efficacy
+and for estimation of vaccine efficacy at a user-specified time after
+vaccination based on data from a randomized, double-blind,
+placebo-controlled vaccine trial in which participants may be unblinded
+and placebo subjects may be crossed over to the study vaccine.  The
+methods also allow adjustment for possible confounding via inverse
+probability weighting through specification of models for the trial entry
+process, unblinding mechanisms, and the probability an unblinded placebo
+participant accepts study vaccine: Tsiatis, A. A. and Davidian, M. (2021)
+<arXiv:2102.13103> .
 
 %prep
 %setup -q -c -n %{packname}
-sed -ie '/onAttach/,+4d' %{packname}/R/zzz.R
+
 # fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping

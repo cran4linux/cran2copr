@@ -1,9 +1,9 @@
 %global packname  PSS.Health
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power and Sample Size for Health Researchers via Shiny
 
@@ -18,10 +18,10 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-easypower 
 BuildRequires:    R-CRAN-EnvStats 
+BuildRequires:    R-CRAN-epiR 
 BuildRequires:    R-CRAN-ICC.Sample.Size 
 BuildRequires:    R-CRAN-kappaSize 
 BuildRequires:    R-CRAN-longpower 
-BuildRequires:    R-CRAN-MESS 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-powerMediation 
 BuildRequires:    R-CRAN-powerSurvEpi 
@@ -32,19 +32,16 @@ BuildRequires:    R-CRAN-pwr2
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinycssloaders 
 BuildRequires:    R-CRAN-shinyFeedback 
-BuildRequires:    R-CRAN-shinythemes 
 BuildRequires:    R-CRAN-shinyhelper 
 BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-TrialSize 
-BuildRequires:    R-CRAN-WebPower 
 BuildRequires:    R-CRAN-writexl 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-easypower 
 Requires:         R-CRAN-EnvStats 
+Requires:         R-CRAN-epiR 
 Requires:         R-CRAN-ICC.Sample.Size 
 Requires:         R-CRAN-kappaSize 
 Requires:         R-CRAN-longpower 
-Requires:         R-CRAN-MESS 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-powerMediation 
 Requires:         R-CRAN-powerSurvEpi 
@@ -55,11 +52,8 @@ Requires:         R-CRAN-pwr2
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinycssloaders 
 Requires:         R-CRAN-shinyFeedback 
-Requires:         R-CRAN-shinythemes 
 Requires:         R-CRAN-shinyhelper 
 Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-TrialSize 
-Requires:         R-CRAN-WebPower 
 Requires:         R-CRAN-writexl 
 
 %description
@@ -67,13 +61,14 @@ Power and Sample Size for Health Researchers is a Shiny application that
 brings together a series of functions related to sample size and power
 calculations for common analysis in the healthcare field. There are
 functionalities to calculate the power, sample size to estimate or test
-hypotheses for means and proportions (including test for equivalence,
-non-inferiority and superiority), association, Pearson's correlation
-coefficient, regression coefficients (linear, logistic and Cox), linear
-mixed model, Cronbach's alpha, interobserver agreement, intraclass
-correlation coefficients, limit of agreement on Bland-Altman plots, area
-under the curve, sensitivity and specificity incorporating the prevalence
-of disease.
+hypotheses for means and proportions (including test for correlated
+groups, equivalence, non-inferiority and superiority), association,
+Pearson's correlation coefficient, regression coefficients (linear,
+logistic and Cox), linear mixed model, Cronbach's alpha, interobserver
+agreement, intraclass correlation coefficients, limit of agreement on
+Bland-Altman plots, area under the curve, sensitivity and specificity
+incorporating the prevalence of disease. You can also use the online
+version at <https://hcpa-unidade-bioestatistica.shinyapps.io/PSS_Health/>.
 
 %prep
 %setup -q -c -n %{packname}

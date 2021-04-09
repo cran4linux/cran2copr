@@ -1,40 +1,49 @@
-%global packname  pewdata
-%global packver   0.3.2
+%global packname  places
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reproducible Retrieval of Pew Research Center Datasets
+Summary:          Clusters GPS Data into Places
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RSelenium 
-BuildRequires:    R-CRAN-foreign 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rio 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-googleway 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-RSelenium 
-Requires:         R-CRAN-foreign 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rio 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-hms 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-googleway 
 Requires:         R-CRAN-stringr 
-Requires:         R-tools 
-Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-hms 
 
 %description
-Reproducible, programmatic retrieval of survey datasets from the Pew
-Research Center.
+Clusters GPS coordinates into places (i.e., meaningful stops).
+Additionally, categorizes places into types (e.g., home, cafe, gym).
+Places are identified as home using a rules-based algorithm defining home
+as the stop occurring most frequently during the night. Other places
+(e.g., cafe, gym) are identified using the Google Maps API.
 
 %prep
 %setup -q -c -n %{packname}
