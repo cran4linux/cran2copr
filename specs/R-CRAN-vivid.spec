@@ -1,42 +1,51 @@
-%global packname  yorkr
-%global packver   0.0.20
+%global packname  vivid
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.20
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyze Cricket Performances Based on Data from Cricsheet
+Summary:          Variable Importance and Variable Interaction Displays
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.4
-Requires:         R-core >= 3.2.4
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-condvis2 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-rpart.plot 
+BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-DendSer 
+BuildRequires:    R-CRAN-ggalt 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-flashlight 
+BuildRequires:    R-CRAN-ggnewscale 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-condvis2 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-rpart.plot 
+Requires:         R-CRAN-GGally 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-colorspace 
 Requires:         R-stats 
-Requires:         R-CRAN-lubridate 
-Requires:         R-utils 
+Requires:         R-CRAN-DendSer 
+Requires:         R-CRAN-ggalt 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-flashlight 
+Requires:         R-CRAN-ggnewscale 
+Requires:         R-CRAN-tidyr 
 
 %description
-Analyzing performances of cricketers and cricket teams based on 'yaml'
-match data from Cricsheet <https://cricsheet.org/>.
+A suite of plots for displaying variable importance and two-way variable
+interaction jointly. Can also display partial dependence plots laid out in
+a pairs plot or 'zenplots' style.
 
 %prep
 %setup -q -c -n %{packname}

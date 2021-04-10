@@ -1,9 +1,9 @@
 %global packname  spsur
-%global packver   1.0.1.6
+%global packver   1.0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1.6
+Version:          1.0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Seemingly Unrelated Regression Models
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-MASS >= 7.3.51.4
+BuildRequires:    R-CRAN-MASS >= 7.3.51.4
 BuildRequires:    R-methods >= 3.5
 BuildRequires:    R-stats >= 3.5
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
@@ -27,14 +27,14 @@ BuildRequires:    R-CRAN-rmarkdown >= 2.1
 BuildRequires:    R-CRAN-knitr >= 1.28
 BuildRequires:    R-CRAN-minqa >= 1.2.4
 BuildRequires:    R-CRAN-Formula >= 1.2.3
-BuildRequires:    R-Matrix >= 1.2.16
+BuildRequires:    R-CRAN-Matrix >= 1.2.16
 BuildRequires:    R-CRAN-spatialreg >= 1.1.5
 BuildRequires:    R-CRAN-spdep >= 1.1.3
 BuildRequires:    R-CRAN-lmtest >= 0.9.37
 BuildRequires:    R-CRAN-rlang >= 0.4.6
 BuildRequires:    R-CRAN-sparseMVN >= 0.2.1.1
 BuildRequires:    R-CRAN-Rdpack >= 0.11.1
-Requires:         R-MASS >= 7.3.51.4
+Requires:         R-CRAN-MASS >= 7.3.51.4
 Requires:         R-methods >= 3.5
 Requires:         R-stats >= 3.5
 Requires:         R-CRAN-ggplot2 >= 3.3.0
@@ -46,7 +46,7 @@ Requires:         R-CRAN-rmarkdown >= 2.1
 Requires:         R-CRAN-knitr >= 1.28
 Requires:         R-CRAN-minqa >= 1.2.4
 Requires:         R-CRAN-Formula >= 1.2.3
-Requires:         R-Matrix >= 1.2.16
+Requires:         R-CRAN-Matrix >= 1.2.16
 Requires:         R-CRAN-spatialreg >= 1.1.5
 Requires:         R-CRAN-spdep >= 1.1.3
 Requires:         R-CRAN-lmtest >= 0.9.37
@@ -73,9 +73,13 @@ references Mur, J., Lopez, F., and Herrera, M. (2010)
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -85,6 +89,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

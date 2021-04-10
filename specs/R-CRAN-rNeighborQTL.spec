@@ -1,9 +1,9 @@
 %global packname  rNeighborQTL
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interval Mapping for Quantitative Trait Loci Underlying Neighbor Effects
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-gaston 
 BuildRequires:    R-CRAN-Matrix 
@@ -27,8 +27,8 @@ Requires:         R-parallel
 %description
 To enable quantitative trait loci mapping of neighbor effects, this
 package extends a single-marker regression to interval mapping. The
-theoretical background of the method is described in Sato et al. (2020)
-<doi:10.1101/2020.05.20.089474>.
+theoretical background of the method is described in Sato et al. (2021)
+<doi:10.1093/g3journal/jkab017>.
 
 %prep
 %setup -q -c -n %{packname}

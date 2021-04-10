@@ -1,9 +1,9 @@
 %global packname  queuecomputer
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computationally Efficient Queue Simulation
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.7.500.0.0
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Rcpp 

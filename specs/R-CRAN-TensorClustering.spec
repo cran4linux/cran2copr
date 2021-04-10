@@ -1,29 +1,45 @@
-%global packname  PakPMICS2014Wm
-%global packver   0.1.1
+%global packname  TensorClustering
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiple Indicator Cluster Survey (MICS) 2014 Women Questionnaire Data for Punjab, Pakistan
+Summary:          Model-Based Tensor Clustering
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-tensr 
+BuildRequires:    R-CRAN-rTensor 
+BuildRequires:    R-CRAN-TRES 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-combinat 
+BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-tensr 
+Requires:         R-CRAN-rTensor 
+Requires:         R-CRAN-TRES 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-combinat 
+Requires:         R-CRAN-pracma 
 Requires:         R-stats 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Provides data set and function for exploration of Multiple Indicator
-Cluster Survey 2014 Women (age 15-49 years) questionnaire data for Punjab,
-Pakistan.
+Performs model-based tensor clustering methods including Tensor Gaussian
+Mixture Model (TGMM) and Tensor Envelope Mixture Model (TEMM) by Deng and
+Zhang (2021, tentatively accepted by Biometrics), Doubly-Enhanced EM
+(DEEM) algorithm by Mai, Zhang, Pan and Deng (2021) <arXiv:2012.10032>.
 
 %prep
 %setup -q -c -n %{packname}

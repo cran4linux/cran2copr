@@ -1,44 +1,45 @@
-%global packname  unheadr
-%global packver   0.3.2
+%global packname  TidyMultiqc
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Handle Data with Messy Header Rows and Broken Values
+Summary:          Converts 'MultiQC' Reports into Tidy Data Frames
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 0.8.4
-BuildRequires:    R-CRAN-rlang >= 0.2.1
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-HistDat >= 0.2.0
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tidyxl 
-BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr >= 0.8.4
-Requires:         R-CRAN-rlang >= 0.2.1
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-HistDat >= 0.2.0
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tidyxl 
-Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 
 %description
-Verb-like functions to work with messy data, often derived from
-spreadsheets or parsed PDF tables. Includes functions for unwrapping
-values broken up across rows, relocating embedded grouping values, and to
-annotate meaningful formatting in spreadsheet files.
+Provides the means to convert 'multiqc_data.json' files, produced by the
+wonderful 'MultiQC' tool, into tidy data frames for downstream analysis in
+R. This analysis might involve cohort analysis, quality control
+visualisation, change-point detection, statistical process control,
+clustering, or any other type of quality analysis.
 
 %prep
 %setup -q -c -n %{packname}

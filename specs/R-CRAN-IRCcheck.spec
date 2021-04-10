@@ -1,29 +1,41 @@
-%global packname  PakPMICS2014Wm
-%global packver   0.1.1
+%global packname  IRCcheck
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiple Indicator Cluster Survey (MICS) 2014 Women Questionnaire Data for Punjab, Pakistan
+Summary:          Irrepresentable Condition Check
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-GGMncv 
+BuildRequires:    R-CRAN-corpcor 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-GGMncv 
+Requires:         R-CRAN-corpcor 
+Requires:         R-parallel 
 
 %description
-Provides data set and function for exploration of Multiple Indicator
-Cluster Survey 2014 Women (age 15-49 years) questionnaire data for Punjab,
-Pakistan.
+Check the irrepresentable condition (IRC) in both L1-regularized
+regression <doi:10.1109/TIT.2006.883611> and Gaussian graphical models.
+The IRC requires that the important and unimportant variables are not
+correlated, at least not all that much, and it is necessary for consistent
+model selection. Exploring the IRC as a function of the number of
+variables, assumed sparsity, and effect size can provide valuable insights
+into the model selection properties of L1-regularization.
 
 %prep
 %setup -q -c -n %{packname}

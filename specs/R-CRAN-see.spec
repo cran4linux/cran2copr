@@ -1,9 +1,9 @@
 %global packname  see
-%global packver   0.6.2
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualisation Toolbox for 'easystats' and Extra Geoms, Themes and Color Palettes for 'ggplot2'
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
+BuildRequires:    R-CRAN-parameters >= 0.13.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
@@ -25,8 +26,8 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-ggridges 
 BuildRequires:    R-CRAN-insight 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-parameters 
 BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-parameters >= 0.13.0
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
@@ -37,7 +38,6 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-ggridges 
 Requires:         R-CRAN-insight 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-parameters 
 Requires:         R-CRAN-rlang 
 
 %description

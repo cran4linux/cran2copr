@@ -1,9 +1,9 @@
 %global packname  CHNOSZ
-%global packver   1.4.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Thermodynamic Calculations and Diagrams for Geochemistry
 

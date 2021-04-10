@@ -1,9 +1,9 @@
 %global packname  performance
-%global packver   0.7.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assessment of Regression Models Performance
 
@@ -15,12 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bayestestR >= 0.7.5
-BuildRequires:    R-CRAN-insight >= 0.11.0
+BuildRequires:    R-CRAN-bayestestR >= 0.8.2
+BuildRequires:    R-CRAN-insight >= 0.13.2
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-bayestestR >= 0.7.5
-Requires:         R-CRAN-insight >= 0.11.0
+Requires:         R-CRAN-bayestestR >= 0.8.2
+Requires:         R-CRAN-insight >= 0.13.2
 Requires:         R-stats 
 Requires:         R-utils 
 

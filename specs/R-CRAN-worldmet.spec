@@ -1,9 +1,9 @@
 %global packname  worldmet
-%global packver   0.9.3
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.9.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import Surface Meteorological Data from NOAA Integrated Surface Database (ISD)
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-openair 
 Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 
@@ -34,7 +33,6 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-zoo 
 
 %description
 Functions to import data from more than 30,000 surface meteorological

@@ -1,29 +1,43 @@
-%global packname  PakPMICS2014Wm
-%global packver   0.1.1
+%global packname  SurvHiDim
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiple Indicator Cluster Survey (MICS) 2014 Women Questionnaire Data for Punjab, Pakistan
+Summary:          High Dimensional Survival Data Analysis
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-Rdpack >= 0.7
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-factoextra 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-useful 
+Requires:         R-CRAN-Rdpack >= 0.7
+Requires:         R-CRAN-survival 
+Requires:         R-utils 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-factoextra 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-useful 
 
 %description
-Provides data set and function for exploration of Multiple Indicator
-Cluster Survey 2014 Women (age 15-49 years) questionnaire data for Punjab,
-Pakistan.
+High dimensional time to events data analysis with variable selection
+technique. Currently support LASSO, clustering and Bonferroni's
+correction.
 
 %prep
 %setup -q -c -n %{packname}
