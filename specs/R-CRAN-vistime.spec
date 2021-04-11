@@ -1,11 +1,11 @@
 %global packname  vistime
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pretty Timelines
+Summary:          Pretty Timelines in R
 
 License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,19 +20,21 @@ BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
 BuildRequires:    R-CRAN-ggrepel >= 0.7.0
 BuildRequires:    R-CRAN-RColorBrewer >= 0.2.2
 BuildRequires:    R-CRAN-assertive.types >= 0.0.3
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-plotly >= 4.0.0
 Requires:         R-CRAN-ggplot2 >= 2.0.0
 Requires:         R-CRAN-ggrepel >= 0.7.0
 Requires:         R-CRAN-RColorBrewer >= 0.2.2
 Requires:         R-CRAN-assertive.types >= 0.0.3
+Requires:         R-CRAN-rlang 
 
 %description
 A library for creating time based charts, like Gantt or timelines.
-Possible outputs include 'ggplot' diagrams, 'Plotly' graphs, 'Highchart'
-widgets and 'data.frames'. Results can be used in the 'RStudio' viewer
-pane, in 'RMarkdown' documents or in 'Shiny' apps. In the interactive
-outputs created by 'vistime()' and 'hc_vistime()', you can interact with
-the plot using mouse hover or zoom.
+Possible outputs include 'ggplot2' diagrams, 'plotly.js' graphs,
+'Highcharts.js' widgets and data.frames. Results can be used in the
+'RStudio' viewer pane, in 'RMarkdown' documents or in Shiny apps. In the
+interactive outputs created by vistime() and hc_vistime(), you can
+interact with the plot using mouse hover or zoom.
 
 %prep
 %setup -q -c -n %{packname}

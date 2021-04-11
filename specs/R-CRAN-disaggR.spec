@@ -1,9 +1,9 @@
 %global packname  disaggR
-%global packver   0.1.11
+%global packver   0.2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.11
+Version:          0.2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Two-Steps Benchmarks for Time Series Disaggregation
 
@@ -14,18 +14,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny >= 1.5.0
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-shiny >= 1.5.0
+Requires:         R-methods 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-scales 
 
 %description
-The twoStepsBenchmark() function and its wrappers allow you to
-disaggregate a low frequency time serie with time series of higher
+The twoStepsBenchmark() and threeRuleSmooth() functions allow you to
+disaggregate a low-frequency time-serie with time-series of higher
 frequency, using the French National Accounts methodology. The aggregated
 sum of the resulting time-serie is strictly equal to the low-frequency
-serie within the benchmarking window. Typically, the low frequency serie
-is an annual one, unknown for the last year, and the high frequency is
+serie within the benchmarking window. Typically, the low-frequency serie
+is an annual one, unknown for the last year, and the high frequency one is
 either quarterly or mensual. See "Methodology of quarterly national
 accounts", Insee Méthodes N°126, by Insee (2012, ISBN:978-2-11-068613-8).
 

@@ -1,34 +1,33 @@
-%global packname  bigreadr
-%global packver   0.2.4
+%global packname  tukeyGH
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read Large Text Files
+Summary:          Tukey's g-and-h Probability Distribution
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-bigassertr >= 0.1.1
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-parallelly 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-bigassertr >= 0.1.1
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-parallelly 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr >= 2.0.0
+BuildRequires:    R-CRAN-rootSolve >= 1.8.2.1
+BuildRequires:    R-CRAN-minqa 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-magrittr >= 2.0.0
+Requires:         R-CRAN-rootSolve >= 1.8.2.1
+Requires:         R-CRAN-minqa 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Read large text files by splitting them in smaller files. Package
-'bigreadr' also provides some convenient wrappers around fread() and
-fwrite() from package 'data.table'.
+It provides distribution, density and quantile functions of the Tukey's
+g-and-h probability distribution, as well as functions for random number
+generation, parameter estimation and testing.
 
 %prep
 %setup -q -c -n %{packname}

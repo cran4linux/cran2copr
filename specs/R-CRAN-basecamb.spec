@@ -1,34 +1,31 @@
-%global packname  bigreadr
-%global packver   0.2.4
+%global packname  basecamb
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read Large Text Files
+Summary:          Utilities for Streamlined Data Import, Imputation and Modelling
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-bigassertr >= 0.1.1
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-parallelly 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-bigassertr >= 0.1.1
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-parallelly 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-assertive.types 
+BuildRequires:    R-CRAN-mice 
+BuildRequires:    R-CRAN-Hmisc 
+Requires:         R-CRAN-assertive.types 
+Requires:         R-CRAN-mice 
+Requires:         R-CRAN-Hmisc 
 
 %description
-Read large text files by splitting them in smaller files. Package
-'bigreadr' also provides some convenient wrappers around fread() and
-fwrite() from package 'data.table'.
+Provides functions streamlining the data analysis workflow: Outsourcing
+data import, renaming and type casting to a *.csv. Manipulating imputed
+datasets and fitting models on them. Summarizing models.
 
 %prep
 %setup -q -c -n %{packname}

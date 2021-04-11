@@ -1,9 +1,9 @@
 %global packname  geysertimes
-%global packver   0.1.2
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geyser Data from GeyserTimes.org
 
@@ -31,7 +31,7 @@ Requires:         R-utils
 %description
 Download geyser eruption and observation data from the GeyserTimes site
 (<https://geysertimes.org>) and optionally store it locally. The vignette
-shows the a simple analysis of downloading, accessing, and summarizing the
+shows a simple analysis of downloading, accessing, and summarizing the
 data.
 
 %prep

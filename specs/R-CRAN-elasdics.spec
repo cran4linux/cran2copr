@@ -1,11 +1,11 @@
-%global packname  broom.helpers
-%global packver   1.3.0
+%global packname  elasdics
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helpers for Model Coefficients Tibbles
+Summary:          Elastic Analysis of Sparse, Dense and Irregular Curves
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,34 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-labelled 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-splines 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-labelled 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-numDeriv 
+Requires:         R-splines 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-numDeriv 
 
 %description
-Provides suite of functions to work with regression model 'broom::tidy()'
-tibbles.  The suite includes functions to group regression model terms by
-variable, insert reference and header rows for categorical variables, add
-variable labels, and more.
+Provides functions to align curves and to compute mean curves based on the
+elastic distance defined in the square-root-velocity framework. For more
+details on this framework see Srivastava and Klassen (2016,
+<doi:10.1007/978-1-4939-4020-2>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,34 +1,34 @@
-%global packname  bigreadr
-%global packver   0.2.4
+%global packname  SBCK
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read Large Text Files
+Summary:          Statistical Bias Correction Kit
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-bigassertr >= 0.1.1
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-parallelly 
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-bigassertr >= 0.1.1
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-parallelly 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-ROOPSD 
+BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-utils 
+Requires:         R-methods 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-ROOPSD 
 
 %description
-Read large text files by splitting them in smaller files. Package
-'bigreadr' also provides some convenient wrappers around fread() and
-fwrite() from package 'data.table'.
+Implementation of several recent multivariate bias correction methods with
+a unified interface to facilitate their use. A description and comparison
+between methods can be found in François et al, (2020)
+<doi:10.5194/esd-11-537-2020>.
 
 %prep
 %setup -q -c -n %{packname}

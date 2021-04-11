@@ -1,11 +1,11 @@
-%global packname  nflseedR
-%global packver   1.0.2
+%global packname  garchmodels
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions to Efficiently Simulate and Evaluate NFL Seasons
+Summary:          The Tidymodels Extension for GARCH Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,40 +15,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-gsubfn 
+BuildRequires:    R-CRAN-rlang >= 0.1.2
+BuildRequires:    R-CRAN-parsnip 
+BuildRequires:    R-CRAN-rugarch 
+BuildRequires:    R-CRAN-rmgarch 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-gsubfn 
+BuildRequires:    R-CRAN-dials 
+Requires:         R-CRAN-rlang >= 0.1.2
+Requires:         R-CRAN-parsnip 
+Requires:         R-CRAN-rugarch 
+Requires:         R-CRAN-rmgarch 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dials 
 
 %description
-A set of functions to simulate National Football League seasons including
-the sophisticated tie-breaking procedures.
+Garch framework for use with the 'tidymodels' ecosystem. It includes both
+univariate and multivariate methods from the 'rugarch' and 'rmgarch'
+packages. These models include DCC-Garch, Copula Garch and Go-GARCH among
+others.
 
 %prep
 %setup -q -c -n %{packname}

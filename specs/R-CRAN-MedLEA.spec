@@ -1,34 +1,35 @@
-%global packname  bigreadr
-%global packver   0.2.4
+%global packname  MedLEA
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read Large Text Files
+Summary:          Morphological and Structural Features of Medicinal Leaves
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-bigassertr >= 0.1.1
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-parallelly 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-bigassertr >= 0.1.1
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-parallelly 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-tm 
+BuildRequires:    R-CRAN-wordcloud2 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-tm 
+Requires:         R-CRAN-wordcloud2 
 
 %description
-Read large text files by splitting them in smaller files. Package
-'bigreadr' also provides some convenient wrappers around fread() and
-fwrite() from package 'data.table'.
+Contains a dataset of morphological and structural features of 'Medicinal
+LEAves (MedLEA)'. The features of each species is recorded by manually
+viewing the medicinal plant repository available at
+(<http://www.instituteofayurveda.org/plants/>). You can also download
+repository of leaf images of 1099 medicinal plants in Sri Lanka.
 
 %prep
 %setup -q -c -n %{packname}

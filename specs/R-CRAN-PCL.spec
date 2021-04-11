@@ -1,33 +1,26 @@
-%global packname  SoupX
-%global packver   1.5.0
+%global packname  PCL
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Single Cell mRNA Soup eXterminator
+Summary:          Proximal Causal Learning
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Seurat >= 3.2.2
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Seurat >= 3.2.2
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
 
 %description
-Quantify, profile and remove ambient mRNA contamination (the "soup") from
-droplet based single cell RNA-seq experiments.  Implements the method
-described in Young et al. (2018) <doi:10.1101/303727>.
+We fit causal models using proxies. We implement two stage proximal least
+squares estimator. E.J. Tchetgen Tchetgen, A. Ying, Y. Cui, X. Shi, and W.
+Miao. (2020). An Introduction to Proximal Causal Learning. arXiv e-prints,
+arXiv-2009 <arXiv:2009.10982>.
 
 %prep
 %setup -q -c -n %{packname}

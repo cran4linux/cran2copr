@@ -1,34 +1,34 @@
-%global packname  bigreadr
-%global packver   0.2.4
+%global packname  RUVIIIC
+%global packver   1.0.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          1.0.18
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read Large Text Files
+Summary:          RUV-III-C
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-bigassertr >= 0.1.1
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-parallelly 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-bigassertr >= 0.1.1
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-parallelly 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-RcppProgress 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-progress 
 
 %description
-Read large text files by splitting them in smaller files. Package
-'bigreadr' also provides some convenient wrappers around fread() and
-fwrite() from package 'data.table'.
+Variations of Remove Unwanted Variation-III (RUV-III) known as RUV-III-C
+(RUV-III Complete). RUV-III performs normalisation using negative control
+variables and replication. RUV-III-C extends this method to cases where
+the data contains missing values, by applying RUV-III to complete subsets
+of the data. Originally designed for SWATH-MS proteomics datasets. Poulos
+et al. (2020) <doi:10.1038/s41467-020-17641-3>.
 
 %prep
 %setup -q -c -n %{packname}
