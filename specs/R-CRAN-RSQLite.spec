@@ -1,9 +1,9 @@
 %global packname  RSQLite
-%global packver   2.2.5
+%global packver   2.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.5
+Version:          2.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          'SQLite' Interface for R
 
@@ -14,7 +14,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-BH >= 1.75.0.0
 BuildRequires:    R-CRAN-blob >= 1.2.0
 BuildRequires:    R-CRAN-DBI >= 1.1.0
 BuildRequires:    R-CRAN-plogr >= 0.2.0

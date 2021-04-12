@@ -1,9 +1,9 @@
 %global packname  OpenSpecy
-%global packver   0.9.0
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze, Process, Identify, and Share, Raman and (FT)IR Spectra
 

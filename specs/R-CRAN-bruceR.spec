@@ -1,9 +1,9 @@
 %global packname  bruceR
-%global packver   0.6.0
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Broadly Useful Convenient and Efficient R Functions
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-see
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggtext 
 Requires:         R-CRAN-pacman 
 Requires:         R-CRAN-jmv 
 Requires:         R-CRAN-mediation 
@@ -39,15 +40,20 @@ Requires:         R-CRAN-see
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggtext 
 
 %description
 Broadly useful convenient and efficient R functions that bring users
-concise and elegant R data analyses. The package includes easy-to-use
-functions for (1) basic use and analysis; (2) multivariate computation;
-(3) reliability and validity analysis; (4) multi-factor analysis of
-variance (ANOVA), simple-effect analysis, and post-hoc multiple
-comparison; and (5) advanced toolbox and tidy report of statistical
-models.
+concise and elegant R data analyses. This package includes easy-to-use
+functions for (1) basic R programming (e.g., set working directory to
+where the current file is, print strings with rich formats and colors);
+(2) multivariate computation (e.g., compute scale sums/means/... with
+reverse scoring); (3) reliability and factor analyses; (4) descriptive
+statistics and correlation analyses; (5) multi-factor analysis of variance
+(ANOVA), simple-effect analysis, and post-hoc multiple comparison; (6)
+tidy report of regression models (to Console and to Word); (7) mediation
+and moderation analyses; and (8) additional toolbox for statistics and
+graphics.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  tsrobprep
-%global packver   0.0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Preprocessing of Time Series Data
 
@@ -17,8 +17,12 @@ Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-MASS 
 
 %description
 Methods for handling the missing values outliers are introduced in this

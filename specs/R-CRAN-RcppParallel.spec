@@ -1,13 +1,13 @@
 %global packname  RcppParallel
-%global packver   5.0.3
+%global packver   5.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.3
+Version:          5.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parallel Programming Tools for 'Rcpp'
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -25,12 +25,7 @@ can be used for accumulating aggregate or other values.
 
 %prep
 %setup -q -c -n %{packname}
-grep -B4 CXX11STD %{packname}/src/Makevars.in > %{packname}/src/Makevars.in.new
-echo 'PKG_LIBS = -ltbb -ltbbmalloc' >> %{packname}/src/Makevars.in.new
-mv %{packname}/src/Makevars.in.new %{packname}/src/Makevars.in
-rm -rf %{packname}/src/tbb
-sed -i '/tbbLdFlags <- fun/a return(paste0("-L", asBuildPath(dirname(tbbLibPath())), " -ltbb -ltbbmalloc"))' %{packname}/R/build.R
-sed -i '/tbbLibPath <- fun/a return("%{_libdir}/libtbb.so.2")' %{packname}/R/build.R
+
 # fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
@@ -42,21 +37,14 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-export RCPP_PARALLEL_BACKEND=tinythread
+export TBB_INC=%{_includedir}/tbb
+export TBB_LIB=%{_libdir}
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-ln -s %{_libdir} %{buildroot}%{rlibdir}/%{packname}/lib
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 # remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
-
-%pretrans -p <lua>
-path = "/usr/local/lib/R/library/RcppParallel/lib"
-st = posix.stat(path)
-if st and st.type == "link" then
-  os.remove(path)
-end
 
 %files
 %{rlibdir}/%{packname}

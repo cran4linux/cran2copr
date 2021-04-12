@@ -1,9 +1,9 @@
 %global packname  SlidingWindows
-%global packver   0.1.9
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Time Series Analysis
 
@@ -31,9 +31,9 @@ A collection of functions to perform Detrended Fluctuation Analysis (DFA
 exponent), GUEDES et al. (2019) <doi:10.1016/j.physa.2019.04.132> ,
 Detrended cross-correlation coefficient (RHODCCA), GUEDES & ZEBENDE (2019)
 <doi:10.1016/j.physa.2019.121286>, DMCA cross-correlation coefficient and
-Multiple Detrended cross-correlation coefficient (DMC), ZEBENDE &
-SILVA-FILHO (2018) <doi:10.1016/j.physa.2018.06.119>, both with sliding
-windows approach.
+Detrended multiple cross-correlation coefficient (DMC), GUEDES &
+SILVA-FILHO & ZEBENDE (2018) <doi:10.1016/j.physa.2021.125990>, both with
+sliding windows approach.
 
 %prep
 %setup -q -c -n %{packname}
