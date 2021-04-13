@@ -1,44 +1,39 @@
-%global packname  ForestGapR
-%global packver   0.0.3
+%global packname  varrank
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tropical Forest Canopy Gaps Analysis
+Summary:          Heuristics Tools Based on Mutual Information for Variable Ranking
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-VGAM 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-spatstat 
-BuildRequires:    R-CRAN-poweRlaw 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-VGAM 
-Requires:         R-CRAN-sp 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-grDevices 
 Requires:         R-stats 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-spatstat 
-Requires:         R-CRAN-poweRlaw 
+Requires:         R-CRAN-FNN 
+Requires:         R-grDevices 
 
 %description
-Set of tools for detecting and analyzing Airborne Laser Scanning-derived
-Tropical Forest Canopy Gaps.
+A computational toolbox of heuristics approaches for performing variable
+ranking and feature selection based on mutual information well adapted for
+multivariate system epidemiology datasets. The core function is a general
+implementation of the minimum redundancy maximum relevance model. R.
+Battiti (1994) <doi:10.1109/72.298224>. Continuous variables are
+discretized using a large choice of rule. Variables ranking can be learned
+with a sequential forward/backward search algorithm. The two main problems
+that can be addressed by this package is the selection of the most
+representative variable within a group of variables of interest (i.e.
+dimension reduction) and variable ranking with respect to a set of
+features of interest.
 
 %prep
 %setup -q -c -n %{packname}

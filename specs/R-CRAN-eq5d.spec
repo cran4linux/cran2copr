@@ -1,9 +1,9 @@
 %global packname  eq5d
-%global packver   0.8.1
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Analysing 'EQ-5D' Data and Calculating 'EQ-5D' Index Scores
 
@@ -30,12 +30,13 @@ Frequently the scores on these five dimensions are converted to a single
 utility index using country specific value sets, which can be used in the
 clinical and economic evaluation of health care as well as in population
 health surveys. The eq5d package provides methods to calculate index
-scores from a subject's dimension scores. 26 TTO and 11 VAS EQ-5D-3L value
+scores from a subject's dimension scores. 28 TTO and 11 VAS EQ-5D-3L value
 sets including those for countries in Szende et al (2007)
 <doi:10.1007/1-4020-5511-0> and Szende et al (2014)
-<doi:10.1007/978-94-007-7596-1>, 26 EQ-5D-5L EQ-VT value sets from the
-EuroQol website, and the EQ-5D-5L crosswalk value sets developed by van
-Hout et al. (2012) <doi:10.1016/j.jval.2012.02.008> are included. Methods
+<doi:10.1007/978-94-007-7596-1>, 27 EQ-5D-5L EQ-VT value sets from the
+EuroQol website, the EQ-5D-5L crosswalk value sets developed by van Hout
+et al. (2012) <doi:10.1016/j.jval.2012.02.008> as well as the crosswalk
+value set for Russia. Two EQ-5D-Y value sets are also included. Methods
 are also included for the analysis of EQ-5D profiles along with a shiny
 web tool to enable the calculation, visualisation and automated
 statistical analysis of EQ-5D data via a web browser using EQ-5D dimension

@@ -1,48 +1,45 @@
-%global packname  garchmodels
-%global packver   0.1.1
+%global packname  accucor
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          The 'Tidymodels' Extension for GARCH Models
+Summary:          Natural Abundance Correction of Mass Spectrometer Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.1.2
-BuildRequires:    R-CRAN-parsnip 
-BuildRequires:    R-CRAN-rugarch 
-BuildRequires:    R-CRAN-rmgarch 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-gsubfn 
+BuildRequires:    R-CRAN-nnls 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dials 
-Requires:         R-CRAN-rlang >= 0.1.2
-Requires:         R-CRAN-parsnip 
-Requires:         R-CRAN-rugarch 
-Requires:         R-CRAN-rmgarch 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-writexl 
+BuildRequires:    R-CRAN-CHNOSZ 
+Requires:         R-CRAN-gsubfn 
+Requires:         R-CRAN-nnls 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dials 
+Requires:         R-CRAN-writexl 
+Requires:         R-CRAN-CHNOSZ 
 
 %description
-Garch framework for use with the 'tidymodels' ecosystem. It includes both
-univariate and multivariate methods from the 'rugarch' and 'rmgarch'
-packages. These models include DCC-Garch, Copula Garch and Go-GARCH among
-others.
+An isotope natural abundance correction algorithm that is needed
+especially for high resolution mass spectrometers. Supports correction for
+13C, 2H and 15N.
 
 %prep
 %setup -q -c -n %{packname}

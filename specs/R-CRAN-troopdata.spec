@@ -1,9 +1,9 @@
 %global packname  troopdata
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Analyzing Cross-National Military Deployment and Basing Data
 
@@ -37,11 +37,9 @@ Requires:         R-CRAN-haven
 %description
 These functions generate data frames on troop deployments and military
 basing using U.S. Department of Defense data on overseas military
-deployments initially compiled by Kane (2012) and Vine (2015) and
-subsequently updated by Allen, Flynn, Martinez Machain, and Stravers
-(2020). This package provides functions for pulling country-year troop
-deployment and basing data. Subsequent versions will hopefully include
-cross-national data on deploying countries.
+deployments. This package provides functions for pulling country-year
+troop deployment and basing data. Subsequent versions will hopefully
+include cross-national data on deploying countries.
 
 %prep
 %setup -q -c -n %{packname}

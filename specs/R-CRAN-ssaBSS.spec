@@ -1,13 +1,13 @@
-%global packname  modelbased
-%global packver   0.6.0
+%global packname  ssaBSS
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Model-Based Predictions, Contrasts and Means
+Summary:          Stationary Subspace Analysis
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,26 +15,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-emmeans >= 1.5.3
-BuildRequires:    R-CRAN-bayestestR >= 0.8.3
-BuildRequires:    R-CRAN-insight >= 0.13.1
-BuildRequires:    R-CRAN-parameters >= 0.12.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-emmeans >= 1.5.3
-Requires:         R-CRAN-bayestestR >= 0.8.3
-Requires:         R-CRAN-insight >= 0.13.1
-Requires:         R-CRAN-parameters >= 0.12.0
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-JADE >= 2.0.2
+BuildRequires:    R-CRAN-tsBSS >= 0.5.3
+BuildRequires:    R-CRAN-ICtest >= 0.3.4
+BuildRequires:    R-CRAN-BSSprep 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-JADE >= 2.0.2
+Requires:         R-CRAN-tsBSS >= 0.5.3
+Requires:         R-CRAN-ICtest >= 0.3.4
+Requires:         R-CRAN-BSSprep 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
 
 %description
-Implements a general interface for model-based estimations for a wide
-variety of models (see support list of insight; Lüdecke, Waggoner &
-Makowski (2019) <doi:10.21105/joss.01412>), used in the computation of
-marginal means, contrast analysis and predictions.
+Stationary subspace analysis (SSA) is a blind source separation (BSS)
+variant where stationary components are separated from non-stationary
+components. Several SSA methods for multivariate time series are provided
+here (Flumian et al. (2021); Hara et al. (2010)
+<doi:10.1007/978-3-642-17537-4_52>) along with functions to simulate time
+series with time-varying variance and autocovariance (Patilea and
+Raissi(2014) <doi:10.1080/01621459.2014.884504>).
 
 %prep
 %setup -q -c -n %{packname}

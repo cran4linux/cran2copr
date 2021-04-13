@@ -1,9 +1,9 @@
 %global packname  ggstatsplot
-%global packver   0.7.1
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          'ggplot2' Based Plots with Statistical Details
 
@@ -15,17 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ipmisc >= 6.0.0
-BuildRequires:    R-CRAN-pairwiseComparisons >= 3.1.3
 BuildRequires:    R-CRAN-statsExpressions >= 1.0.0
-BuildRequires:    R-CRAN-ggsignif >= 0.6.1
-BuildRequires:    R-CRAN-insight >= 0.13.0
-BuildRequires:    R-CRAN-parameters >= 0.12.0
+BuildRequires:    R-CRAN-insight >= 0.13.2
+BuildRequires:    R-CRAN-parameters >= 0.13.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggcorrplot 
-BuildRequires:    R-CRAN-ggExtra 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-ggsignif 
+BuildRequires:    R-CRAN-ipmisc 
+BuildRequires:    R-CRAN-pairwiseComparisons 
 BuildRequires:    R-CRAN-paletteer 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-performance 
@@ -34,17 +33,16 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ipmisc >= 6.0.0
-Requires:         R-CRAN-pairwiseComparisons >= 3.1.3
 Requires:         R-CRAN-statsExpressions >= 1.0.0
-Requires:         R-CRAN-ggsignif >= 0.6.1
-Requires:         R-CRAN-insight >= 0.13.0
-Requires:         R-CRAN-parameters >= 0.12.0
+Requires:         R-CRAN-insight >= 0.13.2
+Requires:         R-CRAN-parameters >= 0.13.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggcorrplot 
-Requires:         R-CRAN-ggExtra 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-ggsignif 
+Requires:         R-CRAN-ipmisc 
+Requires:         R-CRAN-pairwiseComparisons 
 Requires:         R-CRAN-paletteer 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-performance 
@@ -57,7 +55,7 @@ Requires:         R-utils
 %description
 Extension of 'ggplot2', 'ggstatsplot' creates graphics with details from
 statistical tests included in the plots themselves. It provides an easier
-API to generate information-rich plots for statistical analysis of
+syntax to generate information-rich plots for statistical analysis of
 continuous (violin plots, scatterplots, histograms, dot plots,
 dot-and-whisker plots) or categorical (pie and bar charts) data.
 Currently, it supports the most common types of statistical approaches and

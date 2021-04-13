@@ -1,9 +1,9 @@
 %global packname  Microsoft365R
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'Microsoft 365' Suite of Cloud Services
 
@@ -40,7 +40,8 @@ of cloud services, building on the framework supplied by the 'AzureGraph'
 package. Enables access from R to data stored in 'Teams', 'SharePoint
 Online' and 'OneDrive', including the ability to list drive folder
 contents, upload and download files, send messages, and retrieve data
-lists.
+lists. Also provides a full-featured 'Outlook' email client, with the
+ability to send emails and manage emails and mail folders.
 
 %prep
 %setup -q -c -n %{packname}

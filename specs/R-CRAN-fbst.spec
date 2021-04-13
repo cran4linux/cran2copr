@@ -1,11 +1,11 @@
 %global packname  fbst
-%global packver   1.4
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Full Bayesian Evidence Test, Full Bayesian Significance Test and the e-value
+Summary:          The Full Bayesian Evidence Test, Full Bayesian Significance Test and the e-Value
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
