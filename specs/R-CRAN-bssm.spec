@@ -1,9 +1,9 @@
 %global packname  bssm
-%global packver   1.1.3-2
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3.2
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Inference of Non-Linear and Non-Gaussian State Space Models
 

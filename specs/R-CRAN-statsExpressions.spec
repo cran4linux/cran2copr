@@ -1,11 +1,11 @@
 %global packname  statsExpressions
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dataframes and Expressions with Statistical Details
+Summary:          Tidy Dataframes and Expressions with Statistical Details
 
 License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,36 +15,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ipmisc >= 6.0.0
-BuildRequires:    R-CRAN-WRS2 >= 1.1.1
 BuildRequires:    R-CRAN-BayesFactor >= 0.9.12.4.2
-BuildRequires:    R-CRAN-correlation >= 0.6.0
-BuildRequires:    R-CRAN-effectsize >= 0.4.3
+BuildRequires:    R-CRAN-performance >= 0.7.1
+BuildRequires:    R-CRAN-correlation >= 0.6.1
+BuildRequires:    R-CRAN-effectsize >= 0.4.4.1
 BuildRequires:    R-CRAN-insight >= 0.13.0
-BuildRequires:    R-CRAN-parameters >= 0.12.0
+BuildRequires:    R-CRAN-parameters >= 0.13.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-performance 
+BuildRequires:    R-CRAN-ipmisc 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-ipmisc >= 6.0.0
-Requires:         R-CRAN-WRS2 >= 1.1.1
+BuildRequires:    R-CRAN-WRS2 
 Requires:         R-CRAN-BayesFactor >= 0.9.12.4.2
-Requires:         R-CRAN-correlation >= 0.6.0
-Requires:         R-CRAN-effectsize >= 0.4.3
+Requires:         R-CRAN-performance >= 0.7.1
+Requires:         R-CRAN-correlation >= 0.6.1
+Requires:         R-CRAN-effectsize >= 0.4.4.1
 Requires:         R-CRAN-insight >= 0.13.0
-Requires:         R-CRAN-parameters >= 0.12.0
+Requires:         R-CRAN-parameters >= 0.13.0
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-performance 
+Requires:         R-CRAN-ipmisc 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-WRS2 
 
 %description
 Utilities for producing dataframes with rich details for the most common
 types of statistical approaches and tests: parametric, nonparametric,
 robust, and Bayesian t-test, one-way ANOVA, correlation analyses,
-contingency table analyses, and meta-analyses. The functions are
+contingency table analyses, and meta-analyses.  The functions are
 pipe-friendly and provide a consistent syntax to work with tidy data.
 These dataframes additionally contain expressions with statistical
 details, and can be used in graphing packages. This package also forms the

@@ -1,25 +1,42 @@
-%global packname  peopleanalyticsdata
-%global packver   0.2.1
+%global packname  cheatsheet
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Sets for Keith McNulty's Handbook of Regression Modeling in People Analytics
+Summary:          Download R Cheat Sheets Locally
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-git2r 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rstudioapi 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-git2r 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rstudioapi 
 
 %description
-Data sets for statistical inference modeling related to People Analytics.
-Contains various data sets from the book 'Handbook of Regression Modeling
-in People Analytics' by Keith McNulty (2020).
+A simple package to grab cheat sheets and save them to your local
+computer.
 
 %prep
 %setup -q -c -n %{packname}

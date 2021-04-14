@@ -1,25 +1,41 @@
-%global packname  peopleanalyticsdata
-%global packver   0.2.1
+%global packname  mlr3db
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Sets for Keith McNulty's Handbook of Regression Modeling in People Analytics
+Summary:          Data Base Backend for 'mlr3'
 
-License:          MIT + file LICENSE
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-mlr3 >= 0.9.0
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-backports 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-mlr3misc 
+Requires:         R-CRAN-mlr3 >= 0.9.0
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-backports 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-mlr3misc 
 
 %description
-Data sets for statistical inference modeling related to People Analytics.
-Contains various data sets from the book 'Handbook of Regression Modeling
-in People Analytics' by Keith McNulty (2020).
+Extends the 'mlr3' package with a backend to transparently work with
+databases. Includes two extra backends: One relies on relies on the
+abstraction of package 'dbplyr' to interact with one of the many supported
+database management systems (DBMS). The other one is specialized for
+package 'duckdb'.
 
 %prep
 %setup -q -c -n %{packname}

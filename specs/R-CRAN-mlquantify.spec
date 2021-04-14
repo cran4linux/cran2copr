@@ -1,34 +1,38 @@
-%global packname  Matching
-%global packver   4.9-9
+%global packname  mlquantify
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.9.9
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate and Propensity Score Matching with Balance Optimization
+Summary:          Algorithms for Class Distribution Estimation
 
-License:          GPL-3
+License:          GPL (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
-BuildRequires:    R-CRAN-MASS >= 7.2.1
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-MASS >= 7.2.1
-Requires:         R-graphics 
-Requires:         R-grDevices 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-randomForest 
 Requires:         R-stats 
 
 %description
-Provides functions for multivariate and propensity score matching and for
-finding optimal balance based on a genetic search algorithm. A variety of
-univariate and multivariate metrics to determine if balance has been
-obtained are also provided. For details, see the paper by Jasjeet Sekhon
-(2007, <doi:10.18637/jss.v042.i07>).
+Quantification is a prominent machine learning task that has received an
+increasing amount of attention in the last years. The objective is to
+predict the class distribution of a data sample. This package is a
+collection of machine learning algorithms for class distribution
+estimation. This package include algorithms from different paradigms of
+quantification. These methods are described in the paper: A. Maletzke, W.
+Hassan, D. dos Reis, and G. Batista. The importance of the test set size
+in quantification assessment. In Proceedings of the Twenty-Ninth
+International Joint Conference on Artificial Intelligence, IJCAI20, pages
+2640–2646, 2020. <doi:10.24963/ijcai.2020/366>.
 
 %prep
 %setup -q -c -n %{packname}

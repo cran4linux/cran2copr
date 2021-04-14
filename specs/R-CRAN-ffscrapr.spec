@@ -1,9 +1,9 @@
 %global packname  ffscrapr
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          API Client for Fantasy Football League Platforms
 
@@ -17,13 +17,14 @@ Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
+BuildRequires:    R-CRAN-memoise >= 2.0.0
 BuildRequires:    R-CRAN-jsonlite >= 1.6.0
 BuildRequires:    R-CRAN-lubridate >= 1.5.0
 BuildRequires:    R-CRAN-magrittr >= 1.5.0
 BuildRequires:    R-CRAN-httr >= 1.4.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-glue >= 1.3.0
-BuildRequires:    R-CRAN-memoise >= 1.1.0
+BuildRequires:    R-CRAN-cachem >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-ratelimitr >= 0.4.0
@@ -33,13 +34,14 @@ BuildRequires:    R-CRAN-rappdirs >= 0.3.0
 BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-checkmate >= 2.0.0
+Requires:         R-CRAN-memoise >= 2.0.0
 Requires:         R-CRAN-jsonlite >= 1.6.0
 Requires:         R-CRAN-lubridate >= 1.5.0
 Requires:         R-CRAN-magrittr >= 1.5.0
 Requires:         R-CRAN-httr >= 1.4.0
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-glue >= 1.3.0
-Requires:         R-CRAN-memoise >= 1.1.0
+Requires:         R-CRAN-cachem >= 1.0.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-ratelimitr >= 0.4.0

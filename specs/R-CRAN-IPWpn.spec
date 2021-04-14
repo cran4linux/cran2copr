@@ -1,13 +1,13 @@
-%global packname  peopleanalyticsdata
-%global packver   0.2.1
+%global packname  IPWpn
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Sets for Keith McNulty's Handbook of Regression Modeling in People Analytics
+Summary:          Inverse-Propensity-Weighting for Partially Nested Designs
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,11 +15,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-MplusAutomation 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-MplusAutomation 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Data sets for statistical inference modeling related to People Analytics.
-Contains various data sets from the book 'Handbook of Regression Modeling
-in People Analytics' by Keith McNulty (2020).
+Use inverse-propensity-weighted estimation approaches to estimating the
+treatment effect from a partially nested design where one study arm (the
+treatment arm) is nested and the other study arm (the control arm) is not.
+Two estimators are provided: IPW mean difference and IPW multilevel
+modeling. <https://github.com/xliu12/IPWpn>.
 
 %prep
 %setup -q -c -n %{packname}

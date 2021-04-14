@@ -1,9 +1,9 @@
 %global packname  mboost
-%global packver   2.9-4
+%global packver   2.9-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.4
+Version:          2.9.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model-Based Boosting
 
@@ -14,13 +14,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
+BuildRequires:    R-CRAN-survival >= 3.2.10
 BuildRequires:    R-CRAN-partykit >= 1.2.1
 BuildRequires:    R-CRAN-stabs >= 0.5.0
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-nnls 
@@ -28,13 +28,13 @@ BuildRequires:    R-CRAN-quadprog
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+Requires:         R-CRAN-survival >= 3.2.10
 Requires:         R-CRAN-partykit >= 1.2.1
 Requires:         R-CRAN-stabs >= 0.5.0
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-parallel 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-survival 
 Requires:         R-splines 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-nnls 

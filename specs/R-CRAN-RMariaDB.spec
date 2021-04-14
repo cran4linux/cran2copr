@@ -1,9 +1,9 @@
 %global packname  RMariaDB
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Database Interface and 'MariaDB' Driver
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.4
 BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-plogr 
 Requires:         R-CRAN-DBI >= 1.1.0
 Requires:         R-CRAN-hms >= 0.5.0

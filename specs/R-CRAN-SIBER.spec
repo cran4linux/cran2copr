@@ -1,34 +1,52 @@
-%global packname  Matching
-%global packver   4.9-9
+%global packname  SIBER
+%global packver   2.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.9.9
+Version:          2.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate and Propensity Score Matching with Balance Optimization
+Summary:          Stable Isotope Bayesian Ellipses in R
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
-BuildRequires:    R-CRAN-MASS >= 7.2.1
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-spatstat >= 2.0.0
+BuildRequires:    R-CRAN-hdrcde 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-mnormt 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.utils 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-MASS >= 7.2.1
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-spatstat >= 2.0.0
+Requires:         R-CRAN-hdrcde 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-mnormt 
+Requires:         R-CRAN-rjags 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.utils 
 Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
 
 %description
-Provides functions for multivariate and propensity score matching and for
-finding optimal balance based on a genetic search algorithm. A variety of
-univariate and multivariate metrics to determine if balance has been
-obtained are also provided. For details, see the paper by Jasjeet Sekhon
-(2007, <doi:10.18637/jss.v042.i07>).
+Fits bi-variate ellipses to stable isotope data using Bayesian inference
+with the aim being to describe and compare their isotopic niche.
 
 %prep
 %setup -q -c -n %{packname}

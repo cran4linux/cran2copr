@@ -1,9 +1,9 @@
 %global packname  giscoR
-%global packver   0.2.2
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Map Data from GISCO API - Eurostat
 
@@ -18,9 +18,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-geojsonsf >= 2.0
 BuildRequires:    R-CRAN-countrycode >= 1.2.0
 BuildRequires:    R-CRAN-sf >= 0.9
+BuildRequires:    R-CRAN-lwgeom >= 0.2.2
 Requires:         R-CRAN-geojsonsf >= 2.0
 Requires:         R-CRAN-countrycode >= 1.2.0
 Requires:         R-CRAN-sf >= 0.9
+Requires:         R-CRAN-lwgeom >= 0.2.2
 
 %description
 Tools to download data from the GISCO (Geographic Information System of

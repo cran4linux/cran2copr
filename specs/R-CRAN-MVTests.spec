@@ -1,25 +1,32 @@
-%global packname  peopleanalyticsdata
-%global packver   0.2.1
+%global packname  MVTests
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Sets for Keith McNulty's Handbook of Regression Modeling in People Analytics
+Summary:          Multivariate Hypothesis Tests
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Data sets for statistical inference modeling related to People Analytics.
-Contains various data sets from the book 'Handbook of Regression Modeling
-in People Analytics' by Keith McNulty (2020).
+Multivariate hypothesis tests and the confidence intervals. It can be used
+to test the hypothesizes about mean vector or vectors (one-sample, two
+independent samples, paired samples), covariance matrix (one or more
+matrices), and the correlation matrix. For this package, we have benefited
+from the studies Rencher (2003), Nel and Merwe (1986) <DOI:
+10.1080/03610928608829342>, Tatlidil (1996), James (1994) <DOI:
+10.2307/2333003>, Tsagris (2014), Villasenor Alva and Estrada (2009) <DOI:
+10.1080/03610920802474465>.
 
 %prep
 %setup -q -c -n %{packname}

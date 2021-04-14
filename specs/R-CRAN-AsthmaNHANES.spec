@@ -1,25 +1,24 @@
-%global packname  peopleanalyticsdata
-%global packver   0.2.1
+%global packname  AsthmaNHANES
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Sets for Keith McNulty's Handbook of Regression Modeling in People Analytics
+Summary:          Asthma Data Sets from NHANES
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
-Data sets for statistical inference modeling related to People Analytics.
-Contains various data sets from the book 'Handbook of Regression Modeling
-in People Analytics' by Keith McNulty (2020).
+Data sets and examples from National Health and Nutritional Examination
+Survey (NHANES).
 
 %prep
 %setup -q -c -n %{packname}
