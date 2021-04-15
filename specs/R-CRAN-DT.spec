@@ -1,9 +1,9 @@
 %global packname  DT
-%global packver   0.17
+%global packver   0.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17
+Version:          0.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Wrapper of the JavaScript Library 'DataTables'
 

@@ -1,44 +1,32 @@
-%global packname  r5r
-%global packver   0.3-3
+%global packname  rjpdmp
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rapid Realistic Routing with 'R5'
+Summary:          Reversible Jump PDMP Samplers
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildArch:        noarch
-BuildRequires:    R-CRAN-sf >= 0.9.3
-BuildRequires:    R-CRAN-rJava >= 0.9.10
-BuildRequires:    R-CRAN-jdx >= 0.1.4
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.12.3
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sfheaders 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-sf >= 0.9.3
-Requires:         R-CRAN-rJava >= 0.9.10
-Requires:         R-CRAN-jdx >= 0.1.4
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.3
 Requires:         R-CRAN-data.table 
-Requires:         R-methods 
-Requires:         R-CRAN-sfheaders 
-Requires:         R-utils 
 
 %description
-Rapid realistic routing on multimodal transport networks (walk, bike,
-public transport and car) using 'R5', the Rapid Realistic Routing on
-Real-world and Reimagined networks <https://github.com/conveyal/r5>. The
-package allows users to generate detailed routing analysis or calculate
-travel time matrices using seamless parallel computing on top of the R5
-Java machine.
+Provides an implementation of the reversible jump piecewise deterministic
+Markov processes (PDMPs) methods developed in the paper Reversible Jump
+PDMP Samplers for Variable Selection (Chevallier, Fearnhead, Sutton 2020,
+<arXiv:2010.11771>). It also contains an implementation of a Gibbs sampler
+for variable selection in Logistic regression based on Polya-Gamma
+augmentation.
 
 %prep
 %setup -q -c -n %{packname}

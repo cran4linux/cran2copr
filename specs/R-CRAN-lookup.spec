@@ -1,35 +1,24 @@
-%global packname  SpatialKWD
-%global packver   0.3.0
+%global packname  lookup
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial KWD for Large Spatial Maps
+Summary:          Functions Similar to VLOOKUP in Excel
 
-License:          EUPL (>= 1.2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
 
 %description
-Contains efficient implementations of Discrete Optimal Transport
-algorithms for the computation of Kantorovich-Wasserstein distances
-between pairs of large spatial maps (Bassetti, Gualandi, Veneroni (2020),
-<doi:10.1137/19M1261195>). All the algorithms are based on an ad-hoc
-implementation of the Network Simplex algorithm. The package has three
-main helper functions: compareOneToOne() (to compare two spatial maps),
-compareOneToMany() (to compare a reference maps with a list of other
-maps), and compareAll() (to compute a matrix of distances between a list
-of maps). In case of non-convex maps, the helper functions first build the
-convex-hull of the input bins and pads the weights with zeros.
+Simple functions to lookup items in key-value pairs. See Mehta (2021)
+<doi:10.1007/978-1-4842-6613-7_6>.
 
 %prep
 %setup -q -c -n %{packname}

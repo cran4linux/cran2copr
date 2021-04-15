@@ -1,40 +1,28 @@
-%global packname  wordpressr
-%global packver   0.2.1
+%global packname  codename
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An API Wrapper for WordPress Site APIs
+Summary:          Generation of Code Names for Organizations, People, Projects, and Whatever Else
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-purrr 
 
 %description
-An API wrapper that helps R developers retrieve data from a WordPress
-site's API in tidy format, in addition to publishing content on the
-WordPress site (WordPress API documentation:
-<https://developer.wordpress.org/rest-api/>).
+This creates code names that a user can consider for their organizations,
+their projects, themselves, people in their organizations or projects, or
+whatever else. The user can also supply a numeric seed (and even a
+character seed) for maximum reproducibility. Use is simple and the code
+names produced come in various types too, contingent on what the user may
+be desiring as a code name or nickname.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  hockeystick
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Visualize Essential Climate Change Data
 
@@ -23,7 +23,8 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-viridisLite 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-rappdirs 
@@ -32,21 +33,24 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-viridisLite 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-tibble 
 
 %description
 Provides easy access to essential climate change datasets to non-climate
 experts. Users can download the latest raw data from authoritative sources
 and view it via pre-defined 'ggplot2' charts. Datasets include atmospheric
 CO2, instrumental and proxy temperature records, sea levels,
-Arctic/Antarctic sea-ice, and Paleoclimate data. Sources include: NOAA
-Mauna Loa Laboratory
+Arctic/Antarctic sea-ice, Hurricanes, and Paleoclimate data. Sources
+include: NOAA Mauna Loa Laboratory
 <https://www.esrl.noaa.gov/gmd/ccgg/trends/data.html>, NASA GISTEMP
 <https://data.giss.nasa.gov/gistemp/>, National Snow and Sea Ice Data
 Center <https://nsidc.org/data/seaice_index/archives>, CSIRO
-<http://www.cmar.csiro.au/sealevel/sl_data_cmar.html>, NOAA Laboratory for
-Satellite Altimetry
-<https://www.star.nesdis.noaa.gov/socd/lsa/SeaLevelRise/>, Vostok Paleo
+<https://research.csiro.au/slrwavescoast/sea-level/measurements-and-data/sea-level-data/>,
+NOAA Laboratory for Satellite Altimetry
+<https://www.star.nesdis.noaa.gov/socd/lsa/SeaLevelRise/> and HURDAT
+Atlantic Hurricane Database
+<https://www.aoml.noaa.gov/hrd/hurdat/Data_Storm.html>, Vostok Paleo
 carbon dioxide and temperature data:
 <https://cdiac.ess-dive.lbl.gov/trends/co2/vostok.html>.
 

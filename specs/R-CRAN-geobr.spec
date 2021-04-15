@@ -1,11 +1,11 @@
 %global packname  geobr
-%global packver   1.5-1
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Loads Shapefiles of Official Spatial Data Sets of Brazil
+Summary:          Download Official Spatial Data Sets of Brazil
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,11 +17,13 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr >= 1.4.1
 BuildRequires:    R-CRAN-sf >= 0.9.3
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-httr >= 1.4.1
 Requires:         R-CRAN-sf >= 0.9.3
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-readr 
 Requires:         R-utils 
@@ -30,7 +32,7 @@ Requires:         R-utils
 Easy access to official spatial data sets of Brazil as 'sf' objects in R.
 The package includes a wide range of geospatial data available at various
 geographic scales and for various years with harmonized attributes,
-projection and topology.
+projection and fixed topology.
 
 %prep
 %setup -q -c -n %{packname}

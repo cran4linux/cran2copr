@@ -1,9 +1,9 @@
 %global packname  midasml
-%global packver   0.0.6
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation and Prediction Methods for High-Dimensional Mixed Frequency Time Series Data
 
@@ -12,34 +12,32 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-quantreg >= 5.34
-BuildRequires:    R-parallel >= 3.5.2
-BuildRequires:    R-stats >= 3.5.2
-BuildRequires:    R-CRAN-optimx >= 2020.4.2
-BuildRequires:    R-CRAN-lubridate >= 1.7.4
-BuildRequires:    R-CRAN-foreach >= 1.4.4
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-CRAN-doSNOW >= 1.0.18
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-quantreg >= 5.34
-Requires:         R-parallel >= 3.5.2
-Requires:         R-stats >= 3.5.2
-Requires:         R-CRAN-optimx >= 2020.4.2
-Requires:         R-CRAN-lubridate >= 1.7.4
-Requires:         R-CRAN-foreach >= 1.4.4
-Requires:         R-CRAN-Rcpp >= 1.0.3
-Requires:         R-CRAN-doSNOW >= 1.0.18
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mcGlobaloptim 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-Matrix 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-CRAN-mcGlobaloptim 
+Requires:         R-methods 
+Requires:         R-CRAN-lubridate 
 
 %description
-The 'midasml' estimation and prediction methods for high dimensional time
-series regression models under mixed data sampling data structures using
-structured-sparsity penalties and orthogonal polynomials. For more
-information on the 'midasml' approach see Babii, Ghysels, and Striaukas
-(2021, JBES forthcoming) <doi:10.1080/07350015.2021.1899933>. Functions
-that compute MIDAS data structures were inspired by MIDAS 'Matlab' toolbox
-(v2.3) written by Eric Ghysels.
+The 'midasml' package implements estimation and prediction methods for
+high-dimensional mixed-frequency (MIDAS) time-series and panel data
+regression models. The regularized MIDAS models are estimated using
+orthogonal (e.g. Legendre) polynomials and sparse-group LASSO (sg-LASSO)
+estimator. For more information on the `midasml' approach see Babii,
+Ghysels, and Striaukas (2021, JBES forthcoming)
+<doi:10.1080/07350015.2021.1899933>. The package is equipped with the fast
+implementation of the sg-LASSO estimator by means of proximal block
+coordinate descent. High-dimensional mixed frequency time-series data can
+also be easily manipulated with functions provided in the package.
 
 %prep
 %setup -q -c -n %{packname}

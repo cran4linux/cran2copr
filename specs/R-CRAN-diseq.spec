@@ -1,9 +1,9 @@
 %global packname  diseq
-%global packver   0.1.5
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation Methods for Markets in Equilibrium and Disequilibrium
 
@@ -54,9 +54,9 @@ likelihood techniques given in Maddala and Nelson (1974)
 expressions calculated in Karapanagiotis (2020)
 <doi:10.2139/ssrn.3525622>. Standard errors can be estimated by adjusting
 for heteroscedasticity or clustering. The equilibrium estimation
-constitutes a case of a system of linear, simultaneous equations. The
-disequilibrium models, instead, replace the market-clearing condition with
-a non-linear, short-side rule and allow for different specifications of
+constitutes a case of a system of linear, simultaneous equations. Instead,
+the disequilibrium models replace the market-clearing condition with a
+non-linear, short-side rule and allow for different specifications of
 price dynamics.
 
 %prep

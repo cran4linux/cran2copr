@@ -1,9 +1,9 @@
 %global packname  windex
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysing Convergent Evolution using the Wheatsheaf Index
 
@@ -15,13 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ape >= 4.0
 BuildRequires:    R-CRAN-geiger >= 2.0
-BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-phangorn 
 BuildRequires:    R-CRAN-scatterplot3d 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-ape >= 4.0
 Requires:         R-CRAN-geiger >= 2.0
-Requires:         R-CRAN-ape 
 Requires:         R-CRAN-phangorn 
 Requires:         R-CRAN-scatterplot3d 
 Requires:         R-utils 

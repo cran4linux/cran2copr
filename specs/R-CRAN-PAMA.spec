@@ -1,10 +1,10 @@
 %global packname  PAMA
-%global packver   0.1.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
-Release:          3%{?dist}%{?buildtag}
+Version:          1.0.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Rank Aggregation with Partition Mallows Model
 
 License:          GPL (>= 2)
@@ -14,28 +14,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-PerMallows 
 BuildRequires:    R-CRAN-mc2d 
+BuildRequires:    R-CRAN-PerMallows 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-PerMallows 
 Requires:         R-CRAN-mc2d 
+Requires:         R-CRAN-PerMallows 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 
 %description
 Rank aggregation aims to achieve a better ranking list given multiple
 observations. 'PAMA' implements Partition-Mallows model for rank
-aggregation. Both Bayesian inference and Maximum likelihood estimation
-(MLE) are provided. It can handle partial list as well. When covariates
-information is available, this package can make inference by incorporating
-the covariate information. More information can be found in the paper
-"Integrated Partition-Mallows Model and Its Inference for Rank
-Aggregation". The paper is not yet published.
+aggregation where the rankers' quality are different. Both Bayesian
+inference and Maximum likelihood estimation (MLE) are provided. It can
+handle partial list as well. When covariates information is available,
+this package can make inference by incorporating the covariate
+information. More information can be found in the paper "Integrated
+Partition-Mallows Model and Its Inference for Rank Aggregation". The paper
+is accepted by Journal of the American Statistical Association.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -43,16 +51,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

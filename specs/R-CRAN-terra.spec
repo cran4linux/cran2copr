@@ -1,9 +1,9 @@
 %global packname  terra
-%global packver   1.1-4
+%global packver   1.1-17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Data Analysis
 
@@ -33,7 +33,7 @@ facilitate the use of regression type (interpolation, machine learning)
 models for spatial prediction. Processing of very large files is
 supported. See the manual and tutorials on <https://rspatial.org/terra/>
 to get started. 'terra' is very similar to the 'raster' package; but
-'terra' is simpler, better, and faster.
+'terra' can do more and it simpler to use and it is faster.
 
 %prep
 %setup -q -c -n %{packname}
