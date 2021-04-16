@@ -1,13 +1,13 @@
-%global packname  kubik
+%global packname  report
 %global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cubic Hermite Splines and Related Root Finding Methods
+Summary:          Automated Reporting of Results and Statistical Models
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,14 +15,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-bayestestR >= 0.9.0
+BuildRequires:    R-CRAN-performance >= 0.7.1
+BuildRequires:    R-CRAN-effectsize >= 0.4.4
+BuildRequires:    R-CRAN-insight >= 0.13.2
+BuildRequires:    R-CRAN-parameters >= 0.13.0
+BuildRequires:    R-stats 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-bayestestR >= 0.9.0
+Requires:         R-CRAN-performance >= 0.7.1
+Requires:         R-CRAN-effectsize >= 0.4.4
+Requires:         R-CRAN-insight >= 0.13.2
+Requires:         R-CRAN-parameters >= 0.13.0
+Requires:         R-stats 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Supports cubic Hermite splines (Fritsch & Carlson, 1980
-<doi:10.1137/0717021>), along with their derivatives/integrals. Also,
-supports monotonically increasing/decreasing splines, and computes their
-roots and minimum/maximum points.
+The aim of the 'report' package is to bridge the gap between R’s output
+and the formatted results contained in your manuscript. This package
+converts statistical models and data frames into textual reports suited
+for publication, ensuring standardization and quality in results
+reporting.
 
 %prep
 %setup -q -c -n %{packname}

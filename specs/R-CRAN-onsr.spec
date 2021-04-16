@@ -1,28 +1,32 @@
-%global packname  kubik
-%global packver   0.3.0
+%global packname  onsr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cubic Hermite Splines and Related Root Finding Methods
+Summary:          Client for the 'ONS' API
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tibble 
 
 %description
-Supports cubic Hermite splines (Fritsch & Carlson, 1980
-<doi:10.1137/0717021>), along with their derivatives/integrals. Also,
-supports monotonically increasing/decreasing splines, and computes their
-roots and minimum/maximum points.
+Client for the 'Office of National Statistics' ('ONS') API
+<https://api.beta.ons.gov.uk/v1>.
 
 %prep
 %setup -q -c -n %{packname}

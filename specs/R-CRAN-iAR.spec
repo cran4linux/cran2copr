@@ -1,11 +1,11 @@
-%global packname  BayesRGMM
-%global packver   1.0
+%global packname  iAR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Robust Generalized Mixed Models for Longitudinal Data
+Summary:          Irregularly Observed Autoregressive Models
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,33 +14,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-batchmeans 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-reshape 
-BuildRequires:    R-CRAN-msm 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-plyr 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppDist 
-Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-batchmeans 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-reshape 
-Requires:         R-CRAN-msm 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
 Requires:         R-CRAN-Rdpack 
 
 %description
-To perform model estimation using MCMC algorithms with Bayesian methods
-for incomplete longitudinal studies on binary outcomes that are measured
-repeatedly on subjects over time with drop-outs. Details about the method
-can be found in the vignette or
-<https://sites.google.com/view/kuojunglee/r-packages/bayesrgmm>.
+Data sets, functions and scripts with examples to implement autoregressive
+models for irregularly observed time series. The models available in this
+package are the irregular autoregressive model (Eyheramendy et al.(2018)
+<doi:10.1093/mnras/sty2487>), the complex irregular autoregressive model
+(Elorrieta et al.(2019) <doi:10.1051/0004-6361/201935560>) and the
+bivariate irregular autoregressive model.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,28 +1,29 @@
-%global packname  kubik
-%global packver   0.3.0
+%global packname  childdevdata
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cubic Hermite Splines and Related Root Finding Methods
+Summary:          Child Development Data
 
-License:          GPL (>= 2)
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
 
 %description
-Supports cubic Hermite splines (Fritsch & Carlson, 1980
-<doi:10.1137/0717021>), along with their derivatives/integrals. Also,
-supports monotonically increasing/decreasing splines, and computes their
-roots and minimum/maximum points.
+Measuring child development starts by collecting responses to
+developmental milestones, such as "able to sit" or "says two words". There
+are many ways to combine such responses into summaries. The package
+bundles publicly available datasets with individual milestone data for
+children aged 0-5 years, with the aim of supporting the construction,
+evaluation, validation and interpretation of methodologies that aggregate
+milestone data into informative measures of child development.
 
 %prep
 %setup -q -c -n %{packname}

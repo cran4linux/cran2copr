@@ -1,13 +1,13 @@
-%global packname  kubik
-%global packver   0.3.0
+%global packname  segregatr
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cubic Hermite Splines and Related Root Finding Methods
+Summary:          Segregation Analysis for Variant Interpretation
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,14 +15,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-pedtools 
+BuildRequires:    R-CRAN-pedprobr 
+Requires:         R-CRAN-pedtools 
+Requires:         R-CRAN-pedprobr 
 
 %description
-Supports cubic Hermite splines (Fritsch & Carlson, 1980
-<doi:10.1137/0717021>), along with their derivatives/integrals. Also,
-supports monotonically increasing/decreasing splines, and computes their
-roots and minimum/maximum points.
+An implementation of the full-likelihood Bayes factor (FLB) for evaluating
+segregation evidence in clinical medical genetics. The method was
+introduced by Thompson et al. (2003) <doi:10.1086/378100>, and further
+popularised by Bayrak-Toydemir et al. (2008)
+<doi:10.1016/j.yexmp.2008.03.006>. This implementation allows custom
+penetrance values and liability classes, and includes specialised pedigree
+visualisations.
 
 %prep
 %setup -q -c -n %{packname}

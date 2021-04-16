@@ -1,28 +1,31 @@
-%global packname  kubik
-%global packver   0.3.0
+%global packname  selfmade
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cubic Hermite Splines and Related Root Finding Methods
+Summary:          Selective Inference for Mixed and Additive Model Estimators
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-mgcv 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-mgcv 
 
 %description
-Supports cubic Hermite splines (Fritsch & Carlson, 1980
-<doi:10.1137/0717021>), along with their derivatives/integrals. Also,
-supports monotonically increasing/decreasing splines, and computes their
-roots and minimum/maximum points.
+Calculates Monte Carlo approximations to conduct selective inference for
+mixed and additive regression models after model selection as proposed by
+Ruegamer, Baumann and Greven (2020) <arXiv:2007.07930>.
 
 %prep
 %setup -q -c -n %{packname}

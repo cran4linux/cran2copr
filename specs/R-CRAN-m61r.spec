@@ -1,28 +1,25 @@
-%global packname  kubik
-%global packver   0.3.0
+%global packname  m61r
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cubic Hermite Splines and Related Root Finding Methods
+Summary:          Package About Data Manipulation in Pure Base R
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4.4
+Requires:         R-core >= 3.4.4
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
 
 %description
-Supports cubic Hermite splines (Fritsch & Carlson, 1980
-<doi:10.1137/0717021>), along with their derivatives/integrals. Also,
-supports monotonically increasing/decreasing splines, and computes their
-roots and minimum/maximum points.
+Data manipulation in one package and in base R. Minimal. No dependencies.
+'dplyr' and 'tidyr'-like in one place. Nothing else than base R to build
+the package.
 
 %prep
 %setup -q -c -n %{packname}

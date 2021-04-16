@@ -1,41 +1,33 @@
-%global packname  tidysq
-%global packver   1.1.0
+%global packname  QPmin
+%global packver   0.5-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Processing and Analysis of Biological Sequences
+Summary:          Linearly Constrained Indefinite Quadratic Program Solver
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-tibble >= 2.1.3
-BuildRequires:    R-CRAN-cli >= 2.0.0
-BuildRequires:    R-CRAN-checkmate >= 1.9.0
-BuildRequires:    R-CRAN-pillar >= 1.4.2
-BuildRequires:    R-CRAN-crayon >= 1.3.4
-BuildRequires:    R-CRAN-dplyr >= 1.0.2
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-CRAN-vctrs >= 0.3.0
-BuildRequires:    R-CRAN-testthat 
-Requires:         R-CRAN-tibble >= 2.1.3
-Requires:         R-CRAN-cli >= 2.0.0
-Requires:         R-CRAN-checkmate >= 1.9.0
-Requires:         R-CRAN-pillar >= 1.4.2
-Requires:         R-CRAN-crayon >= 1.3.4
-Requires:         R-CRAN-dplyr >= 1.0.2
-Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-CRAN-vctrs >= 0.3.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
 
 %description
-A tidy approach to analysis of biological sequences. All processing and
-data-storage functions are heavily optimized to allow the fastest and most
-efficient data storage.
+Active set method solver for the solution of indefinite quadratic
+programs, subject to lower bounds on linear functions of the variables and
+simple bounds on the variables themselves. The function QPmin() implements
+an algorithm similar to the one described in Gould (1991)
+<doi:10.1093/imanum/11.3.299> with the exception that an efficient sparse
+internal representation of the basis matrix is maintained thus allowing
+the solution of somewhat large problems.
 
 %prep
 %setup -q -c -n %{packname}

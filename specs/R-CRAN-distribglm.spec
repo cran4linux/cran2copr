@@ -1,13 +1,13 @@
-%global packname  kubik
-%global packver   0.3.0
+%global packname  distribglm
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cubic Hermite Splines and Related Root Finding Methods
+Summary:          Distributed Generalized Linear Models
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,14 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-readr 
+Requires:         R-stats 
 
 %description
-Supports cubic Hermite splines (Fritsch & Carlson, 1980
-<doi:10.1137/0717021>), along with their derivatives/integrals. Also,
-supports monotonically increasing/decreasing splines, and computes their
-roots and minimum/maximum points.
+Distributed generalized linear models (GLM) fitting using Fisher scoring
+from McCullagh and Nelder (1989) <ISBN:0412317605>. Models are to be fit
+using a primary-secondary relationship, where the results are written to a
+synced folder, but data can be elsewhere though it is loaded in memory.
+Additional functions are available for deploying a plumber 'API'.
 
 %prep
 %setup -q -c -n %{packname}

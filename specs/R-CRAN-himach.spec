@@ -1,28 +1,41 @@
-%global packname  kubik
-%global packver   0.3.0
+%global packname  himach
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cubic Hermite Splines and Related Root Finding Methods
+Summary:          High Mach Finds Routes for Supersonic Aircraft
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-sf >= 0.9.7
+BuildRequires:    R-CRAN-cppRouting 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-s2 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-sf >= 0.9.7
+Requires:         R-CRAN-cppRouting 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-s2 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-tidyr 
 
 %description
-Supports cubic Hermite splines (Fritsch & Carlson, 1980
-<doi:10.1137/0717021>), along with their derivatives/integrals. Also,
-supports monotonically increasing/decreasing splines, and computes their
-roots and minimum/maximum points.
+For supersonic aircraft, flying subsonic over land, High Mach finds the
+best route between airports. Allows for coastal buffer and potentially
+closed regions. Uses minimal model of aircraft performance: focus is on
+time saved versus subsonic flight, rather than vertical flight profile.
+For modelling and forecasting, not for planning your flight!
 
 %prep
 %setup -q -c -n %{packname}

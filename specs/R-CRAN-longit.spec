@@ -1,40 +1,40 @@
-%global packname  zipcodeR
-%global packver   0.3.0
+%global packname  longit
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data & Functions for Working with US ZIP Codes
+Summary:          High Dimensional Longitudinal Data Analysis Using MCMC
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-udunits2 
-BuildRequires:    R-CRAN-tidycensus 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-udunits2 
-Requires:         R-CRAN-tidycensus 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-AICcmodavg 
+BuildRequires:    R-CRAN-missForest 
+BuildRequires:    R-CRAN-R2jags 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-AICcmodavg 
+Requires:         R-CRAN-missForest 
+Requires:         R-CRAN-R2jags 
+Requires:         R-CRAN-rjags 
+Requires:         R-utils 
 
 %description
-Make working with ZIP codes in R painless with an integrated dataset of
-U.S. ZIP codes and functions for working with them. Search ZIP codes by
-multiple geographies, including state, county, city & across time zones.
-Also included are functions for relating ZIP codes to Census data.
+High dimensional longitudinal data analysis with Markov Chain Monte
+Carlo(MCMC). Currently support mixed effect regression with or without
+missing observations by considering covariance structures. It provides
+estimates by missing at random and missing not at random assumptions. In
+this R package, we present Bayesian approaches that statisticians and
+clinical researchers can easily use. The functions' methodology is based
+on the book "Bayesian Approaches in Oncology Using R and OpenBUGS" by
+Bhattacharjee A (2020) <doi:10.1201/9780429329449-14>.
 
 %prep
 %setup -q -c -n %{packname}
