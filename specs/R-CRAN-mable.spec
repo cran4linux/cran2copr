@@ -1,9 +1,9 @@
 %global packname  mable
-%global packver   3.0.0
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Maximum Approximate Bernstein/Beta Likelihood Estimation
 
@@ -18,7 +18,6 @@ BuildRequires:    R-CRAN-survival
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-icenReg 
-BuildRequires:    R-CRAN-aftgee 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
@@ -28,7 +27,6 @@ Requires:         R-CRAN-survival
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-CRAN-icenReg 
-Requires:         R-CRAN-aftgee 
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 

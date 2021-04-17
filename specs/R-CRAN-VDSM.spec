@@ -1,11 +1,11 @@
-%global packname  DVHmetrics
-%global packver   0.4.1
+%global packname  VDSM
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyze Dose-Volume Histograms and Check Constraints
+Summary:          Visualization of Distribution of Selected Model
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,30 +16,34 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-KernSmooth 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-reshape2 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-grid 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-KernSmooth 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-knitr 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-reshape2 
 
 %description
-Functionality for analyzing dose-volume histograms (DVH) in radiation
-oncology: Read DVH text files, calculate DVH metrics as well as
-generalized equivalent uniform dose (gEUD), biologically effective dose
-(BED), equivalent dose in 2 Gy fractions (EQD2), normal tissue
-complication probability (NTCP), and tumor control probability (TCP). Show
-DVH diagrams, check and visualize quality assurance constraints for the
-DVH. Includes web-based graphical user interface.
+Although model selection is ubiquitous in scientific discovery, the
+stability and uncertainty of the selected model is often hard to evaluate.
+How to characterize the random behavior of the model selection procedure
+is the key to understand and quantify the model selection uncertainty.
+This R package offers several graphical tools to visualize the
+distribution of the selected model. For example, Gplot(), Hplot(),
+VDSM_scatterplot() and VDSM_heatmap(). To the best of our knowledge, this
+is the first attempt to visualize such a distribution. About what
+distribution of selected model is and how it work please see Qin,Y.and
+Wang,L. (2021) "Visualization of Model Selection Uncertainty"
+<https://homepages.uc.edu/~qinyn/VDSM/VDSM.html>.
 
 %prep
 %setup -q -c -n %{packname}

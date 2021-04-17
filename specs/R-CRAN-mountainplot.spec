@@ -1,10 +1,10 @@
 %global packname  mountainplot
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
-Release:          3%{?dist}%{?buildtag}
+Version:          1.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          Mountain Plots, Folded Empirical Cumulative Distribution Plots
 
 License:          GPL-3
@@ -15,20 +15,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-lattice 
+BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-stats 
-Requires:         R-lattice 
+Requires:         R-CRAN-lattice 
 Requires:         R-stats 
 
 %description
 Lattice functions for drawing folded empirical cumulative distribution
 plots, or mountain plots. A mountain plot is similar to an empirical CDF
 plot, except that the curve increases from 0 to 0.5, then decreases from
-0.5 to 1 using an inverted scale at the right side.
+0.5 to 1 using an inverted scale at the right side. See Monti (1995)
+<doi:10.1080/00031305.1995.10476179>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -38,14 +46,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

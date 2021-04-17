@@ -1,28 +1,28 @@
-%global packname  onnx
-%global packver   0.0.3
+%global packname  diffmatchpatch
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to 'ONNX'
+Summary:          String Diff, Match, and Patch Utilities
 
-License:          MIT License + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate >= 1.4
-Requires:         R-CRAN-reticulate >= 1.4
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-Rcpp 
 
 %description
-R Interface to 'ONNX' - Open Neural Network Exchange <https://onnx.ai/>.
-'ONNX' provides an open source format for machine learning models. It
-defines an extensible computation graph model, as well as definitions of
-built-in operators and standard data types.
+A wrapper for Google's 'diff-match-patch' library. It provides basic tools
+for computing diffs, finding fuzzy matches, and constructing / applying
+patches to strings.
 
 %prep
 %setup -q -c -n %{packname}

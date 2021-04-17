@@ -1,11 +1,11 @@
 %global packname  vannstats
-%global packver   1.0.3.27
+%global packver   1.0.4.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3.27
+Version:          1.0.4.15
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simplified Statistics for Vann PA 606
+Summary:          Simplified Statistics for PA 606
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-car
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-gplots 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
@@ -33,11 +34,13 @@ Requires:         R-CRAN-car
 Requires:         R-CRAN-purrr 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-CRAN-gplots 
 
 %description
 Simplifies functions assess normality for bivariate and multivariate
 statistical techniques, including hst(), box(), and qq(). Plots designed
-to replicate those that would result from similar calls in 'SPSS'.
+to replicate those that would result from similar calls in 'SPSS'. Also
+includes simplified formulae, such as mode(), scatter(), and ow.anova().
 
 %prep
 %setup -q -c -n %{packname}

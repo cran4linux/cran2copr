@@ -1,28 +1,25 @@
-%global packname  onnx
-%global packver   0.0.3
+%global packname  ADVICE
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to 'ONNX'
+Summary:          Automatic Direct Variable Selection via Interrupted Coefficient Estimation
 
-License:          MIT License + file LICENSE
+License:          Unlimited
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 2.0.1
+Requires:         R-core >= 2.0.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate >= 1.4
-Requires:         R-CRAN-reticulate >= 1.4
 
 %description
-R Interface to 'ONNX' - Open Neural Network Exchange <https://onnx.ai/>.
-'ONNX' provides an open source format for machine learning models. It
-defines an extensible computation graph model, as well as definitions of
-built-in operators and standard data types.
+Accurate point and interval estimation methods for multiple linear
+regression coefficients, under classical normal and independent error
+assumptions, taking into account variable selection.
 
 %prep
 %setup -q -c -n %{packname}

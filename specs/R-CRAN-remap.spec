@@ -1,9 +1,9 @@
 %global packname  remap
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regional Spatial Modeling with Continuous Borders
 
@@ -16,12 +16,14 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-graphics >= 3.6.0
+BuildRequires:    R-methods >= 3.6.0
 BuildRequires:    R-parallel >= 3.6.0
 BuildRequires:    R-stats >= 3.6.0
 BuildRequires:    R-utils >= 3.6.0
 BuildRequires:    R-CRAN-sf >= 0.9.6
 BuildRequires:    R-CRAN-units >= 0.6.7
 Requires:         R-graphics >= 3.6.0
+Requires:         R-methods >= 3.6.0
 Requires:         R-parallel >= 3.6.0
 Requires:         R-stats >= 3.6.0
 Requires:         R-utils >= 3.6.0
@@ -30,10 +32,11 @@ Requires:         R-CRAN-units >= 0.6.7
 
 %description
 Automatically creates separate regression models for different spatial
-regions. The prediction surface is smoothed using a novel method developed
-by the package creator. If regional models are continuous, the resulting
+regions. The prediction surface is smoothed using a regional border
+smoothing method. If regional models are continuous, the resulting
 prediction surface is continuous across the spatial dimensions, even at
-region borders.
+region borders. Methodology is described in Wagstaff (2021)
+<https://digitalcommons.usu.edu/etd/8065/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,39 @@
-%global packname  dyads
-%global packver   1.1.4
+%global packname  cxr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dyadic Network Analysis
+Summary:          A Toolbox for Modelling Species Coexistence in R
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-optimx 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-CholWishart 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-RcppZiggurat 
-BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-optimx 
 Requires:         R-stats 
-Requires:         R-CRAN-CholWishart 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-RcppZiggurat 
-Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-mvtnorm 
 
 %description
-Contains functions for the MCMC simulation of dyadic network models j2
-(Zijlstra, 2017, <doi:10.1080/0022250X.2017.1387858>) and p2 (Van Duijn,
-Snijders & Zijlstra, 2004, <doi: 10.1046/j.0039-0402.2003.00258.x>), and
-the bidirectional (multilevel) counterpart of the the multilevel p2 model
-as described in Zijlstra, Van Duijn & Snijders (2009) <doi:
-10.1348/000711007X255336>, the (multilevel) b2 model.
+Recent developments in modern coexistence theory have advanced our
+understanding on how species are able to persist and co-occur with other
+species at varying abundances. However, applying this mathematical
+framework to empirical data is still challenging, precluding a larger
+adoption of the theoretical tools developed by empiricists. This package
+provides a complete toolbox for modelling interaction effects between
+species, and calculate fitness and niche differences. The functions are
+flexible, may accept covariates, and different fitting algorithms can be
+used. A full description of the underlying methods is available in
+García-Callejas, D., Godoy, O., and Bartomeus, I. (2020)
+<doi:10.1111/2041-210X.13443>.
 
 %prep
 %setup -q -c -n %{packname}

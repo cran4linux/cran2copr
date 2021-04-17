@@ -1,9 +1,9 @@
 %global packname  aRchi
-%global packver   1.0.3
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantitative Structural Model ('QSM') Treatment for Tree Architecture
 
@@ -18,7 +18,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-nat 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-lidR 
@@ -34,7 +33,6 @@ BuildRequires:    R-CRAN-gtools
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-nat 
 Requires:         R-CRAN-rgl 
 Requires:         R-methods 
 Requires:         R-CRAN-lidR 

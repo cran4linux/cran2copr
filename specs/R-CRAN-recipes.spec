@@ -1,13 +1,13 @@
 %global packname  recipes
-%global packver   0.1.15
+%global packver   0.1.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.15
+Version:          0.1.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Preprocessing Tools to Create Design Matrices
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-purrr >= 0.2.3
 BuildRequires:    R-CRAN-generics >= 0.1.0
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-gower 
 BuildRequires:    R-CRAN-ipred 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-purrr >= 0.2.3
 Requires:         R-CRAN-generics >= 0.1.0
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ellipsis 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-gower 
 Requires:         R-CRAN-ipred 

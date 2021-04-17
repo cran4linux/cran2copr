@@ -1,9 +1,9 @@
 %global packname  workflowsets
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create a Collection of 'tidymodels' Workflows
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-prettyunits 
+BuildRequires:    R-CRAN-generics 
 Requires:         R-CRAN-tibble >= 3.1.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-workflows >= 0.2.2
@@ -43,6 +44,7 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-CRAN-prettyunits 
+Requires:         R-CRAN-generics 
 
 %description
 A workflow is a combination of a model and preprocessors (e.g, a formula,

@@ -1,28 +1,31 @@
-%global packname  onnx
-%global packver   0.0.3
+%global packname  survMS
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to 'ONNX'
+Summary:          Survival Model Simulation
 
-License:          MIT License + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate >= 1.4
-Requires:         R-CRAN-reticulate >= 1.4
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
 
 %description
-R Interface to 'ONNX' - Open Neural Network Exchange <https://onnx.ai/>.
-'ONNX' provides an open source format for machine learning models. It
-defines an extensible computation graph model, as well as definitions of
-built-in operators and standard data types.
+Package enables the data simulation from different survival models (Cox,
+AFT, and AH models). The simulated data will have various levels of
+complexity according to the survival model considered. The implemented
+methods for the Cox model are described in Ralf Bender, Thomas Augustin,
+Maria Blettner (2004) <doi:10.1002/sim.2059>.
 
 %prep
 %setup -q -c -n %{packname}

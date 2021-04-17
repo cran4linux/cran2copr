@@ -1,36 +1,48 @@
-%global packname  rstac
-%global packver   0.9.1
+%global packname  r5r
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client Library for SpatioTemporal Asset Catalog
+Summary:          Rapid Realistic Routing with 'R5'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
+BuildRequires:    R-CRAN-sf >= 0.9.3
+BuildRequires:    R-CRAN-rJava >= 0.9.10
+BuildRequires:    R-CRAN-jdx >= 0.1.4
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-sfheaders 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-sf >= 0.9.3
+Requires:         R-CRAN-rJava >= 0.9.10
+Requires:         R-CRAN-jdx >= 0.1.4
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-crayon 
+Requires:         R-methods 
+Requires:         R-CRAN-sfheaders 
 Requires:         R-utils 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-jsonlite 
 
 %description
-Provides functions to access, search and download spacetime earth
-observation data via SpatioTemporal Asset Catalog (STAC). This package
-supports the version 0.8.1 or higher of the STAC specification
-(<http://stacspec.org>).
+Rapid realistic routing on multimodal transport networks (walk, bike,
+public transport and car) using 'R5', the Rapid Realistic Routing on
+Real-world and Reimagined networks <https://github.com/conveyal/r5>. The
+package allows users to generate detailed routing analysis or calculate
+travel time matrices using seamless parallel computing on top of the R5
+Java machine.
 
 %prep
 %setup -q -c -n %{packname}

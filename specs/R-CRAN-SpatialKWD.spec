@@ -1,28 +1,35 @@
-%global packname  onnx
-%global packver   0.0.3
+%global packname  SpatialKWD
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to 'ONNX'
+Summary:          Spatial KWD for Large Spatial Maps
 
-License:          MIT License + file LICENSE
+License:          EUPL (>= 1.2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate >= 1.4
-Requires:         R-CRAN-reticulate >= 1.4
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
 
 %description
-R Interface to 'ONNX' - Open Neural Network Exchange <https://onnx.ai/>.
-'ONNX' provides an open source format for machine learning models. It
-defines an extensible computation graph model, as well as definitions of
-built-in operators and standard data types.
+Contains efficient implementations of Discrete Optimal Transport
+algorithms for the computation of Kantorovich-Wasserstein distances
+between pairs of large spatial maps (Bassetti, Gualandi, Veneroni (2020),
+<doi:10.1137/19M1261195>). All the algorithms are based on an ad-hoc
+implementation of the Network Simplex algorithm. The package has three
+main helper functions: "compareOneToOne" (to compare two spatial maps),
+"compareOneToMany" (to compare a reference maps with a list of other
+maps), and "compareAll" (to compute a matrix of distances between a list
+of maps). In case of non-convex maps, the helper functions first build the
+convex-hull of the input bins and pads the weights with zeros.
 
 %prep
 %setup -q -c -n %{packname}
