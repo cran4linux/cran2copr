@@ -1,9 +1,9 @@
 %global packname  exactextractr
-%global packver   0.5.1
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Extraction from Raster Datasets using Polygons
 
@@ -15,14 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    geos-devel >= 3.5.0
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-sf >= 0.9.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-sf >= 0.9.0
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-methods 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-sf 
 
 %description
 Provides a replacement for the 'extract' function from the 'raster'

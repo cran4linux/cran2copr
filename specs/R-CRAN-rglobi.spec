@@ -1,10 +1,10 @@
 %global packname  rglobi
-%global packver   0.2.21
+%global packver   0.2.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.21
-Release:          3%{?dist}%{?buildtag}
+Version:          0.2.22
+Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to Global Biotic Interactions
 
 License:          MIT + file LICENSE
@@ -26,16 +26,24 @@ Requires:         R-CRAN-rjson >= 0.2.13
 
 %description
 A programmatic interface to the web service methods provided by Global
-Biotic Interactions (GloBI). GloBI provides access to spatial-temporal
-species interaction records from sources all over the world. rglobi
-provides methods to search species interactions by location, interaction
-type, and taxonomic name. In addition, it supports Cypher, a graph query
-language, to allow for executing custom queries on the GloBI aggregate
-species interaction data set.
+Biotic Interactions (GloBI) (<https://www.globalbioticinteractions.org/>).
+GloBI provides access to spatial-temporal species interaction records from
+sources all over the world. rglobi provides methods to search species
+interactions by location, interaction type, and taxonomic name. In
+addition, it supports Cypher, a graph query language, to allow for
+executing custom queries on the GloBI aggregate species interaction data
+set.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -43,19 +51,10 @@ species interaction data set.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

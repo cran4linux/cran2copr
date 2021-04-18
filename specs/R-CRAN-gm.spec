@@ -1,11 +1,11 @@
 %global packname  gm
-%global packver   1.0.0
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate Musical Scores Easily and Show Them Anywhere
+Summary:          Generate Music Easily and Show Them Anywhere
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,6 +18,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-MASS 
@@ -28,6 +29,7 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-magick 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-MASS 
@@ -37,14 +39,15 @@ Requires:         R-CRAN-stringr
 Requires:         R-utils 
 
 %description
-Provides a simple and intuitive language, with which you can create
-complex music easily. Takes care of all the dirty technical details in
+Provides a simple and intuitive high-level language, with which you can
+create music easily. Takes care of all the dirty technical details in
 converting your music to musical scores and audio files. Works in 'R
 Markdown' documents <https://rmarkdown.rstudio.com/>, R 'Jupyter
-Notebooks' <https://jupyter.org/>, and 'RStudio' <https://rstudio.com/>,
-so you can embed musical scores and audio files anywhere. Internally, uses
-'MusicXML' <https://www.musicxml.com/> to represent musical scores, and
-'MuseScore' <https://musescore.org/> to convert 'MusicXML'.
+Notebooks' <https://jupyter.org/>, and 'RStudio'
+<https://www.rstudio.com/>, so you can embed generated music anywhere.
+Internally, uses 'MusicXML' <https://www.musicxml.com/> to represent
+musical scores, and 'MuseScore' <https://musescore.org/> to convert
+'MusicXML'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  smooth
-%global packver   3.1.0
+%global packver   3.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forecasting Using State Space Models
 
@@ -41,16 +41,15 @@ Requires:         R-CRAN-zoo
 %description
 Functions implementing Single Source of Error state space models for
 purposes of time series analysis and forecasting. The package includes
-Exponential Smoothing (Hyndman et al., 2008, <doi:
-10.1007/978-3-540-71918-2>), SARIMA (Svetunkov & Boylan, 2019 <doi:
-10.1080/00207543.2019.1600764>), Complex Exponential Smoothing (Svetunkov
-& Kourentzes, 2018, <doi: 10.13140/RG.2.2.24986.29123>), Simple Moving
-Average (Svetunkov & Petropoulos, 2018 <doi:
-10.1080/00207543.2017.1380326>), Vector Exponential Smoothing (de Silva et
-al., 2010, <doi: 10.1177/1471082X0901000401>) in state space forms,
-several simulation functions and intermittent demand state space models.
-It also allows dealing with intermittent demand based on the iETS
-framework (Svetunkov & Boylan, 2017, <doi: 10.13140/RG.2.2.35897.06242>).
+ADAM (Svetunkov, 2021, <https://openforecast.org/adam/>), Exponential
+Smoothing (Hyndman et al., 2008, <doi: 10.1007/978-3-540-71918-2>), SARIMA
+(Svetunkov & Boylan, 2019 <doi: 10.1080/00207543.2019.1600764>), Complex
+Exponential Smoothing (Svetunkov & Kourentzes, 2018, <doi:
+10.13140/RG.2.2.24986.29123>), Simple Moving Average (Svetunkov &
+Petropoulos, 2018 <doi: 10.1080/00207543.2017.1380326>) and several
+simulation functions. It also allows dealing with intermittent demand
+based on the iETS framework (Svetunkov & Boylan, 2019, <doi:
+10.13140/RG.2.2.35897.06242>).
 
 %prep
 %setup -q -c -n %{packname}

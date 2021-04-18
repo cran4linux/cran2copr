@@ -1,9 +1,9 @@
 %global packname  rgl
-%global packver   0.105.22
+%global packver   0.106.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.105.22
+Version:          0.106.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          3D Visualization Using OpenGL
 

@@ -1,35 +1,28 @@
-%global packname  SpatialKWD
-%global packver   0.3.1
+%global packname  Sojourn.Data
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial KWD for Large Spatial Maps
+Summary:          Supporting Objects for Sojourn Accelerometer Methods
 
-License:          EUPL (>= 1.2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildArch:        noarch
 
 %description
-Contains efficient implementations of Discrete Optimal Transport
-algorithms for the computation of Kantorovich-Wasserstein distances
-between pairs of large spatial maps (Bassetti, Gualandi, Veneroni (2020),
-<doi:10.1137/19M1261195>). All the algorithms are based on an ad-hoc
-implementation of the Network Simplex algorithm. The package has three
-main helper functions: "compareOneToOne" (to compare two spatial maps),
-"compareOneToMany" (to compare a reference maps with a list of other
-maps), and "compareAll" (to compute a matrix of distances between a list
-of maps). In case of non-convex maps, the helper functions first build the
-convex-hull of the input bins and pads the weights with zeros.
+Stores objects (e.g. neural networks) that are needed for using Sojourn
+accelerometer methods. For more information, see Lyden K, Keadle S,
+Staudenmayer J, & Freedson P (2014) <doi:10.1249/MSS.0b013e3182a42a2d>,
+Ellingson LD, Schwabacher IJ, Kim Y, Welk GJ, & Cook DB (2016)
+<doi:10.1249/MSS.0000000000000915>, and Hibbing PR, Ellingson LD, Dixon
+PM, & Welk GJ (2018) <doi:10.1249/MSS.0000000000001486>.
 
 %prep
 %setup -q -c -n %{packname}
