@@ -1,9 +1,9 @@
 %global packname  SPOT
-%global packver   2.3.0
+%global packver   2.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sequential Parameter Optimization Toolbox
 
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-rpart
 BuildRequires:    R-CRAN-rpart.plot 
 BuildRequires:    R-CRAN-smoof 
 BuildRequires:    R-CRAN-laGP 
+BuildRequires:    R-CRAN-plgp 
 BuildRequires:    R-CRAN-sensitivity 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-ranger 
@@ -52,6 +53,7 @@ Requires:         R-CRAN-rpart
 Requires:         R-CRAN-rpart.plot 
 Requires:         R-CRAN-smoof 
 Requires:         R-CRAN-laGP 
+Requires:         R-CRAN-plgp 
 Requires:         R-CRAN-sensitivity 
 
 %description

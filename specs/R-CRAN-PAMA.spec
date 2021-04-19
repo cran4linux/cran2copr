@@ -1,9 +1,9 @@
 %global packname  PAMA
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rank Aggregation with Partition Mallows Model
 
@@ -31,8 +31,7 @@ inference and Maximum likelihood estimation (MLE) are provided. It can
 handle partial list as well. When covariates information is available,
 this package can make inference by incorporating the covariate
 information. More information can be found in the paper "Integrated
-Partition-Mallows Model and Its Inference for Rank Aggregation". The paper
-is accepted by Journal of the American Statistical Association.
+Partition-Mallows Model and Its Inference for Rank Aggregation".
 
 %prep
 %setup -q -c -n %{packname}

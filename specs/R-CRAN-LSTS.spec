@@ -1,38 +1,40 @@
-%global packname  geysertimes
-%global packver   0.1.5
+%global packname  LSTS
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geyser Data from GeyserTimes.org
+Summary:          Locally Stationary Time Series
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-readr 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-patchwork 
+Requires:         R-stats 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-patchwork 
 
 %description
-Download geyser eruption and observation data from the GeyserTimes site
-(<https://geysertimes.org>) and optionally store it locally. The vignette
-shows a simple analysis of downloading, accessing, and summarizing the
-data.
+A set of functions that allow stationary analysis and locally stationary
+time series analysis. The principal references are Dahlhaus (1997)
+<doi:10.1214/aos/1034276620>, Dahlhaus and Giraitis (1998)
+<doi:10.1111/1467-9892.00114>, Brockwell, et al. (2002)
+<isbn:978-3-319-29854-2>, Ljung and Box (1978)
+<doi:10.1093/biomet/65.2.297>, Palma (2007) <isbn:978-0-470-11402-5>,
+Palma, et al. (2011) <doi:10.1002/for.1259>, and Palma and Olea (2010)
+<doi:10.1214/10-AOS812>.
 
 %prep
 %setup -q -c -n %{packname}

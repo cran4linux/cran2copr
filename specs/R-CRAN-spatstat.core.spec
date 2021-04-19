@@ -1,9 +1,9 @@
 %global packname  spatstat.core
-%global packver   2.0-0
+%global packver   2.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Core Functionality of the 'spatstat' Family
 

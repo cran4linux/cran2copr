@@ -1,9 +1,9 @@
 %global packname  ramcmc
-%global packver   0.1.0-1.1
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0.1.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Adaptive Metropolis Algorithm
 
@@ -21,8 +21,8 @@ Requires:         R-CRAN-Rcpp >= 0.12.8
 %description
 Function for adapting the shape of the random walk Metropolis proposal as
 specified by robust adaptive Metropolis algorithm by Vihola (2012)
-<DOI:10.1007/s11222-011-9269-5>. Package also includes fast functions for
-rank-one Cholesky update and downdate. These functions can be used
+<DOI:10.1007/s11222-011-9269-5>. The package also includes fast functions
+for rank-one Cholesky update and downdate. These functions can be used
 directly from R or the corresponding C++ header files can be easily linked
 to other R packages.
 

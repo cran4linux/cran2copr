@@ -1,9 +1,9 @@
 %global packname  withr
-%global packver   2.4.1
+%global packver   2.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.1
+Version:          2.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Run Code 'With' Temporarily Modified Global State
 

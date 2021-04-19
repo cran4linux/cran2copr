@@ -1,9 +1,9 @@
 %global packname  soilDB
-%global packver   2.5.9
+%global packver   2.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.9
+Version:          2.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Soil Database Interface
 
@@ -26,9 +26,9 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-DBI 
 Requires:         R-CRAN-aqp 
 Requires:         R-grDevices 
 Requires:         R-graphics 
@@ -40,9 +40,9 @@ Requires:         R-CRAN-sp
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-lattice 
 Requires:         R-methods 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-DBI 
 
 %description
 A collection of functions for reading data from USDA-NCSS soil databases.

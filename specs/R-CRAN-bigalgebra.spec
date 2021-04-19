@@ -1,43 +1,34 @@
-%global packname  tibble
-%global packver   3.1.1
+%global packname  bigalgebra
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Data Frames
+Summary:          'BLAS' and 'LAPACK' Routines for Native R Matrices and 'big.matrix' Objects
 
-License:          MIT + file LICENSE
+License:          LGPL-3 | Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-pillar >= 1.6.0
-BuildRequires:    R-CRAN-rlang >= 0.4.3
-BuildRequires:    R-CRAN-fansi >= 0.4.0
-BuildRequires:    R-CRAN-vctrs >= 0.3.2
-BuildRequires:    R-CRAN-ellipsis >= 0.2.0
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-bigmemory >= 4.0.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pkgconfig 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-pillar >= 1.6.0
-Requires:         R-CRAN-rlang >= 0.4.3
-Requires:         R-CRAN-fansi >= 0.4.0
-Requires:         R-CRAN-vctrs >= 0.3.2
-Requires:         R-CRAN-ellipsis >= 0.2.0
-Requires:         R-CRAN-lifecycle >= 0.2.0
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-bigmemory >= 4.0.0
 Requires:         R-methods 
-Requires:         R-CRAN-pkgconfig 
-Requires:         R-utils 
 
 %description
-Provides a 'tbl_df' class (the 'tibble') that provides stricter checking
-and better formatting than the traditional data frame.
+Provides arithmetic functions for R matrix and 'big.matrix' objects as
+well as functions for QR factorization, Cholesky factorization, General
+eigenvalue, and Singular value decomposition (SVD). A method matrix
+multiplication and an arithmetic method -for matrix addition, matrix
+difference- allows for mixed type operation -a matrix class object and a
+big.matrix class object- and pure type operation for two big.matrix class
+objects.
 
 %prep
 %setup -q -c -n %{packname}

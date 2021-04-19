@@ -1,9 +1,9 @@
 %global packname  influential
-%global packver   2.0.1
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identification and Classification of the Most Influential Nodes
 
@@ -16,14 +16,14 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-coop 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-coop 
-Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-ggplot2 
 
 %description

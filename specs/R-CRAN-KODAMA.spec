@@ -1,40 +1,33 @@
-%global packname  strex
-%global packver   1.4.2
+%global packname  KODAMA
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extra String Manipulation Functions
+Summary:          Knowledge Discovery by Accuracy Maximization
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-checkmate >= 1.9.3
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-stringi >= 1.4.6
-BuildRequires:    R-CRAN-stringr >= 1.4
-BuildRequires:    R-CRAN-rlang >= 0.3.3
+BuildRequires:    R-devel >= 2.10.0
+Requires:         R-core >= 2.10.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.4
 BuildRequires:    R-stats 
-Requires:         R-CRAN-checkmate >= 1.9.3
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-stringi >= 1.4.6
-Requires:         R-CRAN-stringr >= 1.4
-Requires:         R-CRAN-rlang >= 0.3.3
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.4
 Requires:         R-stats 
 
 %description
-There are some things that I wish were easier with the 'stringr' or
-'stringi' packages. The foremost of these is the extraction of numbers
-from strings. 'stringr' and 'stringi' make you figure out the regular
-expression for yourself; 'strex' takes care of this for you. There are
-many other handy functionalities in 'strex'. Contributions to this package
-are encouraged: it is intended as a miscellany of string manipulation
-functions that cannot be found in 'stringi' or 'stringr'.
+An unsupervised and semi-supervised learning algorithm that performs
+feature extraction from noisy and high-dimensional data. It facilitates
+identification of patterns representing underlying groups on all samples
+in a data set. Based on Cacciatore S, Tenori L, Luchinat C, Bennett PR,
+MacIntyre DA. (2017) Bioinformatics <doi:10.1093/bioinformatics/btw705>
+and Cacciatore S, Luchinat C, Tenori L. (2014) Proc Natl Acad Sci USA
+<doi:10.1073/pnas.1220873111>.
 
 %prep
 %setup -q -c -n %{packname}

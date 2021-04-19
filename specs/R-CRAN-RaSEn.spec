@@ -1,9 +1,9 @@
 %global packname  RaSEn
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Random Subspace Ensemble Classification and Variable Screening
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-caret 
@@ -30,6 +30,8 @@ BuildRequires:    R-CRAN-gridExtra
 BuildRequires:    R-CRAN-formatR 
 BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-KernelKnn 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-class 
@@ -45,6 +47,8 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-CRAN-formatR 
 Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-KernelKnn 
+Requires:         R-utils 
 
 %description
 We propose a general ensemble classification framework, RaSE algorithm,
@@ -65,7 +69,7 @@ based on the selected percentage in multiple subspaces. RaSE framework can
 be extended to the general prediction framework, including both
 classification and regression. We can use the selected percentages of
 variables for variable screening. The latest version added the variable
-screening function available for both regression and classification.
+screening function for both regression and classification problems.
 
 %prep
 %setup -q -c -n %{packname}
