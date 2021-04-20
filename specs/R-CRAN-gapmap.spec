@@ -1,30 +1,32 @@
-%global packname  tictoc
-%global packver   1.0.1
+%global packname  gapmap
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Timing R Scripts, as Well as Implementations of Stack and List Structures
+Summary:          Drawing Gapped Cluster Heatmap with 'ggplot2'
 
-License:          Apache License (== 2.0) | file LICENSE
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.3
-Requires:         R-core >= 3.0.3
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-grid 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
+Requires:         R-grid 
 
 %description
-Provides the timing functions 'tic' and 'toc' that can be nested. One can
-record all timings while a complex script is running, and examine the
-values later. It is also possible to instrument the timing calls with
-custom callbacks. In addition, this package provides class 'Stack',
-implemented as a vector, and class 'List', implemented as a list, both of
-which support operations 'push', 'pop', 'first', 'last' and 'clear'.
+The gap encodes the distance between clusters and improves interpretation
+of cluster heatmaps. The gaps can be of the same distance based on a
+height threshold to cut the dendrogram. Another option is to vary the size
+of gaps based on the distance between clusters.
 
 %prep
 %setup -q -c -n %{packname}

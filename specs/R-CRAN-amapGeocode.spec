@@ -1,9 +1,9 @@
 %global packname  amapGeocode
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Interface to the 'AutoNavi Maps' API Geocoding Services
 
@@ -12,29 +12,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-sjmisc 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-furrr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-sjmisc 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-data.table 
-Requires:         R-parallel 
+Requires:         R-CRAN-furrr 
 
 %description
 Getting and parsing data of location geocode/reverse-geocode and

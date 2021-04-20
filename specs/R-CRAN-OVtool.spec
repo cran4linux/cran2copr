@@ -1,9 +1,9 @@
 %global packname  OVtool
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Omitted Variable Tool
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-twang 
 BuildRequires:    R-CRAN-Amelia 
 BuildRequires:    R-CRAN-EnvStats 
 BuildRequires:    R-CRAN-devtools 
@@ -31,8 +32,8 @@ BuildRequires:    R-CRAN-survey
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-twang 
 BuildRequires:    R-CRAN-varhandle 
+Requires:         R-CRAN-twang 
 Requires:         R-CRAN-Amelia 
 Requires:         R-CRAN-EnvStats 
 Requires:         R-CRAN-devtools 
@@ -49,7 +50,6 @@ Requires:         R-CRAN-survey
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-twang 
 Requires:         R-CRAN-varhandle 
 
 %description

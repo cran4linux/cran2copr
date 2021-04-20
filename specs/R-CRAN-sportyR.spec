@@ -1,30 +1,35 @@
-%global packname  tictoc
-%global packver   1.0.1
+%global packname  sportyR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Timing R Scripts, as Well as Implementations of Stack and List Structures
+Summary:          Plot Scaled 'ggplot' Representations of Sports Playing Surfaces
 
-License:          Apache License (== 2.0) | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.3
-Requires:         R-core >= 3.0.3
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-rjson 
+Requires:         R-utils 
+Requires:         R-CRAN-dplyr 
 
 %description
-Provides the timing functions 'tic' and 'toc' that can be nested. One can
-record all timings while a complex script is running, and examine the
-values later. It is also possible to instrument the timing calls with
-custom callbacks. In addition, this package provides class 'Stack',
-implemented as a vector, and class 'List', implemented as a list, both of
-which support operations 'push', 'pop', 'first', 'last' and 'clear'.
+Create scaled 'ggplot' representations of playing surfaces. Playing
+surfaces are drawn pursuant to rule-book specifications. This package
+should be used as a baseline plot for displaying player tracking data.
 
 %prep
 %setup -q -c -n %{packname}

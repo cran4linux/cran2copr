@@ -1,11 +1,11 @@
 %global packname  openintro
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
-Release:          2%{?dist}%{?buildtag}
-Summary:          Data Sets and Supplemental Functions from 'OpenIntro' Textbooksand Labs
+Version:          2.1.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          Data Sets and Supplemental Functions from 'OpenIntro' Textbooks and Labs
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-airports
 BuildRequires:    R-CRAN-cherryblossom 
 BuildRequires:    R-CRAN-usdata 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 >= 2.2.1
@@ -27,6 +28,7 @@ Requires:         R-CRAN-airports
 Requires:         R-CRAN-cherryblossom 
 Requires:         R-CRAN-usdata 
 Requires:         R-graphics 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-tibble 
 
@@ -42,9 +44,13 @@ when run in some versions of Windows operating system.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -54,6 +60,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

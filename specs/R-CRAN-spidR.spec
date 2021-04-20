@@ -1,9 +1,9 @@
 %global packname  spidR
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spider Biodiversity Tools
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rgbif 
 BuildRequires:    R-CRAN-rworldmap 
+BuildRequires:    R-CRAN-rworldxtra 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-graphics 
@@ -27,6 +28,7 @@ Requires:         R-CRAN-httr
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rgbif 
 Requires:         R-CRAN-rworldmap 
+Requires:         R-CRAN-rworldxtra 
 Requires:         R-stats 
 Requires:         R-utils 
 

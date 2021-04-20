@@ -1,30 +1,36 @@
-%global packname  tictoc
-%global packver   1.0.1
+%global packname  fitmix
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Timing R Scripts, as Well as Implementations of Stack and List Structures
+Summary:          Finite Mixture Model Fitting of Lifespan Datasets
 
-License:          Apache License (== 2.0) | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.3
-Requires:         R-core >= 3.0.3
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Provides the timing functions 'tic' and 'toc' that can be nested. One can
-record all timings while a complex script is running, and examine the
-values later. It is also possible to instrument the timing calls with
-custom callbacks. In addition, this package provides class 'Stack',
-implemented as a vector, and class 'List', implemented as a list, both of
-which support operations 'push', 'pop', 'first', 'last' and 'clear'.
+Fits the lifespan datasets of biological systems such as yeast, fruit
+flies, and other similar biological units with well-known finite mixture
+models introduced by Farewell V. (1982) <doi:10.2307/2529885> and
+Al-Hussaini et al. (2000) <doi:10.1080/00949650008812033>. Estimates
+parameter space fitting of a lifespan dataset with finite mixtures of
+parametric distributions. Computes the following tasks; 1) Estimates
+parameter space of the finite mixture model by implementing the
+expectation maximization (EM) algorithm. 2) Finds a sequence of four
+goodness-of-fit measures consist of Akaike Information Criterion (AIC),
+Bayesian Information Criterion (BIC), Kolmogorov-Smirnov (KS), and
+log-likelihood (log-likelihood) statistics. 3)The initial values is
+determined by k-means clustering.
 
 %prep
 %setup -q -c -n %{packname}

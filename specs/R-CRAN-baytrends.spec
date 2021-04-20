@@ -1,9 +1,9 @@
 %global packname  baytrends
-%global packver   2.0.2
+%global packver   2.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Long Term Water Quality Trend Analysis
 
@@ -15,18 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-dataRetrieval 
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-XML 
 Requires:         R-CRAN-dataRetrieval 
 Requires:         R-CRAN-digest 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-plyr 

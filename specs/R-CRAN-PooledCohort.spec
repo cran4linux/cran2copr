@@ -1,11 +1,11 @@
-%global packname  speakr
-%global packver   3.1.0
+%global packname  PooledCohort
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Wrapper for the Phonetic Software 'Praat'
+Summary:          Predict 10-Year Risk for Atherosclerotic Cardiovascular Disease
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,19 +15,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-glue 
+Requires:         R-stats 
 
 %description
-It allows running 'Praat' scripts from R and it provides some wrappers for
-basic plotting. It also adds support for literate markdown tangling. The
-package is designed to bring reproducible phonetic research into R.
+The 2017 American College of Cardiology and American Heart Association
+blood pressure guideline recommends using 10-year predicted
+atherosclerotic cardiovascular disease risk to guide the decision to
+initiate or intensify antihypertensive medication. The guideline
+recommends using the Pooled Cohort risk prediction equations to predict
+10-year atherosclerotic cardiovascular disease risk. This package
+implements the original Pooled Cohort risk prediction equations and also
+incorporates updated versions based on more contemporary data and
+statistical methods. References: Goff DC, Lloyd-Jones DM, Bennett G, Coady
+S, D’Agostino RB, Gibbons R, Greenland P, Lackland DT, Levy D, O’Donnell
+CJ, and Robinson JG (2014) <doi:10.1016/j.jacc.2014.03.006> Yadlowsky S,
+Hayward RA, Sussman JB, McClelland RL, Min YI, and Basu S (2018)
+<doi:10.7326/m17-3011>.
 
 %prep
 %setup -q -c -n %{packname}

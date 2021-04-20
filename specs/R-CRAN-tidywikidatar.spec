@@ -1,11 +1,11 @@
-%global packname  speakr
-%global packver   3.1.0
+%global packname  tidywikidatar
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Wrapper for the Phonetic Software 'Praat'
+Summary:          Explore 'Wikidata' Through Tidy Data Frames
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,19 +15,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang >= 0.1.2
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-WikidataR 
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-WikidataQueryServiceR 
+BuildRequires:    R-CRAN-fs 
+Requires:         R-CRAN-rlang >= 0.1.2
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-WikidataR 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-WikidataQueryServiceR 
+Requires:         R-CRAN-fs 
 
 %description
-It allows running 'Praat' scripts from R and it provides some wrappers for
-basic plotting. It also adds support for literate markdown tangling. The
-package is designed to bring reproducible phonetic research into R.
+Query 'Wikidata' API <https://wikidata.org/> with ease, get tidy data
+frames in response, and cache data in a local 'SQLite' database.
 
 %prep
 %setup -q -c -n %{packname}

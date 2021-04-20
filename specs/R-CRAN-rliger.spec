@@ -1,9 +1,9 @@
 %global packname  rliger
-%global packver   0.5.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linked Inference of Genomic Experimental Relationships
 
@@ -29,7 +29,6 @@ BuildRequires:    R-CRAN-ica
 BuildRequires:    R-CRAN-Rtsne 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-riverplot 
-BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
@@ -59,7 +58,6 @@ Requires:         R-CRAN-ica
 Requires:         R-CRAN-Rtsne 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-riverplot 
-Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-foreach 
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 

@@ -1,30 +1,30 @@
-%global packname  tictoc
-%global packver   1.0.1
+%global packname  SSRTcalc
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Timing R Scripts, as Well as Implementations of Stack and List Structures
+Summary:          Easy SSRT Calculation
 
-License:          Apache License (== 2.0) | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.3
-Requires:         R-core >= 3.0.3
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-stats >= 4.0.5
+Requires:         R-stats >= 4.0.5
 
 %description
-Provides the timing functions 'tic' and 'toc' that can be nested. One can
-record all timings while a complex script is running, and examine the
-values later. It is also possible to instrument the timing calls with
-custom callbacks. In addition, this package provides class 'Stack',
-implemented as a vector, and class 'List', implemented as a list, both of
-which support operations 'push', 'pop', 'first', 'last' and 'clear'.
+This is a collection of functions to calculate stop-signal reaction time
+(SSRT). Includes functions for both "integration" and "mean" methods; both
+fixed and adaptive stop-signal delays are supported (see appropriate
+functions). Calculation is based on Verbruggen et al. (2019)
+<doi:10.7554/eLife.46323.001> and Verbruggen et al. (2013)
+<doi:10.1177/0956797612457390>.
 
 %prep
 %setup -q -c -n %{packname}
