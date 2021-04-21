@@ -1,9 +1,9 @@
 %global packname  LA
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lioness Algorithm (LA)
 
@@ -15,16 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-LHD >= 1.3.2
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-LHD 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-LHD >= 1.3.2
 Requires:         R-stats 
-Requires:         R-CRAN-LHD 
 Requires:         R-utils 
 
 %description
 Contains Lioness Algorithm (LA) for finding optimal designs over
-continuous design space, optimal latin Hypercube Designs, and optimal
+continuous design space, optimal Latin hypercube designs, and optimal
 order-of-addition designs. LA is a brand new nature-inspired
 meta-heuristic optimization algorithm. Detailed methodologies of LA and
 its implementation on numerical simulations can be found at Hongzhi Wang,

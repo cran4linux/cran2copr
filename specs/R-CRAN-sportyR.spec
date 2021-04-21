@@ -1,9 +1,9 @@
 %global packname  sportyR
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plot Scaled 'ggplot' Representations of Sports Playing Surfaces
 
@@ -17,13 +17,9 @@ Requires:         R-core >= 3.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-rjson 
-Requires:         R-utils 
 Requires:         R-CRAN-dplyr 
 
 %description

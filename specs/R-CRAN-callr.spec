@@ -1,9 +1,9 @@
 %global packname  callr
-%global packver   3.6.0
+%global packver   3.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6.0
+Version:          3.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Call R from R
 

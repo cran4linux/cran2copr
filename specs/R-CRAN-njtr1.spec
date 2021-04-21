@@ -1,11 +1,11 @@
 %global packname  njtr1
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Analyze New Jersey Car Crash Data
+Summary:          Download, Analyze & Clean New Jersey Car Crash Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,18 +15,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-readr 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-curl 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-readr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-curl 
 
 %description
-Download and analyze crash data published by the New Jersey Department of
-Transportation. The data in this package is collected through the filing
-of NJTR-1 form by police officers, which provide a standardized way of
-documenting a crash that took place within New Jersey.
+Download and analyze motor vehicle crash data released by the New Jersey
+Department of Transportation (NJDOT). The data in this package is
+collected through the filing of NJTR-1 form by police officers, which
+provide a standardized way of documenting a motor vehicle crash that
+occurred in New Jersey. 3 different data tables containing data on
+crashes, vehicles & pedestrians released from 2001 to the present can be
+downloaded & cleaned using this package.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  ijtiff
-%global packver   2.2.5
+%global packver   2.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.5
+Version:          2.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive TIFF I/O with Full Support for 'ImageJ' TIFF Files
 
@@ -19,7 +19,7 @@ Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-withr >= 2.1
 BuildRequires:    R-CRAN-checkmate >= 1.9.3
 BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-strex >= 1.4
+BuildRequires:    R-CRAN-strex >= 1.4.1
 BuildRequires:    R-CRAN-stringr >= 1.4
 BuildRequires:    R-CRAN-fs >= 1.3.1
 BuildRequires:    R-CRAN-rlang >= 0.3.3
@@ -34,7 +34,7 @@ BuildRequires:    R-CRAN-zeallot
 Requires:         R-CRAN-withr >= 2.1
 Requires:         R-CRAN-checkmate >= 1.9.3
 Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-strex >= 1.4
+Requires:         R-CRAN-strex >= 1.4.1
 Requires:         R-CRAN-stringr >= 1.4
 Requires:         R-CRAN-fs >= 1.3.1
 Requires:         R-CRAN-rlang >= 0.3.3

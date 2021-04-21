@@ -1,9 +1,9 @@
 %global packname  NNS
-%global packver   0.6.2
+%global packver   0.6.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.6.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonlinear Nonparametric Statistics
 

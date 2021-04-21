@@ -1,23 +1,34 @@
-%global packname  writexl
-%global packver   1.4.0
+%global packname  HDBRR
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Export Data Frames to Excel 'xlsx' Format
+Summary:          High Dimensional Bayesian Ridge Regression without MCMC
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-bigstatsr 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-parallel 
+Requires:         R-CRAN-bigstatsr 
+Requires:         R-CRAN-MASS 
 
 %description
-Zero-dependency data frame to xlsx exporter based on 'libxlsxwriter'. Fast
-and no Java or Excel required.
+The svd(singular value decomposition) or qr decomposition was using for
+the implementation, this avoid the recursion optimizing the time in the
+compute
+<https://drive.google.com/drive/folders/1xJw7gM5_XiJipQ3grTZkfc6q4K0hzuCx?usp=sharing>.
 
 %prep
 %setup -q -c -n %{packname}

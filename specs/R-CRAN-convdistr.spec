@@ -1,44 +1,49 @@
-%global packname  worldmet
-%global packver   0.9.5
+%global packname  convdistr
+%global packver   1.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          1.5.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Import Surface Meteorological Data from NOAA Integrated Surface Database (ISD)
+Summary:          Convolute Probabilistic Distributions
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-openair 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-pryr 
+BuildRequires:    R-CRAN-extraDistr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-readr 
-Requires:         R-CRAN-openair 
-Requires:         R-CRAN-doParallel 
-Requires:         R-parallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-SHELF 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-pryr 
+Requires:         R-CRAN-extraDistr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-readr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-SHELF 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-shiny 
 
 %description
-Functions to import data from more than 30,000 surface meteorological
-sites around the world managed by the National Oceanic and Atmospheric
-Administration (NOAA) Integrated Surface Database (ISD, see
-<https://www.ncdc.noaa.gov/isd>).
+Convolute probabilistic distributions using the random generator function
+of each distribution. A new random number generator function is created
+that perform the mathematical operation on the individual random samples
+from the random generator function of each distribution. See the
+documentation for examples.
 
 %prep
 %setup -q -c -n %{packname}

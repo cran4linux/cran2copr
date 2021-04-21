@@ -1,9 +1,9 @@
 %global packname  synoptReg
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Synoptic Climate Classification and Spatial Regionalization of Environmental Data
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-RNCEP
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-kohonen 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lubridate 
@@ -41,13 +42,14 @@ Requires:         R-CRAN-RNCEP
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-kohonen 
 
 %description
 Set of functions to compute different types of synoptic classification
 methods and for analysing their effect on environmental variables. More
 information about the methods used in Lemus-Canovas et al. 2019
 <DOI:10.1016/j.atmosres.2019.01.018>, Martin-Vide et al. 2008
-<DOI:10.5194/asr-2-99-2008> and Jenkinson and Collison 1977.
+<DOI:10.5194/asr-2-99-2008>, Jenkinson and Collison 1977.
 
 %prep
 %setup -q -c -n %{packname}

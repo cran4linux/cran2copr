@@ -1,23 +1,33 @@
-%global packname  writexl
-%global packver   1.4.0
+%global packname  EMpeaksR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Export Data Frames to Excel 'xlsx' Format
+Summary:          Conducting the Peak Fitting Based on the EM Algorithm
 
-License:          BSD_2_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
 
 %description
-Zero-dependency data frame to xlsx exporter based on 'libxlsxwriter'. Fast
-and no Java or Excel required.
+The peak fitting of spectral data is performed by using the frame work of
+EM algorithm.  We adapted the EM algorithm for the peak fitting of
+spectral data set by considering the weight of the intensity corresponding
+to the measurement energy steps (Matsumura, T., Nagamura, N., Akaho, S.,
+Nagata, K., & Ando, Y. (2019) <doi:10.1080/14686996.2019.1620123>).  The
+package efficiently estimates the parameters of Gaussian mixture model
+during iterative calculation between E-step and M-step, and the parameters
+are converged to a local optimal solution.  This package can support the
+investigation of peak shift with two advantages: (1) a large amount of
+data can be processed at high speed; and (2) stable and automatic
+calculation can be easily performed.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  circacompare
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyses of Circadian Data
 
@@ -26,7 +26,8 @@ Requires:         R-utils
 Uses non-linear regression to statistically compare two circadian rhythms.
 Groups are only compared if both are rhythmic (amplitude is non-zero).
 Performs analyses regarding mesor, phase, and amplitude, reporting on
-estimates and statistical differences, for each, between groups.
+estimates and statistical differences, for each, between groups. Details
+can be found in Parsons et al (2020) <doi:10.1093/bioinformatics/btz730>.
 
 %prep
 %setup -q -c -n %{packname}

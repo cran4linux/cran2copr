@@ -1,9 +1,9 @@
 %global packname  BiodiversityR
-%global packver   2.12-3
+%global packver   2.13-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.12.3
+Version:          2.13.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Package for Community Ecology and Suitability Analysis
 

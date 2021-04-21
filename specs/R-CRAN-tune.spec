@@ -1,9 +1,9 @@
 %global packname  tune
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Tuning Tools
 
@@ -21,7 +21,7 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-purrr >= 0.3.2
 BuildRequires:    R-CRAN-vctrs >= 0.3.0
-BuildRequires:    R-CRAN-workflows >= 0.2.1
+BuildRequires:    R-CRAN-workflows >= 0.2.2
 BuildRequires:    R-CRAN-parsnip >= 0.1.4
 BuildRequires:    R-CRAN-recipes >= 0.1.15
 BuildRequires:    R-CRAN-generics >= 0.1.0
@@ -39,7 +39,7 @@ Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-purrr >= 0.3.2
 Requires:         R-CRAN-vctrs >= 0.3.0
-Requires:         R-CRAN-workflows >= 0.2.1
+Requires:         R-CRAN-workflows >= 0.2.2
 Requires:         R-CRAN-parsnip >= 0.1.4
 Requires:         R-CRAN-recipes >= 0.1.15
 Requires:         R-CRAN-generics >= 0.1.0

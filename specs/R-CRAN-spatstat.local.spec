@@ -1,9 +1,9 @@
 %global packname  spatstat.local
-%global packver   4.1-0
+%global packver   4.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.0
+Version:          4.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extension to 'spatstat' for Local Composite Likelihood
 

@@ -1,9 +1,9 @@
 %global packname  mappoly
-%global packver   0.2.1
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genetic Linkage Maps in Autopolyploids
 
@@ -16,7 +16,6 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.6
 BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-ggsci 
@@ -33,9 +32,9 @@ BuildRequires:    R-CRAN-princurve
 BuildRequires:    R-CRAN-dendextend 
 BuildRequires:    R-CRAN-vcfR 
 BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-plotly 
 Requires:         R-CRAN-Rcpp >= 0.12.6
 Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-ggsci 
@@ -52,6 +51,7 @@ Requires:         R-CRAN-princurve
 Requires:         R-CRAN-dendextend 
 Requires:         R-CRAN-vcfR 
 Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-plotly 
 
 %description
 Construction of genetic maps in autopolyploid full-sib populations. Uses

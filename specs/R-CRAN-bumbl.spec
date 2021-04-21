@@ -1,33 +1,44 @@
-%global packname  mcprofile
-%global packver   1.0-1
+%global packname  bumbl
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Testing Generalized Linear Hypotheses for Generalized Linear Model Parameters by Profile Deviance
+Summary:          Tools for Modeling Bumblebee Colony Growth and Decline
 
-License:          GPL (>= 2)
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-splines 
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-splines 
 
 %description
-Calculation of signed root deviance profiles for linear combinations of
-parameters in a generalized linear model. Multiple tests and simultaneous
-confidence intervals are provided.
+Bumblebee colonies grow during worker production, then decline after
+switching to production of reproductive individuals (drones and gynes).
+This package provides tools for modeling and visualizing this pattern by
+identifying a switchpoint with a growth rate before and a decline rate
+after the switchpoint. The mathematical models fit by bumbl are described
+in Crone and Williams (2016) <doi:10.1111/ele.12581>.
 
 %prep
 %setup -q -c -n %{packname}

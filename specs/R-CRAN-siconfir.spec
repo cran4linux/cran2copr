@@ -1,23 +1,39 @@
-%global packname  writexl
-%global packver   1.4.0
+%global packname  siconfir
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Export Data Frames to Excel 'xlsx' Format
+Summary:          Quick and Easy Access Tax and Accounting Data of Brazil
 
-License:          BSD_2_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-utils 
 
 %description
-Zero-dependency data frame to xlsx exporter based on 'libxlsxwriter'. Fast
-and no Java or Excel required.
+Access tax and accounting data of Brazilian states and municipalities
+provided by the Brazilian Public Sector Accounting and Tax Information
+System.
 
 %prep
 %setup -q -c -n %{packname}
