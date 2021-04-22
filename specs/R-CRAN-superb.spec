@@ -1,9 +1,9 @@
 %global packname  superb
-%global packver   0.9.4.2
+%global packver   0.9.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4.2
+Version:          0.9.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get Precision of Means Under Various Designs and Sampling Schemes
 
@@ -19,18 +19,14 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
 BuildRequires:    R-CRAN-plyr >= 1.8.4
 BuildRequires:    R-CRAN-Rdpack >= 0.7
 BuildRequires:    R-CRAN-lsr >= 0.5
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggsci 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 >= 3.1.0
 Requires:         R-CRAN-plyr >= 1.8.4
 Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-CRAN-lsr >= 0.5
-Requires:         R-stats 
-Requires:         R-CRAN-ggsci 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-matrixcalc 
+Requires:         R-stats 
 
 %description
 Computes standard error and confidence interval of various descriptive
@@ -41,7 +37,8 @@ Cousineau (2017) <doi:10.5709/acp-0214-z> for a review or Cousineau (2005)
 <doi:10.20982/tqmp.01.1.p042>, Morey (2008) <doi:10.20982/tqmp.04.2.p061>,
 Baguley (2012) <doi:10.3758/s13428-011-0123-7>, Cousineau & Laurencelle
 (2016) <doi:10.1037/met0000055>, Cousineau & O'Brien (2014)
-<doi:10.3758/s13428-013-0441-z>.
+<doi:10.3758/s13428-013-0441-z>, Calderini & Harding
+<doi:10.20982/tqmp.15.1.p001>.
 
 %prep
 %setup -q -c -n %{packname}

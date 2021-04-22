@@ -1,9 +1,9 @@
 %global packname  midasml
-%global packver   0.1.0
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation and Prediction Methods for High-Dimensional Mixed Frequency Time Series Data
 
@@ -12,20 +12,22 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-mcGlobaloptim 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-foreach 
 Requires:         R-graphics 
-Requires:         R-stats 
 Requires:         R-CRAN-mcGlobaloptim 
 Requires:         R-methods 
 Requires:         R-CRAN-lubridate 
+Requires:         R-stats 
 
 %description
 The 'midasml' package implements estimation and prediction methods for

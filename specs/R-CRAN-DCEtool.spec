@@ -1,13 +1,13 @@
-%global packname  PeerPerformance
-%global packver   2.2.3
+%global packname  DCEtool
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Luck-Corrected Peer Performance Analysis in R
+Summary:          Create, Survey and Analyse Discrete Choice Experiments
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,19 +15,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-CRAN-lmtest 
-BuildRequires:    R-compiler 
-Requires:         R-parallel 
-Requires:         R-CRAN-sandwich 
-Requires:         R-CRAN-lmtest 
-Requires:         R-compiler 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-idefix 
+BuildRequires:    R-CRAN-writexl 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-idefix 
+Requires:         R-CRAN-writexl 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
 
 %description
-Provides functions to perform the peer performance analysis of funds'
-returns as described in Ardia and Boudt (2018)
-<doi:10.1016/j.jbankfin.2017.10.014>.
+This app is intended to be a complete package for creating, surveying, and
+analysing discrete choice experiments. Although all these functionalities
+are available, the app can also be used only to obtain the design of a
+discrete choice experiment. Reference: Perez-Troncoso, D. (2021)
+<https://github.com/danielpereztr/DCEtool>.
 
 %prep
 %setup -q -c -n %{packname}

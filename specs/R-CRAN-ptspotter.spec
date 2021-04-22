@@ -1,13 +1,13 @@
-%global packname  dataverse
-%global packver   0.3.8
+%global packname  ptspotter
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for Dataverse 4+ Repositories
+Summary:          Helper Functions for Use with "ProjectTemplate"
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,26 +15,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-readr 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-utils >= 4.0.4
+BuildRequires:    R-CRAN-stringi >= 1.5.3
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-beepr >= 1.3
+BuildRequires:    R-CRAN-log4r >= 0.3.2
+BuildRequires:    R-CRAN-this.path >= 0.2.0
+BuildRequires:    R-CRAN-pryr >= 0.1.4
+Requires:         R-utils >= 4.0.4
+Requires:         R-CRAN-stringi >= 1.5.3
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-beepr >= 1.3
+Requires:         R-CRAN-log4r >= 0.3.2
+Requires:         R-CRAN-this.path >= 0.2.0
+Requires:         R-CRAN-pryr >= 0.1.4
 
 %description
-Provides access to Dataverse APIs <https://dataverse.org/> (versions 4-5),
-enabling data search, retrieval, and deposit. For Dataverse versions <=
-3.0, use the archived 'dvn' package
-<https://cran.r-project.org/package=dvn>.
+Utility functions produced specifically for (but not limited to) working
+with 'ProjectTemplate' data pipelines. This package helps to quickly
+create and manage sequentially numbered scripts, quickly set up logging
+with 'log4r' and functions to help debug and monitor procedures.
 
 %prep
 %setup -q -c -n %{packname}

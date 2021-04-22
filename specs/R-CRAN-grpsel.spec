@@ -1,37 +1,32 @@
-%global packname  DEPONS2R
+%global packname  grpsel
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read, Plot and Analyse Output from the DEPONS Model
+Summary:          Group Subset Selection
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-raster 
-Requires:         R-methods 
-Requires:         R-CRAN-sp 
-Requires:         R-utils 
-Requires:         R-grDevices 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Methods for analyzing population dynamics and movement tracks simulated
-using the DEPONS model <https://www.depons.eu>, and for manipulating input
-raster files.
+Provides tools for sparse regression modelling with grouped predictors
+using the group subset selection penalty. Uses coordinate descent and
+local search algorithms to rapidly deliver near optimal estimates. The
+group subset penalty can be combined with a group lasso or ridge penalty
+for added shrinkage. Linear and logistic regression are supported, as are
+overlapping groups.
 
 %prep
 %setup -q -c -n %{packname}

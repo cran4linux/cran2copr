@@ -1,26 +1,32 @@
-%global packname  onlineretail
-%global packver   0.1.1
+%global packname  circle
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Online Retail Dataset
+Summary:          R Client Package for Circle CI
 
-License:          CC0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 2.0.0
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-cli >= 2.0.0
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Transactions occurring for a UK-based and registered, non-store online
-retail between 01/12/2010 and 09/12/2011 (Chen et. al., 2012,
-<doi:10.1145/1835804.1835882>). This dataset is included in this package
-with the donor's permission, Dr. Daqing Chen.
+Tools for interacting with the 'Circle CI' API
+(<https://circleci.com/docs/api/v2/>). Besides executing common tasks such
+as querying build logs and restarting builds, this package also helps
+setting up permissions to deploy from builds.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,55 +1,56 @@
-%global packname  synoptReg
-%global packver   1.2.1
+%global packname  psycModel
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Synoptic Climate Classification and Spatial Regionalization of Environmental Data
+Summary:          Integrated Toolkit for Psychological Analysis and Modeling in R
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 0.1.2
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-rnaturalearth 
-BuildRequires:    R-CRAN-rnaturalearthdata 
-BuildRequires:    R-CRAN-metR 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-RNCEP 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-lmerTest 
+BuildRequires:    R-CRAN-parameters 
+BuildRequires:    R-CRAN-performance 
+BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-kohonen 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-rnaturalearth 
-Requires:         R-CRAN-rnaturalearthdata 
-Requires:         R-CRAN-metR 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-RNCEP 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-lmerTest 
+Requires:         R-CRAN-parameters 
+Requires:         R-CRAN-performance 
+Requires:         R-CRAN-psych 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-kohonen 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-Set of functions to compute different types of synoptic classification
-methods and for analysing their effect on environmental variables. More
-information about the methods used in Lemus-Canovas et al. 2019
-<DOI:10.1016/j.atmosres.2019.01.018>, Martin-Vide et al. 2008
-<DOI:10.5194/asr-2-99-2008>, Jenkinson and Collison 1977.
+A beginner-friendly R package for modeling in psychology or related field.
+It allows fitting models, plotting, checking goodness of fit, and model
+assumption violations all in one place. It also produces beautiful and
+easy-to-read output.
 
 %prep
 %setup -q -c -n %{packname}

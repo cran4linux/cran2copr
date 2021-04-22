@@ -1,28 +1,37 @@
-%global packname  stevedata
-%global packver   0.4.0
+%global packname  abess
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Steve's Toy Data for Teaching About a Variety of Methodological, Social, and Political Topics
+Summary:          Adaptive Best Subset Selection in Polynomial Time
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-MASS 
+Requires:         R-methods 
+Requires:         R-CRAN-Matrix 
 
 %description
-This is a collection of various kinds of data with broad uses for
-teaching. My students, and academics like me who teach the same topics I
-teach, should find this useful if their teaching workflow is also built
-around the R programming language. The applications are multiple but
-mostly cluster on topics of statistical methodology, international
-relations, and political economy.
+Extremely efficient toolkit for solving the best subset selection problem
+in linear regression, logistic regression, Poisson regression, Cox
+proportional hazard model, multiple-response Gaussian, and multinomial
+regression. It implements and generalizes algorithms designed in
+<doi:10.1073/pnas.2014241117> that exploits a novel
+sequencing-and-splicing technique to guarantee exact support recovery and
+globally optimal solution in polynomial times.
 
 %prep
 %setup -q -c -n %{packname}

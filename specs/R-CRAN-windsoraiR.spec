@@ -1,28 +1,26 @@
-%global packname  stevedata
-%global packver   0.4.0
+%global packname  windsoraiR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Steve's Toy Data for Teaching About a Variety of Methodological, Social, and Political Topics
+Summary:          Access the 'Windsor.ai' API
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite >= 1.7.2
+Requires:         R-CRAN-jsonlite >= 1.7.2
 
 %description
-This is a collection of various kinds of data with broad uses for
-teaching. My students, and academics like me who teach the same topics I
-teach, should find this useful if their teaching workflow is also built
-around the R programming language. The applications are multiple but
-mostly cluster on topics of statistical methodology, international
-relations, and political economy.
+Collect data from the 'Windsor.ai' API
+<https://www.windsor.ai/api-fields/>.
 
 %prep
 %setup -q -c -n %{packname}

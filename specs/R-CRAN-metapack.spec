@@ -1,9 +1,9 @@
 %global packname  metapack
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Meta-Analysis and Network Meta-Analysis
 
@@ -29,13 +29,14 @@ Requires:         R-CRAN-gridExtra
 %description
 Contains functions performing Bayesian inference for meta-analytic and
 network meta-analytic models through Markov chain Monte Carlo algorithm.
-Currently, the package implements Yao, Kim, Chen, Ibrahim, Shah, and
-Jianxin Lin (2015) <doi:10.1080/01621459.2015.1006065> and network
-meta-regression models using heavy-tailed multivariate random effects with
-covariate-dependent variances. For maximal computational efficiency, the
-Markov chain Monte Carlo samplers for each model, written in C++, are
-fine-tuned. This software has been developed under the auspices of the
-National Institutes of Health and Merck & Co., Inc., Kenilworth, NJ, USA.
+Currently, the package implements Hui Yao, Sungduk Kim, Ming-Hui Chen,
+Joseph G. Ibrahim, Arvind K. Shah, and Jianxin Lin (2015)
+<doi:10.1080/01621459.2015.1006065> and Hao Li, Daeyoung Lim, Ming-Hui
+Chen, Joseph G. Ibrahim, Sungduk Kim, Arvind K. Shah, Jianxin Lin (2021)
+<doi:10.1002/sim.8983>. For maximal computational efficiency, the Markov
+chain Monte Carlo samplers for each model, written in C++, are fine-tuned.
+This software has been developed under the auspices of the National
+Institutes of Health and Merck & Co., Inc., Kenilworth, NJ, USA.
 
 %prep
 %setup -q -c -n %{packname}

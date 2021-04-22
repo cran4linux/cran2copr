@@ -1,9 +1,9 @@
 %global packname  reticulate
-%global packver   1.18
+%global packver   1.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.18
+Version:          1.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'Python'
 
@@ -17,19 +17,23 @@ Requires:         python3
 BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.7
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-Rcpp >= 0.12.7
+Requires:         R-CRAN-Matrix 
 Requires:         R-graphics 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
+Requires:         R-CRAN-png 
 Requires:         R-CRAN-rappdirs 
 Requires:         R-utils 
+Requires:         R-CRAN-withr 
 
 %description
 Interface to 'Python' modules, classes, and functions. When calling into

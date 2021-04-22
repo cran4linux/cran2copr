@@ -1,13 +1,13 @@
-%global packname  iriR
-%global packver   0.2.1
+%global packname  tensorTS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Global Innovation Through Company Level Data
+Summary:          Factor and Autoregressive Models for Tensor Time Series
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,31 +15,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gsheet 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggsci 
-BuildRequires:    R-CRAN-WDI 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tensor 
+BuildRequires:    R-CRAN-rTensor 
+BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-gsheet 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggsci 
-Requires:         R-CRAN-WDI 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-tensor 
+Requires:         R-CRAN-rTensor 
+Requires:         R-CRAN-expm 
+Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-pracma 
+Requires:         R-graphics 
 
 %description
-Researchers and analysts have access to more than 7,500 innovative
-companies worldwide, which are or have been part of the top 1,000
-innovative companies. They can access the six parameters that compose the
-global IRI Scoreboard's data on R&D: Country, Year, Company's name,
-Industry, Indicator and Company's rank. Please cite: Warin, Th. (2020)
-"iiriR: An R Package for the EU Industrial R&D Investment Scoreboard",
-<doi:10.6084/m9.figshare.11774640.v5>.
+Factor and autoregressive models for matrix and tensor valued time series.
+We provide functions for estimation, simulation and prediction. The models
+are discussed in Chen et al (2020) <DOI:10.1016/j.jeconom.2020.07.002>,
+Chen et al (2020) <arXiv:1905.07530>, and Han et al (2020)
+<arXiv:2006.02611>.
 
 %prep
 %setup -q -c -n %{packname}

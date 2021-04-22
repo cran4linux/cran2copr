@@ -1,28 +1,32 @@
-%global packname  stevedata
-%global packver   0.4.0
+%global packname  ccoptimalmatch
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Steve's Toy Data for Teaching About a Variety of Methodological, Social, and Political Topics
+Summary:          Implementation of Case-Control Optimal Matching
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
 
 %description
-This is a collection of various kinds of data with broad uses for
-teaching. My students, and academics like me who teach the same topics I
-teach, should find this useful if their teaching workflow is also built
-around the R programming language. The applications are multiple but
-mostly cluster on topics of statistical methodology, international
-relations, and political economy.
+Cases are matched to controls in an efficient, optimal and computationally
+flexible way. It uses the idea of sub-sampling in the level of the case,
+by creating pseudo-observations of controls. The user can select between
+replacement and without replacement, the number of controls, and several
+covariates to match upon. See Mamouris (2021)
+<doi:10.1186/s12874-021-01256-3> for an overview.
 
 %prep
 %setup -q -c -n %{packname}

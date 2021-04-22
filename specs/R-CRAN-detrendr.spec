@@ -1,9 +1,9 @@
 %global packname  detrendr
-%global packver   0.6.12
+%global packver   0.6.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.12
+Version:          0.6.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detrend Images
 

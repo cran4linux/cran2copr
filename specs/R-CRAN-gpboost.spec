@@ -1,9 +1,9 @@
 %global packname  gpboost
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Combining Tree-Boosting with Gaussian Process and Mixed Effects Models
 

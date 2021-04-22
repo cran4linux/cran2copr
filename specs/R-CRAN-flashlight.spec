@@ -1,9 +1,9 @@
 %global packname  flashlight
-%global packver   0.7.5
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Shed Light on Black Box Machine Learning Models
 
@@ -18,23 +18,25 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-MetricsWeighted >= 0.3.0
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-rpart.plot 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-MetricsWeighted >= 0.3.0
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-rpart.plot 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-cowplot 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
+Requires:         R-CRAN-withr 
 
 %description
 Shed light on black box machine learning models by the help of model
