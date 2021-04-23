@@ -1,9 +1,9 @@
 %global packname  bookdown
-%global packver   0.21
+%global packver   0.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.21
+Version:          0.22
 Release:          1%{?dist}%{?buildtag}
 Summary:          Authoring Books and Technical Documents with R Markdown
 
@@ -16,17 +16,17 @@ Requires:         pandoc
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 2.4
+BuildRequires:    R-CRAN-rmarkdown >= 2.6
 BuildRequires:    R-CRAN-yaml >= 2.1.19
 BuildRequires:    R-CRAN-knitr >= 1.22
 BuildRequires:    R-CRAN-htmltools >= 0.3.6
-BuildRequires:    R-CRAN-xfun >= 0.13
+BuildRequires:    R-CRAN-xfun >= 0.22
 BuildRequires:    R-CRAN-tinytex >= 0.12
-Requires:         R-CRAN-rmarkdown >= 2.4
+Requires:         R-CRAN-rmarkdown >= 2.6
 Requires:         R-CRAN-yaml >= 2.1.19
 Requires:         R-CRAN-knitr >= 1.22
 Requires:         R-CRAN-htmltools >= 0.3.6
-Requires:         R-CRAN-xfun >= 0.13
+Requires:         R-CRAN-xfun >= 0.22
 Requires:         R-CRAN-tinytex >= 0.12
 
 %description

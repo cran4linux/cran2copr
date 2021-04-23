@@ -1,9 +1,9 @@
 %global packname  genieclust
-%global packver   0.9.8
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Genie++ Hierarchical Clustering Algorithm with Noise Points Detection
 
@@ -17,9 +17,6 @@ Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.4
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppMLPACK 
 Requires:         R-CRAN-Rcpp >= 1.0.4
 Requires:         R-stats 
 Requires:         R-utils 

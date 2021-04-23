@@ -1,9 +1,9 @@
 %global packname  tzdb
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Zone Database Information
 
@@ -12,15 +12,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
+BuildRequires:    R-CRAN-cpp11 >= 0.2.7
 
 %description
 Provides an up-to-date copy of the Internet Assigned Numbers Authority
 (IANA) Time Zone Database. It is updated periodically to reflect changes
 made by political bodies to time zone boundaries, UTC offsets, and
-daylight saving time rules.
+daylight saving time rules. Additionally, this package provides a C++
+interface for working with the 'date' library. 'date' provides
+comprehensive support for working with dates and date-times, which this
+package exposes to make it easier for other R packages to utilize. Headers
+are provided for calendar specific calculations, along with a limited
+interface for time zone manipulations.
 
 %prep
 %setup -q -c -n %{packname}

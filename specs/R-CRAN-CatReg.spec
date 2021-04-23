@@ -1,11 +1,11 @@
 %global packname  CatReg
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Solution Paths for Linear and Logistic Regression Models with SCOPE Penalty
+Summary:          Solution Paths for Linear and Logistic Regression Models with Categorical Predictors, with SCOPE Penalty
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,13 +20,15 @@ Requires:         R-CRAN-Rcpp >= 1.0.1
 Requires:         R-CRAN-Rdpack 
 
 %description
-Computes solutions for linear and logistic regression models with a
-nonconvex penalty (SCOPE) in an efficient path-wise fashion. The scaling
-of the solution paths is selected automatically. Includes functionality
-for selecting tuning parameter lambda by k-fold cross-validation and early
-termination based on information criteria. Solutions are computed by
-cyclical block-coordinate descent, iterating an innovative dynamic
-programming algorithm to compute exact solutions for each block.
+Computes solutions for linear and logistic regression models with
+potentially high-dimensional categorical predictors. This is done by
+applying a nonconvex penalty (SCOPE) and computing solutions in an
+efficient path-wise fashion. The scaling of the solution paths is selected
+automatically. Includes functionality for selecting tuning parameter
+lambda by k-fold cross-validation and early termination based on
+information criteria. Solutions are computed by cyclical block-coordinate
+descent, iterating an innovative dynamic programming algorithm to compute
+exact solutions for each block.
 
 %prep
 %setup -q -c -n %{packname}

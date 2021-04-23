@@ -1,41 +1,45 @@
-%global packname  neuromplex
-%global packver   1.0-1
+%global packname  iriR
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Neural Multiplexing Analysis
+Summary:          Global Innovation Through Company Level Data
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BayesLogit 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gsheet 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-BayesLogit 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggsci 
+BuildRequires:    R-CRAN-WDI 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-gsheet 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggsci 
+Requires:         R-CRAN-WDI 
+Requires:         R-CRAN-scales 
+Requires:         R-stats 
 
 %description
-Statistical methods for whole-trial and time-domain analysis of single
-cell neural response to multiple stimuli presented simultaneously. The
-package is based on the paper by C Glynn, ST Tokdar, A Zaman, VC Caruso,
-JT Mohl, SM Willett, and JM Groh (2021) "Analyzing second order
-stochasticity of neural spiking under stimuli-bundle exposure", is in
-press for publication by the Annals of Applied Statistics. A preprint may
-be found at <arXiv:1911.04387>.
+Researchers and analysts have access to more than 7,500 innovative
+companies worldwide, which are or have been part of the top 1,000
+innovative companies. They can access the six parameters that compose the
+global IRI Scoreboard's data on R&D: Country, Year, Company's name,
+Industry, Indicator and Company's rank. Please cite: Warin, Th. (2020)
+"iiriR: An R Package for the EU Industrial R&D Investment Scoreboard",
+<doi:10.6084/m9.figshare.11774640.v5>.
 
 %prep
 %setup -q -c -n %{packname}

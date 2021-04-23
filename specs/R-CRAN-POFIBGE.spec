@@ -1,9 +1,9 @@
 %global packname  POFIBGE
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Downloading, Reading and Analysing POF Microdata
 
@@ -19,6 +19,8 @@ BuildRequires:    R-CRAN-survey
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-projmgr 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-timeDate 
@@ -28,6 +30,8 @@ Requires:         R-CRAN-survey
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-projmgr 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-RCurl 
 Requires:         R-utils 
 Requires:         R-CRAN-timeDate 
@@ -35,10 +39,10 @@ Requires:         R-CRAN-readxl
 Requires:         R-CRAN-tibble 
 
 %description
-Provides tools for downloading, reading, and analysing the POF household
+Provides tools for downloading, reading and analysing the POF, a household
 survey from Brazilian Institute of Geography and Statistics - IBGE. The
 data must be downloaded from the official website
-<https://www.ibge.gov.br/>. Further analyses must be made using package
+<https://www.ibge.gov.br/>. Further analysis must be made using package
 'survey'.
 
 %prep

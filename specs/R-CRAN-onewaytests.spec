@@ -1,9 +1,9 @@
 %global packname  onewaytests
-%global packver   2.5
+%global packver   2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5
+Version:          2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          One-Way Tests in Independent Groups Designs
 
@@ -31,7 +31,8 @@ Requires:         R-graphics
 Requires:         R-utils 
 
 %description
-Performs one-way tests in independent groups designs; one-way analysis of
+Performs one-way tests in independent groups designs including
+homoscedastic and heteroscedastic tests. These are one-way analysis of
 variance (ANOVA), Welch's heteroscedastic F test, Welch's heteroscedastic
 F test with trimmed means and Winsorized variances, Brown-Forsythe test,
 Alexander-Govern test, James second order test, Kruskal-Wallis test,

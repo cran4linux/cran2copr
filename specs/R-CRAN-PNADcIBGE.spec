@@ -1,9 +1,9 @@
 %global packname  PNADcIBGE
-%global packver   0.6.2
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Downloading, Reading and Analysing PNADC Microdata
 
@@ -19,6 +19,8 @@ BuildRequires:    R-CRAN-survey
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-projmgr 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-timeDate 
@@ -28,6 +30,8 @@ Requires:         R-CRAN-survey
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-projmgr 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-RCurl 
 Requires:         R-utils 
 Requires:         R-CRAN-timeDate 

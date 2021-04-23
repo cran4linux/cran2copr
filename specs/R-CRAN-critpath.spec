@@ -1,41 +1,36 @@
-%global packname  neuromplex
-%global packver   1.0-1
+%global packname  critpath
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Neural Multiplexing Analysis
+Summary:          Setting the Critical Path
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BayesLogit 
+BuildRequires:    R-CRAN-DiagrammeR 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-BayesLogit 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-CRAN-DiagrammeR 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-reshape2 
 
 %description
-Statistical methods for whole-trial and time-domain analysis of single
-cell neural response to multiple stimuli presented simultaneously. The
-package is based on the paper by C Glynn, ST Tokdar, A Zaman, VC Caruso,
-JT Mohl, SM Willett, and JM Groh (2021) "Analyzing second order
-stochasticity of neural spiking under stimuli-bundle exposure", is in
-press for publication by the Annals of Applied Statistics. A preprint may
-be found at <arXiv:1911.04387>.
+Solving the problem of project management using CPM (Critical Path
+Method), PERT (Program Evaluation and Review Technique) and LESS (Least
+Cost Estimating and Scheduling) methods. The package sets the critical
+path, schedule and Gantt chart. In addition, it allows you to draw a graph
+with marked critical activities. For more information about project
+management, see: Taha H. A. (2017, ISBN:978-1-292-16554-7), Konarzewska
+I., Jewczak M., Kucharski A. (2020, ISBN:978-83-8220-112-3), Rama Murthy
+P. (2007, ISBN:978-81-224-2944-2).
 
 %prep
 %setup -q -c -n %{packname}

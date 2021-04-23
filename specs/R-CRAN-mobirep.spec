@@ -1,9 +1,9 @@
 %global packname  mobirep
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Models Bivariate Dependence and Produces Bivariate Return Periods
 
@@ -39,9 +39,11 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-viridis 
 
 %description
-Models the dependence between two variables in the extremes, select most
-relevant models, estimate bivariate return periods and create bivariate
-level curves. Methods used in the package are described in the following
+Models the dependence between two variables in the extremes, identifies
+most relevant models among six models: the conditional extremes model, the
+Jt-KDE model and four copulae (Gumbel, Galambos, Normal, FGM). Bivariate
+return periods for the six models and bivariate level curves can be
+created. Methods used in the package are described in the following
 reference: Tilloy, Malamud, Winter and Joly-Laugel (2020)
 <doi:10.5194/nhess-20-2091-2020> Supporting references for the conditional
 extremes model, Jt-KDE model and for copula modelling are the following:

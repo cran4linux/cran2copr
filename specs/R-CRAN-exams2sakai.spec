@@ -1,9 +1,9 @@
 %global packname  exams2sakai
-%global packver   0.2
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Generation of Exams in R for 'Sakai'
 

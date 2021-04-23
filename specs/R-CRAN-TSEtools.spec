@@ -1,9 +1,9 @@
 %global packname  TSEtools
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manage Data from Stock Exchange Markets
 
@@ -17,11 +17,9 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-quantmod 
-BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-quadprog 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-quantmod 
-Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-quadprog 
 
 %description

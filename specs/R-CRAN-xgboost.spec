@@ -1,9 +1,9 @@
 %global packname  xgboost
-%global packver   1.3.2.1
+%global packver   1.4.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2.1
+Version:          1.4.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extreme Gradient Boosting
 
@@ -17,10 +17,12 @@ Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-data.table >= 1.9.6
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-Matrix >= 1.1.0
+BuildRequires:    R-CRAN-jsonlite >= 1.0
 BuildRequires:    R-methods 
 Requires:         R-CRAN-data.table >= 1.9.6
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-Matrix >= 1.1.0
+Requires:         R-CRAN-jsonlite >= 1.0
 Requires:         R-methods 
 
 %description

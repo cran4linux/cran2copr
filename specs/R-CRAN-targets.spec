@@ -1,9 +1,9 @@
 %global packname  targets
-%global packver   0.3.1
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Function-Oriented 'Make'-Like Declarative Workflows
 
@@ -18,6 +18,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-callr >= 3.4.3
 BuildRequires:    R-CRAN-tibble >= 3.0.1
 BuildRequires:    R-CRAN-R6 >= 2.4.1
+BuildRequires:    R-CRAN-yaml >= 2.2.1
 BuildRequires:    R-CRAN-withr >= 2.1.2
 BuildRequires:    R-CRAN-cli >= 2.0.2
 BuildRequires:    R-CRAN-igraph >= 1.2.5
@@ -32,6 +33,7 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-callr >= 3.4.3
 Requires:         R-CRAN-tibble >= 3.0.1
 Requires:         R-CRAN-R6 >= 2.4.1
+Requires:         R-CRAN-yaml >= 2.2.1
 Requires:         R-CRAN-withr >= 2.1.2
 Requires:         R-CRAN-cli >= 2.0.2
 Requires:         R-CRAN-igraph >= 1.2.5

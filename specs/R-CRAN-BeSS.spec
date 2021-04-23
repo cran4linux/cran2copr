@@ -1,29 +1,27 @@
 %global packname  BeSS
-%global packver   2.0.2
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Best Subset Selection /Ridge Regression in Linear, Logistic, Poisson and CoxPH Models
+Summary:          Best Subset Selection in Linear, Logistic and CoxPH Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildRequires:    R-CRAN-Matrix >= 1.2.6
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-pheatmap 
+BuildRequires:    R-CRAN-Rcpp >= 0.12.6
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Matrix >= 1.2.6
-Requires:         R-CRAN-Rcpp >= 1.0.3
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-pheatmap 
+Requires:         R-CRAN-Rcpp >= 0.12.6
+Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-survival 
 
 %description

@@ -1,9 +1,9 @@
 %global packname  bayesGARCH
-%global packver   2.1.7
+%global packver   2.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.7
+Version:          2.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Estimation of the GARCH(1,1) Model with Student-t Innovations
 

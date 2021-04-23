@@ -1,41 +1,33 @@
-%global packname  neuromplex
-%global packver   1.0-1
+%global packname  preferably
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Neural Multiplexing Analysis
+Summary:          A 'pkgdown' Template
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BayesLogit 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-BayesLogit 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-pkgdown 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rmarkdown 
+Requires:         R-CRAN-pkgdown 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rmarkdown 
 
 %description
-Statistical methods for whole-trial and time-domain analysis of single
-cell neural response to multiple stimuli presented simultaneously. The
-package is based on the paper by C Glynn, ST Tokdar, A Zaman, VC Caruso,
-JT Mohl, SM Willett, and JM Groh (2021) "Analyzing second order
-stochasticity of neural spiking under stimuli-bundle exposure", is in
-press for publication by the Annals of Applied Statistics. A preprint may
-be found at <arXiv:1911.04387>.
+This is an accessible template for 'pkgdown'. It uses two bootstrap
+themes, Flatly and Darkly and utilizes the 'prefers-color-scheme' CSS
+variable to automatically serve either of the two based on user’s
+operating system setting, or allowing them to manually toggle between
+them.
 
 %prep
 %setup -q -c -n %{packname}

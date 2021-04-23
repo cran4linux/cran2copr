@@ -1,41 +1,35 @@
-%global packname  neuromplex
-%global packver   1.0-1
+%global packname  penalizedclr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Neural Multiplexing Analysis
+Summary:          Integrative Penalized Conditional Logistic Regression
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BayesLogit 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-BayesLogit 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-penalized 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-clogitL1 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyverse 
+Requires:         R-CRAN-penalized 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-clogitL1 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyverse 
 
 %description
-Statistical methods for whole-trial and time-domain analysis of single
-cell neural response to multiple stimuli presented simultaneously. The
-package is based on the paper by C Glynn, ST Tokdar, A Zaman, VC Caruso,
-JT Mohl, SM Willett, and JM Groh (2021) "Analyzing second order
-stochasticity of neural spiking under stimuli-bundle exposure", is in
-press for publication by the Annals of Applied Statistics. A preprint may
-be found at <arXiv:1911.04387>.
+Implements L1 and L2 penalized conditional logistic regression with
+penalty factors allowing for integration of multiple data sources.
+Implements stability selection for variable selection.
 
 %prep
 %setup -q -c -n %{packname}

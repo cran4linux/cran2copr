@@ -1,9 +1,9 @@
 %global packname  clock
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Date-Time Types and Tools
 
@@ -18,11 +18,11 @@ BuildRequires:    R-CRAN-rlang >= 0.4.10
 BuildRequires:    R-CRAN-vctrs >= 0.3.7
 BuildRequires:    R-CRAN-ellipsis >= 0.3.1
 BuildRequires:    R-CRAN-cpp11 >= 0.2.7
-BuildRequires:    R-CRAN-tzdb >= 0.1.0
+BuildRequires:    R-CRAN-tzdb >= 0.1.1
 Requires:         R-CRAN-rlang >= 0.4.10
 Requires:         R-CRAN-vctrs >= 0.3.7
 Requires:         R-CRAN-ellipsis >= 0.3.1
-Requires:         R-CRAN-tzdb >= 0.1.0
+Requires:         R-CRAN-tzdb >= 0.1.1
 
 %description
 Provides a comprehensive library for date-time manipulations using a new

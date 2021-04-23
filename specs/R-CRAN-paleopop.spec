@@ -1,41 +1,32 @@
-%global packname  neuromplex
-%global packver   1.0-1
+%global packname  paleopop
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Neural Multiplexing Analysis
+Summary:          Pattern-Oriented Modeling Framework for Coupled Niche-Population Paleo-Climatic Models
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BayesLogit 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-BayesLogit 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-R6 >= 2.5.0
+BuildRequires:    R-CRAN-poems >= 1.0.0
+BuildRequires:    R-CRAN-sf >= 0.9
+Requires:         R-CRAN-R6 >= 2.5.0
+Requires:         R-CRAN-poems >= 1.0.0
+Requires:         R-CRAN-sf >= 0.9
 
 %description
-Statistical methods for whole-trial and time-domain analysis of single
-cell neural response to multiple stimuli presented simultaneously. The
-package is based on the paper by C Glynn, ST Tokdar, A Zaman, VC Caruso,
-JT Mohl, SM Willett, and JM Groh (2021) "Analyzing second order
-stochasticity of neural spiking under stimuli-bundle exposure", is in
-press for publication by the Annals of Applied Statistics. A preprint may
-be found at <arXiv:1911.04387>.
+This extension of the poems pattern-oriented modeling (POM) framework
+provides a collection of modules and functions customized for
+paleontological time-scales, and optimized for single-generation
+transitions and large populations, across multiple generations.
 
 %prep
 %setup -q -c -n %{packname}

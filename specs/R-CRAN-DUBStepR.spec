@@ -1,9 +1,9 @@
 %global packname  DUBStepR
-%global packver   1.1
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Correlation-Based Feature Selection for Single-Cell RNA Sequencing Data
 
@@ -16,40 +16,20 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-BiocManager 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-matrixcalc 
-BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-flashClust 
 BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-CRAN-HiClimR 
 BuildRequires:    R-CRAN-qlcMatrix 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-irlba 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-Seurat 
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-BiocManager 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-matrixcalc 
-Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-flashClust 
 Requires:         R-CRAN-RANN 
-Requires:         R-CRAN-HiClimR 
 Requires:         R-CRAN-qlcMatrix 
 Requires:         R-parallel 
-Requires:         R-CRAN-irlba 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-reshape2 
 Requires:         R-stats 
-Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-Seurat 
 Requires:         R-methods 
 Requires:         R-graphics 

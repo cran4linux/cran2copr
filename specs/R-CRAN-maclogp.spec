@@ -1,39 +1,39 @@
-%global packname  MonteCarloSEM
-%global packver   0.0.2
+%global packname  maclogp
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Monte Carlo Data Simulation Package
+Summary:          Measures of Uncertainty for Model Selection
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-BMA 
+BuildRequires:    R-CRAN-plot.matrix 
+BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lavaan 
-Requires:         R-CRAN-Matrix 
-Requires:         R-stats 
+Requires:         R-CRAN-BMA 
+Requires:         R-CRAN-plot.matrix 
+Requires:         R-CRAN-rlist 
 Requires:         R-utils 
-Requires:         R-CRAN-lavaan 
 
 %description
-Monte Carlo simulation allows to test different conditions given to the
-correct structural equation models. This package runs Monte Carlo
-simulations under different conditions (such as sample size or normality
-of data). Within the package data sets can be simulated and run based on
-the given model. First, continuous and normal data sets are generated
-based on the given model. Later Fleishman's power method (1978)
-<DOI:10.1007/BF02293811> is used to add non-normality if exists. When data
-generation is completed (or when generated data sets are given) model test
-can also be run.
+Following the common types of measures of uncertainty for parameter
+estimation, two measures of uncertainty were proposed for model selection,
+see Liu, Li and Jiang (2020) <doi:10.1007/s11749-020-00737-9>. The first
+measure is a kind of model confidence set that relates to the variation of
+model selection, called Mac. The second measure focuses on error of model
+selection, called LogP. They are all computed via bootstrapping. This
+package provides functions to compute these two measures. Furthermore, a
+similar model confidence set adapted from Bayesian Model Averaging can
+also be computed using this package.
 
 %prep
 %setup -q -c -n %{packname}
