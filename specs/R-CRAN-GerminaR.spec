@@ -1,13 +1,13 @@
 %global packname  GerminaR
-%global packver   2.0.1
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Indices and Graphics for Assess Seed Germination Process
 
-License:          MIT + file LICENSE
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,22 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-agricolae 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-agricolae 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-gtools 
-Requires:         R-CRAN-agricolae 
+BuildRequires:    R-CRAN-DT 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-agricolae 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-DT 
 
 %description
 A collection of different indices and visualization techniques for

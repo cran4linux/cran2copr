@@ -1,9 +1,9 @@
 %global packname  websocket
-%global packver   1.3.2
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'WebSocket' Client Library
 
@@ -15,13 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    openssl-devel >= 1.0.1
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-later >= 1.1.0
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-later >= 1.2.0
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-cpp11 
 BuildRequires:    R-CRAN-AsioHeaders 
-Requires:         R-CRAN-later >= 1.1.0
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-later >= 1.2.0
 Requires:         R-CRAN-R6 
 
 %description

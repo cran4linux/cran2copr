@@ -1,9 +1,9 @@
 %global packname  BuyseTest
-%global packver   2.2.6
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.6
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Pairwise Comparisons
 
@@ -18,6 +18,7 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-lava 
 BuildRequires:    R-parallel 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
 Requires:         R-CRAN-lava 
 Requires:         R-parallel 

@@ -1,9 +1,9 @@
 %global packname  himach
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Mach Finds Routes for Supersonic Aircraft
 
@@ -18,6 +18,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-sf >= 0.9.7
 BuildRequires:    R-CRAN-cppRouting 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-s2 
 BuildRequires:    R-CRAN-sp 
@@ -25,6 +26,7 @@ BuildRequires:    R-CRAN-tidyr
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-sf >= 0.9.7
 Requires:         R-CRAN-cppRouting 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-s2 
 Requires:         R-CRAN-sp 

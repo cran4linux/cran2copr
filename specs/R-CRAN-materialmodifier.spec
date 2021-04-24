@@ -1,49 +1,46 @@
-%global packname  terrainr
-%global packver   0.4.0
+%global packname  materialmodifier
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Landscape Visualizations in R and 'Unity'
+Summary:          Apply Material Editing Effects
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magick >= 2.5.0
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-gdalUtils 
+BuildRequires:    R-CRAN-jpeg 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-magick >= 2.5.0
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-gdalUtils 
+BuildRequires:    R-CRAN-readbitmap 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-downloader 
+BuildRequires:    R-CRAN-imager 
+BuildRequires:    R-CRAN-moments 
+Requires:         R-CRAN-jpeg 
+Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-png 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-units 
-Requires:         R-grDevices 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-readbitmap 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-downloader 
+Requires:         R-CRAN-imager 
+Requires:         R-CRAN-moments 
 
 %description
-Functions for the retrieval, manipulation, and visualization of
-'geospatial' data, with an aim towards producing '3D' landscape
-visualizations in the 'Unity' '3D' rendering engine. Functions are also
-provided for retrieving elevation data and base map tiles from the 'USGS'
-National Map ('<https://apps.nationalmap.gov/services/>').
+You can apply image processing effects that modifies the perceived
+material properties such as gloss, smoothness, and blemishes. This is an
+implementation of the algorithm proposed by Boyadzhiev et al. (2015)
+"Band-Sifting Decomposition for Image Based Material Editing".
+Documentation and practical tips of the package is available at
+<https://github.com/tsuda16k/materialmodifier>.
 
 %prep
 %setup -q -c -n %{packname}

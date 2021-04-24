@@ -1,27 +1,30 @@
-%global packname  NatureSounds
-%global packver   1.0.4
+%global packname  rcolors
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Animal Sounds for Bioacustic Analysis
+Summary:          270 'NCL' Color Tables in R Language
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.1
-Requires:         R-core >= 3.2.1
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-tuneR 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-tuneR 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-magrittr 
 
 %description
-Collection of example animal sounds for bioacoustic analysis.
+'NCL' (NCAR Command Language) is one of the most popular spatial data
+mapping tools in meteorology studies, due to its beautiful output figures
+with plenty of color palettes designed by experts
+<https://www.ncl.ucar.edu/index.shtml>. Here we translate all 'NCL' color
+palettes into R hexadecimal RGB colors and provide color selection
+function, which will help users make a beautiful figure.
 
 %prep
 %setup -q -c -n %{packname}

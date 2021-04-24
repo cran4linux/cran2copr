@@ -1,11 +1,11 @@
-%global packname  NPP
-%global packver   0.4.0
+%global packname  ra4bayesmeta
+%global packver   1.0-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Normalized Power Prior Bayesian Analysis
+Summary:          Reference Analysis for Bayesian Meta-Analysis
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,14 +15,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-bayesmeta 
+Requires:         R-CRAN-bayesmeta 
 
 %description
-Posterior sampling in several commonly used distributions using normalized
-power prior as described in Duan, Ye and Smith (2006)
-<doi:10.1002/env.752> and Ibrahim et.al. (2015) <doi:10.1002/sim.6728>.
-Sampling of the power parameter is achieved via either independence
-Metropolis-Hastings or random walk Metropolis-Hastings based on
-transformation.
+Functionality for performing a principled reference analysis in the
+Bayesian normal-normal hierarchical model used for Bayesian meta-analysis,
+as described in Ott, Plummer and Roos (2021, "How vague is vague? How
+informative is informative? Reference analysis for Bayesian
+meta-analysis", under minor revision for Statistics in Medicine). Computes
+a reference posterior, induced by a minimally informative improper
+reference prior for the between-study (heterogeneity) standard deviation.
+Determines additional proper anti-conservative (and conservative) prior
+benchmarks. Includes functions for reference analyses at both the
+posterior and the prior level, which, given the data, quantify the
+informativeness of a heterogeneity prior of interest relative to the
+minimally informative reference prior and the proper prior benchmarks. The
+functions operate on data sets which are compatible with the 'bayesmeta'
+package.
 
 %prep
 %setup -q -c -n %{packname}

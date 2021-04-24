@@ -1,9 +1,9 @@
 %global packname  selection.index
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Selection Index in Plant Breeding
 
@@ -15,7 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-utils 
 BuildRequires:    R-stats 
+Requires:         R-utils 
 Requires:         R-stats 
 
 %description

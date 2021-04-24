@@ -1,10 +1,10 @@
 %global packname  qqplotr
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
-Release:          3%{?dist}%{?buildtag}
+Version:          0.0.5
+Release:          1%{?dist}%{?buildtag}
 Summary:          Quantile-Quantile Plot Extensions for 'ggplot2'
 
 License:          GPL-3 | file LICENSE
@@ -18,13 +18,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 2.2
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-ggplot2 >= 2.2
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-knitr 
-Requires:         R-MASS 
+Requires:         R-CRAN-MASS 
 
 %description
 Extensions of 'ggplot2' Q-Q plot functionalities.
@@ -32,6 +30,13 @@ Extensions of 'ggplot2' Q-Q plot functionalities.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -39,23 +44,10 @@ Extensions of 'ggplot2' Q-Q plot functionalities.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/image
-%doc %{rlibdir}/%{packname}/shiny
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

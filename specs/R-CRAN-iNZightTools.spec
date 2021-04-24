@@ -1,9 +1,9 @@
 %global packname  iNZightTools
-%global packver   1.10
+%global packver   1.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10
+Version:          1.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for 'iNZight'
 
@@ -26,8 +26,10 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RcppTOML 
 BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-srvyr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-styler 
 BuildRequires:    R-CRAN-survey 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
@@ -47,8 +49,10 @@ Requires:         R-CRAN-magrittr
 Requires:         R-methods 
 Requires:         R-CRAN-RcppTOML 
 Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-srvyr 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-styler 
 Requires:         R-CRAN-survey 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 

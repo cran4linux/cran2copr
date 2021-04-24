@@ -1,9 +1,9 @@
 %global packname  httpuv
-%global packver   1.5.5
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.5
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          HTTP and WebSocket Server Library
 
@@ -19,7 +19,6 @@ BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-promises 
-BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-later >= 0.8.0
 Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-utils 

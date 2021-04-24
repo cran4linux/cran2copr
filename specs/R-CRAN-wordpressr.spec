@@ -1,27 +1,40 @@
-%global packname  NatureSounds
-%global packver   1.0.4
+%global packname  wordpressr
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Animal Sounds for Bioacustic Analysis
+Summary:          An API Wrapper for WordPress Site APIs
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.1
-Requires:         R-core >= 3.2.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-tuneR 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-tuneR 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
 
 %description
-Collection of example animal sounds for bioacoustic analysis.
+An API wrapper that helps R developers retrieve data from a WordPress
+site's API in tidy format, in addition to publishing content on the
+WordPress site (WordPress API documentation:
+<https://developer.wordpress.org/rest-api/>).
 
 %prep
 %setup -q -c -n %{packname}

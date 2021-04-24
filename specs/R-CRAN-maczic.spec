@@ -1,9 +1,9 @@
 %global packname  maczic
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mediation Analysis for Count and Zero-Inflated Count Data
 
@@ -46,7 +46,10 @@ Z., Gregorich, S., Ismail, A.I., Gansky, S.A. (2018)
 <doi:10.1177/0962280216686131>. Implements Instrumental Variable (IV)
 method to estimate the controlled (natural) direct and mediation effects,
 and compute the bootstrap Confidence Intervals as described by Guo, Z.,
-Small, D.S., Gansky, S.A., Cheng, J. (2018) <doi:10.1111/rssc.12233>.
+Small, D.S., Gansky, S.A., Cheng, J. (2018) <doi:10.1111/rssc.12233>. This
+software was made possible by Grant R03DE028410 from the The National
+Institute of Dental and Craniofacial Research, a component of the National
+Institutes of Health.
 
 %prep
 %setup -q -c -n %{packname}

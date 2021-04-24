@@ -1,9 +1,9 @@
 %global packname  ecm
-%global packver   5.1.0
+%global packver   6.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.0
+Version:          6.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Build Error Correction Models
 
@@ -18,9 +18,17 @@ BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-urca 
+BuildRequires:    R-CRAN-earth 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-car 
+Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-urca 
+Requires:         R-CRAN-earth 
 
 %description
 Functions for easy building of error correction models (ECM) for time
