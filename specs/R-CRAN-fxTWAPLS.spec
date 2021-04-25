@@ -1,9 +1,9 @@
 %global packname  fxTWAPLS
-%global packver   0.0.5
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Improved Version of WA-PLS
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-geosphere
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-progressr 
 Requires:         R-CRAN-doFuture 
 Requires:         R-CRAN-foreach 
@@ -31,7 +30,6 @@ Requires:         R-CRAN-geosphere
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-MASS 
 Requires:         R-parallel 
-Requires:         R-CRAN-progress 
 Requires:         R-CRAN-progressr 
 
 %description

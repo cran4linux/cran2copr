@@ -1,9 +1,9 @@
 %global packname  exampletestr
-%global packver   1.6.2
+%global packver   1.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          1.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Help for Writing Unit Tests Based on Function Examples
 
@@ -19,8 +19,8 @@ BuildRequires:    R-CRAN-withr >= 2.1.0
 BuildRequires:    R-CRAN-checkmate >= 1.9.3
 BuildRequires:    R-CRAN-usethis >= 1.5.1
 BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-strex >= 1.4.1
 BuildRequires:    R-CRAN-ore >= 1.4.0
-BuildRequires:    R-CRAN-strex >= 1.4
 BuildRequires:    R-CRAN-stringr >= 1.4
 BuildRequires:    R-CRAN-fs >= 1.2.3
 BuildRequires:    R-CRAN-styler >= 1.2.0
@@ -33,8 +33,8 @@ Requires:         R-CRAN-withr >= 2.1.0
 Requires:         R-CRAN-checkmate >= 1.9.3
 Requires:         R-CRAN-usethis >= 1.5.1
 Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-strex >= 1.4.1
 Requires:         R-CRAN-ore >= 1.4.0
-Requires:         R-CRAN-strex >= 1.4
 Requires:         R-CRAN-stringr >= 1.4
 Requires:         R-CRAN-fs >= 1.2.3
 Requires:         R-CRAN-styler >= 1.2.0

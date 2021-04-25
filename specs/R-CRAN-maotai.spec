@@ -1,9 +1,9 @@
 %global packname  maotai
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Matrix Algebra, Optimization and Inference
 
@@ -19,15 +19,14 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-CRAN-Rtsne 
+BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-labdsv 
-BuildRequires:    R-CRAN-nabor 
 BuildRequires:    R-CRAN-shapes 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-fastcluster 
 BuildRequires:    R-CRAN-dbscan 
-BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppDist 
 Requires:         R-CRAN-Matrix 
@@ -35,15 +34,14 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-RSpectra 
 Requires:         R-CRAN-Rtsne 
+Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-labdsv 
-Requires:         R-CRAN-nabor 
 Requires:         R-CRAN-shapes 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-fastcluster 
 Requires:         R-CRAN-dbscan 
-Requires:         R-CRAN-reticulate 
 
 %description
 Matrix is an universal and sometimes primary object/unit in applied

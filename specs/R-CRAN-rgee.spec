@@ -1,9 +1,9 @@
 %global packname  rgee
-%global packver   1.0.8
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Bindings for Calling the 'Earth Engine' API
 
@@ -15,17 +15,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-leaflet >= 2.0.2
 BuildRequires:    R-CRAN-reticulate >= 1.15
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-leafem 
 BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-leaflet >= 2.0.2
 Requires:         R-CRAN-reticulate >= 1.15
 Requires:         R-methods 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-processx 
+Requires:         R-CRAN-leafem 
 Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-cli 
 
 %description

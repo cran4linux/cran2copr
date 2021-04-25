@@ -1,9 +1,9 @@
 %global packname  knitr
-%global packver   1.32
+%global packver   1.33
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.32
+Version:          1.33
 Release:          1%{?dist}%{?buildtag}
 Summary:          A General-Purpose Package for Dynamic Report Generation in R
 

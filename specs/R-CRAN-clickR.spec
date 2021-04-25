@@ -1,9 +1,9 @@
 %global packname  clickR
-%global packver   0.6.64
+%global packver   0.7.35
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.64
+Version:          0.7.35
 Release:          1%{?dist}%{?buildtag}
 Summary:          Semi-Automatic Preprocessing of Messy Data with Change Tracking for Dataset Cleaning
 
@@ -16,23 +16,11 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-beeswarm 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-lmerTest 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-stringdist 
-BuildRequires:    R-CRAN-xtable 
 Requires:         R-CRAN-beeswarm 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-lmerTest 
 Requires:         R-methods 
-Requires:         R-CRAN-officer 
 Requires:         R-CRAN-stringdist 
-Requires:         R-CRAN-xtable 
 
 %description
 Tools for assessing data quality, performing exploratory analysis, and

@@ -1,9 +1,9 @@
 %global packname  libbib
-%global packver   1.0
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Various Utilities for Library Science/Assessment and Cataloging
 
@@ -17,15 +17,24 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-data.table 
 Requires:         R-utils 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-xml2 
 
 %description
 Provides functions for validating and normalizing bibliographic codes such
-as ISBN, ISSN, and LCCN. Also provides functions to translate LC Call
-numbers to their subject classifications or subclassifications.
+as ISBN, ISSN, and LCCN. Also includes functions to communicate with the
+WorldCat API, translate Call numbers (Library of Congress and Dewey
+Decimal) to their subject classifications or subclassifications, and
+provides various loadable data files such call number / subject crosswalks
+and code tables.
 
 %prep
 %setup -q -c -n %{packname}
