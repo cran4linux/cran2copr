@@ -1,36 +1,32 @@
-%global packname  doconv
-%global packver   0.1.1
+%global packname  seminr
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Document Conversion to 'PDF' or 'PNG'
+Summary:          Building and Estimating Structural Equation Models
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-CRAN-pdftools 
-BuildRequires:    R-CRAN-locatexec 
-BuildRequires:    R-CRAN-rappdirs 
-Requires:         R-CRAN-magick 
-Requires:         R-CRAN-pdftools 
-Requires:         R-CRAN-locatexec 
-Requires:         R-CRAN-rappdirs 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-parallel 
+Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-glue 
 
 %description
-Functions to convert 'Microsoft Word' or 'Microsoft PowerPoint' documents
-to 'PDF' format and also for converting them into a thumbnail. In order to
-work, 'LibreOffice' must be installed on the machine and possibly 'python'
-and 'Microsoft Word'. If the latter is available, it can be used to
-produce PDF documents identical to the originals, otherwise, 'LibreOffice'
-is used.
+A powerful, easy to syntax for specifying and estimating complex
+Structural Equation Models. Models can be estimated using Partial Least
+Squares Path Modeling or Covariance-Based Structural Equation Modeling or
+covariance based Confirmatory Factor Analysis.
 
 %prep
 %setup -q -c -n %{packname}

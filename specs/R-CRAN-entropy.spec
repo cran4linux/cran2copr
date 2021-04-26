@@ -1,10 +1,10 @@
 %global packname  entropy
-%global packver   1.2.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
-Release:          3%{?dist}%{?buildtag}
+Version:          1.3.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of Entropy, Mutual Information and Related Quantities
 
 License:          GPL (>= 3)
@@ -12,23 +12,32 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.1
-Requires:         R-core >= 2.15.1
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
 BuildArch:        noarch
 
 %description
-This package implements various estimators of entropy, such as the
-shrinkage estimator by Hausser and Strimmer, the maximum likelihood and
-the Millow-Madow estimator, various Bayesian estimators, and the Chao-Shen
-estimator.  It also offers an R interface to the NSB estimator.
-Furthermore, it provides functions for estimating Kullback-Leibler
-divergence, chi-squared, mutual information, and chi-squared statistic of
-independence. In addition there are functions for discretizing continuous
-random variables.
+Implements various estimators of entropy for discrete random variables,
+including the shrinkage estimator by Hausser and Strimmer (2009), the
+maximum likelihood and the Millow-Madow estimator, various Bayesian
+estimators, and the Chao-Shen estimator.  It also offers an R interface to
+the NSB estimator.  Furthermore, the package provides functions for
+estimating the Kullback-Leibler divergence, the chi-squared divergence,
+mutual information, and the chi-squared divergence of independence.  It
+also computes the G statistic and the chi-squared statistic and
+corresponding p-values. Furthermore, there are functions for discretizing
+continuous random variables.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -38,14 +47,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

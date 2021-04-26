@@ -1,9 +1,9 @@
 %global packname  quarks
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Methods for Calculating Value at Risk and Expected Shortfall
 
@@ -15,19 +15,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rugarch 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-rugarch 
 Requires:         R-graphics 
 Requires:         R-stats 
 
 %description
 Enables the user to calculate Value at Risk (VaR) and Expected Shortfall
-(ES) by means of various types of historical simulation. Currently plain
-historical simulation as well as age- and volatility-weighted historical
-simulation are implemented in this package. Volatility weighting is
-carried out via an exponentially weighted moving average (EWMA).  The
-methods of the package are described in Gurrola-Perez, P. and Murphy, D.
-(2015) <https://EconPapers.repec.org/RePEc:boe:boeewp:0525>.
+(ES) by means of various types of historical simulation. Currently plain-,
+age-, volatility-weighted- and filtered historical simulation are
+implemented in this package. Volatility weighting can be carried out via
+an exponentially weighted moving average model (EWMA) or other GARCH-type
+models. The methods of the package are described in Gurrola-Perez, P. and
+Murphy, D. (2015) <https://EconPapers.repec.org/RePEc:boe:boeewp:0525>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  doc2concrete
-%global packver   0.5.2
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Measuring Concreteness in Natural Language
 
@@ -17,22 +17,18 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tm 
 BuildRequires:    R-CRAN-quanteda 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-english 
 BuildRequires:    R-CRAN-textstem 
 BuildRequires:    R-CRAN-SnowballC 
 BuildRequires:    R-CRAN-stringi 
 Requires:         R-CRAN-tm 
 Requires:         R-CRAN-quanteda 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-parallel 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-english 
 Requires:         R-CRAN-textstem 
 Requires:         R-CRAN-SnowballC 

@@ -1,9 +1,9 @@
 %global packname  politeness
-%global packver   0.7.7
+%global packver   0.7.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.7
+Version:          0.7.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detecting Politeness Features in Text
 

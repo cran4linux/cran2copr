@@ -1,42 +1,33 @@
-%global packname  mapSpain
-%global packver   0.2.3
+%global packname  cecs
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Administrative Boundaries of Spain
+Summary:          R Interface for the C Implementation of CEC Benchmark Functions
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-raster >= 3.0
-BuildRequires:    R-CRAN-leaflet >= 2.0.0
-BuildRequires:    R-CRAN-countrycode >= 1.2.0
-BuildRequires:    R-CRAN-sf >= 0.9
-BuildRequires:    R-CRAN-slippymath >= 0.3.1
-BuildRequires:    R-CRAN-giscoR >= 0.2.4
-BuildRequires:    R-CRAN-png >= 0.1.5
-Requires:         R-CRAN-raster >= 3.0
-Requires:         R-CRAN-leaflet >= 2.0.0
-Requires:         R-CRAN-countrycode >= 1.2.0
-Requires:         R-CRAN-sf >= 0.9
-Requires:         R-CRAN-slippymath >= 0.3.1
-Requires:         R-CRAN-giscoR >= 0.2.4
-Requires:         R-CRAN-png >= 0.1.5
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-cec2013 >= 0.1.5
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-cec2013 >= 0.1.5
 
 %description
-Administrative Boundaries of Spain at several levels (CCAA, Provinces,
-Municipalities) based on the GISCO Eurostat database
-<https://ec.europa.eu/eurostat/web/gisco> and 'CartoBase SIANE' from
-'Instituto Geografico Nacional' <https://www.ign.es/>. It also provides a
-'leaflet' plugin and the ability of downloading and processing static
-tiles.
+Goal of this package is to provide access to benchmark functions defined
+for the Special Session and Competition on Real-Parameter Single Objective
+Optimization in one place. The package contains functions from following
+years: 2013, 2014, 2015, 2017, 2019, 2021
+(<https://github.com/P-N-Suganthan>). Implementations of CEC-2013 (Y.
+Gonzalez-Fernandez & M. Zambrano-Bigiarini) and CEC2017 (D. Jagodziński)
+are taken from existed R packages. Also, the original C source code has
+been cleaned and reorganized for better readability.
 
 %prep
 %setup -q -c -n %{packname}
