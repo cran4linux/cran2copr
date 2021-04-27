@@ -1,9 +1,9 @@
 %global packname  bayesmove
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Parametric Bayesian Analyses of Animal Movement
 
@@ -14,33 +14,43 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-move >= 4.0.6
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-leaflet >= 2.0.0
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
 BuildRequires:    R-CRAN-MCMCpack >= 1.4.5
 BuildRequires:    R-CRAN-progress >= 1.2.2
 BuildRequires:    R-CRAN-future >= 1.15.1
+BuildRequires:    R-CRAN-dygraphs >= 1.1.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-tictoc >= 1.0
+BuildRequires:    R-CRAN-sf >= 0.9.6
 BuildRequires:    R-CRAN-dplyr >= 0.8.3
 BuildRequires:    R-CRAN-purrr >= 0.3.3
-BuildRequires:    R-CRAN-furrr >= 0.1.0
+BuildRequires:    R-CRAN-furrr >= 0.2.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-move >= 4.0.6
 Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-leaflet >= 2.0.0
 Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-MCMCpack >= 1.4.5
 Requires:         R-CRAN-progress >= 1.2.2
 Requires:         R-CRAN-future >= 1.15.1
+Requires:         R-CRAN-dygraphs >= 1.1.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-tictoc >= 1.0
+Requires:         R-CRAN-sf >= 0.9.6
 Requires:         R-CRAN-dplyr >= 0.8.3
 Requires:         R-CRAN-purrr >= 0.3.3
-Requires:         R-CRAN-furrr >= 0.1.0
+Requires:         R-CRAN-furrr >= 0.2.0
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-shiny 
 
 %description
 Methods for assessing animal movement from telemetry and biologging data

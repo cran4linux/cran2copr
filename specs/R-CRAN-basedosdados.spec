@@ -1,53 +1,53 @@
-%global packname  piecepackr
-%global packver   1.7.2
+%global packname  basedosdados
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.2
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Board Game Graphics
+Summary:          'Base Dos Dados' R Client
 
-License:          CC BY-SA 4.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         ghostscript
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-backports 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gridGeometry 
-BuildRequires:    R-CRAN-grImport2 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-jpeg 
-BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-backports 
-Requires:         R-grid 
-Requires:         R-CRAN-gridGeometry 
-Requires:         R-CRAN-grImport2 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-googleAuthR 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-dotenv 
+BuildRequires:    R-CRAN-bigrquery 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-writexl 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-jpeg 
-Requires:         R-CRAN-png 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
-Requires:         R-tools 
-Requires:         R-utils 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-googleAuthR 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-dotenv 
+Requires:         R-CRAN-bigrquery 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-writexl 
 
 %description
-Functions to make board game graphics.  Specializes in game diagrams,
-animations, and "Print & Play" layouts for the 'piecepack'
-<https://www.ludism.org/ppwiki> but can make graphics for other board game
-systems.  Includes configurations for several public domain game systems.
+An R interface to the 'Base dos Dados' API
+<https:basedosdados.github.io/mais/py_reference_api/>). Authenticate your
+project, query our tables, save data to disk and memory, all from R.
 
 %prep
 %setup -q -c -n %{packname}

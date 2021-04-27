@@ -1,37 +1,32 @@
-%global packname  esaddle
-%global packver   0.0.7
+%global packname  safejoin
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extended Empirical Saddlepoint Density Approximations
+Summary:          Perform "Safe" Table Joins
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-mvnfast 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-parallel 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-mvnfast 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
 
 %description
-Tools for fitting the Extended Empirical Saddlepoint (EES) density of
-Fasiolo et al. (2018) <doi:10.1214/18-EJS1433>.
+The goal of 'safejoin' is to guarantee that when performing joins extra
+rows are not added to your data. 'safejoin' provides a wrapper around
+'dplyr::left_join' that will raise an error when extra rows are
+unexpectedly added to your data. This can be useful when working with data
+where you expect there to be a many to one relationship but you are not
+certain the relationship holds.
 
 %prep
 %setup -q -c -n %{packname}

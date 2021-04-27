@@ -1,37 +1,30 @@
-%global packname  esaddle
-%global packver   0.0.7
+%global packname  IGP
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extended Empirical Saddlepoint Density Approximations
+Summary:          Interchangeable Gaussian Process Models
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-mvnfast 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-parallel 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-mvnfast 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-reticulate 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-reticulate 
 
 %description
-Tools for fitting the Extended Empirical Saddlepoint (EES) density of
-Fasiolo et al. (2018) <doi:10.1214/18-EJS1433>.
+Creates a Gaussian process model using the specified package. Makes it
+easy to try different packages in same code, only the package argument
+needs to be changed. It is essentially a wrapper for the other Gaussian
+process software packages.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  survParamSim
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parametric Survival Simulation with Parameter Uncertainty
 
@@ -17,26 +17,30 @@ Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-survival >= 2.43
 BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-tidyr >= 1.1
+BuildRequires:    R-CRAN-lifecycle >= 0.2.0
+BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-survival >= 2.43
 Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-tidyr >= 1.1
+Requires:         R-CRAN-lifecycle >= 0.2.0
+Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
 
 %description
 Perform survival simulation with parametric survival model generated from

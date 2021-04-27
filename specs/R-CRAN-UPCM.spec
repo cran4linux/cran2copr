@@ -1,37 +1,38 @@
-%global packname  esaddle
-%global packver   0.0.7
+%global packname  UPCM
+%global packver   0.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extended Empirical Saddlepoint Density Approximations
+Summary:          Uncertainty in Partial Credit Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-mvnfast 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.4
+BuildRequires:    R-CRAN-ltm 
+BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-parallel 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-mvnfast 
+Requires:         R-CRAN-Rcpp >= 0.12.4
+Requires:         R-CRAN-ltm 
+Requires:         R-CRAN-cubature 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-statmod 
 
 %description
-Tools for fitting the Extended Empirical Saddlepoint (EES) density of
-Fasiolo et al. (2018) <doi:10.1214/18-EJS1433>.
+Provides an extension to the Partial Credit Model and Generalized Partial
+Credit Models which allows for an additional person parameter that
+characterizes the uncertainty of the person. The method was originally
+proposed by Tutz and Schauberger (2020) <doi:10.1177/0146621620920932>.
 
 %prep
 %setup -q -c -n %{packname}

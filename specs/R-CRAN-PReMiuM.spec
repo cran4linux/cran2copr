@@ -1,9 +1,9 @@
 %global packname  PReMiuM
-%global packver   3.2.5
+%global packver   3.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.5
+Version:          3.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dirichlet Process Bayesian Clustering, Profile Regression
 

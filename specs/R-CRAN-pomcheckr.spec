@@ -1,37 +1,42 @@
-%global packname  esaddle
-%global packver   0.0.7
+%global packname  pomcheckr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extended Empirical Saddlepoint Density Approximations
+Summary:          Graphical Check for Proportional Odds Assumption
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-mvnfast 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-assertthat 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-parallel 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-mvnfast 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-stringr 
 
 %description
-Tools for fitting the Extended Empirical Saddlepoint (EES) density of
-Fasiolo et al. (2018) <doi:10.1214/18-EJS1433>.
+Implements the method described at the UCLA Statistical Consulting site
+<https://stats.idre.ucla.edu/r/dae/ordinal-logistic-regression/> for
+checking if the proportional odds assumption holds for a cumulative logit
+model.
 
 %prep
 %setup -q -c -n %{packname}

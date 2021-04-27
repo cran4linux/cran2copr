@@ -1,37 +1,33 @@
-%global packname  esaddle
-%global packver   0.0.7
+%global packname  elasdics
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extended Empirical Saddlepoint Density Approximations
+Summary:          Elastic Analysis of Sparse, Dense and Irregular Curves
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-splines 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-mvnfast 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-numDeriv 
+Requires:         R-splines 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-parallel 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-mvnfast 
+Requires:         R-CRAN-numDeriv 
 
 %description
-Tools for fitting the Extended Empirical Saddlepoint (EES) density of
-Fasiolo et al. (2018) <doi:10.1214/18-EJS1433>.
+Provides functions to align curves and to compute mean curves based on the
+elastic distance defined in the square-root-velocity framework. For more
+details on this framework see Srivastava and Klassen (2016,
+<doi:10.1007/978-1-4939-4020-2>). For more theoretical details on our
+methods and algorithms see Steyer et al. (2021, <arXiv:2104.11039>).
 
 %prep
 %setup -q -c -n %{packname}

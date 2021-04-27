@@ -1,11 +1,11 @@
-%global packname  esaddle
-%global packver   0.0.7
+%global packname  ganGenerativeData
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extended Empirical Saddlepoint Density Approximations
+Summary:          Generate Generative Data for a Data Source
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,24 +14,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-mvnfast 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-parallel 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-mvnfast 
+BuildRequires:    R-CRAN-tensorflow >= 2.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+Requires:         R-CRAN-tensorflow >= 2.0.0
+Requires:         R-CRAN-Rcpp >= 1.0.3
 
 %description
-Tools for fitting the Extended Empirical Saddlepoint (EES) density of
-Fasiolo et al. (2018) <doi:10.1214/18-EJS1433>.
+Generative Adversarial Networks are applied to generate generative data
+for a data source. In iterative training steps the distribution of
+generated data converges to that of the data source. Reference: Goodfellow
+et al. (2014) <arXiv:1406.2661v1>.
 
 %prep
 %setup -q -c -n %{packname}

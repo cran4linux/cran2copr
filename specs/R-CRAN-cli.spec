@@ -1,9 +1,9 @@
 %global packname  cli
-%global packver   2.4.0
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          2.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helpers for Developing Command Line Interfaces
 
@@ -16,10 +16,8 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-glue 
-Requires:         R-methods 
 Requires:         R-utils 
 
 %description

@@ -1,13 +1,13 @@
-%global packname  ipeadatar
-%global packver   0.1.2
+%global packname  DEPONS2R
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          API Wrapper for 'Ipeadata'
+Summary:          Read, Plot and Analyse Output from the DEPONS Model
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,28 +15,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-utils 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-sjlabelled 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-curl 
+Requires:         R-CRAN-raster 
+Requires:         R-methods 
+Requires:         R-CRAN-sp 
+Requires:         R-utils 
+Requires:         R-grDevices 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-sjlabelled 
 
 %description
-Allows direct access to the macroeconomic, financial and regional database
-maintained by Brazilian Institute for Applied Economic Research ('Ipea').
-This R package uses the 'Ipeadata' API. For more information, see
-<http://www.ipeadata.gov.br/>.
+Methods for analyzing population dynamics and movement tracks simulated
+using the DEPONS model <https://www.depons.eu>, and for manipulating input
+raster files and shipping routes.
 
 %prep
 %setup -q -c -n %{packname}

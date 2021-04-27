@@ -1,37 +1,38 @@
-%global packname  esaddle
-%global packver   0.0.7
+%global packname  fglsnet
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extended Empirical Saddlepoint Density Approximations
+Summary:          A Feasible Generalized Least Squares Estimator for Regression Analysis of Outcomes with Network Dependence
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-mvnfast 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-parallel 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-mvnfast 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-network 
+BuildRequires:    R-CRAN-sna 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-lmtest 
+Requires:         R-CRAN-network 
+Requires:         R-CRAN-sna 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-lmtest 
 
 %description
-Tools for fitting the Extended Empirical Saddlepoint (EES) density of
-Fasiolo et al. (2018) <doi:10.1214/18-EJS1433>.
+The function estimates a multivariate regression model for outcomes with
+network dependence.
 
 %prep
 %setup -q -c -n %{packname}

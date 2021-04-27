@@ -1,9 +1,9 @@
 %global packname  shinydashboardPlus
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Add More 'AdminLTE2' Components to 'shinydashboard'
 
@@ -19,14 +19,14 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-fresh 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-waiter 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-fresh 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-waiter 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Extend 'shinydashboard' with 'AdminLTE2' components. 'AdminLTE2' is a free
