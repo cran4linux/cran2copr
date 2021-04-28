@@ -1,13 +1,13 @@
-%global packname  intensegRid
-%global packver   0.1.0
+%global packname  prenoms
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Wrapper for the Carbon Intensity API
+Summary:          Names Given to Babies in Quebec Between 1980 and 2020
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,32 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-purrr 
 
 %description
-Electricity is not made equal and it vary in its carbon footprint (or
-carbon intensity) depending on its source. This package enables to access
-and query data provided by the Carbon Intensity API
-(<https://carbonintensity.org.uk/>). National Grid’s Carbon Intensity API
-provides an indicative trend of regional carbon intensity of the
-electricity system in Great Britain.
+A database containing the names of the babies born in Quebec between 1980
+and 2020.
 
 %prep
 %setup -q -c -n %{packname}

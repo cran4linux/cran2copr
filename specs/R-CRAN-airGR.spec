@@ -1,9 +1,9 @@
 %global packname  airGR
-%global packver   1.6.10.4
+%global packver   1.6.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.10.4
+Version:          1.6.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Suite of GR Hydrological Models for Precipitation-Runoff Modelling
 
@@ -26,9 +26,11 @@ Requires:         R-utils
 %description
 Hydrological modelling tools developed at INRAE-Antony (HYCAR Research
 Unit, France). The package includes several conceptual rainfall-runoff
-models (GR4H, GR5H, GR4J, GR5J, GR6J, GR2M, GR1A), a snow accumulation and
-melt model (CemaNeige) and the associated functions for their calibration
-and evaluation. Use help(airGR) for package description and references.
+models (GR4H, GR5H, GR4J, GR5J, GR6J, GR2M, GR1A) that can be applied
+either on a lumped or semi-distributed way. A snow accumulation and melt
+model (CemaNeige) and the associated functions for the calibration and
+evaluation of models are also included. Use help(airGR) for package
+description and references.
 
 %prep
 %setup -q -c -n %{packname}

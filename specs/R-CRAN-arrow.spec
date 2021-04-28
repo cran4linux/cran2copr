@@ -1,9 +1,9 @@
 %global packname  arrow
-%global packver   3.0.0
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integration to 'Apache' 'Arrow'
 
@@ -21,6 +21,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vctrs 
@@ -30,6 +31,7 @@ Requires:         R-methods
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
 Requires:         R-CRAN-vctrs 

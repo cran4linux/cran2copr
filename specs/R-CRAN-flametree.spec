@@ -1,34 +1,41 @@
-%global packname  SBCK
-%global packver   0.3.1
+%global packname  flametree
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Bias Correction Kit
+Summary:          Generate Random Tree-Like Images
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-ROOPSD 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-ROOPSD 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-paletteer 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-paletteer 
+Requires:         R-CRAN-magrittr 
 
 %description
-Implementation of several recent multivariate bias correction methods with
-a unified interface to facilitate their use. A description and comparison
-between methods can be found in François et al, (2020)
-<doi:10.5194/esd-11-537-2020>.
+A generative art system for producing tree-like images using an L-system
+to create the structures. The package includes tools for generating the
+data structures and visualise them in a variety of styles.
 
 %prep
 %setup -q -c -n %{packname}

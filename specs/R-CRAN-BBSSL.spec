@@ -1,27 +1,41 @@
-%global packname  HiddenMarkov
-%global packver   1.8-13
+%global packname  BBSSL
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.13
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hidden Markov Models
+Summary:          Bayesian Bootstrap Spike-and-Slab LASSO
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-glmnet >= 2.0.16
+BuildRequires:    R-CRAN-statmod >= 1.4.30
+BuildRequires:    R-CRAN-Matrix >= 1.2.17
+BuildRequires:    R-CRAN-rmutil >= 1.1.3
+BuildRequires:    R-CRAN-svMisc >= 1.1.0
+BuildRequires:    R-CRAN-truncnorm >= 1.0.8
+BuildRequires:    R-CRAN-greybox >= 0.5.1
+BuildRequires:    R-CRAN-mvnfast >= 0.2.5
+BuildRequires:    R-methods 
+Requires:         R-CRAN-glmnet >= 2.0.16
+Requires:         R-CRAN-statmod >= 1.4.30
+Requires:         R-CRAN-Matrix >= 1.2.17
+Requires:         R-CRAN-rmutil >= 1.1.3
+Requires:         R-CRAN-svMisc >= 1.1.0
+Requires:         R-CRAN-truncnorm >= 1.0.8
+Requires:         R-CRAN-greybox >= 0.5.1
+Requires:         R-CRAN-mvnfast >= 0.2.5
+Requires:         R-methods 
 
 %description
-Contains functions for the analysis of Discrete Time Hidden Markov Models,
-Markov Modulated GLMs and the Markov Modulated Poisson Process. It
-includes functions for simulation, parameter estimation, and the Viterbi
-algorithm. See the topic "HiddenMarkov" for an introduction to the
-package, and "Change Log" for a list of recent changes. The algorithms are
-based of those of Walter Zucchini.
+Posterior sampling for Spike-and-Slab LASSO prior in linear models from
+Nie and Rockova <arXiv:2011.14279>.
 
 %prep
 %setup -q -c -n %{packname}

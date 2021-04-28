@@ -1,9 +1,9 @@
 %global packname  contentid
-%global packver   0.0.9
+%global packver   0.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.0.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Interface for Content-Based Identifiers
 
@@ -34,11 +34,12 @@ identifiers for data management. Content-based identifiers rely on the
 'cryptographic' hashes to refer to the files they identify, thus, anyone
 possessing the file can compute the identifier using a well-known standard
 algorithm, such as 'SHA256'.  By registering a URL at which the content is
-accessible to a public archive, such as <https://hash-archive.org>, the
-content identifier can serve many functions typically associated with A
-Digital Object Identifier ('DOI').  Unlike location-based identifiers like
-'DOIs', content-based identifiers permit the same content to be registered
-in many locations.
+accessible to a public archive (such as Hash Archive) or depositing data
+in a scientific repository such 'Zenodo', 'DataONE' or 'SoftwareHeritage',
+the content identifier can serve many functions typically associated with
+A Digital Object Identifier ('DOI').  Unlike location-based identifiers
+like 'DOIs', content-based identifiers permit the same content to be
+registered in many locations.
 
 %prep
 %setup -q -c -n %{packname}

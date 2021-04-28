@@ -1,9 +1,9 @@
 %global packname  meerva
-%global packver   0.1-1
+%global packver   0.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Data with Measurement Error Using a Validation Subsample
 
@@ -29,8 +29,8 @@ Analyze data with measurement error when there is a validation subsample
 randomly selected from the full sample.  The method assumes surrogate
 variables measured with error are available for the full sample, and
 reference variables measured with little or no error are available for
-this randomly chosen subsample of the full sample.  Measurement errors may
-be differential or non differential, in any or all predictors
+this randomly selected subsample of the full sample.  Measurement errors
+may be differential or non differential, in any or all predictors
 (simultaneously) as well as outcome.  The "augmented" estimates derived
 are based upon the multivariate correlation between regression model
 parameter estimates for the reference variables and for the surrogate
@@ -38,11 +38,15 @@ variables in the validation subset.  Because the validation subsample is
 chosen at random whatever biases are imposed by measurement error,
 non-differential or differential, are reflected in this correlation and
 can be used to derive estimates for the reference variables using data
-from the whole sample.  This work derives from Chen Y-H, Chen H. (2000)
+from the whole sample.  The main functions in the package are meerva.fit
+which calculates estimates for a dataset, and meerva.sim.block which
+simulates multiple datasets as described by the user, and analyzes these
+datasets, storing the regression coefficient estimates for inspection.
+This work derives from Chen Y-H, Chen H. (2000)
 <doi:10.1111/1467-9868.00243>, Chen Y-H. (2002)
 <doi:10.1111/1467-9868.00324>, Wang X, Wang Q (2015)
-<doi:10.1016/j.jmva.2015.05.017> and Tong Y, Huang J et al. (2020)
-<doi:10.1093/jamia/ocz180>.
+<doi:10.1016/j.jmva.2015.05.017> and Tong J, Huang J, Chubak J, et al.
+(2020) <doi:10.1093/jamia/ocz180>.
 
 %prep
 %setup -q -c -n %{packname}

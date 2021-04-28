@@ -1,9 +1,9 @@
 %global packname  dbscan
-%global packver   1.1-7
+%global packver   1.1-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.7
+Version:          1.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Density Based Clustering of Applications with Noise (DBSCAN) and Related Algorithms
 

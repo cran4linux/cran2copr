@@ -1,9 +1,9 @@
 %global packname  occCite
-%global packver   0.4.6
+%global packver   0.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.4.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Querying and Managing Large Biodiversity Occurrence Datasets
 
@@ -20,20 +20,19 @@ BuildRequires:    R-CRAN-bib2df
 BuildRequires:    R-CRAN-BIEN 
 BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-taxize 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-RPostgreSQL 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-waffle 
 Requires:         R-CRAN-rgbif >= 3.1
@@ -41,20 +40,19 @@ Requires:         R-CRAN-bib2df
 Requires:         R-CRAN-BIEN 
 Requires:         R-CRAN-bit64 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ape 
 Requires:         R-CRAN-lubridate 
 Requires:         R-methods 
 Requires:         R-CRAN-taxize 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-knitr 
 Requires:         R-stats 
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-RPostgreSQL 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-viridis 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-waffle 
 
