@@ -1,9 +1,9 @@
 %global packname  multiridge
-%global packver   1.5
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Cross-Validation for Multi-Penalty Ridge Regression
 

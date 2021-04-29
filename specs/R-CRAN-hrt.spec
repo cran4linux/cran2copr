@@ -1,51 +1,42 @@
-%global packname  torch
-%global packver   0.3.0
+%global packname  hrt
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tensors and Neural Networks with 'GPU' Acceleration
+Summary:          Heteroskedasticity Robust Testing
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-coro 
-BuildRequires:    R-CRAN-callr 
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-CompQuadForm 
+BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-methods 
-Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-magrittr 
-Requires:         R-tools 
-Requires:         R-CRAN-coro 
-Requires:         R-CRAN-callr 
-Requires:         R-CRAN-cli 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-CompQuadForm 
 
 %description
-Provides functionality to define and train neural networks similar to
-'PyTorch' by Paszke et al (2019) <arXiv:1912.01703> but written entirely
-in R using the 'libtorch' library. Also supports low-level tensor
-operations and 'GPU' acceleration.
+Functions for testing affine hypotheses on the regression coefficient
+vector in regression models with heteroskedastic errors: (i) a function
+for computing various test statistics (in particular using HC0-HC4
+covariance estimators based on unrestricted or restricted residuals); (ii)
+a function for numerically approximating the size of a test based on such
+test statistics and a user-supplied critical value; and, most importantly,
+(iii) a function for determining size-controlling critical values for such
+test statistics and a user-supplied significance level (also incorporating
+a check of conditions under which such a size-controlling critical value
+exists). The three functions are based on results in Poetscher and
+Preinerstorfer (2021) "Valid Heteroskedasticity Robust Testing"
+<arXiv:2104.12597>.
 
 %prep
 %setup -q -c -n %{packname}

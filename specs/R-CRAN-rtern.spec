@@ -1,38 +1,29 @@
-%global packname  dipm
-%global packver   1.2
+%global packname  rtern
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Depth Importance in Precision Medicine (DIPM) Method
+Summary:          A Ternary Conditional Operator for R
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-partykit >= 1.2.6
-BuildRequires:    R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-Requires:         R-CRAN-partykit >= 1.2.6
-Requires:         R-stats 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-utils 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
+Requires:         R-CRAN-lifecycle 
 
 %description
-An implementation of the Depth Importance in Precision Medicine (DIPM)
-method in Chen and Zhang (2020) <doi:10.1093/biostatistics/kxaa021> and
-Chen and Zhang (2020) <doi:10.1007/978-3-030-46161-4_16>. The DIPM method
-is a classification tree that searches for subgroups with especially poor
-or strong performance in a given treatment group.
+A small language extension for succinct conditional assignment using `?`
+and `:`, emulating the conditional ternary operator syntax using in C,
+Java, JavaScript and other languages.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  joyn
-%global packver   0.0.1
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tool for Diagnosis of Tables Joins and Complementary Join Features
 
@@ -20,16 +20,18 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-cli 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Tool for diagnosis of joins of data frames. It combines the speed
-`data.table`, the flexibility of `dplyr`, and the diagnosis and features
-of the `merge` command in `Stata`.
+Tool for diagnosing table joins. It combines the speed `data.table`, the
+flexibility of `dplyr`, and the diagnosis and features of the `merge`
+command in `Stata`.
 
 %prep
 %setup -q -c -n %{packname}

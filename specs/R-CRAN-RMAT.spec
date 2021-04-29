@@ -1,13 +1,13 @@
-%global packname  ClustImpute
+%global packname  RMAT
 %global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          K-means clustering with build-in missing data imputation
+Summary:          Random Matrix Analysis Toolkit
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,34 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ClusterR 
-BuildRequires:    R-CRAN-copula 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-knitr 
-Requires:         R-CRAN-ClusterR 
-Requires:         R-CRAN-copula 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-stats 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-knitr 
 
 %description
-This k-means algorithm is able to cluster data with missing values and as
-a by-product completes the data set. The implementation can deal with
-missing values in multiple variables and is computationally efficient
-since it iteratively uses the current cluster assignment to define a
-plausible distribution for missing value imputation. Weights are used to
-shrink early random draws for missing values (i.e., draws based on the
-cluster assignments after few iterations) towards the global mean of each
-feature. This shrinkage slowly fades out after a fixed number of
-iterations to reflect the increasing credibility of cluster assignments.
-See the vignette for details.
+Simulate random matrices and ensembles and compute their eigenvalue
+spectra and dispersions.
 
 %prep
 %setup -q -c -n %{packname}

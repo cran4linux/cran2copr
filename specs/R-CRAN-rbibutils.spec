@@ -1,9 +1,9 @@
 %global packname  rbibutils
-%global packver   2.1
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convert Between Bibliography Formats
 
@@ -20,10 +20,11 @@ Requires:         R-utils
 Requires:         R-tools 
 
 %description
-Converts between a number of bibliography formats, including 'BibTeX',
-'BibLaTeX' and 'Bibentry'.  Includes a port of the 'bibutils' utilities by
-Chris Putnam <https://sourceforge.net/projects/bibutils/>. Supports all
-bibliography formats and character encodings implemented in 'bibutils'.
+Read and write 'BibTeX' files. Convert between bibliography formats,
+including 'BibTeX', 'BibLaTeX', EndNote, and 'Bibentry'. Includes a port
+of the 'bibutils' utilities by Chris Putnam
+<https://sourceforge.net/projects/bibutils/>. Supports all bibliography
+formats and character encodings implemented in 'bibutils'.
 
 %prep
 %setup -q -c -n %{packname}

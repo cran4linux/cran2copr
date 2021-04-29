@@ -1,9 +1,9 @@
 %global packname  rayshader
-%global packver   0.24.5
+%global packver   0.24.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.24.5
+Version:          0.24.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Maps and Visualize Data in 2D and 3D
 

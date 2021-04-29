@@ -1,9 +1,9 @@
 %global packname  windsoraiR
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access the 'Windsor.ai' API
 
@@ -19,7 +19,8 @@ BuildRequires:    R-CRAN-jsonlite >= 1.7.2
 Requires:         R-CRAN-jsonlite >= 1.7.2
 
 %description
-Collect data from the 'Windsor.ai' API
+Collect multichannel marketing data from sources such as Google analytics,
+Facebook Ads, and many others using the 'Windsor.ai' API
 <https://www.windsor.ai/api-fields/>.
 
 %prep

@@ -1,9 +1,9 @@
 %global packname  cccrm
-%global packver   2.0.2
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Concordance Correlation Coefficient for Repeated (and Non-Repeated) Measures
 
@@ -30,7 +30,9 @@ scenarios considered are non-repeated measures, non-longitudinal repeated
 measures (replicates) and longitudinal repeated measures. It also includes
 the estimation of the one-way intraclass correlation coefficient also
 known as reliability index. The estimation approaches implemented are
-variance components and U-statistics approaches.
+variance components and U-statistics approaches. Description of methods
+can be found in Fleiss (1986) <doi:10.1002/9781118032923.ch1> and Carrasco
+et al. (2013) <doi:10.1016/j.cmpb.2012.09.002>.
 
 %prep
 %setup -q -c -n %{packname}

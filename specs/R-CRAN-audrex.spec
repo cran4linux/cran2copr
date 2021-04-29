@@ -1,44 +1,52 @@
-%global packname  Nmisc
-%global packver   0.3.7
+%global packname  audrex
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Functions Used at 'Numeract LLC'
+Summary:          Automatic Dynamic Regression using Extreme Gradient Boosting
 
-License:          MIT + file LICENCE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rBayesianOptimization 
+BuildRequires:    R-CRAN-xgboost 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-narray 
+BuildRequires:    R-CRAN-fANCOVA 
+BuildRequires:    R-CRAN-imputeTS 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tictoc 
+BuildRequires:    R-CRAN-bizdays 
+Requires:         R-CRAN-rBayesianOptimization 
+Requires:         R-CRAN-xgboost 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-narray 
+Requires:         R-CRAN-fANCOVA 
+Requires:         R-CRAN-imputeTS 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tictoc 
+Requires:         R-CRAN-bizdays 
 
 %description
-Contains functions useful for debugging, set operations on vectors, and
-'UTC' date and time functionality. It adds a few vector manipulation verbs
-to 'purrr' and 'dplyr' packages. It can also generate an R file to install
-and update packages to simplify deployment into production. The functions
-were developed at the data science firm 'Numeract LLC' and are used in
-several packages and projects.
+Dynamic regression for time series using Extreme Gradient Boosting with
+hyper-parameter tuning via Bayesian Optimization.
 
 %prep
 %setup -q -c -n %{packname}

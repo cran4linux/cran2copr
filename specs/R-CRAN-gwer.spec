@@ -1,9 +1,9 @@
 %global packname  gwer
-%global packver   2.1
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geographically Weighted Elliptical Regression
 
@@ -12,28 +12,30 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14
-Requires:         R-core >= 2.14
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sp >= 0.8.3
 BuildRequires:    R-CRAN-maptools >= 0.7.32
 BuildRequires:    R-CRAN-spData >= 0.2.6.2
+BuildRequires:    R-CRAN-sp > 1.4.0
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-GWmodel 
 BuildRequires:    R-CRAN-spgwr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-glogis 
 BuildRequires:    R-graphics 
-Requires:         R-CRAN-sp >= 0.8.3
 Requires:         R-CRAN-maptools >= 0.7.32
 Requires:         R-CRAN-spData >= 0.2.6.2
+Requires:         R-CRAN-sp > 1.4.0
 Requires:         R-stats 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-GWmodel 
 Requires:         R-CRAN-spgwr 
 Requires:         R-utils 
 Requires:         R-CRAN-assertthat 
