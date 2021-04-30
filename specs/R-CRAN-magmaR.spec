@@ -1,11 +1,11 @@
-%global packname  cban
-%global packver   1.0
+%global packname  magmaR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cost Benefit Analysis
+Summary:          R-Client for 'Magma' of the 'UCSF Mount Etna Data Library'
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,11 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-crul 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-crul 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-utils 
 
 %description
-It calculates benefit cost ratio and net present value of a project in
-financial terms. It is useful in analysing the financial returns of a
-project.
+A client for interacting with 'magma', the data warehouse of the 'UCSF
+Mount Etna Data Library'. 'magmaR' includes functions for querying and
+downloading data from 'magma', in order to enable working with such data
+in R, as well as for uploading local data to 'magma'.
 
 %prep
 %setup -q -c -n %{packname}

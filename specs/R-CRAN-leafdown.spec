@@ -1,24 +1,36 @@
-%global packname  vetr
-%global packver   0.2.12
+%global packname  leafdown
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.12
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Trust, but Verify
+Summary:          Provides Drill Down Functionality for 'leaflet' Choropleths
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyjs 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyjs 
 
 %description
-Declarative template-based framework for verifying that objects meet
-structural requirements, and auto-composing error messages when they do
-not.
+Provides drill down functionality for 'leaflet' choropleths in 'shiny'
+apps.
 
 %prep
 %setup -q -c -n %{packname}

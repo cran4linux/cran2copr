@@ -1,9 +1,9 @@
 %global packname  doBy
-%global packver   4.6.9
+%global packver   4.6.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6.9
+Version:          4.6.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Groupwise Statistics, LSmeans, Linear Contrasts, Utilities
 
@@ -17,24 +17,28 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-pbkrtest >= 0.4.8.1
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-curry 
+BuildRequires:    R-CRAN-Deriv 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Deriv 
+BuildRequires:    R-CRAN-microbenchmark 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-pbkrtest >= 0.4.8.1
 Requires:         R-methods 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-curry 
+Requires:         R-CRAN-Deriv 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Deriv 
+Requires:         R-CRAN-microbenchmark 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
 
 %description
 Contains: 1) Facilities for working with grouped data: 'do' something to

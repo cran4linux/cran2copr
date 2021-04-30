@@ -1,9 +1,9 @@
 %global packname  wikifacts
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get Facts and Data from Wikipedia and Wikidata
 
@@ -15,12 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-curl 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rvest 
 Requires:         R-utils 
