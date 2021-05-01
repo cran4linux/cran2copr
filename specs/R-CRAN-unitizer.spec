@@ -1,13 +1,13 @@
-%global packname  betafunctions
-%global packver   1.5.0
+%global packname  unitizer
+%global packver   1.4.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.4.14
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Working with Two- And Four-Parameter Beta Probability Distributions
+Summary:          Interactive R Unit Tests
 
-License:          CC0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,21 +15,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-crayon >= 1.3.2
+BuildRequires:    R-CRAN-diffobj >= 0.1.5.9000
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-crayon >= 1.3.2
+Requires:         R-CRAN-diffobj >= 0.1.5.9000
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Package providing a number of functions for working with Two- and
-Four-parameter Beta and closely related distributions (i.e., the Gamma and
-Binomial distributions), including parameterization in terms of moments,
-and fitting of Beta distributions to vectors of values. Also includes
-functions for estimating classification accuracy, diagnostic performance,
-and consistency, making use of what is generally known as the 'Livingston
-and Lewis approach' in the psychometric literature as the foundational
-method, which makes extensive use of the Beta distribution. A shiny app is
-available, providing a GUI for the Livingston and Lewis approach. For
-link, see documentation for the LL.CA() function. Livingston and Lewis
-(1995) <doi:10.1111/j.1745-3984.1995.tb00462.x>. Hanson (1991)
-<https://files.eric.ed.gov/fulltext/ED344945.pdf>. Tharwat (2020)
-<doi:10.1016/j.aci.2018.08.003>.
+Simplifies regression tests by comparing objects produced by test code
+with earlier versions of those same objects.  If objects are unchanged the
+tests pass, otherwise execution stops with error details.  If in
+interactive mode, tests can be reviewed through the provided interactive
+environment.
 
 %prep
 %setup -q -c -n %{packname}

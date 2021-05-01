@@ -1,9 +1,9 @@
 %global packname  secr
-%global packver   4.3.3
+%global packver   4.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.3
+Version:          4.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatially Explicit Capture-Recapture
 

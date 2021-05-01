@@ -1,11 +1,11 @@
 %global packname  simplevis
-%global packver   2.6.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Visualisation with 'ggplot2' and 'leaflet' Wrappers
+Summary:          Make 'ggplot2' and 'leaflet' Visualisation Easier
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -73,8 +73,7 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-viridis 
 
 %description
-Wrapper functions to make 'ggplot2' and 'leaflet' visualisation easier and
-prettier.
+Wrapper functions to make 'ggplot2' and 'leaflet' visualisation easier.
 
 %prep
 %setup -q -c -n %{packname}

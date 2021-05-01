@@ -1,25 +1,31 @@
-%global packname  rlang
-%global packver   0.4.11
+%global packname  Rcompadre
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.11
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Base Types and Core R and 'Tidyverse' Features
+Summary:          Utilities for using the 'COM(P)ADRE' Matrix Model Database
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-popdemo 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-methods 
+Requires:         R-CRAN-popdemo 
+Requires:         R-CRAN-tibble 
 
 %description
-A toolbox for working with base types, core R features like the condition
-system, and core 'Tidyverse' features like tidy evaluation.
+Utility functions for interacting with the 'COMPADRE' and 'COMADRE'
+databases of matrix population models. Described in Jones et al. (2021)
+<doi:10.1101/2021.04.26.441330>.
 
 %prep
 %setup -q -c -n %{packname}

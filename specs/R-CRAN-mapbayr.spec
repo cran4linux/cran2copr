@@ -1,11 +1,11 @@
-%global packname  emayili
-%global packver   0.4.10
+%global packname  mapbayr
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.10
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Send Email Messages
+Summary:          MAP-Bayesian Estimation of PK Parameters
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,25 +15,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl >= 4.0
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-mrgsolve >= 0.10.9
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-mime 
+BuildRequires:    R-CRAN-optimx 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-curl >= 4.0
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-mrgsolve >= 0.10.9
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-mime 
+Requires:         R-CRAN-optimx 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-A light, simple tool for sending emails with minimal dependencies.
+Performs maximum a posteriori Bayesian estimation of individual
+pharmacokinetic parameters from a model defined in `mrgsolve`, typically
+for model-based therapeutic drug monitoring. Internally computes an
+objective function value from model and data, performs optimization and
+returns predictions in a convenient format.
 
 %prep
 %setup -q -c -n %{packname}

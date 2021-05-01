@@ -1,11 +1,11 @@
-%global packname  aopdata
-%global packver   0.2.2
+%global packname  himach
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data from the 'Access to Opportunities Project (AOP)'
+Summary:          High Mach Finds Routes for Supersonic Aircraft
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,26 +15,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.4.1
-BuildRequires:    R-CRAN-sf >= 0.9.3
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-crul 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-sf >= 0.9.7
+BuildRequires:    R-CRAN-cppRouting 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-sf >= 0.9.3
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-crul 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lwgeom 
+BuildRequires:    R-CRAN-s2 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-sf >= 0.9.7
+Requires:         R-CRAN-cppRouting 
 Requires:         R-CRAN-data.table 
-Requires:         R-utils 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lwgeom 
+Requires:         R-CRAN-s2 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-tidyr 
 
 %description
-Download data from the 'Access to Opportunities Project (AOP)'. The
-'aopdata' package brings annual estimates of access to employment, health
-and education services by transport mode, as well as data on the spatial
-distribution of population, schools and health-care facilities at a fine
-spatial resolution for all cities included in the study. More info on the
-'AOP' website <https://www.ipea.gov.br/acessooportunidades/en/>.
+For supersonic aircraft, flying subsonic over land, High Mach finds the
+best route between airports. Allows for coastal buffer and potentially
+closed regions. Uses minimal model of aircraft performance: focus is on
+time saved versus subsonic flight, rather than vertical flight profile.
+For modelling and forecasting, not for planning your flight!
 
 %prep
 %setup -q -c -n %{packname}

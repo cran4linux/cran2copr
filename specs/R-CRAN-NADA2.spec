@@ -1,9 +1,9 @@
 %global packname  NADA2
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Analysis for Censored Environmental Data
 
@@ -19,7 +19,6 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-EnvStats 
 BuildRequires:    R-CRAN-fitdistrplus 
 BuildRequires:    R-CRAN-Kendall 
 BuildRequires:    R-CRAN-multcomp 
@@ -31,11 +30,11 @@ BuildRequires:    R-CRAN-cenGAM
 BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-coin 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-EnvStats 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-EnvStats 
 Requires:         R-CRAN-fitdistrplus 
 Requires:         R-CRAN-Kendall 
 Requires:         R-CRAN-multcomp 
@@ -47,10 +46,11 @@ Requires:         R-CRAN-cenGAM
 Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-coin 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-EnvStats 
 
 %description
 Contains methods described by Dennis Helsel in his book "Statistics for
-Censored Environmental Data using `Minitab` and R" (2011) and courses and
+Censored Environmental Data using Minitab and R" (2011) and courses and
 videos at <https://practicalstats.com>. This package adds new functions to
 the `NADA` Package.
 

@@ -1,25 +1,32 @@
-%global packname  rlang
-%global packver   0.4.11
+%global packname  juicr
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.11
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Base Types and Core R and 'Tidyverse' Features
+Summary:          Automated and Manual Extraction of Numerical Data from Scientific Images
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.3.2
+Requires:         R-core >= 3.3.2
+BuildArch:        noarch
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-RCurl 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-RCurl 
 
 %description
-A toolbox for working with base types, core R features like the condition
-system, and core 'Tidyverse' features like tidy evaluation.
+Provides a GUI interface for automating data extraction from multiple
+images containing scatter and bar plots, semi-automated tools to tinker
+with extraction attempts, and a fully-loaded point-and-click manual
+extractor with image zoom, calibrator, and classifier. Also provides
+detailed and R-independent extraction reports as fully-embedded .html
+records.
 
 %prep
 %setup -q -c -n %{packname}

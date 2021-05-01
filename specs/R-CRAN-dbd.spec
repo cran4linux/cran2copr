@@ -1,25 +1,31 @@
-%global packname  rlang
-%global packver   0.4.11
+%global packname  dbd
+%global packver   0.0-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.11
+Version:          0.0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Base Types and Core R and 'Tidyverse' Features
+Summary:          Versatile Discrete Distributions
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.2.2
+Requires:         R-core >= 3.2.2
+BuildArch:        noarch
 
 %description
-A toolbox for working with base types, core R features like the condition
-system, and core 'Tidyverse' features like tidy evaluation.
+Tools for working with a new family of versatile discrete distributions,
+the db ("discretised Beta") family. This package provides density
+(probability), distribution, inverse distribution (quantile) and random
+data generation functions for the db family.  It provides functions to
+effect conveniently maximum likelihood estimation of parameters, and a
+variety of useful plotting functions.  It provides goodness of fit tests
+and functions to calculate the Fisher information, different estimates of
+the hessian of the log likelihood and Monte Carlo estimation of the
+covariance matrix of the maximum likelihood parameter estimates.
 
 %prep
 %setup -q -c -n %{packname}

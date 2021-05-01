@@ -1,9 +1,9 @@
 %global packname  Luminescence
-%global packver   0.9.10
+%global packver   0.9.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.10
+Version:          0.9.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive Luminescence Dating Data Analysis
 
@@ -12,12 +12,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-XML >= 3.99
 BuildRequires:    R-CRAN-plotrix >= 3.7
 BuildRequires:    R-CRAN-raster >= 3.4.0
 BuildRequires:    R-CRAN-DEoptim >= 2.2.5
+BuildRequires:    R-CRAN-lamW >= 2.0.0
 BuildRequires:    R-CRAN-zoo >= 1.8
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-shape >= 1.4.5
@@ -36,6 +37,7 @@ Requires:         R-CRAN-XML >= 3.99
 Requires:         R-CRAN-plotrix >= 3.7
 Requires:         R-CRAN-raster >= 3.4.0
 Requires:         R-CRAN-DEoptim >= 2.2.5
+Requires:         R-CRAN-lamW >= 2.0.0
 Requires:         R-CRAN-zoo >= 1.8
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-shape >= 1.4.5

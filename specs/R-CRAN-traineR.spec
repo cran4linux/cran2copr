@@ -1,9 +1,9 @@
 %global packname  traineR
-%global packver   1.0.1
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Predictive Models Homologator
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS >= 7.3.53
 BuildRequires:    R-CRAN-nnet >= 7.3.12
 BuildRequires:    R-CRAN-randomForest >= 4.6.14
 BuildRequires:    R-CRAN-rpart >= 4.1.13
@@ -26,6 +27,14 @@ BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-kknn >= 1.3.1
 BuildRequires:    R-CRAN-xgboost >= 0.81.0.1
 BuildRequires:    R-CRAN-dplyr >= 0.8.0.1
+BuildRequires:    R-CRAN-adabag 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-ROCR 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-MASS >= 7.3.53
 Requires:         R-CRAN-nnet >= 7.3.12
 Requires:         R-CRAN-randomForest >= 4.6.14
 Requires:         R-CRAN-rpart >= 4.1.13
@@ -37,13 +46,21 @@ Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-kknn >= 1.3.1
 Requires:         R-CRAN-xgboost >= 0.81.0.1
 Requires:         R-CRAN-dplyr >= 0.8.0.1
+Requires:         R-CRAN-adabag 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-ROCR 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-glue 
+Requires:         R-grDevices 
 
 %description
 Methods to unify the different ways of creating predictive models and
 their different predictive formats. It includes methods such as K-Nearest
 Neighbors, Decision Trees, ADA Boosting, Extreme Gradient Boosting, Random
-Forest, Neural Networks, Deep Learning, Support Vector Machines and
-Bayesian Methods.
+Forest, Neural Networks, Deep Learning, Support Vector Machines, Bayesian
+Methods, Linear Discriminant Analysis and Quadratic Discriminant Analysis,
+Logistic Regression, Penalized Logistic Regression.
 
 %prep
 %setup -q -c -n %{packname}

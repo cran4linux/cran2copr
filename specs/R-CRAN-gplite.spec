@@ -1,11 +1,11 @@
 %global packname  gplite
-%global packver   0.11.1
+%global packver   0.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.1
+Version:          0.12.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lightweight Implementation for the Most Common Gaussian Process Models
+Summary:          Implementation for the Most Common Gaussian Process Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
