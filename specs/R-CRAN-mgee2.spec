@@ -1,9 +1,9 @@
 %global packname  mgee2
-%global packver   0.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Marginal Analysis of Misclassified Longitudinal Ordinal Data
 
@@ -15,10 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-ggplot2 
 
 %description

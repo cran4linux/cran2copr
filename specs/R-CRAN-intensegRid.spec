@@ -1,50 +1,46 @@
-%global packname  journalabbr
-%global packver   0.3.0
+%global packname  intensegRid
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Journal Abbreviations for BibTeX Documents
+Summary:          R Wrapper for the Carbon Intensity API
 
-License:          GPL-3
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 2.7
-BuildRequires:    R-CRAN-knitr >= 1.33
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-rmarkdown >= 2.7
-Requires:         R-CRAN-knitr >= 1.33
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-stringi 
+BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-purrr 
 
 %description
-Since the reference management software (such as 'Zotero', 'Mendeley')
-exports Bib file journal abbreviation is not detailed enough, the
-'journalabbr' package only abbreviates the journal field of Bib file, and
-then outputs a new Bib file for generating reference format with journal
-abbreviation on other software (such as 'texstudio'). The abbreviation
-table is from 'JabRef'. At the same time, 'Shiny' application is provided
-to generate 'thebibliography', a reference format that can be directly
-used for latex paper writing based on 'Rmd' files.
+Electricity is not made equal and it vary in its carbon footprint (or
+carbon intensity) depending on its source. This package enables to access
+and query data provided by the Carbon Intensity API
+(<https://carbonintensity.org.uk/>). National Grid’s Carbon Intensity API
+provides an indicative trend of regional carbon intensity of the
+electricity system in Great Britain.
 
 %prep
 %setup -q -c -n %{packname}
