@@ -1,38 +1,52 @@
-%global packname  magick
-%global packver   2.7.2
+%global packname  autoharp
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.2
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Advanced Graphics and Image-Processing in R
+Summary:          Semi-Automatic Grading of R and Rmd Scripts
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    ImageMagick-c++-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
+BuildArch:        noarch
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-pryr 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-lintr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-igraph 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-curl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-pryr 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-lintr 
+Requires:         R-methods 
+Requires:         R-CRAN-igraph 
 
 %description
-Bindings to 'ImageMagick': the most comprehensive open-source image
-processing library available. Supports many common formats (png, jpeg,
-tiff, pdf, etc) and manipulations (rotate, scale, crop, trim, flip, blur,
-etc). All operations are vectorized via the Magick++ STL meaning they
-operate either on a single frame or a series of frames for working with
-layers, collages, or animation. In RStudio images are automatically
-previewed when printed to the console, resulting in an interactive editing
-environment. The latest version of the package includes a native graphics
-device for creating in-memory graphics or drawing onto images using pixel
-coordinates.
+A customisable set of tools for assessing and grading R or R-markdown
+scripts from students. It allows for checking correctness of code output,
+runtime statistics and static code analysis. The latter feature is made
+possible by representing R expressions using a tree structure.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  eatATA
-%global packver   0.11.1
+%global packver   0.11.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.1
+Version:          0.11.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Constraints for Small Test Assembly Problems
 

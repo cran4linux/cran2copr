@@ -1,32 +1,45 @@
-%global packname  sequoia
-%global packver   2.3.3
+%global packname  visualFields
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.3
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pedigree Inference from SNPs
+Summary:          Statistical Methods for Visual Fields
 
-License:          GPL-2
+License:          GPL (>= 3.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-plyr >= 1.8.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-flip >= 2.1
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-plyr >= 1.8.0
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-deldir 
+BuildRequires:    R-CRAN-spatstat.geom 
+Requires:         R-CRAN-flip >= 2.1
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-graphics 
+Requires:         R-grid 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-deldir 
+Requires:         R-CRAN-spatstat.geom 
 
 %description
-Multi-generational pedigree inference from incomplete data on hundreds of
-SNPs, including parentage assignment and sibship clustering. See Huisman
-(2017) (<DOI:10.1111/1755-0998.12665>) for more information.
+A collection of tools for analyzing the field of vision. It provides a
+framework for development and use of innovative methods for visualization,
+statistical analysis, and clinical interpretation of visual-field loss and
+its change over time. It is intended to be a tool for collaborative
+research.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,7 +55,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R && echo "FFLAGS=$(R CMD config FFLAGS) -fallow-argument-mismatch" > ~/.R/Makevars
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

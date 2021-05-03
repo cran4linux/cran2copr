@@ -1,9 +1,9 @@
 %global packname  sonicscrewdriver
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bioacoustic Analysis and Publication Tools
 
@@ -20,11 +20,17 @@ BuildRequires:    R-CRAN-seewave
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-mime 
+BuildRequires:    R-CRAN-suncalc 
+BuildRequires:    R-CRAN-hms 
 Requires:         R-CRAN-tuneR 
 Requires:         R-CRAN-seewave 
 Requires:         R-methods 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-mime 
+Requires:         R-CRAN-suncalc 
+Requires:         R-CRAN-hms 
 
 %description
 Provides basic tools for manipulating sound files for bioacoustic

@@ -1,9 +1,9 @@
 %global packname  HLMdiag
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diagnostic Tools for Hierarchical (Multilevel) Linear Models
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.0
-Requires:         R-core >= 2.15.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ggplot2 >= 0.9.2
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-janitor
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-diagonals 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-ggplot2 >= 0.9.2
 Requires:         R-stats 
@@ -51,6 +52,7 @@ Requires:         R-CRAN-janitor
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-diagonals 
 
 %description
 A suite of diagnostic tools for hierarchical (multilevel) linear models.

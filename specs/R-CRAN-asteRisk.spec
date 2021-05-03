@@ -1,9 +1,9 @@
 %global packname  asteRisk
-%global packver   0.99.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computation of Satellite Position
 
@@ -15,14 +15,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-deSolve 
+Requires:         R-stats 
 
 %description
 Provides basic functionalities to calculate the position of satellites
 given a known state vector. The package includes implementations of the
 SGP4 and SDP4 simplified perturbation models to propagate orbital state
 vectors, as well as utilities to read TLE files and convert coordinates
-between different frames of reference. Felix R. Hoots, Ronald L. Roehrich
-and T.S. Kelso (1988)
+between different frames of reference. Several of the functionalities of
+the package (including the high-precision numerical orbit propagator)
+require the coefficients and data included in the 'asteRiskData' package,
+available in a 'drat' repository. To install this data package, run
+'install.packages("asteRiskData",
+repos="https://rafael-ayala.github.io/drat/")'. Felix R. Hoots, Ronald L.
+Roehrich and T.S. Kelso (1988)
 <https://celestrak.com/NORAD/documentation/spacetrk.pdf>. David Vallado,
 Paul Crawford, Richard Hujsak and T.S. Kelso (2012)
 <doi:10.2514/6.2006-6753>. Felix R. Hoots, Paul W. Schumacher Jr. and
