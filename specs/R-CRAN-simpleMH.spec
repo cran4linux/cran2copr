@@ -1,34 +1,26 @@
-%global packname  bigalgebra
-%global packver   1.0.0
+%global packname  simpleMH
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'BLAS' and 'LAPACK' Routines for Native R Matrices and 'big.matrix' Objects
+Summary:          Simple Metropolis-Hastings MCMC Algorithm
 
-License:          LGPL-3 | Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-bigmemory >= 4.0.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-bigmemory >= 4.0.0
-Requires:         R-methods 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Provides arithmetic functions for R matrix and 'big.matrix' objects as
-well as functions for QR factorization, Cholesky factorization, General
-eigenvalue, and Singular value decomposition (SVD). A method matrix
-multiplication and an arithmetic method -for matrix addition, matrix
-difference- allows for mixed type operation -a matrix class object and a
-big.matrix class object- and pure type operation for two big.matrix class
-objects.
+A very bare-bones interface to use the Metropolis-Hastings Monte Carlo
+Markov Chain algorithm. It is suitable for teaching and testing purposes.
 
 %prep
 %setup -q -c -n %{packname}

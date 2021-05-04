@@ -1,40 +1,31 @@
-%global packname  disaggR
-%global packver   0.2.1
+%global packname  cry
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Two-Steps Benchmarks for Time Series Disaggregation
+Summary:          Statistics for Structural Crystallography
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.5.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-shiny >= 1.5.0
+BuildRequires:    R-CRAN-zoo 
 Requires:         R-methods 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-zoo 
 
 %description
-The twoStepsBenchmark() and threeRuleSmooth() functions allow you to
-disaggregate a low-frequency time-serie with time-series of higher
-frequency, using the French National Accounts methodology. The aggregated
-sum of the resulting time-serie is strictly equal to the low-frequency
-serie within the benchmarking window. Typically, the low-frequency serie
-is an annual one, unknown for the last year, and the high frequency one is
-either quarterly or mensual. See "Methodology of quarterly national
-accounts", Insee Méthodes N°126, by Insee (2012, ISBN:978-2-11-068613-8).
+Reading and writing of files in the most commonly used formats of
+structural crystallography. It includes functions to work with a variety
+of statistics used in this field and functions to perform basic
+crystallographic computing. References: D. G. Waterman, J. Foadi, G. Evans
+(2011) <doi:10.1107/S0108767311084303>.
 
 %prep
 %setup -q -c -n %{packname}

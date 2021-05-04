@@ -1,40 +1,28 @@
-%global packname  msaeRB
-%global packver   0.1.5
+%global packname  JCRImpactFactor
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ratio Benchmarking for Multivariate Small Area Estimation
+Summary:          Journal Citation Reports ('JCR') Impact Factor by 'Clarivate' 'Analytics'
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magic 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-magic 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-stringr 
 
 %description
-Implements multivariate ratio benchmarking small area estimation. This
-package provides ratio benchmarking estimation for univariate and
-multivariate small area estimation and its MSE. In fact, MSE estimators
-for ratio benchmark are not readily available, so resampling method that
-called parametric bootstrap is applied. The ratio benchmark model and
-parametric bootstrap in this package are based on the model proposed in
-small area estimation. J.N.K Rao and Isabel Molina (2015, ISBN:
-978-1-118-73578-7).
+The Impact Factor of a journal reported by Journal Citation Reports
+('JCR') of 'Clarivate' 'Analytics' is provided. The impact factor is
+available for those journals only that were included Journal Citation
+Reports 'JCR'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
-%global packname  disaggR
-%global packver   0.2.1
+%global packname  onbabynames
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Two-Steps Benchmarks for Time Series Disaggregation
+Summary:          Names Given to Babies in Ontario Between 1917 and 2018
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,26 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.5.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-shiny >= 1.5.0
-Requires:         R-methods 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-tibble 
 
 %description
-The twoStepsBenchmark() and threeRuleSmooth() functions allow you to
-disaggregate a low-frequency time-serie with time-series of higher
-frequency, using the French National Accounts methodology. The aggregated
-sum of the resulting time-serie is strictly equal to the low-frequency
-serie within the benchmarking window. Typically, the low-frequency serie
-is an annual one, unknown for the last year, and the high frequency one is
-either quarterly or mensual. See "Methodology of quarterly national
-accounts", Insee Méthodes N°126, by Insee (2012, ISBN:978-2-11-068613-8).
+A database containing the names of the babies born in Ontario between 1917
+and 2018. Counts of fewer than 5 names were suppressed for privacy.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,24 @@
-%global packname  msaeRB
-%global packver   0.1.5
+%global packname  TrtCombo.FactorialExp.SR
+%global packver   4.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          4.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ratio Benchmarking for Multivariate Small Area Estimation
+Summary:          Generation of Treatment Combination (in Standard Order) in 2^n Factorial Experiment
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magic 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-magic 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
 
 %description
-Implements multivariate ratio benchmarking small area estimation. This
-package provides ratio benchmarking estimation for univariate and
-multivariate small area estimation and its MSE. In fact, MSE estimators
-for ratio benchmark are not readily available, so resampling method that
-called parametric bootstrap is applied. The ratio benchmark model and
-parametric bootstrap in this package are based on the model proposed in
-small area estimation. J.N.K Rao and Isabel Molina (2015, ISBN:
-978-1-118-73578-7).
+Gives the required 2^n treatment combinations in a 2^n symmetric factorial
+experiment in their respective standard order.
 
 %prep
 %setup -q -c -n %{packname}

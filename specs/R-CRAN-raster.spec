@@ -1,9 +1,9 @@
 %global packname  raster
-%global packver   3.4-5
+%global packver   3.4-10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.5
+Version:          3.4.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geographic Data Analysis and Modeling
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-sp >= 1.4.1
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-methods 

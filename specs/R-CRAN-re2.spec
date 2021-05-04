@@ -1,11 +1,11 @@
-%global packname  geos
+%global packname  re2
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Source Geometry Engine ('GEOS') R API
+Summary:          R Interface to Google RE2 (C++) Regular Expression Library
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,18 +14,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-libgeos >= 3.8.1.4
-BuildRequires:    R-CRAN-wk >= 0.4.1
-Requires:         R-CRAN-libgeos >= 3.8.1.4
-Requires:         R-CRAN-wk >= 0.4.1
+BuildRequires:    R-CRAN-Rcpp >= 1.0.6
+Requires:         R-CRAN-Rcpp >= 1.0.6
 
 %description
-Provides an R API to the Open Source Geometry Engine ('GEOS') library
-(<https://trac.osgeo.org/geos/>) and a vector format with which to
-efficiently store 'GEOS' geometries. High-performance functions to extract
-information from, calculate relationships between, and transform
-geometries are provided. Finally, facilities to import and export geometry
-vectors to other spatial formats are provided.
+Pattern matching, extraction, replacement and other string processing
+operations using Google's RE2 <https://github.com/google/re2>
+regular-expression engine. Consistent interface (similar to 'stringr').
+RE2 uses finite-automata based techniques, and offers a fast and safe
+alternative to backtracking regular-expression engines like those used in
+'stringr', 'stringi' and other PCRE implementations.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  ptspotter
-%global packver   1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helper Functions for Use with "ProjectTemplate"
 
@@ -15,20 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils >= 4.0.4
-BuildRequires:    R-CRAN-stringi >= 1.5.3
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-beepr >= 1.3
 BuildRequires:    R-CRAN-log4r >= 0.3.2
 BuildRequires:    R-CRAN-this.path >= 0.2.0
 BuildRequires:    R-CRAN-pryr >= 0.1.4
-Requires:         R-utils >= 4.0.4
-Requires:         R-CRAN-stringi >= 1.5.3
+BuildRequires:    R-utils 
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-beepr >= 1.3
 Requires:         R-CRAN-log4r >= 0.3.2
 Requires:         R-CRAN-this.path >= 0.2.0
 Requires:         R-CRAN-pryr >= 0.1.4
+Requires:         R-utils 
 
 %description
 Utility functions produced specifically for (but not limited to) working

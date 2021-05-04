@@ -1,40 +1,35 @@
-%global packname  msaeRB
-%global packver   0.1.5
+%global packname  SFSI
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ratio Benchmarking for Multivariate Small Area Estimation
+Summary:          Sparse Family and Selection Index
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-magic 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-stats 
-Requires:         R-CRAN-magic 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-float 
 Requires:         R-stats 
+Requires:         R-grDevices 
 
 %description
-Implements multivariate ratio benchmarking small area estimation. This
-package provides ratio benchmarking estimation for univariate and
-multivariate small area estimation and its MSE. In fact, MSE estimators
-for ratio benchmark are not readily available, so resampling method that
-called parametric bootstrap is applied. The ratio benchmark model and
-parametric bootstrap in this package are based on the model proposed in
-small area estimation. J.N.K Rao and Isabel Molina (2015, ISBN:
-978-1-118-73578-7).
+Here we provide tools for the estimation of coefficients in penalized
+regressions when the (co)variance matrix of predictors and the covariance
+vector between predictors and response, are provided. These methods are
+extended to the context of a Selection Index (commonly used for breeding
+value prediction). The approaches offer opportunities such as the
+integration of high-throughput traits in genetic evaluations ('Lopez-Cruz
+et al., 2020') <doi:10.1038/s41598-020-65011-2> and solutions for training
+set optimization in Genomic Prediction ('Lopez-Cruz & de los Campos,
+2021') <doi:10.1093/genetics/iyab030>.
 
 %prep
 %setup -q -c -n %{packname}

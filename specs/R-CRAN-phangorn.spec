@@ -1,9 +1,9 @@
 %global packname  phangorn
-%global packver   2.6.3
+%global packver   2.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.3
+Version:          2.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Phylogenetic Reconstruction and Analysis
 
@@ -14,7 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-ape >= 5.4
+BuildRequires:    R-CRAN-ape >= 5.5
 BuildRequires:    R-CRAN-Rcpp >= 1.0.4
 BuildRequires:    R-CRAN-igraph >= 1.0
 BuildRequires:    R-CRAN-fastmatch 
@@ -27,7 +27,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ape >= 5.4
+Requires:         R-CRAN-ape >= 5.5
 Requires:         R-CRAN-Rcpp >= 1.0.4
 Requires:         R-CRAN-igraph >= 1.0
 Requires:         R-CRAN-fastmatch 

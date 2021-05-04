@@ -1,11 +1,11 @@
 %global packname  groundhog
-%global packver   1.3.2
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reproducible Scripts via Version-Specific Package Loading
+Summary:          The Simplest Solution to Version-Control for CRAN Packages
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}

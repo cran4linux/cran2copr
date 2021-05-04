@@ -1,9 +1,9 @@
 %global packname  dialrjars
-%global packver   8.12.20
+%global packver   8.12.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.12.20
+Version:          8.12.22
 Release:          1%{?dist}%{?buildtag}
 Summary:          Required 'libphonenumber' jars for the 'dialr' Package
 

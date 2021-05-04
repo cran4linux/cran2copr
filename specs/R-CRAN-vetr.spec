@@ -1,40 +1,30 @@
-%global packname  msaeRB
-%global packver   0.1.5
+%global packname  vetr
+%global packver   0.2.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.13
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ratio Benchmarking for Multivariate Small Area Estimation
+Summary:          Trust, but Verify
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-magic 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-magic 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-utils 
+Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Implements multivariate ratio benchmarking small area estimation. This
-package provides ratio benchmarking estimation for univariate and
-multivariate small area estimation and its MSE. In fact, MSE estimators
-for ratio benchmark are not readily available, so resampling method that
-called parametric bootstrap is applied. The ratio benchmark model and
-parametric bootstrap in this package are based on the model proposed in
-small area estimation. J.N.K Rao and Isabel Molina (2015, ISBN:
-978-1-118-73578-7).
+Declarative template-based framework for verifying that objects meet
+structural requirements, and auto-composing error messages when they do
+not.
 
 %prep
 %setup -q -c -n %{packname}

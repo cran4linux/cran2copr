@@ -1,10 +1,10 @@
 %global packname  spatialreg
-%global packver   1.1-5
+%global packver   1.1-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
-Release:          3%{?dist}%{?buildtag}
+Version:          1.1.8
+Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Regression Analysis
 
 License:          GPL-2
@@ -15,28 +15,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-spData 
-BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-methods 
-BuildRequires:    R-MASS 
-BuildRequires:    R-boot 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-LearnBayes 
-BuildRequires:    R-nlme 
+BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-gmodels 
 Requires:         R-CRAN-spData 
-Requires:         R-Matrix 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-spdep 
 Requires:         R-CRAN-expm 
 Requires:         R-CRAN-coda 
 Requires:         R-methods 
-Requires:         R-MASS 
-Requires:         R-boot 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-boot 
 Requires:         R-splines 
 Requires:         R-CRAN-LearnBayes 
-Requires:         R-nlme 
+Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-gmodels 
 
 %description
@@ -66,6 +66,13 @@ deprecated and pass through to 'spatialreg', but will mask those in
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -73,20 +80,10 @@ deprecated and pass through to 'spatialreg', but will mask those in
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/README
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

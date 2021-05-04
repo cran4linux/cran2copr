@@ -1,9 +1,9 @@
 %global packname  class
-%global packver   7.3-18
+%global packver   7.3-19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.3.18
+Version:          7.3.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Classification
 

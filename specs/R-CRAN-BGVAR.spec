@@ -1,9 +1,9 @@
 %global packname  BGVAR
-%global packver   2.1.5
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.5
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Global Vector Autoregressions
 
@@ -12,8 +12,9 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.50
+Requires:         R-core >= 3.50
+BuildRequires:    R-CRAN-stochvol >= 3.0.3
 BuildRequires:    R-CRAN-Rcpp >= 1.0.3
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-bayesm 
@@ -25,13 +26,14 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stochvol 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppProgress 
+Requires:         R-CRAN-stochvol >= 3.0.3
 Requires:         R-CRAN-Rcpp >= 1.0.3
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-bayesm 
@@ -43,8 +45,8 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-parallel 
+Requires:         R-CRAN-RcppParallel 
 Requires:         R-stats 
-Requires:         R-CRAN-stochvol 
 Requires:         R-utils 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-zoo 
