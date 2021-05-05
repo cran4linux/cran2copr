@@ -1,9 +1,9 @@
 %global packname  future.callr
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Future API for Parallel Processing using 'callr'
 
@@ -25,8 +25,8 @@ Implementation of the Future API on top of the 'callr' package.  This
 allows you to process futures, as defined by the 'future' package, in
 parallel out of the box, on your local (Linux, macOS, Windows, ...)
 machine.  Contrary to backends relying on the 'parallel' package (e.g.
-'future::multisession'), the 'callr' backend provided here can run more
-than 125 parallel R processes.
+'future::multisession') and socket connections, the 'callr' backend
+provided here can run more than 125 parallel R processes.
 
 %prep
 %setup -q -c -n %{packname}

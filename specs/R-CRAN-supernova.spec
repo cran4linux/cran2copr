@@ -1,9 +1,9 @@
 %global packname  supernova
-%global packver   2.3.0
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Judd, McClelland, & Ryan Formatting for ANOVA Output
 
@@ -15,16 +15,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-pillar 
+Requires:         R-methods 
 
 %description
 Produces ANOVA tables in the format used by Judd, McClelland, and Ryan

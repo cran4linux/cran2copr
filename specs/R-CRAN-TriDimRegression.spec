@@ -1,13 +1,13 @@
-%global packname  bayesdfa
-%global packver   0.1.7
+%global packname  TriDimRegression
+%global packver   1.0.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          1.0.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Dynamic Factor Analysis (DFA) with 'Stan'
+Summary:          Bayesian Statistics for 2D/3D Transformations
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,41 +16,44 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
 BuildRequires:    R-CRAN-rstan >= 2.18.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.1
+BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
 BuildRequires:    R-CRAN-rstantools >= 2.1.1
-BuildRequires:    R-CRAN-loo >= 2.0.0
 BuildRequires:    R-CRAN-BH >= 1.66.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-loo 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-viridisLite 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-bayesplot 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-rstan >= 2.18.1
 Requires:         R-CRAN-rstantools >= 2.1.1
-Requires:         R-CRAN-loo >= 2.0.0
 Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-loo 
 Requires:         R-methods 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-viridisLite 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-bayesplot 
 Requires:         R-CRAN-rstantools
 
 %description
-Implements Bayesian dynamic factor analysis with 'Stan'. Dynamic factor
-analysis is a dimension reduction tool for multivariate time series.
-'bayesdfa' extends conventional dynamic factor models in several ways.
-First, extreme events may be estimated in the latent trend by modeling
-process error with a student-t distribution. Second, alternative
-constraints (including proportions are allowed). Third, the estimated
-dynamic factors can be analyzed with hidden Markov models to evaluate
-support for latent regimes.
+Fits 2D and 3D geometric transformations via 'Stan' probabilistic
+programming engine ( Stan Development Team (2021) <https://mc-stan.org>).
+Returns posterior distribution for individual parameters of the fitted
+distribution. Allows for computation of LOO and WAIC information criteria
+(Vehtari A, Gelman A, Gabry J (2017) <doi:10.1007/s11222-016-9696-4>) as
+well as Bayesian R-squared (Gelman A, Goodrich B, Gabry J, and Vehtari A
+(2018) <doi:10.1080/00031305.2018.1549100>).
 
 %prep
 %setup -q -c -n %{packname}

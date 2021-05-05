@@ -1,27 +1,32 @@
-%global packname  RcppParallel
-%global packver   5.1.4
+%global packname  timsr
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.4
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Programming Tools for 'Rcpp'
+Summary:          Easily Access timsTOF Data
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    tbb-devel
-Requires:         tbb-devel
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-opentimsr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-opentimsr 
+Requires:         R-CRAN-data.table 
+Requires:         R-methods 
 
 %description
-High level functions for parallel programming with 'Rcpp'. For example,
-the 'parallelFor()' function can be used to convert the work of a standard
-serial "for" loop into a parallel one and the 'parallelReduce()' function
-can be used for accumulating aggregate or other values.
+Access 'timsTOF' mass spectrometry data, as described
+<https://sso.bruker.com/auth/realms/bruker/protocol/openid-connect/auth?client_id=aem-bruker.com&redirect_uri=https%%3A%%2F%%2Fwww.bruker.com%%2Fen.login.html%%3FtargetUrl%%3Dhttps%%3A%%2F%%2Fwww.bruker.com%%2Fen%%2Fservices%%2Fsoftware-downloads%%2Fmass-spectrometry.html&response_type=id_token%%20token&scope=openid%%20profile&state=4f9d225e92f341cca3b03a55533dbd65&nonce=f550633b1e984ecfb07979ae6d9277b4&ui_locales=en>
+(after registering), using the 'OpenTIMS' C++ reader and save all into
+'data.tables'.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,8 +42,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-export TBB_INC=%{_includedir}/tbb
-export TBB_LIB=%{_libdir}
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

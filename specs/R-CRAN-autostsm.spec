@@ -1,9 +1,9 @@
 %global packname  autostsm
-%global packver   1.2.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Structural Time Series Models
 
@@ -18,6 +18,7 @@ BuildRequires:    R-CRAN-forecast >= 8.13
 BuildRequires:    R-parallel >= 4.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.3
 BuildRequires:    R-CRAN-imputeTS >= 3.1
+BuildRequires:    R-CRAN-sandwich >= 3.0
 BuildRequires:    R-CRAN-gridExtra >= 2.3
 BuildRequires:    R-CRAN-zoo >= 1.8
 BuildRequires:    R-CRAN-lubridate >= 1.7
@@ -38,6 +39,7 @@ Requires:         R-CRAN-forecast >= 8.13
 Requires:         R-parallel >= 4.0
 Requires:         R-CRAN-ggplot2 >= 3.3
 Requires:         R-CRAN-imputeTS >= 3.1
+Requires:         R-CRAN-sandwich >= 3.0
 Requires:         R-CRAN-gridExtra >= 2.3
 Requires:         R-CRAN-zoo >= 1.8
 Requires:         R-CRAN-lubridate >= 1.7

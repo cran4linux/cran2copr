@@ -1,27 +1,29 @@
-%global packname  RcppParallel
-%global packver   5.1.4
+%global packname  AtmChile
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Programming Tools for 'Rcpp'
+Summary:          Download Air Quality and Meteorological Information of Chile
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    tbb-devel
-Requires:         tbb-devel
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-data.table 
 
 %description
-High level functions for parallel programming with 'Rcpp'. For example,
-the 'parallelFor()' function can be used to convert the work of a standard
-serial "for" loop into a parallel one and the 'parallelReduce()' function
-can be used for accumulating aggregate or other values.
+Download air quality and meteorological information of Chile from the
+National Air Quality System (S.I.N.C.A.)<https://sinca.mma.gob.cl/>
+dependent on the Ministry of the Environment and the Meteorological
+Directorate of Chile (D.M.C.)<http://www.meteochile.gob.cl/> dependent on
+the Directorate General of Civil Aeronautics.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,8 +39,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-export TBB_INC=%{_includedir}/tbb
-export TBB_LIB=%{_libdir}
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

@@ -1,9 +1,9 @@
 %global packname  MAINT.Data
-%global packver   2.6.0
+%global packver   2.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.0
+Version:          2.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model and Analyse Interval Data
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-pcaPP
 BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-sn >= 1.3.0
 Requires:         R-CRAN-Rcpp >= 1.0.3
 Requires:         R-methods 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-pcaPP
 Requires:         R-CRAN-mclust 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-GGally 
+Requires:         R-CRAN-withr 
 
 %description
 Implements methodologies for modelling interval data by Normal and

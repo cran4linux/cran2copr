@@ -1,49 +1,56 @@
-%global packname  COVIDIBGE
-%global packver   0.1.4
+%global packname  sendgridr
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Downloading, Reading and Analysing PNAD COVID19 Microdata
+Summary:          Mail Sender Using 'Sendgrid' Service
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survey 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-projmgr 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-timeDate 
-BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-survey 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-clipr 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-desc 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-clisymbols 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-projmgr 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-RCurl 
-Requires:         R-utils 
-Requires:         R-CRAN-timeDate 
-Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-clipr 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-desc 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-clisymbols 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-stringr 
 
 %description
-Provides tools for downloading, reading and analysing the PNAD COVID19, a
-household survey from Brazilian Institute of Geography and Statistics -
-IBGE. The data must be downloaded from the official website
-<https://www.ibge.gov.br/>. Further analysis must be made using package
-'survey'.
+Send email using 'Sendgrid' <https://sendgrid.com/> mail API(v3)
+<https://sendgrid.com/docs/api-reference/>.
 
 %prep
 %setup -q -c -n %{packname}

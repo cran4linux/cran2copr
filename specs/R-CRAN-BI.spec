@@ -1,27 +1,32 @@
-%global packname  RcppParallel
-%global packver   5.1.4
+%global packname  BI
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Programming Tools for 'Rcpp'
+Summary:          Blinding Assessment Indexes for Randomized, Controlled, Clinical Trials
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    tbb-devel
-Requires:         tbb-devel
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-High level functions for parallel programming with 'Rcpp'. For example,
-the 'parallelFor()' function can be used to convert the work of a standard
-serial "for" loop into a parallel one and the 'parallelReduce()' function
-can be used for accumulating aggregate or other values.
+Generate the James Blinding Index, as described in James et al (1996)
+<https://pubmed.ncbi.nlm.nih.gov/8841652/> and the Bang Blinding Index, as
+described in Bang et al (2004)
+<https://pubmed.ncbi.nlm.nih.gov/15020033/>. These are measures to assess
+whether or not satisfactory blinding has been maintained in a randomized,
+controlled, clinical trial. These can be generated for trial subjects,
+research coordinators and principal investigators, based upon standardized
+questionnaires that have been administered, to assess whether or not they
+can correctly guess to which treatment arm (e.g. placebo or treatment)
+subjects were assigned at randomization.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,8 +42,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-export TBB_INC=%{_includedir}/tbb
-export TBB_LIB=%{_libdir}
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

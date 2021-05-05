@@ -1,27 +1,35 @@
-%global packname  RcppParallel
-%global packver   5.1.4
+%global packname  Rage
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Programming Tools for 'Rcpp'
+Summary:          Life History Metrics from Matrix Population Models
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    tbb-devel
-Requires:         tbb-devel
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-popbio 
+BuildRequires:    R-CRAN-popdemo 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-DiagrammeR 
+BuildRequires:    R-CRAN-Rcompadre 
+Requires:         R-CRAN-popbio 
+Requires:         R-CRAN-popdemo 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-DiagrammeR 
+Requires:         R-CRAN-Rcompadre 
 
 %description
-High level functions for parallel programming with 'Rcpp'. For example,
-the 'parallelFor()' function can be used to convert the work of a standard
-serial "for" loop into a parallel one and the 'parallelReduce()' function
-can be used for accumulating aggregate or other values.
+Functions for calculating life history metrics using matrix population
+models ('MPMs'). Described in Jones et al. (2021)
+<doi:10.1101/2021.04.26.441330>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,8 +45,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-export TBB_INC=%{_includedir}/tbb
-export TBB_LIB=%{_libdir}
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

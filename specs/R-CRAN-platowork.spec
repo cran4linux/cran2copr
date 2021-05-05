@@ -1,27 +1,24 @@
-%global packname  RcppParallel
-%global packver   5.1.4
+%global packname  platowork
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.4
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Programming Tools for 'Rcpp'
+Summary:          Data from a Test of the PlatoWork tDCS Headset
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    tbb-devel
-Requires:         tbb-devel
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 
 %description
-High level functions for parallel programming with 'Rcpp'. For example,
-the 'parallelFor()' function can be used to convert the work of a standard
-serial "for" loop into a parallel one and the 'parallelReduce()' function
-can be used for accumulating aggregate or other values.
+Data and analysis from an experiment with improving touch typing speed,
+using the tDCS PlatoWork headset produced by PlatoScience.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,8 +34,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-export TBB_INC=%{_includedir}/tbb
-export TBB_LIB=%{_libdir}
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

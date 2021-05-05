@@ -1,27 +1,34 @@
-%global packname  RcppParallel
-%global packver   5.1.4
+%global packname  DTwrappers
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.4
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Programming Tools for 'Rcpp'
+Summary:          Simplified Data Analysis with Wrapper Functions for the 'Data.Table' Package
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    tbb-devel
-Requires:         tbb-devel
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-data.table 
 
 %description
-High level functions for parallel programming with 'Rcpp'. For example,
-the 'parallelFor()' function can be used to convert the work of a standard
-serial "for" loop into a parallel one and the 'parallelReduce()' function
-can be used for accumulating aggregate or other values.
+Provides functionality for users who are learning R or the techniques of
+data analysis.  Written as a collection of wrapper functions, the
+'DTwrapper' package facilitates many core operations of data processing.
+This is achieved with relatively few requirements about the order of the
+processing steps or knowledge of specialized syntax.  'DTwrappers' creates
+coding results along with translations to data.table's code.  This enables
+users to benefit from the speed and efficiency of data.table's
+calculations.  Furthermore, the package also provides the translated code
+for educational purposes so that users can review working examples of
+coding syntax and calculations.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,8 +44,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-export TBB_INC=%{_includedir}/tbb
-export TBB_LIB=%{_libdir}
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

@@ -1,9 +1,9 @@
 %global packname  colorspace
-%global packver   2.0-0
+%global packver   2.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Toolbox for Manipulating and Assessing Colors and Palettes
 
@@ -36,7 +36,7 @@ trajectories in HCL and/or RGB spectrum. Color manipulation functions
 include: desaturation, lightening/darkening, mixing, and simulation of
 color vision deficiencies (deutanomaly, protanomaly, tritanomaly). Details
 can be found on the project web page at
-<http://colorspace.R-Forge.R-project.org/> and in the accompanying
+<https://colorspace.R-Forge.R-project.org/> and in the accompanying
 scientific paper: Zeileis et al. (2020, Journal of Statistical Software,
 <doi:10.18637/jss.v096.i01>).
 

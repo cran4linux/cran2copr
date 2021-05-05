@@ -1,9 +1,9 @@
 %global packname  torchvision
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Models, Datasets and Transformations for Images
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-torch >= 0.2.0
+BuildRequires:    R-CRAN-torch >= 0.3.0
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rappdirs 
@@ -23,7 +23,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-jpeg 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-abind 
-Requires:         R-CRAN-torch >= 0.2.0
+Requires:         R-CRAN-torch >= 0.3.0
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rappdirs 

@@ -1,9 +1,9 @@
 %global packname  spsComps
-%global packver   0.1.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          'systemPipeShiny' UI and Server Components
 
@@ -30,6 +30,8 @@ BuildRequires:    R-CRAN-htmltools
 BuildRequires:    R-CRAN-vroom 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-crayon 
 Requires:         R-CRAN-shiny >= 1.5.0
 Requires:         R-CRAN-glue >= 1.4.0
 Requires:         R-CRAN-spsUtil 
@@ -45,6 +47,8 @@ Requires:         R-CRAN-htmltools
 Requires:         R-CRAN-vroom 
 Requires:         R-CRAN-dplyr 
 Requires:         R-utils 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-crayon 
 
 %description
 The systemPipeShiny (SPS) framework comes with many UI and server

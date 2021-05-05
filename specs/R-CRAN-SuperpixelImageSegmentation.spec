@@ -1,9 +1,9 @@
 %global packname  SuperpixelImageSegmentation
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Superpixel Image Segmentation
 
@@ -32,7 +32,7 @@ Image Segmentation using Superpixels, Affinity Propagation and Kmeans
 Clustering. The R code is based primarily on the article "Image
 Segmentation using SLIC Superpixels and Affinity Propagation Clustering,
 Bao Zhou, International Journal of Science and Research (IJSR), 2013"
-<https://pdfs.semanticscholar.org/6533/654973054b742e725fd433265700c07b48a2.pdf>.
+<https://www.ijsr.net/archive/v4i4/SUB152869.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

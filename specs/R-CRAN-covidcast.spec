@@ -1,13 +1,13 @@
-%global packname  eSDM
-%global packver   0.3.7
+%global packname  covidcast
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ensemble Tool for Predictions from Species Distribution Models
+Summary:          Client for Delphi's 'COVIDcast Epidata' API
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,34 +15,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf >= 0.9.0
-BuildRequires:    R-CRAN-dplyr >= 0.7.0
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-MMWRweek 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ROCR 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-units 
-Requires:         R-CRAN-sf >= 0.9.0
-Requires:         R-CRAN-dplyr >= 0.7.0
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-MMWRweek 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ROCR 
-Requires:         R-CRAN-shiny 
-Requires:         R-stats 
-Requires:         R-CRAN-units 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-tidyr 
 
 %description
-A tool which allows users to create and evaluate ensembles of species
-distribution model (SDM) predictions. Functionality is offered through R
-functions or a GUI (R Shiny app). This tool can assist users in
-identifying spatial uncertainties and making informed conservation and
-management decisions. The package is further described in Woodman et al
-(2019) <doi:10.1111/2041-210X.13283>.
+Tools for Delphi's 'COVIDcast Epidata' API: data access, maps and time
+series plotting, and basic signal processing. The API includes a
+collection of numerous indicators relevant to the COVID-19 pandemic in the
+United States, including official reports, de-identified aggregated
+medical claims data, large-scale surveys of symptoms and public behavior,
+and mobility data, typically updated daily and at the county level. All
+data sources are documented at
+<https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html>.
 
 %prep
 %setup -q -c -n %{packname}

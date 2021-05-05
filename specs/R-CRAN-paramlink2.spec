@@ -1,27 +1,34 @@
-%global packname  RcppParallel
-%global packver   5.1.4
+%global packname  paramlink2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.4
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Programming Tools for 'Rcpp'
+Summary:          Parametric Linkage Analysis
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    tbb-devel
-Requires:         tbb-devel
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-pedtools 
+BuildRequires:    R-CRAN-pedprobr 
+Requires:         R-CRAN-pedtools 
+Requires:         R-CRAN-pedprobr 
 
 %description
-High level functions for parallel programming with 'Rcpp'. For example,
-the 'parallelFor()' function can be used to convert the work of a standard
-serial "for" loop into a parallel one and the 'parallelReduce()' function
-can be used for accumulating aggregate or other values.
+Parametric linkage analysis of monogenic traits in medical pedigrees.
+Features include singlepoint analysis, multipoint analysis via 'MERLIN'
+(Abecasis et al. (2002) <doi:10.1038/ng786>), visualisation of log of the
+odds (LOD) scores and summaries of linkage peaks. Disease models may be
+specified to accommodate phenocopies, reduced penetrance and liability
+classes. 'paramlink2' is part of the 'ped suite' package ecosystem,
+presented in 'Pedigree Analysis in R' (Vigeland, 2021,
+ISBN:9780128244302).
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,8 +44,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-export TBB_INC=%{_includedir}/tbb
-export TBB_LIB=%{_libdir}
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
