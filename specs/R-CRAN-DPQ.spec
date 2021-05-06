@@ -1,9 +1,9 @@
 %global packname  DPQ
-%global packver   0.4-2
+%global packver   0.4-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Density, Probability, Quantile ('DPQ') Computations
 
@@ -14,16 +14,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-sfsmisc >= 1.1.9
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-sfsmisc 
+Requires:         R-CRAN-sfsmisc >= 1.1.9
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-utils 
-Requires:         R-CRAN-sfsmisc 
 
 %description
 Computations for approximations and alternatives for the 'DPQ' (Density
@@ -31,9 +31,8 @@ Computations for approximations and alternatives for the 'DPQ' (Density
 distributions in R. Primary focus is on (central and non-central) beta,
 gamma and related distributions such as the chi-squared, F, and t. -- This
 is for the use of researchers in these numerical approximation
-implementations, notably for my own use in order to improve R`s own
-pbeta(), qgamma(), ..., etc: {'"dpq"'-functions}. -- We plan to complement
-with 'DPQmpfr' to be suggested later.
+implementations, notably for my own use in order to improve standard R
+pbeta(), qgamma(), ..., etc: {'"dpq"'-functions}.
 
 %prep
 %setup -q -c -n %{packname}

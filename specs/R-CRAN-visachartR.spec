@@ -1,13 +1,13 @@
-%global packname  tensorsign
-%global packver   0.1.0
+%global packname  visachartR
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonparametric Tensor Completion via Sign Series
+Summary:          Wrapper for 'Visa Chart Components'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,16 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rTensor 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-rTensor 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-htmlwidgets 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
-Efficient algorithm for nonparametric tensor completion via sign series.
-The algorithm employs the alternating optimization approach to solve the
-weighted classification problem. The detailed algorithm description can be
-found in Lee and Wang (2021) <arXiv:2102.00384>.
+Provides a set of wrapper functions for 'Visa Chart Components'. 'Visa
+Chart Components' <https://github.com/visa/visa-chart-components> is an
+accessibility focused, framework agnostic set of data experience design
+systems components for the web.
 
 %prep
 %setup -q -c -n %{packname}

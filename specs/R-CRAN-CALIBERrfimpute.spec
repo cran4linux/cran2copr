@@ -1,13 +1,13 @@
-%global packname  tensorordinal
-%global packver   0.2.0
+%global packname  CALIBERrfimpute
+%global packver   1.0-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tensor Noise Reduction and Completion Based on Ordinal Observations
+Summary:          Multiple Imputation Using MICE and Random Forest
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,21 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-rTensor 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-rTensor 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-mice >= 2.20
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-randomForest 
+Requires:         R-CRAN-mice >= 2.20
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-randomForest 
 
 %description
-Efficient algorithm for tensor noise reduction and completion of ordinal
-tensor data based on the cumulative link model. The algorithm employs the
-alternating optimization approach. The detailed algorithm description can
-be found in Lee and Wang, Proceedings of International Conference on
-Machine Learning, 119:5778-5788, 2020.
+Functions to impute using random forest under full conditional
+specifications (multivariate imputation by chained equations). The methods
+are described in Shah and others (2014) <doi:10.1093/aje/kwt312>.
 
 %prep
 %setup -q -c -n %{packname}

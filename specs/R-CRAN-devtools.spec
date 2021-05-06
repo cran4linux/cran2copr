@@ -1,9 +1,9 @@
 %global packname  devtools
-%global packver   2.4.0
+%global packver   2.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          2.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Make Developing R Packages Easier
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-remotes >= 2.3.0
 BuildRequires:    R-CRAN-rversions >= 2.0.2
 BuildRequires:    R-CRAN-usethis >= 2.0.1
 BuildRequires:    R-CRAN-memoise >= 2.0.0
-BuildRequires:    R-CRAN-jsonlite >= 1.7.2
 BuildRequires:    R-CRAN-fs >= 1.5.0
 BuildRequires:    R-CRAN-httr >= 1.4.2
 BuildRequires:    R-CRAN-rcmdcheck >= 1.3.3
@@ -48,7 +47,6 @@ Requires:         R-CRAN-remotes >= 2.3.0
 Requires:         R-CRAN-rversions >= 2.0.2
 Requires:         R-CRAN-usethis >= 2.0.1
 Requires:         R-CRAN-memoise >= 2.0.0
-Requires:         R-CRAN-jsonlite >= 1.7.2
 Requires:         R-CRAN-fs >= 1.5.0
 Requires:         R-CRAN-httr >= 1.4.2
 Requires:         R-CRAN-rcmdcheck >= 1.3.3

@@ -1,9 +1,9 @@
 %global packname  strm
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatio-Temporal Regression Modeling
 
@@ -12,39 +12,39 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-testthat >= 2.3.2
-BuildRequires:    R-CRAN-rmarkdown >= 2.3
-BuildRequires:    R-CRAN-rgdal >= 1.5.10
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-spatialreg >= 1.1.5
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 0.4.6
+BuildRequires:    R-CRAN-testthat >= 3.0.2
+BuildRequires:    R-CRAN-rmarkdown >= 2.6
+BuildRequires:    R-CRAN-magrittr >= 2.0.1
+BuildRequires:    R-CRAN-rgdal >= 1.5.23
+BuildRequires:    R-CRAN-knitr >= 1.33
+BuildRequires:    R-CRAN-tidyr >= 1.1.3
+BuildRequires:    R-CRAN-spatialreg >= 1.1
+BuildRequires:    R-CRAN-dplyr >= 1.0.5
+BuildRequires:    R-CRAN-rlang >= 0.4
 BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-knitr 
-Requires:         R-CRAN-testthat >= 2.3.2
-Requires:         R-CRAN-rmarkdown >= 2.3
-Requires:         R-CRAN-rgdal >= 1.5.10
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-spatialreg >= 1.1.5
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-rlang >= 0.4.6
+Requires:         R-CRAN-testthat >= 3.0.2
+Requires:         R-CRAN-rmarkdown >= 2.6
+Requires:         R-CRAN-magrittr >= 2.0.1
+Requires:         R-CRAN-rgdal >= 1.5.23
+Requires:         R-CRAN-knitr >= 1.33
+Requires:         R-CRAN-tidyr >= 1.1.3
+Requires:         R-CRAN-spatialreg >= 1.1
+Requires:         R-CRAN-dplyr >= 1.0.5
+Requires:         R-CRAN-rlang >= 0.4
 Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-stats 
 Requires:         R-grDevices 
 Requires:         R-methods 
 Requires:         R-graphics 
 Requires:         R-utils 
-Requires:         R-CRAN-knitr 
 
 %description
 Implements a spatio-temporal regression model based on Chi, G. and Zhu, J.

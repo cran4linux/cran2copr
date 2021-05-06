@@ -1,9 +1,9 @@
 %global packname  torchaudio
-%global packver   0.1.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'pytorch''s 'torchaudio'
 
@@ -14,21 +14,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-torch >= 0.2.0
+BuildRequires:    R-CRAN-torch >= 0.3.0
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-utils 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-torch >= 0.2.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-torch >= 0.3.0
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rappdirs 
 Requires:         R-utils 
 Requires:         R-tools 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-withr 
 
 %description
 Provides access to datasets, models and preprocessing facilities for deep

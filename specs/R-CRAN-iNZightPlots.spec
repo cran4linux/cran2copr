@@ -1,9 +1,9 @@
 %global packname  iNZightPlots
-%global packver   2.12.6
+%global packver   2.13.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.12.6
+Version:          2.13.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphical Tools for Exploring Data with 'iNZight'
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-hexbin
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-dichromat 
 BuildRequires:    R-CRAN-chron 
+BuildRequires:    R-CRAN-hms 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-hexbin
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-dichromat 
 Requires:         R-CRAN-chron 
+Requires:         R-CRAN-hms 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 

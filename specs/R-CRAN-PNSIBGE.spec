@@ -1,41 +1,49 @@
-%global packname  msigdbr
-%global packver   7.4.1
+%global packname  PNSIBGE
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.4.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          MSigDB Gene Sets for Multiple Organisms in a Tidy Data Format
+Summary:          Downloading, Reading and Analysing PNS Microdata
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 0.7.0
-BuildRequires:    R-CRAN-babelgene 
+BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-projmgr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-timeDate 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-dplyr >= 0.7.0
-Requires:         R-CRAN-babelgene 
+Requires:         R-CRAN-survey 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-projmgr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-RCurl 
+Requires:         R-utils 
+Requires:         R-CRAN-timeDate 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
 
 %description
-Provides the 'Molecular Signatures Database' (MSigDB) gene sets typically
-used with the 'Gene Set Enrichment Analysis' (GSEA) software (Subramanian
-et al. 2005 <doi:10.1073/pnas.0506580102>, Liberzon et al. 2015
-<doi:10.1016/j.cels.2015.12.004>) in a standard R data frame with
-key-value pairs. The package includes the human genes as listed in MSigDB
-as well as the corresponding symbols and IDs for frequently studied model
-organisms such as mouse, rat, pig, fly, and yeast.
+Provides tools for downloading, reading and analysing the PNS, a household
+survey from Brazilian Institute of Geography and Statistics - IBGE. The
+data must be downloaded from the official website
+<https://www.ibge.gov.br/>. Further analysis must be made using package
+'survey'.
 
 %prep
 %setup -q -c -n %{packname}

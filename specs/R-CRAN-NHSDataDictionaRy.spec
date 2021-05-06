@@ -1,41 +1,47 @@
-%global packname  msigdbr
-%global packver   7.4.1
+%global packname  NHSDataDictionaRy
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.4.1
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          MSigDB Gene Sets for Multiple Organisms in a Tidy Data Format
+Summary:          NHS Data Dictionary Toolset for NHS Lookups
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 0.7.0
-BuildRequires:    R-CRAN-babelgene 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-dplyr >= 0.7.0
-Requires:         R-CRAN-babelgene 
+BuildRequires:    R-CRAN-httr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-httr 
 
 %description
-Provides the 'Molecular Signatures Database' (MSigDB) gene sets typically
-used with the 'Gene Set Enrichment Analysis' (GSEA) software (Subramanian
-et al. 2005 <doi:10.1073/pnas.0506580102>, Liberzon et al. 2015
-<doi:10.1016/j.cels.2015.12.004>) in a standard R data frame with
-key-value pairs. The package includes the human genes as listed in MSigDB
-as well as the corresponding symbols and IDs for frequently studied model
-organisms such as mouse, rat, pig, fly, and yeast.
+Providing a common set of simplified web scraping tools for working with
+the NHS Data Dictionary
+<https://datadictionary.nhs.uk/data_elements_overview.html>. The intended
+usage is to access the data elements section of the NHS Data Dictionary to
+access key lookups. The benefits of having it in this package are that the
+lookups are the live lookups on the website and will not need to be
+maintained. This package was commissioned by the NHS-R community to
+provide this consistency of lookups. The OpenSafely lookups have now been
+added <https://codelists.opensafely.org/>.
 
 %prep
 %setup -q -c -n %{packname}

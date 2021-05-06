@@ -1,9 +1,9 @@
 %global packname  midasml
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation and Prediction Methods for High-Dimensional Mixed Frequency Time Series Data
 
@@ -34,7 +34,7 @@ The 'midasml' package implements estimation and prediction methods for
 high-dimensional mixed-frequency (MIDAS) time-series and panel data
 regression models. The regularized MIDAS models are estimated using
 orthogonal (e.g. Legendre) polynomials and sparse-group LASSO (sg-LASSO)
-estimator. For more information on the `midasml' approach see Babii,
+estimator. For more information on the 'midasml' approach see Babii,
 Ghysels, and Striaukas (2021, JBES forthcoming)
 <doi:10.1080/07350015.2021.1899933>. The package is equipped with the fast
 implementation of the sg-LASSO estimator by means of proximal block
