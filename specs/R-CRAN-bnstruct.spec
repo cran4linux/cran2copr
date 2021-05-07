@@ -1,9 +1,9 @@
 %global packname  bnstruct
-%global packver   1.0.9
+%global packver   1.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          1.0.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Network Structure Learning from Data with Missing Values
 
@@ -15,11 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-bitops 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-bitops 
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-igraph 
 Requires:         R-methods 
 

@@ -1,9 +1,9 @@
 %global packname  PAMA
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rank Aggregation with Partition Mallows Model
 
@@ -17,11 +17,13 @@ Requires:         R-core >= 3.1.0
 BuildRequires:    R-CRAN-ExtMallows 
 BuildRequires:    R-CRAN-mc2d 
 BuildRequires:    R-CRAN-PerMallows 
+BuildRequires:    R-CRAN-rankdist 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ExtMallows 
 Requires:         R-CRAN-mc2d 
 Requires:         R-CRAN-PerMallows 
+Requires:         R-CRAN-rankdist 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 

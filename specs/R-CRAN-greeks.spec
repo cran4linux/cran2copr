@@ -1,40 +1,33 @@
-%global packname  loon
-%global packver   1.3.5
+%global packname  greeks
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.5
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Statistical Data Visualization
+Summary:          Calculates Sensitivities of Prices of Financial Options
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    xorg-x11-server-Xvfb
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-tcltk 
-BuildRequires:    R-tools 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-methods 
-Requires:         R-tcltk 
-Requires:         R-tools 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-magrittr 
 
 %description
-An extendable toolkit for interactive data visualization and exploration.
+Provides functions to calculate sensitivities of financial option prices
+for European and Asian options in the Black Scholes model. Classical
+formulas are implemented for European options in the Black Scholes Model,
+as is presented in Hull, J. C. (2017). Options, Futures, and Other
+Derivatives, Global Edition (9th Edition). Pearson. In the case of Asian
+options, Malliavin Monte Carlo Greeks are implemented, see Hudde, A. &
+Rüschendorf, L. (2016). European and Asian Malliavin Monte Carlo Greeks
+for general Jump Diffusions with nonvanishing Brownian motion part.
+<arXiv:1603.00920>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,7 +45,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %install
 
 mkdir -p %{buildroot}%{rlibdir}
-xvfb-run %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 # remove buildroot from installed files

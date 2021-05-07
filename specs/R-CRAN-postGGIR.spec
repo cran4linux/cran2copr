@@ -1,9 +1,9 @@
 %global packname  postGGIR
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Processing after Running 'GGIR' for Accelerometer Data
 
@@ -25,8 +25,11 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-ineq 
 BuildRequires:    R-CRAN-cosinor 
+BuildRequires:    R-CRAN-cosinor2 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-accelerometry 
+BuildRequires:    R-CRAN-ActCR 
+BuildRequires:    R-CRAN-ActFrag 
 BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-GGIR 
@@ -40,8 +43,11 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-ineq 
 Requires:         R-CRAN-cosinor 
+Requires:         R-CRAN-cosinor2 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-accelerometry 
+Requires:         R-CRAN-ActCR 
+Requires:         R-CRAN-ActFrag 
 Requires:         R-CRAN-minpack.lm 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-GGIR 

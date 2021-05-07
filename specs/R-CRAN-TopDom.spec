@@ -1,31 +1,39 @@
-%global packname  miscFuncs
-%global packver   1.5
+%global packname  TopDom
+%global packver   0.10.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          0.10.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Useful Functions Including LaTeX Tables, Kalman Filtering and Development Tools
+Summary:          An Efficient and Deterministic Method for Identifying Topological Domains in Genomes
 
-License:          GPL-3
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-roxygen2 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-roxygen2 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-grid 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-tibble 
 
 %description
-Implementing various things including functions for LaTeX tables, the
-Kalman filter, web scraping, development tools, relative risk and odds
-ratio.
+The 'TopDom' method identifies topological domains in genomes from Hi-C
+sequence data (Shin et al., 2016 <doi:10.1093/nar/gkv1505>).  The authors
+published an implementation of their method as an R script (two different
+versions; also available in this package).  This package originates from
+those original 'TopDom' R scripts and provides help pages adopted from the
+original 'TopDom' PDF documentation.  It also provides a small number of
+bug fixes to the original code.
 
 %prep
 %setup -q -c -n %{packname}

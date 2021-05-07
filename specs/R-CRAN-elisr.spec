@@ -1,31 +1,34 @@
-%global packname  miscFuncs
-%global packver   1.5
+%global packname  elisr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Useful Functions Including LaTeX Tables, Kalman Filtering and Development Tools
+Summary:          Exploratory Likert Scaling
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-roxygen2 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-roxygen2 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-stats 
+BuildRequires:    R-stats >= 4.0.0
+Requires:         R-stats >= 4.0.0
 
 %description
-Implementing various things including functions for LaTeX tables, the
-Kalman filter, web scraping, development tools, relative risk and odds
-ratio.
+An alternative to Exploratory Factor Analysis (EFA) for metrical data in
+R. Drawing on characteristics of classical test theory, Exploratory Likert
+Scaling (ELiS) supports the user exploring multiple one-dimensional data
+structures. In common research practice, however, EFA remains the go-to
+method to uncover the (underlying) structure of a data set. Orthogonal
+dimensions and the potential of overextraction are often accepted as side
+effects. As described in Müller-Schneider (2001)
+<doi:10.1515/zfsoz-2001-0404>), ELiS confronts these problems. As a
+result, 'elisr' provides the platform to fully exploit the exploratory
+potential of the multiple scaling approach itself.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  SortedEffects
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation and Inference Methods for Sorted Causal Effects and Classification Analysis
 

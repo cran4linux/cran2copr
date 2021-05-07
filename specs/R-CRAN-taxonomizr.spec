@@ -1,9 +1,9 @@
 %global packname  taxonomizr
-%global packver   0.7.1
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Work with NCBI Accessions and Taxonomy
 
@@ -17,9 +17,11 @@ Requires:         R-core >= 3.0.0
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-curl 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-curl 
 
 %description
 Functions for assigning taxonomy to NCBI accession numbers and taxon IDs
