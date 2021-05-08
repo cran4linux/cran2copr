@@ -1,9 +1,9 @@
 %global packname  Sojourn
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Apply Sojourn Methods for Processing ActiGraph Accelerometer Data
 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-PAutilities >= 0.2.0
 BuildRequires:    R-CRAN-rlang >= 0.2
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-nnet >= 7.3
 Requires:         R-CRAN-zoo >= 1.8
 Requires:         R-CRAN-lubridate >= 1.7.4
@@ -36,7 +35,6 @@ Requires:         R-CRAN-PAutilities >= 0.2.0
 Requires:         R-CRAN-rlang >= 0.2
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-Rcpp 
 
 %description
 Provides a simple way for utilizing Sojourn methods for accelerometer
@@ -44,9 +42,7 @@ processing, as detailed in Lyden K, Keadle S, Staudenmayer J, & Freedson P
 (2014) <doi:10.1249/MSS.0b013e3182a42a2d>, Ellingson LD, Schwabacher IJ,
 Kim Y, Welk GJ, & Cook DB (2016) <doi:10.1249/MSS.0000000000000915>, and
 Hibbing PR, Ellingson LD, Dixon PM, & Welk GJ (2018)
-<doi:10.1249/MSS.0000000000001486>. The accompanying Sojourn.Data package,
-if not available on CRAN, can be accessed from
-<https://github.com/paulhibbing/Sojourn.Data>.
+<doi:10.1249/MSS.0000000000001486>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
-%global packname  settings
-%global packver   0.2.7
+%global packname  geysertimes
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Software Option Settings Manager for R
+Summary:          Geyser Data from GeyserTimes.org
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,23 +15,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-readr 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Provides option settings management that goes beyond R's default 'options'
-function. With this package, users can define their own option settings
-manager holding option names, default values and (if so desired) ranges or
-sets of allowed option values that will be automatically checked. Settings
-can then be retrieved, altered and reset to defaults with ease. For R
-programmers and package developers it offers cloning and merging
-functionality which allows for conveniently defining global and local
-options, possibly in a multilevel options hierarchy. See the package
-vignette for some examples concerning functions, S4 classes, and reference
-classes. There are convenience functions to reset par() and options() to
-their 'factory defaults'.
+Download geyser eruption and observation data from the GeyserTimes site
+(<https://geysertimes.org>) and optionally store it locally. The vignette
+shows a simple analysis of downloading, accessing, and summarizing the
+data.
 
 %prep
 %setup -q -c -n %{packname}

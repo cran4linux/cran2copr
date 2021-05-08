@@ -1,9 +1,9 @@
 %global packname  fdasrvf
-%global packver   1.9.4
+%global packver   1.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.4
+Version:          1.9.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Elastic Functional Data Analysis
 
@@ -25,6 +25,8 @@ BuildRequires:    R-CRAN-fields
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-CRAN-tolerance 
+BuildRequires:    R-CRAN-lpSolve 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.1
@@ -38,6 +40,8 @@ Requires:         R-CRAN-fields
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-viridisLite 
 Requires:         R-CRAN-tolerance 
+Requires:         R-CRAN-lpSolve 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-testthat 
 
 %description

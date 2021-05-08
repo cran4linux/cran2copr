@@ -1,9 +1,9 @@
 %global packname  ipmisc
-%global packver   6.0.0
+%global packver   6.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.0
+Version:          6.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions for Data Cleaning and Analysis
 
@@ -31,7 +31,7 @@ Requires:         R-CRAN-zeallot
 %description
 Provides functions needed for data cleaning and formatting and forms data
 cleaning and wrangling backend for the following packages: 'ggstatsplot',
-'pairwiseComparisons', 'statsExpressions', and 'tidyBF'.
+'pairwiseComparisons', and 'statsExpressions'.
 
 %prep
 %setup -q -c -n %{packname}

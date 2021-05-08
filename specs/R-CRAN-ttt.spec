@@ -1,11 +1,11 @@
-%global packname  settings
-%global packver   0.2.7
+%global packname  ttt
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Software Option Settings Manager for R
+Summary:          The Table Tool
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,23 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-htmltools 
+Requires:         R-stats 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-htmltools 
 
 %description
-Provides option settings management that goes beyond R's default 'options'
-function. With this package, users can define their own option settings
-manager holding option names, default values and (if so desired) ranges or
-sets of allowed option values that will be automatically checked. Settings
-can then be retrieved, altered and reset to defaults with ease. For R
-programmers and package developers it offers cloning and merging
-functionality which allows for conveniently defining global and local
-options, possibly in a multilevel options hierarchy. See the package
-vignette for some examples concerning functions, S4 classes, and reference
-classes. There are convenience functions to reset par() and options() to
-their 'factory defaults'.
+Create structured, formatted HTML tables of in a flexible and convenient
+way.
 
 %prep
 %setup -q -c -n %{packname}

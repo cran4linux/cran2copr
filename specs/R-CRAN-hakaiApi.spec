@@ -1,37 +1,34 @@
-%global packname  settings
-%global packver   0.2.7
+%global packname  hakaiApi
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Software Option Settings Manager for R
+Summary:          Authenticated HTTP Request Client for the 'Hakai' API
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides option settings management that goes beyond R's default 'options'
-function. With this package, users can define their own option settings
-manager holding option names, default values and (if so desired) ranges or
-sets of allowed option values that will be automatically checked. Settings
-can then be retrieved, altered and reset to defaults with ease. For R
-programmers and package developers it offers cloning and merging
-functionality which allows for conveniently defining global and local
-options, possibly in a multilevel options hierarchy. See the package
-vignette for some examples concerning functions, S4 classes, and reference
-classes. There are convenience functions to reset par() and options() to
-their 'factory defaults'.
+Initializes a class that obtains API credentials and provides a method to
+use those credentials to make GET requests to the 'Hakai' API server.
+Usage instructions are documented at
+<https://hakaiinstitute.github.io/hakai-api/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  rmarkdown
-%global packver   2.7
+%global packver   2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7
+Version:          2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Documents for R
 
@@ -20,10 +20,10 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-yaml >= 2.1.19
 BuildRequires:    R-CRAN-knitr >= 1.22
 BuildRequires:    R-CRAN-stringr >= 1.2.0
+BuildRequires:    R-CRAN-tinytex >= 0.31
 BuildRequires:    R-CRAN-htmltools >= 0.3.5
-BuildRequires:    R-CRAN-xfun >= 0.15
+BuildRequires:    R-CRAN-xfun >= 0.21
 BuildRequires:    R-CRAN-evaluate >= 0.13
-BuildRequires:    R-CRAN-tinytex >= 0.11
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-jsonlite 
@@ -31,10 +31,10 @@ BuildRequires:    R-methods
 Requires:         R-CRAN-yaml >= 2.1.19
 Requires:         R-CRAN-knitr >= 1.22
 Requires:         R-CRAN-stringr >= 1.2.0
+Requires:         R-CRAN-tinytex >= 0.31
 Requires:         R-CRAN-htmltools >= 0.3.5
-Requires:         R-CRAN-xfun >= 0.15
+Requires:         R-CRAN-xfun >= 0.21
 Requires:         R-CRAN-evaluate >= 0.13
-Requires:         R-CRAN-tinytex >= 0.11
 Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-jsonlite 

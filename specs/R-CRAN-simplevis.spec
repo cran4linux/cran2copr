@@ -1,9 +1,9 @@
 %global packname  simplevis
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Make 'ggplot2' and 'leaflet' Visualisation Easier
 
@@ -32,13 +32,11 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinycssloaders 
-BuildRequires:    R-CRAN-stars 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
@@ -60,20 +58,19 @@ Requires:         R-CRAN-magrittr
 Requires:         R-methods 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinycssloaders 
-Requires:         R-CRAN-stars 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-viridis 
 
 %description
-Wrapper functions to make 'ggplot2' and 'leaflet' visualisation easier.
+Wrapper functions to make 'ggplot2' and 'leaflet' visualisation easier and
+prettier.
 
 %prep
 %setup -q -c -n %{packname}

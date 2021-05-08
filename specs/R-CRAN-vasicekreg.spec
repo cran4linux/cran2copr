@@ -1,32 +1,36 @@
-%global packname  SpatialBSS
-%global packver   0.10-0
+%global packname  vasicekreg
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Blind Source Separation for Multivariate Spatial Data
+Summary:          Regression Modeling Using Vasicek Distribution
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.2
-BuildRequires:    R-CRAN-JADE 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.2
-Requires:         R-CRAN-JADE 
-Requires:         R-CRAN-sp 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-gamlss 
+BuildRequires:    R-CRAN-gamlss.dist 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
+Requires:         R-CRAN-gamlss 
+Requires:         R-CRAN-gamlss.dist 
 
 %description
-Blind source separation for multivariate spatial data based on
-simultaneous/joint diagonalization of local covariance matrices. This
-package is an implementation of the methods described in Bachoc, Genton,
-Nordhausen, Ruiz-Gazen and Virta (2020) <doi:10.1093/biomet/asz079>.
+Vasicek density, cumulative distribution, quantile functions and random
+deviate generation of Vasicek distribution. In addition, there are two
+functions for fitting the Generalized Additive Models for Location Scale
+and Shape introduced by Rigby and Stasinopoulos (2005,
+<doi:10.1111/j.1467-9876.2005.00510.x>). Some functions are written in C++
+using 'Rcpp', developed by Eddelbuettel and Francois (2011,
+<doi:10.18637/jss.v040.i08>).
 
 %prep
 %setup -q -c -n %{packname}

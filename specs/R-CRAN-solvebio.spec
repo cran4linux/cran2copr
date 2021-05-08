@@ -1,9 +1,9 @@
 %global packname  solvebio
-%global packver   2.10.1
+%global packver   2.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.10.1
+Version:          2.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Official SolveBio API Client
 

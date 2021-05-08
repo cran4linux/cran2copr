@@ -1,9 +1,9 @@
 %global packname  ropenblas
-%global packver   0.2.9
+%global packver   0.2.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.2.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download, Compile and Link 'OpenBLAS' Library with R
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-pingr
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-rvest 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-getPass 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-pingr
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-fs 
+Requires:         R-CRAN-rvest 
 
 %description
 The 'ropenblas' package (<https://prdm0.github.io/ropenblas/>) is useful

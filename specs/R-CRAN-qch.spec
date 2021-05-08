@@ -1,37 +1,42 @@
-%global packname  settings
-%global packver   0.2.7
+%global packname  qch
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Software Option Settings Manager for R
+Summary:          Query Composed Hypotheses
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-ks 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-stats 
 Requires:         R-graphics 
+Requires:         R-CRAN-ks 
+Requires:         R-CRAN-mclust 
+Requires:         R-stats 
 
 %description
-Provides option settings management that goes beyond R's default 'options'
-function. With this package, users can define their own option settings
-manager holding option names, default values and (if so desired) ranges or
-sets of allowed option values that will be automatically checked. Settings
-can then be retrieved, altered and reset to defaults with ease. For R
-programmers and package developers it offers cloning and merging
-functionality which allows for conveniently defining global and local
-options, possibly in a multilevel options hierarchy. See the package
-vignette for some examples concerning functions, S4 classes, and reference
-classes. There are convenience functions to reset par() and options() to
-their 'factory defaults'.
+Provides functions for the joint analysis of K sets of p-values obtained
+for a same list of items. This joint analysis is performed by querying a
+composed hypothesis, i.e. an arbitrary complex combination of simple
+hypotheses, as described in Mary-Huard et al. (2021) <arXiv:2104.14601>.
+The null distribution corresponding to the composed hypothesis of interest
+is obtained by fitting non-parametric mixtures models (one for each of the
+simple hypothesis of the complex combination). Type I error rate control
+is achieved through Bayesian False Discovery Rate control.  The 3 main
+functions of the package GetHinfo(), qch.fit() and qch.test() correspond
+to the 3 steps for querying a composed hypothesis (composed H0/H1
+formulation, inferring the null distribution and testing the null
+hypothesis).
 
 %prep
 %setup -q -c -n %{packname}

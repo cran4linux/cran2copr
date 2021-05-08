@@ -1,9 +1,9 @@
 %global packname  ggVennDiagram
-%global packver   1.0.7
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'ggplot2' Implement of Venn Diagram
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-RVenn 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-venn 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
@@ -37,10 +38,20 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-RVenn 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-venn 
 
 %description
 Easy-to-use functions to generate 2-7 sets Venn plot in publication
-quality.
+quality. 'ggVennDiagram' plot Venn using well-defined geometry dataset and
+'ggplot2'. The shapes of 2-4 sets Venn use circles and ellipses, while the
+shapes of 4-7 sets Venn use irregular polygons (4 has both forms), which
+are developed and imported from another package 'venn', authored by Adrian
+Dusa. We provided internal functions to integrate shape data with user
+provided sets data, and calculated the geometry of every
+regions/intersections of them, then separately plot Venn in three
+components: set edges, set labels, and regions. From version 1.0, it is
+possible to customize these components as you demand in ordinary 'ggplot2'
+grammar.
 
 %prep
 %setup -q -c -n %{packname}
