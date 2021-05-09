@@ -1,9 +1,9 @@
 %global packname  wrappedtools
-%global packver   0.7.6
+%global packver   0.7.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.6
+Version:          0.7.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Useful Wrappers Around Commonly Used Functions
 
@@ -19,15 +19,11 @@ BuildRequires:    R-CRAN-tidyverse
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-ggalluvial 
 BuildRequires:    R-CRAN-coin 
-BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-ggdendro 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
@@ -40,15 +36,11 @@ Requires:         R-CRAN-tidyverse
 Requires:         R-stats 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-ggalluvial 
 Requires:         R-CRAN-coin 
-Requires:         R-CRAN-rlist 
 Requires:         R-utils 
-Requires:         R-CRAN-testthat 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-ggdendro 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 

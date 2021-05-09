@@ -1,10 +1,10 @@
 %global packname  sicegar
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
-Release:          3%{?dist}%{?buildtag}
+Version:          0.2.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Single-Cell Viral Growth Curves
 
 License:          GPL-2 | GPL-3
@@ -30,19 +30,21 @@ Requires:         R-stats
 Aims to quantify time intensity data by using sigmoidal and double
 sigmoidal curves. It fits straight lines, sigmoidal, and double sigmoidal
 curves on to time vs intensity data. Then all the fits are used to make
-decision on which model (sigmoidal, double sigmoidal, no signal or
-ambiguous) best describes the data. No signal means the intensity does not
-reach a high enough point or does not change at all over time. Sigmoidal
-means intensity starts from a small number than climbs to a maximum.
-Double sigmoidal means intensity starts from a small number, climbs to a
-maximum then starts to decay. After the decision between those four
-options, the algorithm gives the sigmoidal (or double sigmoidal)
-associated parameter values that quantifies the time intensity curve. The
-origin of the package name came from "SIngle CEll Growth Analysis in R".
+decision on which model best describes the data. This method was first
+developed in the context of single-cell viral growth analysis (for
+details, see Caglar et al. (2018) <doi:10.7717/peerj.4251>), and the
+package name stands for "SIngle CEll Growth Analysis in R".
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -50,17 +52,10 @@ origin of the package name came from "SIngle CEll Growth Analysis in R".
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

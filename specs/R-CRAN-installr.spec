@@ -1,29 +1,34 @@
-%global packname  diagonals
-%global packver   6.0.0
+%global packname  installr
+%global packver   0.23.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.0
+Version:          0.23.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Block Diagonal Extraction or Replacement
+Summary:          Using R to Install Stuff on Windows OS (Such As: R, 'Rtools', 'RStudio', 'Git', and More!)
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 2.14.0
+Requires:         R-core >= 2.14.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-stringr 
+Requires:         R-utils 
 
 %description
-Several tools for handling block-matrix diagonals and similar constructs
-are implemented. Block-diagonal matrices can be extracted or removed using
-two small functions implemented here. In addition, non-square matrices are
-supported. Block diagonal matrices occur when two dimensions of a data set
-are combined along one edge of a matrix. For example, trade-flow data in
-the 'decompr' and 'gvc' packages have each country-industry combination
-occur along both edges of the matrix.
+R is great for installing software.  Through the 'installr' package you
+can automate the updating of R (on Windows, using updateR()) and install
+new software. Software installation is initiated through a GUI (just run
+installr()), or through functions such as: install.Rtools(),
+install.pandoc(), install.git(), and many more. The updateR() command
+performs the following: finding the latest R version, downloading it,
+running the installer, deleting the installation file, copy and updating
+old packages to the new R installation.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  SeuratObject
-%global packver   4.0.0
+%global packver   4.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.0
+Version:          4.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Structures for Single Cell Data
 
@@ -12,26 +12,24 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Matrix >= 1.2.18
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Matrix >= 1.3.3
 BuildRequires:    R-CRAN-Rcpp >= 1.0.5
 BuildRequires:    R-CRAN-rlang >= 0.4.7
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sctransform 
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Matrix >= 1.2.18
+Requires:         R-CRAN-Matrix >= 1.3.3
 Requires:         R-CRAN-Rcpp >= 1.0.5
 Requires:         R-CRAN-rlang >= 0.4.7
 Requires:         R-grDevices 
 Requires:         R-grid 
 Requires:         R-methods 
-Requires:         R-CRAN-sctransform 
 Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-utils 
