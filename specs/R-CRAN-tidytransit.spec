@@ -1,9 +1,9 @@
 %global packname  tidytransit
-%global packver   0.7.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read, Validate, Analyze, and Map Files in the General Transit Feed Specification
 
@@ -17,6 +17,7 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-zip >= 2.0.1
 BuildRequires:    R-CRAN-data.table >= 1.12.8
+BuildRequires:    R-CRAN-gtfsio >= 0.1.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-readr 
@@ -32,6 +33,7 @@ BuildRequires:    R-CRAN-digest
 BuildRequires:    R-CRAN-checkmate 
 Requires:         R-CRAN-zip >= 2.0.1
 Requires:         R-CRAN-data.table >= 1.12.8
+Requires:         R-CRAN-gtfsio >= 0.1.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-readr 

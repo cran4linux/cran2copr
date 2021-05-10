@@ -1,9 +1,9 @@
 %global packname  GLMcat
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Linear Models for Categorical Responses
 
@@ -16,10 +16,12 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 
 %description
 In statistical modeling, there is a wide variety of regression models for
@@ -30,8 +32,7 @@ Trottier, and Guédon (2015) <doi:10.1093/biomet/asv042>, we introduce
 'GLMcat', an R package to estimate generalized linear models implemented
 under the unified specification (r, F, Z). Where r represents the ratio of
 probabilities (reference, cumulative, adjacent, or sequential), F the
-cumulative distribution function for the linkage, and Z, the design
-matrix.
+cumulative cdf function for the linkage, and Z, the design matrix.
 
 %prep
 %setup -q -c -n %{packname}

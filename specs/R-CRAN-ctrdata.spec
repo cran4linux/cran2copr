@@ -1,9 +1,9 @@
 %global packname  ctrdata
-%global packver   1.5.3
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve and Analyze Clinical Trials in Public Registers
 
@@ -38,15 +38,15 @@ Requires:         R-CRAN-stringi
 Provides functions for querying, retrieving and analyzing protocol- and
 results-related information on clinical trials from two public registers,
 the 'European Union Clinical Trials Register' ('EUCTR',
-<https://www.clinicaltrialsregister.eu/>) and 'ClinicalTrials.gov'
-('CTGOV', <https://clinicaltrials.gov/>). The trial information is
-transformed and stored in a database ('SQLite' or 'MongoDB', via 'nodbi').
-Functions are provided to identify de- duplicated records, to easily find
-and extract variables (fields) of interest even from complex nesting as
-used by the registers, and to update previous queries that users retrieved
-in a database. The package can be used for meta analysis and
-trend-analysis of the design and conduct as well as results of clinical
-trials.
+<https://www.clinicaltrialsregister.eu/>), 'ClinicalTrials.gov' ('CTGOV',
+<https://clinicaltrials.gov/>) and the 'ISRCTN'
+(<http://www.isrctn.com/>). Trial information is downloaded, converted and
+stored in a database ('SQLite' or 'MongoDB', via 'nodbi'). Functions are
+provided to identify de-duplicated records, to easily find and extract
+variables (fields) of interest even from complex nesting as used by the
+registers, and to update previous queries that users retrieved in a
+database. The package can be used for meta analysis and trend-analysis of
+the design and conduct as well as results of clinical trials.
 
 %prep
 %setup -q -c -n %{packname}
