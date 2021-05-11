@@ -1,9 +1,9 @@
 %global packname  protti
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bottom-Up Proteomics and LiP-MS Quality Control and Data Analysis Tools
 
@@ -29,9 +29,9 @@ BuildRequires:    R-CRAN-forcats
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-curl 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
@@ -46,15 +46,15 @@ Requires:         R-CRAN-forcats
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-ggrepel 
-Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-grDevices 
+Requires:         R-CRAN-curl 
 
 %description
 Useful functions and workflows for proteomics quality control and data
 analysis of both limited proteolysis-coupled mass spectrometry (LiP-MS)
-(Schopper et al. (2017) <doi:10.1038/nprot.2017.100>) and regular
-bottom-up proteomics experiments. Data generated with search tools such as
+(Feng et. al. (2014) <doi:10.1038/nbt.2999>) and regular bottom-up
+proteomics experiments. Data generated with search tools such as
 'Spectronaut', 'MaxQuant' and 'Proteome Discover' can be easily used due
 to flexibility of functions.
 

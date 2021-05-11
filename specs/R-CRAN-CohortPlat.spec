@@ -1,9 +1,9 @@
 %global packname  CohortPlat
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation of Cohort Platform Trials for Combination Treatments
 
@@ -47,7 +47,7 @@ active compounds. In order to obtain approval for this combination
 therapy, superiority of the combination over the two active compounds and
 superiority of the two active compounds over placebo need to be
 demonstrated. A more detailed description of the design can be found in
-Meyer et al. (2021).
+Meyer et al. <arXiv:2103.09547>.
 
 %prep
 %setup -q -c -n %{packname}

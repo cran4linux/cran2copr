@@ -1,9 +1,9 @@
 %global packname  migraph
-%global packver   0.6.3
+%global packver   0.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multimodal and Multilevel Network Analysis
 
@@ -12,14 +12,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-tidygraph 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggraph 
-BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-dplyr 
@@ -27,11 +25,13 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-network 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-tidygraph 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggraph 
-Requires:         R-CRAN-R6 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
@@ -39,6 +39,10 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-network 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-stringr 
 
 %description
 A set of tools that extend common social network analysis packages for

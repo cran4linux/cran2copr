@@ -1,9 +1,9 @@
 %global packname  cansim
-%global packver   0.3.6
+%global packver   0.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          0.3.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accessing Statistics Canada Data Table and Vectors
 
@@ -29,7 +29,6 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-dbplyr 
 Requires:         R-CRAN-httr >= 1.0.0
 Requires:         R-CRAN-jsonlite >= 1.0
 Requires:         R-CRAN-dplyr >= 0.7
@@ -44,7 +43,6 @@ Requires:         R-CRAN-tibble
 Requires:         R-utils 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-dbplyr 
 
 %description
 Searches for, accesses, and retrieves new-format and old-format Statistics

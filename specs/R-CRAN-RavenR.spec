@@ -1,9 +1,9 @@
 %global packname  RavenR
-%global packver   2.0.1
+%global packver   2.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Raven Hydrological Modelling Framework R Support and Analysis
 
@@ -22,14 +22,13 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-dygraphs 
 BuildRequires:    R-CRAN-gdata 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ncdf4 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-rgeos 
@@ -37,6 +36,7 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-zoo 
@@ -47,14 +47,13 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-dygraphs 
 Requires:         R-CRAN-gdata 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
 Requires:         R-CRAN-ncdf4 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-raster 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-rgeos 
@@ -62,6 +61,7 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-sp 
 Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-zoo 

@@ -1,9 +1,9 @@
 %global packname  evclust
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evidential Clustering
 
@@ -22,8 +22,6 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-kernlab 
-BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-limSolve 
@@ -31,8 +29,6 @@ Requires:         R-CRAN-Matrix
 Requires:         R-CRAN-mclust 
 Requires:         R-CRAN-quadprog 
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-kernlab 
-Requires:         R-CRAN-MASS 
 
 %description
 Various clustering algorithms that produce a credal partition, i.e., a set

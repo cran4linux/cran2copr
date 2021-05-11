@@ -1,9 +1,9 @@
 %global packname  stringi
-%global packver   1.5.3
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Character String Processing Facilities
 
@@ -13,8 +13,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    libicu-devel >= 52
-BuildRequires:    R-devel >= 2.14
-Requires:         R-core >= 2.14
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
@@ -28,16 +28,19 @@ pattern searching (e.g., with 'Java'-like regular expressions or the
 'Unicode' collation algorithm), random string generation, case mapping,
 string transliteration, concatenation, sorting, padding, wrapping, Unicode
 normalisation, date-time formatting and parsing, and many more. They are
-fast, consistent, convenient, and - owing to the use of the 'ICU'
-(International Components for Unicode) library - portable across all
-locales and platforms.
+fast, consistent, convenient, and - thanks to 'ICU' (International
+Components for Unicode) - portable across all locales and platforms.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -47,6 +50,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

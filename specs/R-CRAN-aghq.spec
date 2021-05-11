@@ -1,9 +1,9 @@
 %global packname  aghq
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adaptive Gauss Hermite Quadrature for Bayesian Inference
 
@@ -17,30 +17,14 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mvQuad 
-BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-polynom 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-purrr 
 Requires:         R-methods 
 Requires:         R-CRAN-mvQuad 
-Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-polynom 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-purrr 
 
 %description
 Adaptive Gauss Hermite Quadrature for Bayesian inference. The AGHQ method

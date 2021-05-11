@@ -1,34 +1,32 @@
-%global packname  CatReg
-%global packver   2.0.2
+%global packname  qqboxplot
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Solution Paths for Linear and Logistic Regression Models with Categorical Predictors, with SCOPE Penalty
+Summary:          Implementation of the Q-Q Boxplot
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grid 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grid 
 
 %description
-Computes solutions for linear and logistic regression models with
-potentially high-dimensional categorical predictors. This is done by
-applying a nonconvex penalty (SCOPE) and computing solutions in an
-efficient path-wise fashion. The scaling of the solution paths is selected
-automatically. Includes functionality for selecting tuning parameter
-lambda by k-fold cross-validation and early termination based on
-information criteria. Solutions are computed by cyclical block-coordinate
-descent, iterating an innovative dynamic programming algorithm to compute
-exact solutions for each block.
+A system to implement the Q-Q boxplot.  It is implemented as an extension
+to 'ggplot2'.  The Q-Q boxplot is an amalgam of the boxplot and the Q-Q
+plot and allows the user to rapidly examine summary statistics and tail
+behavior for multiple distributions in the same pane.  As an extension of
+the 'ggplot2' implementation of the boxplot, possible modifications to the
+boxplot extend to the Q-Q boxplot.
 
 %prep
 %setup -q -c -n %{packname}

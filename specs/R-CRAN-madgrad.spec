@@ -1,40 +1,32 @@
-%global packname  discord
-%global packver   1.0.0
+%global packname  madgrad
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Discordant Kinship Modeling
+Summary:          'MADGRAD' Method for Stochastic Optimization
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-torch >= 0.3.0
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-broom 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-torch >= 0.3.0
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-janitor 
-Requires:         R-stats 
-Requires:         R-CRAN-broom 
 
 %description
-Functions for discordant kinship modeling (and other sibling-based
-quasi-experimental designs). Currently, the package contains data
-restructuring functions and functions for generating biometrically
-informed data for kin pairs.
+A Momentumized, Adaptive, Dual Averaged Gradient Method for Stochastic
+Optimization algorithm. MADGRAD is a 'best-of-both-worlds' optimizer with
+the generalization performance of stochastic gradient descent and at least
+as fast convergence as that of Adam, often faster. A drop-in
+optim_madgrad() implementation is provided based on Defazio et al (2020)
+<arxiv:2101.11075>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  greed
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clustering and Model Selection with the Integrated Classification Likelihood
 
@@ -24,7 +24,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-GGally 
 BuildRequires:    R-CRAN-cba 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.0
@@ -37,19 +37,19 @@ Requires:         R-methods
 Requires:         R-stats 
 Requires:         R-CRAN-RSpectra 
 Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-GGally 
 Requires:         R-CRAN-cba 
 
 %description
 An ensemble of algorithms that enable the clustering of networks and data
-matrix such as document/term matrix with different type of generative
-models. Model selection and clustering is performed in combination by
-optimizing the Integrated Classification Likelihood (which is equivalent
-to minimizing the description length). Several models are available such
-as: Stochastic Block Model, degree corrected Stochastic Block Model,
-Mixtures of Multinomial, Latent Block Model. The optimization is performed
-thanks to a combination of greedy local search and a genetic algorithm
-(see <arXiv:2002:11577> for more details).
+matrix such as counts matrix with different type of generative models.
+Model selection and clustering is performed in combination by optimizing
+the Integrated Classification Likelihood (which is equivalent to
+minimizing the description length). Several models are available such as:
+Stochastic Block Model, degree corrected Stochastic Block Model, Mixtures
+of Multinomial, Latent Block Model. The optimization is performed thanks
+to a combination of greedy local search and a genetic algorithm (see
+<arXiv:2002:11577> for more details).
 
 %prep
 %setup -q -c -n %{packname}
