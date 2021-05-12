@@ -1,13 +1,13 @@
-%global packname  dynRB
-%global packver   0.16
+%global packname  academictwitteR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Range Boxes
+Summary:          Access the Twitter Academic Research Product Track V2 API Endpoint
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,25 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-corrplot 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-foreign 
 BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-corrplot 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-foreign 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Improves the concept of multivariate range boxes, which is highly
-susceptible for outliers and does not consider the distribution of the
-data. The package uses dynamic range boxes to overcome these problems.
+Package to query the Twitter Academic Research Product Track
+(<https://developer.twitter.com/en/solutions/academic-research>),
+providing access to full-archive search and other v2 API endpoints.
+Functions are written with academic research in mind. They provide
+flexibility in how the user wishes to store collected data, and encourage
+regular storage of data to mitigate loss when collecting large volumes of
+tweets. They also provide workarounds to manage and reshape the format in
+which data is provided on the client side.
 
 %prep
 %setup -q -c -n %{packname}

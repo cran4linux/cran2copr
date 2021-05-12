@@ -1,13 +1,13 @@
-%global packname  dynRB
-%global packver   0.16
+%global packname  memoiR
+%global packver   0.5-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Range Boxes
+Summary:          R Markdown and Bookdown Templates to Publish Documents
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,25 +15,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-corrplot 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-foreign 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-corrplot 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-foreign 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-bookdown 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-usethis 
+Requires:         R-CRAN-bookdown 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-usethis 
 
 %description
-Improves the concept of multivariate range boxes, which is highly
-susceptible for outliers and does not consider the distribution of the
-data. The package uses dynamic range boxes to overcome these problems.
+Producing high-quality documents suitable for publication directly from R
+is made possible by the R Markdown ecosystem. 'memoiR' makes it easy. It
+provides templates to knit memoirs, articles and slideshows with helpers
+to publish the documents on GitHub Pages and activate continuous
+integration.
 
 %prep
 %setup -q -c -n %{packname}

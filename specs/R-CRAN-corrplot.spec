@@ -1,9 +1,9 @@
 %global packname  corrplot
-%global packver   0.87
+%global packver   0.88
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.87
+Version:          0.88
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization of a Correlation Matrix
 

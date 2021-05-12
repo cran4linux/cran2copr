@@ -1,39 +1,40 @@
-%global packname  dynRB
-%global packver   0.16
+%global packname  rtrend
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Range Boxes
+Summary:          Trend Estimating Tools
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-corrplot 
-BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-fftwtools 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-foreign 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-corrplot 
-Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-fftwtools 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-foreign 
-Requires:         R-CRAN-dplyr 
 
 %description
-Improves the concept of multivariate range boxes, which is highly
-susceptible for outliers and does not consider the distribution of the
-data. The package uses dynamic range boxes to overcome these problems.
+The traditional linear regression trend, Modified Mann-Kendall (MK)
+non-parameter trend and bootstrap trend are included in this package.
+Linear regression trend is rewritten by '.lm.fit'. MK trend is rewritten
+by 'Rcpp'. Finally, those functions are about 10 times faster than
+previous version in R. Reference: Hamed, K. H., & Rao, A. R. (1998). A
+modified Mann-Kendall trend test for autocorrelated data. Journal of
+hydrology, 204(1-4), 182-196. <doi:10.1016/S0022-1694(97)00125-X>.
 
 %prep
 %setup -q -c -n %{packname}

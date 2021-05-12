@@ -1,13 +1,13 @@
-%global packname  dynRB
-%global packver   0.16
+%global packname  ssimparser
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Range Boxes
+Summary:          Standard Schedules Information Parser
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,25 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-corrplot 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-foreign 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-corrplot 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-foreign 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-airportr 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-airportr 
+Requires:         R-CRAN-magrittr 
 
 %description
-Improves the concept of multivariate range boxes, which is highly
-susceptible for outliers and does not consider the distribution of the
-data. The package uses dynamic range boxes to overcome these problems.
+Parse Standard Schedules Information file (types 2 and 3) into a Data
+Frame. Can also expand schedules into flights.
 
 %prep
 %setup -q -c -n %{packname}

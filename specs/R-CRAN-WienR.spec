@@ -1,9 +1,9 @@
 %global packname  WienR
-%global packver   0.1-9
+%global packver   0.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Derivatives of the Diffusion Density and Cumulative Distribution Function
 
@@ -12,11 +12,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-Calculate the partial derivative of the first-passage time diffusion
+Calculates the partial derivative of the first-passage time diffusion
 probability density function (PDF) and cumulative distribution function
 (CDF) with respect to the first-passage time t (only for PDF), the upper
 barrier a, the drift rate v, the relative starting point w, the
@@ -24,11 +24,16 @@ non-decision time t0, the inter-trial variability of the drift rate sv,
 the inter-trial variability of the rel. starting point sw, and the
 inter-trial variability of the non-decision time st0. In addition the PDF
 and CDF themselves are also provided. Most calculations are done on the
-logarithmic scale to make it more stable. For the numerical integration we
-used the C library cubature by Johnson, S. G. (2005-2013)
-<https://github.com/stevengj/cubature>. Numerical integration is required
-whenever sv, sw, and/or st0 is not zero. Note that numerical integration
-reduces speed of the computation.
+logarithmic scale to make it more stable. Since the PDF, CDF, and their
+derivatives are represented as infinite series, we give the user the
+option to control the approximation errors with the argument 'precision'.
+For the numerical integration we used the C library cubature by Johnson,
+S. G. (2005-2013) <https://github.com/stevengj/cubature>. Numerical
+integration is required whenever sv, sw, and/or st0 is not zero. Note that
+numerical integration reduces speed of the computation and the precision
+cannot be guaranteed anymore. Therefore, whenever numerical integration is
+used an estimate of the approximation error is provided in the output
+list.
 
 %prep
 %setup -q -c -n %{packname}

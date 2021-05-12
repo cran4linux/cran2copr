@@ -1,13 +1,13 @@
-%global packname  dynRB
-%global packver   0.16
+%global packname  TensorComplete
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Range Boxes
+Summary:          Tensor Noise Reduction and Completion Methods
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,25 +15,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-corrplot 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-foreign 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-corrplot 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-foreign 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tensorregress 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-pracma 
+Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-CRAN-tensorregress 
+Requires:         R-CRAN-MASS 
 
 %description
-Improves the concept of multivariate range boxes, which is highly
-susceptible for outliers and does not consider the distribution of the
-data. The package uses dynamic range boxes to overcome these problems.
+Efficient algorithms for tensor noise reduction and completion. This
+package includes a suite of parametric and nonparametric tools for
+estimating tensor signals from noisy, possibly incomplete observations.
+The methods allow a broad range of data types, including continuous,
+binary, and ordinal-valued tensor entries. The algorithms employ the
+alternating optimization. The detailed algorithm description can be found
+in the following three references.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,33 @@
-%global packname  dynRB
-%global packver   0.16
+%global packname  nsdr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Range Boxes
+Summary:          Nonlinear Sufficient Dimension Reduction
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-corrplot 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-foreign 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-corrplot 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-foreign 
-Requires:         R-CRAN-dplyr 
 
 %description
-Improves the concept of multivariate range boxes, which is highly
-susceptible for outliers and does not consider the distribution of the
-data. The package uses dynamic range boxes to overcome these problems.
+Provides tools to implement both unsupervised and supervised nonlinear
+dimension reduction methods. Principal Component Analysis (PCA), Sliced
+Inverse Regression (SIR), and Sliced Average Variance Estimation (SAVE)
+are useful methods to reduce the dimensionality of covariates. However,
+they produce linear combinations of covariates. Kernel PCA, generalized
+SIR, and generalized SAVE address this problem by extending the
+applicability of the dimension reduction problem to nonlinear settings.
+This package includes a comprehensive algorithm for kernel PCA,
+generalized SIR, and generalized SAVE, including methods for choosing
+tuning parameters and some essential functions. The algorithms for this
+package is from Li (2018, ISBN:9780367734725).
 
 %prep
 %setup -q -c -n %{packname}

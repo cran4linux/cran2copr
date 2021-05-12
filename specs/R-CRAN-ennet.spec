@@ -1,13 +1,13 @@
-%global packname  apexcharter
-%global packver   0.2.0
+%global packname  ennet
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Interactive Chart with the JavaScript 'ApexCharts' Library
+Summary:          Utilities to Extract and Analyse Text Data from the Emergency Nutrition Network Forum
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,26 +15,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.1.0
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-shiny >= 1.1.0
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-utils 
+Requires:         R-CRAN-tidyr 
 
 %description
-Provides an 'htmlwidgets' interface to 'apexcharts.js'. 'Apexcharts' is a
-modern JavaScript charting library to build interactive charts and
-visualizations with simple API. 'Apexcharts' examples and documentation
-are available here: <https://apexcharts.com/>.
+The Emergency Nutrition Network or en-net forum is the go to online forum
+for field practitioners requiring prompt technical advice for operational
+challenges for which answers are not readily accessible in current
+guidelines. The questions and the corresponding answers raised within
+en-net can provide insight into what the key topics of discussion are
+within the nutrition sector. This package provides utility functions for
+the extraction, processing and analysis of text data from the online
+forum.
 
 %prep
 %setup -q -c -n %{packname}

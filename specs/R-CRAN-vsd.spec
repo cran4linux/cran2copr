@@ -1,13 +1,13 @@
-%global packname  dynRB
-%global packver   0.16
+%global packname  vsd
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Range Boxes
+Summary:          Graphical Shim for Visual Survival Data Analysis
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,25 +15,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-corrplot 
-BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-foreign 
 BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-corrplot 
-Requires:         R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-survminer 
+BuildRequires:    R-CRAN-flexsurv 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-muhaz 
+Requires:         R-CRAN-survival 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-foreign 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-survminer 
+Requires:         R-CRAN-flexsurv 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-muhaz 
 
 %description
-Improves the concept of multivariate range boxes, which is highly
-susceptible for outliers and does not consider the distribution of the
-data. The package uses dynamic range boxes to overcome these problems.
+Provides a shim command for survival analysis graphic generation.
 
 %prep
 %setup -q -c -n %{packname}

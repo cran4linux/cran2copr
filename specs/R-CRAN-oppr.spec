@@ -1,10 +1,10 @@
 %global packname  oppr
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
-Release:          3%{?dist}%{?buildtag}
+Version:          1.0.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Project Prioritization
 
 License:          GPL-3
@@ -17,36 +17,38 @@ Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-lpSolveAPI >= 5.5.2.0.17
 BuildRequires:    R-CRAN-ape >= 5.2
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-withr >= 2.4.1
 BuildRequires:    R-CRAN-tibble >= 2.0.0
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-cli >= 1.0.1
 BuildRequires:    R-CRAN-proto >= 1.0.0
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.100.5.0
 BuildRequires:    R-CRAN-RcppProgress >= 0.4.1
+BuildRequires:    R-CRAN-tidytree >= 0.3.3
 BuildRequires:    R-CRAN-viridisLite >= 0.3.0
 BuildRequires:    R-CRAN-assertthat >= 0.2.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.19
-BuildRequires:    R-CRAN-tidytree >= 0.1.9
 BuildRequires:    R-CRAN-uuid >= 0.1.2
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-lpSolveAPI >= 5.5.2.0.17
 Requires:         R-CRAN-ape >= 5.2
 Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-withr >= 2.4.1
 Requires:         R-CRAN-tibble >= 2.0.0
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-cli >= 1.0.1
 Requires:         R-CRAN-proto >= 1.0.0
+Requires:         R-CRAN-tidytree >= 0.3.3
 Requires:         R-CRAN-viridisLite >= 0.3.0
 Requires:         R-CRAN-assertthat >= 0.2.0
-Requires:         R-CRAN-tidytree >= 0.1.9
 Requires:         R-CRAN-uuid >= 0.1.2
 Requires:         R-utils 
 Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-Matrix 
+Requires:         R-CRAN-Matrix 
 
 %description
 A decision support tool for prioritizing conservation projects.
@@ -66,7 +68,13 @@ more information, see Hanson et al. (2019) <doi:10.1111/2041-210X.13264>.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -74,22 +82,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

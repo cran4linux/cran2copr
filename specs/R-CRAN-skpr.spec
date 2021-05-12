@@ -1,11 +1,11 @@
 %global packname  skpr
-%global packver   0.64.2
+%global packver   0.66.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.64.2
-Release:          3%{?dist}%{?buildtag}
-Summary:          Design of Experiments Suite: Generate and Evaluate OptimalDesigns
+Version:          0.66.5
+Release:          1%{?dist}%{?buildtag}
+Summary:          Design of Experiments Suite: Generate and Evaluate Optimal Designs
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,15 +19,12 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-iterators 
 BuildRequires:    R-stats 
-BuildRequires:    R-nlme 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-rintrojs 
 BuildRequires:    R-CRAN-shinythemes 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-survival 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-promises 
@@ -38,23 +35,21 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-lmerTest 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-CRAN-shiny 
 Requires:         R-utils 
 Requires:         R-CRAN-iterators 
 Requires:         R-stats 
-Requires:         R-nlme 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-rintrojs 
 Requires:         R-CRAN-shinythemes 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
-Requires:         R-survival 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-survival 
 Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-promises 
@@ -65,8 +60,9 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-lmerTest 
 Requires:         R-methods 
 Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-scales 
 
 %description
 Generates and evaluates D, I, A, Alias, E, T, and G optimal designs.
@@ -82,7 +78,13 @@ reproducible.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -90,19 +92,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/shiny
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

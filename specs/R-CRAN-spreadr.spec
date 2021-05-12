@@ -1,10 +1,10 @@
 %global packname  spreadr
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
-Release:          3%{?dist}%{?buildtag}
+Version:          0.2.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Simulating Spreading Activation in a Network
 
 License:          GPL-3
@@ -12,13 +12,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rcpp >= 0.12.5
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-extrafont 
 BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-Rcpp >= 0.12.5
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-extrafont 
 Requires:         R-CRAN-ggplot2 
@@ -35,11 +39,20 @@ among nodes that were connected to each other via edges or connections
 (i.e., a network). See Vitevitch, M. S., Ercal, G., & Adagarla, B. (2011).
 Simulating retrieval from a highly clustered network: Implications for
 spoken word recognition. Frontiers in Psychology, 2, 369.
-<doi:10.3389/fpsyg.2011.00369>.
+<doi:10.3389/fpsyg.2011.00369> and Siew, C. S. Q. (2019). spreadr: A R
+package to simulate spreading activation in a network. Behavior Research
+Methods, 51, 910-929. <doi: 10.3758/s13428-018-1186-5>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -47,18 +60,10 @@ spoken word recognition. Frontiers in Psychology, 2, 369.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

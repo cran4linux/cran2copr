@@ -1,39 +1,34 @@
-%global packname  dynRB
-%global packver   0.16
+%global packname  MTE
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Range Boxes
+Summary:          Maximum Tangent Likelihood Estimation for Linear Regression
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-corrplot 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-foreign 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-corrplot 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-foreign 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-glmnet 
+Requires:         R-stats 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-glmnet 
 
 %description
-Improves the concept of multivariate range boxes, which is highly
-susceptible for outliers and does not consider the distribution of the
-data. The package uses dynamic range boxes to overcome these problems.
+Several robust estimators for linear regression and variable selection are
+provided. Included are Maximum tangent likelihood estimator (Qin, et al.,
+2017), least absolute deviance estimator and Huber regression. The
+penalized version of each of these estimator incorporates L1 penalty
+function, i.e., LASSO and Adaptive Lasso. They are able to produce
+consistent estimates for both fixed and high-dimensional settings.
 
 %prep
 %setup -q -c -n %{packname}

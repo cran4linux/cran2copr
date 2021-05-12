@@ -1,38 +1,50 @@
-%global packname  survivoR
-%global packver   0.9.3
+%global packname  snap
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data from all Seasons of Survivor (US) TV Series in Tidy Format
+Summary:          Simple Neural Application
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
+BuildRequires:    R-CRAN-keras 
+BuildRequires:    R-CRAN-tensorflow 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-tictoc 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-CORElearn 
+BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-reticulate 
+Requires:         R-CRAN-keras 
+Requires:         R-CRAN-tensorflow 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-tictoc 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-CORElearn 
+Requires:         R-CRAN-dbscan 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-reticulate 
 
 %description
-Several datasets which detail the results and events of each season of
-Survivor. This includes details on the cast, voting history, immunity and
-reward challenges, jury votes and viewers. This data is useful for
-practicing data wrangling, graph analytics and analysing how each season
-of Survivor played out. Includes 'ggplot2' scales and colour palettes for
-visualisation.
+A simple wrapper to easily design vanilla deep neural networks using
+'Tensorflow'/'Keras' backend for regression, classification and
+multi-label tasks, with some tweaks and tricks (skip shortcuts, embedding,
+feature selection and anomaly detection).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
-%global packname  dynRB
-%global packver   0.16
+%global packname  doconv
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Range Boxes
+Summary:          Document Conversion to 'PDF' or 'PNG'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,25 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-corrplot 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-foreign 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-corrplot 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-foreign 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-pdftools 
+BuildRequires:    R-CRAN-locatexec 
+BuildRequires:    R-CRAN-rappdirs 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-pdftools 
+Requires:         R-CRAN-locatexec 
+Requires:         R-CRAN-rappdirs 
 
 %description
-Improves the concept of multivariate range boxes, which is highly
-susceptible for outliers and does not consider the distribution of the
-data. The package uses dynamic range boxes to overcome these problems.
+Functions to convert 'Microsoft Word' or 'Microsoft PowerPoint' documents
+to 'PDF' format and also for converting them into a thumbnail. In order to
+work, 'LibreOffice' must be installed on the machine and possibly 'python'
+and 'Microsoft Word'. If the latter is available, it can be used to
+produce PDF documents identical to the originals, otherwise, 'LibreOffice'
+is used.
 
 %prep
 %setup -q -c -n %{packname}

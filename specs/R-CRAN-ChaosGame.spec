@@ -1,9 +1,9 @@
 %global packname  ChaosGame
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Chaos Game
 
@@ -15,20 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-colorRamps 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-sphereplot 
 BuildRequires:    R-CRAN-plot3D 
-BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-colorRamps 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-colorRamps 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-sphereplot 
 Requires:         R-CRAN-plot3D 
-Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-colorRamps 
 
 %description
 The main objective of the package is to enter a word of at least two

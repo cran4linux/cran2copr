@@ -1,9 +1,9 @@
 %global packname  cleanr
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helps You to Code Cleaner
 
@@ -16,9 +16,11 @@ BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-fritools 
 BuildRequires:    R-CRAN-pkgload 
 BuildRequires:    R-CRAN-rprojroot 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-fritools 
 Requires:         R-CRAN-pkgload 
 Requires:         R-CRAN-rprojroot 
 
