@@ -1,9 +1,9 @@
 %global packname  regmedint
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression-Based Causal Mediation Analysis with an Interaction Term
 
@@ -29,11 +29,11 @@ Requires:         R-CRAN-sandwich
 Requires:         R-CRAN-survival 
 
 %description
-'R' re-implementation of the regression-based causal mediation analysis
-with a treatment-mediator interaction term, as originally implemented in
-the 'SAS' macro by Valeri and VanderWeele (2013) <doi:10.1037/a0031034>
-and Valeri and VanderWeele (2015) <doi:10.1097/EDE.0000000000000253>.
-Linear and logistic models are supported for the mediator model. Linear,
+'R' implementation of the regression-based causal mediation analysis with
+a treatment-mediator interaction term, as originally implemented in the
+'SAS' macro by Valeri and VanderWeele (2013) <doi:10.1037/a0031034> and
+Valeri and VanderWeele (2015) <doi:10.1097/EDE.0000000000000253>. Linear
+and logistic models are supported for the mediator model. Linear,
 logistic, loglinear, Poisson, negative binomial, Cox, and accelerated
 failure time (exponential and Weibull) models are supported for the
 outcome model.

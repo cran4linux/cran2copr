@@ -1,26 +1,39 @@
-%global packname  rviewgraph
-%global packver   1.4.1
+%global packname  BifactorIndicesCalculator
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Animated Graph Layout Viewer
+Summary:          Bifactor Indices Calculator
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rJava 
-Requires:         R-CRAN-rJava 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-mirt 
+BuildRequires:    R-CRAN-MplusAutomation 
+BuildRequires:    R-CRAN-mnormt 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-mirt 
+Requires:         R-CRAN-MplusAutomation 
+Requires:         R-CRAN-mnormt 
 
 %description
-Provides 'Java' graphical user interfaces for viewing, manipulating and
-plotting graphs. Graphs may be directed or undirected.
+The calculator computes bifactor indices such as explained common variance
+(ECV), hierarchical Omega (OmegaH), percentage of uncontaminated
+correlations (PUC), item explained common variance (I-ECV), and more. This
+package is an R version of the 'Excel' based 'Bifactor Indices Calculator'
+(Dueber, 2017) <doi:10.13023/edp.tool.01> with added convenience features
+for directly utilizing output from several programs that can fit
+confirmatory factor analysis or item response models.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  broomExtra
-%global packver   4.2.1
+%global packver   4.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.1
+Version:          4.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Enhancements for 'broom' and 'easystats' Package Families
 
@@ -15,17 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broom >= 0.7.4
 BuildRequires:    R-CRAN-performance >= 0.7.0
-BuildRequires:    R-CRAN-parameters >= 0.11.0
+BuildRequires:    R-CRAN-parameters >= 0.13.0
+BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-broom.mixed 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-broom >= 0.7.4
 Requires:         R-CRAN-performance >= 0.7.0
-Requires:         R-CRAN-parameters >= 0.11.0
+Requires:         R-CRAN-parameters >= 0.13.0
+Requires:         R-CRAN-broom 
 Requires:         R-CRAN-broom.mixed 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 

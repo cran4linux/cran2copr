@@ -1,9 +1,9 @@
 %global packname  alfred
-%global packver   0.1.11
+%global packver   0.1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.11
+Version:          0.1.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Downloading Time Series from ALFRED Database for Various Vintages
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-lubridate
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-httr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-lubridate
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-httr 
 
 %description
 Provides direct access to the ALFRED (<https://alfred.stlouisfed.org>) and

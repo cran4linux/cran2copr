@@ -1,38 +1,34 @@
-%global packname  diveMove
-%global packver   1.6.0
+%global packname  bigalgebra
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dive Analysis and Calibration
+Summary:          'BLAS' and 'LAPACK' Routines for Native R Matrices and 'big.matrix' Objects
 
-License:          GPL-3
+License:          LGPL-3 | Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-bigmemory >= 4.0.0
 BuildRequires:    R-methods 
-BuildRequires:    R-stats4 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-KernSmooth 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-CRAN-uniReg 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-bigmemory >= 4.0.0
 Requires:         R-methods 
-Requires:         R-stats4 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-KernSmooth 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-quantreg 
-Requires:         R-CRAN-uniReg 
 
 %description
-Utilities to represent, visualize, filter, analyse, and summarize
-time-depth recorder (TDR) data.  Miscellaneous functions for handling
-location data are also provided.
+Provides arithmetic functions for R matrix and 'big.matrix' objects as
+well as functions for QR factorization, Cholesky factorization, General
+eigenvalue, and Singular value decomposition (SVD). A method matrix
+multiplication and an arithmetic method -for matrix addition, matrix
+difference- allows for mixed type operation -a matrix class object and a
+big.matrix class object- and pure type operation for two big.matrix class
+objects.
 
 %prep
 %setup -q -c -n %{packname}

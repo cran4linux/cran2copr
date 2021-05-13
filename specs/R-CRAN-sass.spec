@@ -1,9 +1,9 @@
 %global packname  sass
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Syntactically Awesome Style Sheets ('Sass')
 
@@ -14,16 +14,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-htmltools >= 0.5.1
+BuildRequires:    R-CRAN-rlang >= 0.4.10
 BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rappdirs 
-Requires:         R-CRAN-digest 
+Requires:         R-CRAN-htmltools >= 0.5.1
+Requires:         R-CRAN-rlang >= 0.4.10
 Requires:         R-CRAN-fs 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rappdirs 
 

@@ -1,38 +1,29 @@
-%global packname  diveMove
-%global packver   1.6.0
+%global packname  RedisBaseContainer
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dive Analysis and Calibration
+Summary:          The Container for the DockerParallel Package
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-DockerParallel 
 BuildRequires:    R-methods 
-BuildRequires:    R-stats4 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-KernSmooth 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-CRAN-uniReg 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-DockerParallel 
 Requires:         R-methods 
-Requires:         R-stats4 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-KernSmooth 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-quantreg 
-Requires:         R-CRAN-uniReg 
+Requires:         R-utils 
 
 %description
-Utilities to represent, visualize, filter, analyse, and summarize
-time-depth recorder (TDR) data.  Miscellaneous functions for handling
-location data are also provided.
+Providing the container for the DockerParallel package.
 
 %prep
 %setup -q -c -n %{packname}

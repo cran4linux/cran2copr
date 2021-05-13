@@ -1,38 +1,32 @@
-%global packname  diveMove
-%global packver   1.6.0
+%global packname  predint
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dive Analysis and Calibration
+Summary:          Prediction Intervals
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
-BuildRequires:    R-stats4 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-KernSmooth 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-CRAN-uniReg 
-Requires:         R-methods 
-Requires:         R-stats4 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-KernSmooth 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-quantreg 
-Requires:         R-CRAN-uniReg 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-dplyr 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Utilities to represent, visualize, filter, analyse, and summarize
-time-depth recorder (TDR) data.  Miscellaneous functions for handling
-location data are also provided.
+An implementation of prediction intervals for overdispersed count data,
+for overdispersed binomial data and for linear random effects models.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  DOPE
-%global packver   1.0.4
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Drug Ontology Parsing Engine
 
@@ -16,7 +16,17 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidytext 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidytext 
+Requires:         R-CRAN-stringr 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-magrittr 
 
 %description
 Provides information on drug names (brand, generic and street) for drugs

@@ -1,38 +1,37 @@
-%global packname  diveMove
-%global packver   1.6.0
+%global packname  ProcMod
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dive Analysis and Calibration
+Summary:          Informative Procrustean Matrix Correlation
 
-License:          GPL-3
+License:          CeCILL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
-BuildRequires:    R-stats4 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-KernSmooth 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-CRAN-uniReg 
-Requires:         R-methods 
-Requires:         R-stats4 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-KernSmooth 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-quantreg 
-Requires:         R-CRAN-uniReg 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-permute 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-permute 
+Requires:         R-CRAN-Matrix 
+Requires:         R-stats 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Utilities to represent, visualize, filter, analyse, and summarize
-time-depth recorder (TDR) data.  Miscellaneous functions for handling
-location data are also provided.
+Estimates corrected Procrustean correlation between matrices for removing
+overfitting effect. Coissac Eric and Gonindard-Melodelima Christelle
+(2019) <doi:10.1101/842070>.
 
 %prep
 %setup -q -c -n %{packname}

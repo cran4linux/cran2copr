@@ -1,9 +1,9 @@
 %global packname  basecamb
-%global packver   1.0.1
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Streamlined Data Import, Imputation and Modelling
 
@@ -17,12 +17,16 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-assertive.types 
 BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-mice 
 BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-assertive.types 
 Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-mice 
 Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-purrr 
 
 %description
 Provides functions streamlining the data analysis workflow: Outsourcing

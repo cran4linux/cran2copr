@@ -1,9 +1,9 @@
 %global packname  Bchron
-%global packver   4.7.4
+%global packver   4.7.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.7.4
+Version:          4.7.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Radiocarbon Dating, Age-Depth Modelling, Relative Sea Level Rate Estimation, and Non-Parametric Phase Modelling
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-ggforce
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-checkmate 
 Requires:         R-utils 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-coda 
@@ -38,6 +39,7 @@ Requires:         R-CRAN-ggforce
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-checkmate 
 
 %description
 Enables quick calibration of radiocarbon dates under various calibration

@@ -1,11 +1,11 @@
 %global packname  blocklength
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Select Optimal Block-Length to Bootstrap Dependent Data (Block Bootstrap)
+Summary:          Select an Optimal Block-Length to Bootstrap Dependent Data (Block Bootstrap)
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,9 +23,11 @@ Requires:         R-stats
 %description
 A set of functions to select the optimal block-length for a dependent
 bootstrap (block-bootstrap). Includes the Hall, Horowitz, and Jing (1995)
-<doi:10.1093/biomet/82.3.561#'> cross-validation method and the Politis
-and White (2004) <doi:10.1081/ETC-120028836> Spectral Density Plug-in
-method with a corresponding set of S3 plot methods.
+<doi:10.1093/biomet/82.3.561> cross-validation method and the Politis and
+White (2004) <doi:10.1081/ETC-120028836> Spectral Density Plug-in method,
+including the Patton, Politis, and White (2009)
+<doi:10.1080/07474930802459016> correction with a corresponding set of S3
+plot methods.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  pwrFDR
-%global packver   2.8.7
+%global packver   2.8.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.7
+Version:          2.8.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          FDR Power
 

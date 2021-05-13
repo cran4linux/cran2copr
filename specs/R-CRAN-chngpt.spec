@@ -1,9 +1,9 @@
 %global packname  chngpt
-%global packver   2020.10-12
+%global packver   2021.5-12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2020.10.12
+Version:          2021.5.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation and Hypothesis Testing for Threshold Regression
 
@@ -12,22 +12,26 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildRequires:    R-CRAN-kyotil >= 2020.10.12
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-kyotil 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-RhpcBLASctl 
+Requires:         R-CRAN-kyotil >= 2020.10.12
 Requires:         R-CRAN-survival 
 Requires:         R-splines 
-Requires:         R-CRAN-kyotil 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
 Requires:         R-CRAN-lme4 
+Requires:         R-parallel 
+Requires:         R-CRAN-RhpcBLASctl 
 
 %description
 Threshold regression models are also called two-phase regression,
@@ -35,7 +39,8 @@ broken-stick regression, split-point regression, structural change models,
 and regression kink models, with and without interaction terms. Methods
 for both continuous and discontinuous threshold models are included, but
 the support for the former is much greater. This package is described in
-Fong, Huang, Gilbert and Permar (2017) <DOI:10.1186/s12859-017-1863-x>.
+Fong, Huang, Gilbert and Permar (2017) <DOI:10.1186/s12859-017-1863-x> and
+the package vignette.
 
 %prep
 %setup -q -c -n %{packname}

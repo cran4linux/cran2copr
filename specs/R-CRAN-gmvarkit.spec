@@ -1,9 +1,9 @@
 %global packname  gmvarkit
-%global packver   1.4.1
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Gaussian Mixture Vector Autoregressive Model
 
@@ -34,10 +34,10 @@ Requires:         R-CRAN-mvnfast >= 0.2.5
 Unconstrained and constrained maximum likelihood estimation of structural
 and reduced form Gaussian mixture vector autoregressive (GMVAR) model,
 quantile residual tests, graphical diagnostics, simulations, forecasting,
-and estimation of generalized impulse response function. Leena
-Kalliovirta, Mika Meitz, Pentti Saikkonen (2016)
-<doi:10.1016/j.jeconom.2016.02.012>, Savi Virolainen (2020)
-<arXiv:2007.04713>.
+and estimation of generalized impulse response function and generalized
+forecast error variance decomposition. Leena Kalliovirta, Mika Meitz,
+Pentti Saikkonen (2016) <doi:10.1016/j.jeconom.2016.02.012>, Savi
+Virolainen (2020) <arXiv:2007.04713>.
 
 %prep
 %setup -q -c -n %{packname}

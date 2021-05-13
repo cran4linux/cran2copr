@@ -1,9 +1,9 @@
 %global packname  BAT
-%global packver   2.5.1
+%global packver   2.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.1
+Version:          2.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Biodiversity Assessment Tools
 
@@ -15,17 +15,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-geometry 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-hypervolume 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-nls2 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vegan 
+Requires:         R-CRAN-ape 
 Requires:         R-CRAN-geometry 
 Requires:         R-graphics 
 Requires:         R-CRAN-hypervolume 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-nls2 
 Requires:         R-CRAN-raster 
 Requires:         R-stats 

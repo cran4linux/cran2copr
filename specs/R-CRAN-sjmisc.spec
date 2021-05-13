@@ -1,9 +1,9 @@
 %global packname  sjmisc
-%global packver   2.8.6
+%global packver   2.8.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.6
+Version:          2.8.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data and Variable Transformation Functions
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sjlabelled >= 1.1.1
 BuildRequires:    R-CRAN-dplyr 

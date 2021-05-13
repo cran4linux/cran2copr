@@ -1,32 +1,30 @@
-%global packname  phillydaodata
-%global packver   1.0.1
+%global packname  doseminer
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Data from the Philadelphia District Attorney's Office
+Summary:          Extract Drug Dosages from Free-Text Prescriptions
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-janitor 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-janitor 
+BuildRequires:    R-CRAN-magrittr >= 2.0.1
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-magrittr >= 2.0.1
+Requires:         R-CRAN-stringr >= 1.4.0
 
 %description
-Provides a series of helper functions to download and clean the data that
-is publicly available on the Philadelphia District Attorney's Office
-Public Data Dashboard (<https://data.philadao.com/download.html>). This
-package is not an official product of the Philadelphia District Attorney's
-Office - it is merely a way to handle their already public and freely
-available data.
+Utilities for converting unstructured electronic prescribing instructions
+into structured medication data. Extracts drug dose, units, daily dosing
+frequency and intervals from English-language prescriptions. Based on
+Karystianis et al. (2015) <doi:10.1186/s12911-016-0255-x>.
 
 %prep
 %setup -q -c -n %{packname}

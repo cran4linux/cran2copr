@@ -1,38 +1,33 @@
-%global packname  diveMove
-%global packver   1.6.0
+%global packname  gamblers.ruin.gameplay
+%global packver   4.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          4.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dive Analysis and Calibration
+Summary:          One-Dimensional Random Walks Through Simulation of the Gambler's Ruin Problem
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
-BuildRequires:    R-stats4 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-KernSmooth 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-CRAN-uniReg 
-Requires:         R-methods 
-Requires:         R-stats4 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-KernSmooth 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-quantreg 
-Requires:         R-CRAN-uniReg 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-hrbrthemes 
+BuildRequires:    R-CRAN-gganimate 
+BuildRequires:    R-CRAN-viridis 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-hrbrthemes 
+Requires:         R-CRAN-gganimate 
+Requires:         R-CRAN-viridis 
 
 %description
-Utilities to represent, visualize, filter, analyse, and summarize
-time-depth recorder (TDR) data.  Miscellaneous functions for handling
-location data are also provided.
+Simulates a gambling game under the gambler's ruin setup, after asking for
+the money you have and the money you want to win, along with your win
+probability in each round of the game.
 
 %prep
 %setup -q -c -n %{packname}

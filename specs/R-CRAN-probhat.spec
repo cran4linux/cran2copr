@@ -1,9 +1,9 @@
 %global packname  probhat
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Generalized Kernel Smoothing and Related Statistical Methods
 
@@ -28,13 +28,13 @@ cumulative distribution functions (CDFs) and quantile functions, mainly
 via (optionally bounded/truncated) kernel smoothing. In the continuous
 case, there's support for univariate, multivariate and conditional
 distributions, including distributions that are both multivariate and
-conditional. These generalize methods from the book "Kernel Smoothing",
-Wand and Jones (1995). Also, supports categorical distributions, mixed
-conditional distributions (with mixed input types) and smooth
-empirical-like distributions, some of which, can be used for statistical
-classification. There are extensions for computing distance matrices
-(between distributions), multivariate probabilities, multivariate random
-numbers, moment-based statistics and mode estimates.
+conditional. Refer to the book "Kernel Smoothing" by Wand and Jones
+(1995), whose methods are generalized by the methods here. Also, supports
+categorical distributions, mixed conditional distributions (with mixed
+input types) and smooth empirical-like distributions, some of which, can
+be used for statistical classification. There are extensions for computing
+distance matrices (between distributions), multivariate probabilities,
+multivariate random numbers, moment-based statistics and mode estimates.
 
 %prep
 %setup -q -c -n %{packname}
