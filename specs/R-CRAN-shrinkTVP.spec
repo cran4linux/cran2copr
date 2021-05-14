@@ -1,9 +1,9 @@
 %global packname  shrinkTVP
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Bayesian Inference for Time-Varying Parameter Models with Shrinkage
 
@@ -14,18 +14,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-stochvol >= 3.0.3
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-GIGrvg 
-BuildRequires:    R-CRAN-stochvol 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppProgress 
+Requires:         R-CRAN-stochvol >= 3.0.3
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-GIGrvg 
-Requires:         R-CRAN-stochvol 
 Requires:         R-CRAN-coda 
 Requires:         R-methods 
 Requires:         R-utils 

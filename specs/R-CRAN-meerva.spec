@@ -1,9 +1,9 @@
 %global packname  meerva
-%global packver   0.1-2
+%global packver   0.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Data with Measurement Error Using a Validation Subsample
 
@@ -19,10 +19,14 @@ BuildRequires:    R-CRAN-survival
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-matrixcalc 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-matrixcalc 
 
 %description
 Analyze data with measurement error when there is a validation subsample

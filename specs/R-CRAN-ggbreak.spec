@@ -1,13 +1,13 @@
-%global packname  RPEIF
-%global packver   1.2.2
+%global packname  ggbreak
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Computation and Plots of Influence Functions for Risk and Performance Measures
+Summary:          Set Axis Break for 'ggplot2'
 
-License:          GPL (>= 2)
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,20 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-zoo 
-Requires:         R-stats 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggplotify 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-grid 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggplotify 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-rlang 
 
 %description
-Computes the influence functions time series of the returns for the risk
-and performance measures as mentioned in Chen and Martin (2018)
-<https://www.ssrn.com/abstract=3085672>, as well as in Zhang et al. (2019)
-<https://www.ssrn.com/abstract=3415903>. Also evaluates estimators
-influence functions at a set of parameter values and plots them to display
-the shapes of the influence functions.
+An implementation of scale functions for setting axis breaks of a 'gg'
+plot.
 
 %prep
 %setup -q -c -n %{packname}

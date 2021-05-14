@@ -1,9 +1,9 @@
 %global packname  bruceR
-%global packver   0.6.2
+%global packver   0.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Broadly Useful Convenient and Efficient R Functions
 
@@ -51,9 +51,9 @@ where the current file is, print strings with rich formats and colors);
 reverse scoring); (3) reliability and factor analyses; (4) descriptive
 statistics and correlation analyses; (5) multi-factor analysis of variance
 (ANOVA), simple-effect analysis, and post-hoc multiple comparison; (6)
-tidy report of regression models (to Console and to Word); (7) mediation
-and moderation analyses; and (8) additional toolbox for statistics and
-graphics.
+tidy report of regression models and other results (to R Console and MS
+Word); (7) mediation and moderation analyses; and (8) additional toolbox
+for statistics and graphics.
 
 %prep
 %setup -q -c -n %{packname}

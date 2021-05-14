@@ -1,42 +1,47 @@
-%global packname  migest
-%global packver   1.8.4
+%global packname  zoomGroupStats
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods for the Indirect Estimation of Bilateral Migration
+Summary:          Analyze Text, Audio, and Video from 'Zoom' Meetings
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-paws 
+BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-syuzhet 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-paws 
+Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-stats 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-syuzhet 
 Requires:         R-utils 
 
 %description
-Indirect methods for estimating bilateral migration flows in the presence
-of partial or missing data, including the estimation of bilateral
-migration flows from changes in bilateral migrant stock tables (e.g. Abel
-(2013) <doi:10.4054/DemRes.2013.28.18>).
+Provides utilities for processing and analyzing the files that are
+exported from a recorded 'Zoom' Meeting. This includes analyzing data
+captured through video cameras and microphones, the text-based chat, and
+meta-data. You can analyze aspects of the conversation among meeting
+participants and their emotional expressions throughout the meeting.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
-%global packname  rvertnet
-%global packver   0.8.2
+%global packname  riskmetric
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Search 'Vertnet', a 'Database' of Vertebrate Specimen Records
+Summary:          Risk Metrics to Evaluating R Packages
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,25 +15,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 1.5
-BuildRequires:    R-CRAN-crul >= 0.5.2
-BuildRequires:    R-CRAN-dplyr >= 0.5.0
+BuildRequires:    R-CRAN-backports 
+BuildRequires:    R-utils 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-urltools 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-BiocManager 
+BuildRequires:    R-CRAN-cranlogs 
+BuildRequires:    R-CRAN-covr 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-maps 
-Requires:         R-CRAN-jsonlite >= 1.5
-Requires:         R-CRAN-crul >= 0.5.2
-Requires:         R-CRAN-dplyr >= 0.5.0
+BuildRequires:    R-CRAN-devtools 
+Requires:         R-CRAN-backports 
+Requires:         R-utils 
+Requires:         R-tools 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-urltools 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-BiocManager 
+Requires:         R-CRAN-cranlogs 
+Requires:         R-CRAN-covr 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-maps 
+Requires:         R-CRAN-devtools 
 
 %description
-Retrieve, map and summarize data from the 'VertNet.org' archives
-(<http://vertnet.org/>).  Functions allow searching by many parameters,
-including 'taxonomic' names, places, and dates. In addition, there is an
-interface for conducting spatially delimited searches, and another for
-requesting large 'datasets' via email.
+Facilities for assessing R packages against a number of metrics to help
+quantify their robustness.
 
 %prep
 %setup -q -c -n %{packname}

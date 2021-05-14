@@ -1,9 +1,9 @@
 %global packname  chillR
-%global packver   0.72.2
+%global packver   0.72.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.72.2
+Version:          0.72.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Phenology Analysis in Temperate Fruit Trees
 
@@ -38,6 +38,7 @@ BuildRequires:    R-CRAN-reshape2
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-GenSA 
+BuildRequires:    R-CRAN-lubridate 
 Requires:         R-CRAN-pls 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
@@ -62,6 +63,7 @@ Requires:         R-CRAN-reshape2
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-GenSA 
+Requires:         R-CRAN-lubridate 
 
 %description
 The phenology of plants (i.e. the timing of their annual life phases)

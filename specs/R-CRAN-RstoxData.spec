@@ -1,9 +1,9 @@
 %global packname  RstoxData
-%global packver   1.1.1
+%global packver   1.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Read and Manipulate Fisheries Data
 
@@ -14,12 +14,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
+BuildRequires:    R-CRAN-stringi >= 1.4.3
+BuildRequires:    R-CRAN-xslt >= 1.4
 BuildRequires:    R-CRAN-xml2 >= 1.2.2
 BuildRequires:    R-CRAN-data.table >= 1.12.6
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-units >= 0.7
+Requires:         R-CRAN-stringi >= 1.4.3
+Requires:         R-CRAN-xslt >= 1.4
 Requires:         R-CRAN-xml2 >= 1.2.2
 Requires:         R-CRAN-data.table >= 1.12.6
 Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-units >= 0.7
 
 %description
 Set of tools to read and manipulate various data formats for fisheries.
