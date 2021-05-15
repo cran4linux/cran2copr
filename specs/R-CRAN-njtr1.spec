@@ -1,9 +1,9 @@
 %global packname  njtr1
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download, Analyze & Clean New Jersey Car Crash Data
 
@@ -18,9 +18,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-readr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-readr 
 
 %description
 Download and analyze motor vehicle crash data released by the New Jersey

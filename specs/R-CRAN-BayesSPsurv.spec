@@ -1,9 +1,9 @@
 %global packname  BayesSPsurv
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Spatial Split Population Survival Model
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.3
 Requires:         R-CRAN-MCMCpack 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ape 
+Requires:         R-CRAN-progress 
 
 %description
 Parametric spatial split-population (SP) survival models for clustered

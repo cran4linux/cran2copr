@@ -1,9 +1,9 @@
 %global packname  huxtable
-%global packver   5.3.0
+%global packver   5.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.3.0
+Version:          5.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Create and Style Tables for LaTeX, HTML and Other Formats
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-memoise
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xml2 
@@ -36,6 +37,7 @@ Requires:         R-CRAN-memoise
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
 Requires:         R-CRAN-xml2 

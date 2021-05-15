@@ -1,29 +1,26 @@
-%global packname  BuildSys
-%global packver   1.1.0
+%global packname  onlineretail
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          System for Building and Debugging C/C++ Dynamic Libraries
+Summary:          Online Retail Dataset
 
-License:          GPL-2
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-methods 
-Requires:         R-CRAN-digest 
 
 %description
-A build system based on 'GNU make' that creates and maintains (simply)
-make files in an R session and provides GUI debugging support through
-'Microsoft Visual Code'.
+Transactions occurring for a UK-based and registered, non-store online
+retail between 01/12/2010 and 09/12/2011 (Chen et. al., 2012,
+<doi:10.1145/1835804.1835882>). This dataset is included in this package
+with the donor's permission, Dr. Daqing Chen.
 
 %prep
 %setup -q -c -n %{packname}

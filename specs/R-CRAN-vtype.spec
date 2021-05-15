@@ -1,31 +1,30 @@
-%global packname  hysteresis
-%global packver   2.7
+%global packname  vtype
+%global packver   0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7
+Version:          0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Modeling Rate-Dependent Hysteretic Processes and Ellipses
+Summary:          Estimates the Variable Type in Error Afflicted Data
 
-License:          GPL (>= 2)
+License:          GPL (>= 3.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-msm 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-msm 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-randomForest 
+Requires:         R-stats 
 
 %description
-Fit, summarize and plot sinusoidal hysteretic processes using: two-step
-simple harmonic least squares, ellipse-specific non-linear least squares,
-the direct method, geometric least squares or linear least squares.
+Estimates the type of variables in non-quality controlled data. The
+prediction is based on a random forest model, trained on over 5000 medical
+variables with accuracy of 99%%. The accuracy can hardy depend on type and
+coding style of data.
 
 %prep
 %setup -q -c -n %{packname}

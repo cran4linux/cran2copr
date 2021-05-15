@@ -1,31 +1,33 @@
-%global packname  hysteresis
-%global packver   2.7
+%global packname  bignum
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Modeling Rate-Dependent Hysteretic Processes and Ellipses
+Summary:          Arbitrary-Precision Integer and Floating-Point Mathematics
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-msm 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-msm 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-vctrs >= 0.3.0
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-vctrs >= 0.3.0
+Requires:         R-CRAN-rlang 
 
 %description
-Fit, summarize and plot sinusoidal hysteretic processes using: two-step
-simple harmonic least squares, ellipse-specific non-linear least squares,
-the direct method, geometric least squares or linear least squares.
+Classes for storing and manipulating arbitrary-precision integer vectors
+and high-precision floating-point vectors. These extend the range and
+precision of the 'integer' and 'double' data types found in R. This
+package utilizes the 'Boost.Multiprecision' C++ library. It is
+specifically designed to work well with the 'tidyverse' collection of R
+packages.
 
 %prep
 %setup -q -c -n %{packname}

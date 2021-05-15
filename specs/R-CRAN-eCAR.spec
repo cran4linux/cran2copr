@@ -1,32 +1,28 @@
-%global packname  magmaR
-%global packver   1.0.0
+%global packname  eCAR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R-Client for 'Magma' of the 'UCSF Mount Etna Data Library'
+Summary:          Eigenvalue CAR Models
 
-License:          GPL-2
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-crul 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-crul 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-Matrix 
 
 %description
-A client for interacting with 'magma', the data warehouse of the 'UCSF
-Mount Etna Data Library'. 'magmaR' includes functions for querying and
-downloading data from 'magma', in order to enable working with such data
-in R, as well as for uploading local data to 'magma'.
+Fits Leroux model in spectral domain to estimate causal spatial effect as
+detailed in Guan, Y; Page, G.L.; Reich, B.J.; Ventrucci, M.; Yang, S;
+(2020) <arXiv:2012.11767>. Both the parametric and semi-parametric models
+are available.  The semi-parametric model relies on 'INLA'.  The 'INLA'
+package can be obtained from <https://www.r-inla.org/>.
 
 %prep
 %setup -q -c -n %{packname}

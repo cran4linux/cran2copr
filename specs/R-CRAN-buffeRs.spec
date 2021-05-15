@@ -1,9 +1,9 @@
 %global packname  buffeRs
-%global packver   0.21
+%global packver   0.30
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.21
+Version:          0.30
 Release:          1%{?dist}%{?buildtag}
 Summary:          Buffer Generation for Spatial Models
 

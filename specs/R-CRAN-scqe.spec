@@ -1,13 +1,13 @@
-%global packname  hysteresis
-%global packver   2.7
+%global packname  scqe
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Modeling Rate-Dependent Hysteretic Processes and Ellipses
+Summary:          Stability Controlled Quasi-Experimentation
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,17 +15,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-msm 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-msm 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-AER 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-AER 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Fit, summarize and plot sinusoidal hysteretic processes using: two-step
-simple harmonic least squares, ellipse-specific non-linear least squares,
-the direct method, geometric least squares or linear least squares.
+Functions to implement the stability controlled quasi-experiment (SCQE)
+approach to study the effects of newly adopted treatments that were not
+assigned at random. This package contains tools to help users avoid making
+statistical assumptions that rely on infeasible assumptions. Methods
+developed in Hazlett (2019) <doi:10.1002/sim.8717>.
 
 %prep
 %setup -q -c -n %{packname}

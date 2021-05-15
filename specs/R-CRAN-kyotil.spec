@@ -1,9 +1,9 @@
 %global packname  kyotil
-%global packver   2020.10-12
+%global packver   2021.5-14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2020.10.12
+Version:          2021.5.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utility Functions for Statistical Analysis Report Generation and Monte Carlo Studies
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildRequires:    R-methods 
 Requires:         R-methods 
 

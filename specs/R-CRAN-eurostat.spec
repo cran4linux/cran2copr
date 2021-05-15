@@ -1,9 +1,9 @@
 %global packname  eurostat
-%global packver   3.6.84
+%global packver   3.7.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6.84
+Version:          3.7.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Eurostat Open Data
 
@@ -22,18 +22,17 @@ BuildRequires:    R-CRAN-countrycode
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-RefManageR 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-methods 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-classInt 
@@ -41,22 +40,21 @@ Requires:         R-CRAN-countrycode
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-RefManageR 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
 
 %description
 Tools to download data from the Eurostat database
-<http://ec.europa.eu/eurostat> together with search and manipulation
+<https://ec.europa.eu/eurostat> together with search and manipulation
 utilities.
 
 %prep

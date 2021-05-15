@@ -1,31 +1,28 @@
-%global packname  hysteresis
-%global packver   2.7
+%global packname  BosonSampling
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Modeling Rate-Dependent Hysteretic Processes and Ellipses
+Summary:          Classical Boson Sampling
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-msm 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-msm 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.12
 
 %description
-Fit, summarize and plot sinusoidal hysteretic processes using: two-step
-simple harmonic least squares, ellipse-specific non-linear least squares,
-the direct method, geometric least squares or linear least squares.
+Classical Boson Sampling using the algorithm of Clifford and Clifford
+(2017) <arXiv:1706.01260>. Also provides functions for generating random
+unitary matrices, evaluation of matrix permanents (both real and complex)
+and evaluation of complex permanent minors.
 
 %prep
 %setup -q -c -n %{packname}
