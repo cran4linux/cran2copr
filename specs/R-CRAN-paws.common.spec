@@ -1,9 +1,9 @@
 %global packname  paws.common
-%global packver   0.3.9
+%global packver   0.3.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.9
+Version:          0.3.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Paws Low-Level Amazon Web Services API
 
@@ -19,7 +19,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-ini 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
@@ -27,7 +26,6 @@ BuildRequires:    R-CRAN-xml2
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-ini 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-methods 
 Requires:         R-utils 

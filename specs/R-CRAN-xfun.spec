@@ -1,11 +1,11 @@
 %global packname  xfun
-%global packver   0.22
+%global packver   0.23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.22
+Version:          0.23
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Functions to Support Packages Maintained by 'Yihui Xie'
+Summary:          Supporting Functions for Packages Maintained by 'Yihui Xie'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}

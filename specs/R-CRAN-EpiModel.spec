@@ -1,9 +1,9 @@
 %global packname  EpiModel
-%global packver   2.0.3
+%global packver   2.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mathematical Modeling of Infectious Disease Dynamics
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-tergmLite >= 2.2.0
 BuildRequires:    R-CRAN-deSolve >= 1.21
 BuildRequires:    R-CRAN-network >= 1.13
 BuildRequires:    R-CRAN-networkDynamic >= 0.9
+BuildRequires:    R-CRAN-statnet.common 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
@@ -36,6 +37,7 @@ Requires:         R-CRAN-tergmLite >= 2.2.0
 Requires:         R-CRAN-deSolve >= 1.21
 Requires:         R-CRAN-network >= 1.13
 Requires:         R-CRAN-networkDynamic >= 0.9
+Requires:         R-CRAN-statnet.common 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 

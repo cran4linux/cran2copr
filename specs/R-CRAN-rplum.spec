@@ -1,9 +1,9 @@
 %global packname  rplum
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Age-Depth Modelling of Cores Dated by Pb-210
 
@@ -15,14 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rbacon >= 2.5.3
+BuildRequires:    R-CRAN-rbacon >= 2.5.5
 BuildRequires:    R-CRAN-coda >= 0.19.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-rbacon >= 2.5.3
+Requires:         R-CRAN-rbacon >= 2.5.5
 Requires:         R-CRAN-coda >= 0.19.1
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-grDevices 
@@ -36,9 +36,8 @@ reconstruct accumulation histories for 210Pb-dated deposits using prior
 information. It can combine 210Pb, radiocarbon, and other dates in the
 chronologies. See Aquino et al. (2018) <doi:10.1007/s13253-018-0328-7>.
 Note that parts of the code underlying 'rplum' are derived from the
-'rbacon' package by the same authors. Subsequent versions of 'rplum' and
-'rbacon' are planned to reduce duplication, with 'rplum' importing
-'rbacon' instead.
+'rbacon' package by the same authors, and there remains a degree of
+overlap between the two packages.
 
 %prep
 %setup -q -c -n %{packname}

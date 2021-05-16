@@ -1,11 +1,11 @@
-%global packname  ProSGPV
-%global packver   0.3.0
+%global packname  RprobitB
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Regression with Second-Generation P-Values
+Summary:          Bayes Estimation of Latent Class Mixed Multinomial Probit Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,22 +14,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-brglm2 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-brglm2 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-viridis 
 
 %description
-Implementation of penalized regression with second-generation p-values for
-variable selection. The algorithm can handle linear regression, GLM, and
-Cox regression. S3 methods print(), summary(), coef(), predict(), and
-plot() are available for the algorithm. Technical details can be found at
-<arXiv:2012.07941>.
+Fitting latent class mixed multinomial probit (LCMMNP) models to simulated
+or empirical data. Estimation takes place in a Bayesian framework using a
+Gibbs sampler. The number of latent classes can be updated within the
+algorithm on a weight-based strategy. For a reference, see
+Oelschlu00e4ger and Bauer (2021) <https://trid.trb.org/view/1759753>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  lme4
-%global packver   1.1-26
+%global packver   1.1-27
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.26
+Version:          1.1.27
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Mixed-Effects Models using 'Eigen' and S4
 
@@ -29,7 +29,6 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-nlme >= 3.1.123
 Requires:         R-CRAN-Matrix >= 1.2.1
@@ -45,7 +44,6 @@ Requires:         R-parallel
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-boot 
-Requires:         R-CRAN-statmod 
 
 %description
 Fit linear and generalized linear mixed-effects models. The models and

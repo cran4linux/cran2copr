@@ -1,35 +1,37 @@
-%global packname  ProSGPV
-%global packver   0.3.0
+%global packname  TwoWayFEWeights
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Regression with Second-Generation P-Values
+Summary:          Estimation of the Weights Attached to the Two-Way Fixed Effects Regressions
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-brglm2 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-brglm2 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-fixest >= 0.6.0
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-estimatr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-fixest >= 0.6.0
+Requires:         R-CRAN-stringr 
+Requires:         R-stats 
+Requires:         R-CRAN-estimatr 
+Requires:         R-CRAN-rlang 
 
 %description
-Implementation of penalized regression with second-generation p-values for
-variable selection. The algorithm can handle linear regression, GLM, and
-Cox regression. S3 methods print(), summary(), coef(), predict(), and
-plot() are available for the algorithm. Technical details can be found at
-<arXiv:2012.07941>.
+Estimates the weights and measure of robustness to treatment effect
+heterogeneity attached to two-way fixed effects regressions. Clément de
+Chaisemartin, Xavier D'Haultfœuille (2020) <DOI: 10.1257/aer.20181169>.
 
 %prep
 %setup -q -c -n %{packname}

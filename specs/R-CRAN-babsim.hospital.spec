@@ -1,9 +1,9 @@
 %global packname  babsim.hospital
-%global packver   11.7.14
+%global packver   11.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          11.7.14
+Version:          11.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bartz & Bartz Simulation Hospital
 

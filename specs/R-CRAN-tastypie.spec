@@ -1,9 +1,9 @@
 %global packname  tastypie
-%global packver   0.0.3
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Pie Charts
 
@@ -21,12 +21,16 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-shadowtext 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-packcircles 
+BuildRequires:    R-CRAN-fmsb 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-shadowtext 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-packcircles 
+Requires:         R-CRAN-fmsb 
 
 %description
 You only need to type 'why pie charts are bad' on Google to find thousands

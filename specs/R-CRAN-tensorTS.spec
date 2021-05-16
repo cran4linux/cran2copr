@@ -1,35 +1,47 @@
-%global packname  ProSGPV
-%global packver   0.3.0
+%global packname  tensorTS
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Regression with Second-Generation P-Values
+Summary:          Factor and Autoregressive Models for Tensor Time Series
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-brglm2 
+BuildRequires:    R-CRAN-tensor 
+BuildRequires:    R-CRAN-rTensor 
+BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-brglm2 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-tensor 
+Requires:         R-CRAN-rTensor 
+Requires:         R-CRAN-expm 
+Requires:         R-methods 
+Requires:         R-stats 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-survival 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-pracma 
+Requires:         R-graphics 
 
 %description
-Implementation of penalized regression with second-generation p-values for
-variable selection. The algorithm can handle linear regression, GLM, and
-Cox regression. S3 methods print(), summary(), coef(), predict(), and
-plot() are available for the algorithm. Technical details can be found at
-<arXiv:2012.07941>.
+Factor and autoregressive models for matrix and tensor valued time series.
+We provide functions for estimation, simulation and prediction. The models
+are discussed in Chen et al (2020) <DOI:10.1016/j.jeconom.2020.07.015>,
+Chen et al (2020) <arXiv:1905.07530>, and Han et al (2020)
+<arXiv:2006.02611>.
 
 %prep
 %setup -q -c -n %{packname}

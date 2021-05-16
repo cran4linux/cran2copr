@@ -1,35 +1,35 @@
-%global packname  ProSGPV
-%global packver   0.3.0
+%global packname  CopernicusDEM
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Regression with Second-Generation P-Values
+Summary:          Copernicus Digital Elevation Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-brglm2 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-brglm2 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-gdalUtils 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-sf 
+Requires:         R-utils 
+Requires:         R-CRAN-gdalUtils 
 
 %description
-Implementation of penalized regression with second-generation p-values for
-variable selection. The algorithm can handle linear regression, GLM, and
-Cox regression. S3 methods print(), summary(), coef(), predict(), and
-plot() are available for the algorithm. Technical details can be found at
-<arXiv:2012.07941>.
+Copernicus Digital Elevation Model datasets (DEM) of 90 and 30 meters
+resolution using the 'awscli' command line tool. The Copernicus (DEM) is
+included in the Registry of Open Data on 'AWS (Amazon Web Services)' and
+represents the surface of the Earth including buildings, infrastructure
+and vegetation.
 
 %prep
 %setup -q -c -n %{packname}

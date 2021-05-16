@@ -1,47 +1,37 @@
-%global packname  hisse
-%global packver   1.9.19
+%global packname  rTensor
+%global packver   1.4.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.19
+Version:          1.4.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hidden State Speciation and Extinction
+Summary:          Tools for Tensor Analysis and Decomposition
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-deSolve 
-BuildRequires:    R-CRAN-GenSA 
-BuildRequires:    R-CRAN-subplex 
-BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-phytools 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-devel >= 2.10.0
+Requires:         R-core >= 2.10.0
+BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-diversitree 
-BuildRequires:    R-CRAN-plotrix 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-deSolve 
-Requires:         R-CRAN-GenSA 
-Requires:         R-CRAN-subplex 
-Requires:         R-CRAN-nloptr 
-Requires:         R-parallel 
-Requires:         R-CRAN-phytools 
-Requires:         R-CRAN-data.table 
 Requires:         R-methods 
-Requires:         R-CRAN-diversitree 
-Requires:         R-CRAN-plotrix 
 
 %description
-Sets up and executes a HiSSE model (Hidden State Speciation and
-Extinction) on a phylogeny and character sets to test for hidden shifts in
-trait dependent rates of diversification. Beaulieu and O'Meara (2016)
-<doi:10.1093/sysbio/syw022>.
+A set of tools for creation, manipulation, and modeling of tensors with
+arbitrary number of modes. A tensor in the context of data analysis is a
+multidimensional array. rTensor does this by providing a S4 class 'Tensor'
+that wraps around the base 'array' class. rTensor provides common tensor
+operations as methods, including matrix unfolding, summing/averaging
+across modes, calculating the Frobenius norm, and taking the inner product
+between two tensors. Familiar array operations are overloaded, such as
+index subsetting via '[' and element-wise operations. rTensor also
+implements various tensor decomposition, including CP, GLRAM, MPCA, PVD,
+and Tucker. For tensors with 3 modes, rTensor also implements transpose,
+t-product, and t-SVD, as defined in Kilmer et al. (2013). Some auxiliary
+functions include the Khatri-Rao product, Kronecker product, and the
+Hadamard product for a list of matrices.
 
 %prep
 %setup -q -c -n %{packname}
