@@ -1,9 +1,9 @@
 %global packname  ouch
-%global packver   2.16
+%global packver   2.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.16
+Version:          2.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ornstein-Uhlenbeck Models for Phylogenetic Comparative Hypotheses
 

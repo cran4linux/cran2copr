@@ -1,36 +1,34 @@
-%global packname  JuliaCall
-%global packver   0.17.4
+%global packname  glamlasso
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17.4
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Seamless Integration Between R and 'Julia'
+Summary:          Penalization in Large Scale Generalized Linear Array Models
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         julia
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-knitr >= 1.28
-BuildRequires:    R-CRAN-Rcpp >= 0.12.7
-BuildRequires:    R-utils 
-Requires:         R-CRAN-knitr >= 1.28
-Requires:         R-CRAN-Rcpp >= 0.12.7
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.11.2
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.11.2
 
 %description
-Provides an R interface to 'Julia', which is a high-level,
-high-performance dynamic programming language for numerical computing, see
-<https://julialang.org/> for more information. It provides a high-level
-interface as well as a low-level interface. Using the high level
-interface, you could call any 'Julia' function just like any R function
-with automatic type conversion. Using the low level interface, you could
-deal with C-level SEXP directly while enjoying the convenience of using a
-high-level programming language like 'Julia'.
+Efficient design matrix free lasso penalized estimation in large scale 2
+and 3-dimensional generalized linear array model framework. The procedure
+is based on the gdpg algorithm from Lund et al. (2017)
+<doi:10.1080/10618600.2017.1279548>. Currently Lasso or Smoothly Clipped
+Absolute Deviation (SCAD) penalized estimation is possible for the
+following models: The Gaussian model with identity link, the Binomial
+model with logit link, the Poisson model with log link and the Gamma model
+with log link. It is also possible to include a component in the model
+with non-tensor design e.g an intercept. Also provided are functions,
+glamlassoRR() and glamlassoS(), fitting special cases of GLAMs.
 
 %prep
 %setup -q -c -n %{packname}

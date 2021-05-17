@@ -1,9 +1,9 @@
 %global packname  nandb
-%global packver   2.0.8
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.8
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Number and Brightness Image Analysis
 
@@ -20,10 +20,10 @@ BuildRequires:    R-CRAN-withr >= 2.1.0
 BuildRequires:    R-CRAN-checkmate >= 1.9.3
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-stringr >= 1.4
-BuildRequires:    R-CRAN-autothresholdr >= 1.3.7
+BuildRequires:    R-CRAN-autothresholdr >= 1.3.11
 BuildRequires:    R-CRAN-glue >= 1.3
 BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-CRAN-detrendr >= 0.6.2
+BuildRequires:    R-CRAN-detrendr >= 0.6.12
 BuildRequires:    R-CRAN-rlang >= 0.3.3
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-BBmisc 
@@ -39,10 +39,10 @@ Requires:         R-CRAN-withr >= 2.1.0
 Requires:         R-CRAN-checkmate >= 1.9.3
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringr >= 1.4
-Requires:         R-CRAN-autothresholdr >= 1.3.7
+Requires:         R-CRAN-autothresholdr >= 1.3.11
 Requires:         R-CRAN-glue >= 1.3
 Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-CRAN-detrendr >= 0.6.2
+Requires:         R-CRAN-detrendr >= 0.6.12
 Requires:         R-CRAN-rlang >= 0.3.3
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-BBmisc 

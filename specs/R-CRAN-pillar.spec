@@ -1,9 +1,9 @@
 %global packname  pillar
-%global packver   1.6.0
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Coloured Formatting for Columns
 
@@ -17,19 +17,19 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-crayon >= 1.3.4
 BuildRequires:    R-CRAN-utf8 >= 1.1.0
+BuildRequires:    R-CRAN-vctrs >= 0.3.8
+BuildRequires:    R-CRAN-ellipsis >= 0.3.2
 BuildRequires:    R-CRAN-rlang >= 0.3.0
-BuildRequires:    R-CRAN-vctrs >= 0.2.0
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-fansi 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-crayon >= 1.3.4
 Requires:         R-CRAN-utf8 >= 1.1.0
+Requires:         R-CRAN-vctrs >= 0.3.8
+Requires:         R-CRAN-ellipsis >= 0.3.2
 Requires:         R-CRAN-rlang >= 0.3.0
-Requires:         R-CRAN-vctrs >= 0.2.0
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ellipsis 
 Requires:         R-CRAN-fansi 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-utils 

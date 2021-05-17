@@ -1,9 +1,9 @@
 %global packname  RiskPortfolios
-%global packver   2.1.5
+%global packver   2.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.5
+Version:          2.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computation of Risk-Based Portfolios
 

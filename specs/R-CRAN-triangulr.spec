@@ -1,9 +1,9 @@
 %global packname  triangulr
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Performance Triangular Distribution Functions
 
@@ -14,25 +14,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-rlang >= 0.4.8
-BuildRequires:    R-CRAN-vctrs >= 0.3.5
-BuildRequires:    R-CRAN-dqrng >= 0.2.1
-Requires:         R-CRAN-Rcpp >= 1.0.5
-Requires:         R-CRAN-rlang >= 0.4.8
-Requires:         R-CRAN-vctrs >= 0.3.5
-Requires:         R-CRAN-dqrng >= 0.2.1
+BuildRequires:    R-CRAN-rlang >= 0.4.11
+BuildRequires:    R-CRAN-vctrs >= 0.3.8
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-rlang >= 0.4.11
+Requires:         R-CRAN-vctrs >= 0.3.8
 
 %description
 A collection of high-performance functions for the triangular distribution
 that consists of the probability density function, cumulative distribution
 function, quantile function, random variate generator, moment generating
 function, characteristic function, and expected shortfall function.
-References: Samuel Kotz, Johan Ren Van Dorp (2004) <doi:10.1142/5720>,
-Melissa E. O'Neill (2014)
-<https://www.cs.hmc.edu/tr/hmc-cs-2014-0905.pdf>, David Blackman and
-Sebastiano Vigna (2018) <arXiv:1805.01407>, and Acerbi, Carlo and Tasche,
-Dirk. (2002) <doi:10.1111/1468-0300.00091>.
+References: Samuel Kotz, Johan Ren Van Dorp (2004) <doi:10.1142/5720> and
+Acerbi, Carlo and Tasche, Dirk. (2002) <doi:10.1111/1468-0300.00091>.
 
 %prep
 %setup -q -c -n %{packname}

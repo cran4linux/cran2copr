@@ -1,36 +1,36 @@
-%global packname  JuliaCall
-%global packver   0.17.4
+%global packname  mustashe
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17.4
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Seamless Integration Between R and 'Julia'
+Summary:          Stash and Load Objects
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         julia
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-knitr >= 1.28
-BuildRequires:    R-CRAN-Rcpp >= 0.12.7
-BuildRequires:    R-utils 
-Requires:         R-CRAN-knitr >= 1.28
-Requires:         R-CRAN-Rcpp >= 0.12.7
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble >= 2.1.0
+BuildRequires:    R-CRAN-formatR >= 1.7
+BuildRequires:    R-CRAN-digest >= 0.6.0
+BuildRequires:    R-CRAN-qs >= 0.24.1
+BuildRequires:    R-CRAN-here >= 0.1.0
+Requires:         R-CRAN-tibble >= 2.1.0
+Requires:         R-CRAN-formatR >= 1.7
+Requires:         R-CRAN-digest >= 0.6.0
+Requires:         R-CRAN-qs >= 0.24.1
+Requires:         R-CRAN-here >= 0.1.0
 
 %description
-Provides an R interface to 'Julia', which is a high-level,
-high-performance dynamic programming language for numerical computing, see
-<https://julialang.org/> for more information. It provides a high-level
-interface as well as a low-level interface. Using the high level
-interface, you could call any 'Julia' function just like any R function
-with automatic type conversion. Using the low level interface, you could
-deal with C-level SEXP directly while enjoying the convenience of using a
-high-level programming language like 'Julia'.
+A simple system for saving and loading objects in R. Long running
+computations can be stashed after the first run and then reloaded the next
+time. Dependencies can be added to ensure that a computation is re-run if
+any of its dependencies or inputs have changed.
 
 %prep
 %setup -q -c -n %{packname}

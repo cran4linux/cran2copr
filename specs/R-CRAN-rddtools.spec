@@ -1,43 +1,48 @@
-%global packname  tibble
-%global packver   3.1.2
+%global packname  rddtools
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.2
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Data Frames
+Summary:          Toolbox for Regression Discontinuity Design ('RDD')
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-pillar >= 1.6.0
-BuildRequires:    R-CRAN-rlang >= 0.4.3
-BuildRequires:    R-CRAN-fansi >= 0.4.0
-BuildRequires:    R-CRAN-vctrs >= 0.3.8
-BuildRequires:    R-CRAN-ellipsis >= 0.3.2
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-AER 
+BuildRequires:    R-CRAN-np 
+BuildRequires:    R-CRAN-KernSmooth 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rdd 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-locpol 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pkgconfig 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-pillar >= 1.6.0
-Requires:         R-CRAN-rlang >= 0.4.3
-Requires:         R-CRAN-fansi >= 0.4.0
-Requires:         R-CRAN-vctrs >= 0.3.8
-Requires:         R-CRAN-ellipsis >= 0.3.2
-Requires:         R-CRAN-lifecycle >= 0.2.0
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rdrobust 
+BuildRequires:    R-CRAN-rmarkdown 
+Requires:         R-CRAN-AER 
+Requires:         R-CRAN-np 
+Requires:         R-CRAN-KernSmooth 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rdd 
+Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-locpol 
 Requires:         R-methods 
-Requires:         R-CRAN-pkgconfig 
-Requires:         R-utils 
+Requires:         R-CRAN-rdrobust 
+Requires:         R-CRAN-rmarkdown 
 
 %description
-Provides a 'tbl_df' class (the 'tibble') that provides stricter checking
-and better formatting than the traditional data frame.
+Set of functions for Regression Discontinuity Design ('RDD'), for data
+visualisation, estimation and testing.
 
 %prep
 %setup -q -c -n %{packname}

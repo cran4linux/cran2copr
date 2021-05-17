@@ -1,9 +1,9 @@
 %global packname  stochvol
-%global packver   3.0.4
+%global packver   3.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.4
+Version:          3.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Bayesian Inference for Stochastic Volatility (SV) Models
 

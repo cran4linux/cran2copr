@@ -1,9 +1,9 @@
 %global packname  AdMit
-%global packver   2.1.6
+%global packver   2.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.6
+Version:          2.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adaptive Mixture of Student-t Distributions
 

@@ -1,11 +1,11 @@
 %global packname  UCSCXenaShiny
-%global packver   0.5.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
-Release:          3%{?dist}%{?buildtag}
-Summary:          A Shiny App for UCSC Xena Database
+Version:          1.0.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          Interactive Analysis of UCSC Xena Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,49 +15,55 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plotly >= 4.9.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
 BuildRequires:    R-CRAN-tibble >= 2.1.3
-BuildRequires:    R-CRAN-zip >= 2.0.1
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-shiny >= 1.3.2
-BuildRequires:    R-CRAN-UCSCXenaTools >= 1.2.2
-BuildRequires:    R-CRAN-RColorBrewer >= 1.1.2
-BuildRequires:    R-CRAN-shinythemes >= 1.1.2
-BuildRequires:    R-CRAN-shinyjs >= 1.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.3
-BuildRequires:    R-CRAN-shinyBS >= 0.61
-BuildRequires:    R-CRAN-DT >= 0.5
-BuildRequires:    R-CRAN-shinyWidgets >= 0.4.8
 BuildRequires:    R-CRAN-ggpubr >= 0.2
+BuildRequires:    R-CRAN-ezcox 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-ppcor 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-UCSCXenaTools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-plotly >= 4.9.0
 Requires:         R-CRAN-ggplot2 >= 3.2.0
 Requires:         R-CRAN-tibble >= 2.1.3
-Requires:         R-CRAN-zip >= 2.0.1
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-shiny >= 1.3.2
-Requires:         R-CRAN-UCSCXenaTools >= 1.2.2
-Requires:         R-CRAN-RColorBrewer >= 1.1.2
-Requires:         R-CRAN-shinythemes >= 1.1.2
-Requires:         R-CRAN-shinyjs >= 1.0
 Requires:         R-CRAN-dplyr >= 0.8.3
-Requires:         R-CRAN-shinyBS >= 0.61
-Requires:         R-CRAN-DT >= 0.5
-Requires:         R-CRAN-shinyWidgets >= 0.4.8
 Requires:         R-CRAN-ggpubr >= 0.2
+Requires:         R-CRAN-ezcox 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ppcor 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-purrr 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-UCSCXenaTools 
 Requires:         R-utils 
 
 %description
-Provides a web app for downloading, analyzing and visualizing datasets
-from UCSC Xena (<http://xena.ucsc.edu/>), which is a collection of
-UCSC-hosted public databases such as TCGA, ICGC, TARGET, GTEx, CCLE, and
-others.
+Provides functions and a Shiny application for downloading, analyzing and
+visualizing datasets from UCSC Xena (<http://xena.ucsc.edu/>), which is a
+collection of UCSC-hosted public databases such as TCGA, ICGC, TARGET,
+GTEx, CCLE, and others.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -65,22 +71,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/modules_apps
-%doc %{rlibdir}/%{packname}/shinyapp
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

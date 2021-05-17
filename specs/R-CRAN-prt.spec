@@ -1,9 +1,9 @@
 %global packname  prt
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tabular Data Backed by Partitioned 'fst' Files
 
@@ -27,7 +27,6 @@ BuildRequires:    R-CRAN-crayon
 BuildRequires:    R-CRAN-fansi 
 BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-knitr 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-fst 
 Requires:         R-CRAN-data.table 
@@ -40,7 +39,6 @@ Requires:         R-CRAN-crayon
 Requires:         R-CRAN-fansi 
 Requires:         R-CRAN-backports 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-knitr 
 
 %description
 Intended for larger-than-memory tabular data, 'prt' objects provide an
