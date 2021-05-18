@@ -1,9 +1,9 @@
 %global packname  ggside
-%global packver   0.0.1.3
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Side Grammar Graphics
 
@@ -20,7 +20,6 @@ BuildRequires:    R-grid
 BuildRequires:    R-CRAN-gtable 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
@@ -28,7 +27,6 @@ Requires:         R-grid
 Requires:         R-CRAN-gtable 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
-Requires:         R-utils 
 Requires:         R-CRAN-glue 
 Requires:         R-stats 
 
@@ -37,7 +35,7 @@ The grammar of graphics as shown in 'ggplot2' has provided an expressive
 API for users to build plots. 'ggside' extends 'ggplot2' by allowing users
 to add graphical information about one of the main panel's axis using a
 familiar 'ggplot2' style API with tidy data. This package is particularly
-useful for visualising metadata on a discrete axis, or summary graphics on
+useful for visualizing metadata on a discrete axis, or summary graphics on
 a continuous axis such as a boxplot or a density distribution.
 
 %prep

@@ -1,33 +1,35 @@
-%global packname  TRMF
-%global packver   0.1.2
+%global packname  csurvey
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Temporally Regularized Matrix Factorization
+Summary:          Constrained Regression for Survey Data
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-limSolve 
-BuildRequires:    R-CRAN-generics 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-limSolve 
-Requires:         R-CRAN-generics 
+BuildRequires:    R-CRAN-MASS >= 7.3.51.4
+BuildRequires:    R-CRAN-survey >= 3.36
+BuildRequires:    R-CRAN-Matrix >= 1.2.17
+BuildRequires:    R-CRAN-coneproj >= 1.14
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-MASS >= 7.3.51.4
+Requires:         R-CRAN-survey >= 3.36
+Requires:         R-CRAN-Matrix >= 1.2.17
+Requires:         R-CRAN-coneproj >= 1.14
+Requires:         R-CRAN-purrr >= 0.3.4
 
 %description
-Functions to estimate temporally regularized matrix factorization (TRMF)
-for forecasting and imputing values in short but high-dimensional time
-series. Uses regularized alternating least squares to compute the
-factorization, allows for several types of constraints on matrix factors
-and can handle weighted data.
+Domain mean estimation with monotonicity or block monotone constraints.
+See Wu J, Meyer MC and Opsomer JD (2016)<doi:10.1002/cjs.11301> for more
+details.
 
 %prep
 %setup -q -c -n %{packname}

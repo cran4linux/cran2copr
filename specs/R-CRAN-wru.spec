@@ -1,9 +1,9 @@
 %global packname  wru
-%global packver   0.1-11
+%global packver   0.1-12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.11
+Version:          0.1.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Who are You? Bayesian Prediction of Racial Category Using Surname and Geolocation
 
@@ -25,8 +25,9 @@ Predicts individual race/ethnicity using surname, geolocation, and other
 attributes, such as gender and age. The method utilizes the Bayes' Rule to
 compute the posterior probability of each racial category for any given
 individual. The package implements methods described in Imai and Khanna
-(2015) "Improving Ecological Inference by Predicting Individual Ethnicity
-from Voter Registration Records" <DOI:10.1093/pan/mpw001>.
+(2016) "Improving Ecological Inference by Predicting Individual Ethnicity
+from Voter Registration Records" Political Analysis
+<DOI:10.1093/pan/mpw001>.
 
 %prep
 %setup -q -c -n %{packname}

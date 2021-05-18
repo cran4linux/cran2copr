@@ -1,11 +1,11 @@
-%global packname  doc2concrete
-%global packver   0.5.4
+%global packname  clintools
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Measuring Concreteness in Natural Language
+Summary:          Tools for Clinical Research
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,32 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tm 
-BuildRequires:    R-CRAN-quanteda 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-english 
-BuildRequires:    R-CRAN-textstem 
-BuildRequires:    R-CRAN-SnowballC 
-BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-tm 
-Requires:         R-CRAN-quanteda 
-Requires:         R-parallel 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-english 
-Requires:         R-CRAN-textstem 
-Requires:         R-CRAN-SnowballC 
-Requires:         R-CRAN-stringi 
+BuildRequires:    R-CRAN-signal >= 0.7.6
+Requires:         R-CRAN-signal >= 0.7.6
 
 %description
-Models for detecting concreteness in natural language. This package is
-built in support of Yeomans (2021) <doi:10.1016/j.obhdp.2020.10.008>,
-which reviews linguistic models of concreteness in several domains. Here,
-we provide an implementation of the best-performing domain-general model
-(from Brysbaert et al., (2014) <doi:10.3758/s13428-013-0403-5>) as well as
-two pre-trained models for the feedback and plan-making domains.
+Functions for calculation of hemodynamic indexes including transfer
+function analysis (Claassen et al. (2016) <doi:10.1177/0271678X15626425>)
+and Mx (Czosnyka et al. (1996) <doi:10.1161/01.str.27.10.1829>), and other
+helper functions for clinical researchers.
 
 %prep
 %setup -q -c -n %{packname}

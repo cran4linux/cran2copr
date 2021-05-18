@@ -1,9 +1,9 @@
 %global packname  fields
-%global packver   11.6
+%global packver   12.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          11.6
+Version:          12.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Spatial Data
 
@@ -16,9 +16,11 @@ BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-spam 
+BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-maps 
 Requires:         R-methods 
 Requires:         R-CRAN-spam 
+Requires:         R-CRAN-viridis 
 Requires:         R-CRAN-maps 
 
 %description

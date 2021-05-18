@@ -1,9 +1,9 @@
 %global packname  rBiasCorrection
-%global packver   0.2.9
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Correct Bias in DNA Methylation Analyses
 
@@ -37,7 +37,8 @@ Requires:         R-utils
 %description
 Implementation of the algorithms (with minor modifications) to correct
 bias in quantitative DNA methylation analyses as described by Moskalev et
-al. (2011) <doi:10.1093/nar/gkr213>.
+al. (2011) <doi:10.1093/nar/gkr213>. Publication: Kapsner et al. (2021)
+<doi:10.1002/ijc.33681>.
 
 %prep
 %setup -q -c -n %{packname}

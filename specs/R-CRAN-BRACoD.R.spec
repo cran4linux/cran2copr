@@ -1,11 +1,11 @@
-%global packname  doc2concrete
-%global packver   0.5.4
+%global packname  BRACoD.R
+%global packver   0.0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Measuring Concreteness in Natural Language
+Summary:          BRACoD: Bayesian Regression Analysis of Compositional Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,32 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tm 
-BuildRequires:    R-CRAN-quanteda 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-english 
-BuildRequires:    R-CRAN-textstem 
-BuildRequires:    R-CRAN-SnowballC 
-BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-tm 
-Requires:         R-CRAN-quanteda 
-Requires:         R-parallel 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-english 
-Requires:         R-CRAN-textstem 
-Requires:         R-CRAN-SnowballC 
-Requires:         R-CRAN-stringi 
+BuildRequires:    R-CRAN-reticulate 
+Requires:         R-CRAN-reticulate 
 
 %description
-Models for detecting concreteness in natural language. This package is
-built in support of Yeomans (2021) <doi:10.1016/j.obhdp.2020.10.008>,
-which reviews linguistic models of concreteness in several domains. Here,
-we provide an implementation of the best-performing domain-general model
-(from Brysbaert et al., (2014) <doi:10.3758/s13428-013-0403-5>) as well as
-two pre-trained models for the feedback and plan-making domains.
+The goal of this method is to identify associations between bacteria and
+an environmental variable in 16S or other compositional data. The
+environmental variable is any variable which is measure for each
+microbiome sample, for example, a butyrate measurement paired with every
+sample in the data. Microbiome data is compositional, meaning that the
+total abundance of each sample sums to 1, and this introduces severe
+statistical distortions. This method takes a Bayesian approach to
+correcting for these statistical distortions, in which the total abundance
+is treated as an unknown variable. This package runs the python
+implementation using reticulate.
 
 %prep
 %setup -q -c -n %{packname}

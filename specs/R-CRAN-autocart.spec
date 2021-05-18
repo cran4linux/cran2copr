@@ -1,33 +1,37 @@
-%global packname  TRMF
-%global packver   0.1.2
+%global packname  autocart
+%global packver   1.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.4.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Temporally Regularized Matrix Factorization
+Summary:          Autocorrelation Regression Trees
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-limSolve 
-BuildRequires:    R-CRAN-generics 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-limSolve 
-Requires:         R-CRAN-generics 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppParallel 
 
 %description
-Functions to estimate temporally regularized matrix factorization (TRMF)
-for forecasting and imputing values in short but high-dimensional time
-series. Uses regularized alternating least squares to compute the
-factorization, allows for several types of constraints on matrix factors
-and can handle weighted data.
+A modified version of the classification and regression tree (CART)
+algorithm for modelling spatial data that features coordinate information.
+Coordinate information can be used to evaluate measures of spatial
+autocorrelation and spatial compactness during the splitting phase of the
+tree, leading to better predictions and more physically realistic
+predictions on these types of datasets. These methods are described in
+Ancell and Bean (2021) <arXiv:2101.08258>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  arules
-%global packver   1.6-7
+%global packver   1.6-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.7
+Version:          1.6.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mining Association Rules and Frequent Itemsets
 

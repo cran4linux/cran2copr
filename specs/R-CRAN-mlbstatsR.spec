@@ -1,11 +1,11 @@
-%global packname  TRMF
-%global packver   0.1.2
+%global packname  mlbstatsR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Temporally Regularized Matrix Factorization
+Summary:          Stats, Photos, Logos, and Colors of M.L.B. (Major League Baseball)
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,19 +15,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-limSolve 
-BuildRequires:    R-CRAN-generics 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-limSolve 
-Requires:         R-CRAN-generics 
+BuildRequires:    R-CRAN-dplyr >= 1.0
+BuildRequires:    R-CRAN-tidyr >= 1.0
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-dplyr >= 1.0
+Requires:         R-CRAN-tidyr >= 1.0
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-xml2 
 
 %description
-Functions to estimate temporally regularized matrix factorization (TRMF)
-for forecasting and imputing values in short but high-dimensional time
-series. Uses regularized alternating least squares to compute the
-factorization, allows for several types of constraints on matrix factors
-and can handle weighted data.
+Main use case is to gives users the ability to work with Major League
+Baseball data in a clean and detailed way. Which provides users with a
+variety of ways to improve visualizations.
 
 %prep
 %setup -q -c -n %{packname}

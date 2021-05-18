@@ -1,9 +1,9 @@
 %global packname  markovchain
-%global packver   0.8.5-4
+%global packver   0.8.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.5.4
+Version:          0.8.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Handling Discrete Time Markov Chains
 

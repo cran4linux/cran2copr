@@ -1,9 +1,9 @@
 %global packname  metaSEM
-%global packver   1.2.5
+%global packver   1.2.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          1.2.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Meta-Analysis using Structural Equation Modeling
 

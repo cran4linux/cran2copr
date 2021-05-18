@@ -1,43 +1,29 @@
-%global packname  timereg
-%global packver   1.9.9
+%global packname  icrf
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.9
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Flexible Regression Models for Survival Data
+Summary:          Interval Censored Recursive Forests
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15
-Requires:         R-core >= 2.15
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-lava 
-BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-lava 
-Requires:         R-CRAN-numDeriv 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-utils 
-Requires:         R-methods 
 
 %description
-Programs for Martinussen and Scheike (2006), `Dynamic Regression Models
-for Survival Data', Springer Verlag.  Plus more recent developments.
-Additive survival model, semiparametric proportional odds model, fast
-cumulative residuals, excess risk models and more. Flexible competing
-risks regression including GOF-tests. Two-stage frailty modelling. PLS for
-the additive risk model. Lasso in the 'ahaz' package.
+Implements interval censored recursive forests (ICRF) based on Cho,
+Jewell, and Kosorok (2021+). ICRF is a variant of random forests where the
+outcome variable is interval censored survival data. It can be used for
+usual right censored data and current status data as well. A recursion
+technique is used to improve accuracy and smoothed survival curves are
+provided.
 
 %prep
 %setup -q -c -n %{packname}

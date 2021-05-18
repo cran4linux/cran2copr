@@ -1,33 +1,33 @@
-%global packname  TRMF
-%global packver   0.1.2
+%global packname  bliss
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Temporally Regularized Matrix Factorization
+Summary:          Bayesian Functional Linear Regression with Sparse Step Functions
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-limSolve 
-BuildRequires:    R-CRAN-generics 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-limSolve 
-Requires:         R-CRAN-generics 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-rockchalk 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-rockchalk 
 
 %description
-Functions to estimate temporally regularized matrix factorization (TRMF)
-for forecasting and imputing values in short but high-dimensional time
-series. Uses regularized alternating least squares to compute the
-factorization, allows for several types of constraints on matrix factors
-and can handle weighted data.
+A method for the Bayesian functional linear regression model
+(scalar-on-function), including two estimators of the coefficient function
+and an estimator of its support. A representation of the posterior
+distribution is also available. Grollemund P-M., Abraham C., Baragatti M.,
+Pudlo P. (2019) <doi:10.1214/18-BA1095>.
 
 %prep
 %setup -q -c -n %{packname}

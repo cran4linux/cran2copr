@@ -1,9 +1,9 @@
 %global packname  AHMbook
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions and Data for the Book 'Applied Hierarchical Modeling in Ecology' Vols 1 and 2
 
@@ -48,7 +48,7 @@ Provides functions and data sets to accompany the two volume publication
 abundance and species richness in R and BUGS' by Marc Kéry and Andy Royle:
 volume 1 (2016, ISBN: 978-0-12-801378-6) and volume 2 (2021, ISBN:
 978-0-12-809585-0),
-<https://www.mbr-pwrc.usgs.gov/pubanalysis/keryroylebook>.
+<https://www.mbr-pwrc.usgs.gov/pubanalysis/keryroylebook/>.
 
 %prep
 %setup -q -c -n %{packname}

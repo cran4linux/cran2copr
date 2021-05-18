@@ -1,33 +1,26 @@
-%global packname  TRMF
-%global packver   0.1.2
+%global packname  words
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Temporally Regularized Matrix Factorization
+Summary:          List of English Words from the Scrabble Dictionary
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-limSolve 
-BuildRequires:    R-CRAN-generics 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-limSolve 
-Requires:         R-CRAN-generics 
 
 %description
-Functions to estimate temporally regularized matrix factorization (TRMF)
-for forecasting and imputing values in short but high-dimensional time
-series. Uses regularized alternating least squares to compute the
-factorization, allows for several types of constraints on matrix factors
-and can handle weighted data.
+List of english scrabble words as listed in the OTCWL2014
+<https://www.scrabbleplayers.org/w/Official_Tournament_and_Club_Word_List_2014_Edition>.
+Words are collated from the 'Word Game Dictionary'
+<https://www.wordgamedictionary.com/word-lists/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  hms
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pretty Time of Day
 
@@ -15,14 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-vctrs >= 0.2.1
-BuildRequires:    R-CRAN-ellipsis 
+BuildRequires:    R-CRAN-vctrs >= 0.3.8
+BuildRequires:    R-CRAN-ellipsis >= 0.3.2
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pkgconfig 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-vctrs >= 0.2.1
-Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-vctrs >= 0.3.8
+Requires:         R-CRAN-ellipsis >= 0.3.2
 Requires:         R-CRAN-lifecycle 
 Requires:         R-methods 
 Requires:         R-CRAN-pkgconfig 

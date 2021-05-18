@@ -1,43 +1,37 @@
-%global packname  timereg
-%global packver   1.9.9
+%global packname  wacolors
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.9
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Flexible Regression Models for Survival Data
+Summary:          Colorblind-Friendly Palettes from Washington State
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15
-Requires:         R-core >= 2.15
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-lava 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
+BuildArch:        noarch
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-lava 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-utils 
-Requires:         R-methods 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
 
 %description
-Programs for Martinussen and Scheike (2006), `Dynamic Regression Models
-for Survival Data', Springer Verlag.  Plus more recent developments.
-Additive survival model, semiparametric proportional odds model, fast
-cumulative residuals, excess risk models and more. Flexible competing
-risks regression including GOF-tests. Two-stage frailty modelling. PLS for
-the additive risk model. Lasso in the 'ahaz' package.
+Color palettes taken from the landscapes and cities of Washington state.
+Colors were extracted from a set of photographs, and then combined to form
+a set of continuous and discrete palettes.  Continuous palettes were
+designed to be perceptually uniform, while discrete palettes were chosen
+to maximize contrast at several different levels of overall brightness and
+saturation. Each palette has been evaluated to ensure colors are
+distinguishable by colorblind people.
 
 %prep
 %setup -q -c -n %{packname}

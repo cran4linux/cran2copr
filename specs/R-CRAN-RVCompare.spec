@@ -1,13 +1,13 @@
-%global packname  TRMF
+%global packname  RVCompare
 %global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Temporally Regularized Matrix Factorization
+Summary:          Compare Real Valued Random Variables
 
-License:          GPL-3
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,19 +15,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-limSolve 
-BuildRequires:    R-CRAN-generics 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-limSolve 
-Requires:         R-CRAN-generics 
+BuildRequires:    R-stats >= 3.4.4
+BuildRequires:    R-utils >= 3.4.4
+BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
+BuildRequires:    R-CRAN-pracma >= 2.2.2
+Requires:         R-stats >= 3.4.4
+Requires:         R-utils >= 3.4.4
+Requires:         R-CRAN-ggplot2 >= 3.2.0
+Requires:         R-CRAN-pracma >= 2.2.2
 
 %description
-Functions to estimate temporally regularized matrix factorization (TRMF)
-for forecasting and imputing values in short but high-dimensional time
-series. Uses regularized alternating least squares to compute the
-factorization, allows for several types of constraints on matrix factors
-and can handle weighted data.
+A framework with tools to compare two random variables, and determine
+which of them produces lower values. It can compute the Cp and Cd of
+theoretical of probability distributions, as explained in E. Arza (2021)
+<https://github.com/EtorArza/RVCompare-paper/releases>. Given the observed
+samples of two random variables X_A and X_B, it can compute the confidence
+bands of the cumulative distributions of X'_A and X'_B (see E. Arza (2021)
+<https://github.com/EtorArza/RVCompare-paper> for details) based on the
+observed samples of X_A and X_B. Uses bootstrap and DKW-bounds to compute
+the confidence bands of the cumulative distributions. These two methods
+are described in B. Efron. (1979) <doi:10.1214/aos/1176344552> and P.
+Massart (1990) <doi:10.1214/aop/1176990746>.
 
 %prep
 %setup -q -c -n %{packname}

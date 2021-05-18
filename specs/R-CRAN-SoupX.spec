@@ -1,43 +1,33 @@
-%global packname  timereg
-%global packver   1.9.9
+%global packname  SoupX
+%global packver   1.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.9
+Version:          1.5.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Flexible Regression Models for Survival Data
+Summary:          Single Cell mRNA Soup eXterminator
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15
-Requires:         R-core >= 2.15
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-lava 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Seurat >= 3.2.2
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-lava 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-utils 
+Requires:         R-CRAN-Seurat >= 3.2.2
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 
 %description
-Programs for Martinussen and Scheike (2006), `Dynamic Regression Models
-for Survival Data', Springer Verlag.  Plus more recent developments.
-Additive survival model, semiparametric proportional odds model, fast
-cumulative residuals, excess risk models and more. Flexible competing
-risks regression including GOF-tests. Two-stage frailty modelling. PLS for
-the additive risk model. Lasso in the 'ahaz' package.
+Quantify, profile and remove ambient mRNA contamination (the "soup") from
+droplet based single cell RNA-seq experiments.  Implements the method
+described in Young et al. (2018) <doi:10.1101/303727>.
 
 %prep
 %setup -q -c -n %{packname}

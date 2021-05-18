@@ -1,13 +1,13 @@
-%global packname  tinyscholar
-%global packver   0.1.3
+%global packname  repana
+%global packver   1.23.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.23.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Get and Show Personal 'Google Scholar' Profile
+Summary:          Repeatable Analysis in R
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,34 +15,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.1.2
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-DBI >= 1.0
+BuildRequires:    R-CRAN-config 
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gt 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-R.utils 
-Requires:         R-CRAN-rlang >= 0.1.2
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-pool 
+BuildRequires:    R-CRAN-openxlsx 
+Requires:         R-CRAN-DBI >= 1.0
+Requires:         R-CRAN-config 
+Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gt 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-processx 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-pool 
+Requires:         R-CRAN-openxlsx 
 
 %description
-Provides functions to get personal 'Google Scholar' profile data from web
-API and show it in table or figure format.
+Set of utilities to facilitate the reproduction of analysis in R. It allow
+to make_structure(), clean_structure(), and run and log programs in a
+predefined order to allow secondary files, analysis and reports be
+constructed in an ordered form.
 
 %prep
 %setup -q -c -n %{packname}

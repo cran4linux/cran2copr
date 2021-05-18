@@ -1,9 +1,9 @@
 %global packname  outliertree
-%global packver   1.7.1
+%global packver   1.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1
+Version:          1.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explainable Outlier Detection Through Decision Tree Conditioning
 
@@ -19,18 +19,10 @@ BuildRequires:    R-CRAN-Rcereal
 Requires:         R-CRAN-Rcpp >= 1.0.1
 
 %description
-Will try to fit decision trees that try to "predict" values for each
-column based on the values of each other column. Along the way, each time
-a split is evaluated, it will take the observations that fall into each
-branch as a homogeneous cluster in which it will search for outliers in
-the 1-d distribution of the column being predicted. Outliers are
-determined according to confidence intervals in this 1-d distribution, and
-need to have a large gap with respect to the next observation in sorted
-order to be flagged as outliers. Since outliers are searched for in a
-decision tree branch, it will know the conditions that make it a rare
-observation compared to others that meet the same conditions, and the
-conditions will always be correlated with the target variable (as it's
-being predicted from them). Full procedure is described in Cortes (2020)
+Outlier detection method that flags suspicious values within observations,
+constrasting them against the normal values in a user-readable format,
+potentially describing conditions within the data that make a given
+outlier more rare. Full procedure is described in Cortes (2020)
 <arXiv:2001.00636>. Loosely based on the 'GritBot'
 <https://www.rulequest.com/gritbot-info.html> software.
 

@@ -1,43 +1,50 @@
-%global packname  timereg
-%global packver   1.9.9
+%global packname  legion
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Flexible Regression Models for Survival Data
+Summary:          Forecasting Using Multivariate Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15
-Requires:         R-core >= 2.15
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-lava 
-BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-smooth >= 3.1.0
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.8.100.0.0
+BuildRequires:    R-CRAN-greybox >= 0.6.9
+BuildRequires:    R-CRAN-Rcpp >= 0.12.3
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-lava 
-Requires:         R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-smooth >= 3.1.0
+Requires:         R-CRAN-greybox >= 0.6.9
+Requires:         R-CRAN-Rcpp >= 0.12.3
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-statmod 
+Requires:         R-CRAN-nloptr 
 Requires:         R-utils 
-Requires:         R-methods 
+Requires:         R-CRAN-zoo 
 
 %description
-Programs for Martinussen and Scheike (2006), `Dynamic Regression Models
-for Survival Data', Springer Verlag.  Plus more recent developments.
-Additive survival model, semiparametric proportional odds model, fast
-cumulative residuals, excess risk models and more. Flexible competing
-risks regression including GOF-tests. Two-stage frailty modelling. PLS for
-the additive risk model. Lasso in the 'ahaz' package.
+Functions implementing multivariate state space models for purposes of
+time series analysis and forecasting. The focus of the package is on
+multivariate models, such as Vector Exponential Smoothing, Vector ETS
+(Error-Trend-Seasonal model) etc. It currently includes Vector Exponential
+Smoothing (VES, de Silva et al., 2010, <doi:10.1177/1471082X0901000401>),
+Vector ETS and simulation function for VES.
 
 %prep
 %setup -q -c -n %{packname}

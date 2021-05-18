@@ -1,9 +1,9 @@
 %global packname  tufte
-%global packver   0.9
+%global packver   0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          0.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tufte's Styles for R Markdown Documents
 

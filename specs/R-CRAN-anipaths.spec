@@ -1,9 +1,9 @@
 %global packname  anipaths
-%global packver   0.10.0
+%global packver   0.10.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.10.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Animation of Multiple Trajectories with Uncertainty
 

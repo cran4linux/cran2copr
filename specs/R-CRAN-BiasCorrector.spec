@@ -1,9 +1,9 @@
 %global packname  BiasCorrector
-%global packver   0.1.4
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A GUI to Correct Measurement Bias in DNA Methylation Analyses
 
@@ -34,7 +34,8 @@ Requires:         R-CRAN-shinyjs
 A GUI to correct measurement bias in DNA methylation analyses. The
 'BiasCorrector' package just wraps the functions implemented in the 'R'
 package 'rBiasCorrection' into a shiny web application in order to make
-them more easily accessible.
+them more easily accessible. Publication: Kapsner et al. (2021)
+<doi:10.1002/ijc.33681>.
 
 %prep
 %setup -q -c -n %{packname}
