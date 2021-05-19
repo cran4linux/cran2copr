@@ -1,32 +1,35 @@
-%global packname  gsignal
-%global packver   0.3-2
+%global packname  einsum
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Signal Processing
+Summary:          Einstein Summation
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-mathjaxr 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-grDevices 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-mathjaxr 
 
 %description
-R implementation of the 'Octave' package 'signal', containing a variety of
-signal processing tools, such as signal generation and measurement,
-correlation and convolution, filtering, filter design, filter analysis and
-conversion, power spectrum analysis, system identification, decimation and
-sample rate change, and windowing.
+The summation notation suggested by Einstein (1916)
+<doi:10.1002/andp.19163540702> is a concise mathematical notation that
+implicitly sums over repeated indices of n-dimensional arrays. Many
+ordinary matrix operations (e.g. transpose, matrix multiplication, scalar
+product, 'diag()', trace etc.) can be written using Einstein notation. The
+notation is particularly convenient for expressing operations on arrays
+with more than two dimensions because the respective operators ('tensor
+products') might not have a standardized name.
 
 %prep
 %setup -q -c -n %{packname}

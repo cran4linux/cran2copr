@@ -1,32 +1,39 @@
-%global packname  gsignal
-%global packver   0.3-2
+%global packname  rgplates
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Signal Processing
+Summary:          R Interface for the GPlates Web Service and Desktop Application
 
-License:          GPL-3
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-methods 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-sp 
+Requires:         R-methods 
 Requires:         R-grDevices 
+Requires:         R-CRAN-rgdal 
+Requires:         R-utils 
 
 %description
-R implementation of the 'Octave' package 'signal', containing a variety of
-signal processing tools, such as signal generation and measurement,
-correlation and convolution, filtering, filter design, filter analysis and
-conversion, power spectrum analysis, system identification, decimation and
-sample rate change, and windowing.
+Query functions to the GPlates <https://www.gplates.org/> desktop
+application and the GPlates Web Service <https://gws.gplates.org/> allow
+users to reconstruct coordinates, static plates, and Spatial objects
+without leaving the R running environment. This R extension was supported
+by the FAU GeoZentrum Nordbayern and is developed under the umbrella of
+the DFG (Deutsche Forschungsgemeinschaft) Research Unit TERSANE2 (For
+2332, TEmperature Related Stressors in ANcient Extinctions).
 
 %prep
 %setup -q -c -n %{packname}

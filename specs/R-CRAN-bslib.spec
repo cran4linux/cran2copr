@@ -1,9 +1,9 @@
 %global packname  bslib
-%global packver   0.2.5
+%global packver   0.2.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Custom 'Bootstrap' 'Sass' Themes for 'shiny' and 'rmarkdown'
 
@@ -15,7 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest >= 0.6.25
 BuildRequires:    R-CRAN-htmltools >= 0.5.1
 BuildRequires:    R-CRAN-sass >= 0.4.0
 BuildRequires:    R-CRAN-jquerylib >= 0.1.3
@@ -23,7 +22,6 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-digest >= 0.6.25
 Requires:         R-CRAN-htmltools >= 0.5.1
 Requires:         R-CRAN-sass >= 0.4.0
 Requires:         R-CRAN-jquerylib >= 0.1.3

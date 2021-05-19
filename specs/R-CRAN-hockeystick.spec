@@ -1,9 +1,9 @@
 %global packname  hockeystick
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Visualize Essential Climate Change Data
 
@@ -12,12 +12,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-rvest
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rappdirs 
+Requires:         R-tools 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
@@ -43,7 +43,7 @@ and view it via pre-defined 'ggplot2' charts. Datasets include atmospheric
 CO2, instrumental and proxy temperature records, sea levels,
 Arctic/Antarctic sea-ice, Hurricanes, and Paleoclimate data. Sources
 include: NOAA Mauna Loa Laboratory
-<https://www.esrl.noaa.gov/gmd/ccgg/trends/data.html>, NASA GISTEMP
+<https://gml.noaa.gov/ccgg/trends/data.html>, NASA GISTEMP
 <https://data.giss.nasa.gov/gistemp/>, National Snow and Sea Ice Data
 Center <https://nsidc.org/data/seaice_index/archives>, CSIRO
 <https://research.csiro.au/slrwavescoast/sea-level/measurements-and-data/sea-level-data/>,

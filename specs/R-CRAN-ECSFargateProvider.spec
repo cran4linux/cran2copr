@@ -1,32 +1,37 @@
-%global packname  gsignal
-%global packver   0.3-2
+%global packname  ECSFargateProvider
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Signal Processing
+Summary:          The 'ECS Fargate' Cloud Provider for the 'DockerParallel' Package
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-grDevices 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-aws.ecx 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-DockerParallel 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-aws.iam 
+Requires:         R-CRAN-aws.ecx 
+Requires:         R-methods 
+Requires:         R-CRAN-DockerParallel 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-utils 
+Requires:         R-CRAN-aws.iam 
 
 %description
-R implementation of the 'Octave' package 'signal', containing a variety of
-signal processing tools, such as signal generation and measurement,
-correlation and convolution, filtering, filter design, filter analysis and
-conversion, power spectrum analysis, system identification, decimation and
-sample rate change, and windowing.
+Providing the implementation for the 'ECS Fargate' cloud provider. For the
+general information about 'ECS', please visit
+<https://aws.amazon.com/ecs/>.
 
 %prep
 %setup -q -c -n %{packname}

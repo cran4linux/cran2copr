@@ -1,9 +1,9 @@
 %global packname  dvir
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Disaster Victim Identification
 
@@ -17,20 +17,20 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-forrel >= 1.3.0
 BuildRequires:    R-CRAN-pedtools >= 0.9.7
-BuildRequires:    R-CRAN-pedprobr >= 0.4.0
+BuildRequires:    R-CRAN-pedprobr >= 0.5.0
 Requires:         R-CRAN-forrel >= 1.3.0
 Requires:         R-CRAN-pedtools >= 0.9.7
-Requires:         R-CRAN-pedprobr >= 0.4.0
+Requires:         R-CRAN-pedprobr >= 0.5.0
 
 %description
 Joint DNA-based disaster victim identification (DVI), as described in
-Vigeland and Egeland (2021) <doi:10.21203/rs.3.rs-296414/v1>. Joint Victim
-identification is performed by optimising the joint likelihood of all
-genotyped individuals. Individual identification probabilities,
-conditional on all available information, are derived from the joint
-solution in the form of posterior pairing probabilities. 'dvir' is part of
-the 'ped suite' ecosystem for pedigree analysis, and relies in particular
-on 'forrel' for computation of likelihood ratios.
+Vigeland and Egeland (2021) <doi:10.21203/rs.3.rs-296414/v1>.
+Identification is performed by optimising the joint likelihood of all
+victim samples and reference individuals. Individual identification
+probabilities, conditional on all available information, are derived from
+the joint solution in the form of posterior pairing probabilities. 'dvir'
+is part of the 'ped suite' collection of packages for pedigree analysis.
+In particular it uses 'forrel' for calculation of likelihood ratios.
 
 %prep
 %setup -q -c -n %{packname}

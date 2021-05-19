@@ -1,9 +1,9 @@
 %global packname  rcompanion
-%global packver   2.4.0
+%global packver   2.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          2.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Support Extension Education Program Evaluation
 
@@ -20,7 +20,6 @@ BuildRequires:    R-graphics >= 3.3.0
 BuildRequires:    R-CRAN-plyr >= 1.8.4
 BuildRequires:    R-CRAN-boot >= 1.3.18
 BuildRequires:    R-CRAN-coin >= 1.1.2
-BuildRequires:    R-CRAN-EMT >= 1.1
 BuildRequires:    R-CRAN-nortest >= 1.0.4
 BuildRequires:    R-CRAN-DescTools >= 0.99.17
 BuildRequires:    R-CRAN-lmtest >= 0.9.34
@@ -30,7 +29,6 @@ Requires:         R-graphics >= 3.3.0
 Requires:         R-CRAN-plyr >= 1.8.4
 Requires:         R-CRAN-boot >= 1.3.18
 Requires:         R-CRAN-coin >= 1.1.2
-Requires:         R-CRAN-EMT >= 1.1
 Requires:         R-CRAN-nortest >= 1.0.4
 Requires:         R-CRAN-DescTools >= 0.99.17
 Requires:         R-CRAN-lmtest >= 0.9.34

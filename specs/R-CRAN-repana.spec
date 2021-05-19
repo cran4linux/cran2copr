@@ -1,9 +1,9 @@
 %global packname  repana
-%global packver   1.23.0
+%global packver   1.23.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.23.0
+Version:          1.23.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Repeatable Analysis in R
 
@@ -17,7 +17,6 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-DBI >= 1.0
 BuildRequires:    R-CRAN-config 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-lubridate 
@@ -29,7 +28,6 @@ BuildRequires:    R-CRAN-pool
 BuildRequires:    R-CRAN-openxlsx 
 Requires:         R-CRAN-DBI >= 1.0
 Requires:         R-CRAN-config 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-lubridate 

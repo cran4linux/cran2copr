@@ -1,32 +1,38 @@
-%global packname  gsignal
-%global packver   0.3-2
+%global packname  siconvr
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Signal Processing
+Summary:          Fetch Data from Plataforma +Brasil (SICONV)
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-grDevices 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-cli 
 
 %description
-R implementation of the 'Octave' package 'signal', containing a variety of
-signal processing tools, such as signal generation and measurement,
-correlation and convolution, filtering, filter design, filter analysis and
-conversion, power spectrum analysis, system identification, decimation and
-sample rate change, and windowing.
+Fetch data on targeted public investments from Plataforma +Brasil (SICONV)
+<http://plataformamaisbrasil.gov.br/>, the responsible system for
+requests, execution, and monitoring of federal discretionary transfers in
+Brazil.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,32 +1,32 @@
-%global packname  gsignal
-%global packver   0.3-2
+%global packname  magmaR
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Signal Processing
+Summary:          R-Client for 'Magma' of the 'UCSF Mount Etna Data Library'
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-grDevices 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-crul 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-crul 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-utils 
 
 %description
-R implementation of the 'Octave' package 'signal', containing a variety of
-signal processing tools, such as signal generation and measurement,
-correlation and convolution, filtering, filter design, filter analysis and
-conversion, power spectrum analysis, system identification, decimation and
-sample rate change, and windowing.
+A client for interacting with 'magma', the data warehouse of the 'UCSF
+Mount Etna Data Library'. 'magmaR' includes functions for querying and
+downloading data from 'magma', in order to enable working with such data
+in R, as well as for uploading local data to 'magma'.
 
 %prep
 %setup -q -c -n %{packname}

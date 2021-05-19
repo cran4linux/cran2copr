@@ -1,9 +1,9 @@
 %global packname  VSdecomp
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variance and Skewness Decomposition
 
@@ -27,8 +27,8 @@ Requires:         R-CRAN-lfe
 Requires:         R-CRAN-rlang 
 
 %description
-Provides decomposition methods for the skewness or the variance of a
-variable (e.g., wage). By breaking distribution moments into independent
+Provides decomposition methods for the skewness or variance of a variable
+(e.g., wage). By breaking distribution moments into independent
 components, users can analyze changes in distributions across time or
 between groups.
 

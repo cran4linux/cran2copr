@@ -1,34 +1,35 @@
-%global packname  BayesPPD
-%global packver   1.0.0
+%global packname  DGM
+%global packver   1.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.7.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Power Prior Design
+Summary:          Dynamic Graphical Models
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppNumerical 
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
+BuildRequires:    R-CRAN-reshape2 >= 1.4.2
+BuildRequires:    R-CRAN-coin >= 1.2
+BuildRequires:    R-CRAN-data.table >= 1.10.0
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppNumerical 
+Requires:         R-CRAN-ggplot2 >= 2.2.1
+Requires:         R-CRAN-reshape2 >= 1.4.2
+Requires:         R-CRAN-coin >= 1.2
+Requires:         R-CRAN-data.table >= 1.10.0
+Requires:         R-CRAN-Rcpp >= 0.11.0
 
 %description
-Bayesian power/type I error calculation and model fitting using the power
-prior and the normalized power prior for generalized linear models. The
-Bayesian clinical trial design methodology is described in Chen et al.
-(2011) <doi:10.1111/j.1541-0420.2011.01561.x>, and Psioda and Ibrahim
-(2019) <doi:10.1093/biostatistics/kxy009>. The normalized power prior is
-described in Duan et al. (2006) <doi:10.1002/env.752> and Ibrahim et al.
-(2015) <doi:10.1002/sim.6728>.
+Dynamic graphical models for multivariate time series data to estimate
+directed dynamic networks in functional magnetic resonance imaging (fMRI),
+see Schwab et al. (2017) <doi:10.1101/198887>.
 
 %prep
 %setup -q -c -n %{packname}

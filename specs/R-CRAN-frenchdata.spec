@@ -1,45 +1,54 @@
-%global packname  bayesian
-%global packver   0.0.4
+%global packname  frenchdata
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bindings for Bayesian TidyModels
+Summary:          Download Data Sets from Kenneth's French Finance Data Library Site
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-brms >= 2.14.4
-BuildRequires:    R-CRAN-parsnip >= 0.1.4
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-rvest >= 0.99.0.9000
 BuildRequires:    R-utils 
-Requires:         R-CRAN-brms >= 2.14.4
-Requires:         R-CRAN-parsnip >= 0.1.4
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-readr 
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-rvest >= 0.99.0.9000
 Requires:         R-utils 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-readr 
 
 %description
-Fit Bayesian models using 'brms'/'Stan' with 'parsnip'/'tidymodels' via
-'bayesian' <doi:10.5281/zenodo.4430991>. 'tidymodels' is a collection of
-packages for machine learning; see Wickham (2020)
-<https://www.tidymodels.org>). The technical details of 'brms' and 'Stan'
-are described in Bürkner (2017) <doi:10.18637/jss.v080.i01>, Bürkner
-(2018) <doi:10.32614/RJ-2018-017>, and Carpenter et al. (2017)
-<doi:10.18637/jss.v076.i01>.
+Download data sets from Kenneth's French finance data library site
+<http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html>,
+reads all the data subsets from the file. Allows R users to collect the
+data as 'tidyverse'-ready data frames.
 
 %prep
 %setup -q -c -n %{packname}

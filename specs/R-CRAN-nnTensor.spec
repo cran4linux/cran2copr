@@ -1,32 +1,40 @@
-%global packname  gsignal
-%global packver   0.3-2
+%global packname  nnTensor
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Signal Processing
+Summary:          Non-Negative Tensor Decomposition
 
-License:          GPL-3
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-grDevices 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-rTensor 
+BuildRequires:    R-CRAN-plot3D 
+BuildRequires:    R-CRAN-tagcloud 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-methods 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-rTensor 
+Requires:         R-CRAN-plot3D 
+Requires:         R-CRAN-tagcloud 
+Requires:         R-CRAN-ggplot2 
 
 %description
-R implementation of the 'Octave' package 'signal', containing a variety of
-signal processing tools, such as signal generation and measurement,
-correlation and convolution, filtering, filter design, filter analysis and
-conversion, power spectrum analysis, system identification, decimation and
-sample rate change, and windowing.
+Some functions for performing non-negative matrix factorization,
+non-negative CANDECOMP/PARAFAC (CP) decomposition, non-negative Tucker
+decomposition, and generating toy model data. See Andrzej Cichock et al
+(2009) <doi:10.1002/9780470747278> and the reference section of GitHub
+README.md <https://github.com/rikenbit/nnTensor>, for details of the
+methods.
 
 %prep
 %setup -q -c -n %{packname}

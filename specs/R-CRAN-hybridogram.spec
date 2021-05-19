@@ -1,32 +1,30 @@
-%global packname  gsignal
-%global packver   0.3-2
+%global packname  hybridogram
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Signal Processing
+Summary:          Function that Creates a Heat Map from Hybridization Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-grDevices 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-gplots 
+Requires:         R-CRAN-gplots 
 
 %description
-R implementation of the 'Octave' package 'signal', containing a variety of
-signal processing tools, such as signal generation and measurement,
-correlation and convolution, filtering, filter design, filter analysis and
-conversion, power spectrum analysis, system identification, decimation and
-sample rate change, and windowing.
+Using hybrid data, this package created a vividly colored hybrid heat map.
+The input is two files which are auto-selected. The first file has three
+columns, the first two for pairs of species, with the third column for the
+hybrid experiment code (an integer). The second file is a list of code and
+their descriptions in two columns. The output is a figure showing the
+hybrid heat map with a color legend.
 
 %prep
 %setup -q -c -n %{packname}

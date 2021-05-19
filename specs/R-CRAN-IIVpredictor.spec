@@ -1,39 +1,29 @@
-%global packname  childesr
-%global packver   0.2.1
+%global packname  IIVpredictor
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Accessing the 'CHILDES' Database
+Summary:          Modeling Within Individual Variability as Predictor
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 1.5
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-dbplyr >= 1.4
-BuildRequires:    R-CRAN-DBI >= 1.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.0
-BuildRequires:    R-CRAN-purrr >= 0.3
-BuildRequires:    R-CRAN-RMySQL >= 0.10.20
-Requires:         R-CRAN-jsonlite >= 1.5
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-dbplyr >= 1.4
-Requires:         R-CRAN-DBI >= 1.1.0
-Requires:         R-CRAN-dplyr >= 1.0
-Requires:         R-CRAN-purrr >= 0.3
-Requires:         R-CRAN-RMySQL >= 0.10.20
+BuildRequires:    R-CRAN-R2jags 
+BuildRequires:    R-CRAN-lavaan 
+Requires:         R-CRAN-R2jags 
+Requires:         R-CRAN-lavaan 
 
 %description
-Tools for connecting to 'CHILDES', an open repository for transcripts of
-parent-child interaction. For more information on the underlying data, see
-<https://childes-db.stanford.edu>.
+Time parceling method and Bayesian variability modeling methods for
+modeling within individual variability indicators as predictors.For more
+details, see <https://github.com/xliu12/IIVpredicitor>.
 
 %prep
 %setup -q -c -n %{packname}

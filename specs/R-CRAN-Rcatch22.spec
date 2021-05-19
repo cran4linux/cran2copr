@@ -1,11 +1,11 @@
-%global packname  gsignal
-%global packver   0.3-2
+%global packname  Rcatch22
+%global packver   0.1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Signal Processing
+Summary:          Calculation of 22 CAnonical Time-Series CHaracteristics
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,19 +14,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-Rcpp >= 0.12.15
+Requires:         R-CRAN-Rcpp >= 0.12.15
 
 %description
-R implementation of the 'Octave' package 'signal', containing a variety of
-signal processing tools, such as signal generation and measurement,
-correlation and convolution, filtering, filter design, filter analysis and
-conversion, power spectrum analysis, system identification, decimation and
-sample rate change, and windowing.
+Calculate 22 summary statistics coded in C on time-series vectors to
+enable pattern detection, classification, and regression applications in
+the feature space as proposed by Lubba et al. (2019)
+<doi:10.1007/s10618-019-00647-x>.
 
 %prep
 %setup -q -c -n %{packname}

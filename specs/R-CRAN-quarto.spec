@@ -1,9 +1,9 @@
 %global packname  quarto
-%global packver   0.1
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'Quarto' Markdown Publishing System
 
@@ -15,12 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-later 
+Requires:         R-utils 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-processx 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-later 
 
 %description
 Convert R Markdown documents and 'Jupyter' notebooks to a variety of
