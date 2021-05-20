@@ -1,9 +1,9 @@
 %global packname  gtsummary
-%global packver   1.4.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Presentation-Ready Data Summary and Analytic Result Tables
 
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-broom >= 0.7.6
 BuildRequires:    R-CRAN-forcats >= 0.5.0
 BuildRequires:    R-CRAN-rlang >= 0.4.10
 BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-CRAN-gt >= 0.2.2
+BuildRequires:    R-CRAN-gt >= 0.3.0
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-CRAN-survival 
 Requires:         R-CRAN-tibble >= 3.0.3
@@ -42,7 +42,7 @@ Requires:         R-CRAN-broom >= 0.7.6
 Requires:         R-CRAN-forcats >= 0.5.0
 Requires:         R-CRAN-rlang >= 0.4.10
 Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-gt >= 0.2.2
+Requires:         R-CRAN-gt >= 0.3.0
 Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-CRAN-survival 
 

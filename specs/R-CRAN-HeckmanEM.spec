@@ -1,9 +1,9 @@
 %global packname  HeckmanEM
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit Normal or Student-t Heckman Selection Models
 
@@ -27,7 +27,7 @@ Requires:         R-CRAN-mvtnorm >= 1.1.0
 %description
 Maximum likelihood estimation by an EM algorithm of Heckman-type sample
 selection Normal or Student-t models. The reference is Lachos, Prates and
-Dey (2020) <arXiv:2006.08036>.
+Dey (2020) <doi:10.1016/j.jmva.2021.104737>.
 
 %prep
 %setup -q -c -n %{packname}

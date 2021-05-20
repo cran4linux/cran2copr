@@ -1,9 +1,9 @@
 %global packname  FuzzyR
-%global packver   2.3.1
+%global packver   2.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          2.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fuzzy Logic Toolkit for R
 
@@ -19,10 +19,14 @@ BuildRequires:    R-splines
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-grid 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
 Requires:         R-splines 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-plyr 
 Requires:         R-grid 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
 Design and simulate fuzzy logic systems using Type-1 and Interval Type-2
@@ -30,7 +34,11 @@ Fuzzy Logic. This toolkit includes with graphical user interface (GUI) and
 an adaptive neuro- fuzzy inference system (ANFIS). This toolkit is a
 continuation from the previous package ('FuzzyToolkitUoN'). Produced by
 the Intelligent Modelling & Analysis Group (IMA) and Lab for UnCertainty
-In Data and decision making (LUCID), University of Nottingham.
+In Data and decision making (LUCID), University of Nottingham. A big thank
+you to the many people who have contributed to the development/evaluation
+of the toolbox. Please cite the toolbox and the corresponding paper
+<doi:10.1109/FUZZ48607.2020.9177780> when using it. More related papers
+can be found in the NEWS.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,41 +1,45 @@
-%global packname  spectrolab
-%global packver   0.0.11
+%global packname  mbRes
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.11
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Class and Methods for Hyperspectral Data
+Summary:          Integrating Multiple Biomarker Responses using Estimation Statistics
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.3
+BuildRequires:    R-CRAN-magrittr >= 2.0.1
+BuildRequires:    R-CRAN-data.table >= 1.14.0
+BuildRequires:    R-CRAN-tidyr >= 1.1.3
+BuildRequires:    R-CRAN-cowplot >= 1.1.1
+BuildRequires:    R-CRAN-dplyr >= 1.0.5
+BuildRequires:    R-CRAN-rlang >= 0.4.10
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+BuildRequires:    R-grid 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-prospectr 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyjs 
+Requires:         R-CRAN-ggplot2 >= 3.3.3
+Requires:         R-CRAN-magrittr >= 2.0.1
+Requires:         R-CRAN-data.table >= 1.14.0
+Requires:         R-CRAN-tidyr >= 1.1.3
+Requires:         R-CRAN-cowplot >= 1.1.1
+Requires:         R-CRAN-dplyr >= 1.0.5
+Requires:         R-CRAN-rlang >= 0.4.10
+Requires:         R-CRAN-purrr >= 0.3.4
+Requires:         R-grid 
 Requires:         R-stats 
-Requires:         R-CRAN-prospectr 
-Requires:         R-grDevices 
-Requires:         R-parallel 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyjs 
 
 %description
-Input/Output, processing and visualization of spectra taken with different
-spectrometers, including SVC (Spectra Vista), ASD and PSR (Spectral
-Evolution). Implements an S3 class 'spectra' that other packages can build
-on. Provides methods to access, plot, manipulate, splice sensor overlap,
-vector normalize and smooth spectra.
+Compute and visualize the Biomarker Ordinal Estimator (BOE), a new
+integrated index for multiple biomarker responses, as described in Pham &
+Sokolova (2021, unpublished).
 
 %prep
 %setup -q -c -n %{packname}

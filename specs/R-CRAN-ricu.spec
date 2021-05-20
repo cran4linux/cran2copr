@@ -1,9 +1,9 @@
 %global packname  ricu
-%global packver   0.1.3
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Intensive Care Unit Data with R
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 2.1.0
 BuildRequires:    R-CRAN-prt >= 0.1.2
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-curl 
@@ -28,10 +29,11 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-fansi 
+BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-cli >= 2.1.0
 Requires:         R-CRAN-prt >= 0.1.2
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-curl 
@@ -45,9 +47,9 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-backports 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-cli 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-fansi 
+Requires:         R-CRAN-openssl 
 Requires:         R-utils 
 
 %description

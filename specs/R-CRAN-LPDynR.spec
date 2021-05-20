@@ -1,9 +1,9 @@
 %global packname  LPDynR
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Land Productivity Dynamics Indicator
 
@@ -39,8 +39,7 @@ Vegetation Index, to assess ecosystem dynamics and change, which
 eventually might drive to land degradation. The final result of the Land
 Productivity Dynamics indicator is a categorical map with 5 classes of
 land productivity dynamics, ranging from declining to increasing
-productivity. See
-<https://github.com/xavi-rp/LPD/blob/master/ATBD/LPD_ATBD.pdf> for a
+productivity. See <https://eartharxiv.org/repository/view/2294/> for a
 description of the methods used in the package to calculate the indicator.
 
 %prep

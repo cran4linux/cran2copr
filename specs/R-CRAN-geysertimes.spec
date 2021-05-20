@@ -1,9 +1,9 @@
 %global packname  geysertimes
-%global packver   0.1.6
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geyser Data from GeyserTimes.org
 
@@ -12,18 +12,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-readr 
 Requires:         R-tools 
 Requires:         R-utils 

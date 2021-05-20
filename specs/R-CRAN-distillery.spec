@@ -1,9 +1,9 @@
 %global packname  distillery
-%global packver   1.2
+%global packver   1.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Method Functions for Confidence Intervals and to Distill Information from an Object
 
@@ -20,7 +20,10 @@ BuildArch:        noarch
 Some very simple method functions for confidence interval calculation,
 bootstrap resampling aimed at atmospheric science applications, and to
 distill pertinent information from a potentially complex object; primarily
-used in common with packages extRemes and SpatialVx.
+used in common with packages extRemes and SpatialVx.  To reference this
+package and for a tutorial on the bootstrap functions, please see
+Gilleland (2020) <doi: 10.1175/JTECH-D-20-0069.1> and Gilleland (2020)
+<doi: 10.1175/JTECH-D-20-0070.1>.
 
 %prep
 %setup -q -c -n %{packname}

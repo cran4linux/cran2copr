@@ -1,9 +1,9 @@
 %global packname  RcppDate
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          'date' C++ Header Library for Date and Time Functionality
 

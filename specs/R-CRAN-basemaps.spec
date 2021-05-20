@@ -1,38 +1,44 @@
-%global packname  rglobi
-%global packver   0.2.24
+%global packname  basemaps
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.24
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to Global Biotic Interactions
+Summary:          Accessing Spatial Basemaps in R
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-readr >= 1.3.1
-BuildRequires:    R-CRAN-RCurl >= 0.3.4
-BuildRequires:    R-CRAN-curl >= 0.3.3
-BuildRequires:    R-CRAN-rjson >= 0.2.13
-Requires:         R-CRAN-readr >= 1.3.1
-Requires:         R-CRAN-RCurl >= 0.3.4
-Requires:         R-CRAN-curl >= 0.3.3
-Requires:         R-CRAN-rjson >= 0.2.13
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-slippymath 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-stars 
+BuildRequires:    R-utils 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-slippymath 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-stars 
+Requires:         R-utils 
+Requires:         R-grDevices 
 
 %description
-A programmatic interface to the web service methods provided by Global
-Biotic Interactions (GloBI) (<https://www.globalbioticinteractions.org/>).
-GloBI provides access to spatial-temporal species interaction records from
-sources all over the world. rglobi provides methods to search species
-interactions by location, interaction type, and taxonomic name. In
-addition, it supports Cypher, a graph query language, to allow for
-executing custom queries on the GloBI aggregate species interaction data
-set.
+A lightweight package to access spatial basemaps from open sources such as
+OpenStreetMap, Carto, Mapbox and others in R.
 
 %prep
 %setup -q -c -n %{packname}

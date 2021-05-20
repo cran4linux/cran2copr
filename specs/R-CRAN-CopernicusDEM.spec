@@ -1,9 +1,9 @@
 %global packname  CopernicusDEM
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Copernicus Digital Elevation Models
 
@@ -19,10 +19,14 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-gdalUtils 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-sf 
 Requires:         R-utils 
 Requires:         R-CRAN-gdalUtils 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 
 %description
 Copernicus Digital Elevation Model datasets (DEM) of 90 and 30 meters

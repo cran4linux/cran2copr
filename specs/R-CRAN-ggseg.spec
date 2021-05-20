@@ -1,38 +1,39 @@
-%global packname  rglobi
-%global packver   0.2.24
+%global packname  ggseg
+%global packver   1.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.24
+Version:          1.6.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to Global Biotic Interactions
+Summary:          Plotting Tool for Brain Atlases
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-readr >= 1.3.1
-BuildRequires:    R-CRAN-RCurl >= 0.3.4
-BuildRequires:    R-CRAN-curl >= 0.3.3
-BuildRequires:    R-CRAN-rjson >= 0.2.13
-Requires:         R-CRAN-readr >= 1.3.1
-Requires:         R-CRAN-RCurl >= 0.3.4
-Requires:         R-CRAN-curl >= 0.3.3
-Requires:         R-CRAN-rjson >= 0.2.13
+BuildRequires:    R-CRAN-ggplot2 >= 3.3
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-sf >= 0.9.2
+BuildRequires:    R-grid 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-ggplot2 >= 3.3
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-sf >= 0.9.2
+Requires:         R-grid 
+Requires:         R-utils 
+Requires:         R-CRAN-vctrs 
 
 %description
-A programmatic interface to the web service methods provided by Global
-Biotic Interactions (GloBI) (<https://www.globalbioticinteractions.org/>).
-GloBI provides access to spatial-temporal species interaction records from
-sources all over the world. rglobi provides methods to search species
-interactions by location, interaction type, and taxonomic name. In
-addition, it supports Cypher, a graph query language, to allow for
-executing custom queries on the GloBI aggregate species interaction data
-set.
+Contains 'ggplot2' geom for plotting brain atlases using simple features.
+The largest component of the package is the data for the two built-in
+atlases. Mowinckel & Vidal-Piñero (2020) <doi:10.1177/2515245920928009>.
 
 %prep
 %setup -q -c -n %{packname}
