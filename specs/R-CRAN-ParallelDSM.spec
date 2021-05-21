@@ -1,9 +1,9 @@
 %global packname  ParallelDSM
-%global packver   0.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parallel Digital Soil Mapping using Machine Learning
 
@@ -12,12 +12,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-snowfall 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-pryr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-geoR 
@@ -25,10 +26,12 @@ BuildRequires:    R-CRAN-gstat
 BuildRequires:    R-CRAN-quantregForest 
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-sp 
 Requires:         R-CRAN-snowfall 
 Requires:         R-CRAN-raster 
 Requires:         R-methods 
+Requires:         R-CRAN-pryr 
 Requires:         R-utils 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-geoR 
@@ -36,6 +39,7 @@ Requires:         R-CRAN-gstat
 Requires:         R-CRAN-quantregForest 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-rgdal 
+Requires:         R-stats 
 Requires:         R-CRAN-sp 
 
 %description

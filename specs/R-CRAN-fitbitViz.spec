@@ -1,9 +1,9 @@
 %global packname  fitbitViz
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Fitbit' Visualizations
 
@@ -73,12 +73,10 @@ Requires:         R-CRAN-geodist
 Requires:         R-utils 
 
 %description
-Connection to the 'Fitbit' Web API
-<https://dev.fitbit.com/build/reference/web-api/> by including 'ggplot2'
-Visualizations, 'Leaflet' and 3-dimensional 'Rayshader' Maps. The
-3-dimensional 'Rayshader' Map requires the installation of the
-'CopernicusDEM' R package which includes the 30- and 90-meter elevation
-data.
+Connection to the 'Fitbit' Web API by including 'ggplot2' Visualizations,
+'Leaflet' and 3-dimensional 'Rayshader' Maps. The 3-dimensional
+'Rayshader' Map requires the installation of the 'CopernicusDEM' R package
+which includes the 30- and 90-meter elevation data.
 
 %prep
 %setup -q -c -n %{packname}

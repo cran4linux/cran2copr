@@ -1,9 +1,9 @@
 %global packname  archivist
-%global packver   2.3.5
+%global packver   2.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.5
+Version:          2.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Storing, Restoring and Searching for R Objects
 

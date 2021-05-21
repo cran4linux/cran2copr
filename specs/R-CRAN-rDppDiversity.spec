@@ -1,32 +1,33 @@
-%global packname  Rlabkey
-%global packver   2.7.0
+%global packname  rDppDiversity
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Exchange Between R and 'LabKey' Server
+Summary:          Subset Searching Algorithm Using DPP Greedy MAP
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-The 'LabKey' client library for R makes it easy for R users to load live
-data from a 'LabKey' Server, <https://www.labkey.com/>, into the R
-environment for analysis, provided users have permissions to read the
-data. It also enables R users to insert, update, and delete records stored
-on a 'LabKey' Server, provided they have appropriate permissions to do so.
+Given item set, item representation vector, and item ratings, find a
+subset with better relevance-diversity trade-off. Also provide machine
+learning algorithm to learn item representations maximizing log likelihood
+under DPP assumption. References: [1]Laming Chen, Guoxin Zhang, and
+Hanning
+Zhou(2017)<https://lsrs2017.files.wordpress.com/2017/08/lsrs_2017_lamingchen.pdf>
+[2]Laming Chen, Guoxin Zhang, and Hanning
+Zhou(2018)<https://papers.nips.cc/paper/2018/file/dbbf603ff0e99629dda5d75b6f75f966-Paper.pdf>
+[3]Wilhelm, Mark & Ramanathan, Ajith & Bonomo, Alexander & Jain, Sagar &
+Chi, Ed & Gillenwater, Jennifer(2018)<doi:10.1145/3269206.3272018>.
 
 %prep
 %setup -q -c -n %{packname}

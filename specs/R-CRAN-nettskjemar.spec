@@ -1,32 +1,45 @@
-%global packname  Rlabkey
-%global packver   2.7.0
+%global packname  nettskjemar
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.0
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Exchange Between R and 'LabKey' Server
+Summary:          Connect to the 'nettskjema.no' API of the University of Oslo
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-here 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-pbapply 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-here 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-pbapply 
 
 %description
-The 'LabKey' client library for R makes it easy for R users to load live
-data from a 'LabKey' Server, <https://www.labkey.com/>, into the R
-environment for analysis, provided users have permissions to read the
-data. It also enables R users to insert, update, and delete records stored
-on a 'LabKey' Server, provided they have appropriate permissions to do so.
+Enables users to retrieve data, meta-data, and codebooks from
+<https://nettskjema.no/>. The data from the API is richer than from the
+online data portal. Mowinckel (2021) <doi:10.5281/zenodo.4745481>.
 
 %prep
 %setup -q -c -n %{packname}

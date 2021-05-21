@@ -1,9 +1,9 @@
 %global packname  timereg
-%global packver   1.9.9
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.9
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Regression Models for Survival Data
 

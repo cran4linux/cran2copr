@@ -1,9 +1,9 @@
 %global packname  OpenSpecy
-%global packver   0.9.1
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze, Process, Identify, and Share, Raman and (FT)IR Spectra
 
@@ -15,18 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-osfr 
 BuildRequires:    R-CRAN-hyperSpec 
 BuildRequires:    R-CRAN-hexView 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-signal 
 BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-osfr 
 Requires:         R-CRAN-hyperSpec 
 Requires:         R-CRAN-hexView 
@@ -36,10 +34,11 @@ Requires:         R-CRAN-shiny
 
 %description
 Raman and (FT)IR spectral analysis tool for plastic particles and other
-environmental samples. Supported features include reading spectral data
-files (.asp, .csv, .jdx, .spc, .spa, .0), Savitzky-Golay smoothing of
-spectral intensities with smooth_intens(), correcting background noise
-with subtr_bg() in accordance with Zhao et al. (2007)
+environmental samples (Cowger et al. 2021,
+<doi:10.1021/acs.analchem.1c00123>). Supported features include reading
+spectral data files (.asp, .csv, .jdx, .spc, .spa, .0), Savitzky-Golay
+smoothing of spectral intensities with smooth_intens(), correcting
+background noise with subtr_bg() in accordance with Zhao et al. (2007)
 <doi:10.1366/000370207782597003>, and identifying spectra using an onboard
 reference library (Cowger et al. 2020, <doi:10.1177/0003702820929064>).
 Analyzed spectra can be shared with the Open Specy community. A Shiny app

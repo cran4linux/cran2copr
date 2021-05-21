@@ -1,9 +1,9 @@
 %global packname  gWQS
-%global packver   3.0.3
+%global packver   3.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.3
+Version:          3.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Weighted Quantile Sum Regression
 
@@ -16,6 +16,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-rlist 
@@ -30,7 +31,9 @@ BuildRequires:    R-CRAN-future.apply
 BuildRequires:    R-CRAN-pscl 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
 Requires:         R-stats 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-rlist 
@@ -45,6 +48,7 @@ Requires:         R-CRAN-future.apply
 Requires:         R-CRAN-pscl 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-Matrix 
 
 %description
 Fits Weighted Quantile Sum (WQS) regression (Carrico et al. (2014)

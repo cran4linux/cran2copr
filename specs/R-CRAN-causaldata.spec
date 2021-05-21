@@ -1,32 +1,30 @@
-%global packname  Rlabkey
-%global packver   2.7.0
+%global packname  causaldata
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Exchange Between R and 'LabKey' Server
+Summary:          Example Data Sets for Causal Inference Textbooks
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-tibble 
 
 %description
-The 'LabKey' client library for R makes it easy for R users to load live
-data from a 'LabKey' Server, <https://www.labkey.com/>, into the R
-environment for analysis, provided users have permissions to read the
-data. It also enables R users to insert, update, and delete records stored
-on a 'LabKey' Server, provided they have appropriate permissions to do so.
+Example data sets to run the example problems from causal inference
+textbooks. Currently, contains data sets for Huntington-Klein, Nick (2021)
+"The Effect" <https://theeffectbook.net>, Cunningham, Scott (2021,
+ISBN-13: 978-0-300-25168-5) "Causal Inference: The Mixtape", and Hernán,
+Miguel and James Robins (2020) "Causal Inference: What If"
+<https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/>.
 
 %prep
 %setup -q -c -n %{packname}
