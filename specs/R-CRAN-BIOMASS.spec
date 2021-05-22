@@ -1,54 +1,52 @@
-%global packname  ParallelDSM
-%global packver   0.2.1
+%global packname  BIOMASS
+%global packver   2.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          2.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Digital Soil Mapping using Machine Learning
+Summary:          Estimating Aboveground Biomass and Its Uncertainty in Tropical Forests
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-snowfall 
+BuildRequires:    R-CRAN-data.table >= 1.9.8
+BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pryr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-geoR 
-BuildRequires:    R-CRAN-gstat 
-BuildRequires:    R-CRAN-quantregForest 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-proj4 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-sp 
-Requires:         R-CRAN-snowfall 
+Requires:         R-CRAN-data.table >= 1.9.8
+Requires:         R-CRAN-minpack.lm 
 Requires:         R-CRAN-raster 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-methods 
-Requires:         R-CRAN-pryr 
-Requires:         R-utils 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-geoR 
-Requires:         R-CRAN-gstat 
-Requires:         R-CRAN-quantregForest 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-proj4 
+Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-sp 
 
 %description
-Parallel computing, multi-core CPU is used to efficiently compute and
-process multi-dimensional soil data.This package includes the parallelized
-Quantile Regression Forests algorithm for Digital Soil Mapping and is
-mainly dependent on the package 'quantregForest' and 'snowfall'. Detailed
-references to the R package and the web site are described in the methods,
-as detailed in the method documentation.
+Contains functions to estimate aboveground biomass/carbon and its
+uncertainty in tropical forests. These functions allow to (1) retrieve and
+to correct taxonomy, (2) estimate wood density and its uncertainty, (3)
+construct height-diameter models, (4) manage tree and plot coordinates,
+(5) estimate the aboveground biomass/carbon at the stand level with
+associated uncertainty. To cite 'BIOMASS', please use citation("BIOMASS").
+See more in the article of Réjou-Méchain et al. (2017)
+<doi:10.1111/2041-210X.12753>.
 
 %prep
 %setup -q -c -n %{packname}

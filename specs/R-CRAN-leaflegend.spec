@@ -1,9 +1,9 @@
 %global packname  leaflegend
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Add Custom Legends to 'leaflet' Maps
 
@@ -19,12 +19,10 @@ BuildRequires:    R-CRAN-leaflet
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-knitr 
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-htmltools 
 Requires:         R-stats 
 Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-knitr 
 
 %description
 Provides extensions to the 'leaflet' package to customize legends with

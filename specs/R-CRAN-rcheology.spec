@@ -1,9 +1,9 @@
 %global packname  rcheology
-%global packver   4.0.5.0
+%global packver   4.1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.5.0
+Version:          4.1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data on Base Packages for Current and Previous Versions of R
 

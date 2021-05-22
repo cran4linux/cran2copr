@@ -1,13 +1,13 @@
-%global packname  enerscape
-%global packver   0.1.1
+%global packname  mitre
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compute Energy Landscapes
+Summary:          Cybersecurity MITRE Standards Data and Digraphs
 
-License:          GPL-3
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,22 +15,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-gdistance 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-gdistance 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-RJSONIO 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-RJSONIO 
+Requires:         R-CRAN-tidyr 
 
 %description
-Compute energy landscapes using a digital elevation model (DEM) raster and
-body mass (kg) of animals.
+Extract, transform and load MITRE standards. This package gives you an
+approach to cybersecurity data sets. All data sets are build on runtime
+downloading raw data from MITRE public services. MITRE
+<https://www.mitre.org/> is a government-funded research organization
+based in Bedford and McLean. Current version includes most used standards
+as data frames. It also provide a list of nodes and edges with all
+relationships.
 
 %prep
 %setup -q -c -n %{packname}

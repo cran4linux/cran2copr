@@ -1,9 +1,9 @@
 %global packname  ggbreak
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Set Axis Break for 'ggplot2'
 
@@ -15,15 +15,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplotify >= 0.0.7
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggplotify 
-BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-aplot 
 BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-ggplotify >= 0.0.7
 Requires:         R-grid 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggplotify 
-Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-aplot 
 Requires:         R-CRAN-rlang 
 
 %description

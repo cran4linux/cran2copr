@@ -1,9 +1,9 @@
 %global packname  MANOVA.RM
-%global packver   0.4.3
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Resampling-Based Analysis of Multivariate Data and Repeated Measures Designs
 
@@ -45,7 +45,7 @@ inference methods, novel bootstrap and permutation approaches are
 implemented as well. These provide more accurate results in case of small
 to moderate sample sizes. Furthermore, post-hoc comparisons are provided
 for the multivariate analyses. Friedrich, S., Konietschke, F. and Pauly,
-M. (2018) <arXiv:1801.08002>.
+M. (2019) <doi:10.32614/RJ-2019-051>.
 
 %prep
 %setup -q -c -n %{packname}

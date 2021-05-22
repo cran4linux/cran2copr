@@ -1,31 +1,32 @@
-%global packname  jti
-%global packver   0.7.1
+%global packname  spectre
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Junction Tree Inference
+Summary:          Predict Regional Community Composition
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-sparta 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-sparta 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-RcppProgress 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-RcppProgress 
 
 %description
-Minimal and memory efficient implementation of the junction tree algorithm
-using the Lauritzen-Spiegelhalter scheme; S. L. Lauritzen and D. J.
-Spiegelhalter (1988) <https://www.jstor.org/stable/2345762?seq=1>.
+Predict regional community composition at a fine spatial resolution using
+only sparse biological and environmental data. The package is based on the
+DynamicFOAM algorithm desscribed in Mokany et al. (2011)
+<doi:10.1111/j.1461-0248.2011.01675.x>.
 
 %prep
 %setup -q -c -n %{packname}

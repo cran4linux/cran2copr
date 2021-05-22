@@ -1,31 +1,42 @@
-%global packname  jti
-%global packver   0.7.1
+%global packname  voson.tcn
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Junction Tree Inference
+Summary:          Twitter Conversation Networks and Analysis
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-sparta 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-sparta 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Minimal and memory efficient implementation of the junction tree algorithm
-using the Lauritzen-Spiegelhalter scheme; S. L. Lauritzen and D. J.
-Spiegelhalter (1988) <https://www.jstor.org/stable/2345762?seq=1>.
+Collects tweets and metadata for threaded conversations and generates
+networks.
 
 %prep
 %setup -q -c -n %{packname}

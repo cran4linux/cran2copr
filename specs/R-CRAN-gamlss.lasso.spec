@@ -1,9 +1,9 @@
 %global packname  gamlss.lasso
-%global packver   1.0-0
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extra Lasso-Type Additive Terms for GAMLSS
 
@@ -26,8 +26,8 @@ Requires:         R-CRAN-Matrix
 
 %description
 Interface for extra high-dimensional smooth functions for Generalized
-Additive Models for Location Scale and Shape (GAMLSS) including lasso,
-ridge, elastic net and least angle regression.
+Additive Models for Location Scale and Shape (GAMLSS) including (adaptive)
+lasso, ridge, elastic net and least angle regression.
 
 %prep
 %setup -q -c -n %{packname}

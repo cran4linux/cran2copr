@@ -1,31 +1,41 @@
-%global packname  jti
-%global packver   0.7.1
+%global packname  mind
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Junction Tree Inference
+Summary:          Multivariate Model Based Inference for Domains
 
-License:          GPL-3
+License:          EUPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-sparta 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-sparta 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-qdap 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-JWileymisc 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-qdap 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-dplyr 
+Requires:         R-stats 
+Requires:         R-CRAN-JWileymisc 
 
 %description
-Minimal and memory efficient implementation of the junction tree algorithm
-using the Lauritzen-Spiegelhalter scheme; S. L. Lauritzen and D. J.
-Spiegelhalter (1988) <https://www.jstor.org/stable/2345762?seq=1>.
+Allows users to produce estimates and MSE for multivariate variables using
+Linear Mixed Model. The package follows the approach of Datta, Day and
+Basawa (1999) <doi:10.1016/S0378-3758(98)00147-5>.
 
 %prep
 %setup -q -c -n %{packname}

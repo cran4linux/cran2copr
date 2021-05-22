@@ -1,9 +1,9 @@
 %global packname  arulesViz
-%global packver   1.4-0
+%global packver   1.5-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizing Association Rules and Frequent Itemsets
 
@@ -15,8 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arules >= 1.4.1
-BuildRequires:    R-CRAN-igraph >= 1.0.0
+BuildRequires:    R-CRAN-arules >= 1.6.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
@@ -26,16 +25,17 @@ BuildRequires:    R-CRAN-seriation
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-vcd 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-scatterplot3d 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggnetwork 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-visNetwork 
-Requires:         R-CRAN-arules >= 1.4.1
-Requires:         R-CRAN-igraph >= 1.0.0
+Requires:         R-CRAN-arules >= 1.6.0
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-utils 
@@ -45,8 +45,10 @@ Requires:         R-CRAN-seriation
 Requires:         R-CRAN-colorspace 
 Requires:         R-grid 
 Requires:         R-CRAN-vcd 
+Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-scatterplot3d 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggnetwork 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 

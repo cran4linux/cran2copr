@@ -1,9 +1,9 @@
 %global packname  ks
-%global packver   1.12.0
+%global packver   1.13.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.12.0
+Version:          1.13.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kernel Smoothing
 

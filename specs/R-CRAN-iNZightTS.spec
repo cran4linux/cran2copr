@@ -1,9 +1,9 @@
 %global packname  iNZightTS
-%global packver   1.5.7
+%global packver   1.5.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.7
+Version:          1.5.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series for 'iNZight'
 
@@ -17,7 +17,6 @@ Requires:         R-core >= 3.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-egg 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggtext 
@@ -35,7 +34,6 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-utils 
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-egg 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggtext 

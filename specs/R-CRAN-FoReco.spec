@@ -1,9 +1,9 @@
 %global packname  FoReco
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Point Forecast Reconciliation
 
@@ -21,18 +21,18 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-mathjaxr 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-osqp 
 Requires:         R-stats 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-corpcor 
 Requires:         R-methods 
-Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-mathjaxr 
 
 %description
-Provides classical (bottom-up), optimal and heuristic combination forecast
-reconciliation procedures for cross-sectional, temporal, and
+Classical (bottom-up and top-down), optimal and heuristic combination
+forecast reconciliation procedures for cross-sectional, temporal, and
 cross-temporal linearly constrained time series.
 
 %prep

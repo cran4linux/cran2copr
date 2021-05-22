@@ -1,31 +1,30 @@
-%global packname  jti
-%global packver   0.7.1
+%global packname  particle.swarm.optimisation
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Junction Tree Inference
+Summary:          Optimisation with Particle Swarm Optimisation
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-sparta 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-sparta 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rgl 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rgl 
 
 %description
-Minimal and memory efficient implementation of the junction tree algorithm
-using the Lauritzen-Spiegelhalter scheme; S. L. Lauritzen and D. J.
-Spiegelhalter (1988) <https://www.jstor.org/stable/2345762?seq=1>.
+A toolbox to create a particle swarm optimisation (PSO), the package
+contains two classes: the Particle and the Particle Swarm, this two class
+is used to run the PSO with methods to easily print, plot and save the
+result.
 
 %prep
 %setup -q -c -n %{packname}

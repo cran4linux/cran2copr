@@ -1,9 +1,9 @@
 %global packname  sbm
-%global packver   0.2.2
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stochastic Blockmodels
 
@@ -14,23 +14,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-alluvial 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-blockmodels 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-GREMLINS 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-reshape 
+BuildRequires:    R-CRAN-prodlim 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-alluvial 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-blockmodels 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-GREMLINS 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-reshape 
+Requires:         R-CRAN-prodlim 
 
 %description
-A collection of tools and function to adjust a variety of stochastic
-blockmodels (SBM). Support at the moment Simple and Bipartite SBM
-(undirected and directed) for Bernoulli, Poisson and Gaussian emission
-laws of the edges as described in Léger, 2016 <arxiv:1602.07587>.
+A collection of tools and functions to adjust a variety of stochastic
+blockmodels (SBM). Supports at the moment Simple, Bipartite,
+'Multipartite' and Multiplex SBM (undirected or directed with Bernoulli,
+Poisson or Gaussian emission laws on the edges, and possibly covariate for
+Simple and Bipartite SBM). See Léger (2016) <arxiv:1602.07587>, 'Barbillon
+et al.' (2020) <doi:10.1111/rssa.12193> and 'Bar-Hen et al.' (2020)
+<arxiv:1807.10138>.
 
 %prep
 %setup -q -c -n %{packname}

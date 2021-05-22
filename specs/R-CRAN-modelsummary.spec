@@ -1,9 +1,9 @@
 %global packname  modelsummary
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Summary Tables and Plots for Statistical Models and Data: Beautiful, Customizable, and Publication-Ready
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-insight 
 BuildRequires:    R-CRAN-parameters 
 BuildRequires:    R-CRAN-performance 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tables 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-glue
 Requires:         R-CRAN-insight 
 Requires:         R-CRAN-parameters 
 Requires:         R-CRAN-performance 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tables 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 

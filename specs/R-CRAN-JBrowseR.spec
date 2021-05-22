@@ -1,9 +1,9 @@
 %global packname  JBrowseR
-%global packver   0.7.1
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An R Interface to the JBrowse 2 Genome Browser
 
@@ -25,6 +25,8 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-httpuv 
 BuildRequires:    R-CRAN-mime 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-ids 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-reactR 
@@ -35,6 +37,8 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-httpuv 
 Requires:         R-CRAN-mime 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-ids 
+Requires:         R-CRAN-dplyr 
 
 %description
 Provides an R interface to the JBrowse 2 genome browser. Enables embedding

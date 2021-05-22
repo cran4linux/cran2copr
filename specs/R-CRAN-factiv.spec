@@ -1,31 +1,30 @@
-%global packname  jti
-%global packver   0.7.1
+%global packname  factiv
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Junction Tree Inference
+Summary:          Instrumental Variables Estimation for 2^k Factorial Experiments
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-sparta 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-sparta 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-Formula 
+Requires:         R-stats 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-Formula 
 
 %description
-Minimal and memory efficient implementation of the junction tree algorithm
-using the Lauritzen-Spiegelhalter scheme; S. L. Lauritzen and D. J.
-Spiegelhalter (1988) <https://www.jstor.org/stable/2345762?seq=1>.
+Implements instrumental variable estimators for 2^K factorial experiments
+with noncompliance.
 
 %prep
 %setup -q -c -n %{packname}

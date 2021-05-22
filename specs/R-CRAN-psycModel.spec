@@ -1,9 +1,9 @@
 %global packname  psycModel
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integrated Toolkit for Psychological Analysis and Modeling in R
 
@@ -18,6 +18,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang >= 0.1.2
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-insight 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-lifecycle 
@@ -33,6 +34,7 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-insight 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-lifecycle 
