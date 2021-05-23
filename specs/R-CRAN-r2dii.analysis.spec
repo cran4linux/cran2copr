@@ -1,11 +1,11 @@
 %global packname  r2dii.analysis
-%global packver   0.1.6
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Calculate Climate Targets for Financial Portfolios
+Summary:          Tools to Measure Climate Scenario Alignment of Corporate Lending Portfolios
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -33,13 +33,14 @@ Requires:         R-CRAN-tidyselect
 Requires:         R-CRAN-zoo 
 
 %description
-These tools help you to assess if a financial portfolio aligns with
-climate goals. They summarize key metrics attributed to the portfolio
-(e.g. production, emission factors), and calculate targets based on
-climate scenarios. They implement in R the last step of the free software
-'PACTA' (Paris Agreement Capital Transition Assessment;
+These tools help you to assess if a corporate lending portfolio aligns
+with climate goals. They summarize key climate indicators attributed to
+the portfolio (e.g. production, emission factors), and calculate alignment
+targets based on climate scenarios. They implement in R the last step of
+the free software 'PACTA' (Paris Agreement Capital Transition Assessment;
 <https://2degrees-investing.org/>). Financial institutions use 'PACTA' to
-study how their capital allocation impacts the climate.
+study how their capital allocation decisions align with climate change
+mitigation goals.
 
 %prep
 %setup -q -c -n %{packname}

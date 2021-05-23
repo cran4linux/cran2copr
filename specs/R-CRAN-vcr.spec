@@ -1,9 +1,9 @@
 %global packname  vcr
-%global packver   0.6.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Record 'HTTP' Calls to Disk
 
@@ -15,20 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-crul >= 0.8.4
-BuildRequires:    R-CRAN-webmockr >= 0.7.4
+BuildRequires:    R-CRAN-webmockr >= 0.8.0
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-urltools 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-rprojroot 
 BuildRequires:    R-CRAN-cpp11 
 Requires:         R-CRAN-crul >= 0.8.4
-Requires:         R-CRAN-webmockr >= 0.7.4
+Requires:         R-CRAN-webmockr >= 0.8.0
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-urltools 
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-rprojroot 
 
 %description
 Record test suite 'HTTP' requests and replays them during future runs. A

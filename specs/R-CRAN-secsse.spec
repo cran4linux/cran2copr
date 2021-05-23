@@ -1,9 +1,9 @@
 %global packname  secsse
-%global packver   2.0.7
+%global packver   2.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.7
+Version:          2.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Several Examined and Concealed States-Dependent Speciation and Extinction
 

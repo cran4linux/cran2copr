@@ -1,11 +1,11 @@
 %global packname  powerEQTL
-%global packver   0.2.9
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power and Sample Size Calculation for eQTL Analysis
+Summary:          Power and Sample Size Calculation for Bulk Tissue and Single-Cell eQTL Analysis
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,9 +27,12 @@ Requires:         R-CRAN-glmmTMB
 Requires:         R-parallel 
 
 %description
-Power and sample size calculation for eQTL analysis based on ANOVA or
-simple linear regression. It can also calculate power/sample size for
-testing the association of a SNP to a continuous type phenotype.
+Power and sample size calculation for bulk tissue and single-cell eQTL
+analysis based on ANOVA, simple linear regression, or linear mixed effects
+model. It can also calculate power/sample size for testing the association
+of a SNP to a continuous type phenotype. Please see the reference: Dong X,
+Li X, Chang T-W, Scherzer CR, Weiss ST, Qiu W. (2021)
+<doi:10.1093/bioinformatics/btab385>.
 
 %prep
 %setup -q -c -n %{packname}

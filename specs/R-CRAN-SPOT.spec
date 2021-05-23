@@ -1,9 +1,9 @@
 %global packname  SPOT
-%global packver   2.4.2
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.2
+Version:          2.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sequential Parameter Optimization Toolbox
 
@@ -15,46 +15,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-DEoptim 
-BuildRequires:    R-CRAN-rgenoud 
-BuildRequires:    R-CRAN-rsm 
-BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-SimInf 
-BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-rpart.plot 
-BuildRequires:    R-CRAN-smoof 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-laGP 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-plgp 
-BuildRequires:    R-CRAN-sensitivity 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-ranger 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-rgenoud 
+BuildRequires:    R-CRAN-rsm 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-DEoptim 
-Requires:         R-CRAN-rgenoud 
-Requires:         R-CRAN-rsm 
-Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-SimInf 
-Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-rpart.plot 
-Requires:         R-CRAN-smoof 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-CRAN-laGP 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-plgp 
-Requires:         R-CRAN-sensitivity 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-rgenoud 
+Requires:         R-CRAN-rsm 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 A set of tools for model-based optimization and tuning of algorithms. It

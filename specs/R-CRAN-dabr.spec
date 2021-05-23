@@ -1,9 +1,9 @@
 %global packname  dabr
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Database Management with R
 
@@ -16,9 +16,13 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-RMariaDB 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-RMariaDB 
+Requires:         R-CRAN-tibble 
 
 %description
 Provides functions to manage databases: select, update, insert, and delete

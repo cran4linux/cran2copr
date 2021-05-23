@@ -1,9 +1,9 @@
 %global packname  cdcfluview
-%global packver   0.9.3
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.9.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve Flu Season Data from the United States Centers for Disease Control and Prevention ('CDC') 'FluView' Portal
 

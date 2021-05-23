@@ -1,10 +1,10 @@
 %global packname  tidytree
-%global packver   0.3.3
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
-Release:          3%{?dist}%{?buildtag}
+Version:          0.3.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          A Tidy Tool for Phylogenetic Tree Data Manipulation
 
 License:          Artistic-2.0
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lazyeval 
@@ -30,7 +29,6 @@ Requires:         R-CRAN-magrittr
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
-Requires:         R-utils 
 
 %description
 Phylogenetic tree generally contains multiple components including node,
@@ -41,7 +39,13 @@ to manipulate tree data.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -49,19 +53,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
