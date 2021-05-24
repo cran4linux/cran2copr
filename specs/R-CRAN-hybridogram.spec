@@ -1,9 +1,9 @@
 %global packname  hybridogram
-%global packver   0.3.0
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Function that Creates a Heat Map from Hybridization Data
 
@@ -15,8 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gplots 
-Requires:         R-CRAN-gplots 
+BuildRequires:    R-CRAN-pheatmap 
+Requires:         R-CRAN-pheatmap 
 
 %description
 Using hybrid data, this package created a vividly colored hybrid heat map.

@@ -1,10 +1,10 @@
 %global packname  mashr
-%global packver   0.2.38
+%global packver   0.2.50
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.38
-Release:          3%{?dist}%{?buildtag}
+Version:          0.2.50
+Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Adaptive Shrinkage
 
 License:          BSD_3_clause + file LICENSE
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-ashr >= 2.2.22
+BuildRequires:    R-CRAN-RcppGSL >= 0.3.8
 BuildRequires:    R-CRAN-Rcpp >= 0.12.11
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-utils 
@@ -23,8 +24,8 @@ BuildRequires:    R-CRAN-plyr
 BuildRequires:    R-CRAN-rmeta 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-softImpute 
 BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppGSL 
 Requires:         R-CRAN-ashr >= 2.2.22
 Requires:         R-CRAN-Rcpp >= 0.12.11
 Requires:         R-CRAN-assertthat 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-plyr
 Requires:         R-CRAN-rmeta 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-abind 
+Requires:         R-CRAN-softImpute 
 
 %description
 Implements the multivariate adaptive shrinkage (mash) method of Urbut et
@@ -47,7 +49,13 @@ implemented in C++ for fast model fitting and posterior computation.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -55,23 +63,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/code
-%doc %{rlibdir}/%{packname}/COPYRIGHTS
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/misc
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

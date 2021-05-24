@@ -1,9 +1,9 @@
 %global packname  SurviMChd
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Dimensional Survival Data Analysis with Markov Chain Monte Carlo
 
@@ -19,7 +19,8 @@ BuildRequires:    R-CRAN-Rdpack >= 0.7
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-R2OpenBUGS 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-R2jags 
 BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-icenReg 
 BuildRequires:    R-CRAN-ICBayes 
@@ -29,7 +30,8 @@ Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-CRAN-survival 
 Requires:         R-utils 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-R2OpenBUGS 
+Requires:         R-CRAN-rjags 
+Requires:         R-CRAN-R2jags 
 Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-icenReg 
 Requires:         R-CRAN-ICBayes 

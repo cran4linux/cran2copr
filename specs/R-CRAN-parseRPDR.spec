@@ -1,9 +1,9 @@
 %global packname  parseRPDR
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parse and Manipulate Research Patient Data Registry ('RPDR') Text Queries
 
@@ -34,9 +34,9 @@ from Partners Healthcare institutions into R. The package also provides
 helper functions to manipulate data and execute common procedures such as
 finding the closest radiological exams considering a given timepoint.
 'parseRPDR' currently supports txt sources: "mrn", "con", "dem", "enc",
-"rdt", "lab", "med", "dia", "rfv", "car", "dis", "end", "hnp", "opn",
-"pat", "prg", "pul", "rad" and "vis". All functionalities are parallelized
-for fast and efficient analyses.
+"rdt", "lab", "med", "dia", "rfv", "prc", "car", "dis", "end", "hnp",
+"opn", "pat", "prg", "pul", "rad" and "vis". All functionalities are
+parallelized for fast and efficient analyses.
 
 %prep
 %setup -q -c -n %{packname}

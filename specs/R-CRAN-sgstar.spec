@@ -1,9 +1,9 @@
 %global packname  sgstar
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Seasonal Generalized Space Time Autoregressive (S-GSTAR) Model
 
@@ -17,12 +17,14 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-nlme 
+Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
 A set of function that implements for seasonal multivariate time series
