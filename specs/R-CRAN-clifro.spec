@@ -1,9 +1,9 @@
 %global packname  clifro
-%global packver   3.2-3
+%global packver   3.2-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.3
+Version:          3.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Download and Visualise Climate Data from CliFlo
 
@@ -17,26 +17,32 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
 BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-ggplot2 >= 2.0.0
 Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-graphics 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-RCurl 
 Requires:         R-utils 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-stringr 
 
 %description
 CliFlo is a web portal to the New Zealand National Climate Database and
@@ -52,9 +58,13 @@ sought.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -64,6 +74,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

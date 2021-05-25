@@ -1,9 +1,9 @@
 %global packname  extRemes
-%global packver   2.1
+%global packver   2.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extreme Value Analysis
 
@@ -14,11 +14,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10.0
 Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-distillery >= 1.0
+BuildRequires:    R-CRAN-distillery >= 1.0.4
 BuildRequires:    R-CRAN-Lmoments 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-distillery >= 1.0
+Requires:         R-CRAN-distillery >= 1.0.4
 Requires:         R-CRAN-Lmoments 
 Requires:         R-graphics 
 Requires:         R-stats 

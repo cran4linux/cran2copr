@@ -1,9 +1,9 @@
 %global packname  DCEtool
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create, Survey and Analyse Discrete Choice Experiments
 
@@ -28,8 +28,9 @@ BuildRequires:    R-CRAN-shinyhelper
 BuildRequires:    R-CRAN-shinycssloaders 
 BuildRequires:    R-CRAN-shinyglide 
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-commonmark 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-commonmark 
+BuildRequires:    R-CRAN-bslib 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinythemes 
@@ -43,8 +44,9 @@ Requires:         R-CRAN-shinyhelper
 Requires:         R-CRAN-shinycssloaders 
 Requires:         R-CRAN-shinyglide 
 Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-commonmark 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-commonmark 
+Requires:         R-CRAN-bslib 
 
 %description
 This app is intended to be a complete package for creating, surveying, and

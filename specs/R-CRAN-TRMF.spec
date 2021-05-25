@@ -1,9 +1,9 @@
 %global packname  TRMF
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Temporally Regularized Matrix Factorization
 
@@ -23,11 +23,11 @@ Requires:         R-CRAN-limSolve
 Requires:         R-CRAN-generics 
 
 %description
-Functions to estimate temporally regularized matrix factorization (TRMF)
+Functions to estimate temporally regularized matrix factorizations (TRMF)
 for forecasting and imputing values in short but high-dimensional time
 series. Uses regularized alternating least squares to compute the
 factorization, allows for several types of constraints on matrix factors
-and can handle weighted data.
+and natively handles weighted and missing data.
 
 %prep
 %setup -q -c -n %{packname}

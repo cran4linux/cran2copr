@@ -1,9 +1,9 @@
 %global packname  wallace
-%global packver   1.0.6.3
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Modular Platform for Reproducible Modeling of Species Niches and Distributions
 
@@ -15,49 +15,45 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rgbif >= 3.3.0
 BuildRequires:    R-CRAN-leaflet >= 2.0.2
+BuildRequires:    R-CRAN-ENMeval >= 2.0.0
 BuildRequires:    R-CRAN-shiny >= 1.1.0
 BuildRequires:    R-CRAN-spocc >= 0.8.0
 BuildRequires:    R-CRAN-DT >= 0.4
-BuildRequires:    R-CRAN-ENMeval >= 0.3.0
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-spThin 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-CRAN-dismo 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-shinythemes 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-leaflet.extras 
-BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-spThin 
 BuildRequires:    R-CRAN-zip 
-Requires:         R-CRAN-rgbif >= 3.3.0
 Requires:         R-CRAN-leaflet >= 2.0.2
+Requires:         R-CRAN-ENMeval >= 2.0.0
 Requires:         R-CRAN-shiny >= 1.1.0
 Requires:         R-CRAN-spocc >= 0.8.0
 Requires:         R-CRAN-DT >= 0.4
-Requires:         R-CRAN-ENMeval >= 0.3.0
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-spThin 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-maptools 
 Requires:         R-CRAN-dismo 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-shinythemes 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-leaflet.extras 
-Requires:         R-CRAN-XML 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-rgeos 
+Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-testthat 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-spThin 
 Requires:         R-CRAN-zip 
 
 %description

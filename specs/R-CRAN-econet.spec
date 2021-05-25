@@ -1,9 +1,9 @@
 %global packname  econet
-%global packver   0.1.93
+%global packver   0.1.94
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.93
+Version:          0.1.94
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of Parameter-Dependent Network Centrality Measures
 

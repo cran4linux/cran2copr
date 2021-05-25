@@ -1,9 +1,9 @@
 %global packname  islasso
-%global packver   1.2.2
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Induced Smoothed Lasso
 
@@ -12,12 +12,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-glmnet >= 4.0
+BuildRequires:    R-CRAN-Matrix >= 1.0.6
+Requires:         R-CRAN-glmnet >= 4.0
+Requires:         R-CRAN-Matrix >= 1.0.6
 
 %description
 An implementation of the induced smoothing (IS) idea to lasso
