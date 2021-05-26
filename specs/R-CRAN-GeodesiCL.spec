@@ -1,38 +1,51 @@
-%global packname  czechrates
-%global packver   0.2.2
+%global packname  GeodesiCL
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Czech Interest & Foreign Exchange Rates
+Summary:          Geometric Geodesy Functions
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-leafpop 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-profvis 
+BuildRequires:    R-CRAN-mapview 
+Requires:         R-CRAN-sp 
 Requires:         R-CRAN-readr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rgdal 
+Requires:         R-utils 
 Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-leafpop 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-profvis 
+Requires:         R-CRAN-mapview 
 
 %description
-Interface to interest and foreign exchange rates published by the Czech
-National Bank.
+Geometric geodesy functions applied to most common ellipsoids. This
+package was created to streamline and facilitate their work for surveyors,
+geographers, and everything related to geosciences.
 
 %prep
 %setup -q -c -n %{packname}

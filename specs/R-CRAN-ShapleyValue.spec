@@ -1,26 +1,32 @@
-%global packname  EcoIndR
-%global packver   1.7
+%global packname  ShapleyValue
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ecological Indicators
+Summary:          Shapley Value Regression for Relative Importance of Attributes
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rgeos 
-Requires:         R-CRAN-rgeos 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-MASS 
+Requires:         R-utils 
 
 %description
-Calculates several indices, such as of diversity, fluctuation, etc., and
-they are used to estimate ecological indicators.
+Shapley Value Regression for calculating the relative importance of
+independent variables in linear regression with avoiding the collinearity.
 
 %prep
 %setup -q -c -n %{packname}

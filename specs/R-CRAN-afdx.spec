@@ -1,26 +1,34 @@
-%global packname  EcoIndR
-%global packver   1.7
+%global packname  afdx
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ecological Indicators
+Summary:          Diagnosis Performance Using Attributable Fraction
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rgeos 
-Requires:         R-CRAN-rgeos 
+BuildRequires:    R-CRAN-maxLik 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-maxLik 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Calculates several indices, such as of diversity, fluctuation, etc., and
-they are used to estimate ecological indicators.
+Estimate diagnosis performance (Sensitivity, Specificity, Positive
+predictive value, Negative predicted value) of a diagnostic test where can
+not measure the golden standard but can estimate it using the attributable
+fraction.
 
 %prep
 %setup -q -c -n %{packname}

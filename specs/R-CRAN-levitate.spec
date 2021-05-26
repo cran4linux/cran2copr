@@ -1,26 +1,37 @@
-%global packname  EcoIndR
-%global packver   1.7
+%global packname  levitate
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ecological Indicators
+Summary:          Fuzzy String Comparison
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rgeos 
-Requires:         R-CRAN-rgeos 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-stringr 
 
 %description
-Calculates several indices, such as of diversity, fluctuation, etc., and
-they are used to estimate ecological indicators.
+Provides string similarity calculations inspired by the Python
+'fuzzywuzzy' package. Compare strings by edit distance, similarity ratio,
+best matching substring, ordered token matching and set-based token
+matching. A range of edit distance measures are available thanks to the
+'stringdist' package.
 
 %prep
 %setup -q -c -n %{packname}

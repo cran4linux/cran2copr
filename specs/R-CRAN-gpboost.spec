@@ -1,9 +1,9 @@
 %global packname  gpboost
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Combining Tree-Boosting with Gaussian Process and Mixed Effects Models
 
@@ -34,8 +34,8 @@ An R package that allows for combining tree-boosting with Gaussian process
 and mixed effects models. It also allows for independently doing
 tree-boosting as well as inference and prediction for Gaussian process and
 mixed effects models. See <https://github.com/fabsig/GPBoost> for more
-information on the software and Sigrist (2020) <arXiv:2004.02653> for more
-information on the methodology.
+information on the software and Sigrist (2020) <arXiv:2004.02653> and
+Sigrist (2021) <arXiv:2105.08966> for more information on the methodology.
 
 %prep
 %setup -q -c -n %{packname}

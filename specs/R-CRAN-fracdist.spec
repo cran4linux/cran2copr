@@ -1,26 +1,30 @@
-%global packname  EcoIndR
-%global packver   1.7
+%global packname  fracdist
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ecological Indicators
+Summary:          Numerical CDFs for Fractional Unit Root and Cointegration Tests
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rgeos 
-Requires:         R-CRAN-rgeos 
 
 %description
-Calculates several indices, such as of diversity, fluctuation, etc., and
-they are used to estimate ecological indicators.
+Calculate numerical asymptotic distribution functions of likelihood ratio
+statistics for fractional unit root tests and tests of cointegration rank.
+For these distributions, the included functions calculate critical values
+and P-values used in unit root tests, cointegration tests, and rank tests
+in the Fractionally Cointegrated Vector Autoregression (FCVAR) model. The
+functions implement procedures for tests described in the following
+articles: Johansen, S. and M. Ø. Nielsen (2012) <doi:10.3982/ECTA9299>,
+MacKinnon, J. G. and M. Ø. Nielsen (2014) <doi:10.1002/jae.2295>.
 
 %prep
 %setup -q -c -n %{packname}

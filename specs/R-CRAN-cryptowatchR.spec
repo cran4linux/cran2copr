@@ -1,26 +1,31 @@
-%global packname  EcoIndR
-%global packver   1.7
+%global packname  cryptowatchR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ecological Indicators
+Summary:          An API Wrapper for 'Cryptowatch'
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rgeos 
-Requires:         R-CRAN-rgeos 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
 
 %description
-Calculates several indices, such as of diversity, fluctuation, etc., and
-they are used to estimate ecological indicators.
+It provides an API wrapper for 'Cryptowatch'. Historical price data and
+other information on cryptocurrencies and crypto exchanges can be
+retrieved. API documentation: <https://docs.cryptowat.ch/rest-api>.
 
 %prep
 %setup -q -c -n %{packname}

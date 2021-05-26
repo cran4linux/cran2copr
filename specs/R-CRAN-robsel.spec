@@ -1,26 +1,30 @@
-%global packname  EcoIndR
-%global packver   1.7
+%global packname  robsel
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ecological Indicators
+Summary:          Robust Selection Algorithm
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rgeos 
-Requires:         R-CRAN-rgeos 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-glasso 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-glasso 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Calculates several indices, such as of diversity, fluctuation, etc., and
-they are used to estimate ecological indicators.
+An implementation of algorithms for estimation of the graphical lasso
+regularization parameter described in Pedro Cisneros-Velarde, Alexander
+Petersen and Sang-Yun Oh (2020)
+<http://proceedings.mlr.press/v108/cisneros20a.html>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  tabula
-%global packver   1.6.0
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis, Seriation and Visualization of Archaeological Count Data
 
@@ -34,16 +34,14 @@ Requires:         R-utils
 
 %description
 An easy way to examine archaeological count data. This package provides a
-convenient and reproducible toolkit for relative and absolute dating and
-analysis of (chronological) patterns. It includes functions for matrix
-seriation (reciprocal ranking, CA-based seriation), chronological modeling
-and dating of archaeological assemblages and/or objects. Beyond these, the
-package provides several tests and measures of diversity: heterogeneity
-and evenness (Brillouin, Shannon, Simpson, etc.), richness and rarefaction
-(Chao1, Chao2, ACE, ICE, etc.), turnover and similarity
-(Brainerd-Robinson, etc.). The package make it easy to visualize count
-data and statistical thresholds: rank vs abundance plots, heatmaps, Ford
-(1962) and Bertin (1977) diagrams.
+convenient and reproducible toolkit for relative dating by matrix
+seriation (reciprocal ranking, CA-based seriation). It also provides
+several tests and measures of diversity: heterogeneity and evenness
+(Brillouin, Shannon, Simpson, etc.), richness and rarefaction (Chao1,
+Chao2, ACE, ICE, etc.), turnover and similarity (Brainerd-Robinson, etc.).
+The package make it easy to visualize count data and statistical
+thresholds: rank vs abundance plots, heatmaps, Ford (1962) and Bertin
+(1977) diagrams.
 
 %prep
 %setup -q -c -n %{packname}

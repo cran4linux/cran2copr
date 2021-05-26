@@ -1,9 +1,9 @@
 %global packname  bibliometrix
-%global packver   3.1.1
+%global packver   3.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          3.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive Science Mapping Analysis
 
@@ -41,7 +41,6 @@ BuildRequires:    R-CRAN-SnowballC
 BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-tidytext 
 Requires:         R-stats 
 Requires:         R-grDevices 
@@ -69,7 +68,6 @@ Requires:         R-CRAN-SnowballC
 Requires:         R-CRAN-stringdist 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-tidytext 
 
 %description

@@ -1,9 +1,9 @@
 %global packname  fansi
-%global packver   0.4.2
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          ANSI Control Sequence Aware String Functions
 
@@ -14,6 +14,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
+BuildRequires:    R-grDevices 
+BuildRequires:    R-utils 
+Requires:         R-grDevices 
+Requires:         R-utils 
 
 %description
 Counterparts to R string manipulation functions that account for the

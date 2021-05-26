@@ -1,26 +1,36 @@
-%global packname  EcoIndR
-%global packver   1.7
+%global packname  colorhex
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ecological Indicators
+Summary:          Colors and Palettes from Color-Hex
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rgeos 
-Requires:         R-CRAN-rgeos 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-xml2 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Calculates several indices, such as of diversity, fluctuation, etc., and
-they are used to estimate ecological indicators.
+The website <https:www.color-hex.com> is a great resource of hex colour
+codes and palettes. This package allows you to retrieve palettes and
+colour information from the website directly from R. There are also custom
+scale-functions for 'ggplot2'.
 
 %prep
 %setup -q -c -n %{packname}

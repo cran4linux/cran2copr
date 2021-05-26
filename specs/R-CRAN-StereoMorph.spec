@@ -1,10 +1,10 @@
 %global packname  StereoMorph
-%global packver   1.6.3
+%global packver   1.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.3
-Release:          3%{?dist}%{?buildtag}
+Version:          1.6.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          Stereo Camera Calibration and Reconstruction
 
 License:          GPL (>= 2)
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.11.0
 Requires:         R-core >= 2.11.0
 BuildRequires:    R-CRAN-bezier >= 1.1
-BuildRequires:    R-CRAN-svgViewR >= 1.0
+BuildRequires:    R-CRAN-svgViewR >= 1.0.1
 BuildRequires:    R-CRAN-Rcpp >= 0.9.9
 BuildRequires:    R-CRAN-shiny >= 0.13.0
 BuildRequires:    R-grDevices 
@@ -27,9 +27,9 @@ BuildRequires:    R-CRAN-rjson
 BuildRequires:    R-CRAN-jpeg 
 BuildRequires:    R-CRAN-tiff 
 BuildRequires:    R-CRAN-png 
-BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-bezier >= 1.1
-Requires:         R-CRAN-svgViewR >= 1.0
+Requires:         R-CRAN-svgViewR >= 1.0.1
 Requires:         R-CRAN-Rcpp >= 0.9.9
 Requires:         R-CRAN-shiny >= 0.13.0
 Requires:         R-grDevices 
@@ -41,7 +41,7 @@ Requires:         R-CRAN-rjson
 Requires:         R-CRAN-jpeg 
 Requires:         R-CRAN-tiff 
 Requires:         R-CRAN-png 
-Requires:         R-MASS 
+Requires:         R-CRAN-MASS 
 
 %description
 Functions for the collection of 3D points and curves using a stereo camera
@@ -50,6 +50,13 @@ setup.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -57,19 +64,10 @@ setup.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%{rlibdir}/%{packname}/extdata
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

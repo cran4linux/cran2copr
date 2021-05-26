@@ -1,13 +1,13 @@
-%global packname  MSbox
-%global packver   1.4.0
+%global packname  nimbleCarbon
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mass Spectrometry Tools
+Summary:          Bayesian Analyses of Radiocarbon Dates with NIMBLE
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,30 +15,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggfortify 
-BuildRequires:    R-CRAN-plotly 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-xml2 
-Requires:         R-stats 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggfortify 
-Requires:         R-CRAN-plotly 
+BuildRequires:    R-CRAN-nimble 
+BuildRequires:    R-CRAN-rcarbon 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-snow 
+BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-coda 
+Requires:         R-CRAN-nimble 
+Requires:         R-CRAN-rcarbon 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-utils 
+Requires:         R-CRAN-snow 
+Requires:         R-CRAN-doSNOW 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-coda 
 
 %description
-Common mass spectrometry tools described in John Roboz (2013)
-<doi:10.1201/b15436>. It allows checking element isotopes, calculating
-(isotope labelled) exact monoisitopic mass, m/z values and mass accuracy,
-and inspecting possible contaminant mass peaks, examining possible adducts
-in electrospray ionization (ESI) and matrix-assisted laser desorption
-ionization (MALDI) ion sources.
+Provides utility functions and custom probability distribution for
+Bayesian analyses of radiocarbon dates within the 'nimble' modelling
+framework.  It includes various population growth models, nimbleFunction
+objects, as well as a suite of functions for prior and posterior
+predictive checks for demographic inference (Crema and Shoda (2021)
+<doi:10.1371/journal.pone.0251695>) and other analyses.
 
 %prep
 %setup -q -c -n %{packname}

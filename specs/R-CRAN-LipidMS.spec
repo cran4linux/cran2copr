@@ -1,9 +1,9 @@
 %global packname  LipidMS
-%global packver   2.1.3
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lipid Annotation for LC-MS/MS DDA or DIA Data
 
@@ -16,6 +16,9 @@ BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-utils 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-readMzXmlData 
 BuildRequires:    R-CRAN-CHNOSZ 
 BuildRequires:    R-CRAN-scales 
@@ -23,8 +26,12 @@ BuildRequires:    R-CRAN-shinythemes
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-iterators 
 Requires:         R-CRAN-shiny 
 Requires:         R-utils 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-readMzXmlData 
 Requires:         R-CRAN-CHNOSZ 
 Requires:         R-CRAN-scales 
@@ -32,12 +39,12 @@ Requires:         R-CRAN-shinythemes
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-iterators 
 
 %description
-Lipid annotation in untargeted liquid chromatography mass spectrometry
-lipidomics based on fragmentation rules. Alcoriza-Balaguer MI,
-Garcia-Canaveras JC, Lopez A, Conde I, Juan O, Carretero J, Lahoz A (2019)
-<doi:10.1021/acs.analchem.8b03409>.
+Lipid annotation in untargeted LC-MS lipidomics based on fragmentation
+rules. Alcoriza-Balaguer MI, Garcia-Canaveras JC, Lopez A, Conde I, Juan
+O, Carretero J, Lahoz A (2019) <doi:10.1021/acs.analchem.8b03409>.
 
 %prep
 %setup -q -c -n %{packname}

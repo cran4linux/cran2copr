@@ -1,9 +1,9 @@
 %global packname  inti
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools and Statistical Procedures in Plant Science
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-ggplot2 
@@ -47,8 +47,8 @@ The 'inti' package is part of the 'inkaverse' project for developing
 different procedures and tools used in plant science and experimental
 designs. The mean aim of the package is to support researchers during the
 planning of experiments and data collection (tarpuy()), data analysis and
-graphics (yupana()) , and technical writing (rtciles()). Learn more about
-the 'inkaverse' project at <https://inkaverse.com/>.
+graphics (yupana()) , and technical writing. Learn more about the
+'inkaverse' project at <https://inkaverse.com/>.
 
 %prep
 %setup -q -c -n %{packname}

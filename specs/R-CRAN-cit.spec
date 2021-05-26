@@ -1,44 +1,36 @@
-%global packname  MSbox
-%global packver   1.4.0
+%global packname  cit
+%global packver   2.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          2.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mass Spectrometry Tools
+Summary:          Causal Inference Test
 
-License:          GPL-2
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+BuildRequires:    gsl-devel
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggfortify 
-BuildRequires:    R-CRAN-plotly 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-xml2 
-Requires:         R-stats 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggfortify 
-Requires:         R-CRAN-plotly 
 
 %description
-Common mass spectrometry tools described in John Roboz (2013)
-<doi:10.1201/b15436>. It allows checking element isotopes, calculating
-(isotope labelled) exact monoisitopic mass, m/z values and mass accuracy,
-and inspecting possible contaminant mass peaks, examining possible adducts
-in electrospray ionization (ESI) and matrix-assisted laser desorption
-ionization (MALDI) ion sources.
+A likelihood-based hypothesis testing approach is implemented for
+assessing causal mediation. Described in Millstein, Chen, and Breton
+(2016), <DOI:10.1093/bioinformatics/btw135>, it could be used to test for
+mediation of a known causal association between a DNA variant, the
+'instrumental variable', and a clinical outcome or phenotype by gene
+expression or DNA methylation, the potential mediator. Another example
+would be testing mediation of the effect of a drug on a clinical outcome
+by the molecular target. The hypothesis test generates a p-value or
+permutation-based FDR value with confidence intervals to quantify
+uncertainty in the causal inference. The outcome can be represented by
+either a continuous or binary variable, the potential mediator is
+continuous, and the instrumental variable can be continuous or binary and
+is not limited to a single variable but may be a design matrix
+representing multiple variables.
 
 %prep
 %setup -q -c -n %{packname}

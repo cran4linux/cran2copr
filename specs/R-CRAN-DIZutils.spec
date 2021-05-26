@@ -1,9 +1,9 @@
 %global packname  DIZutils
-%global packver   0.0.7
+%global packver   0.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for 'DIZ' R Package Development
 
@@ -19,6 +19,7 @@ BuildRequires:    R-CRAN-DBI >= 1.1.0
 BuildRequires:    R-CRAN-config 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-parsedate 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-rapportools 
 BuildRequires:    R-CRAN-RJDBC 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-DBI >= 1.1.0
 Requires:         R-CRAN-config 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-parsedate 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-rapportools 
 Requires:         R-CRAN-RJDBC 

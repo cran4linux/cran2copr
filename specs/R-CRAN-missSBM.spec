@@ -1,9 +1,9 @@
 %global packname  missSBM
-%global packver   0.3.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Handling Missing Data in Stochastic Block Models
 
@@ -14,37 +14,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-nloptr >= 1.2.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-corrplot 
+BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sbm 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-nloptr >= 1.2.0
 Requires:         R-CRAN-Rcpp 
 Requires:         R-methods 
-Requires:         R-CRAN-ape 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-corrplot 
+Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sbm 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Matrix 
 
 %description
 When a network is partially observed (here, NAs in the adjacency matrix
 rather than 1 or 0 due to missing information between node pairs), it is
 possible to account for the underlying process that generates those NAs.
-'missSBM' adjusts the popular stochastic block model from network data
-sampled under various missing data conditions, as described in Tabouy,
-Barbillon and Chiquet (2019) <doi:10.1080/01621459.2018.1562934>.
+'missSBM', presented in 'Barbillon, Chiquet and Tabouy' (2021)
+<arXiv:1906.12201>, adjusts the popular stochastic block model from
+network data sampled under various missing data conditions, as described
+in 'Tabouy, Barbillon and Chiquet' (2019)
+<doi:10.1080/01621459.2018.1562934>.
 
 %prep
 %setup -q -c -n %{packname}

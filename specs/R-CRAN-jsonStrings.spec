@@ -1,26 +1,27 @@
-%global packname  EcoIndR
-%global packver   1.7
+%global packname  jsonStrings
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ecological Indicators
+Summary:          Manipulation of JSON Strings
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rgeos 
-Requires:         R-CRAN-rgeos 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-methods 
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-methods 
 
 %description
-Calculates several indices, such as of diversity, fluctuation, etc., and
-they are used to estimate ecological indicators.
+Fast manipulation of JSON strings. Allows to extract or delete an element
+in a JSON string, merge two JSON strings, and more.
 
 %prep
 %setup -q -c -n %{packname}

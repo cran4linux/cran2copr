@@ -1,9 +1,9 @@
 %global packname  RprobitB
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayes Estimation of Latent Class Mixed Multinomial Probit Models
 
@@ -26,8 +26,8 @@ Requires:         R-CRAN-viridis
 Fitting latent class mixed multinomial probit (LCMMNP) models to simulated
 or empirical data. Estimation takes place in a Bayesian framework using a
 Gibbs sampler. The number of latent classes can be updated within the
-algorithm on a weight-based strategy. For a reference, see
-Oelschlu00e4ger and Bauer (2021) <https://trid.trb.org/view/1759753>.
+algorithm on a weight-based strategy. For a reference on the method see
+Oelschl"ager and Bauer (2021) <https://trid.trb.org/view/1759753>.
 
 %prep
 %setup -q -c -n %{packname}

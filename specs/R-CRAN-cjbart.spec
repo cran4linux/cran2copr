@@ -1,26 +1,37 @@
-%global packname  EcoIndR
-%global packver   1.7
+%global packname  cjbart
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ecological Indicators
+Summary:          Heterogeneous Effects Analysis of Conjoint Experiments
 
-License:          GPL (>= 2)
+License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rgeos 
-Requires:         R-CRAN-rgeos 
+BuildRequires:    R-CRAN-BART 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-BART 
+Requires:         R-stats 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Calculates several indices, such as of diversity, fluctuation, etc., and
-they are used to estimate ecological indicators.
+A tool for analyzing conjoint experiments using Bayesian Additive
+Regression Trees ('BART'), a machine learning method developed by Chipman,
+George and McCulloch (2010) <doi:10.1214/09-AOAS285>. This tool focuses
+specifically on estimating and visualizing the heterogeneity within
+marginal component effects, at the observation- and individual-level.
 
 %prep
 %setup -q -c -n %{packname}
