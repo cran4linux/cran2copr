@@ -1,9 +1,9 @@
 %global packname  spatialrisk
-%global packver   0.6.8
+%global packver   0.6.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.8
+Version:          0.6.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculating Spatial Risk
 
@@ -14,48 +14,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
-BuildRequires:    R-CRAN-automap 
 BuildRequires:    R-CRAN-classInt 
+BuildRequires:    R-CRAN-colourvalues 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-GenSA 
 BuildRequires:    R-CRAN-geohashTools 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gstat 
+BuildRequires:    R-CRAN-leafem 
+BuildRequires:    R-CRAN-leafgl 
+BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-mapview 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppProgress 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tmap 
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-vroom 
-Requires:         R-CRAN-automap 
 Requires:         R-CRAN-classInt 
+Requires:         R-CRAN-colourvalues 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-GenSA 
 Requires:         R-CRAN-geohashTools 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gstat 
+Requires:         R-CRAN-leafem 
+Requires:         R-CRAN-leafgl 
+Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-mapview 
 Requires:         R-methods 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RcppProgress 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tmap 
 Requires:         R-CRAN-units 
 Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-vroom 
 
 %description
 Methods for spatial risk calculations. It offers an efficient approach to

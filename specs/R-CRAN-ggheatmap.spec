@@ -1,39 +1,43 @@
-%global packname  InSilicoVA
-%global packver   1.3.2
+%global packname  ggheatmap
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Probabilistic Verbal Autopsy Coding with 'InSilicoVA' Algorithm
+Summary:          Plot Heatmap
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rJava 
-BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-InterVA5 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-rJava 
-Requires:         R-CRAN-coda 
+BuildRequires:    R-CRAN-aplot 
+BuildRequires:    R-CRAN-factoextra 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-InterVA5 
-Requires:         R-methods 
+Requires:         R-CRAN-aplot 
+Requires:         R-CRAN-factoextra 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Computes individual causes of death and population cause-specific
-mortality fractions using the 'InSilicoVA' algorithm from McCormick et al.
-(2016) <DOI:10.1080/01621459.2016.1152191>. It uses data derived from
-verbal autopsy (VA) interviews, in a format similar to the input of the
-widely used 'InterVA4' method. This package provides general model fitting
-and customization for 'InSilicoVA' algorithm and basic graphical
-visualization of the output.
+The flexibility and excellence of 'ggplot2' is unquestionable, so many
+drawing tools basically need 'ggplot2' as the operating object. In order
+to develop a heatmap drawing system based on ggplot2, we developed this
+tool, mainly to solve the heatmap puzzle problem and the flexible
+connection between the heatmap and the 'ggplot2' object. The advantages of
+this tool are as follows: 1. More flexible label settings; 2. Realize the
+linkage of heatmap and 'ggplot2' drawing system, which is helpful for
+operations such as puzzles; 3. Simple and easy to operate; 4. Optimization
+of clustering tree visualization.
 
 %prep
 %setup -q -c -n %{packname}

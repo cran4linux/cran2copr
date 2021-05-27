@@ -1,53 +1,48 @@
-%global packname  BGPhazard
-%global packver   2.1.0
+%global packname  qtl2ggplot
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Markov Beta and Gamma Processes for Modeling Hazard Rates
+Summary:          Data Visualization for QTL Experiments
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.7
+BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggthemes 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-Brobdingnag 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-qtl2 
+Requires:         R-CRAN-Rcpp >= 0.12.7
+Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggthemes 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-Brobdingnag 
+Requires:         R-CRAN-rlang 
+Requires:         R-graphics 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-grid 
+Requires:         R-CRAN-qtl2 
 
 %description
-Computes the hazard rate estimate as described by Nieto-Barajas & Walker
-(2002), Nieto-Barajas (2003), Nieto-Barajas & Walker (2007) and
-Nieto-Barajas & Yin (2008).
+Functions to plot QTL (quantitative trait loci) analysis results and
+related diagnostics. Part of 'qtl2', an upgrade of the 'qtl' package to
+better handle high-dimensional data and complex cross designs.
 
 %prep
 %setup -q -c -n %{packname}

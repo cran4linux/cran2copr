@@ -1,9 +1,9 @@
 %global packname  Directional
-%global packver   4.9
+%global packver   5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.9
+Version:          5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of R Functions for Directional Data Analysis
 

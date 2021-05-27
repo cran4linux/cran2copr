@@ -1,43 +1,47 @@
-%global packname  DUBStepR
-%global packver   1.1.2
+%global packname  RABR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Correlation-Based Feature Selection for Single-Cell RNA Sequencing Data
+Summary:          Simulations for Response Adaptive Block Randomization Design
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-matrixcalc 
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-CRAN-qlcMatrix 
+BuildRequires:    R-CRAN-asd 
+BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-multcomp 
+BuildRequires:    R-CRAN-multxpert 
 BuildRequires:    R-parallel 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Seurat 
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-matrixcalc 
-Requires:         R-CRAN-RANN 
-Requires:         R-CRAN-qlcMatrix 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-asd 
+Requires:         R-CRAN-cubature 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-multcomp 
+Requires:         R-CRAN-multxpert 
 Requires:         R-parallel 
-Requires:         R-stats 
-Requires:         R-CRAN-Seurat 
-Requires:         R-methods 
-Requires:         R-graphics 
+Requires:         R-CRAN-survival 
 
 %description
-Determining the optimal set of feature genes to characterise cell types in
-single-cell RNA sequencing data using stepwise regression on gene-gene
-correlations. <doi:10.1101/2020.10.07.330563>.
+Conduct simulations of the Response Adaptive Block Randomization (RABR)
+design to evaluate its type I error rate, power and operating
+characteristics for binary and continuous endpoints. For more details of
+the proposed method, please refer to Zhan et al. (2020)
+<arXiv:2004.07356>.
 
 %prep
 %setup -q -c -n %{packname}

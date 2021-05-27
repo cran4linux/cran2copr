@@ -1,43 +1,32 @@
-%global packname  DUBStepR
-%global packver   1.1.2
+%global packname  LSVAR
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Correlation-Based Feature Selection for Single-Cell RNA Sequencing Data
+Summary:          Estimation of Low Rank Plus Sparse Structured Vector Auto-Regressive (VAR) Model
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-matrixcalc 
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-CRAN-qlcMatrix 
-BuildRequires:    R-parallel 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Seurat 
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-matrixcalc 
-Requires:         R-CRAN-RANN 
-Requires:         R-CRAN-qlcMatrix 
-Requires:         R-parallel 
-Requires:         R-stats 
-Requires:         R-CRAN-Seurat 
-Requires:         R-methods 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-pracma 
 
 %description
-Determining the optimal set of feature genes to characterise cell types in
-single-cell RNA sequencing data using stepwise regression on gene-gene
-correlations. <doi:10.1101/2020.10.07.330563>.
+Implementations of estimation algorithm of low rank plus sparse structured
+VAR model by using Fast Iterative Shrinkage-Thresholding Algorithm
+(FISTA). It relates to the algorithm in Sumanta, Li, and Michailidis
+(2019) <doi:10.1109/TSP.2018.2887401>.
 
 %prep
 %setup -q -c -n %{packname}

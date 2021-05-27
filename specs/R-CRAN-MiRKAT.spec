@@ -1,9 +1,9 @@
 %global packname  MiRKAT
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Microbiome Regression-Based Analysis Tests
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-CompQuadForm 
@@ -46,9 +46,9 @@ continuous or binary (Zhao et al. (2015)
 (2017) <doi:10.1186/s40168-017-0239-9>), multivariate (Zhan et al. (2017)
 <doi:10.1002/gepi.22030>) and structured phenotypes (Zhan et al. (2017)
 <doi:10.1111/biom.12684>). The package can also use robust and quantile
-regression (Fu et al. (2020+), in preparation). In each case, the
-microbiome community effect is modeled nonparametrically through a kernel
-function, which can incorporate phylogenetic tree information.
+regression (unpublished work). In each case, the microbiome community
+effect is modeled nonparametrically through a kernel function, which can
+incorporate phylogenetic tree information.
 
 %prep
 %setup -q -c -n %{packname}

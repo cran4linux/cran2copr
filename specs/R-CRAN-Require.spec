@@ -1,9 +1,9 @@
 %global packname  Require
-%global packver   0.0.10
+%global packver   0.0.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.10
+Version:          0.0.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Installing and Loading R Packages for Reproducible Workflows
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.10.4
 BuildRequires:    R-methods 

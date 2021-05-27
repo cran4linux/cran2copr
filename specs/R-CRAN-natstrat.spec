@@ -1,36 +1,45 @@
-%global packname  ebreg
-%global packver   0.1.3
+%global packname  natstrat
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Implementation of the Empirical Bayes Method
+Summary:          Obtain Unweighted Natural Strata that Balance Many Covariates
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lars 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-Rglpk 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-lars 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-pps 
+BuildRequires:    R-CRAN-sampling 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-Rglpk 
 Requires:         R-stats 
-Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-pps 
+Requires:         R-CRAN-sampling 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
 
 %description
-Implements a Bayesian-like approach to the high-dimensional sparse linear
-regression problem based on an empirical or data-dependent prior
-distribution, which can be used for estimation/inference on the model
-parameters, variable selection, and prediction of a future response. The
-method was first presented in Martin, Ryan and Mess, Raymond and Walker,
-Stephen G (2017) <doi:10.3150/15-BEJ797>. More details focused on the
-prediction problem are given in Martin, Ryan and Tang, Yiqi (2019)
-<arXiv:1903.00961>.
+Natural strata fix a constant ratio of controls to treated units within
+each stratum. This ratio need not be an integer. The control units are
+chosen using randomized rounding of a linear program that balances many
+covariates. To solve the linear program, the 'Gurobi' commercial
+optimization software is recommended, but not required. The 'gurobi' R
+package can be installed following the instructions at
+<https://www.gurobi.com/documentation/9.1/refman/ins_the_r_package.html>.
 
 %prep
 %setup -q -c -n %{packname}

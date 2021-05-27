@@ -1,9 +1,9 @@
 %global packname  junctions
-%global packver   1.1.1
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Breakdown of Genomic Ancestry Blocks in Hybrid Lineages
 
@@ -14,14 +14,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.13
-Requires:         R-CRAN-Rcpp >= 0.12.13
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.0
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-RcppParallel >= 5.0.0
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-tibble 
 
 %description
 Individual based simulations of hybridizing populations, where the
 accumulation of junctions is tracked. Furthermore, mathematical equations
 are provided to verify simulation outcomes. Both simulations and
-mathematical equations are based on Janzen (2018) <doi:10.1101/058107>.
+mathematical equations are based on Janzen (2018, <doi:10.1101/058107>)
+and Janzen (2020, <doi:10.1101/2020.09.10.292441>).
 
 %prep
 %setup -q -c -n %{packname}
