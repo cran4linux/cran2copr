@@ -1,9 +1,9 @@
 %global packname  VARDetect
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Change Point Detection in Structural VAR Models
 
@@ -12,27 +12,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.6
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MTS 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-sparsevar 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.6
 Requires:         R-stats 
+Requires:         R-CRAN-MTS 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-pracma 
 Requires:         R-graphics 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-sparsevar 
 Requires:         R-CRAN-lattice 
 

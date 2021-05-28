@@ -1,9 +1,9 @@
 %global packname  gginnards
-%global packver   0.0.4
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explore the Innards of 'ggplot2' Objects
 
@@ -15,14 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.2.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.1
 BuildRequires:    R-CRAN-tibble >= 2.1.0
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-ggplot2 >= 3.2.1
+Requires:         R-CRAN-ggplot2 >= 3.3.1
 Requires:         R-CRAN-tibble >= 2.1.0
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringr >= 1.4.0

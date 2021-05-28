@@ -1,27 +1,31 @@
-%global packname  linearOrdering
-%global packver   1.0.1
+%global packname  mRMRe
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods of Linear Ordering of Data
+Summary:          Parallelized Minimum Redundancy, Maximum Relevance (mRMR)
 
-License:          MIT + file LICENSE
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-igraph 
+Requires:         R-methods 
 
 %description
-Provides various methods of linear ordering of data. Supports weights and
-positive/negative impacts. Currently included methods: * Sum of ranks *
-Standardized sums * Hellwig's (Hellwig, 1968,
-<https://unesdoc.unesco.org/ark:/48223/pf0000158559.locale=en>) * TOPSIS
-(Yoon & Hwang, 1981, ISBN:978-3-642-48318-9).
+Computes mutual information matrices from continuous, categorical and
+survival variables, as well as feature selection with minimum redundancy,
+maximum relevance (mRMR) and a new ensemble mRMR technique. Published in
+De Jay et al. (2013) <doi:10.1093/bioinformatics/btt383>.
 
 %prep
 %setup -q -c -n %{packname}

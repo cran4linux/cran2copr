@@ -1,53 +1,56 @@
-%global packname  archiveRetriever
-%global packver   0.1.0
+%global packname  cansim
+%global packver   0.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.3.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve Archived Web Pages from the 'Internet Archive'
+Summary:          Accessing Statistics Canada Data Table and Vectors
 
-License:          Apache License (>= 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-anytime 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-httr >= 1.0.0
+BuildRequires:    R-CRAN-jsonlite >= 1.0
+BuildRequires:    R-CRAN-dplyr >= 0.7
+BuildRequires:    R-CRAN-digest >= 0.1
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-anytime 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-RSQLite 
+Requires:         R-CRAN-httr >= 1.0.0
+Requires:         R-CRAN-jsonlite >= 1.0
+Requires:         R-CRAN-dplyr >= 0.7
+Requires:         R-CRAN-digest >= 0.1
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-RSQLite 
 
 %description
-Scraping content from archived web pages stored in the 'Internet Archive'
-(<https://archive.org>) using a systematic workflow.  Get an overview of
-the mementos available from the respective homepage, retrieve the Urls and
-links of the page and finally scrape the content. The final output is
-stored in tibbles, which can be then easily used for further analysis.
+Searches for, accesses, and retrieves new-format and old-format Statistics
+Canada data tables, as well as individual vectors, as tidy data frames.
+This package deals with encoding issues, allows for bilingual English or
+French language data retrieval, and bundles convenience functions to make
+it easier to work with retrieved table data. Optional caching features are
+provided.
 
 %prep
 %setup -q -c -n %{packname}

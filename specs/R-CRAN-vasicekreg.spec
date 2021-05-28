@@ -1,9 +1,9 @@
 %global packname  vasicekreg
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Modeling Using Vasicek Distribution
 
@@ -18,10 +18,12 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-gamlss 
 BuildRequires:    R-CRAN-gamlss.dist 
+BuildRequires:    R-CRAN-mvtnorm 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-CRAN-gamlss 
 Requires:         R-CRAN-gamlss.dist 
+Requires:         R-CRAN-mvtnorm 
 
 %description
 Vasicek density, cumulative distribution, quantile functions and random

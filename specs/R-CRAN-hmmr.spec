@@ -1,26 +1,29 @@
-%global packname  mBvs
-%global packver   1.4
+%global packname  hmmr
+%global packver   1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Variable Selection Methods for Multivariate Data
+Summary:          "Mixture and Hidden Markov Models with R" Datasets and Example Code
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gsl-devel
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-depmixS4 
+BuildRequires:    R-stats4 
+Requires:         R-CRAN-depmixS4 
+Requires:         R-stats4 
 
 %description
-Bayesian variable selection methods for data with multivariate responses
-and multiple covariates. The package contains implementations of
-multivariate Bayesian variable selection methods for continuous data and
-zero-inflated count data.
+Datasets and code examples that accompany our book Visser & Speekenbrink
+(2021), "Mixture and Hidden Markov Models with R",
+<https://depmix.github.io/hmmr/>.
 
 %prep
 %setup -q -c -n %{packname}

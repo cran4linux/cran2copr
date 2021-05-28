@@ -1,9 +1,9 @@
 %global packname  fastText
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Learning of Word Representations and Sentence Classification
 
@@ -20,12 +20,14 @@ BuildRequires:    R-grid
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 
 Requires:         R-utils 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-data.table 
+Requires:         R-stats 
 
 %description
 An interface to the 'fastText'

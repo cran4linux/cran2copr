@@ -1,51 +1,50 @@
-%global packname  swfscDAS
-%global packver   0.5.1
+%global packname  CCWeights
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Southwest Fisheries Science Center Shipboard DAS Data Processing
+Summary:          Perform Weighted Linear Regression for Calibration Curve
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-bs4Dash 
+BuildRequires:    R-CRAN-fresh 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-swfscMisc 
-BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
+Requires:         R-stats 
 Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-bs4Dash 
+Requires:         R-CRAN-fresh 
+Requires:         R-CRAN-DT 
+Requires:         R-tools 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-swfscMisc 
-Requires:         R-CRAN-tidyr 
 
 %description
-Process and summarize shipboard 'DAS'
-<https://swfsc-publications.fisheries.noaa.gov/publications/TM/SWFSC/NOAA-TM-NMFS-SWFSC-305.PDF>
-data produced by the Southwest Fisheries Science Center (SWFSC) program
-'WinCruz'
-<https://www.fisheries.noaa.gov/west-coast/science-data/california-current-marine-mammal-assessment-program>.
-This package standardizes and streamlines basic DAS data processing, and
-includes a PDF with the DAS data format requirements.
+Automated assessment and selection of weighting factors for accurate
+quantification using linear calibration curve. In addition, a 'shiny' App
+is provided, allowing users to analyze their data using an interactive
+graphical user interface, without any programming requirements.
 
 %prep
 %setup -q -c -n %{packname}
