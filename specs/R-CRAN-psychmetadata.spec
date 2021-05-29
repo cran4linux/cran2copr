@@ -1,37 +1,25 @@
-%global packname  inferr
-%global packver   0.3.1
+%global packname  psychmetadata
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inferential Statistics
+Summary:          Open Datasets from Meta-Analyses in Psychology Research
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Select set of parametric and non-parametric statistical tests. 'inferr'
-builds upon the solid set of statistical tests provided in 'stats' package
-by including additional data types as inputs, expanding and restructuring
-the test results. The tests included are t tests, variance tests,
-proportion tests, chi square tests, Levene's test, McNemar Test, Cochran's
-Q test and Runs test.
+Data and examples from meta-analyses in psychology research.
 
 %prep
 %setup -q -c -n %{packname}

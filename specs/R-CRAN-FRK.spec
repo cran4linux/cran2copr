@@ -1,9 +1,9 @@
 %global packname  FRK
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fixed Rank Kriging
 
@@ -26,8 +26,14 @@ BuildRequires:    R-CRAN-plyr
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-spacetime 
 BuildRequires:    R-CRAN-sparseinv 
+BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-TMB 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Hmisc >= 4.1
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-CRAN-digest 
@@ -40,21 +46,34 @@ Requires:         R-CRAN-plyr
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-spacetime 
 Requires:         R-CRAN-sparseinv 
+Requires:         R-CRAN-statmod 
 Requires:         R-stats 
+Requires:         R-CRAN-TMB 
 Requires:         R-utils 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-scales 
 
 %description
 Fixed Rank Kriging is a tool for spatial/spatio-temporal modelling and
-prediction with large datasets. The approach, discussed in Cressie and
-Johannesson (2008) <DOI:10.1111/j.1467-9868.2007.00633.x>, decomposes the
-field, and hence the covariance function, using a fixed set of n basis
-functions, where n is typically much smaller than the number of data
-points (or polygons) m. The method naturally allows for non-stationary,
-anisotropic covariance functions and the use of observations with varying
-support (with known error variance). The projected field is a key building
-block of the Spatial Random Effects (SRE) model, on which this package is
-based. The package FRK provides helper functions to model, fit, and
-predict using an SRE with relative ease.
+prediction with large datasets. The approach models the field, and hence
+the covariance function, using a set of r basis functions, where r is
+typically much smaller than the number of data points (or polygons) m.
+This low-rank basis-function representation facilitates the modelling of
+'big' spatial/spatio-temporal data. The method naturally allows for
+non-stationary, anisotropic covariance functions. Discretisation of the
+spatial domain into so-called basic areal units (BAUs) facilitates the use
+of observations with varying support (i.e., both point-referenced and
+areal supports, potentially simultaneously), and prediction over arbitrary
+user-specified regions. `FRK` also supports inference over various
+manifolds, including the 2D plane and 3D sphere, and it provides helper
+functions to model, fit, predict, and plot with relative ease. Version
+2.0.0 and above of the package `FRK` also supports modelling of
+non-Gaussian data, by employing a spatial generalised linear mixed model
+(GLMM) framework to cater for Poisson, binomial, negative-binomial, gamma,
+and inverse-Gaussian distributions.  Zammit-Mangion and Cressie
+<doi:10.18637/jss.v098.i04> describe `FRK` in a Gaussian setting, and
+detail its use of basis functions and BAUs.
 
 %prep
 %setup -q -c -n %{packname}

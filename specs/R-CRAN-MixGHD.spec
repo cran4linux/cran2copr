@@ -1,9 +1,9 @@
 %global packname  MixGHD
-%global packver   2.3.4
+%global packver   2.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.4
+Version:          2.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Based Clustering, Classification and Discriminant Analysis Using the Mixture of Generalized Hyperbolic Distributions
 
@@ -42,12 +42,12 @@ generalized hyperbolic distribution. The first model 'MGHD' (Browne and
 McNicholas (2015) <doi:10.1002/cjs.11246>) is the classical mixture of
 generalized hyperbolic distributions. The 'MGHFA' (Tortora et al. (2016)
 <doi:10.1007/s11634-015-0204-z>) is the mixture of generalized hyperbolic
-factor analyzers for high dimensional data sets. The 'MSGHD'(Tortora et
-al. (2016) <arXiv:1403.2332v7>), mixture of multiple scaled generalized
-hyperbolic distributions. The 'cMSGHD' (Tortora et al. (2016)
-<arXiv:1403.2332v7>) is a 'MSGHD' with convex contour plots. The 'MCGHD'
-(Tortora et al. (2016) <arXiv:1403.2332v7>), mixture of coalesced
-generalized hyperbolic distributions is a new more flexible model.
+factor analyzers for high dimensional data sets. The 'MSGHD' is the
+mixture of multiple scaled generalized hyperbolic distributions, the
+'cMSGHD' is a 'MSGHD' with convex contour plots and the 'MCGHD', mixture
+of coalesced generalized hyperbolic distributions is a new more flexible
+model (Tortora et al. (2019)<doi:10.1007/s00357-019-09319-3>. The paper
+related to the software can be found at <doi:10.18637/jss.v098.i03>.
 
 %prep
 %setup -q -c -n %{packname}

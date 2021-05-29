@@ -1,9 +1,9 @@
 %global packname  mvabund
-%global packver   4.1.9
+%global packver   4.1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.9
+Version:          4.1.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Analysing Multivariate Abundance Data
 

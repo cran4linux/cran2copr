@@ -1,10 +1,10 @@
 %global packname  TTAinterfaceTrendAnalysis
-%global packver   1.5.6
+%global packver   1.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.6
-Release:          3%{?dist}%{?buildtag}
+Version:          1.5.7
+Release:          1%{?dist}%{?buildtag}
 Summary:          Temporal Trend Analysis Graphical Interface
 
 License:          GPL (>= 2)
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-relimp
 BuildRequires:    R-CRAN-multcomp 
 BuildRequires:    R-CRAN-rkt 
 BuildRequires:    R-CRAN-stlplus 
-BuildRequires:    R-nlme 
+BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-tcltk 
 BuildRequires:    R-CRAN-tcltk2 
@@ -43,7 +43,7 @@ Requires:         R-CRAN-relimp
 Requires:         R-CRAN-multcomp 
 Requires:         R-CRAN-rkt 
 Requires:         R-CRAN-stlplus 
-Requires:         R-nlme 
+Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-lubridate 
 Requires:         R-tcltk 
 Requires:         R-CRAN-tcltk2 
@@ -63,7 +63,13 @@ cusum() function.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -71,20 +77,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 xvfb-run %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/aide
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

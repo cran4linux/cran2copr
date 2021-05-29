@@ -1,37 +1,44 @@
-%global packname  inferr
-%global packver   0.3.1
+%global packname  testarguments
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inferential Statistics
+Summary:          Test (Multiple) Arguments of a User-Defined Prediction Algorithm
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-plyr 
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-dplyr 
 
 %description
-Select set of parametric and non-parametric statistical tests. 'inferr'
-builds upon the solid set of statistical tests provided in 'stats' package
-by including additional data types as inputs, expanding and restructuring
-the test results. The tests included are t tests, variance tests,
-proportion tests, chi square tests, Levene's test, McNemar Test, Cochran's
-Q test and Runs test.
+Finding the best values for user-specified arguments of a prediction
+algorithm can be difficult, particularly if there is an interaction
+between argument levels. This package automates the testing of any
+user-defined prediction algorithm over an arbitrary number of arguments.
+It includes functions for testing the algorithm over the given arguments
+with respect to an arbitrary number of user-defined diagnostics,
+visualising the results of these tests, and finding the optimal argument
+combinations with respect to each diagnostic.
 
 %prep
 %setup -q -c -n %{packname}

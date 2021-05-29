@@ -1,9 +1,9 @@
 %global packname  do
-%global packver   1.7.0.0
+%global packver   1.8.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0.0
+Version:          1.8.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Operator
 
@@ -24,6 +24,13 @@ BuildRequires:    R-CRAN-reshape2
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-desc 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rstudioapi 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-tmcn 
@@ -33,6 +40,13 @@ Requires:         R-CRAN-reshape2
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-desc 
+Requires:         R-CRAN-magrittr 
+Requires:         R-utils 
+Requires:         R-CRAN-rstudioapi 
 
 %description
 Flexibly convert data between long and wide format using just two

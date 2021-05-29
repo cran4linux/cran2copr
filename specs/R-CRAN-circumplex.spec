@@ -1,9 +1,9 @@
 %global packname  circumplex
-%global packver   0.3.7
+%global packver   0.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          0.3.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis and Visualization of Circular Data
 
@@ -43,13 +43,14 @@ Requires:         R-CRAN-assertthat >= 0.2.1
 Requires:         R-stats 
 
 %description
-Tools for analyzing and visualizing circular data, including scoring
-functions for relevant instruments and a generalization of the
+Circumplex models, which organize constructs in a circle around two
+underlying dimensions, are popular for studying interpersonal functioning,
+mood/affect, and vocational preferences/environments. This package
+provides tools for analyzing and visualizing circular data, including
+scoring functions for relevant instruments and a generalization of the
 bootstrapped structural summary method from Zimmermann & Wright (2017)
 <doi:10.1177/1073191115621795> and functions for creating
-publication-ready tables and figures from the results. Future versions
-will include tools for circular fit and reliability analyses, as well as
-visualization enhancements.
+publication-ready tables and figures from the results.
 
 %prep
 %setup -q -c -n %{packname}

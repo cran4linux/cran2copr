@@ -1,9 +1,9 @@
 %global packname  AgroR
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Experimental Statistics and Graphics for Agricultural Sciences
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lmtest 
@@ -28,12 +28,12 @@ BuildRequires:    R-CRAN-Hmisc
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-ARTool 
 BuildRequires:    R-CRAN-multcomp 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-multcompView 
+BuildRequires:    R-CRAN-hnp 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-nortest 
@@ -47,26 +47,28 @@ Requires:         R-CRAN-Hmisc
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-ARTool 
 Requires:         R-CRAN-multcomp 
-Requires:         R-CRAN-scales 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-multcompView 
+Requires:         R-CRAN-hnp 
 
 %description
 Performs the analysis of completely randomized experimental designs (CRD),
 randomized blocks (RBD) and Latin square (LSD), experiments in double and
-triple factorial scheme (in DIC and DBC), experiments in subdivided plot
-scheme (in DIC and DBC), subdivided and joint analysis of experiments in
-DIC and DBC, linear regression analysis, test for two samples. The package
+triple factorial scheme (in CRD and RBD), experiments in subdivided plot
+scheme (in CRD and RBD), subdivided and joint analysis of experiments in
+CRD and RBD, linear regression analysis, test for two samples. The package
 performs analysis of variance, ANOVA assumptions and multiple comparison
 test of means or regression, according to Pimentel-Gomes (2009, ISBN:
-978-85-7269-566-4), nonparametric test (Conover, 1999, ISBN: 0471160687),
+978-85-7133-055-9), nonparametric test (Conover, 1999, ISBN: 0471160687),
 test for two samples, joint analysis of experiments according to Ferreira
 (2018, ISBN: 978-85-7269-566-4), Anova of aligned ranks (Wobbrock, JO,
 Findlater, L., Gergle, D., & Higgins , JJ (2011), <doi:
-10.1145/1978942.1978963> It can also be used to obtain descriptive
+10.1145/1978942.1978963>) and generalized linear model (glm) for binomial
+and Poisson family in CRD and RBD (Carvalho, FJ (2019), <doi:
+10.14393/ufu.te.2019.1244>). It can also be used to obtain descriptive
 measures and graphics, in addition to correlations and creative graphics
 used in agricultural sciences (Agronomy, Zootechnics, Food Science and
 related areas).

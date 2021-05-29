@@ -1,9 +1,9 @@
 %global packname  evolqg
-%global packver   0.2-8
+%global packver   0.2-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.2.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Evolutionary Quantitative Genetics
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-igraph 
@@ -40,7 +39,6 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-expm 
-Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-igraph 

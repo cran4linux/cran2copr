@@ -1,38 +1,50 @@
 %global packname  mdendro
-%global packver   1.0.1
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
-Release:          3%{?dist}%{?buildtag}
-Summary:          Variable-Group Methods for Agglomerative Hierarchical Clustering
+Version:          2.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          Extended Agglomerative Hierarchical Clustering
 
-License:          LGPL-2.1
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 Requires:         java
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rJava >= 0.9.8
-Requires:         R-CRAN-rJava >= 0.9.8
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-A collection of methods for agglomerative hierarchical clustering
-strategies on a matrix of distances, implemented using the variable-group
-approach introduced in Fernandez and Gomez (2008)
-<doi:10.1007/s00357-008-9004-x>. Descriptive measures to analyze the
-resulting hierarchical trees are also provided. In addition to the usual
-clustering methods, two parameterized methods are provided to explore an
-infinite family of hierarchical clustering strategies. When there are ties
-in proximity values, the hierarchical trees obtained are unique and
-independent of the order of the elements in the input matrix.
+A comprehensive collection of linkage methods for agglomerative
+hierarchical clustering on a matrix of proximity data (distances or
+similarities), returning a multifurcated dendrogram or multidendrogram.
+Multidendrograms can group more than two clusters when ties in proximity
+data occur, and therefore they do not depend on the order of the input
+data. Descriptive measures to analyze the resulting dendrogram are
+additionally provided.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -42,14 +54,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/java
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

@@ -1,9 +1,9 @@
 %global packname  rbacon
-%global packver   2.5.5
+%global packver   2.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.5
+Version:          2.5.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Age-Depth Modelling using Bayesian Statistics
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-coda >= 0.19.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-CRAN-IntCal >= 0.1.3

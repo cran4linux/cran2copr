@@ -1,37 +1,41 @@
-%global packname  inferr
-%global packver   0.3.1
+%global packname  sampsizeval
+%global packver   1.0.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inferential Statistics
+Summary:          Sample Size for Validation of Risk Models with Binary Outcomes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-sn 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-plyr 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-sn 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-plyr 
 
 %description
-Select set of parametric and non-parametric statistical tests. 'inferr'
-builds upon the solid set of statistical tests provided in 'stats' package
-by including additional data types as inputs, expanding and restructuring
-the test results. The tests included are t tests, variance tests,
-proportion tests, chi square tests, Levene's test, McNemar Test, Cochran's
-Q test and Runs test.
+Estimation of the required sample size to validate a risk model for binary
+outcomes, based on the sample size equations proposed by Pavlou et al.
+(2021) <doi:10.1177/09622802211007522>. For precision-based sample size
+calculations, the user is required to enter the anticipated values of the
+C-statistic and outcome prevalence, which can be obtained from a previous
+study. The user also needs to specify the required precision (standard
+error) for the C-statistic, the calibration slope and the calibration in
+the large. The calculations are valid under the assumption of marginal
+normality for the distribution of the linear predictor.
 
 %prep
 %setup -q -c -n %{packname}

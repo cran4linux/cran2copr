@@ -1,9 +1,9 @@
 %global packname  cem
-%global packver   1.1.27
+%global packver   1.1.29
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.27
+Version:          1.1.29
 Release:          1%{?dist}%{?buildtag}
 Summary:          Coarsened Exact Matching
 

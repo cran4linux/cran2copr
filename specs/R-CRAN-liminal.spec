@@ -1,38 +1,44 @@
-%global packname  ggmulti
-%global packver   1.0.3
+%global packname  liminal
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          High Dimensional Data Visualization
+Summary:          Multivariate Data Visualization with Tours and Embeddings
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-tourr >= 0.6.0
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-vegawidget 
+BuildRequires:    R-CRAN-miniUI 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-methods 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-grid 
+BuildRequires:    R-CRAN-matrixStats 
+Requires:         R-CRAN-tourr >= 0.6.0
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-vegawidget 
+Requires:         R-CRAN-miniUI 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-matrixStats 
 
 %description
-It provides materials (i.e. 'serial axes' objects, Andrew's plot, various
-glyphs for scatter plot) to visualize high dimensional data.
+Compose interactive visualisations designed for exploratory
+high-dimensional data analysis. With 'liminal' you can create linked
+interactive graphics to diagnose the quality of a dimension reduction
+technique and explore the global structure of a dataset with a tour. A
+complete description of the method is discussed in ['Lee' & 'Laa' & 'Cook'
+(2020) <arXiv:2012.06077>].
 
 %prep
 %setup -q -c -n %{packname}

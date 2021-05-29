@@ -1,37 +1,30 @@
-%global packname  inferr
-%global packver   0.3.1
+%global packname  RweaveExtra
+%global packver   1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inferential Statistics
+Summary:          Sweave Drivers with Extra Tricks Up their Sleeve
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
 BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Select set of parametric and non-parametric statistical tests. 'inferr'
-builds upon the solid set of statistical tests provided in 'stats' package
-by including additional data types as inputs, expanding and restructuring
-the test results. The tests included are t tests, variance tests,
-proportion tests, chi square tests, Levene's test, McNemar Test, Cochran's
-Q test and Runs test.
+Weave and tangle drivers for Sweave extending the standard drivers with
+additional code chunk options. Currently, these are only options to
+completely ignore, or skip, code chunks on weaving, tangling, or both.
+Chunks ignored on weaving are not parsed and are written out verbatim on
+tangling. Chunks ignored on tangling are processed as usual on weaving,
+but completely left out of the tangled scripts.
 
 %prep
 %setup -q -c -n %{packname}
