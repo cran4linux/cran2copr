@@ -1,9 +1,9 @@
 %global packname  vccp
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Vine Copula Change Point Detection in Multivariate Time Series
 
@@ -18,13 +18,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-VineCopula 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-mosum 
 BuildRequires:    R-CRAN-mvtnorm 
 Requires:         R-CRAN-VineCopula 
 Requires:         R-stats 
 Requires:         R-graphics 
-Requires:         R-utils 
 Requires:         R-CRAN-mosum 
 Requires:         R-CRAN-mvtnorm 
 
@@ -32,12 +30,13 @@ Requires:         R-CRAN-mvtnorm
 Implements the Vine Copula Change Point (VCCP) methodology for the
 estimation of the number and location of multiple change points in the
 vine copula structure of multivariate time series. The method uses vine
-copulas, an adapted binary segmentation algorithm to identify multiple
-change points, and a likelihood ratio test for inference. The vine copulas
-allow for various forms of dependence between time series including tail,
-symmetric and asymmetric dependence. The functions have been extensively
-tested on simulated multivariate time series data and fMRI data. For
-details on the VCCP methodology, please see Xiong & Cribben (2021).
+copulas, various state-of-the-art segmentation methods to identify
+multiple change points, and a likelihood ratio test or the stationary
+bootstrap for inference. The vine copulas allow for various forms of
+dependence between time series including tail, symmetric and asymmetric
+dependence. The functions have been extensively tested on simulated
+multivariate time series data and fMRI data. For details on the VCCP
+methodology, please see Xiong & Cribben (2021).
 
 %prep
 %setup -q -c -n %{packname}

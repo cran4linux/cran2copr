@@ -1,9 +1,9 @@
 %global packname  ibawds
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions and Datasets for the Data Science Course at IBAW
 
@@ -18,15 +18,27 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dslabs 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Ecdat 
+BuildRequires:    R-CRAN-kableExtra 
 Requires:         R-CRAN-dslabs 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-grDevices 
+Requires:         R-methods 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Ecdat 
+Requires:         R-CRAN-kableExtra 
 
 %description
 A collection of useful functions and datasets for the Data Science Course

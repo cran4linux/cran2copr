@@ -1,9 +1,9 @@
 %global packname  tfarima
-%global packver   0.1.1
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transfer Function and ARIMA Models
 
@@ -34,8 +34,7 @@ forecasting and seasonal adjustment. See Bell and Hillmer (1983)
 <ISBN:978-1-118-67502-1>, Box, Pierce and Newbold (1987)
 <doi:10.1080/01621459.1987.10478430>, Box and Tiao (1975)
 <doi:10.1080/01621459.1975.10480264>, Chen and Liu (1993)
-<doi:10.1080/01621459.1993.10594321>, Thompson and Tiao (1970)
-<http://old-www.stat.wisc.edu/sites/default/files/TR222.pdf>.
+<doi:10.1080/01621459.1993.10594321>.
 
 %prep
 %setup -q -c -n %{packname}

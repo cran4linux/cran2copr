@@ -1,9 +1,9 @@
 %global packname  tinytex
-%global packver   0.31
+%global packver   0.32
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.31
+Version:          0.32
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helper Functions to Install and Maintain TeX Live, and Compile LaTeX Documents
 
@@ -15,8 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xfun >= 0.19
-Requires:         R-CRAN-xfun >= 0.19
+BuildRequires:    R-CRAN-xfun >= 0.23
+Requires:         R-CRAN-xfun >= 0.23
 
 %description
 Helper functions to install and maintain the 'LaTeX' distribution named

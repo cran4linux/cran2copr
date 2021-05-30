@@ -1,9 +1,9 @@
 %global packname  braggR
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate the Revealed Aggregator of Probability Predictions
 
@@ -33,10 +33,10 @@ aggregator improves the accuracy of simple averaging by around 20%% and
 other state-of-the-art aggregators by 10-25%%. The advantage stems almost
 exclusively from improved calibration. This aggregator -- know as "the
 revealed aggregator" -- inputs a) forecasters' probability predictions (p)
-of a future binary event and b) the forecasters' base rate (p0) of the
+of a future binary event and b) the forecasters' common prior (p0) of the
 future event. In this R-package, the function sample_aggregator(p,p0,...)
 allows the user to calculate the revealed aggregator. Its use is
-illustrated with a simple stylized example.
+illustrated with a simple example.
 
 %prep
 %setup -q -c -n %{packname}

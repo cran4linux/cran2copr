@@ -1,9 +1,9 @@
 %global packname  otrimle
-%global packver   1.6
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Model-Based Clustering
 
@@ -19,18 +19,22 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-CRAN-mclust 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-parallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-robustbase 
+Requires:         R-CRAN-mclust 
 
 %description
 Performs robust cluster analysis allowing for outliers and noise that

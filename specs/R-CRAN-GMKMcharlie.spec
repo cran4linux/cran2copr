@@ -1,9 +1,9 @@
 %global packname  GMKMcharlie
-%global packver   1.1.1
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unsupervised Gaussian Mixture and Minkowski and Spherical K-Means with Constraints
 
@@ -26,14 +26,14 @@ The Gaussian mixture (GM) module includes the conventional EM (expectation
 maximization) trainer, the component-wise EM trainer, the
 minimum-message-length EM trainer by Figueiredo and Jain (2002)
 <doi:10.1109/34.990138>. These trainers accept additional constraints on
-mixture weights and covariance eigen ratios. The K-means (KM) module
-offers clustering with the options of (i) deterministic and stochastic
-K-means++ initializations, (ii) upper bounds on cluster weights (sizes),
-(iii) Minkowski distances, (iv) cosine dissimilarity, (v) dense and sparse
-representation of data input. The package improved the typical
-implementations of GM and KM algorithms in various aspects. It is
-carefully crafted in multithreaded C++ for modeling large data in industry
-use.
+mixture weights, covariance eigen ratios and on which mixture components
+are subject to update. The K-means (KM) module offers clustering with the
+options of (i) deterministic and stochastic K-means++ initializations,
+(ii) upper bounds on cluster weights (sizes), (iii) Minkowski distances,
+(iv) cosine dissimilarity, (v) dense and sparse representation of data
+input. The package improved the typical implementations of GM and KM
+algorithms in various aspects. It is carefully crafted in multithreaded
+C++ for modeling large data for industry use.
 
 %prep
 %setup -q -c -n %{packname}
