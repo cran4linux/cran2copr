@@ -1,10 +1,10 @@
 %global packname  metaplus
-%global packver   0.7-11
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.11
-Release:          3%{?dist}%{?buildtag}
+Version:          1.0.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Meta-Analysis and Meta-Regression
 
 License:          GPL (>= 2)
@@ -17,24 +17,34 @@ Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bbmle 
 BuildRequires:    R-CRAN-metafor 
-BuildRequires:    R-boot 
+BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-fastGHQuad 
 BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doRNG 
 Requires:         R-CRAN-bbmle 
 Requires:         R-CRAN-metafor 
-Requires:         R-boot 
+Requires:         R-CRAN-boot 
 Requires:         R-methods 
 Requires:         R-CRAN-numDeriv 
-Requires:         R-MASS 
+Requires:         R-CRAN-MASS 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-CRAN-fastGHQuad 
 Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-Rfast 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doRNG 
 
 %description
 Performs meta-analysis and meta-regression using standard and robust
@@ -47,6 +57,13 @@ normals (Beath, 2014 <doi:10.1002/jrsm.1114>).
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -54,20 +71,10 @@ normals (Beath, 2014 <doi:10.1002/jrsm.1114>).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

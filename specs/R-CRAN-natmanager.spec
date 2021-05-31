@@ -1,9 +1,9 @@
 %global packname  natmanager
-%global packver   0.4.7
+%global packver   0.4.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.7
+Version:          0.4.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Install the 'Natverse' Packages from Scratch
 
@@ -16,13 +16,13 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-usethis >= 2.0.0
-BuildRequires:    R-CRAN-gh 
+BuildRequires:    R-CRAN-gh >= 1.2.1
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-remotes 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-usethis >= 2.0.0
-Requires:         R-CRAN-gh 
+Requires:         R-CRAN-gh >= 1.2.1
 Requires:         R-utils 
 Requires:         R-CRAN-remotes 
 Requires:         R-CRAN-curl 

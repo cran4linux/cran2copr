@@ -1,9 +1,9 @@
 %global packname  modeltime
-%global packver   0.5.1
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Tidymodels Extension for Time Series Modeling
 
@@ -17,7 +17,7 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-timetk >= 2.6.0
 BuildRequires:    R-CRAN-xgboost >= 1.2.0.1
-BuildRequires:    R-CRAN-parsnip >= 0.1.4
+BuildRequires:    R-CRAN-parsnip >= 0.1.6
 BuildRequires:    R-CRAN-workflows >= 0.1.3
 BuildRequires:    R-CRAN-rlang >= 0.1.2
 BuildRequires:    R-CRAN-yardstick >= 0.0.8
@@ -37,7 +37,9 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-prophet 
@@ -45,7 +47,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-timetk >= 2.6.0
 Requires:         R-CRAN-xgboost >= 1.2.0.1
-Requires:         R-CRAN-parsnip >= 0.1.4
+Requires:         R-CRAN-parsnip >= 0.1.6
 Requires:         R-CRAN-workflows >= 0.1.3
 Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-yardstick >= 0.0.8
@@ -65,7 +67,9 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-progressr 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-prophet 
