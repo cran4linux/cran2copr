@@ -1,47 +1,48 @@
-%global packname  peacesciencer
-%global packver   0.4.0
+%global packname  ClustImpute
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Various Tools and Data for Quantitative Peace Science
+Summary:          K-Means Clustering with Build-in Missing Data Imputation
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ClusterR 
+BuildRequires:    R-CRAN-copula 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stevemisc 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-ClusterR 
+Requires:         R-CRAN-copula 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stevemisc 
+Requires:         R-CRAN-knitr 
 
 %description
-These are useful tools and data sets for the study of quantitative peace
-science. The goal for this package is to include tools and data sets for
-doing original research that mimics well what a user would have to
-previously get from a software package that may not be well-sourced or
-well-supported. Those software bundles were useful the extent to which
-they encourage replications of long-standing analyses by starting the
-data-generating process from scratch. However, a lot of the functionality
-can be done relatively quickly and more transparently in the R programming
-language.
+This k-means algorithm is able to cluster data with missing values and as
+a by-product completes the data set. The implementation can deal with
+missing values in multiple variables and is computationally efficient
+since it iteratively uses the current cluster assignment to define a
+plausible distribution for missing value imputation. Weights are used to
+shrink early random draws for missing values (i.e., draws based on the
+cluster assignments after few iterations) towards the global mean of each
+feature. This shrinkage slowly fades out after a fixed number of
+iterations to reflect the increasing credibility of cluster assignments.
+See the vignette for details.
 
 %prep
 %setup -q -c -n %{packname}

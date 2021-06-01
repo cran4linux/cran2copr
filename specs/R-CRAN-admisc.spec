@@ -1,9 +1,9 @@
 %global packname  admisc
-%global packver   0.12
+%global packver   0.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12
+Version:          0.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adrian Dusa's Miscellaneous
 
@@ -12,17 +12,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-methods 
 Requires:         R-methods 
 
 %description
-Contains functions used across packages 'QCA', 'DDIwR', and 'venn'.
-Interprets and translates, factorizes and negates SOP - Sum of Products
-expressions, for both binary and multi-value crisp sets, and extracts
-information (set names, set values) from those expressions. Other
+Contains functions used across packages 'QCA', 'DDIwR', 'mixed' and
+'venn'. Interprets and translates, factorizes and negates SOP - Sum of
+Products expressions, for both binary and multi-value crisp sets, and
+extracts information (set names, set values) from those expressions. Other
 functions perform various other checks if possibly numeric (even if all
 numbers reside in a character vector) and coerce to numeric, or check if
 the numbers are whole. It also offers, among many others, a highly

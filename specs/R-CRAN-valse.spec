@@ -1,35 +1,42 @@
-%global packname  molic
-%global packver   2.0.2
+%global packname  valse
+%global packver   0.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Outlier Detection in Contingency Tables
+Summary:          Variable Selection with Mixture of Models
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggridges 
-BuildRequires:    R-CRAN-ess 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-CRAN-MASS 
+Requires:         R-parallel 
+Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggridges 
-Requires:         R-CRAN-ess 
+Requires:         R-CRAN-reshape2 
 
 %description
-Outlier detection in, possibly high-dimensional, categorical data
-following Mads Lindskou et al. (2019) <doi:10.1111/sjos.12407>.
+Two methods are implemented to cluster data with finite mixture regression
+models. Those procedures deal with high-dimensional covariates and
+responses through a variable selection procedure based on the Lasso
+estimator. A low-rank constraint could be added, computed for the
+Lasso-Rank procedure. A collection of models is constructed, varying the
+level of sparsity and the number of clusters, and a model is selected
+using a model selection criterion (slope heuristic, BIC or AIC). Details
+of the procedure are provided in "Model-based clustering for
+high-dimensional data. Application to functional data" by Emilie Devijver
+(2016) <arXiv:1409.1333v2>, published in Advances in Data Analysis and
+Clustering.
 
 %prep
 %setup -q -c -n %{packname}

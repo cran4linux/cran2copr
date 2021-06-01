@@ -1,13 +1,13 @@
 %global packname  dialrjars
-%global packver   8.12.23
+%global packver   8.12.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.12.23
+Version:          8.12.24
 Release:          1%{?dist}%{?buildtag}
 Summary:          Required 'libphonenumber' jars for the 'dialr' Package
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 

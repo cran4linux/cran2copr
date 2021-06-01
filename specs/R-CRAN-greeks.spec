@@ -1,11 +1,11 @@
 %global packname  greeks
-%global packver   0.0.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculates Sensitivities of Prices of Financial Options
+Summary:          Sensitivities of Prices of Financial Options
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,17 +16,19 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-matrixStats 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-matrixStats 
 
 %description
-Provides functions to calculate sensitivities of financial option prices
-for European and Asian options in the Black Scholes model. Classical
-formulas are implemented for European options in the Black Scholes Model,
-as is presented in Hull, J. C. (2017). Options, Futures, and Other
-Derivatives, Global Edition (9th Edition). Pearson. In the case of Asian
-options, Malliavin Monte Carlo Greeks are implemented, see Hudde, A. &
-Rüschendorf, L. (2016). European and Asian Malliavin Monte Carlo Greeks
-for general Jump Diffusions with nonvanishing Brownian motion part.
+Methods to calculate sensitivities of financial option prices for European
+and Asian options in the Black Scholes model. Classical formulas are
+implemented for European options in the Black Scholes Model, as is
+presented in Hull, J. C. (2017). Options, Futures, and Other Derivatives,
+Global Edition (9th Edition). Pearson. In the case of Asian options,
+Malliavin Monte Carlo Greeks are implemented, see Hudde, A. & Rüschendorf,
+L. (2016). European and Asian Malliavin Monte Carlo Greeks for general
+Jump Diffusions with nonvanishing Brownian motion part.
 <arXiv:1603.00920>.
 
 %prep

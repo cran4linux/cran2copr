@@ -1,13 +1,13 @@
-%global packname  equateIRT
-%global packver   2.2.0
+%global packname  flipbookr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          IRT Equating Methods
+Summary:          Parses Code, Creates Partial Code Builds, Delivers Code Movie
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,23 +15,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-mirt 
-Requires:         R-CRAN-statmod 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-mirt 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rmarkdown 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rmarkdown 
 
 %description
-Computation of direct, chain and average (bisector) equating coefficients
-with standard errors using Item Response Theory (IRT) methods for
-dichotomous items (Battauz (2013) <doi:10.1007/s11336-012-9316-y>, Battauz
-(2015) <doi:10.18637/jss.v068.i07>). Test scoring can be performed by true
-score equating and observed score equating methods. DIF detection can be
-performed using a Wald-type test (Battauz (2018)
-<doi:10.1007/s10260-018-00442-w>).
+Flipbooks present code step-by-step and side-by-side with its output.
+'flipbookr' helps creators build flipbooks efficiently because code
+pipelines are automatically parsed and prepped for presentation as
+flipbooks.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  Rcatch22
-%global packver   0.1.10
+%global packver   0.1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.1.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculation of 22 CAnonical Time-Series CHaracteristics
 

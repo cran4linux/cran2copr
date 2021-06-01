@@ -1,41 +1,35 @@
 %global packname  eflm
-%global packver   0.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Fitting of Linear and Generalized Linear Models
 
-License:          GPL (>= 3)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-stats 
-Requires:         R-CRAN-zoo 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-tibble 
 
 %description
 Efficient Fitting of Linear and Generalized Linear Models by using just
 base R. As an alternative to lm() and glm(), this package provides elm()
 and eglm(), with a significant speedup when the number of observations is
-larger than the number of parameters to estimate, as it reduces the NxP
-model matrix to a PxP matrix. The best computational performance is
-obtained when R is linked against 'OpenBLAS', 'Intel MKL' or other
-optimized 'BLAS' library. This implementation aims at being compatible
-with 'broom' and 'sandwich' packages for summary statistics and clustering
-by providing S3 methods.
+larger than the number of parameters to estimate. The speed gains are
+obtained by reducing the NxP model matrix to a PxP matrix, and the best
+computational performance is obtained when R is linked against 'OpenBLAS',
+'Intel MKL' or other optimized 'BLAS' library. This implementation aims at
+being compatible with 'broom' and 'sandwich' packages for summary
+statistics and clustering by providing S3 methods.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
-%global packname  datagovindia
-%global packver   1.0.4
+%global packname  lares
+%global packver   4.10.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          4.10.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data.gov.in API Wrapper
+Summary:          Analytics, Data Mining & Machine Learning Sidekick
 
-License:          MIT + file LICENSE
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,31 +15,49 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-h2o 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-h2o 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-yaml 
 
 %description
-This wrapper allows the user to communicate with more than 80,000 API
-posted on data.gov.in - open data platform of the government of India
-<https:data.gov.in/ogpl_apis>. It also allows the user to search for the
-API required through the universe of the API with a better interface than
-the one the official website provides. Once a user has the ID by using the
-API discovery functionalities, it allows one to converse with the API
-using a consistent format across all available API.
+R library for better/faster analytics, visualization, data mining, and
+machine learning tasks. With a wide variety of family functions, like
+Machine Learning, Data Wrangling, Exploratory, and Scrapper, it helps the
+analyst or data scientist to get quick and robust results, without the
+need of repetitive coding or extensive programming skills.
 
 %prep
 %setup -q -c -n %{packname}

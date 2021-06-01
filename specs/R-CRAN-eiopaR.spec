@@ -1,9 +1,9 @@
 %global packname  eiopaR
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access to RFR (Risk-Free Rate) Curves Produced by the EIOPA
 
@@ -17,8 +17,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-curl 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-curl 
 
 %description
 Provides EIOPA (European Insurance And Occupational Pensions Authority)

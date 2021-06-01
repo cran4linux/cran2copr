@@ -1,35 +1,40 @@
-%global packname  osrmr
-%global packver   0.1.36
+%global packname  EnvNJ
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.36
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrapper for the 'OSRM' API
+Summary:          Whole Genome Phylogenies Using Sequence Environments
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-bitops 
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-bio3d 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-bitops 
-Requires:         R-CRAN-rjson 
-Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-bio3d 
+Requires:         R-graphics 
 Requires:         R-CRAN-stringr 
 
 %description
-Wrapper around the 'Open Source Routing Machine (OSRM)' API
-<http://project-osrm.org/>. 'osrmr' works with API versions 4 and 5 and
-can handle servers that run locally as well as the 'OSRM' webserver.
+Contains utilities for the analysis of protein sequences in a phylogenetic
+context. Allows the generation of phylogenetic trees base on protein
+sequences in an alignment-independent way. Two different methods have been
+implemented. One approach is based on the frequency analysis of n-grams,
+previously described in Stuart et al. (2002)
+<doi:10.1093/bioinformatics/18.1.100>. The other approach is based on the
+species-specific neighborhood preference around amino acids. Features
+include the conversion of a protein set into a vector reflecting these
+neighborhood preferences, pairwise distances (dissimilarity) between these
+vectors, and the generation of trees based on these distance matrices.
 
 %prep
 %setup -q -c -n %{packname}

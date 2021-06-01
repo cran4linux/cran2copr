@@ -1,33 +1,42 @@
-%global packname  primePCA
-%global packver   1.1
+%global packname  sparseGAM
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Projected Refinement for Imputation of Missing Entries in PCA
+Summary:          Sparse Generalized Additive Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-softImpute 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-softImpute 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-grpreg 
+Requires:         R-stats 
+Requires:         R-splines 
 Requires:         R-CRAN-MASS 
-Requires:         R-methods 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-grpreg 
 
 %description
-Implements the primePCA algorithm, developed and analysed in Zhu, Z.,
-Wang, T. and Samworth, R. J. (2019) High-dimensional principal component
-analysis with heterogeneous missingness. <arXiv:1906.12125>.
+Fits sparse frequentist GAMs (SF-GAM) for continuous and discrete
+responses in the exponential dispersion family with the group lasso, group
+smoothly clipped absolute deviation (SCAD), and group minimax concave
+(MCP) penalties <doi:10.1007/s11222-013-9424-2>. Also fits sparse Bayesian
+generalized additive models (SB-GAM) with the spike-and-slab group lasso
+(SSGL) penalty of Bai et al. (2021) <doi:10.1080/01621459.2020.1765784>.
+B-spline basis functions are used to model the sparse additive functions.
+Stand-alone functions for group-regularized negative binomial regression,
+group-regularized gamma regression, and group-regularized regression in
+the exponential dispersion family with the SSGL penalty are also provided.
 
 %prep
 %setup -q -c -n %{packname}

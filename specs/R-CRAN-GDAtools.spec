@@ -1,9 +1,9 @@
 %global packname  GDAtools
-%global packver   1.6
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Toolbox for Geometric Data Analysis and More
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-GGally 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-wdm 
 Requires:         R-CRAN-FactoMineR 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-GGally 
 
 %description
 Contains functions for 'specific' Multiple Correspondence Analysis, Class
@@ -44,9 +46,9 @@ translation of logit models coefficients into percentages (Deauvieau
 (2010) <doi:10.1177/0759106309352586>), weighted contingency tables, an
 association measure for contingency tables ("Percentages of Maximum
 Deviation from Independence", aka PEM, see Cibois (1993)
-<doi:10.1177/075910639304000103>) and some tools to measure bivariate
-associations between variables (phi, Cramér V, correlation coefficient,
-eta-squared...).
+<doi:10.1177/075910639304000103>) and some tools to measure and plot
+bivariate associations between variables (phi, Cramér V, correlation
+coefficient, eta-squared...).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  fairmodels
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Tool for Bias Detection, Visualization, and Mitigation
 
@@ -34,8 +34,9 @@ model's bias towards different races, sex, nationalities etc. Use measures
 such as Statistical Parity, Equal odds to detect the discrimination
 against unprivileged groups. Visualize the bias using heatmap, radar plot,
 biplot, bar chart (and more!). There are various pre-processing and
-post-processing bias mitigation algorithms implemented. Find more details
-in (Wiśniewski, Biecek (2021)) <arXiv:2104.00507>.
+post-processing bias mitigation algorithms implemented. Package also
+supports calculating fairness metrics for regression models. Find more
+details in (Wiśniewski, Biecek (2021)) <arXiv:2104.00507>.
 
 %prep
 %setup -q -c -n %{packname}

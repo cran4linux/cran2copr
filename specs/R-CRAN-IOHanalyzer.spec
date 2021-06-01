@@ -1,10 +1,10 @@
 %global packname  IOHanalyzer
-%global packver   0.1.4
+%global packver   0.1.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
-Release:          2%{?dist}%{?buildtag}
+Version:          0.1.5.2
+Release:          1%{?dist}%{?buildtag}
 Summary:          Data Analysis Part of 'IOHprofiler'
 
 License:          BSD_3_clause + file LICENSE
@@ -14,7 +14,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-data.table 
@@ -30,11 +29,11 @@ BuildRequires:    R-CRAN-shinyjs
 BuildRequires:    R-CRAN-colourpicker 
 BuildRequires:    R-CRAN-bsplus 
 BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-CRAN-PlayerRatings 
 BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-data.table 
@@ -50,10 +49,10 @@ Requires:         R-CRAN-shinyjs
 Requires:         R-CRAN-colourpicker 
 Requires:         R-CRAN-bsplus 
 Requires:         R-CRAN-DT 
-Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-kableExtra 
-Requires:         R-CRAN-PlayerRatings 
 Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-knitr 
 
 %description
 The data analysis module for the Iterative Optimization Heuristics
@@ -67,9 +66,13 @@ Optimisers) data format for benchmarking.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -77,9 +80,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

@@ -1,37 +1,41 @@
-%global packname  equateIRT
-%global packver   2.2.0
+%global packname  utiml
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          IRT Equating Methods
+Summary:          Utilities for Multi-Label Learning
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-mldr >= 0.4.0
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-ROCR 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-mirt 
-Requires:         R-CRAN-statmod 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-mldr >= 0.4.0
+Requires:         R-parallel 
+Requires:         R-CRAN-ROCR 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-mirt 
+Requires:         R-methods 
 
 %description
-Computation of direct, chain and average (bisector) equating coefficients
-with standard errors using Item Response Theory (IRT) methods for
-dichotomous items (Battauz (2013) <doi:10.1007/s11336-012-9316-y>, Battauz
-(2015) <doi:10.18637/jss.v068.i07>). Test scoring can be performed by true
-score equating and observed score equating methods. DIF detection can be
-performed using a Wald-type test (Battauz (2018)
-<doi:10.1007/s10260-018-00442-w>).
+Multi-label learning strategies and others procedures to support multi-
+label classification in R. The package provides a set of multi-label
+procedures such as sampling methods, transformation strategies, threshold
+functions, pre-processing techniques and evaluation metrics. A complete
+overview of the matter can be seen in Zhang, M. and Zhou, Z. (2014)
+<doi:10.1109/TKDE.2013.39> and Gibaja, E. and Ventura, S. (2015) A
+Tutorial on Multi-label Learning.
 
 %prep
 %setup -q -c -n %{packname}

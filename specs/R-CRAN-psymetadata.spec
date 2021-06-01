@@ -1,37 +1,25 @@
-%global packname  equateIRT
-%global packver   2.2.0
+%global packname  psymetadata
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          IRT Equating Methods
+Summary:          Open Datasets from Meta-Analyses in Psychology Research
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-mirt 
-Requires:         R-CRAN-statmod 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-mirt 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Computation of direct, chain and average (bisector) equating coefficients
-with standard errors using Item Response Theory (IRT) methods for
-dichotomous items (Battauz (2013) <doi:10.1007/s11336-012-9316-y>, Battauz
-(2015) <doi:10.18637/jss.v068.i07>). Test scoring can be performed by true
-score equating and observed score equating methods. DIF detection can be
-performed using a Wald-type test (Battauz (2018)
-<doi:10.1007/s10260-018-00442-w>).
+Data and examples from meta-analyses in psychology research.
 
 %prep
 %setup -q -c -n %{packname}

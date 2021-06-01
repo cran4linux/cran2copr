@@ -1,37 +1,30 @@
-%global packname  equateIRT
-%global packver   2.2.0
+%global packname  CallEshotgun
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          IRT Equating Methods
+Summary:          Providing an Interface to the e-Shotgun Algorithm for Bayesian Optimization
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-mirt 
-Requires:         R-CRAN-statmod 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-mirt 
+BuildRequires:    R-CRAN-reticulate 
+Requires:         R-CRAN-reticulate 
 
 %description
-Computation of direct, chain and average (bisector) equating coefficients
-with standard errors using Item Response Theory (IRT) methods for
-dichotomous items (Battauz (2013) <doi:10.1007/s11336-012-9316-y>, Battauz
-(2015) <doi:10.18637/jss.v068.i07>). Test scoring can be performed by true
-score equating and observed score equating methods. DIF detection can be
-performed using a Wald-type test (Battauz (2018)
-<doi:10.1007/s10260-018-00442-w>).
+A set of tools for the usage of the e-shotgun algorithm for Bayesian
+optimization. The e-shotgun was originally developed by "George De Ath,
+Richard M. Everson, Jonathan E. Fieldsend, and Alma A. M. Rahat. 2020.
+e-shotgun : e-greedy Batch Bayesian Optimisation. In Genetic and
+Evolutionary Computation Conference (GECCO ’20), July 8–12, 2020, Cancún,
+Mexico. ACM, New York, NY, USA, 9 pages." <doi:10.1145/3377930.3390154>.
 
 %prep
 %setup -q -c -n %{packname}

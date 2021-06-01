@@ -1,37 +1,36 @@
-%global packname  OpenABMCovid19
-%global packver   1.0
+%global packname  Require
+%global packver   0.0.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          0.0.13
 Release:          1%{?dist}%{?buildtag}
-Summary:          Agent-Based Model for Modelling the COVID-19
+Summary:          Installing and Loading R Packages for Reproducible Workflows
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table >= 1.10.4
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-xptr 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-remotes 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-data.table >= 1.10.4
 Requires:         R-methods 
-Requires:         R-CRAN-xptr 
+Requires:         R-CRAN-remotes 
+Requires:         R-utils 
 
 %description
-OpenABM-Covid19 is an agent-based model (ABM) developed to simulate the
-spread of COVID-19 in a city and to analyse the effect of both passive and
-active intervention strategies. Interactions between individuals are
-modelled on networks representing households, work-places and random
-contacts. The infection is transmitted between these contacts and the
-progression of the disease in individuals is modelled. Instantaneous
-contract-tracing and quarantining of contacts is modelled allowing the
-evaluation of the design and configuration of digital contract-tracing
-mobile phone apps. Robert Hinch, William J M Probert, et al. (2020)
-<doi:10.1101/2020.09.16.20195925>.
+A single key function, 'Require' that wraps 'install.packages',
+'remotes::install_github', 'versions::install.versions', and
+'base::require' that allows for reproducible workflows. As with other
+functions in a reproducible workflow, this package emphasizes functions
+that return the same result whether it is the first or subsequent times
+running the function. Maturing.
 
 %prep
 %setup -q -c -n %{packname}

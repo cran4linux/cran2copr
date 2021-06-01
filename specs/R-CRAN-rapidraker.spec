@@ -1,37 +1,35 @@
-%global packname  equateIRT
-%global packver   2.2.0
+%global packname  rapidraker
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          IRT Equating Methods
+Summary:          Rapid Automatic Keyword Extraction (RAKE) Algorithm
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+Requires:         java
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rJava 
+BuildRequires:    R-CRAN-openNLPdata 
+BuildRequires:    R-CRAN-slowraker 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-mirt 
-Requires:         R-CRAN-statmod 
-Requires:         R-stats 
+Requires:         R-CRAN-rJava 
+Requires:         R-CRAN-openNLPdata 
+Requires:         R-CRAN-slowraker 
 Requires:         R-utils 
-Requires:         R-CRAN-mirt 
 
 %description
-Computation of direct, chain and average (bisector) equating coefficients
-with standard errors using Item Response Theory (IRT) methods for
-dichotomous items (Battauz (2013) <doi:10.1007/s11336-012-9316-y>, Battauz
-(2015) <doi:10.18637/jss.v068.i07>). Test scoring can be performed by true
-score equating and observed score equating methods. DIF detection can be
-performed using a Wald-type test (Battauz (2018)
-<doi:10.1007/s10260-018-00442-w>).
+A 'Java' implementation of the RAKE algorithm ('Rose', S., 'Engel', D.,
+'Cramer', N. and 'Cowley', W. (2010) <doi:10.1002/9780470689646.ch1>),
+which can be used to extract keywords from documents without any training
+data.
 
 %prep
 %setup -q -c -n %{packname}
