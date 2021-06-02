@@ -1,9 +1,9 @@
 %global packname  pairwiseComparisons
-%global packver   3.1.5
+%global packver   3.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.5
+Version:          3.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Pairwise Comparison Tests
 
@@ -15,8 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.13.2
-BuildRequires:    R-CRAN-parameters >= 0.13.0
+BuildRequires:    R-CRAN-WRS2 >= 1.1.1
+BuildRequires:    R-CRAN-insight >= 0.14.1
+BuildRequires:    R-CRAN-parameters >= 0.14.0
 BuildRequires:    R-CRAN-BayesFactor 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ipmisc 
@@ -24,9 +25,9 @@ BuildRequires:    R-CRAN-PMCMRplus
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-WRS2 
-Requires:         R-CRAN-insight >= 0.13.2
-Requires:         R-CRAN-parameters >= 0.13.0
+Requires:         R-CRAN-WRS2 >= 1.1.1
+Requires:         R-CRAN-insight >= 0.14.1
+Requires:         R-CRAN-parameters >= 0.14.0
 Requires:         R-CRAN-BayesFactor 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ipmisc 
@@ -34,7 +35,6 @@ Requires:         R-CRAN-PMCMRplus
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-WRS2 
 
 %description
 Multiple pairwise comparison tests on tidy data for one-way analysis of

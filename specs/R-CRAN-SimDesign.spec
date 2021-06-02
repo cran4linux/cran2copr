@@ -1,9 +1,9 @@
 %global packname  SimDesign
-%global packver   2.3
+%global packver   2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3
+Version:          2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Structure for Organizing Monte Carlo Simulation Designs
 
@@ -12,36 +12,38 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.1
-Requires:         R-core >= 3.2.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-pbapply >= 1.3.0
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-sessioninfo 
+BuildRequires:    R-CRAN-RPushbullet 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-pbapply >= 1.3.0
 Requires:         R-CRAN-foreach 
 Requires:         R-methods 
 Requires:         R-parallel 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-sessioninfo 
+Requires:         R-CRAN-RPushbullet 
 Requires:         R-stats 
 
 %description
-Provides tools to help safely and efficiently organize Monte Carlo
-simulations in R. The package controls the structure and back-end of Monte
-Carlo simulations by utilizing a general generate-analyse-summarise
-strategy. The functions provided control common simulation issues such as
-re-simulating non-convergent results, support parallel back-end and MPI
-distributed computations, save and restore temporary files, aggregate
-results across independent nodes, and provide native support for
-debugging. For a pedagogical introduction to the package refer to Sigal
-and Chalmers (2016) <doi:10.1080/10691898.2016.1246953>, and for an
-in-depth overview of the package and its design philosophy see Chalmers
-and Adkins (2020) <doi:10.20982/tqmp.16.4.p248>.
+Provides tools to safely and efficiently organize and execute Monte Carlo
+simulation experiments in R. The package controls the structure and
+back-end of Monte Carlo simulation experiments by utilizing a
+generate-analyse-summarise workflow. The workflow safeguards against
+common simulation issues, such as automatically re-simulating
+non-convergent results, prevents inadvertently overwriting of simulation
+files, catches error and warning messages during execution, and implicitly
+supports parallel processing. For a pedagogical introduction to the
+package see Sigal and Chalmers (2016) <doi:10.1080/10691898.2016.1246953>.
+For a more in-depth overview of the package and its design philosophy see
+Chalmers and Adkins (2020) <doi:10.20982/tqmp.16.4.p248>.
 
 %prep
 %setup -q -c -n %{packname}

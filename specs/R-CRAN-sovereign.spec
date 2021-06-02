@@ -1,9 +1,9 @@
 %global packname  sovereign
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          State-Dependent Empirical Analysis
 
@@ -53,7 +53,8 @@ Requires:         R-CRAN-zoo
 %description
 A set of tools for state-dependent empirical analysis through both VAR-
 and local projection-based state-dependent forecasts, impulse response
-functions, and forecast error variance decomposition.
+functions, historical decompositions, and forecast error variance
+decompositions.
 
 %prep
 %setup -q -c -n %{packname}

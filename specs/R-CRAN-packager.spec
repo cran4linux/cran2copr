@@ -1,9 +1,9 @@
 %global packname  packager
-%global packver   1.11.1
+%global packver   1.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.11.1
+Version:          1.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create, Build and Maintain Packages
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fritools >= 1.3.0
+BuildRequires:    R-CRAN-fritools >= 1.4.0
 BuildRequires:    R-CRAN-fakemake >= 1.10.1
 BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-checkmate 
@@ -35,7 +35,7 @@ BuildRequires:    R-CRAN-rprojroot
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-whisker 
 BuildRequires:    R-CRAN-whoami 
-Requires:         R-CRAN-fritools >= 1.3.0
+Requires:         R-CRAN-fritools >= 1.4.0
 Requires:         R-CRAN-fakemake >= 1.10.1
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-checkmate 

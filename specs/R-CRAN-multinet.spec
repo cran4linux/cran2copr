@@ -1,9 +1,9 @@
 %global packname  multinet
-%global packver   3.3.2
+%global packver   4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.2
+Version:          4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis and Mining of Multilayer Social Networks
 
@@ -25,7 +25,7 @@ Requires:         R-CRAN-RColorBrewer
 
 %description
 Functions for the creation/generation and analysis of multilayer social
-networks.
+networks <doi:10.18637/jss.v098.i08>.
 
 %prep
 %setup -q -c -n %{packname}

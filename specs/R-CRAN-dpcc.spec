@@ -1,39 +1,25 @@
-%global packname  spectrolab
-%global packver   0.0.12
+%global packname  dpcc
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.12
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Class and Methods for Hyperspectral Data
+Summary:          Dynamic Programming for Convex Clustering
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyjs 
-Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-parallel 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyjs 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Input/Output, processing and visualization of spectra taken with different
-spectrometers, including SVC (Spectra Vista), ASD and PSR (Spectral
-Evolution). Implements an S3 class 'spectra' that other packages can build
-on. Provides methods to access, plot, manipulate, splice sensor overlap,
-vector normalize and smooth spectra.
+Use dynamic programming method to solve l1 convex clustering with
+identical weights.
 
 %prep
 %setup -q -c -n %{packname}

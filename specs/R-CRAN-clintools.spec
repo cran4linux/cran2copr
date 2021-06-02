@@ -1,9 +1,9 @@
 %global packname  clintools
-%global packver   0.8.0
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Clinical Research
 
@@ -19,10 +19,14 @@ BuildRequires:    R-CRAN-signal >= 0.7.6
 Requires:         R-CRAN-signal >= 0.7.6
 
 %description
-Functions for calculation of hemodynamic indexes including transfer
+Every research team have their own script for data management, statistics
+and most importantly hemodynamic indices. The purpose is to standardize
+scripts utilized in clinical research. The hemodynamic indices can be used
+in a long-format dataframe, and add both periods of interest
+(trigger-periods), and delete artifacts with deleter-files. Transfer
 function analysis (Claassen et al. (2016) <doi:10.1177/0271678X15626425>)
-and Mx (Czosnyka et al. (1996) <doi:10.1161/01.str.27.10.1829>), and other
-helper functions for clinical researchers.
+and Mx (Czosnyka et al. (1996) <doi:10.1161/01.str.27.10.1829>) can be
+calculated using this package.
 
 %prep
 %setup -q -c -n %{packname}

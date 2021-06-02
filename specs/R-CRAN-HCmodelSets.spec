@@ -1,39 +1,35 @@
-%global packname  spectrolab
-%global packver   0.0.12
+%global packname  HCmodelSets
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.12
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Class and Methods for Hyperspectral Data
+Summary:          Regression with a Large Number of Potential Explanatory Variables
 
-License:          GPL-3
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyjs 
-Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-parallel 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-survival 
 
 %description
-Input/Output, processing and visualization of spectra taken with different
-spectrometers, including SVC (Spectra Vista), ASD and PSR (Spectral
-Evolution). Implements an S3 class 'spectra' that other packages can build
-on. Provides methods to access, plot, manipulate, splice sensor overlap,
-vector normalize and smooth spectra.
+Software for performing the reduction, exploratory and model selection
+phases of the procedure proposed by Cox, D.R. and Battey, H.S. (2017)
+<doi:10.1073/pnas.1703764114> for sparse regression when the number of
+potential explanatory variables far exceeds the sample size. The software
+supports linear regression, likelihood-based fitting of generalized linear
+regression models and the proportional hazards model fitted by partial
+likelihood.
 
 %prep
 %setup -q -c -n %{packname}

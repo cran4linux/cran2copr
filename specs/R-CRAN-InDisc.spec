@@ -1,11 +1,11 @@
 %global packname  InDisc
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Obtaining and Estimating Unidimensional IRT Dual Models
+Summary:          Obtaining and Estimating Unidimensional and Multidimensional IRT Dual Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -26,8 +26,8 @@ Requires:         R-CRAN-matrixStats
 
 %description
 Performs a unified approach for obtaining and estimating unidimensional
-Item Response Theory (IRT) Dual Models (DMs), proposed by Ferrando (2019
-<doi:10.1177/0146621618817779>).
+and multidimensional Item Response Theory (IRT) Dual Models (DMs),
+proposed by Ferrando (2019 <doi:10.1177/0146621618817779>).
 
 %prep
 %setup -q -c -n %{packname}

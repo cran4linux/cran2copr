@@ -1,9 +1,9 @@
 %global packname  secr
-%global packver   4.4.1
+%global packver   4.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.1
+Version:          4.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatially Explicit Capture-Recapture
 
@@ -14,6 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-RcppParallel >= 5.1.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.14
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-abind 
@@ -29,9 +30,9 @@ BuildRequires:    R-CRAN-raster
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-RcppNumerical 
 BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-RcppParallel >= 5.1.1
 Requires:         R-CRAN-Rcpp >= 0.12.14
 Requires:         R-methods 
 Requires:         R-CRAN-abind 
@@ -47,7 +48,6 @@ Requires:         R-CRAN-raster
 Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-RcppNumerical 
 
 %description

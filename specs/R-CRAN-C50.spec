@@ -1,9 +1,9 @@
 %global packname  C50
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          C5.0 Decision Trees and Rule-Based Models
 
@@ -14,9 +14,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10.0
 Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-Cubist >= 0.2.3
+BuildRequires:    R-CRAN-Cubist >= 0.3.0
 BuildRequires:    R-CRAN-partykit 
-Requires:         R-CRAN-Cubist >= 0.2.3
+Requires:         R-CRAN-Cubist >= 0.3.0
 Requires:         R-CRAN-partykit 
 
 %description

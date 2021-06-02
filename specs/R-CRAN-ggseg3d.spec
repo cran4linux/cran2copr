@@ -1,33 +1,41 @@
-%global packname  rDppDiversity
-%global packver   0.0.2
+%global packname  ggseg3d
+%global packver   1.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          1.6.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Subset Searching Algorithm Using DPP Greedy MAP
+Summary:          Tri-Surface Mesh Plots for Brain Atlases
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-Given item set, item representation vector, and item ratings, find a
-subset with better relevance-diversity trade-off. Also provide machine
-learning algorithm to learn item representations maximizing log likelihood
-under DPP assumption. References: [1]Laming Chen, Guoxin Zhang, and
-Hanning
-Zhou(2017)<https://lsrs2017.files.wordpress.com/2017/08/lsrs_2017_lamingchen.pdf>
-[2]Laming Chen, Guoxin Zhang, and Hanning
-Zhou(2018)<https://papers.nips.cc/paper/2018/file/dbbf603ff0e99629dda5d75b6f75f966-Paper.pdf>
-[3]Wilhelm, Mark & Ramanathan, Ajith & Bonomo, Alexander & Jain, Sagar &
-Chi, Ed & Gillenwater, Jennifer(2018)<doi:10.1145/3269206.3272018>.
+Mainly contains a plotting function ggseg3d(), and data of two standard
+brain atlases (Desikan-Killiany and aseg). By far, the largest bit of the
+package is the data for each of the atlases. The functions and data enable
+users to plot tri-surface mesh plots of brain atlases, and customise these
+by projecting colours onto the brain segments based on values in their own
+data sets. Functions are wrappers for 'plotly'. Mowinckel & Vidal-Piñeiro
+(2020) <doi:10.1177/2515245920928009>.
 
 %prep
 %setup -q -c -n %{packname}

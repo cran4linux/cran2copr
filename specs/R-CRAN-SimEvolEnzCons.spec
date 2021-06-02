@@ -1,39 +1,42 @@
-%global packname  spectrolab
-%global packver   0.0.12
+%global packname  SimEvolEnzCons
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.12
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Class and Methods for Hyperspectral Data
+Summary:          Simulation of Evolution of Enzyme Under Constraints
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-ade4 
+BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-scatterplot3d 
 Requires:         R-stats 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-ade4 
+Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-parallel 
 Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-scatterplot3d 
 
 %description
-Input/Output, processing and visualization of spectra taken with different
-spectrometers, including SVC (Spectra Vista), ASD and PSR (Spectral
-Evolution). Implements an S3 class 'spectra' that other packages can build
-on. Provides methods to access, plot, manipulate, splice sensor overlap,
-vector normalize and smooth spectra.
+Simulate the evolution of enzyme concentrations under selection for
+increased flux in a metabolic pathway, with cellular constraints. Create
+graphics for the simulation results. Compute evolutionary equilibrium and
+Range of Neutral Variations of enzyme concentrations. This package is part
+of "Coton, C., Talbot, G., Le Louarn, M., Dillmann, C., de Vienne, D.
+(2021) <bioRxiv:10.1101/2021.05.04.442631>".
 
 %prep
 %setup -q -c -n %{packname}

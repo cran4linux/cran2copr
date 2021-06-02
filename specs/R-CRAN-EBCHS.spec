@@ -1,39 +1,35 @@
-%global packname  spectrolab
-%global packver   0.0.12
+%global packname  EBCHS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.12
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Class and Methods for Hyperspectral Data
+Summary:          An Empirical Bayes Method for Chi-Squared Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-fda 
 Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-parallel 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-pracma 
+Requires:         R-splines 
+Requires:         R-CRAN-fda 
 
 %description
-Input/Output, processing and visualization of spectra taken with different
-spectrometers, including SVC (Spectra Vista), ASD and PSR (Spectral
-Evolution). Implements an S3 class 'spectra' that other packages can build
-on. Provides methods to access, plot, manipulate, splice sensor overlap,
-vector normalize and smooth spectra.
+We provide the main R functions to compute the posterior interval for the
+noncentrality parameter of the chi-squared distribution. The skewness
+estimate of the posterior distribution is also available to improve the
+coverage rate of posterior intervals. Details can be found in Du and Hu
+(2020) <doi:10.1080/01621459.2020.1777137>.
 
 %prep
 %setup -q -c -n %{packname}

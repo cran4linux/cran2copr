@@ -1,9 +1,9 @@
 %global packname  multifear
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiverse Analyses for Conditioning Data
 
@@ -28,10 +28,10 @@ BuildRequires:    R-CRAN-BayesFactor >= 0.9.12.4.2
 BuildRequires:    R-CRAN-dplyr >= 0.8.4
 BuildRequires:    R-CRAN-effsize >= 0.7.8
 BuildRequires:    R-CRAN-broom >= 0.5.5
-BuildRequires:    R-CRAN-bayestestR >= 0.5.2
 BuildRequires:    R-CRAN-esc >= 0.5.1
 BuildRequires:    R-CRAN-effectsize >= 0.4.1
 BuildRequires:    R-CRAN-purrr >= 0.3.3
+BuildRequires:    R-CRAN-bayestestR >= 0.10.0
 Requires:         R-CRAN-ez >= 4.4.0
 Requires:         R-stats >= 3.6.2
 Requires:         R-CRAN-ggplot2 >= 3.2.1
@@ -45,10 +45,10 @@ Requires:         R-CRAN-BayesFactor >= 0.9.12.4.2
 Requires:         R-CRAN-dplyr >= 0.8.4
 Requires:         R-CRAN-effsize >= 0.7.8
 Requires:         R-CRAN-broom >= 0.5.5
-Requires:         R-CRAN-bayestestR >= 0.5.2
 Requires:         R-CRAN-esc >= 0.5.1
 Requires:         R-CRAN-effectsize >= 0.4.1
 Requires:         R-CRAN-purrr >= 0.3.3
+Requires:         R-CRAN-bayestestR >= 0.10.0
 
 %description
 A suite of functions for performing analyses, based on a multiverse

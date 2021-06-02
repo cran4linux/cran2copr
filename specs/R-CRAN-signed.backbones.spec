@@ -1,39 +1,30 @@
-%global packname  spectrolab
-%global packver   0.0.12
+%global packname  signed.backbones
+%global packver   0.91.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.12
+Version:          0.91.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Class and Methods for Hyperspectral Data
+Summary:          Extract the Signed Backbones of Weighted Networks
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyjs 
-Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-parallel 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-CRAN-reshape2 
 
 %description
-Input/Output, processing and visualization of spectra taken with different
-spectrometers, including SVC (Spectra Vista), ASD and PSR (Spectral
-Evolution). Implements an S3 class 'spectra' that other packages can build
-on. Provides methods to access, plot, manipulate, splice sensor overlap,
-vector normalize and smooth spectra.
+Extract the signed backbones of intrinsically dense weighted networks
+based on the significance filter and vigor filter as described in the
+following paper. Please cite it if you find this software useful in your
+work. Furkan Gursoy and Bertan Badur. "Extracting the signed backbone of
+intrinsically dense weighted networks." Journal of Complex Networks.
+<arXiv:2012.05216>.
 
 %prep
 %setup -q -c -n %{packname}

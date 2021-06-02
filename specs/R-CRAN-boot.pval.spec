@@ -1,39 +1,36 @@
-%global packname  spectrolab
-%global packver   0.0.12
+%global packname  boot.pval
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.12
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Class and Methods for Hyperspectral Data
+Summary:          Bootstrap p-Values
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-car 
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-car 
 Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-parallel 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-survival 
 
 %description
-Input/Output, processing and visualization of spectra taken with different
-spectrometers, including SVC (Spectra Vista), ASD and PSR (Spectral
-Evolution). Implements an S3 class 'spectra' that other packages can build
-on. Provides methods to access, plot, manipulate, splice sensor overlap,
-vector normalize and smooth spectra.
+Computation of bootstrap p-values through inversion of confidence
+intervals, including convenience functions for regression models.
 
 %prep
 %setup -q -c -n %{packname}

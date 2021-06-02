@@ -1,9 +1,9 @@
 %global packname  sknifedatar
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Swiss Knife of Data
 
@@ -22,14 +22,12 @@ BuildRequires:    R-CRAN-tune >= 0.1.3
 BuildRequires:    R-CRAN-rlang >= 0.1.2
 BuildRequires:    R-CRAN-rsample >= 0.0.9
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-modeltime 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-workflowsets 
 Requires:         R-CRAN-tibble >= 3.1.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-parsnip >= 0.1.4
@@ -37,14 +35,12 @@ Requires:         R-CRAN-tune >= 0.1.3
 Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-rsample >= 0.0.9
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-modeltime 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
-Requires:         R-CRAN-workflowsets 
 
 %description
 Extension of the 'modeltime' ecosystem. In addition. Allows fitting of

@@ -1,39 +1,35 @@
-%global packname  spectrolab
-%global packver   0.0.12
+%global packname  NGLVieweR
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.12
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Class and Methods for Hyperspectral Data
+Summary:          Interactive 3D Visualization of Molecular Structures
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyjs 
-Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-parallel 
-Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-magrittr 
+Requires:         R-tools 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyjs 
 
 %description
-Input/Output, processing and visualization of spectra taken with different
-spectrometers, including SVC (Spectra Vista), ASD and PSR (Spectral
-Evolution). Implements an S3 class 'spectra' that other packages can build
-on. Provides methods to access, plot, manipulate, splice sensor overlap,
-vector normalize and smooth spectra.
+Provides an 'htmlwidgets' <https://www.htmlwidgets.org/> interface to
+'NGL.js' <http://nglviewer.org/ngl/api/>. 'NGLvieweR' can be used to
+visualize and interact with protein databank ('PDB') and structural files
+in R and Shiny applications. It includes a set of API functions to
+manipulate the viewer after creation in Shiny.
 
 %prep
 %setup -q -c -n %{packname}

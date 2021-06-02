@@ -1,11 +1,11 @@
 %global packname  r2rtf
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Create Presentation-Ready Rich Text Format (RTF) Table and Figure
+Summary:          Easily Create Production-Ready Rich Text Format (RTF) Table and Figure
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,8 +19,8 @@ BuildRequires:    R-grDevices
 Requires:         R-grDevices 
 
 %description
-Create presentation-ready Rich Text Format (RTF) table and figure with
-flexible and customized format.
+Create production-ready Rich Text Format (RTF) table and figure with
+flexible format.
 
 %prep
 %setup -q -c -n %{packname}

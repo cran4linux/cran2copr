@@ -1,9 +1,9 @@
 %global packname  ks
-%global packver   1.13.0
+%global packver   1.13.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.13.0
+Version:          1.13.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kernel Smoothing
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-mclust
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-multicool 
 BuildRequires:    R-CRAN-plot3D 
+BuildRequires:    R-CRAN-pracma 
 Requires:         R-CRAN-KernSmooth >= 2.22
 Requires:         R-CRAN-FNN >= 1.1
 Requires:         R-CRAN-mvtnorm >= 1.0.0
@@ -32,6 +33,7 @@ Requires:         R-CRAN-mclust
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-multicool 
 Requires:         R-CRAN-plot3D 
+Requires:         R-CRAN-pracma 
 
 %description
 Kernel smoothers for univariate and multivariate data, including

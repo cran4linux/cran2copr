@@ -1,9 +1,9 @@
 %global packname  eventglm
-%global packver   1.0.2
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Models for Event History Outcomes
 
@@ -17,9 +17,11 @@ Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-geepack 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-sandwich 
 Requires:         R-stats 
+Requires:         R-CRAN-geepack 
 
 %description
 A user friendly, easy to understand way of doing event history regression
