@@ -1,9 +1,9 @@
 %global packname  rlas
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read and Write 'las' and 'laz' Binary File Formats Used for Remote Sensing Data
 
@@ -27,7 +27,7 @@ between data users. The LAS specifications are approved by the American
 Society for Photogrammetry and Remote Sensing
 <https://www.asprs.org/divisions-committees/lidar-division/laser-las-file-format-exchange-activities>.
 The LAZ file format is an open and lossless compression scheme for binary
-LAS format versions 1.0 to 1.3 <https://laszip.org/>.
+LAS format versions 1.0 to 1.4 <https://laszip.org/>.
 
 %prep
 %setup -q -c -n %{packname}

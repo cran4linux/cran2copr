@@ -1,9 +1,9 @@
 %global packname  tensorBSS
-%global packver   0.3.7
+%global packver   0.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          0.3.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Blind Source Separation Methods for Tensor-Valued Observations
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-tensor
 BuildRequires:    R-CRAN-tsBSS 
 BuildRequires:    R-CRAN-ICtest 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.3
 Requires:         R-CRAN-JADE 
@@ -29,6 +30,7 @@ Requires:         R-CRAN-tensor
 Requires:         R-CRAN-tsBSS 
 Requires:         R-CRAN-ICtest 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-abind 
 
 %description
 Contains several utility functions for manipulating tensor-valued data

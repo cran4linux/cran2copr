@@ -1,39 +1,32 @@
-%global packname  robustX
-%global packver   1.2-5
+%global packname  mazing
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          'eXtra' / 'eXperimental' Functionality for Robust Statistics
+Summary:          Utilities for Making and Plotting Mazes
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-robustbase >= 0.92.3
-BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-robustbase >= 0.92.3
-Requires:         R-grDevices 
 Requires:         R-graphics 
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Robustness -- 'eXperimental', 'eXtraneous', or 'eXtraordinary'
-Functionality for Robust Statistics.  Hence methods which are not well
-established, often related to methods in package 'robustbase'.  Amazingly,
-'BACON()', originally by Billor, Hadi, and Velleman (2000)
-<doi:10.1016/S0167-9473(99)00101-2> has become established in places.  The
-"barrow wheel" `rbwheel()` is from Stahel and Mächler (2009)
-<doi:10.1111/j.1467-9868.2009.00706.x>.
+Functionality for generating and plotting random mazes. The mazes are
+based on matrices, so can only consist of vertical and horizontal lines
+along a regular grid. But there is no need to use every possible space, so
+they can take on many different shapes.
 
 %prep
 %setup -q -c -n %{packname}

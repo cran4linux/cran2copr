@@ -1,9 +1,9 @@
 %global packname  diffcor
-%global packver   0.6.4
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fisher's z-Tests Concerning Difference of Correlations
 
@@ -26,12 +26,11 @@ applied to check if the correlation between one construct with another one
 (r12) is significantly different/higher/smaller than the correlation of
 one of the constructs with a third construct (r13), given the correlation
 of the constructs that are compared (r23). The outputs for all the three
-functions provide the test statistic in z-units, 95 percent confidence
-intervals, and p-values. For diffcor.one() and diffcor.two(), the output
-further provides the effect size Cohens q as well as confidence intervals
-for the empirical correlations. According to Cohen (1988), q = |.10|,
-|.30| and |.50| are considered small, moderate, and large differences,
-respectively.
+functions provide the compared correlations, test statistic in z-units,
+and p-values. For diffcor.one() and diffcor.two(), the output further
+provides confidence intervals of the empirical correlations and the effect
+size Cohens q. According to Cohen (1988), q = |.10|, |.30| and |.50| are
+considered small, moderate, and large differences, respectively.
 
 %prep
 %setup -q -c -n %{packname}

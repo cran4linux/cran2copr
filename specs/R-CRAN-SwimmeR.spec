@@ -1,9 +1,9 @@
 %global packname  SwimmeR
-%global packver   0.9.0
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Import, Cleaning, and Conversions for Swimming Results
 
@@ -18,7 +18,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-pdftools 
@@ -28,7 +27,6 @@ BuildRequires:    R-CRAN-readr
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-pdftools 

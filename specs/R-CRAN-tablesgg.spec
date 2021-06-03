@@ -1,9 +1,9 @@
 %global packname  tablesgg
-%global packver   0.7-1
+%global packver   0.8-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Presentation-Quality Tables, Displayed Using 'ggplot2'
 
@@ -44,11 +44,11 @@ graph could be, with no more effort.  External software such as LaTeX or
 HTML or their viewers is not required.  The package provides a full set of
 tools to control the style and appearance of tables, including titles,
 footnotes and reference marks, horizontal and vertical rules, and spacing
-of rows and columns.  Methods are included to display data frames; tables
-created by R's ftable(), table(), and xtabs() functions; and tables
-created by the 'tables' and 'xtable' packages.  Methods can be added to
-display other table-like objects.  A vignette is included that illustrates
-usage and options available in the package.
+of rows and columns.  Methods are included to display matrices; data
+frames; tables created by R's ftable(), table(), and xtabs() functions;
+and tables created by the 'tables' and 'xtable' packages.  Methods can be
+added to display other table-like objects.  A vignette is included that
+illustrates usage and options available in the package.
 
 %prep
 %setup -q -c -n %{packname}

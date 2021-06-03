@@ -1,9 +1,9 @@
 %global packname  postpack
-%global packver   0.5.2
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Processing Posterior Samples Stored in 'mcmc.lists'
 
@@ -16,12 +16,10 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-stringr >= 1.3.1
-BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-mcmcse 
 BuildRequires:    R-CRAN-abind 
 Requires:         R-CRAN-stringr >= 1.3.1
-Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-mcmcse 
 Requires:         R-CRAN-abind 
@@ -48,9 +46,13 @@ of model sensitivity to changes in assumptions.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -60,6 +62,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

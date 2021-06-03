@@ -1,39 +1,37 @@
-%global packname  robustX
-%global packver   1.2-5
+%global packname  affinity
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          'eXtra' / 'eXperimental' Functionality for Robust Statistics
+Summary:          Raster Georeferencing, Grid Affine Transforms, Cell Abstraction
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.3
+Requires:         R-core >= 3.2.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-robustbase >= 0.92.3
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-reproj 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-robustbase >= 0.92.3
-Requires:         R-grDevices 
-Requires:         R-graphics 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-reproj 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Robustness -- 'eXperimental', 'eXtraneous', or 'eXtraordinary'
-Functionality for Robust Statistics.  Hence methods which are not well
-established, often related to methods in package 'robustbase'.  Amazingly,
-'BACON()', originally by Billor, Hadi, and Velleman (2000)
-<doi:10.1016/S0167-9473(99)00101-2> has become established in places.  The
-"barrow wheel" `rbwheel()` is from Stahel and Mächler (2009)
-<doi:10.1111/j.1467-9868.2009.00706.x>.
+Tools for raster georeferencing, grid affine transforms, and general
+raster logic. These functions provide converters between raster
+specifications, world vector, geotransform, 'RasterIO' window, and
+'RasterIO window' in 'sf' package list format. There are functions to
+offset a matrix by padding any of four corners (useful for vectorizing
+neighbourhood operations), and helper functions to harvesting user clicks
+on a graphics device to use for simple georeferencing of images.  Methods
+used are available from <https://en.wikipedia.org/wiki/World_file> and
+<https://gdal.org/user/raster_data_model.html>.
 
 %prep
 %setup -q -c -n %{packname}

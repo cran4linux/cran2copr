@@ -1,40 +1,47 @@
-%global packname  prodigenr
-%global packver   0.6.1
+%global packname  harmony
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Research Project Directory Generator
+Summary:          Fast, Sensitive, and Accurate Integration of Single Cell Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-rprojroot 
-BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-whisker 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-rprojroot 
-Requires:         R-CRAN-withr 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppProgress 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-irlba 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-whisker 
 
 %description
-Create a project directory structure, along with typical files for that
-project.  This allows projects to be quickly and easily created, as well
-as for them to be standardized. Designed specifically with scientists in
-mind (mainly bio-medical researchers, but likely applies to other fields).
+Implementation of the Harmony algorithm for single cell integration,
+described in Korsunsky et al <doi:10.1038/s41592-019-0619-0>. Package
+includes a standalone Harmony function and interfaces to external
+frameworks.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,49 @@
-%global packname  remotes
-%global packver   2.4.0
+%global packname  susieR
+%global packver   0.11.33
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          0.11.33
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Package Installation from Remote Repositories, Including 'GitHub'
+Summary:          Sum of Single Effects Linear Regression
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         subversion
-Requires:         git
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mixsqp 
+BuildRequires:    R-CRAN-reshape 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-methods 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-stats 
-Requires:         R-tools 
-Requires:         R-utils 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mixsqp 
+Requires:         R-CRAN-reshape 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Download and install R packages stored in 'GitHub', 'GitLab', 'Bitbucket',
-'Bioconductor', or plain 'subversion' or 'git' repositories. This package
-provides the 'install_*' functions in 'devtools'. Indeed most of the code
-was copied over from 'devtools'.
+Implements methods for variable selection in linear regression based on
+the "Sum of Single Effects" (SuSiE) model, as described in Wang et al
+(2020) <DOI:10.1101/501114>. These methods provide simple summaries,
+called "Credible Sets", for accurately quantifying uncertainty in which
+variables should be selected. The methods are motivated by genetic
+fine-mapping applications, and are particularly well-suited to settings
+where variables are highly correlated and detectable effects are sparse.
+The fitting algorithm, a Bayesian analogue of stepwise selection methods
+called "Iterative Bayesian Stepwise Selection" (IBSS), is simple and fast,
+allowing the SuSiE model be fit to large data sets (thousands of samples
+and hundreds of thousands of variables).
 
 %prep
 %setup -q -c -n %{packname}
