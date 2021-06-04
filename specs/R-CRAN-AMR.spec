@@ -1,32 +1,26 @@
-%global packname  pfica
-%global packver   0.1.2
+%global packname  AMR
+%global packver   1.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.7.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Independent Component Analysis for Univariate Functional Data
+Summary:          Antimicrobial Resistance Data Analysis
 
-License:          GPL (>= 2)
+License:          GPL-2 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fda 
-BuildRequires:    R-CRAN-corpcor 
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-CRAN-moments 
-Requires:         R-CRAN-fda 
-Requires:         R-CRAN-corpcor 
-Requires:         R-CRAN-expm 
-Requires:         R-CRAN-moments 
 
 %description
-Performs penalized independent component analysis for univariate
-functional data [<doi:10.3390/math9111243>].
+Functions to simplify and standardise antimicrobial resistance (AMR) data
+analysis and to work with microbial and antimicrobial properties by using
+evidence-based methods and reliable reference data such as LPSN
+<doi:10.1099/ijsem.0.004332>.
 
 %prep
 %setup -q -c -n %{packname}

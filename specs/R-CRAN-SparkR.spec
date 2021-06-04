@@ -1,32 +1,26 @@
-%global packname  pfica
-%global packver   0.1.2
+%global packname  SparkR
+%global packver   3.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          3.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Independent Component Analysis for Univariate Functional Data
+Summary:          R Front End for 'Apache Spark'
 
-License:          GPL (>= 2)
+License:          Apache License (== 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+Requires:         java
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fda 
-BuildRequires:    R-CRAN-corpcor 
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-CRAN-moments 
-Requires:         R-CRAN-fda 
-Requires:         R-CRAN-corpcor 
-Requires:         R-CRAN-expm 
-Requires:         R-CRAN-moments 
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-Performs penalized independent component analysis for univariate
-functional data [<doi:10.3390/math9111243>].
+Provides an R Front end for 'Apache Spark' <https://spark.apache.org>.
 
 %prep
 %setup -q -c -n %{packname}

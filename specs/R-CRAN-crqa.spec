@@ -1,9 +1,9 @@
 %global packname  crqa
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Recurrence Quantification Analysis for Categorical and Continuous Time-Series
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-tseriesChaos 
@@ -32,9 +32,9 @@ Requires:         R-CRAN-rdist
 %description
 Auto, Cross and Multi-dimensional recurrence quantification analysis.
 Different methods for computing recurrence, cross vs. multidimensional or
-profile iti.e., only looking at the diagonal recurrent points, as well as
+profile it -only looking at the diagonal recurrent points- as well as
 functions for optimization and plotting are proposed. in-depth measures of
-the whole cross-recurrence plot, Please refer to by Coco and Dale (2014)
+the whole cross-recurrence plot, Please refer to Coco and Dale (2014)
 <doi:10.3389/fpsyg.2014.00510> and Wallot (2018)
 <doi:10.1080/00273171.2018.1512846> for further details about the method.
 

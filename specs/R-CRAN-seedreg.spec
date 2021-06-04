@@ -1,9 +1,9 @@
 %global packname  seedreg
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Analysis for Seed Germination as a Function of Temperature
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-drc 
 BuildRequires:    R-CRAN-ggplot2 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-multcomp
 BuildRequires:    R-CRAN-hnp 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-multcompView 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-drc 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-car 
@@ -33,12 +34,13 @@ Requires:         R-CRAN-multcomp
 Requires:         R-CRAN-hnp 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-multcompView 
+Requires:         R-CRAN-stringr 
 
 %description
 Regression analysis using common models in seed temperature studies, such
 as the Gaussian model (Martins, JF, Barroso, AAM, & Alves, PLCA (2017)
 <doi:10.1590/s0100-83582017350100039>), quadratic (Nunes, AL, Sossmeier,
-S, Gotz, AP, & Bispo, NB (2018) <doi:10.17265/2161-6264/2018.06.002>) and
+S, Gotz, AP, & Bispo, NB (2018) <doi: 10.17265/2161-6264/2018.06.002>) and
 others with potential for use, such as those implemented in the 'drc'
 package (Ritz, C, Baty, F, Streibig, JC, & Gerhard, D (2015).
 <doi:10.1371/journal.pone.0146021>), in the estimation of the ideal and

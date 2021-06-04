@@ -1,32 +1,32 @@
-%global packname  pfica
-%global packver   0.1.2
+%global packname  FeatureImpCluster
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Independent Component Analysis for Univariate Functional Data
+Summary:          Feature Importance for Partitional Clustering
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fda 
-BuildRequires:    R-CRAN-corpcor 
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-CRAN-moments 
-Requires:         R-CRAN-fda 
-Requires:         R-CRAN-corpcor 
-Requires:         R-CRAN-expm 
-Requires:         R-CRAN-moments 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Performs penalized independent component analysis for univariate
-functional data [<doi:10.3390/math9111243>].
+Implements a novel approach for measuring feature importance in k-means
+clustering. Importance of a feature is measured by the misclassification
+rate relative to the baseline cluster assignment due to a random
+permutation of feature values. An explanation of permutation feature
+importance in general can be found here:
+<https://christophm.github.io/interpretable-ml-book/feature-importance.html>.
 
 %prep
 %setup -q -c -n %{packname}

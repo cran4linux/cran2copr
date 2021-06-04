@@ -1,48 +1,58 @@
-%global packname  vimp
-%global packver   2.2.1
+%global packname  iotables
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Perform Inference on Algorithm-Agnostic Variable Importance
+Summary:          Importing and Manipulating Symmetric Input-Output Tables
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SuperLearner 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-eurostat 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ROCR 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-SuperLearner 
-Requires:         R-stats 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-eurostat 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ROCR 
+Requires:         R-CRAN-tidyr 
+Requires:         R-stats 
+Requires:         R-CRAN-forcats 
+Requires:         R-utils 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-data.table 
 
 %description
-Calculate point estimates of and valid confidence intervals for
-nonparametric, algorithm-agnostic variable importance measures in high and
-low dimensions, using flexible estimators of the underlying regression
-functions. For more information about the methods, please see Williamson
-et al. (Biometrics, 2020), Williamson et al. (arXiv, 2020+)
-<arXiv:2004.03683>, and Williamson and Feng (ICML, 2020).
+Pre-processing and basic analytical tasks related to working with
+Eurostat's symmetric input-output tables and provide basic input-output
+economics calculations. The package is part of rOpenGov
+<http://ropengov.github.io/> to open source open government initiatives.
 
 %prep
 %setup -q -c -n %{packname}

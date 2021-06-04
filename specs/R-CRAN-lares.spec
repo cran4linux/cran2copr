@@ -1,9 +1,9 @@
 %global packname  lares
-%global packver   4.10.6
+%global packver   5.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.10.6
+Version:          5.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analytics, Data Mining & Machine Learning Sidekick
 

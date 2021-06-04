@@ -1,9 +1,9 @@
 %global packname  Luminescence
-%global packver   0.9.11
+%global packver   0.9.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.11
+Version:          0.9.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive Luminescence Dating Data Analysis
 

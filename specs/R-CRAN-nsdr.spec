@@ -1,9 +1,9 @@
 %global packname  nsdr
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonlinear Sufficient Dimension Reduction
 
@@ -26,8 +26,7 @@ SIR, and generalized SAVE address this problem by extending the
 applicability of the dimension reduction problem to nonlinear settings.
 This package includes a comprehensive algorithm for kernel PCA,
 generalized SIR, and generalized SAVE, including methods for choosing
-tuning parameters and some essential functions. The algorithms for this
-package is from Li (2018, ISBN:9780367734725).
+tuning parameters and some essential functions.
 
 %prep
 %setup -q -c -n %{packname}
