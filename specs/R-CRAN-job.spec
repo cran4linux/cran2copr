@@ -1,32 +1,31 @@
-%global packname  spectre
-%global packver   1.0.0
+%global packname  job
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Predict Regional Community Composition
+Summary:          Run Code as an RStudio Job - Free Your Console
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-RcppProgress 
-BuildRequires:    R-CRAN-testthat 
-Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-RcppProgress 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-digest >= 0.6.27
+BuildRequires:    R-CRAN-rstudioapi >= 0.13
+Requires:         R-CRAN-digest >= 0.6.27
+Requires:         R-CRAN-rstudioapi >= 0.13
 
 %description
-Predict regional community composition at a fine spatial resolution using
-only sparse biological and environmental data. The package is based on the
-DynamicFOAM algorithm desscribed in Mokany et al. (2011)
-<doi:10.1111/j.1461-0248.2011.01675.x>.
+Call job::job({<code here>}) to run R code as an RStudio job and keep your
+console free in the meantime. This allows for a productive workflow while
+testing (multiple) long-running chunks of code. It can also be used to
+organize results using the RStudio Jobs GUI or to test code in a clean
+environment. Two RStudio Addins can be used to run selected code as a job.
 
 %prep
 %setup -q -c -n %{packname}

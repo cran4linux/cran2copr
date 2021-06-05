@@ -1,26 +1,38 @@
-%global packname  benford
+%global packname  HDTSA
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Benford's Analysis on Large Data Sets
+Summary:          High Dimensional Time Series Analysis Tools
 
-License:          Creative Commons Attribution 4.0 International License
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-clime 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-stats 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-clime 
+Requires:         R-CRAN-sandwich 
 
 %description
-Perform the Benford's Analysis to a data set in order to evaluate if it
-contains human fabricated data. For more details on the method see Moreau,
-2021, Model Assist. Statist. Appl., 16 (2021) 73–79.
-<doi:10.3233/MAS-210517>.
+Procedures for high-dimensional time series analysis including factor
+analysis proposed by Lam and Yao (2012) <doi:10.1214/12-AOS970> and Chang,
+Guo and Yao (2015) <doi:10.1016/j.jeconom.2015.03.024>, martingale
+difference test proposed by Chang, Jiang and Shao (2021) preprint,
+principal component analysis proposed by Chang, Guo and Yao (2018)
+<doi:10.1214/17-AOS1613>, unit root test proposed by Chang, Cheng and Yao
+(2021) <arXiv:2006.07551> and white noise test proposed by Chang, Yao and
+Zhou (2017) <doi:10.1093/biomet/asw066>.
 
 %prep
 %setup -q -c -n %{packname}

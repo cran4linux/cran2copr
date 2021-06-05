@@ -1,9 +1,9 @@
 %global packname  AzureGraph
-%global packver   1.3.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Interface to 'Microsoft Graph'
 
@@ -34,11 +34,11 @@ Requires:         R-CRAN-R6
 A simple interface to the 'Microsoft Graph' API
 <https://docs.microsoft.com/en-us/graph/overview>. 'Graph' is a
 comprehensive framework for accessing data in various online Microsoft
-services. Currently, this package aims to provide an R interface only to
-the 'Azure Active Directory' part, with a view to supporting
+services. This package was originally intended to provide an R interface
+only to the 'Azure Active Directory' part, with a view to supporting
 interoperability of R and 'Azure': users, groups, registered apps and
-service principals. However it can be easily extended to cover other
-services. Part of the 'AzureR' family of packages.
+service principals. However it has since been expanded into a more general
+tool for interacting with Graph. Part of the 'AzureR' family of packages.
 
 %prep
 %setup -q -c -n %{packname}

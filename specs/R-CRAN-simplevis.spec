@@ -1,11 +1,11 @@
 %global packname  simplevis
-%global packver   3.1.0
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Make 'ggplot2' and 'leaflet' Visualisation Easier
+Summary:          Make 'ggplot2' Visualisation Easier and Quicker
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-leaflet >= 2.0.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
@@ -25,23 +25,20 @@ BuildRequires:    R-CRAN-forcats
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-leafpop 
 BuildRequires:    R-CRAN-leaflet.extras 
-BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinycssloaders 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-snakecase 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-ggplot2 >= 2.0.0
+Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-leaflet >= 2.0.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
@@ -51,26 +48,22 @@ Requires:         R-CRAN-forcats
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-leafpop 
 Requires:         R-CRAN-leaflet.extras 
-Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinycssloaders 
-Requires:         R-stats 
+Requires:         R-CRAN-snakecase 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-viridis 
 
 %description
-Wrapper functions to make 'ggplot2' and 'leaflet' visualisation easier and
-prettier.
+Wrapper functions to make 'ggplot2' visualisation easier and quicker.
 
 %prep
 %setup -q -c -n %{packname}

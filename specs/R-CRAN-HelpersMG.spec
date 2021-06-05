@@ -1,9 +1,9 @@
 %global packname  HelpersMG
-%global packver   4.5
+%global packver   4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.5
+Version:          4.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Environmental Analyses, Ecotoxicology and Various R Functions
 
@@ -18,9 +18,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
 
 %description
 Contains miscellaneous functions useful for managing 'NetCDF' files (see

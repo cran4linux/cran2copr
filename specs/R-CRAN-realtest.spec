@@ -1,36 +1,28 @@
-%global packname  diverge
-%global packver   2.0.1
+%global packname  realtest
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Evolutionary Trait Divergence Between Sister Species and Other Paired Lineages
+Summary:          When Expectations Meet Reality: Realistic Unit Testing
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-truncnorm 
-Requires:         R-parallel 
-Requires:         R-CRAN-truncnorm 
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
-Compares the fit of alternative models of continuous trait differentiation
-between sister species and other paired lineages. Differences in trait
-means between two lineages arise as they diverge from a common ancestor,
-and alternative processes of evolutionary divergence are expected to leave
-unique signatures in the distribution of trait differentiation in datasets
-comprised of many lineage pairs. Models include approximations of
-divergent selection, drift, and stabilizing selection. A variety of model
-extensions facilitate the testing of process-to-pattern hypotheses. Users
-supply trait data and divergence times for each lineage pair. The fit of
-alternative models is compared in a likelihood framework.
+A framework for unit testing for realistic minimalists, where we
+distinguish between expected, acceptable, current, fallback, ideal, or
+regressive behaviour. It can also be used for monitoring other software
+projects for changes.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,33 +1,42 @@
-%global packname  RCzechia
-%global packver   1.7.2
+%global packname  sitsfeats
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Objects of the Czech Republic
+Summary:          Satellite Image Time Series Features
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-sfheaders 
+BuildRequires:    R-CRAN-geos 
+BuildRequires:    R-CRAN-libgeos 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-sfheaders 
+Requires:         R-CRAN-geos 
+Requires:         R-CRAN-libgeos 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-cowplot 
 
 %description
-Administrative regions and other spatial objects of the Czech Republic.
+Provides a set of temporal metrics derived from satellite image time
+series. The basics metrics are composed of basic statistics,
+histogram-based statistics, and methods based on time series analysis. The
+polar metrics, an approach proposed by Korting et al. (2013)
+<doi:10.1016/j.cageo.2013.02.007>, is based on the polar representation to
+describe cyclic events, whose events are common in agricultural
+applications.
 
 %prep
 %setup -q -c -n %{packname}

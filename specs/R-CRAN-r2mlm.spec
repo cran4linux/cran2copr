@@ -1,9 +1,9 @@
 %global packname  r2mlm
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R-Squared Measures for Multilevel Models
 
@@ -17,6 +17,7 @@ Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-broomExtra >= 4.1.0
 BuildRequires:    R-CRAN-nlme >= 3.1.14
+BuildRequires:    R-CRAN-rockchalk >= 1.8.144
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-lme4 >= 1.1.23
@@ -25,6 +26,7 @@ BuildRequires:    R-CRAN-dplyr >= 0.8.5
 BuildRequires:    R-CRAN-rlang >= 0.4.6
 Requires:         R-CRAN-broomExtra >= 4.1.0
 Requires:         R-CRAN-nlme >= 3.1.14
+Requires:         R-CRAN-rockchalk >= 1.8.144
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-lme4 >= 1.1.23
@@ -36,15 +38,15 @@ Requires:         R-CRAN-rlang >= 0.4.6
 Generates both total- and level-specific R-squared measures from Rights
 and Sterba’s (2019) <doi:10.1037/met0000184> framework of R-squared
 measures for multilevel models with random intercepts and/or slopes, which
-is based on a completely full decomposition of variance. Additionally
-generates graphical representations of these R-squared measures to allow
-visualizing and interpreting all measures in the framework together as an
-integrated set. This framework subsumes 10 previously-developed R-squared
-measures for multilevel models as special cases of 5 measures from the
-framework, and it also includes several newly-developed measures. Measures
-in the framework can be used to compute R-squared differences when
-comparing multilevel models (following procedures in Rights & Sterba
-(2020) <doi:10.1080/00273171.2019.1660605>).
+is based on a complete decomposition of variance. Additionally generates
+graphical representations of these R-squared measures to allow visualizing
+and interpreting all measures in the framework together as an integrated
+set. This framework subsumes 10 previously-developed R-squared measures
+for multilevel models as special cases of 5 measures from the framework,
+and it also includes several newly-developed measures. Measures in the
+framework can be used to compute R-squared differences when comparing
+multilevel models (following procedures in Rights & Sterba (2020)
+<doi:10.1080/00273171.2019.1660605>).
 
 %prep
 %setup -q -c -n %{packname}

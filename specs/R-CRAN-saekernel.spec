@@ -1,26 +1,32 @@
-%global packname  benford
-%global packver   1.0.0
+%global packname  saekernel
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Benford's Analysis on Large Data Sets
+Summary:          Small Area Estimation Non-Parametric Based Nadaraya-Watson Kernel
 
-License:          Creative Commons Attribution 4.0 International License
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Perform the Benford's Analysis to a data set in order to evaluate if it
-contains human fabricated data. For more details on the method see Moreau,
-2021, Model Assist. Statist. Appl., 16 (2021) 73–79.
-<doi:10.3233/MAS-210517>.
+Propose an area-level, non-parametric regression estimator based on
+Nadaraya-Watson kernel on small area mean. Adopt a two-stage estimation
+approach proposed by Prasad and Rao (1990). Mean Squared Error (MSE)
+estimators are not readily available, so resampling method that called
+bootstrap is applied. This package are based on the model proposed in Two
+stage non-parametric approach for small area estimation by Pushpal
+Mukhopadhyay and Tapabrata Maiti(2004)
+<http://www.asasrms.org/Proceedings/y2004/files/Jsm2004-000737.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

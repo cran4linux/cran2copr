@@ -1,9 +1,9 @@
 %global packname  embryogrowth
-%global packver   8.0
+%global packver   8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.0
+Version:          8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Analyze the Thermal Reaction Norm of Embryo Growth
 
@@ -28,7 +28,9 @@ Requires:         R-parallel
 
 %description
 Tools to analyze the embryo growth and the sexualisation thermal reaction
-norms.
+norms. See <doi:10.7717/peerj.8451> for tsd functions; see
+<doi:10.1016/j.jtherbio.2014.08.005> for thermal reaction norm of embryo
+growth.
 
 %prep
 %setup -q -c -n %{packname}

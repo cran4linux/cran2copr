@@ -1,9 +1,9 @@
 %global packname  DoubleML
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Double Machine Learning in R
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-clusterGeneration 
 BuildRequires:    R-CRAN-readstata13 
+BuildRequires:    R-CRAN-mlr3misc 
 Requires:         R-CRAN-R6 >= 2.4.1
 Requires:         R-CRAN-data.table >= 1.12.8
 Requires:         R-CRAN-mlr3 >= 0.5.0
@@ -37,6 +38,7 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-utils 
 Requires:         R-CRAN-clusterGeneration 
 Requires:         R-CRAN-readstata13 
+Requires:         R-CRAN-mlr3misc 
 
 %description
 Implementation of the double/debiased machine learning framework of

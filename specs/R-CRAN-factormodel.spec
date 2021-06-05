@@ -1,26 +1,42 @@
-%global packname  benford
-%global packver   1.0.0
+%global packname  factormodel
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Benford's Analysis on Large Data Sets
+Summary:          Factor Model Estimation Using Proxy Variables
 
-License:          Creative Commons Attribution 4.0 International License
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-gtools 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-pracma 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-gtools 
 
 %description
-Perform the Benford's Analysis to a data set in order to evaluate if it
-contains human fabricated data. For more details on the method see Moreau,
-2021, Model Assist. Statist. Appl., 16 (2021) 73–79.
-<doi:10.3233/MAS-210517>.
+Functions to estimate a factor model using discrete and continuous proxy
+variables. The function 'dproxyme' estimates a factor model of discrete
+proxy variables using an EM algorithm (Dempster, Laird, Rubin (1977)
+<doi:10.1111/j.2517-6161.1977.tb01600.x>; Hu (2008)
+<doi:10.1016/j.jeconom.2007.12.001>; Hu(2017)
+<doi:10.1016/j.jeconom.2017.06.002> ). The function 'cproxyme' estimates a
+linear factor model (Cunha, Heckman, and Schennach (2010)
+<doi:10.3982/ECTA6551>).
 
 %prep
 %setup -q -c -n %{packname}

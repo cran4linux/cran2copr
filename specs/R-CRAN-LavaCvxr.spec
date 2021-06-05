@@ -1,26 +1,32 @@
-%global packname  benford
-%global packver   1.0.0
+%global packname  LavaCvxr
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Benford's Analysis on Large Data Sets
+Summary:          Lava Estimation for the Sum of Sparse and Dense Signals(3 Methods)
 
-License:          Creative Commons Attribution 4.0 International License
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Lavash 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-CVXR 
+Requires:         R-CRAN-Lavash 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-CVXR 
 
 %description
-Perform the Benford's Analysis to a data set in order to evaluate if it
-contains human fabricated data. For more details on the method see Moreau,
-2021, Model Assist. Statist. Appl., 16 (2021) 73–79.
-<doi:10.3233/MAS-210517>.
+The lava estimation is used to recover signals that is the sum of a sparse
+signal and a dense signal. The post-lava method corrects the shrinkage
+bias of lava. For more information on the lava estimation, see
+Chernozhukov, Hansen, and Liao (2017) <doi:10.1214/16-AOS1434>.
 
 %prep
 %setup -q -c -n %{packname}

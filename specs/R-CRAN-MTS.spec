@@ -1,11 +1,11 @@
 %global packname  MTS
-%global packver   1.0
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
-Release:          3%{?dist}%{?buildtag}
-Summary:          All-Purpose Toolkit for Analyzing Multivariate Time Series (MTS)and Estimating Multivariate Volatility Models
+Version:          1.0.3
+Release:          1%{?dist}%{?buildtag}
+Summary:          All-Purpose Toolkit for Analyzing Multivariate Time Series (MTS) and Estimating Multivariate Volatility Models
 
 License:          Artistic License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -45,7 +45,7 @@ volatility models, dynamic conditional correlation (DCC) models,
 copula-based volatility models, and low-dimensional BEKK models. The
 package also considers multiple tests for conditional heteroscedasticity,
 including rank-based statistics.  (c) Finally, the MTS package also
-performs forecasting using diffusion index, transfer function analysis,
+performs forecasting using diffusion index , transfer function analysis,
 Bayesian estimation of VAR models, and multivariate time series analysis
 with missing values.Users can also use the package to simulate VARMA
 models, to compute impulse response functions of a fitted VARMA model, and
@@ -54,6 +54,13 @@ to calculate theoretical cross-covariance matrices of a given VARMA model.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -63,15 +70,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

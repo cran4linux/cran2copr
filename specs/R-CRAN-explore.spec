@@ -1,9 +1,9 @@
 %global packname  explore
-%global packver   0.7.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplifies Exploratory Data Analysis
 
@@ -27,13 +27,13 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-odbc 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-rpart.plot 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rmarkdown 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-broom 
@@ -46,13 +46,13 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-odbc 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-rpart.plot 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rmarkdown 
 
 %description
 Interactive data exploration with one line of code or use an easy to

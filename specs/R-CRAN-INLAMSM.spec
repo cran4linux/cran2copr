@@ -1,9 +1,9 @@
 %global packname  INLAMSM
-%global packver   0.2-2
+%global packver   0.2-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Spatial Models with 'INLA'
 
@@ -27,7 +27,7 @@ Requires:         R-CRAN-spdep
 %description
 Implementation of several multivariate areal latent effects for 'INLA'
 using the 'rgeneric' latent effect (Palmí-Perales et al., 2019,
-<arXiv:1909.10804>). The 'INLA' package can be downloaded from
+<doi:10.18637/jss.v098.i02>). The 'INLA' package can be downloaded from
 <https://www.r-inla.org>. In particular, the package includes latent
 effects ready to use for several multivariate spatial models: intrinsic
 CAR, proper CAR and the M-model (Botella-Rocamora et al., 2015,

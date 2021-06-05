@@ -1,26 +1,25 @@
-%global packname  benford
-%global packver   1.0.0
+%global packname  recom
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Benford's Analysis on Large Data Sets
+Summary:          'Recom' REmoves COMments of Rscript File for you
 
-License:          Creative Commons Attribution 4.0 International License
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.6
+Requires:         R-CRAN-Rcpp >= 1.0.6
 
 %description
-Perform the Benford's Analysis to a data set in order to evaluate if it
-contains human fabricated data. For more details on the method see Moreau,
-2021, Model Assist. Statist. Appl., 16 (2021) 73–79.
-<doi:10.3233/MAS-210517>.
+Goal of 'recom' package is to remove all the comments of the Rscript file,
+and to reduce Rscript file size for better performance.
 
 %prep
 %setup -q -c -n %{packname}

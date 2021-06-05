@@ -1,9 +1,9 @@
 %global packname  backbone
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extracts the Backbone from Weighted Graphs
 
@@ -35,12 +35,14 @@ Provides methods for extracting from a weighted graph a binary or signed
 backbone that retains only the significant edges. The user may input a
 weighted graph, or a bipartite graph from which a weighted graph is first
 constructed via projection. Backbone extraction methods include the
-stochastic degree sequence model (Neal, Z. P. (2014).
-<doi:10.1016/j.socnet.2014.06.001>), hypergeometric model (Neal, Z.
-(2013). <doi:10.1007/s13278-013-0107-y>), the fixed degree sequence model
-(Zweig, K. A., and Kaufmann, M. (2011). <doi:10.1007/s13278-011-0021-0>),
-fixed column model, fixed fill model, as well as a universal threshold
-method.
+stochastic degree sequence model (SDSM; Neal, Z. P. (2014).
+<doi:10.1016/j.socnet.2014.06.001>), the fixed degree sequence model
+(FDSM; Zweig, K. A., and Kaufmann, M. (2011).
+<doi:10.1007/s13278-011-0021-0>), the fixed row model (FRM; Neal, Z. P.
+(2013). <doi:10.1007/s13278-013-0107-y>), the fixed column model (FCM;
+Neal, Domagalski, and Sagan (2021). <arXiv:2105.13396>), the fixed fill
+model (FFM; Neal, Domagalski, and Sagan (2021). <arXiv:2105.13396>), and a
+universal threshold method.
 
 %prep
 %setup -q -c -n %{packname}
