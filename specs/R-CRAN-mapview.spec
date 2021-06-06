@@ -1,9 +1,9 @@
 %global packname  mapview
-%global packver   2.9.0
+%global packver   2.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.0
+Version:          2.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Viewing of Spatial Data in R
 
@@ -21,12 +21,13 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-lattice 
+BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-leafem 
 BuildRequires:    R-CRAN-leafpop 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-satellite 
+BuildRequires:    R-CRAN-servr 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-webshot 
@@ -36,12 +37,13 @@ Requires:         R-methods
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-htmlwidgets 
-Requires:         R-lattice 
+Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-leafem 
 Requires:         R-CRAN-leafpop 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-satellite 
+Requires:         R-CRAN-servr 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-webshot 
@@ -56,9 +58,13 @@ boxes.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -68,6 +74,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

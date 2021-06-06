@@ -1,9 +1,9 @@
 %global packname  weathercan
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Weather Data from Environment and Climate Change Canada
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyselect >= 1.0.0
 BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-rvest >= 0.3.4
+BuildRequires:    R-CRAN-rappdirs >= 0.3.3
 BuildRequires:    R-CRAN-rlang >= 0.1.4
 BuildRequires:    R-CRAN-xml2 >= 0.1.2
 Requires:         R-methods >= 3.2.2
@@ -41,6 +42,7 @@ Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-rvest >= 0.3.4
+Requires:         R-CRAN-rappdirs >= 0.3.3
 Requires:         R-CRAN-rlang >= 0.1.4
 Requires:         R-CRAN-xml2 >= 0.1.2
 

@@ -1,9 +1,9 @@
 %global packname  EHR
-%global packver   0.3-1
+%global packver   0.4-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Electronic Health Record (EHR) Data Processing and Analysis Tool
 
@@ -19,13 +19,17 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-pkdata 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-data.table 
 Requires:         R-methods 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-pkdata 
 
 %description
-Process and analyze Electronic Health Record (EHR) data. The 'EHR' package
+Process and analyze electronic health record (EHR) data. The 'EHR' package
 provides modules to perform diverse medication-related studies using data
 from EHR databases. Especially, the package includes modules to perform
 pharmacokinetic/pharmacodynamic (PK/PD) analyses using EHRs, as outlined

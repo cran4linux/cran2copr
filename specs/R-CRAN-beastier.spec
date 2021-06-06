@@ -1,9 +1,9 @@
 %global packname  beastier
-%global packver   2.4
+%global packver   2.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4
+Version:          2.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Call 'BEAST2'
 
@@ -20,10 +20,8 @@ BuildRequires:    R-CRAN-ape
 BuildRequires:    R-CRAN-assertive 
 BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-phangorn 
-BuildRequires:    R-CRAN-pryr 
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-remotes 
 BuildRequires:    R-CRAN-rJava 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-xml2 
@@ -32,10 +30,8 @@ Requires:         R-CRAN-ape
 Requires:         R-CRAN-assertive 
 Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-phangorn 
-Requires:         R-CRAN-pryr 
 Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-remotes 
 Requires:         R-CRAN-rJava 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-xml2 
