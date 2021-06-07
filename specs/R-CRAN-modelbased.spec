@@ -1,9 +1,9 @@
 %global packname  modelbased
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of Model-Based Predictions, Contrasts and Means
 
@@ -15,20 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-emmeans >= 1.5.3
-BuildRequires:    R-CRAN-bayestestR >= 0.8.3
-BuildRequires:    R-CRAN-insight >= 0.13.1
-BuildRequires:    R-CRAN-parameters >= 0.12.0
+BuildRequires:    R-CRAN-effectsize >= 0.4.5
+BuildRequires:    R-CRAN-insight >= 0.14.1
+BuildRequires:    R-CRAN-parameters >= 0.14.0
+BuildRequires:    R-CRAN-bayestestR >= 0.10.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-emmeans >= 1.5.3
-Requires:         R-CRAN-bayestestR >= 0.8.3
-Requires:         R-CRAN-insight >= 0.13.1
-Requires:         R-CRAN-parameters >= 0.12.0
+BuildRequires:    R-CRAN-performance 
+Requires:         R-CRAN-effectsize >= 0.4.5
+Requires:         R-CRAN-insight >= 0.14.1
+Requires:         R-CRAN-parameters >= 0.14.0
+Requires:         R-CRAN-bayestestR >= 0.10.0
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-performance 
 
 %description
 Implements a general interface for model-based estimations for a wide

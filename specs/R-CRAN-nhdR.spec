@@ -1,9 +1,9 @@
 %global packname  nhdR
-%global packver   0.5.4
+%global packver   0.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for working with the National Hydrography Dataset
 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-rvest
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-foreign 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gdalUtils 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-curl 
@@ -42,7 +41,6 @@ Requires:         R-CRAN-rvest
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-foreign 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gdalUtils 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-curl 

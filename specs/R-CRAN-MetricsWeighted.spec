@@ -1,9 +1,9 @@
 %global packname  MetricsWeighted
-%global packver   0.5.2
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighted Metrics, Scoring Functions and Performance Measures for Machine Learning
 
@@ -16,7 +16,9 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
 Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
 Provides weighted versions of several metrics, scoring functions and

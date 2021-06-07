@@ -1,9 +1,9 @@
 %global packname  IsoplotR
-%global packver   3.8
+%global packver   4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8
+Version:          4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Toolbox for Radiometric Geochronology
 
@@ -16,9 +16,9 @@ BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-MASS 
-Requires:         R-grDevices 
+Requires:         R-methods 
 
 %description
 Plots U-Pb data on Wetherill and Tera-Wasserburg concordia diagrams.
