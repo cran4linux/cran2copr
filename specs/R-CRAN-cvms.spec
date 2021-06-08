@@ -1,9 +1,9 @@
 %global packname  cvms
-%global packver   1.2.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cross-Validation for Model Selection
 
@@ -23,9 +23,9 @@ BuildRequires:    R-CRAN-data.table >= 1.12
 BuildRequires:    R-CRAN-lme4 >= 1.1.23
 BuildRequires:    R-CRAN-tidyr >= 1.1.2
 BuildRequires:    R-CRAN-dplyr >= 0.8.5
-BuildRequires:    R-CRAN-broom >= 0.7.1
 BuildRequires:    R-CRAN-rlang >= 0.4.7
-BuildRequires:    R-CRAN-broom.mixed >= 0.2.6
+BuildRequires:    R-CRAN-rearrr >= 0.2.0
+BuildRequires:    R-CRAN-parameters >= 0.13.0
 BuildRequires:    R-CRAN-recipes >= 0.1.13
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lifecycle 
@@ -42,9 +42,9 @@ Requires:         R-CRAN-data.table >= 1.12
 Requires:         R-CRAN-lme4 >= 1.1.23
 Requires:         R-CRAN-tidyr >= 1.1.2
 Requires:         R-CRAN-dplyr >= 0.8.5
-Requires:         R-CRAN-broom >= 0.7.1
 Requires:         R-CRAN-rlang >= 0.4.7
-Requires:         R-CRAN-broom.mixed >= 0.2.6
+Requires:         R-CRAN-rearrr >= 0.2.0
+Requires:         R-CRAN-parameters >= 0.13.0
 Requires:         R-CRAN-recipes >= 0.1.13
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lifecycle 

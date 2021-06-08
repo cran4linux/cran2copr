@@ -1,28 +1,38 @@
-%global packname  csppData
-%global packver   0.1.3
+%global packname  gesso
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Only: The Correlates of State Policy Project Dataset
+Summary:          Hierarchical GxE Interactions in a Regularized Regression Model
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.50
-Requires:         R-core >= 3.50
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-bigmemory 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-RcppThread 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 1.0.3
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-bigmemory 
+Requires:         R-methods 
 
 %description
-Contains the Correlates of State Policy Project dataset (+ codebook)
-assembled by Marty P. Jordan and Matt Grossmann (2020)
-<http://ippsr.msu.edu/public-policy/correlates-state-policy> used by the
-'cspp' package. The Correlates data contains over 2000 variables across
-more than 100 years that pertain to state politics and policy in the
-United States.
+The method focuses on a single environmental exposure and induces a
+main-effect-before-interaction hierarchical structure for the joint
+selection of interaction terms in a regularized regression model. For
+details see Zemlianskaia et al. (2021) <arxiv:2103.13510>.
 
 %prep
 %setup -q -c -n %{packname}

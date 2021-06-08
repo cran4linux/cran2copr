@@ -1,9 +1,9 @@
 %global packname  DockerParallel
-%global packver   1.0.0
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Using the Docker Container to Create R Workers on Local or Cloud Platform
 
@@ -15,12 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-adagio 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-adagio 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-methods 
 Requires:         R-utils 
+Requires:         R-CRAN-jsonlite 
 
 %description
 This is the core package that provides both the user API and developer API

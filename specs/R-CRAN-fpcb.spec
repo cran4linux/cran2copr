@@ -1,28 +1,29 @@
-%global packname  csppData
-%global packver   0.1.3
+%global packname  fpcb
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Only: The Correlates of State Policy Project Dataset
+Summary:          Predictive Confidence Bands for Functional Time Series Forecasting
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.50
-Requires:         R-core >= 3.50
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-FNN 
+Requires:         R-CRAN-FNN 
 
 %description
-Contains the Correlates of State Policy Project dataset (+ codebook)
-assembled by Marty P. Jordan and Matt Grossmann (2020)
-<http://ippsr.msu.edu/public-policy/correlates-state-policy> used by the
-'cspp' package. The Correlates data contains over 2000 variables across
-more than 100 years that pertain to state politics and policy in the
-United States.
+Functions to represent functional objects under a Reproducing Kernel
+Hilbert Space (RKHS) framework as described in Muñoz & González (2010).
+Autoregressive Hilbertian Model for functional time series using RKHS and
+predictive confidence bands construction as proposed in Hernández et al
+(2021).
 
 %prep
 %setup -q -c -n %{packname}

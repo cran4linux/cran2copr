@@ -1,9 +1,9 @@
 %global packname  network
-%global packver   1.16.1
+%global packver   1.17.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.16.1
+Version:          1.17.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classes for Relational Data
 
@@ -14,12 +14,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-statnet.common >= 4.4.1
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-statnet.common >= 4.4.1
 Requires:         R-utils 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-magrittr 
+Requires:         R-stats 
 
 %description
 Tools to create and modify network objects.  The network class can

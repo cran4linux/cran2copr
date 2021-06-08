@@ -1,28 +1,28 @@
-%global packname  csppData
-%global packver   0.1.3
+%global packname  psp
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Only: The Correlates of State Policy Project Dataset
+Summary:          Parameter Space Partitioning MCMC for Global Model Evaluation
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.50
-Requires:         R-core >= 3.50
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-parallel 
+Requires:         R-parallel 
 
 %description
-Contains the Correlates of State Policy Project dataset (+ codebook)
-assembled by Marty P. Jordan and Matt Grossmann (2020)
-<http://ippsr.msu.edu/public-policy/correlates-state-policy> used by the
-'cspp' package. The Correlates data contains over 2000 variables across
-more than 100 years that pertain to state politics and policy in the
-United States.
+Implements an n-dimensional parameter space partitioning algorithm for
+evaluating the global behaviour of formal computational models as
+described by Pitt, Kim, Navarro and Myung (2006)
+<doi:10.1037/0033-295X.113.1.57>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  vectools
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Advanced Vector Toolkit
 
@@ -19,12 +19,12 @@ BuildRequires:    R-methods
 Requires:         R-methods 
 
 %description
-Block matrices and object arrays, as general purpose S4 data structures,
-with automatic formatting. Matrix arrays (that is, arrays of matrices),
-with binary operators for succinct/convenient matrix array multiplication.
-Set/sequence related functions, including index/interval finding
-functions. Also, SQL-like select functions, analytic geometry functions,
-head/tail generalizations and prototype pooling/convolution functions.
+Image objects/arrays, geometric objects/arrays (in 2D/3D), block matrices
+and matrix arrays, with related binary operators and plain text markup.
+Mid-level plotting/rendering functions (as building blocks for high-level
+plotting functions), with dual support for base and grid graphics systems.
+Also, sequence/set utilities, linear transformations and additional color
+matrix/array transformations.
 
 %prep
 %setup -q -c -n %{packname}

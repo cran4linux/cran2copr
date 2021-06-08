@@ -1,11 +1,11 @@
 %global packname  PCMBase
-%global packver   1.2.11
+%global packver   1.2.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.11
-Release:          3%{?dist}%{?buildtag}
-Summary:          Simulation and Likelihood Calculation of PhylogeneticComparative Models
+Version:          1.2.12
+Release:          1%{?dist}%{?buildtag}
+Summary:          Simulation and Likelihood Calculation of Phylogenetic Comparative Models
 
 License:          GPL (>= 3.0)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -45,14 +45,21 @@ currently includes BM, OU, BM/OU with jumps, two-speed OU as well as mixed
 Gaussian models, in which different types of the above models can be
 associated with different branches of the tree. The PCMBase package is
 limited to trait-simulation and likelihood calculation of (mixed) Gaussian
-phylogenetic models. The PCMFit package provides functionality for ML and
-Bayesian fit of these models to tree and trait data. The package web-site
+phylogenetic models. The PCMFit package provides functionality for
+inference of these models to tree and trait data. The package web-site
 <https://venelin.github.io/PCMBase/> provides access to the documentation
 and other resources.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -60,20 +67,10 @@ and other resources.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

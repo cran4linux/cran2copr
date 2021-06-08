@@ -1,26 +1,43 @@
-%global packname  corrplot
-%global packver   0.89
+%global packname  geonet
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.89
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualization of a Correlation Matrix
+Summary:          Intensity Estimation on Geometric Networks with Penalized Splines
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
+BuildRequires:    R-CRAN-dplyr >= 1.0.2
+BuildRequires:    R-CRAN-spatstat.linnet 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-igraph 
+Requires:         R-CRAN-ggplot2 >= 3.3.2
+Requires:         R-CRAN-dplyr >= 1.0.2
+Requires:         R-CRAN-spatstat.linnet 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-Matrix 
+Requires:         R-splines 
+Requires:         R-CRAN-igraph 
 
 %description
-A graphical display of a correlation matrix or general matrix. It also
-contains some algorithms to do matrix reordering. In addition, corrplot is
-good at details, including choosing color, text labels, color labels,
-layout, etc.
+Fitting the intensity function of point processes on geometric networks.
+The method makes use of generalized additive models (GAM). The method is
+described in Schneble and Kauermann (2020) <arXiv:2002.10270>. A new class
+for representing linear networks as geometric networks is the core of the
+package.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  proxy
-%global packver   0.4-25
+%global packver   0.4-26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.25
+Version:          0.4.26
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distance and Similarity Measures
 

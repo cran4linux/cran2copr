@@ -1,13 +1,13 @@
-%global packname  hypr
-%global packver   0.2.1
+%global packname  ez.combat
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hypothesis Matrix Translation
+Summary:          Easy ComBat Harmonization
 
-License:          GPL-3
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,23 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-pracma 
-Requires:         R-methods 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Translation between experimental null hypotheses, hypothesis matrices, and
-contrast matrices as used in linear regression models. The package is
-based on the method described in Schad, Vasishth, Hohenstein, and Kliegl
-(2019) <doi:10.1016/j.jml.2019.104038> and Rabe, Vasishth, Hohenstein,
-Kliegl, and Schad (2020) <doi:10.21105/joss.02134>.
+A dataframe-friendly implementation of ComBat Harmonization which uses an
+empirical Bayesian framework to remove batch effects. Johnson WE & Li C
+(2007) <doi:10.1093/biostatistics/kxj037> "Adjusting batch effects in
+microarray expression data using empirical Bayes methods." Fortin J-P,
+Cullen N, Sheline YI, Taylor WD, Aselcioglu I, Cook PA, Adams P, Cooper C,
+Fava M, McGrath PJ, McInnes M, Phillips ML, Trivedi MH, Weissman MM, &
+Shinohara RT (2017) <doi:10.1016/j.neuroimage.2017.11.024> "Harmonization
+of cortical thickness measurements across scanners and sites." Fortin J-P,
+Parker D, Tun<e7> B, Watanabe T, Elliott MA, Ruparel K, Roalf DR,
+Satterthwaite TD, Gur RC, Gur RE, Schultz RT, Verma R, & Shinohara RT
+(2017) <doi:10.1016/j.neuroimage.2017.08.047> "Harmonization of multi-site
+diffusion tensor imaging data."
 
 %prep
 %setup -q -c -n %{packname}

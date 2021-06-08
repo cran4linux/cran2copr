@@ -1,28 +1,30 @@
-%global packname  csppData
-%global packver   0.1.3
+%global packname  GaSP
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Only: The Correlates of State Policy Project Dataset
+Summary:          Train and Apply a Gaussian Stochastic Process Model
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.50
-Requires:         R-core >= 3.50
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 
 %description
-Contains the Correlates of State Policy Project dataset (+ codebook)
-assembled by Marty P. Jordan and Matt Grossmann (2020)
-<http://ippsr.msu.edu/public-policy/correlates-state-policy> used by the
-'cspp' package. The Correlates data contains over 2000 variables across
-more than 100 years that pertain to state politics and policy in the
-United States.
+Train a Gaussian stochastic process model of an unknown function, possibly
+observed with error, via maximum likelihood or MAP estimation, run model
+diagnostics, and make predictions, following Sacks, J., Welch, W.J.,
+Mitchell, T.J., and Wynn, H.P. (1989) "Design and Analysis of Computer
+Experiments", Statistical Science, <doi:10.1214/ss/1177012413>.  Perform
+sensitivity analysis and visualize low-order effects, following Schonlau,
+M. and Welch, W.J. (2006), "Screening the Input Variables to a Computer
+Model Via Analysis of Variance and Visualization",
+<doi:10.1007/0-387-28014-6_14>.
 
 %prep
 %setup -q -c -n %{packname}

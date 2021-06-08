@@ -1,9 +1,9 @@
 %global packname  misty
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions 'T. Yanagida'
 
@@ -33,7 +33,7 @@ analysis), data management (e.g., grand-mean and group-mean centering,
 recode variables and reverse code items, scale and group scores, reading
 and writing SPSS and Excel files), and statistical analysis (e.g.,
 confidence intervals, collinearity diagnostics, Levene's test, t-test,
-Welch's test, z-test, and sample size determination).
+z-test, and sample size determination).
 
 %prep
 %setup -q -c -n %{packname}

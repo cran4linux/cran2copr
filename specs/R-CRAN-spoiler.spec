@@ -1,28 +1,30 @@
-%global packname  csppData
-%global packver   0.1.3
+%global packname  spoiler
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Only: The Correlates of State Policy Project Dataset
+Summary:          Blur 'HTML' Elements in 'Shiny' Applications Using 'Spoiler-Alert.js'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.50
-Requires:         R-core >= 3.50
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-shiny 
 
 %description
-Contains the Correlates of State Policy Project dataset (+ codebook)
-assembled by Marty P. Jordan and Matt Grossmann (2020)
-<http://ippsr.msu.edu/public-policy/correlates-state-policy> used by the
-'cspp' package. The Correlates data contains over 2000 variables across
-more than 100 years that pertain to state politics and policy in the
-United States.
+It can be useful to temporarily hide some text or other HTML elements in
+'Shiny' applications. Building on 'Spoiler-Alert.js', it is possible to
+select the elements to hide at startup, to partially reveal them by
+hovering them, and to completely show them when clicking on them.
 
 %prep
 %setup -q -c -n %{packname}
