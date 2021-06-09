@@ -1,13 +1,13 @@
-%global packname  hierDiversity
-%global packver   0.1
+%global packname  JirAgileR
+%global packver   0.0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hierarchical Multiplicative Partitioning of Complex Phenotypes
+Summary:          JIRA REST API Wrapper for R
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,20 +15,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
 
 %description
-Hierarchical group-wise partitioning of phenotypic diversity into
-within-group (alpha), among-group (beta), and pooled-total (gamma)
-components using Hill numbers. Turnover and overlap are also calculated as
-standardized alternatives to beta diversity. Hierarchical bootstrapping is
-used to approximate uncertainty around each diversity component.
+Allows to interact with the 'JIRA SERVER REST API' to analyze the
+retrieved data in R. For further information about the API visit
+<https://docs.atlassian.com/software/jira/docs/api/REST/8.9.1/>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -38,6 +46,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

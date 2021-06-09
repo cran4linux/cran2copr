@@ -1,38 +1,40 @@
-%global packname  intamapInteractive
-%global packver   1.1-13
+%global packname  vdiffr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.13
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Add-on Functionality for 'intamap'
+Summary:          Visual Regression Testing and Graphical Diffing
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-intamap 
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-automap 
-BuildRequires:    R-CRAN-gstat 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sp 
-Requires:         R-CRAN-intamap 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-automap 
-Requires:         R-CRAN-gstat 
-Requires:         R-CRAN-rgdal 
-Requires:         R-methods 
-Requires:         R-CRAN-sp 
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildRequires:    R-CRAN-testthat >= 3.0.0
+BuildRequires:    R-CRAN-xml2 >= 1.0.0
+BuildRequires:    R-CRAN-diffobj 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-testthat >= 3.0.0
+Requires:         R-CRAN-xml2 >= 1.0.0
+Requires:         R-CRAN-diffobj 
+Requires:         R-CRAN-glue 
+Requires:         R-grDevices 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rlang 
 
 %description
-Includes additional functionality for spatial interpolation in the intamap
-package, such as bias correction and network optimization.
+An extension to the 'testthat' package that makes it easy to add graphical
+unit tests. It provides a Shiny application to manage the test cases.
 
 %prep
 %setup -q -c -n %{packname}

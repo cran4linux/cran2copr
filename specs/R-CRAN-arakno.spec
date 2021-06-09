@@ -1,35 +1,44 @@
-%global packname  ICGE
-%global packver   0.4
+%global packname  arakno
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Number of Clusters and Identification of Atypical Units
+Summary:          ARAchnid KNowledge Online
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.0.1
-Requires:         R-core >= 2.0.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rgbif 
+BuildRequires:    R-CRAN-rworldmap 
+BuildRequires:    R-CRAN-rworldxtra 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-fastcluster 
-Requires:         R-utils 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rgbif 
+Requires:         R-CRAN-rworldmap 
+Requires:         R-CRAN-rworldxtra 
 Requires:         R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-fastcluster 
+Requires:         R-utils 
 
 %description
-It is a package that helps to estimate the number of real clusters in data
-as well as to identify atypical units. The underlying methods are based on
-distances rather than on unit x variables.
+Allows the user to connect with the World Spider Catalogue (WSC;
+<https://wsc.nmbe.ch/>) and the World Spider Trait (WST;
+<https://spidertraits.sci.muni.cz/>) databases. Also performs several
+basic functions such as checking names validity, retrieving coordinate
+data from the Global Biodiversity Information Facility (GBIF;
+<https://www.gbif.org/>), and mapping.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,46 @@
-%global packname  ICGE
-%global packver   0.4
+%global packname  clinUtils
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Number of Clusters and Identification of Atypical Units
+Summary:          General Utility Functions for Analysis of Clinical Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.0.1
-Requires:         R-core >= 2.0.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-crosstalk 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-fastcluster 
+BuildRequires:    R-CRAN-viridisLite 
+Requires:         R-CRAN-crosstalk 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-plyr 
+Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-fastcluster 
+Requires:         R-CRAN-viridisLite 
 
 %description
-It is a package that helps to estimate the number of real clusters in data
-as well as to identify atypical units. The underlying methods are based on
-distances rather than on unit x variables.
+Utility functions to facilitate the import, the reporting and analysis of
+clinical data. Example datasets in 'SDTM' and 'ADaM' format, containing a
+subset of patients/domains from the 'CDISC Pilot 01 study' are also
+available as R datasets to demonstrate the package functionalities.
 
 %prep
 %setup -q -c -n %{packname}

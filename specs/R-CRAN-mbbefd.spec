@@ -1,9 +1,9 @@
 %global packname  mbbefd
-%global packver   0.8.9.1
+%global packver   0.8.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.9.1
+Version:          0.8.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Maxwell Boltzmann Bose Einstein Fermi Dirac Distribution and Destruction Rate Modelling
 
@@ -14,14 +14,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-fitdistrplus >= 1.0.7
+BuildRequires:    R-CRAN-fitdistrplus >= 1.1.4
 BuildRequires:    R-CRAN-Rcpp >= 0.12.18
 BuildRequires:    R-CRAN-alabama 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-actuar 
 BuildRequires:    R-CRAN-gsl 
 BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-fitdistrplus >= 1.0.7
+Requires:         R-CRAN-fitdistrplus >= 1.1.4
 Requires:         R-CRAN-Rcpp >= 0.12.18
 Requires:         R-CRAN-alabama 
 Requires:         R-utils 
@@ -32,8 +32,8 @@ Requires:         R-CRAN-MASS
 %description
 Distributions that are typically used for exposure rating in general
 insurance, in particular to price reinsurance contracts. The vignette
-shows code snippets to fit the distribution to empirical data. See e.g.
-Bernegger (1997) <doi:10.2143/AST.27.1.563208>.
+shows code snippets to fit the distribution to empirical data. See, e.g.,
+Bernegger (1997) <doi:10.2143/AST.27.1.563208> freely available on-line.
 
 %prep
 %setup -q -c -n %{packname}

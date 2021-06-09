@@ -1,41 +1,51 @@
-%global packname  stars
-%global packver   0.5-3
+%global packname  piwikproR
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatiotemporal Arrays, Raster and Vector Data Cubes
+Summary:          Access 'Piwik Pro' Website Statistics
 
-License:          Apache License
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf >= 0.9.7
-BuildRequires:    R-CRAN-classInt >= 0.4.1
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-lwgeom 
+BuildRequires:    R-CRAN-urltools 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-units 
-Requires:         R-CRAN-sf >= 0.9.7
-Requires:         R-CRAN-classInt >= 0.4.1
-Requires:         R-CRAN-abind 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-lwgeom 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-fs 
+Requires:         R-CRAN-urltools 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-rjson 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-units 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-fs 
 
 %description
-Reading, manipulating, writing and plotting spatiotemporal arrays (raster
-and vector data cubes) in 'R', using 'GDAL' bindings provided by 'sf', and
-'NetCDF' bindings by 'ncmeta' and 'RNetCDF'.
+Run Queries against the API of 'Piwik Pro'
+<https://developers.piwik.pro/en/latest/custom_reports/http_api/http_api.html>.
+The result is a tibble.
 
 %prep
 %setup -q -c -n %{packname}

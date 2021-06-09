@@ -1,9 +1,9 @@
 %global packname  plotly
-%global packver   4.9.3
+%global packver   4.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.9.3
+Version:          4.9.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Interactive Web Graphics via 'plotly.js'
 
@@ -19,6 +19,7 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-jsonlite >= 1.6
 BuildRequires:    R-CRAN-htmlwidgets >= 1.5.2.9001
 BuildRequires:    R-CRAN-httr >= 1.3.0
+BuildRequires:    R-CRAN-rlang >= 0.4.10
 BuildRequires:    R-CRAN-htmltools >= 0.3.6
 BuildRequires:    R-CRAN-lazyeval >= 0.2.0
 BuildRequires:    R-tools 
@@ -32,7 +33,6 @@ BuildRequires:    R-CRAN-RColorBrewer
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-crosstalk 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-data.table 
@@ -41,6 +41,7 @@ Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-jsonlite >= 1.6
 Requires:         R-CRAN-htmlwidgets >= 1.5.2.9001
 Requires:         R-CRAN-httr >= 1.3.0
+Requires:         R-CRAN-rlang >= 0.4.10
 Requires:         R-CRAN-htmltools >= 0.3.6
 Requires:         R-CRAN-lazyeval >= 0.2.0
 Requires:         R-tools 
@@ -54,7 +55,6 @@ Requires:         R-CRAN-RColorBrewer
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-crosstalk 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-data.table 

@@ -1,9 +1,9 @@
 %global packname  RedisBaseContainer
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Container for the DockerParallel Package
 
@@ -15,10 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DockerParallel 
+BuildRequires:    R-CRAN-DockerParallel >= 1.0.3
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-DockerParallel 
+Requires:         R-CRAN-DockerParallel >= 1.0.3
 Requires:         R-methods 
 Requires:         R-utils 
 

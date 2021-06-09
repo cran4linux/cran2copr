@@ -1,35 +1,37 @@
-%global packname  ICGE
-%global packver   0.4
+%global packname  ecotraj
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Number of Clusters and Identification of Atypical Units
+Summary:          Ecological Trajectory Analysis
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.0.1
-Requires:         R-core >= 2.0.1
-BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-CRAN-Kendall 
+BuildRequires:    R-CRAN-circular 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-fastcluster 
-Requires:         R-utils 
-Requires:         R-stats 
+Requires:         R-CRAN-Rcpp >= 0.12.12
+Requires:         R-CRAN-Kendall 
+Requires:         R-CRAN-circular 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-fastcluster 
 
 %description
-It is a package that helps to estimate the number of real clusters in data
-as well as to identify atypical units. The underlying methods are based on
-distances rather than on unit x variables.
+Assists ecologists in the analysis of temporal changes of ecosystems,
+defined as trajectories on a chosen multivariate space, by providing a set
+of trajectory metrics and visual representations (see De Caceres et al.
+(2019) <doi:10.1002/ecm.1350> and Sturbois et al. (2021)
+<doi:10.1016/j.ecolmodel.2020.109400>). Includes functions to estimate
+metrics for individual trajectories (length, directionality, angles, ...)
+as well as metrics to relate pairs of trajectories (dissimilarity and
+convergence).
 
 %prep
 %setup -q -c -n %{packname}

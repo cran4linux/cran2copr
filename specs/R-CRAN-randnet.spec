@@ -1,9 +1,9 @@
 %global packname  randnet
-%global packver   0.3
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Random Network Model Estimation, Selection and Parameter Tuning
 
@@ -23,6 +23,8 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-poweRlaw 
 BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-nnls 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-entropy 
 Requires:         R-CRAN-AUC 
@@ -31,6 +33,8 @@ Requires:         R-stats
 Requires:         R-CRAN-poweRlaw 
 Requires:         R-CRAN-RSpectra 
 Requires:         R-CRAN-irlba 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-nnls 
 
 %description
 Model selection and parameter tuning procedures for a class of random
@@ -44,8 +48,11 @@ network analysis methods are also implemented, such as the regularized
 spectral clustering (Amini et. al. 2013 <doi:10.1214/13-AOS1138>) and its
 degree corrected version and graphon neighborhood smoothing (Zhang et. al.
 2015 <arXiv:1509.08588>). It also includes the consensus clustering of Gao
-et. al. (2014) <arXiv:1410.5837> and the method of moments estimation of
-nomination SBM of Li et. al. (2020) <arxiv:2008.03652>.
+et. al. (2014) <arXiv:1410.5837>, the method of moments estimation of
+nomination SBM of Li et. al. (2020) <arxiv:2008.03652>, and the network
+mixing method of Li and Le (2021) <arxiv:2106.02803>. The work to build
+and improve this package is partially supported by the NSF grants
+DMS-2015298 and DMS-2015134.
 
 %prep
 %setup -q -c -n %{packname}

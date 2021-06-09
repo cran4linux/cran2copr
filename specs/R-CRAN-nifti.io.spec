@@ -1,35 +1,29 @@
-%global packname  ICGE
-%global packver   0.4
+%global packname  nifti.io
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Number of Clusters and Identification of Atypical Units
+Summary:          Read and Write NIfTI Files
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.0.1
-Requires:         R-core >= 2.0.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-fastcluster 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-fastcluster 
 
 %description
-It is a package that helps to estimate the number of real clusters in data
-as well as to identify atypical units. The underlying methods are based on
-distances rather than on unit x variables.
+Tools for reading and writing NIfTI-1.1 (NII) files, including optimized
+voxelwise read/write operations and a simplified method to write
+dataframes to NII. Specification of the NIfTI-1.1 format can be found here
+<https://nifti.nimh.nih.gov/nifti-1>. Scientific publication first using
+these tools Koscik TR, Man V, Jahn A, Lee CH, Cunningham WA (2020)
+<doi:10.1016/j.neuroimage.2020.116764> "Decomposing the neural pathways in
+a simple, value-based choice." Neuroimage, 214, 116764.
 
 %prep
 %setup -q -c -n %{packname}
