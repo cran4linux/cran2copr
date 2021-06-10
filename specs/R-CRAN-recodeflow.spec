@@ -1,36 +1,38 @@
-%global packname  weights
-%global packver   1.0.3
+%global packname  recodeflow
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Weighting and Weighted Statistics
+Summary:          Interface Functions for PMML Creation, and Data Recoding
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-mice 
-BuildRequires:    R-CRAN-gdata 
-BuildRequires:    R-CRAN-lme4 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-mice 
-Requires:         R-CRAN-gdata 
-Requires:         R-CRAN-lme4 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-XML >= 3.98.1.11
+BuildRequires:    R-CRAN-sjlabelled 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-XML >= 3.98.1.11
+Requires:         R-CRAN-sjlabelled 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
 
 %description
-Provides a variety of functions for producing simple weighted statistics,
-such as weighted Pearson's correlations, partial correlations, Chi-Squared
-statistics, histograms, and t-tests.  Also now includes some software for
-quickly recoding survey data and plotting estimates from interaction terms
-in regressions (and multiply imputed regressions) both with and without
-weights. NOTE: Weighted partial correlation calculations pulled to address
-a bug.
+Contains functions to interface with variables and variable details
+sheets, including recoding variables and converting them to PMML.
 
 %prep
 %setup -q -c -n %{packname}

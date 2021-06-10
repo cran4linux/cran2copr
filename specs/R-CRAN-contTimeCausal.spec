@@ -1,11 +1,11 @@
-%global packname  weights
-%global packver   1.0.3
+%global packname  contTimeCausal
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Weighting and Weighted Statistics
+Summary:          Continuous Time Causal Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,23 +14,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-mice 
-BuildRequires:    R-CRAN-gdata 
-BuildRequires:    R-CRAN-lme4 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-mice 
-Requires:         R-CRAN-gdata 
-Requires:         R-CRAN-lme4 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-zoo 
+Requires:         R-stats 
+Requires:         R-methods 
 
 %description
-Provides a variety of functions for producing simple weighted statistics,
-such as weighted Pearson's correlations, partial correlations, Chi-Squared
-statistics, histograms, and t-tests.  Also now includes some software for
-quickly recoding survey data and plotting estimates from interaction terms
-in regressions (and multiply imputed regressions) both with and without
-weights. NOTE: Weighted partial correlation calculations pulled to address
-a bug.
+Implements the semiparametric efficient estimators of continuous-time
+causal models for time-varying treatments and confounders in the presence
+of dependent censoring (including structural failure time model and Cox
+proportional hazards marginal structural model). S. Yang, K. Pieper, and
+F. Cools (2019) <doi:10.1111/biom.12845>.
 
 %prep
 %setup -q -c -n %{packname}

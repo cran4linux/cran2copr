@@ -1,9 +1,9 @@
 %global packname  sbm
-%global packver   0.4.2
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stochastic Blockmodels
 
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-GREMLINS 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-reshape 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-prodlim 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-alluvial 
@@ -41,7 +41,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-GREMLINS 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-reshape 
+Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-prodlim 
 
 %description

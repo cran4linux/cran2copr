@@ -1,36 +1,37 @@
-%global packname  weights
-%global packver   1.0.3
+%global packname  aglm
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Weighting and Weighted Statistics
+Summary:          Accurate Generalized Linear Model
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-mice 
-BuildRequires:    R-CRAN-gdata 
-BuildRequires:    R-CRAN-lme4 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-mice 
-Requires:         R-CRAN-gdata 
-Requires:         R-CRAN-lme4 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-glmnet >= 4.0.2
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mathjaxr 
+Requires:         R-CRAN-glmnet >= 4.0.2
+Requires:         R-CRAN-assertthat 
+Requires:         R-methods 
+Requires:         R-CRAN-mathjaxr 
 
 %description
-Provides a variety of functions for producing simple weighted statistics,
-such as weighted Pearson's correlations, partial correlations, Chi-Squared
-statistics, histograms, and t-tests.  Also now includes some software for
-quickly recoding survey data and plotting estimates from interaction terms
-in regressions (and multiply imputed regressions) both with and without
-weights. NOTE: Weighted partial correlation calculations pulled to address
-a bug.
+Provides functions to fit Accurate Generalized Linear Model (AGLM) models,
+visualize them, and predict for new data. AGLM is defined as a regularized
+GLM which applies a sort of feature transformations using a discretization
+of numerical features and specific coding methodologies of dummy
+variables. For more information on AGLM, see Suguru Fujita, Toyoto Tanaka,
+Kenji Kondo and Hirokazu Iwasawa (2020)
+<https://www.institutdesactuaires.com/global/gene/link.php?doc_id=16273&fg=1>.
 
 %prep
 %setup -q -c -n %{packname}

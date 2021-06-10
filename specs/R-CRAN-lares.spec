@@ -1,9 +1,9 @@
 %global packname  lares
-%global packver   5.0.0
+%global packver   5.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.0
+Version:          5.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analytics, Data Mining & Machine Learning Sidekick
 
@@ -12,9 +12,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rvest >= 1.0.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-h2o 
@@ -27,12 +28,11 @@ BuildRequires:    R-CRAN-patchwork
 BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-rvest >= 1.0.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-h2o 
@@ -45,16 +45,14 @@ Requires:         R-CRAN-patchwork
 Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-yaml 
 
 %description
-R library for better/faster analytics, visualization, data mining, and
-machine learning tasks. With a wide variety of family functions, like
+Auxiliary package for better/faster analytics, visualization, data mining,
+and machine learning tasks. With a wide variety of family functions, like
 Machine Learning, Data Wrangling, Exploratory, and Scrapper, it helps the
 analyst or data scientist to get quick and robust results, without the
 need of repetitive coding or extensive programming skills.

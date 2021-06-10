@@ -1,9 +1,9 @@
 %global packname  conleyreg
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimations using Conley Standard Errors
 
@@ -17,7 +17,6 @@ Requires:         R-core
 BuildRequires:    R-base 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-data.table 
@@ -33,7 +32,6 @@ BuildRequires:    R-CRAN-lwgeom
 Requires:         R-base 
 Requires:         R-stats 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-raster 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-data.table 

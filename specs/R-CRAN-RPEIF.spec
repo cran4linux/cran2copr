@@ -1,9 +1,9 @@
 %global packname  RPEIF
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computation and Plots of Influence Functions for Risk and Performance Measures
 

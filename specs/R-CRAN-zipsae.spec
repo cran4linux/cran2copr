@@ -1,36 +1,35 @@
-%global packname  weights
-%global packver   1.0.3
+%global packname  zipsae
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Weighting and Weighted Statistics
+Summary:          Small Area Estimation with Zero-Inflated Model
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-mice 
-BuildRequires:    R-CRAN-gdata 
-BuildRequires:    R-CRAN-lme4 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-mice 
-Requires:         R-CRAN-gdata 
-Requires:         R-CRAN-lme4 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Provides a variety of functions for producing simple weighted statistics,
-such as weighted Pearson's correlations, partial correlations, Chi-Squared
-statistics, histograms, and t-tests.  Also now includes some software for
-quickly recoding survey data and plotting estimates from interaction terms
-in regressions (and multiply imputed regressions) both with and without
-weights. NOTE: Weighted partial correlation calculations pulled to address
-a bug.
+This function produces empirical best linier unbiased predictions (EBLUPs)
+for Zero-Inflated data and its Relative Standard Error. Small Area
+Estimation with Zero-Inflated Model (SAE-ZIP) is a model developed for
+Zero-Inflated data that can lead us to overdispersion situation. To handle
+this kind of situation, this model is created. The model in this package
+is based on Small Area Estimation with Zero-Inflated Poisson model
+proposed by Dian Christien Arisona
+(2018)<https://repository.ipb.ac.id/handle/123456789/92308>. For the data
+sample itself, we use combination method between Roberto Benavent and
+Domingo Morales (2015)<doi:10.1016/j.csda.2015.07.013> and Sabine Krieg,
+Harm Jan Boonstra and Marc Smeets (2016)<doi:10.1515/jos-2016-0051>.
 
 %prep
 %setup -q -c -n %{packname}

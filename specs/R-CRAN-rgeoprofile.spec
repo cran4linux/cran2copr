@@ -1,9 +1,9 @@
 %global packname  rgeoprofile
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geographic Profiling Methods for Serial Crime Analysis
 
@@ -15,7 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-aspace 
 BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-leaflet 
@@ -26,7 +25,6 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-splancs 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-aspace 
 Requires:         R-CRAN-geosphere 
 Requires:         R-grDevices 
 Requires:         R-CRAN-leaflet 

@@ -1,9 +1,9 @@
 %global packname  glmtoolbox
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Set of Tools to Data Analysis using Generalized Linear Models
 
@@ -20,11 +20,13 @@ BuildRequires:    R-CRAN-Rfast
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-robustbase 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-Rfast 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-CRAN-robustbase 
 
 %description
 Set of tools to the statistical analysis of data using: (1) normal linear

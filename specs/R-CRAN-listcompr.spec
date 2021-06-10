@@ -1,9 +1,9 @@
 %global packname  listcompr
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          List Comprehension for R
 
@@ -17,8 +17,8 @@ Requires:         R-core >= 3.1.2
 BuildArch:        noarch
 
 %description
-Syntactic shortcuts for creating synthetic lists, vectors, and data frames
-using list comprehension.
+Syntactic shortcuts for creating synthetic lists, vectors, data frames,
+and matrices using list comprehension.
 
 %prep
 %setup -q -c -n %{packname}

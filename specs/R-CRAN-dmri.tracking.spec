@@ -1,33 +1,26 @@
-%global packname  InDisc
-%global packver   1.0.4
+%global packname  dmri.tracking
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Obtaining and Estimating Unidimensional and Multidimensional IRT Dual Models
+Summary:          DiST - Diffusion Direction Smoothing and Tracking
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-optimbase 
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-matrixStats 
-Requires:         R-CRAN-optimbase 
-Requires:         R-CRAN-psych 
-Requires:         R-utils 
-Requires:         R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-rgl 
+Requires:         R-CRAN-rgl 
 
 %description
-Performs a unified approach for obtaining and estimating unidimensional
-and multidimensional Item Response Theory (IRT) Dual Models (DMs),
-proposed by Ferrando (2019 <doi:10.1177/0146621618817779>).
+It provides functions to apply the deterministic tracking algorithm - DiST
+(Wong et al 2016) <doi:10.1214/15-AOAS880> and to plot tractography
+results.
 
 %prep
 %setup -q -c -n %{packname}

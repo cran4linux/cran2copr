@@ -1,36 +1,35 @@
-%global packname  weights
-%global packver   1.0.3
+%global packname  hillshader
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Weighting and Weighted Statistics
+Summary:          Create Hillshade Relief Maps Using Ray-Tracing
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-mice 
-BuildRequires:    R-CRAN-gdata 
-BuildRequires:    R-CRAN-lme4 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-mice 
-Requires:         R-CRAN-gdata 
-Requires:         R-CRAN-lme4 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-rayshader 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-methods 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-rayshader 
+Requires:         R-CRAN-scales 
 
 %description
-Provides a variety of functions for producing simple weighted statistics,
-such as weighted Pearson's correlations, partial correlations, Chi-Squared
-statistics, histograms, and t-tests.  Also now includes some software for
-quickly recoding survey data and plotting estimates from interaction terms
-in regressions (and multiply imputed regressions) both with and without
-weights. NOTE: Weighted partial correlation calculations pulled to address
-a bug.
+A set of tools to create georeferenced hillshade relief raster maps using
+ray-tracing and other advanced hill-shading techniques. It includes a
+wrapper function to create a georeferenced, ray-traced hillshade map from
+a digital elevation model, and other functions that can be used in a
+rayshader pipeline.
 
 %prep
 %setup -q -c -n %{packname}

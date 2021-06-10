@@ -1,9 +1,9 @@
 %global packname  cryptowatchR
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An API Wrapper for 'Cryptowatch'
 
@@ -23,9 +23,10 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-lubridate 
 
 %description
-It provides an API wrapper for 'Cryptowatch'. Historical price data and
-other information on cryptocurrencies and crypto exchanges can be
-retrieved. API documentation: <https://docs.cryptowat.ch/rest-api>.
+An API wrapper for 'Cryptowatch' to get prices and other information
+(e.g., volume, trades, order books, bid and ask prices, live quotes, and
+more) about cryptocurrencies and crypto exchanges. See
+<https://docs.cryptowat.ch/rest-api> for a detailed documentation.
 
 %prep
 %setup -q -c -n %{packname}

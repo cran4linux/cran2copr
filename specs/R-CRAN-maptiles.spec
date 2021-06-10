@@ -1,9 +1,9 @@
 %global packname  maptiles
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Display Map Tiles
 
@@ -20,12 +20,14 @@ BuildRequires:    R-CRAN-curl
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-slippymath 
 Requires:         R-CRAN-sf >= 0.9.5
 Requires:         R-CRAN-curl 
 Requires:         R-graphics 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-terra 
+Requires:         R-tools 
 Requires:         R-CRAN-slippymath 
 
 %description

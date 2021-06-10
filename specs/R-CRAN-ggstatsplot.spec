@@ -1,9 +1,9 @@
 %global packname  ggstatsplot
-%global packver   0.7.2
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'ggplot2' Based Plots with Statistical Details
 
@@ -15,16 +15,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-statsExpressions >= 1.0.0
-BuildRequires:    R-CRAN-insight >= 0.13.2
-BuildRequires:    R-CRAN-parameters >= 0.13.0
+BuildRequires:    R-CRAN-ipmisc >= 6.0.2
+BuildRequires:    R-CRAN-pairwiseComparisons >= 3.1.5
+BuildRequires:    R-CRAN-statsExpressions >= 1.1.0
+BuildRequires:    R-CRAN-insight >= 0.14.1
+BuildRequires:    R-CRAN-parameters >= 0.14.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggcorrplot 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-ggsignif 
-BuildRequires:    R-CRAN-ipmisc 
-BuildRequires:    R-CRAN-pairwiseComparisons 
 BuildRequires:    R-CRAN-paletteer 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-performance 
@@ -33,16 +32,15 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-statsExpressions >= 1.0.0
-Requires:         R-CRAN-insight >= 0.13.2
-Requires:         R-CRAN-parameters >= 0.13.0
+Requires:         R-CRAN-ipmisc >= 6.0.2
+Requires:         R-CRAN-pairwiseComparisons >= 3.1.5
+Requires:         R-CRAN-statsExpressions >= 1.1.0
+Requires:         R-CRAN-insight >= 0.14.1
+Requires:         R-CRAN-parameters >= 0.14.0
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggcorrplot 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-ggsignif 
-Requires:         R-CRAN-ipmisc 
-Requires:         R-CRAN-pairwiseComparisons 
 Requires:         R-CRAN-paletteer 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-performance 
