@@ -1,11 +1,11 @@
 %global packname  rbibutils
-%global packver   2.1.1
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Between Bibliography Formats
+Summary:          Read 'Bibtex' Files and Convert Between Bibliography Formats
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,8 +20,8 @@ Requires:         R-utils
 Requires:         R-tools 
 
 %description
-Read and write 'BibTeX' files. Convert between bibliography formats,
-including 'BibTeX', 'BibLaTeX', EndNote, and 'Bibentry'. Includes a port
+Read and write 'Bibtex' files. Convert between bibliography formats,
+including 'Bibtex', 'Biblatex', 'Endnote', and 'Bibentry'. Includes a port
 of the 'bibutils' utilities by Chris Putnam
 <https://sourceforge.net/projects/bibutils/>. Supports all bibliography
 formats and character encodings implemented in 'bibutils'.

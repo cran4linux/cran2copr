@@ -1,9 +1,9 @@
 %global packname  zipcodeR
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data & Functions for Working with US ZIP Codes
 
@@ -18,14 +18,12 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-udunits2 
 BuildRequires:    R-CRAN-tidycensus 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-udunits2 
 Requires:         R-CRAN-tidycensus 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 

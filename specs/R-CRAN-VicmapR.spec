@@ -1,11 +1,11 @@
-%global packname  torch
-%global packver   0.4.0
+%global packname  VicmapR
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tensors and Neural Networks with 'GPU' Acceleration
+Summary:          Access Victorian Spatial Data Through Web File Services (WFS)
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,40 +14,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-bit64 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-sf >= 0.7
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-coro 
-BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ellipsis 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-rlang 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-bit64 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-sf >= 0.7
 Requires:         R-CRAN-magrittr 
-Requires:         R-tools 
-Requires:         R-CRAN-coro 
-Requires:         R-CRAN-callr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-methods 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-rlang 
 
 %description
-Provides functionality to define and train neural networks similar to
-'PyTorch' by Paszke et al (2019) <arXiv:1912.01703> but written entirely
-in R using the 'libtorch' library. Also supports low-level tensor
-operations and 'GPU' acceleration.
+Easily interfaces R to spatial datasets available through the Victorian
+Government's WFS (Web Feature Service):
+<https://services.land.vic.gov.au/catalogue/publicproxy/guest/dv_geoserver/wfs?request=getCapabilities>.
+Which allows users to read in 'sf' data from these sources using lazy
+evaluation.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  loon.shiny
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatically Create a 'Shiny' App Based on Interactive 'Loon' Widgets
 
@@ -22,10 +22,8 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-colourpicker 
 BuildRequires:    R-CRAN-base64enc 
 Requires:         R-CRAN-loon >= 1.3.0
@@ -35,10 +33,8 @@ Requires:         R-methods
 Requires:         R-CRAN-shiny 
 Requires:         R-stats 
 Requires:         R-grDevices 
-Requires:         R-CRAN-magrittr 
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-colourpicker 
 Requires:         R-CRAN-base64enc 
 

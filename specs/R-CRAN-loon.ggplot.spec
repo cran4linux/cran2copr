@@ -1,9 +1,9 @@
 %global packname  loon.ggplot
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Making 'ggplot2' Plots Interactive with 'loon' and Vice Versa
 
@@ -20,8 +20,8 @@ BuildRequires:    R-CRAN-loon >= 1.3.2
 BuildRequires:    R-tcltk 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggmulti 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggmulti 
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
@@ -33,8 +33,8 @@ Requires:         R-CRAN-loon >= 1.3.2
 Requires:         R-tcltk 
 Requires:         R-methods 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggmulti 
 Requires:         R-stats 
+Requires:         R-CRAN-ggmulti 
 Requires:         R-utils 
 Requires:         R-grDevices 
 Requires:         R-grid 

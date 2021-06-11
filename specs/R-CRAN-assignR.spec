@@ -1,9 +1,9 @@
 %global packname  assignR
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Infer Geographic Origin from Isotopic Data
 
@@ -19,10 +19,14 @@ BuildRequires:    R-CRAN-raster
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-maptools 
+BuildRequires:    R-CRAN-mvnfast 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-maptools 
+Requires:         R-CRAN-mvnfast 
+Requires:         R-CRAN-rlang 
 
 %description
 Routines for re-scaling isotope maps using known-origin tissue isotope

@@ -1,9 +1,9 @@
 %global packname  MLVSBM
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Stochastic Block Model for Multilevel Networks
 
@@ -19,10 +19,12 @@ BuildRequires:    R-CRAN-R6
 BuildRequires:    R-CRAN-blockmodels 
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-cluster 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-blockmodels 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-cluster 
 
 %description
 Simulation, inference and clustering of multilevel networks using a

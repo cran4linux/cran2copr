@@ -1,36 +1,28 @@
-%global packname  weights
-%global packver   1.0.4
+%global packname  cfid
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Weighting and Weighted Statistics
+Summary:          Identification of Counterfactual Queries in Causal Models
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-mice 
-BuildRequires:    R-CRAN-gdata 
-BuildRequires:    R-CRAN-lme4 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-mice 
-Requires:         R-CRAN-gdata 
-Requires:         R-CRAN-lme4 
+BuildArch:        noarch
 
 %description
-Provides a variety of functions for producing simple weighted statistics,
-such as weighted Pearson's correlations, partial correlations, Chi-Squared
-statistics, histograms, and t-tests.  Also now includes some software for
-quickly recoding survey data and plotting estimates from interaction terms
-in regressions (and multiply imputed regressions) both with and without
-weights. NOTE: Weighted partial correlation calculations pulled to address
-a bug.
+Facilitates the identification of counterfactual queries in structural
+causal models via the ID* and IDC* algorithms by Shpitser, I. and Pearl,
+J. (2008) <https://jmlr.org/papers/v9/shpitser08a.html>. Provides a simple
+interface for defining causal graphs and counterfactual conjunctions.
+Construction of parallel worlds graphs and counterfactual graphs is done
+automatically based on the counterfactual query and the causal graph.
 
 %prep
 %setup -q -c -n %{packname}

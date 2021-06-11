@@ -1,9 +1,9 @@
 %global packname  ggdist
-%global packver   2.4.0
+%global packver   2.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          2.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizations of Distributions and Uncertainty
 
@@ -28,7 +28,6 @@ BuildRequires:    R-CRAN-forcats
 BuildRequires:    R-CRAN-HDInterval 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-fda 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
@@ -42,7 +41,6 @@ Requires:         R-CRAN-forcats
 Requires:         R-CRAN-HDInterval 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-fda 
 
 %description
 Provides primitives for visualizing distributions using 'ggplot2' that are

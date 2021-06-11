@@ -1,9 +1,9 @@
 %global packname  Microsoft365R
-%global packver   2.2.0
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'Microsoft 365' Suite of Cloud Services
 

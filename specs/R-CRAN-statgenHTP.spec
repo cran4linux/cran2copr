@@ -1,9 +1,9 @@
 %global packname  statgenHTP
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Throughput Phenotyping (HTP) Data Analysis
 
@@ -12,14 +12,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-SpATS >= 1.0.11
+BuildRequires:    R-CRAN-SpATS >= 1.0.13
 BuildRequires:    R-CRAN-animation 
 BuildRequires:    R-CRAN-factoextra 
 BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-ggnewscale 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-locfit 
@@ -28,10 +29,11 @@ BuildRequires:    R-CRAN-reshape2
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-splines 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-SpATS >= 1.0.11
+Requires:         R-CRAN-SpATS >= 1.0.13
 Requires:         R-CRAN-animation 
 Requires:         R-CRAN-factoextra 
 Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-ggnewscale 
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-locfit 

@@ -1,36 +1,25 @@
-%global packname  weights
-%global packver   1.0.4
+%global packname  drda
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Weighting and Weighted Statistics
+Summary:          Dose-Response Data Analysis
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-mice 
-BuildRequires:    R-CRAN-gdata 
-BuildRequires:    R-CRAN-lme4 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-mice 
-Requires:         R-CRAN-gdata 
-Requires:         R-CRAN-lme4 
+BuildArch:        noarch
 
 %description
-Provides a variety of functions for producing simple weighted statistics,
-such as weighted Pearson's correlations, partial correlations, Chi-Squared
-statistics, histograms, and t-tests.  Also now includes some software for
-quickly recoding survey data and plotting estimates from interaction terms
-in regressions (and multiply imputed regressions) both with and without
-weights. NOTE: Weighted partial correlation calculations pulled to address
-a bug.
+Fit logistic functions to observed dose-response data and evaluate
+goodness of fit measures. See Malyutina A., Tang J., and Pessia A. (2021)
+<doi:10.1101/2021.06.07.447323>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,39 @@
-%global packname  weights
-%global packver   1.0.4
+%global packname  PlanetNICFI
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Weighting and Weighted Statistics
+Summary:          Processing of the 'Planet NICFI' Satellite Imagery
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-mice 
-BuildRequires:    R-CRAN-gdata 
-BuildRequires:    R-CRAN-lme4 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-mice 
-Requires:         R-CRAN-gdata 
-Requires:         R-CRAN-lme4 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-gdalUtils 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-gdalUtils 
 
 %description
-Provides a variety of functions for producing simple weighted statistics,
-such as weighted Pearson's correlations, partial correlations, Chi-Squared
-statistics, histograms, and t-tests.  Also now includes some software for
-quickly recoding survey data and plotting estimates from interaction terms
-in regressions (and multiply imputed regressions) both with and without
-weights. NOTE: Weighted partial correlation calculations pulled to address
-a bug.
+It includes functions to download and process the 'Planet NICFI' (Norway's
+International Climate and Forest Initiative) Satellite Imagery utilizing
+the Planet Mosaics API
+<https://developers.planet.com/docs/basemaps/reference/#tag/Basemaps-and-Mosaics>.
+'GDAL' (library for raster and vector geospatial data formats) and
+'aria2c' (paralleled download utility) must be installed and configured in
+the user's Operating System.
 
 %prep
 %setup -q -c -n %{packname}

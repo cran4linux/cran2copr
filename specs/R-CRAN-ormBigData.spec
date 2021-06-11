@@ -1,36 +1,40 @@
-%global packname  weights
-%global packver   1.0.4
+%global packname  ormBigData
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Weighting and Weighted Statistics
+Summary:          Fitting Semiparametric Cumulative Probability Models for Big Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-mice 
-BuildRequires:    R-CRAN-gdata 
-BuildRequires:    R-CRAN-lme4 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-mice 
-Requires:         R-CRAN-gdata 
-Requires:         R-CRAN-lme4 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rms >= 5.1.4
+BuildRequires:    R-CRAN-Hmisc >= 4.3.0
+BuildRequires:    R-parallel >= 3.5.2
+BuildRequires:    R-CRAN-SparseM >= 1.77
+BuildRequires:    R-CRAN-foreach >= 1.2.0
+BuildRequires:    R-CRAN-benchmarkme >= 1.0.4
+BuildRequires:    R-CRAN-doParallel >= 1.0.11
+BuildRequires:    R-CRAN-iterators >= 1.0.0
+Requires:         R-CRAN-rms >= 5.1.4
+Requires:         R-CRAN-Hmisc >= 4.3.0
+Requires:         R-parallel >= 3.5.2
+Requires:         R-CRAN-SparseM >= 1.77
+Requires:         R-CRAN-foreach >= 1.2.0
+Requires:         R-CRAN-benchmarkme >= 1.0.4
+Requires:         R-CRAN-doParallel >= 1.0.11
+Requires:         R-CRAN-iterators >= 1.0.0
 
 %description
-Provides a variety of functions for producing simple weighted statistics,
-such as weighted Pearson's correlations, partial correlations, Chi-Squared
-statistics, histograms, and t-tests.  Also now includes some software for
-quickly recoding survey data and plotting estimates from interaction terms
-in regressions (and multiply imputed regressions) both with and without
-weights. NOTE: Weighted partial correlation calculations pulled to address
-a bug.
+A big data version for fitting cumulative probability models using the
+orm() function.  See Liu et al. (2017) <DOI:10.1002/sim.7433> for details.
 
 %prep
 %setup -q -c -n %{packname}

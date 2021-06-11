@@ -1,9 +1,9 @@
 %global packname  Eagle
-%global packver   2.4.4
+%global packver   2.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.4
+Version:          2.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Locus Association Mapping on a Genome-Wide Scale
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildRequires:    R-CRAN-shinyFiles 
 BuildRequires:    R-CRAN-shinyBS 
 BuildRequires:    R-CRAN-ggplot2 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-ggthemes
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-mmap 
-BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinythemes 
 BuildRequires:    R-CRAN-shinyjs 
@@ -38,7 +37,6 @@ Requires:         R-CRAN-ggthemes
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-mmap 
-Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinythemes 
 Requires:         R-CRAN-shinyjs 
