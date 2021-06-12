@@ -1,9 +1,9 @@
 %global packname  rsetse
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Strain Elevation Tension Spring Embedding
 
@@ -15,9 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 0.1.2
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
@@ -25,9 +25,9 @@ BuildRequires:    R-CRAN-minpack.lm
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 

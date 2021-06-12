@@ -1,9 +1,9 @@
 %global packname  breakfast
-%global packver   2.1
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Fast Multiple Change-Point Detection and Estimation
 
@@ -16,8 +16,10 @@ BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-ggplot2 
 
 %description
 A developing software suite for multiple change-point detection/estimation

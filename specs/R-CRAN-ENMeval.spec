@@ -1,9 +1,9 @@
 %global packname  ENMeval
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Tuning and Evaluations of Ecological Niche Models
 
@@ -18,7 +18,6 @@ BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-dismo 
 BuildRequires:    R-CRAN-doSNOW 
 BuildRequires:    R-CRAN-doParallel 
@@ -34,10 +33,10 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-rangeModelMetadata 
 Requires:         R-methods 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-dismo 
 Requires:         R-CRAN-doSNOW 
 Requires:         R-CRAN-doParallel 
@@ -53,6 +52,7 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-testthat 
 Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-rangeModelMetadata 
 
 %description
 Runs ecological niche models over all combinations of user-defined

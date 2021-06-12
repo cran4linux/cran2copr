@@ -1,13 +1,13 @@
-%global packname  fdrci
-%global packver   2.2
+%global packname  SNFtool
+%global packver   2.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          2.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Permutation-Based FDR Point and Confidence Interval Estimation
+Summary:          Similarity Network Fusion
 
-License:          Artistic-2.0
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,16 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-ExPosition 
+BuildRequires:    R-CRAN-alluvial 
+Requires:         R-CRAN-ExPosition 
+Requires:         R-CRAN-alluvial 
 
 %description
-FDR functions for permutation-based estimators, including pi0 as well as
-FDR confidence intervals. The confidence intervals account for
-dependencies between tests by the incorporation of an overdispersion
-parameter, which is estimated from the permuted data.
+Similarity Network Fusion takes multiple views of a network and fuses them
+together to construct an overall status matrix. The input to our algorithm
+can be feature vectors, pairwise distances, or pairwise similarities. The
+learned status matrix can then be used for retrieval, clustering, and
+classification.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,30 +1,38 @@
-%global packname  fdrci
-%global packver   2.2
+%global packname  meshed
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Permutation-Based FDR Point and Confidence Interval Estimation
+Summary:          Bayesian Regression with Meshed Gaussian Processes
 
-License:          Artistic-2.0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.5
 Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
 
 %description
-FDR functions for permutation-based estimators, including pi0 as well as
-FDR confidence intervals. The confidence intervals account for
-dependencies between tests by the incorporation of an overdispersion
-parameter, which is estimated from the permuted data.
+Fits Bayesian spatial or spatiotemporal multivariate regression models
+based on latent Meshed Gaussian Processes (MGP) as described in Peruzzi,
+Banerjee, Finley (2020) <doi:10.1080/01621459.2020.1833889> and Peruzzi,
+Banerjee, Dunson, and Finley (2021) <arXiv:2101.03579>.
 
 %prep
 %setup -q -c -n %{packname}

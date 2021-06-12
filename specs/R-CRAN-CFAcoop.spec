@@ -1,9 +1,9 @@
 %global packname  CFAcoop
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Colony Formation Assay: Taking into Account Cellular Cooperation
 
@@ -15,9 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-Hmisc 
-Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-Hmisc 
 
 %description

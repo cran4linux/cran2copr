@@ -1,55 +1,47 @@
-%global packname  conleyreg
-%global packver   0.1.3
+%global packname  skewMLRM
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimations using Conley Standard Errors
+Summary:          Estimation for Scale-Shape Mixtures of Skew-Normal Distributions
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-base 
+BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lfe 
-BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-moments 
+BuildRequires:    R-CRAN-clusterGeneration 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-fixest 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-lwgeom 
-Requires:         R-base 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
 Requires:         R-stats 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lfe 
-Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-foreach 
-Requires:         R-parallel 
+Requires:         R-CRAN-moments 
+Requires:         R-CRAN-clusterGeneration 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-fixest 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-lwgeom 
+Requires:         R-parallel 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Merges and extends multiple packages and other published scripts
-calculating Conley (1999) <doi:10.1016/S0304-4076(98)00084-0> standard
-errors. Details are available in the function documentation and in the
-vignette.
+Provide data generation and estimation tools for the multivariate scale
+mixtures of normal presented in Lange and Sinsheimer (1993)
+<doi:10.2307/1390698>, the multivariate scale mixtures of skew-normal
+presented in Zeller, Lachos and Vilca (2011)
+<doi:10.1080/02664760903406504>, the multivariate skew scale mixtures of
+normal presented in Louredo, Zeller and Ferreira (2021)
+<doi:10.1007/s13571-021-00257-y> and the multivariate scale mixtures of
+skew-normal-Cauchy presented in Kahrari et al. (2020)
+<doi:10.1080/03610918.2020.1804582>.
 
 %prep
 %setup -q -c -n %{packname}

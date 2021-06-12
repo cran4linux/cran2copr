@@ -1,13 +1,13 @@
-%global packname  fdrci
-%global packver   2.2
+%global packname  BuildSys
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Permutation-Based FDR Point and Confidence Interval Estimation
+Summary:          System for Building and Debugging C/C++ Dynamic Libraries
 
-License:          Artistic-2.0
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,16 +15,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-digest 
+Requires:         R-methods 
+Requires:         R-CRAN-digest 
 
 %description
-FDR functions for permutation-based estimators, including pi0 as well as
-FDR confidence intervals. The confidence intervals account for
-dependencies between tests by the incorporation of an overdispersion
-parameter, which is estimated from the permuted data.
+A build system based on 'GNU make' that creates and maintains (simply)
+make files in an R session and provides GUI debugging support through
+'Microsoft Visual Code'.
 
 %prep
 %setup -q -c -n %{packname}

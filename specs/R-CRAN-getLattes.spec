@@ -1,46 +1,44 @@
-%global packname  egor
-%global packver   1.21.6
+%global packname  getLattes
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.21.6
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Import and Analyse Ego-Centered Network Data
+Summary:          Import and Process Data from the 'Lattes' Curriculum Platform
 
-License:          AGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidygraph 
-BuildRequires:    R-CRAN-srvyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-pipeR 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidygraph 
-Requires:         R-CRAN-srvyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-pipeR 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-purrr 
 
 %description
-Tools for importing, analyzing and visualizing ego-centered network data.
-Supports several data formats, including the export formats of 'EgoNet',
-'EgoWeb 2.0' and 'openeddi'. An interactive (shiny) app for the intuitive
-visualization of ego-centered networks is provided. Also included are
-procedures for creating and visualizing Clustered Graphs (Lerner 2008
-<DOI:10.1109/PACIFICVIS.2008.4475458>).
+Tool for import and process data from 'Lattes' curriculum platform
+(<http://lattes.cnpq.br/>). The Brazilian government keeps an extensive
+base of curricula for academics from all over the country, with over 5
+million registrations. The academic life of the Brazilian researcher, or
+related to Brazilian universities, is documented in 'Lattes'. Some
+information that can be obtained: professional formation, research area,
+publications, academics advisories, projects, etc. 'getLattes' package
+allows work with 'Lattes' data exported to XML format.
 
 %prep
 %setup -q -c -n %{packname}

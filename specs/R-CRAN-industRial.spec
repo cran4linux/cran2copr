@@ -1,30 +1,42 @@
-%global packname  fdrci
-%global packver   2.2
+%global packname  industRial
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Permutation-Based FDR Point and Confidence Interval Estimation
+Summary:          Data, Functions and Support Materials from the Book "industRial Data Science"
 
-License:          Artistic-2.0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-SixSigma 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-SixSigma 
 
 %description
-FDR functions for permutation-based estimators, including pi0 as well as
-FDR confidence intervals. The confidence intervals account for
-dependencies between tests by the incorporation of an overdispersion
-parameter, which is estimated from the permuted data.
+Companion package to the book "industRial data science", J.Ramalho (2021)
+<https://j-ramalho.github.io/industRial/>. Provides data sets and
+functions to complete the case studies and contains the book original Rmd
+files and tutorials.
 
 %prep
 %setup -q -c -n %{packname}

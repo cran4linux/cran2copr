@@ -1,30 +1,38 @@
-%global packname  fdrci
-%global packver   2.2
+%global packname  MatrixMixtures
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Permutation-Based FDR Point and Confidence Interval Estimation
+Summary:          Model-Based Clustering via Matrix-Variate Mixture Models
 
-License:          Artistic-2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-snow 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-doSNOW 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-snow 
+Requires:         R-CRAN-withr 
 
 %description
-FDR functions for permutation-based estimators, including pi0 as well as
-FDR confidence intervals. The confidence intervals account for
-dependencies between tests by the incorporation of an overdispersion
-parameter, which is estimated from the permuted data.
+Implements finite mixtures of matrix-variate contaminated normal
+distributions via expectation conditional-maximization algorithm for
+model-based clustering, as described in Tomarchio et al.(2020)
+<arXiv:2005.03861>. One key advantage of this model is the ability to
+automatically detect potential outlying matrices by computing their a
+posteriori probability of being typical or atypical points. Finite
+mixtures of matrix-variate t and matrix-variate normal distributions are
+also implemented by using expectation-maximization algorithms.
 
 %prep
 %setup -q -c -n %{packname}

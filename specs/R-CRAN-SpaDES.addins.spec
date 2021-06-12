@@ -1,30 +1,40 @@
-%global packname  fdrci
-%global packver   2.2
+%global packname  SpaDES.addins
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Permutation-Based FDR Point and Confidence Interval Estimation
+Summary:          Development Tools for 'SpaDES' and 'SpaDES' Modules
 
-License:          Artistic-2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-stringi >= 1.1.3
+BuildRequires:    R-CRAN-rstudioapi >= 0.5
+BuildRequires:    R-CRAN-shiny >= 0.13
+BuildRequires:    R-CRAN-miniUI >= 0.1.1
+BuildRequires:    R-CRAN-devtools 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-reproducible 
+BuildRequires:    R-CRAN-SpaDES.core 
+Requires:         R-CRAN-stringi >= 1.1.3
+Requires:         R-CRAN-rstudioapi >= 0.5
+Requires:         R-CRAN-shiny >= 0.13
+Requires:         R-CRAN-miniUI >= 0.1.1
+Requires:         R-CRAN-devtools 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-reproducible 
+Requires:         R-CRAN-SpaDES.core 
 
 %description
-FDR functions for permutation-based estimators, including pi0 as well as
-FDR confidence intervals. The confidence intervals account for
-dependencies between tests by the incorporation of an overdispersion
-parameter, which is estimated from the permuted data.
+Provides 'RStudio' addins for 'SpaDES' packages and 'SpaDES' module
+development. See '?SpaDES.addins' for an overview of the tools provided.
 
 %prep
 %setup -q -c -n %{packname}
