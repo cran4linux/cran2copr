@@ -1,11 +1,11 @@
 %global packname  RTL
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Risk Tool Library
+Summary:          Risk Tool Library - Trading, Risk, Analytic for Commodities
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,24 +27,20 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-timetk 
-BuildRequires:    R-CRAN-PerformanceAnalytics 
 BuildRequires:    R-CRAN-tibbletime 
-BuildRequires:    R-CRAN-quantmod 
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-tidyquant 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-Quandl 
-BuildRequires:    R-CRAN-fitdistrplus 
 BuildRequires:    R-CRAN-tsibble 
 BuildRequires:    R-CRAN-feasts 
 BuildRequires:    R-CRAN-fabletools 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-rugarch 
-BuildRequires:    R-CRAN-lpSolve 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-timetk 
+BuildRequires:    R-CRAN-tidyverse 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-xts 
 Requires:         R-stats 
@@ -57,24 +53,20 @@ Requires:         R-CRAN-httr
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-timetk 
-Requires:         R-CRAN-PerformanceAnalytics 
 Requires:         R-CRAN-tibbletime 
-Requires:         R-CRAN-quantmod 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-tidyquant 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-Quandl 
-Requires:         R-CRAN-fitdistrplus 
 Requires:         R-CRAN-tsibble 
 Requires:         R-CRAN-feasts 
 Requires:         R-CRAN-fabletools 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-rugarch 
-Requires:         R-CRAN-lpSolve 
 Requires:         R-CRAN-rlang 
+Requires:         R-utils 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-timetk 
+Requires:         R-CRAN-tidyverse 
 
 %description
 Collection of functions and metadata to complement core packages in

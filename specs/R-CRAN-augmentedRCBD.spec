@@ -1,9 +1,9 @@
 %global packname  augmentedRCBD
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Augmented Randomised Complete Block Designs
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-mathjaxr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-multcomp 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
+Requires:         R-CRAN-mathjaxr 
 Requires:         R-methods 
 Requires:         R-CRAN-moments 
 Requires:         R-CRAN-multcomp 

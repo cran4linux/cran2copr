@@ -1,9 +1,9 @@
 %global packname  tidyBF
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Wrapper for 'BayesFactor' Package
 
@@ -12,14 +12,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ipmisc >= 5.0.2
 BuildRequires:    R-CRAN-metaBMA >= 0.6.6
-BuildRequires:    R-CRAN-effectsize >= 0.4.3
-BuildRequires:    R-CRAN-insight >= 0.13.0
-BuildRequires:    R-CRAN-parameters >= 0.12.0
+BuildRequires:    R-CRAN-effectsize >= 0.4.5
+BuildRequires:    R-CRAN-insight >= 0.14.0
+BuildRequires:    R-CRAN-parameters >= 0.14.0
 BuildRequires:    R-CRAN-BayesFactor 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-performance 
@@ -27,9 +27,9 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-ipmisc >= 5.0.2
 Requires:         R-CRAN-metaBMA >= 0.6.6
-Requires:         R-CRAN-effectsize >= 0.4.3
-Requires:         R-CRAN-insight >= 0.13.0
-Requires:         R-CRAN-parameters >= 0.12.0
+Requires:         R-CRAN-effectsize >= 0.4.5
+Requires:         R-CRAN-insight >= 0.14.0
+Requires:         R-CRAN-parameters >= 0.14.0
 Requires:         R-CRAN-BayesFactor 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-performance 

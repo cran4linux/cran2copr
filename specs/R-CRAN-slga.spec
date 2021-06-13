@@ -1,9 +1,9 @@
 %global packname  slga
-%global packver   1.1.2
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Access Tools for the Soil and Landscape Grid of Australia
 
@@ -15,16 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf >= 0.9.0
+BuildRequires:    R-CRAN-sf >= 1.0
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-s2 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-sf >= 0.9.0
+Requires:         R-CRAN-sf >= 1.0
 Requires:         R-CRAN-httr 
 Requires:         R-methods 
 Requires:         R-CRAN-raster 
+Requires:         R-CRAN-s2 
 Requires:         R-utils 
 Requires:         R-CRAN-xml2 
 

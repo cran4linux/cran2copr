@@ -1,10 +1,10 @@
 %global packname  EvaluateCore
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
-Release:          2%{?dist}%{?buildtag}
+Version:          0.1.2
+Release:          1%{?dist}%{?buildtag}
 Summary:          Quality Evaluation of Core Collections
 
 License:          GPL-2 | GPL-3
@@ -17,7 +17,7 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-agricolae 
 BuildRequires:    R-CRAN-car 
-BuildRequires:    R-cluster 
+BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-entropy 
 BuildRequires:    R-CRAN-ggcorrplot 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-kSamples 
+BuildRequires:    R-CRAN-mathjaxr 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-Rdpack 
@@ -32,7 +33,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-vegan 
 Requires:         R-CRAN-agricolae 
 Requires:         R-CRAN-car 
-Requires:         R-cluster 
+Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-entropy 
 Requires:         R-CRAN-ggcorrplot 
@@ -40,6 +41,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-grDevices 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-kSamples 
+Requires:         R-CRAN-mathjaxr 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-Rdpack 
@@ -55,9 +57,13 @@ phenotypic trait data according to Odong et al. (2015)
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -65,9 +71,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}
