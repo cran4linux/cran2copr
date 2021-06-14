@@ -1,11 +1,11 @@
 %global packname  echarty
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimal R/Shiny Interface to Library 'ECharts JavaScript'
+Summary:          Minimal R/Shiny Interface to JavaScript Library 'ECharts'
 
 License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,21 +15,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crosstalk >= 1.1.1
 BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-htmltools >= 0.5.0
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-crosstalk >= 1.1.1
 Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-htmltools >= 0.5.0
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-jsonlite 
 
 %description

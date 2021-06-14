@@ -1,9 +1,9 @@
 %global packname  spork
-%global packver   0.1.8
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Label Formatting
 
@@ -26,7 +26,7 @@ Requires:         R-CRAN-latexpdf
 The 'spork' syntax describes label formatting concisely, supporting mixed
 nesting of subscripts and superscripts to arbitrary depth. It intends to
 be easy to read and write in plain text, and easy to convert to equivalent
-presentations in 'plotmath' and 'latex'.  Greek symbols and a
+presentations in 'plotmath', 'latex', and 'html'.  Greek symbols and a
 multiplication symbol are explicitly supported. See ?as_spork and
 ?as_previews.
 
