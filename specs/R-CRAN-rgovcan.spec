@@ -1,38 +1,38 @@
-%global packname  khroma
-%global packver   1.6.0
+%global packname  rgovcan
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Colour Schemes for Scientific Data Visualization
+Summary:          Easy Access to the Canadian Open Government Portal
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-ckanr 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-crul 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-Requires:         R-grDevices 
-Requires:         R-grid 
-Requires:         R-stats 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-ckanr 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-crul 
+Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 
 %description
-Colour schemes ready for each type of data (qualitative, diverging or
-sequential), with colours that are distinct for all people, including
-colour-blind readers. This package provides an implementation of Paul Tol
-(2018) and Fabio Crameri (2018) <doi: 10.5194/gmd-11-2541-2018> colour
-schemes for use with 'graphics' or 'ggplot2'. It provides tools to
-simulate colour-blindness and to test how well the colours of any palette
-are identifiable. Several scientific thematic schemes (geologic timescale,
-land cover, FAO soils, etc.) are also implemented.
+Allows to search for existing resources, including datasets, on the
+Canadian Open Government portal (<https://open.canada.ca/en>). It is also
+designed to allow users to easily download a range of files directly from
+the portal in a reproducible manner.
 
 %prep
 %setup -q -c -n %{packname}

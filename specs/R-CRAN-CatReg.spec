@@ -1,30 +1,34 @@
-%global packname  hhsmm
-%global packver   0.1
+%global packname  CatReg
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hidden Hybrid Markov/Semi-Markov Model Fitting
+Summary:          Solution Paths for Linear and Logistic Regression Models with Categorical Predictors, with SCOPE Penalty
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
 BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp >= 1.0.1
 Requires:         R-CRAN-Rdpack 
 
 %description
-Develops algorithms for fitting, prediction, simulation and initialization
-of the hidden hybrid Markov/semi-Markov model, introduced by Guedon (2005)
-<doi:10.1016/j.csda.2004.05.033>.
+Computes solutions for linear and logistic regression models with
+potentially high-dimensional categorical predictors. This is done by
+applying a nonconvex penalty (SCOPE) and computing solutions in an
+efficient path-wise fashion. The scaling of the solution paths is selected
+automatically. Includes functionality for selecting tuning parameter
+lambda by k-fold cross-validation and early termination based on
+information criteria. Solutions are computed by cyclical block-coordinate
+descent, iterating an innovative dynamic programming algorithm to compute
+exact solutions for each block.
 
 %prep
 %setup -q -c -n %{packname}

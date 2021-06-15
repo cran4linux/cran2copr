@@ -1,9 +1,9 @@
 %global packname  logitr
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Logit Models w/Preference & WTP Space Utility Parameterizations
 
@@ -27,16 +27,17 @@ Requires:         R-CRAN-MASS
 %description
 Estimation of multinomial (MNL) and mixed logit (MXL) models in R. Models
 can be estimated using "Preference" space or "Willingness-to-pay" (WTP)
-space utility parameterizations. An option is available to run a
-multistart optimization loop with random starting points in each
-iteration, which is useful for non-convex problems like MXL models or
-models with WTP space utility parameterizations. The main optimization
-loop uses the 'nloptr' package to minimize the negative log-likelihood
-function. Additional functions are available for computing and comparing
-WTP from both preference space and WTP space models and for simulating the
-expected shares of a set of alternatives using an estimated model. MXL
-models assume uncorrelated heterogeneity covariances and are estimated
-using maximum simulated likelihood based on the algorithms in Train (2009)
+space utility parameterizations. Weighted models can also be estimated. An
+option is available to run a multistart optimization loop with random
+starting points in each iteration, which is useful for non-convex problems
+like MXL models or models with WTP space utility parameterizations. The
+main optimization loop uses the 'nloptr' package to minimize the negative
+log-likelihood function. Additional functions are available for computing
+and comparing WTP from both preference space and WTP space models and for
+predicting expected choices and choice probabilities for a set (or
+multiple sets) of alternatives based on an estimated model. MXL models
+assume uncorrelated heterogeneity covariances and are estimated using
+maximum simulated likelihood based on the algorithms in Train (2009)
 "Discrete Choice Methods with Simulation, 2nd Edition"
 <doi:10.1017/CBO9780511805271>.
 

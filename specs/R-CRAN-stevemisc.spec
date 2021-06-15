@@ -1,9 +1,9 @@
 %global packname  stevemisc
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Steve's Miscellaneous Functions
 
@@ -29,9 +29,6 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-dbplyr 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-stats 
 Requires:         R-CRAN-magrittr 
@@ -46,9 +43,6 @@ Requires:         R-methods
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-dbplyr 
 
 %description
 These are miscellaneous functions that I find useful for my research and

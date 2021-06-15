@@ -1,39 +1,42 @@
-%global packname  SpatialPosition
-%global packver   2.1.1
+%global packname  ManagedCloudProvider
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Position Models
+Summary:          Providing the Kubernetes-Like Functions for the Non-Kubernetes Cloud Service
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-DockerParallel >= 1.0.3
+BuildRequires:    R-CRAN-adagio 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-isoband 
-BuildRequires:    R-CRAN-raster 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-DockerParallel >= 1.0.3
+Requires:         R-CRAN-adagio 
 Requires:         R-methods 
-Requires:         R-CRAN-isoband 
-Requires:         R-CRAN-raster 
+Requires:         R-utils 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Computes spatial position models: the potential model as defined by
-Stewart (1941) <doi:10.1126/science.93.2404.89> and catchment areas as
-defined by Reilly (1931) or Huff (1964) <doi:10.2307/1249154>.
+Providing the kubernetes-like class 'ManagedCloudProvider' as a child
+class of the 'CloudProvider' class in the 'DockerParallel' package. The
+class is able to manage the cloud instance made by the non-kubernetes
+cloud service. For creating a provider for the non-kubernetes cloud
+service, the developer needs to define a reference class inherited from
+'ManagedCloudProvider' and define the method for the generics
+runDockerWorkerContainers(), getDockerWorkerStatus() and
+killDockerWorkerContainers(). For more information, please see the
+vignette in this package and
+<https://CRAN.R-project.org/package=DockerParallel>.
 
 %prep
 %setup -q -c -n %{packname}

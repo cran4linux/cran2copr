@@ -1,9 +1,9 @@
 %global packname  checkpoint
-%global packver   0.4.10
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.10
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Install Packages from Snapshots on the Checkpoint Server for Reproducibility
 
@@ -12,11 +12,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-utils 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-pkgdepends 
 Requires:         R-utils 
+Requires:         R-tools 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-pkgdepends 
 
 %description
 The goal of checkpoint is to solve the problem of package reproducibility

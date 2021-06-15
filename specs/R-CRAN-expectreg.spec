@@ -1,40 +1,45 @@
-%global packname  loon
-%global packver   1.3.7
+%global packname  expectreg
+%global packver   0.51
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.7
+Version:          0.51
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Statistical Data Visualization
+Summary:          Expectile and Quantile Regression
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    xorg-x11-server-Xvfb
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-tcltk 
-BuildRequires:    R-tools 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-mboost >= 2.1.0
+BuildRequires:    R-CRAN-colorspace >= 0.97
+BuildRequires:    R-CRAN-BayesX >= 0.2.4
+BuildRequires:    R-CRAN-Rcpp >= 0.11.2
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-methods 
-Requires:         R-tcltk 
-Requires:         R-tools 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-utils 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-mboost >= 2.1.0
+Requires:         R-CRAN-colorspace >= 0.97
+Requires:         R-CRAN-BayesX >= 0.2.4
+Requires:         R-CRAN-Rcpp >= 0.11.2
 Requires:         R-stats 
-Requires:         R-CRAN-gridExtra 
+Requires:         R-parallel 
+Requires:         R-CRAN-Matrix 
+Requires:         R-splines 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-fields 
 
 %description
-An extendable toolkit for interactive data visualization and exploration.
+Expectile and quantile regression of models with nonlinear effects e.g.
+spatial, random, ridge using least asymmetric weighed squares / absolutes
+as well as boosting; also supplies expectiles for common distributions.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,7 +57,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %install
 
 mkdir -p %{buildroot}%{rlibdir}
-xvfb-run %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 # remove buildroot from installed files

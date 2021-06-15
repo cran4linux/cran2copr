@@ -1,48 +1,52 @@
-%global packname  vimp
-%global packver   2.2.2
+%global packname  geomander
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Perform Inference on Algorithm-Agnostic Variable Importance
+Summary:          Geographic Tools for Studying Gerrymandering
 
-License:          MIT + file LICENSE
+License:          MIT + file LICENCE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-SuperLearner 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ROCR 
+BuildRequires:    R-CRAN-nngeo 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-SuperLearner 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-tidycensus 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tigris 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-spdep 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ROCR 
+Requires:         R-CRAN-nngeo 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-tidycensus 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tigris 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-spdep 
 
 %description
-Calculate point estimates of and valid confidence intervals for
-nonparametric, algorithm-agnostic variable importance measures in high and
-low dimensions, using flexible estimators of the underlying regression
-functions. For more information about the methods, please see Williamson
-et al. (Biometrics, 2020), Williamson et al. (arXiv, 2020+)
-<arXiv:2004.03683>, and Williamson and Feng (ICML, 2020).
+A compilation of tools to complete common tasks for studying
+gerrymandering. This focuses on the geographic tool side of common
+problems, such as linking different levels of spatial units or estimating
+how to break up units. Functions exist for creating redistricting-focused
+data for the US.
 
 %prep
 %setup -q -c -n %{packname}

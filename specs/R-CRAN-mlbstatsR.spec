@@ -1,38 +1,47 @@
-%global packname  khroma
-%global packver   1.6.0
+%global packname  mlbstatsR
+%global packver   0.1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Colour Schemes for Scientific Data Visualization
+Summary:          Stats, Photos, Logos, and Colors of M.L.B. (Major League Baseball)
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr >= 1.0
+BuildRequires:    R-CRAN-tidyr >= 1.0
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-Requires:         R-grDevices 
-Requires:         R-grid 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-dplyr >= 1.0
+Requires:         R-CRAN-tidyr >= 1.0
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
 Requires:         R-utils 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-xml2 
 
 %description
-Colour schemes ready for each type of data (qualitative, diverging or
-sequential), with colours that are distinct for all people, including
-colour-blind readers. This package provides an implementation of Paul Tol
-(2018) and Fabio Crameri (2018) <doi: 10.5194/gmd-11-2541-2018> colour
-schemes for use with 'graphics' or 'ggplot2'. It provides tools to
-simulate colour-blindness and to test how well the colours of any palette
-are identifiable. Several scientific thematic schemes (geologic timescale,
-land cover, FAO soils, etc.) are also implemented.
+Main use case is to gives users the ability to work with Major League
+Baseball data in a clean and detailed way. Which provides users with a
+variety of ways to improve visualizations.
 
 %prep
 %setup -q -c -n %{packname}

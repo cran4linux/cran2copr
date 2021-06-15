@@ -1,38 +1,40 @@
-%global packname  khroma
-%global packver   1.6.0
+%global packname  SIHR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Colour Schemes for Scientific Data Visualization
+Summary:          Statistical Inference in High Dimensional Regression
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-grDevices 
-Requires:         R-grid 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-CVXR 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-scalreg 
+BuildRequires:    R-CRAN-qpdf 
+Requires:         R-CRAN-CVXR 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-scalreg 
+Requires:         R-CRAN-qpdf 
 
 %description
-Colour schemes ready for each type of data (qualitative, diverging or
-sequential), with colours that are distinct for all people, including
-colour-blind readers. This package provides an implementation of Paul Tol
-(2018) and Fabio Crameri (2018) <doi: 10.5194/gmd-11-2541-2018> colour
-schemes for use with 'graphics' or 'ggplot2'. It provides tools to
-simulate colour-blindness and to test how well the colours of any palette
-are identifiable. Several scientific thematic schemes (geologic timescale,
-land cover, FAO soils, etc.) are also implemented.
+Inference procedures in the high-dimensional setting for (1) linear
+functionals and quadratic functionals in linear regression ('Cai et al.'
+(2019) <arXiv:1904.12891>, 'Guo et al.' (2019) <arXiv:1909.01503>), (2)
+linear functional in logistic regression ('Guo et al.'
+<arXiv:2012.07133>), (3) individual treatment effects in linear and
+logistic regression.
 
 %prep
 %setup -q -c -n %{packname}

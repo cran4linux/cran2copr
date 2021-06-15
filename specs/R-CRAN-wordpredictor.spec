@@ -1,49 +1,46 @@
-%global packname  artemis
-%global packver   1.0.7
+%global packname  wordpredictor
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis and Simulation of Environmental DNA Experiments
+Summary:          Develop Text Prediction Models Based on N-Grams
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-rstan >= 2.19.0
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
-BuildRequires:    R-CRAN-rstantools >= 2.1.1
-BuildRequires:    R-CRAN-BH >= 1.66.0
-BuildRequires:    R-CRAN-lme4 >= 1.1.21
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-loo 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-SnowballC 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-rstan >= 2.19.0
-Requires:         R-CRAN-rstantools >= 2.1.1
-Requires:         R-CRAN-lme4 >= 1.1.21
-Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-stats 
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-loo 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-SnowballC 
 Requires:         R-utils 
-Requires:         R-CRAN-rstantools
 
 %description
-Provides a modeling framework for the design and analysis of experiments
-collecting environmental DNA.
+A framework for developing n-gram models for text prediction. It provides
+data cleaning, data sampling, extracting tokens from text, model
+generation, model evaluation and word prediction. For information on how
+n-gram models work we referred to: "Speech and Language Processing"
+<https://web.stanford.edu/~jurafsky/slp3/3.pdf>. For optimizing R code and
+using R6 classes we referred to "Advanced R"
+<https://adv-r.hadley.nz/r6.html>. For writing R extensions we referred to
+"R Packages", <https://r-pkgs.org/index.html>.
 
 %prep
 %setup -q -c -n %{packname}

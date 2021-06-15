@@ -1,9 +1,9 @@
 %global packname  ergm
-%global packver   3.11.0
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.11.0
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit, Simulate and Diagnose Exponential-Family Models for Networks
 
@@ -13,41 +13,45 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    openmpi-devel
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-MASS >= 7.3.51.4
-BuildRequires:    R-CRAN-lpSolve >= 5.6.13
-BuildRequires:    R-CRAN-statnet.common >= 4.4.0
-BuildRequires:    R-CRAN-tibble >= 2.1.1
-BuildRequires:    R-CRAN-Matrix >= 1.2.17
-BuildRequires:    R-CRAN-network >= 1.15
-BuildRequires:    R-CRAN-robustbase >= 0.93.5
-BuildRequires:    R-CRAN-rlang >= 0.3.4
-BuildRequires:    R-CRAN-purrr >= 0.3.2
-BuildRequires:    R-CRAN-coda >= 0.19.2
-BuildRequires:    R-CRAN-trust >= 0.1.7
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-MASS >= 7.3.53.1
+BuildRequires:    R-CRAN-lpSolveAPI >= 5.5.2.0.17.7
+BuildRequires:    R-CRAN-statnet.common >= 4.5.0
+BuildRequires:    R-CRAN-tibble >= 3.1.0
+BuildRequires:    R-CRAN-memoise >= 2.0.0
+BuildRequires:    R-CRAN-Matrix >= 1.3.2
+BuildRequires:    R-CRAN-network >= 1.17.0
+BuildRequires:    R-CRAN-robustbase >= 0.93.7
+BuildRequires:    R-CRAN-rle >= 0.9.2
+BuildRequires:    R-CRAN-rlang >= 0.4.10
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+BuildRequires:    R-CRAN-coda >= 0.19.4
+BuildRequires:    R-CRAN-trust >= 0.1.8
 BuildRequires:    R-parallel 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rle 
-Requires:         R-CRAN-MASS >= 7.3.51.4
-Requires:         R-CRAN-lpSolve >= 5.6.13
-Requires:         R-CRAN-statnet.common >= 4.4.0
-Requires:         R-CRAN-tibble >= 2.1.1
-Requires:         R-CRAN-Matrix >= 1.2.17
-Requires:         R-CRAN-network >= 1.15
-Requires:         R-CRAN-robustbase >= 0.93.5
-Requires:         R-CRAN-rlang >= 0.3.4
-Requires:         R-CRAN-purrr >= 0.3.2
-Requires:         R-CRAN-coda >= 0.19.2
-Requires:         R-CRAN-trust >= 0.1.7
+Requires:         R-CRAN-MASS >= 7.3.53.1
+Requires:         R-CRAN-lpSolveAPI >= 5.5.2.0.17.7
+Requires:         R-CRAN-statnet.common >= 4.5.0
+Requires:         R-CRAN-tibble >= 3.1.0
+Requires:         R-CRAN-memoise >= 2.0.0
+Requires:         R-CRAN-Matrix >= 1.3.2
+Requires:         R-CRAN-network >= 1.17.0
+Requires:         R-CRAN-robustbase >= 0.93.7
+Requires:         R-CRAN-rle >= 0.9.2
+Requires:         R-CRAN-rlang >= 0.4.10
+Requires:         R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-coda >= 0.19.4
+Requires:         R-CRAN-trust >= 0.1.8
 Requires:         R-parallel 
 Requires:         R-methods 
-Requires:         R-CRAN-rle 
 
 %description
 An integrated set of tools to analyze and simulate networks based on
 exponential-family random graph models (ERGMs). 'ergm' is a part of the
-Statnet suite of packages for network analysis.
+Statnet suite of packages for network analysis. See Hunter, Handcock,
+Butts, Goodreau, and Morris (2008) <doi:10.18637/jss.v024.i03> and
+Krivitsky, Hunter, Morris, and Klumb (2021) <arXiv:2106.04997>.
 
 %prep
 %setup -q -c -n %{packname}

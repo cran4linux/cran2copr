@@ -1,9 +1,9 @@
 %global packname  activityGCMM
-%global packver   1.0.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Circular Mixed Effect Mixture Models of Animal Activity Patterns
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-circular
 BuildRequires:    R-CRAN-overlap 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-mclust 
 Requires:         R-CRAN-runjags 
@@ -28,6 +29,7 @@ Requires:         R-CRAN-circular
 Requires:         R-CRAN-overlap 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-utils 
 
 %description

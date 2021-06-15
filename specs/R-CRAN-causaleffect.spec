@@ -1,9 +1,9 @@
 %global packname  causaleffect
-%global packver   1.3.12
+%global packver   1.3.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.12
+Version:          1.3.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Deriving Expressions of Joint Interventional Distributions and Transport Formulas in Causal Models
 

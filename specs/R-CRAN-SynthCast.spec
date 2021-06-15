@@ -1,38 +1,39 @@
-%global packname  khroma
-%global packver   1.6.0
+%global packname  SynthCast
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Colour Schemes for Scientific Data Visualization
+Summary:          Synthetic Control Method to Forecast Series
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-Synth 
 BuildRequires:    R-utils 
-Requires:         R-grDevices 
-Requires:         R-grid 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-forcats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-Synth 
 Requires:         R-utils 
+Requires:         R-CRAN-forcats 
 
 %description
-Colour schemes ready for each type of data (qualitative, diverging or
-sequential), with colours that are distinct for all people, including
-colour-blind readers. This package provides an implementation of Paul Tol
-(2018) and Fabio Crameri (2018) <doi: 10.5194/gmd-11-2541-2018> colour
-schemes for use with 'graphics' or 'ggplot2'. It provides tools to
-simulate colour-blindness and to test how well the colours of any palette
-are identifiable. Several scientific thematic schemes (geologic timescale,
-land cover, FAO soils, etc.) are also implemented.
+Not a new method implementation. Usage of the Synthetic Control Method,
+see Abadie et al. (2011) <doi:10.18637/jss.v042.i13>, as an ad-hoc
+approach to forecast series with panel in a specific context. The context
+being: There are units in different stages of a certain journey, there the
+assumption that the units’ behavior throw out the journey are similar is
+valid and there are not enough data to use traditional forecasting
+methods. For a usage example see the package home page documentation.
 
 %prep
 %setup -q -c -n %{packname}

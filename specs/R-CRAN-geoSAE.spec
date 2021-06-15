@@ -1,42 +1,35 @@
-%global packname  ITGM
-%global packver   0.42
+%global packname  geoSAE
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.42
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Individual Tree Growth Modeling
+Summary:          Geoadditive Small Area Model
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Fgmutils >= 0.8
-BuildRequires:    R-CRAN-gsubfn 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-sqldf 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-randomcoloR 
-BuildRequires:    R-CRAN-rbokeh 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-Fgmutils >= 0.8
-Requires:         R-CRAN-gsubfn 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-sqldf 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-randomcoloR 
-Requires:         R-CRAN-rbokeh 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-nlme 
+Requires:         R-stats 
 
 %description
-Individual tree model is an instrument to support the decision with regard
-to forest management. This package provides functions that let you work
-with data for this model. Also other support functions and extension
-related to this model are available.
+This function is an extension of the Small Area Estimation (SAE) model.
+Geoadditive Small Area Model is a combination of the geoadditive model
+with the Small Area Estimation (SAE) model, by adding geospatial
+information to the SAE model. This package refers to J.N.K Rao and Isabel
+Molina (2015, ISBN: 978-1-118-73578-7), Bocci, C., & Petrucci, A.
+(2016)<doi:10.1002/9781118814963.ch13>, and Ardiansyah, M., Djuraidah, A.,
+& Kurnia, A. (2018)<doi:10.21082/jpptp.v2n2.2018.p101-110>.
 
 %prep
 %setup -q -c -n %{packname}
