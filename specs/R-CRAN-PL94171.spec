@@ -1,31 +1,39 @@
-%global packname  UComp
-%global packver   2.2.1
+%global packname  PL94171
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatic Unobserved Components Models
+Summary:          Tabulate P.L. 94-171 Redistricting Data Summary Files
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.3
-Requires:         R-stats 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tigris 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-httr 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tigris 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-httr 
 
 %description
-Comprehensive analysis and forecasting of univariate time series using
-automatic unobserved components models and algorithms. Harvey, AC (1989)
-<doi:10.1017/CBO9781107049994>. Pedregal, DJ and Young PC (2002)
-<doi:10.1002/9780470996430>. Durbin J and Koopman SJ (2012)
-<doi:10.1093/acprof:oso/9780199641178.001.0001>.
+Tools to process legacy format summary redistricting data files produced
+by the United States Census Bureau pursuant to P.L. 94-171. These files
+are generally available earlier but are difficult to work with as-is.
 
 %prep
 %setup -q -c -n %{packname}

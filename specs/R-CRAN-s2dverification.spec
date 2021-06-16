@@ -1,13 +1,13 @@
 %global packname  s2dverification
-%global packver   2.9.0
+%global packver   2.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.0
+Version:          2.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Set of Common Tools for Forecast Verification
 
-License:          LGPL-3
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 

@@ -1,11 +1,11 @@
-%global packname  ring
-%global packver   1.0.3
+%global packname  individual
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Circular / Ring Buffers
+Summary:          Framework for Specifying and Simulating Individual Based Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,12 +15,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Circular / ring buffers in R and C.  There are a couple of different
-buffers here with different implementations that represent different
-trade-offs.
+A framework which provides users a set of useful primitive elements for
+specifying individual based simulation models, with special attention
+models for infectious disease epidemiology. Users build models by
+specifying variables for each characteristic of individuals in the
+simulated population by using data structures exposed by the package. The
+package provides efficient methods for finding subsets of individuals
+based on these variables, or cohorts. Cohorts can then be targeted for
+variable updates or scheduled for events. Variable updates queued during a
+time step are executed at the end of a discrete time step, and the code
+places no restrictions on how individuals are allowed to interact. These
+data structures are designed to provide an intuitive way for users to turn
+their conceptual model of a system into executable code, which is fast and
+memory efficient.
 
 %prep
 %setup -q -c -n %{packname}

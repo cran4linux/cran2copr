@@ -1,9 +1,9 @@
 %global packname  Bergm
-%global packver   5.0.2
+%global packver   5.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.2
+Version:          5.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Exponential Random Graph Models
 
@@ -35,7 +35,7 @@ Requires:         R-CRAN-statnet.common
 %description
 Bayesian analysis for exponential random graph models using advanced
 computational algorithms. More information can be found at:
-<https://acaimo.github.io/Bergm>.
+<https://acaimo.github.io/Bergm/>.
 
 %prep
 %setup -q -c -n %{packname}

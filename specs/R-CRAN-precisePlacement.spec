@@ -1,31 +1,27 @@
-%global packname  UComp
-%global packver   2.2.1
+%global packname  precisePlacement
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatic Unobserved Components Models
+Summary:          Suite of Functions to Help Get Plot Elements Exactly Where You Want Them
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.3
-Requires:         R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Comprehensive analysis and forecasting of univariate time series using
-automatic unobserved components models and algorithms. Harvey, AC (1989)
-<doi:10.1017/CBO9781107049994>. Pedregal, DJ and Young PC (2002)
-<doi:10.1002/9780470996430>. Durbin J and Koopman SJ (2012)
-<doi:10.1093/acprof:oso/9780199641178.001.0001>.
+Provides a selection of tools that make it easier to place elements onto a
+(base R) plot exactly where you want them. It allows users to identify
+points and distances on a plot in terms of inches, pixels, margin lines,
+data units, and proportions of the plotting space, all in a manner more
+simple than manipulating par().
 
 %prep
 %setup -q -c -n %{packname}

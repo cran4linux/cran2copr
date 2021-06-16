@@ -1,10 +1,10 @@
 %global debug_package %{nil}
 %global packname  mixl
-%global packver   1.2.3
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulated Maximum Likelihood Estimation of Mixed Logit Models for Large Datasets
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-stringr >= 1.3.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.19
 BuildRequires:    R-CRAN-maxLik 

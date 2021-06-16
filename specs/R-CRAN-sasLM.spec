@@ -1,9 +1,9 @@
 %global packname  sasLM
-%global packver   0.5.3
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'SAS' Linear Model
 
@@ -15,7 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-methods 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-methods 
 
 %description

@@ -1,9 +1,9 @@
 %global packname  lineup2
-%global packver   0.4
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lining Up Two Sets of Measurements
 

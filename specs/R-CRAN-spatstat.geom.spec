@@ -1,9 +1,9 @@
 %global packname  spatstat.geom
-%global packver   2.1-0
+%global packver   2.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geometrical Functionality of the 'spatstat' Family
 
@@ -14,7 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-spatstat.utils >= 2.1.0
+BuildRequires:    R-CRAN-spatstat.utils >= 2.2.0
 BuildRequires:    R-CRAN-spatstat.data >= 2.0
 BuildRequires:    R-CRAN-polyclip >= 1.10.0
 BuildRequires:    R-CRAN-deldir >= 0.0.21
@@ -23,7 +23,7 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-spatstat.utils >= 2.1.0
+Requires:         R-CRAN-spatstat.utils >= 2.2.0
 Requires:         R-CRAN-spatstat.data >= 2.0
 Requires:         R-CRAN-polyclip >= 1.10.0
 Requires:         R-CRAN-deldir >= 0.0.21
