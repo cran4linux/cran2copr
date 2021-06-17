@@ -1,9 +1,9 @@
 %global packname  reportfactory
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lightweight Infrastructure for Handling Multiple R Markdown Documents
 
@@ -15,19 +15,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-checkpoint >= 1.0.0
 BuildRequires:    R-CRAN-rprojroot 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-checkpoint 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-rstudioapi 
+Requires:         R-CRAN-checkpoint >= 1.0.0
 Requires:         R-CRAN-rprojroot 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-utils 
-Requires:         R-CRAN-checkpoint 
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-rstudioapi 

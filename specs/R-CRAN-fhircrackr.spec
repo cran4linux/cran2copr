@@ -1,9 +1,9 @@
 %global packname  fhircrackr
-%global packver   0.2.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Handling HL7 FHIR Resources in R
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-stringr 
@@ -22,6 +22,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-httr 
@@ -29,6 +30,7 @@ Requires:         R-utils
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-data.table 
+Requires:         R-methods 
 
 %description
 Useful tools for conveniently downloading FHIR resources in xml format and

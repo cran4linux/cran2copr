@@ -1,11 +1,11 @@
-%global packname  fHMM
-%global packver   0.3.0
+%global packname  aldvmm
+%global packver   0.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.8.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fitting Hidden Markov Models to Financial Data
+Summary:          Adjusted Limited Dependent Variable Mixture Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -14,21 +14,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-tseries 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-tseries 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-optimr 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-stats 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-optimr 
 
 %description
-Fitting (hierarchical) hidden Markov models to daily share prices provided
-by <https://finance.yahoo.com/>. See
-<https://github.com/loelschlaeger/fHMM#readme> for documentation and
-examples.
+The goal of the package 'aldvmm' is to fit adjusted limited dependent
+variable mixture models of health state utilities. Adjusted limited
+dependent variable mixture models are finite mixtures of normal
+distributions with an accumulation of density mass at the limits, and a
+gap between 100%% quality of life and the next smaller utility value. The
+package 'aldvmm' uses the likelihood and expected value functions proposed
+by Hernandez Alava and Wailoo (2015) <doi:10.1177/1536867X1501500307>
+using normal component distributions and a multinomial logit model of
+probabilities of component membership.
 
 %prep
 %setup -q -c -n %{packname}

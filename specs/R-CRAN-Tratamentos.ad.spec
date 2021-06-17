@@ -1,13 +1,13 @@
-%global packname  SignifReg
-%global packver   4.0
+%global packname  Tratamentos.ad
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Consistent Significance Controlled Variable Selection in Generalized Linear Regression
+Summary:          "Pacote Para Analise De Experimentos Com Testemunhas Adicionais""
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,16 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-car 
-Requires:         R-CRAN-car 
 
 %description
-Provides significance controlled variable selection algorithms with
-different directions (forward, backward, stepwise) based on diverse
-criteria (AIC, BIC, adjusted r-square, PRESS, or p-value). The algorithm
-selects a final model with only significant variables defined as those
-with significant p-values after multiple testing correction such as
-Bonferroni, False Discovery Rate, etc.
+Pacote para a analise de experimentos com um ou dois fatores com
+testemunhas adicionais conduzidos no delineamento inteiramente casualizado
+ou em blocos casualizados. "Package for the analysis of one or two-factor
+experiments with additional controls conducted in a completely randomized
+design or in a randomized block design".
 
 %prep
 %setup -q -c -n %{packname}

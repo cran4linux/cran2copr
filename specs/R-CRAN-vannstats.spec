@@ -1,9 +1,9 @@
 %global packname  vannstats
-%global packver   1.0.4.15
+%global packver   1.0.7.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4.15
+Version:          1.0.7.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplified Statistics for PA 606
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-car
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-formula.tools 
 BuildRequires:    R-CRAN-gplots 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-dplyr 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-car
 Requires:         R-CRAN-purrr 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-CRAN-formula.tools 
 Requires:         R-CRAN-gplots 
 
 %description

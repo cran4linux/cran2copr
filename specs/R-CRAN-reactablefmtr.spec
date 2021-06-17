@@ -1,11 +1,11 @@
 %global packname  reactablefmtr
-%global packver   0.2.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simplify Formatting of Tables Made with 'Reactable'
+Summary:          Easily Customize Interactive Tables Made with Reactable
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,19 +19,29 @@ BuildRequires:    R-CRAN-reactable >= 0.2.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-tools 
 Requires:         R-CRAN-reactable >= 0.2.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-grDevices 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-stringr 
+Requires:         R-tools 
 
 %description
-Streamlines the process of applying formats and styles to tables using
-'reactable'. Style your 'reactable' table with conditional formatting,
-color scales, data bars, and icons.
+Enhance the styling of interactive reactable tables with easy-to-use and
+highly-customizable functions. Apply conditional formatting to cells with
+data bars, color scales, and icon sets. Utilize custom table themes
+inspired by popular websites and bootstrap themes. Increase the
+portability and reproducibility of reactable tables by embedding images
+from the web directly into cells. Save the final table output as a static
+image or interactive file (note this feature requires the 'webshot2'
+package which can be downloaded from
+<https://github.com/rstudio/webshot2>).
 
 %prep
 %setup -q -c -n %{packname}

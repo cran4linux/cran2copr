@@ -1,30 +1,26 @@
-%global packname  SignifReg
-%global packver   4.0
+%global packname  declared
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Consistent Significance Controlled Variable Selection in Generalized Linear Regression
+Summary:          Functions to Declare Missing Values
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-car 
-Requires:         R-CRAN-car 
+BuildRequires:    R-CRAN-admisc 
+Requires:         R-CRAN-admisc 
 
 %description
-Provides significance controlled variable selection algorithms with
-different directions (forward, backward, stepwise) based on diverse
-criteria (AIC, BIC, adjusted r-square, PRESS, or p-value). The algorithm
-selects a final model with only significant variables defined as those
-with significant p-values after multiple testing correction such as
-Bonferroni, False Discovery Rate, etc.
+A set of functions that offer an alternative to package 'haven', to deal
+with labelled objects with existing values declared as missing.
 
 %prep
 %setup -q -c -n %{packname}

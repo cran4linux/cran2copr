@@ -1,30 +1,30 @@
-%global packname  SignifReg
-%global packver   4.0
+%global packname  rmarchingcubes
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Consistent Significance Controlled Variable Selection in Generalized Linear Regression
+Summary:          Calculate 3D Contour Meshes Using the Marching Cubes Algorithm
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-car 
-Requires:         R-CRAN-car 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.5
 
 %description
-Provides significance controlled variable selection algorithms with
-different directions (forward, backward, stepwise) based on diverse
-criteria (AIC, BIC, adjusted r-square, PRESS, or p-value). The algorithm
-selects a final model with only significant variables defined as those
-with significant p-values after multiple testing correction such as
-Bonferroni, False Discovery Rate, etc.
+A port of the C++ routine for applying the marching cubes algorithm
+written by Thomas Lewiner et al. (2012)
+<doi:10.1080/10867651.2003.10487582> into an R package. The package
+supplies the contour3d() function, which takes a 3-dimensional array of
+voxel data and calculates the vertices, vertex normals, and faces for a 3d
+mesh representing the contour(s) at a given level.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  ggplot2
-%global packver   3.3.3
+%global packver   3.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.3
+Version:          3.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Elegant Data Visualisations Using the Grammar of Graphics
 
@@ -12,12 +12,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-withr >= 2.0.0
 BuildRequires:    R-CRAN-scales >= 0.5.0
-BuildRequires:    R-CRAN-rlang >= 0.3.0
+BuildRequires:    R-CRAN-rlang >= 0.4.10
 BuildRequires:    R-CRAN-gtable >= 0.1.1
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-glue 
@@ -30,7 +30,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-withr >= 2.0.0
 Requires:         R-CRAN-scales >= 0.5.0
-Requires:         R-CRAN-rlang >= 0.3.0
+Requires:         R-CRAN-rlang >= 0.4.10
 Requires:         R-CRAN-gtable >= 0.1.1
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-glue 

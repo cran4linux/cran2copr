@@ -1,29 +1,41 @@
-%global packname  NonCompart
-%global packver   0.4.8
+%global packname  EFA.MRFA
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.8
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Noncompartmental Analysis for Pharmacokinetic Data
+Summary:          Dimensionality Assessment Using Minimum Rank Factor Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-PCovR 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-stats 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-PCovR 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
 
 %description
-Conduct a noncompartmental analysis with industrial strength. Some
-features are 1) Use of CDISC SDTM terms 2) Automatic or manual slope
-selection 3) Supporting both 'linear-up linear-down' and 'linear-up
-log-down' method 4) Interval(partial) AUCs with 'linear' or 'log'
-interpolation method * Reference: Gabrielsson J, Weiner D. Pharmacokinetic
-and Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed.
-2016. (ISBN:9198299107).
+Performs parallel analysis (Timmerman & Lorenzo-Seva, 2011
+<doi:10.1037/a0023353>) and hull method (Lorenzo-Seva, Timmerman, & Kiers,
+2011 <doi:10.1080/00273171.2011.564527>) for assessing the dimensionality
+of a set of variables using minimum rank factor analysis (see ten Berge &
+Kiers, 1991 <doi:10.1007/BF02294464> for more information). The package
+also includes the option to compute minimum rank factor analysis by
+itself, as well as the greater lower bound calculation.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,30 +1,36 @@
-%global packname  SignifReg
-%global packver   4.0
+%global packname  mark
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Consistent Significance Controlled Variable Selection in Generalized Linear Regression
+Summary:          Miscellaneous, Analytic R Kernels
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-car 
-Requires:         R-CRAN-car 
+BuildRequires:    R-methods >= 3.6
+BuildRequires:    R-stats >= 3.6
+BuildRequires:    R-tools >= 3.6
+BuildRequires:    R-utils >= 3.6
+BuildRequires:    R-CRAN-tibble >= 3.0.4
+BuildRequires:    R-CRAN-magrittr >= 2.0.1
+Requires:         R-methods >= 3.6
+Requires:         R-stats >= 3.6
+Requires:         R-tools >= 3.6
+Requires:         R-utils >= 3.6
+Requires:         R-CRAN-tibble >= 3.0.4
+Requires:         R-CRAN-magrittr >= 2.0.1
 
 %description
-Provides significance controlled variable selection algorithms with
-different directions (forward, backward, stepwise) based on diverse
-criteria (AIC, BIC, adjusted r-square, PRESS, or p-value). The algorithm
-selects a final model with only significant variables defined as those
-with significant p-values after multiple testing correction such as
-Bonferroni, False Discovery Rate, etc.
+Miscellaneous functions and wrappers for development in other packages
+created, maintained by Jordan Mark Barbone.
 
 %prep
 %setup -q -c -n %{packname}

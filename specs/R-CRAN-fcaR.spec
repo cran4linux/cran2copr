@@ -1,9 +1,9 @@
 %global packname  fcaR
-%global packver   1.0.7
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Formal Concept Analysis
 
@@ -14,6 +14,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
+BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-fractional 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-Matrix 
@@ -22,9 +23,11 @@ BuildRequires:    R-CRAN-R6
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-registry 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tictoc 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tikzDevice 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-fractional 
 Requires:         R-grDevices 
 Requires:         R-CRAN-Matrix 
@@ -33,9 +36,10 @@ Requires:         R-CRAN-R6
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-registry 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tictoc 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tikzDevice 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
 
 %description
 Provides tools to perform fuzzy formal concept analysis, presented in

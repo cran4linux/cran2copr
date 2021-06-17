@@ -1,9 +1,9 @@
 %global packname  openxlsx
-%global packver   4.2.3
+%global packver   4.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.3
+Version:          4.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read, Write and Edit xlsx Files
 

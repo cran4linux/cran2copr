@@ -1,13 +1,13 @@
-%global packname  SignifReg
-%global packver   4.0
+%global packname  shinytitle
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Consistent Significance Controlled Variable Selection in Generalized Linear Regression
+Summary:          Update Browser Window Title in 'shiny' Session
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,16 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-car 
-Requires:         R-CRAN-car 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-shiny 
 
 %description
-Provides significance controlled variable selection algorithms with
-different directions (forward, backward, stepwise) based on diverse
-criteria (AIC, BIC, adjusted r-square, PRESS, or p-value). The algorithm
-selects a final model with only significant variables defined as those
-with significant p-values after multiple testing correction such as
-Bonferroni, False Discovery Rate, etc.
+Enables the ability to change or flash the title of the browser window
+during a 'shiny' session.
 
 %prep
 %setup -q -c -n %{packname}

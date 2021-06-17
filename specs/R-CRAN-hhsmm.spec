@@ -1,30 +1,30 @@
-%global packname  SignifReg
-%global packver   4.0
+%global packname  hhsmm
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Consistent Significance Controlled Variable Selection in Generalized Linear Regression
+Summary:          Hidden Hybrid Markov/Semi-Markov Model Fitting
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-car 
-Requires:         R-CRAN-car 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Provides significance controlled variable selection algorithms with
-different directions (forward, backward, stepwise) based on diverse
-criteria (AIC, BIC, adjusted r-square, PRESS, or p-value). The algorithm
-selects a final model with only significant variables defined as those
-with significant p-values after multiple testing correction such as
-Bonferroni, False Discovery Rate, etc.
+Develops algorithms for fitting, prediction, simulation and initialization
+of the hidden hybrid Markov/semi-Markov model, introduced by Guedon (2005)
+<doi:10.1016/j.csda.2004.05.033>.
 
 %prep
 %setup -q -c -n %{packname}
