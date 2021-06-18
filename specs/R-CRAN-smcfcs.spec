@@ -1,9 +1,9 @@
 %global packname  smcfcs
-%global packver   1.5.0
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Imputation of Covariates by Substantive Model Compatible Fully Conditional Specification
 
@@ -20,11 +20,15 @@ BuildRequires:    R-CRAN-survival
 BuildRequires:    R-CRAN-VGAM 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-abind 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-VGAM 
 Requires:         R-stats 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-abind 
 
 %description
 Implements multiple imputation of missing covariates by Substantive Model

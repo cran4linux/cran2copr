@@ -1,35 +1,43 @@
-%global packname  diffeqr
-%global packver   1.1.0
+%global packname  XPolaris
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Solving Differential Equations (ODEs, SDEs, DDEs, DAEs)
+Summary:          Retrieving Soil Data from POLARIS
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-JuliaCall 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-JuliaCall 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-An interface to 'DifferentialEquations.jl' <https://diffeq.sciml.ai/dev/>
-from the R programming language. It has unique high performance methods
-for solving ordinary differential equations (ODE), stochastic differential
-equations (SDE), delay differential equations (DDE),
-differential-algebraic equations (DAE), and more. Much of the
-functionality, including features like adaptive time stepping in SDEs, are
-unique and allow for multiple orders of magnitude speedup over more common
-methods. 'diffeqr' attaches an R interface onto the package, allowing
-seamless use of this tooling by R users.
+The POLARIS database <http://hydrology.cee.duke.edu/POLARIS/> is a
+30-meter probabilistic soil series map of the contiguous United States
+(US). It represents an optimization of the Soil Survey Geographic
+database. This R package facilitates the access to large amounts of soil
+data within the US, currently stored online as raster images (TIFF).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,45 @@
-%global packname  mark
-%global packver   0.1.3
+%global packname  gridpattern
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous, Analytic R Kernels
+Summary:          'grid' Pattern Grobs
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-methods >= 3.6
-BuildRequires:    R-stats >= 3.6
-BuildRequires:    R-tools >= 3.6
-BuildRequires:    R-utils >= 3.6
-BuildRequires:    R-CRAN-tibble >= 3.0.4
-BuildRequires:    R-CRAN-magrittr >= 2.0.1
-Requires:         R-methods >= 3.6
-Requires:         R-stats >= 3.6
-Requires:         R-tools >= 3.6
-Requires:         R-utils >= 3.6
-Requires:         R-CRAN-tibble >= 3.0.4
-Requires:         R-CRAN-magrittr >= 2.0.1
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-glue 
+Requires:         R-grDevices 
+Requires:         R-grid 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-utils 
 
 %description
-Miscellaneous functions and wrappers for development in other packages
-created, maintained by Jordan Mark Barbone.
+Provides 'grid' grobs that fill in a user-defined area with various
+patterns.  Includes enhanced versions of the geometric and image-based
+patterns originally contained in the 'ggpattern' package as well as
+original 'pch', 'polygon_tiling', 'regular_polygon', and 'weave' patterns
+plus support for custom user-defined patterns.
 
 %prep
 %setup -q -c -n %{packname}

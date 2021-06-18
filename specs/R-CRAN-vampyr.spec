@@ -1,39 +1,46 @@
-%global packname  ichimoku
-%global packver   0.2.0
+%global packname  vampyr
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualization and Tools for Ichimoku Kinko Hyo Strategies
+Summary:          Factor Analysis Controlling the Effects of Response Bias
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-zoo 
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-EFA.MRFA 
+BuildRequires:    R-CRAN-GPArotation 
+BuildRequires:    R-CRAN-PCovR 
+BuildRequires:    R-CRAN-moments 
+BuildRequires:    R-CRAN-corpcor 
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-fungible 
+BuildRequires:    R-CRAN-semPlot 
+Requires:         R-stats 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-EFA.MRFA 
+Requires:         R-CRAN-GPArotation 
+Requires:         R-CRAN-PCovR 
+Requires:         R-CRAN-moments 
+Requires:         R-CRAN-corpcor 
+Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-fungible 
+Requires:         R-CRAN-semPlot 
 
 %description
-An implementation of 'Ichimoku Kinko Hyo', also commonly known as 'cloud
-charts'. Static and interactive visualizations with tools for creating,
-backtesting and development of quantitative 'ichimoku' strategies. As
-described in Sasaki (1996, ISBN:4925152009), the technique is a refinement
-on candlestick charting originating from Japan, now in widespread use in
-technical analysis worldwide. Translating as 'one-glance equilibrium
-chart', it allows the price action and market structure of financial
-securities to be determined 'at-a-glance'.
+Vampirize the response biases from a dataset! Performs factor analysis
+controlling the effects of social desirability and acquiescence using the
+method described in Ferrando, Lorenzo-Seva & Chico (2009)
+<doi:10.1080/10705510902751374>.
 
 %prep
 %setup -q -c -n %{packname}

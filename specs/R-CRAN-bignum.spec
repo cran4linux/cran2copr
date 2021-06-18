@@ -1,9 +1,9 @@
 %global packname  bignum
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Arbitrary-Precision Integer and Floating-Point Mathematics
 
@@ -15,12 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-vctrs >= 0.3.0
-BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-cpp11 
 Requires:         R-CRAN-vctrs >= 0.3.0
-Requires:         R-CRAN-ellipsis 
 Requires:         R-CRAN-rlang 
 
 %description

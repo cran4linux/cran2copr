@@ -1,13 +1,13 @@
-%global packname  tktdjl2r
-%global packver   0.2.0
+%global packname  visualFields
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface for the 'Julia' 'TKTD' Simulator 'TKTDsimulations.jl'
+Summary:          Statistical Methods for Visual Fields
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,15 +15,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-JuliaCall 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-JuliaCall 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-flip >= 2.1
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-deldir 
+BuildRequires:    R-CRAN-spatstat.geom 
+Requires:         R-CRAN-flip >= 2.1
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-grid 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-deldir 
+Requires:         R-CRAN-spatstat.geom 
 
 %description
-Tools for 'ecotoxicology' dedicated to the simulation of
-'toxicokinetic-toxicodynamic' models. See 'Baudrot' and 'Charles' (2019)
-<doi:10.1038/s41598-019-47698-0>.
+A collection of tools for analyzing the field of vision. It provides a
+framework for development and use of innovative methods for visualization,
+statistical analysis, and clinical interpretation of visual-field loss and
+its change over time. It is intended to be a tool for collaborative
+research.
 
 %prep
 %setup -q -c -n %{packname}

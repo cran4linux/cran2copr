@@ -1,33 +1,39 @@
-%global packname  KODAMA
-%global packver   1.6
+%global packname  h3jsr
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Knowledge Discovery by Accuracy Maximization
+Summary:          Access Uber's H3 Library
 
-License:          GPL (>= 2)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.4
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.4
-Requires:         R-stats 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-geojsonsf 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-V8 
+Requires:         R-CRAN-geojsonsf 
+Requires:         R-methods 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-V8 
 
 %description
-An unsupervised and semi-supervised learning algorithm that performs
-feature extraction from noisy and high-dimensional data. It facilitates
-identification of patterns representing underlying groups on all samples
-in a data set. Based on Cacciatore S, Tenori L, Luchinat C, Bennett PR,
-MacIntyre DA. (2017) Bioinformatics <doi:10.1093/bioinformatics/btw705>
-and Cacciatore S, Luchinat C, Tenori L. (2014) Proc Natl Acad Sci USA
-<doi:10.1073/pnas.1220873111>.
+Provides access to Uber's H3 library for geospatial indexing via its
+JavaScript transpile 'h3-js' <https://github.com/uber/h3-js> and 'V8'
+<https://github.com/jeroen/v8>.
 
 %prep
 %setup -q -c -n %{packname}

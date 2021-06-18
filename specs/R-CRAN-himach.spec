@@ -1,9 +1,9 @@
 %global packname  himach
-%global packver   0.1.2
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Mach Finds Routes for Supersonic Aircraft
 
@@ -39,9 +39,9 @@ Requires:         R-CRAN-tidyr
 %description
 For supersonic aircraft, flying subsonic over land, High Mach finds the
 best route between airports. Allows for coastal buffer and potentially
-closed regions. Uses minimal model of aircraft performance: focus is on
-time saved versus subsonic flight, rather than vertical flight profile.
-For modelling and forecasting, not for planning your flight!
+closed regions. Uses a minimal model of aircraft performance: the focus is
+on time saved versus subsonic flight, rather than on vertical flight
+profile. For modelling and forecasting, not for planning your flight!
 
 %prep
 %setup -q -c -n %{packname}

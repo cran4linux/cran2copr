@@ -1,39 +1,49 @@
-%global packname  ichimoku
-%global packver   0.2.0
+%global packname  mshap
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualization and Tools for Ichimoku Kinko Hyo Strategies
+Summary:          Multiplicative SHAP Values for Two-Part Models
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-dplyr >= 1.0.4
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-ggbeeswarm 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-dplyr >= 1.0.4
+Requires:         R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-ggbeeswarm 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-An implementation of 'Ichimoku Kinko Hyo', also commonly known as 'cloud
-charts'. Static and interactive visualizations with tools for creating,
-backtesting and development of quantitative 'ichimoku' strategies. As
-described in Sasaki (1996, ISBN:4925152009), the technique is a refinement
-on candlestick charting originating from Japan, now in widespread use in
-technical analysis worldwide. Translating as 'one-glance equilibrium
-chart', it allows the price action and market structure of financial
-securities to be determined 'at-a-glance'.
+Allows for the computation of mSHAP values on two-part models as proposed
+by Matthews, S. and Hartman, B. (2021) <arXiv:2106.08990>. Also contains
+functions for simple plotting of the results (or any SHAP values). For
+information about the TreeSHAP algorithm that mSHAP builds on, see
+Lundberg, S.M., Erion, G., Chen, H., DeGrave, A., Prutkin, J.M., Nair, B.,
+Katz, R., Himmelfarb, J., Bansal, N., Lee, S.I. (2020)
+<doi:10.1038/s42256-019-0138-9>.
 
 %prep
 %setup -q -c -n %{packname}

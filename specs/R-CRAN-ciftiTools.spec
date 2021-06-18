@@ -1,9 +1,9 @@
 %global packname  ciftiTools
-%global packver   0.2.2
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Reading and Visualizing CIFTI Brain Files
 

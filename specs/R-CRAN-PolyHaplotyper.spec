@@ -1,9 +1,9 @@
 %global packname  PolyHaplotyper
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assignment of Haplotypes Based on SNP Dosages in Diploids and Polyploids
 
@@ -21,7 +21,9 @@ Requires:         R-CRAN-XML
 %description
 Infer the genetic composition of individuals in terms of haplotype dosages
 for a haploblock, based on bi-allelic marker dosages, for any ploidy
-level.
+level. Reference: Voorrips and Tumino: PolyHaplotyper: haplotyping in
+polyploids based on bi-allelic marker dosage data. Submitted to BMC
+Bioinformatics (2021).
 
 %prep
 %setup -q -c -n %{packname}

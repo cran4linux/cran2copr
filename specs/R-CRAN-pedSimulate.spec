@@ -1,9 +1,9 @@
 %global packname  pedSimulate
-%global packver   0.1.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pedigree, Genetic Merit and Phenotype Simulation
 
@@ -17,9 +17,9 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Simulate pedigree, genetic merits and phenotypes with (non)random mating
-followed by (non)random selection with different patterns in males and
-females. Bijma, P. & Rutten, M. (2002)
+Simulate pedigree, genetic merits and phenotypes with random/non-random
+matings followed by random/non-random selection with different intensities
+and patterns in males and females. Bijma, P. & Rutten, M. (2002)
 <https://www.wur.nl/en/Research-Results/Chair-groups/Animal-Sciences/Animal-Breeding-and-Genomics-Group/Research/Software.htm>.
 
 %prep

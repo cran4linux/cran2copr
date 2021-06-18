@@ -1,40 +1,42 @@
-%global packname  vdiffr
-%global packver   1.0.1
+%global packname  rayvertex
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visual Regression Testing and Graphical Diffing
+Summary:          3D Software Rasterizer
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-testthat >= 3.0.3
-BuildRequires:    R-CRAN-xml2 >= 1.0.0
-BuildRequires:    R-CRAN-diffobj 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.6
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-testthat >= 3.0.3
-Requires:         R-CRAN-xml2 >= 1.0.0
-Requires:         R-CRAN-diffobj 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-CRAN-rayimage 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-spacefillr 
+BuildRequires:    R-CRAN-RcppThread 
+Requires:         R-CRAN-Rcpp >= 1.0.6
+Requires:         R-CRAN-magrittr 
 Requires:         R-grDevices 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rayimage 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-digest 
 
 %description
-An extension to the 'testthat' package that makes it easy to add graphical
-unit tests. It provides a Shiny application to manage the test cases.
+Rasterize images using a 3D software renderer. 3D scenes are created
+either by importing external files, building scenes out of the included
+objects, or by constructing meshes manually. Supports point and
+directional lights, anti-aliased lines, shadow mapping, transparent
+objects, translucent objects, multiple materials types, reflection,
+refraction, environment maps, multicore rendering, bloom, tone-mapping,
+and screen-space ambient occlusion.
 
 %prep
 %setup -q -c -n %{packname}

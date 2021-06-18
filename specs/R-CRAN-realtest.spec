@@ -1,9 +1,9 @@
 %global packname  realtest
-%global packver   0.1.2
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          When Expectations Meet Reality: Realistic Unit Testing
 
@@ -21,8 +21,8 @@ Requires:         R-utils
 %description
 A framework for unit testing for realistic minimalists, where we
 distinguish between expected, acceptable, current, fallback, ideal, or
-regressive behaviour. It can also be used for monitoring other software
-projects for changes.
+regressive behaviour. It can also be used for monitoring third-party
+software projects for changes.
 
 %prep
 %setup -q -c -n %{packname}

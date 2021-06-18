@@ -1,9 +1,9 @@
 %global packname  ade4
-%global packver   1.7-16
+%global packver   1.7-17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.16
+Version:          1.7.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Ecological Data: Exploratory and Euclidean Methods in Environmental Sciences
 
@@ -22,7 +22,6 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-pixmap 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-progress 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-methods 
@@ -31,7 +30,6 @@ Requires:         R-utils
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-pixmap 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-progress 
 
 %description
 Tools for multivariate data analysis. Several methods are provided for the
