@@ -1,38 +1,32 @@
-%global packname  powerEQTL
-%global packver   0.3.3
+%global packname  UnitStat
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power and Sample Size Calculation for Bulk Tissue and Single-Cell eQTL Analysis
+Summary:          Performs Unit Root Test Statistics
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-GLMMadaptive 
-BuildRequires:    R-CRAN-glmmTMB 
-BuildRequires:    R-parallel 
-Requires:         R-stats 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-GLMMadaptive 
-Requires:         R-CRAN-glmmTMB 
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-lmtest 
+Requires:         R-CRAN-lmtest 
 
 %description
-Power and sample size calculation for bulk tissue and single-cell eQTL
-analysis based on ANOVA, simple linear regression, or linear mixed effects
-model. It can also calculate power/sample size for testing the association
-of a SNP to a continuous type phenotype. Please see the reference: Dong X,
-Li X, Chang T-W, Scherzer CR, Weiss ST, Qiu W. (2021)
-<doi:10.1093/bioinformatics/btab385>.
+A test to understand the stability of the underlying stochastic data.
+Helps the user’s understand whether the random variable under
+consideration is stationary or non-stationary without any manual
+interpretation of the results. It further ensures to check all the
+prerequisites and assumptions which are underlying the unit root test
+statistics and if the underlying data is found to be non-stationary in all
+the 4 lags the function diagnoses the input data and returns with an
+optimised solution on the same.
 
 %prep
 %setup -q -c -n %{packname}

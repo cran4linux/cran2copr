@@ -1,38 +1,38 @@
-%global packname  powerEQTL
-%global packver   0.3.3
+%global packname  ClusPred
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power and Sample Size Calculation for Bulk Tissue and Single-Cell eQTL Analysis
+Summary:          Simultaneous Semi-Parametric Estimation of Clustering and Regression
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-GLMMadaptive 
-BuildRequires:    R-CRAN-glmmTMB 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-parallel 
-Requires:         R-stats 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-GLMMadaptive 
-Requires:         R-CRAN-glmmTMB 
+BuildRequires:    R-CRAN-ALDqr 
+BuildRequires:    R-CRAN-ald 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-parallel 
+Requires:         R-CRAN-ALDqr 
+Requires:         R-CRAN-ald 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-VGAM 
 
 %description
-Power and sample size calculation for bulk tissue and single-cell eQTL
-analysis based on ANOVA, simple linear regression, or linear mixed effects
-model. It can also calculate power/sample size for testing the association
-of a SNP to a continuous type phenotype. Please see the reference: Dong X,
-Li X, Chang T-W, Scherzer CR, Weiss ST, Qiu W. (2021)
-<doi:10.1093/bioinformatics/btab385>.
+Parameter estimation of regression models with fixed group effects, when
+the group variable is missing while group-related variables are available.
+Parametric and semi-parametric approaches described in Marbac et al.
+(2020) <arXiv:2012.14159> are implemented.
 
 %prep
 %setup -q -c -n %{packname}

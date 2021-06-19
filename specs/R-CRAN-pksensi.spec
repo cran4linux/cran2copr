@@ -1,11 +1,11 @@
 %global packname  pksensi
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
-Release:          2%{?dist}%{?buildtag}
-Summary:          Global Sensitivity Analysis in Physiologically Based KineticModeling
+Version:          1.2.1
+Release:          1%{?dist}%{?buildtag}
+Summary:          Global Sensitivity Analysis in Physiologically Based Kinetic Modeling
 
 License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -42,12 +42,20 @@ parameter uncertainty and sensitivity in physiologically based kinetic
 (PK) models, especially the physiologically based
 pharmacokinetic/toxicokinetic model with multivariate outputs. The package
 also provides some functions to check the convergence and sensitivity of
-model parameters (Hsieh et al., 2018 <doi:10.3389/fphar.2018.00588>).
+model parameters. The workflow was first mentioned in Hsieh et al., (2018)
+<doi:10.3389/fphar.2018.00588>, then further refined (Hsieh et al., 2020
+<doi:10.1016/j.softx.2020.100609>).
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -55,21 +63,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/models
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

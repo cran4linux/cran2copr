@@ -1,9 +1,9 @@
 %global packname  medfate
-%global packver   2.2.1
+%global packver   2.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mediterranean Forest Simulation
 
@@ -16,20 +16,10 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.6
 BuildRequires:    R-CRAN-meteoland >= 0.8.1
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-Rcpp >= 1.0.6
 Requires:         R-CRAN-meteoland >= 0.8.1
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-spdep 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
 
 %description
 Functions to simulate Mediterranean forest functioning and dynamics using

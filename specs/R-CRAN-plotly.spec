@@ -1,9 +1,9 @@
 %global packname  plotly
-%global packver   4.9.4
+%global packver   4.9.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.9.4
+Version:          4.9.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Interactive Web Graphics via 'plotly.js'
 
@@ -19,6 +19,7 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-jsonlite >= 1.6
 BuildRequires:    R-CRAN-htmlwidgets >= 1.5.2.9001
 BuildRequires:    R-CRAN-httr >= 1.3.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.10
 BuildRequires:    R-CRAN-htmltools >= 0.3.6
 BuildRequires:    R-CRAN-lazyeval >= 0.2.0
@@ -28,7 +29,6 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-vctrs 
@@ -41,6 +41,7 @@ Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-jsonlite >= 1.6
 Requires:         R-CRAN-htmlwidgets >= 1.5.2.9001
 Requires:         R-CRAN-httr >= 1.3.0
+Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.10
 Requires:         R-CRAN-htmltools >= 0.3.6
 Requires:         R-CRAN-lazyeval >= 0.2.0
@@ -50,7 +51,6 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-viridisLite 
 Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-vctrs 

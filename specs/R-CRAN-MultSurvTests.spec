@@ -1,45 +1,28 @@
-%global packname  Rforestry
-%global packver   0.9.0.40
+%global packname  MultSurvTests
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0.40
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Random Forests, Linear Trees, and Gradient Boosting for Inference and Interpretability
+Summary:          Permutation Tests for Multivariate Survival Analysis
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rcpp >= 0.12.9
-BuildRequires:    R-parallel 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-visNetwork 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-onehot 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppThread 
 Requires:         R-CRAN-Rcpp >= 0.12.9
-Requires:         R-parallel 
-Requires:         R-methods 
-Requires:         R-CRAN-visNetwork 
-Requires:         R-CRAN-glmnet 
-Requires:         R-grDevices 
-Requires:         R-CRAN-onehot 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Provides fast implementations of Honest Random Forests, Gradient Boosting,
-and Linear Random Forests, with an emphasis on inference and
-interpretability. Additionally contains methods for variable importance,
-out-of-bag prediction, regression monotonicity, and several methods for
-missing data imputation. Soren R. Kunzel, Theo F. Saarinen, Edward W. Liu,
-Jasjeet S. Sekhon (2019) <arXiv:1906.06463>.
+Multivariate version of the two-sample Gehan and logrank tests, as
+described in L.J Wei & J.M Lachin (1984) and Persson et al. (2019).
 
 %prep
 %setup -q -c -n %{packname}

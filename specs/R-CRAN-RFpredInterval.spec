@@ -1,38 +1,39 @@
-%global packname  powerEQTL
-%global packver   0.3.3
+%global packname  RFpredInterval
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power and Sample Size Calculation for Bulk Tissue and Single-Cell eQTL Analysis
+Summary:          Prediction Intervals with Random Forests and Boosted Forests
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-GLMMadaptive 
-BuildRequires:    R-CRAN-glmmTMB 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-hdrcde 
 BuildRequires:    R-parallel 
-Requires:         R-stats 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-GLMMadaptive 
-Requires:         R-CRAN-glmmTMB 
+BuildRequires:    R-CRAN-data.tree 
+BuildRequires:    R-CRAN-DiagrammeR 
+Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-hdrcde 
 Requires:         R-parallel 
+Requires:         R-CRAN-data.tree 
+Requires:         R-CRAN-DiagrammeR 
 
 %description
-Power and sample size calculation for bulk tissue and single-cell eQTL
-analysis based on ANOVA, simple linear regression, or linear mixed effects
-model. It can also calculate power/sample size for testing the association
-of a SNP to a continuous type phenotype. Please see the reference: Dong X,
-Li X, Chang T-W, Scherzer CR, Weiss ST, Qiu W. (2021)
-<doi:10.1093/bioinformatics/btab385>.
+Implements various prediction interval methods with random forests and
+boosted forests. The package has two main functions: pibf() produces
+prediction intervals with boosted forests (PIBF) as described in Alakus et
+al. (2021) <arXiv:2106.08217> and rfpi() builds 15 distinct variations of
+prediction intervals with random forests (RFPI) proposed by Roy and
+Larocque (2020) <doi:10.1177/0962280219829885>.
 
 %prep
 %setup -q -c -n %{packname}

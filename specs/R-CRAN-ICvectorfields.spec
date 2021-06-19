@@ -1,38 +1,37 @@
-%global packname  powerEQTL
-%global packver   0.3.3
+%global packname  ICvectorfields
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power and Sample Size Calculation for Bulk Tissue and Single-Cell eQTL Analysis
+Summary:          Vector Fields from Spatial Time Series of Population Abundance
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-GLMMadaptive 
-BuildRequires:    R-CRAN-glmmTMB 
-BuildRequires:    R-parallel 
-Requires:         R-stats 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-GLMMadaptive 
-Requires:         R-CRAN-glmmTMB 
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-fftw 
+BuildRequires:    R-CRAN-fftwtools 
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-fftw 
+Requires:         R-CRAN-fftwtools 
+Requires:         R-CRAN-terra 
 
 %description
-Power and sample size calculation for bulk tissue and single-cell eQTL
-analysis based on ANOVA, simple linear regression, or linear mixed effects
-model. It can also calculate power/sample size for testing the association
-of a SNP to a continuous type phenotype. Please see the reference: Dong X,
-Li X, Chang T-W, Scherzer CR, Weiss ST, Qiu W. (2021)
-<doi:10.1093/bioinformatics/btab385>.
+Functions for converting time series of spatial abundance or density data
+in raster format to vector fields of population movement using the digital
+image correlation technique. More specifically, the functions in the
+package compute cross-covariance using discrete fast Fourier transforms
+for computational efficiency. Vectors in vector fields point in the
+direction of highest two dimensional cross-covariance. The package has a
+novel implementation of the digital image correlation algorithm that is
+designed to detect persistent directional movement when image time series
+extend beyond a sequence of two raster images.
 
 %prep
 %setup -q -c -n %{packname}

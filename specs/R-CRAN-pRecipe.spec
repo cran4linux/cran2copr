@@ -1,9 +1,9 @@
 %global packname  pRecipe
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Multiscale Framework for Data Analysis of Global Precipitation
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-gdalUtils 
@@ -34,6 +35,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gdalUtils 

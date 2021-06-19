@@ -1,9 +1,9 @@
 %global packname  disaggR
-%global packver   0.2.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Two-Steps Benchmarks for Time Series Disaggregation
 
@@ -16,15 +16,21 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.5.0
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-shiny >= 1.5.0
-Requires:         R-methods 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
+Requires:         R-methods 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-scales 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 The twoStepsBenchmark() and threeRuleSmooth() functions allow you to
