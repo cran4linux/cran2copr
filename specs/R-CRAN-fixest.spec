@@ -1,9 +1,9 @@
 %global packname  fixest
-%global packver   0.8.4
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Fixed-Effects Estimations
 
@@ -12,8 +12,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-dreamerr >= 1.2.3
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 

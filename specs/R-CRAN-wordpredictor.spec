@@ -1,9 +1,9 @@
 %global packname  wordpredictor
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Develop Text Prediction Models Based on N-Grams
 
@@ -17,20 +17,16 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-SnowballC 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-R6 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-SnowballC 
-Requires:         R-utils 
 
 %description
 A framework for developing n-gram models for text prediction. It provides

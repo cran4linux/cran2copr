@@ -1,9 +1,9 @@
 %global packname  lightr
-%global packver   1.4
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read Spectrometric Data and Metadata
 

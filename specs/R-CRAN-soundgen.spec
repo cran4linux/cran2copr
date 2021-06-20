@@ -1,9 +1,9 @@
 %global packname  soundgen
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sound Synthesis and Acoustic Analysis
 
@@ -15,9 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
+BuildRequires:    R-stats >= 4.0.0
 BuildRequires:    R-CRAN-seewave >= 2.1.6
 BuildRequires:    R-CRAN-shinyBS 
-BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-tuneR 
@@ -29,9 +29,9 @@ BuildRequires:    R-CRAN-phonTools
 BuildRequires:    R-CRAN-signal 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyjs 
+Requires:         R-stats >= 4.0.0
 Requires:         R-CRAN-seewave >= 2.1.6
 Requires:         R-CRAN-shinyBS 
-Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-utils 
 Requires:         R-CRAN-tuneR 

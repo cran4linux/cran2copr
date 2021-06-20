@@ -1,9 +1,9 @@
 %global packname  movecost
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculation of Slope-Dependant Accumulated Cost Surface, Least-Cost Paths, and Least-Cost Corridors Related to Human Movement Across the Landscape
 
