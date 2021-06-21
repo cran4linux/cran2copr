@@ -1,9 +1,9 @@
 %global packname  confreq
-%global packver   1.5.5-2
+%global packver   1.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.5.2
+Version:          1.5.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Configural Frequencies Analysis Using Log-Linear Modeling
 
@@ -12,15 +12,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.1
-Requires:         R-core >= 2.10.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-gmp 
 BuildRequires:    R-methods 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-vcd 
 Requires:         R-stats 
 Requires:         R-CRAN-gmp 
 Requires:         R-methods 
+Requires:         R-grid 
+Requires:         R-CRAN-vcd 
 
 %description
 Offers several functions for Configural Frequencies Analysis (CFA), which

@@ -1,9 +1,9 @@
 %global packname  fwildclusterboot
-%global packver   0.3.4
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Wild Cluster Bootstrap Inference for Linear Regression Models
 

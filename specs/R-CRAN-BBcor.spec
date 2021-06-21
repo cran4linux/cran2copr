@@ -1,9 +1,9 @@
 %global packname  BBcor
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Bootstrapping Correlations
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.4
 BuildRequires:    R-CRAN-psych >= 1.9.12.31
 BuildRequires:    R-CRAN-pbapply >= 1.4.2
 BuildRequires:    R-CRAN-bayeslincom >= 1.1.0
@@ -23,6 +24,8 @@ BuildRequires:    R-parallel
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-ggplot2 >= 3.3.4
 Requires:         R-CRAN-psych >= 1.9.12.31
 Requires:         R-CRAN-pbapply >= 1.4.2
 Requires:         R-CRAN-bayeslincom >= 1.1.0
@@ -31,6 +34,7 @@ Requires:         R-parallel
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-methods 
+Requires:         R-CRAN-Rdpack 
 
 %description
 Efficiently draw samples from the posterior distribution of various

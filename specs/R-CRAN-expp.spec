@@ -1,34 +1,42 @@
-%global packname  RWmisc
-%global packver   0.1.1
+%global packname  expp
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Spatial Functions
+Summary:          Spatial Analysis of Extra-Pair Paternity
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-units 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-CRAN-deldir 
+BuildRequires:    R-CRAN-spatstat.geom 
+Requires:         R-graphics 
+Requires:         R-methods 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-units 
+Requires:         R-stats 
+Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-rgeos 
+Requires:         R-CRAN-deldir 
+Requires:         R-CRAN-spatstat.geom 
 
 %description
-Contains convenience functions for working with spatial data across
-multiple UTM zones, raster-vector operations common in the analysis of
-conflict data, and converting degrees, minutes, and seconds latitude and
-longitude coordinates to decimal degrees.
+Tools and data to accompany Schlicht, L., Valcu, M., & Kempenaers, B.
+(2015) <doi:10.1111/1365-2656.12293>. Spatial patterns of extra-pair
+paternity: beyond paternity gains and losses. Journal of Animal Ecology,
+84(2), 518-531.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  lazytrade
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Learn Computer and Data Science using Algorithmic Trading
 
@@ -18,6 +18,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
@@ -30,6 +31,7 @@ BuildRequires:    R-CRAN-lifecycle
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
