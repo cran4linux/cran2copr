@@ -1,9 +1,9 @@
 %global packname  bruceR
-%global packver   0.7.0
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Broadly Useful Convenient and Efficient R Functions
 
@@ -17,30 +17,22 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-pacman 
 BuildRequires:    R-CRAN-jmv 
-BuildRequires:    R-CRAN-mediation 
-BuildRequires:    R-CRAN-interactions 
-BuildRequires:    R-CRAN-MuMIn 
 BuildRequires:    R-CRAN-performance 
-BuildRequires:    R-CRAN-texreg 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-see 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-see 
 Requires:         R-CRAN-pacman 
 Requires:         R-CRAN-jmv 
-Requires:         R-CRAN-mediation 
-Requires:         R-CRAN-interactions 
-Requires:         R-CRAN-MuMIn 
 Requires:         R-CRAN-performance 
-Requires:         R-CRAN-texreg 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-see 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggtext 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-see 
 
 %description
 Broadly useful convenient and efficient R functions that bring users

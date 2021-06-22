@@ -1,9 +1,9 @@
 %global packname  GGally
-%global packver   2.1.1
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extension to 'ggplot2'
 
@@ -16,7 +16,7 @@ BuildRequires:    openssl-devel
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.4
 BuildRequires:    R-CRAN-plyr >= 1.8.3
 BuildRequires:    R-CRAN-scales >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
@@ -31,7 +31,7 @@ BuildRequires:    R-CRAN-RColorBrewer
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-ggplot2 >= 3.3.4
 Requires:         R-CRAN-plyr >= 1.8.3
 Requires:         R-CRAN-scales >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.0

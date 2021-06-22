@@ -1,39 +1,45 @@
-%global packname  geomnet
-%global packver   0.3.1
+%global packname  tidyestimate
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Network Visualization in the 'ggplot2' Framework
+Summary:          A Tidy Implementation of 'ESTIMATE'
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-CRAN-sna 
-BuildRequires:    R-CRAN-network 
+BuildRequires:    R-utils 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-plotly 
-Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-sna 
-Requires:         R-CRAN-network 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-utils 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-plotly 
+Requires:         R-stats 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Network visualization in the 'ggplot2' framework. Network functionality is
-provided in a single 'ggplot2' layer by calling the geom 'net'. Layouts
-are calculated using the 'sna' package, example networks are included.
+The 'ESTIMATE' package infers tumor purity from expression data as a
+function of immune and stromal infiltrate, but requires writing of
+intermediate files, is un-pipeable, and performs poorly when presented
+with modern datasets with current gene symbols. 'tidyestimate' a fast,
+tidy, modern reimagination of 'ESTIMATE' (2013) <doi:10.1038/ncomms3612>.
 
 %prep
 %setup -q -c -n %{packname}

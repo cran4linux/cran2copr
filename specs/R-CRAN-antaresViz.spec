@@ -1,9 +1,9 @@
 %global packname  antaresViz
-%global packver   0.15.4
+%global packver   0.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.4
+Version:          0.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Antares Visualizations
 
@@ -16,7 +16,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-plotly >= 4.5.6
-BuildRequires:    R-CRAN-antaresRead >= 2.0.0
+BuildRequires:    R-CRAN-antaresRead >= 2.2.7
 BuildRequires:    R-CRAN-dygraphs >= 1.1.1.6
 BuildRequires:    R-CRAN-leaflet >= 1.1.0
 BuildRequires:    R-CRAN-htmlwidgets >= 0.7.0
@@ -40,7 +40,7 @@ BuildRequires:    R-CRAN-assertthat
 BuildRequires:    R-CRAN-rAmCharts 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-plotly >= 4.5.6
-Requires:         R-CRAN-antaresRead >= 2.0.0
+Requires:         R-CRAN-antaresRead >= 2.2.7
 Requires:         R-CRAN-dygraphs >= 1.1.1.6
 Requires:         R-CRAN-leaflet >= 1.1.0
 Requires:         R-CRAN-htmlwidgets >= 0.7.0

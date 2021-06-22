@@ -1,9 +1,9 @@
 %global packname  DTwrappers
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplified Data Analysis with Wrapper Functions for the 'Data.Table' Package
 

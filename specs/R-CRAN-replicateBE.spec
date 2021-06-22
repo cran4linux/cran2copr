@@ -1,9 +1,9 @@
 %global packname  replicateBE
-%global packver   1.0.17
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.17
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Average Bioequivalence with Expanding Limits (ABEL)
 
@@ -15,14 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-PowerTOST >= 1.3.3
+BuildRequires:    R-CRAN-PowerTOST >= 1.5.3
 BuildRequires:    R-CRAN-readxl >= 1.0.0
 BuildRequires:    R-CRAN-lmerTest 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-pbkrtest 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-PowerTOST >= 1.3.3
+Requires:         R-CRAN-PowerTOST >= 1.5.3
 Requires:         R-CRAN-readxl >= 1.0.0
 Requires:         R-CRAN-lmerTest 
 Requires:         R-CRAN-nlme 

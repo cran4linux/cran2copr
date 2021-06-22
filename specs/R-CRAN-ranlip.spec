@@ -1,36 +1,26 @@
-%global packname  stagedtrees
-%global packver   2.2.0
+%global packname  ranlip
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Staged Event Trees
+Summary:          Generation of Random Vectors with User-Defined Density
 
-License:          MIT + file LICENSE
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-Rcpp >= 1.0.0
 
 %description
-Creates and fits staged event tree probability models, which are
-probabilistic graphical models capable of representing asymmetric
-conditional independence statements for categorical variables. Includes
-functions to create, plot and fit staged event trees from data, as well as
-many efficient structure learning algorithms. References: Collazo R. A.,
-Görgen C. and Smith J. Q. (2018, ISBN:9781498729604). Görgen C., Bigatti
-A., Riccomagno E. and Smith J. Q. (2018) <arXiv:1705.09457>. Thwaites P.
-A., Smith, J. Q. (2017) <arXiv:1510.00186>. Barclay L. M., Hutton J. L.
-and Smith J. Q. (2013) <doi:10.1016/j.ijar.2013.05.006>. Smith J. Q. and
-Anderson P. E. (2008) <doi:10.1016/j.artint.2007.05.004>.
+Random vectors with arbitrary Lipschitz density are generated using
+acceptance/ rejection. The method is based on G. Beliakov (2005)
+<doi:10.1016/j.cpc.2005.03.105>.
 
 %prep
 %setup -q -c -n %{packname}

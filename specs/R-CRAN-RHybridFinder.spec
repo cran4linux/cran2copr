@@ -1,36 +1,37 @@
-%global packname  stagedtrees
-%global packver   2.2.0
+%global packname  RHybridFinder
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Staged Event Trees
+Summary:          Identification of Hybrid Peptides in Immunopeptidomic Analyses
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-seqinr 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-seqinr 
 
 %description
-Creates and fits staged event tree probability models, which are
-probabilistic graphical models capable of representing asymmetric
-conditional independence statements for categorical variables. Includes
-functions to create, plot and fit staged event trees from data, as well as
-many efficient structure learning algorithms. References: Collazo R. A.,
-Görgen C. and Smith J. Q. (2018, ISBN:9781498729604). Görgen C., Bigatti
-A., Riccomagno E. and Smith J. Q. (2018) <arXiv:1705.09457>. Thwaites P.
-A., Smith, J. Q. (2017) <arXiv:1510.00186>. Barclay L. M., Hutton J. L.
-and Smith J. Q. (2013) <doi:10.1016/j.ijar.2013.05.006>. Smith J. Q. and
-Anderson P. E. (2008) <doi:10.1016/j.artint.2007.05.004>.
+Tool for the analysis Mass Spectrometry (MS) data in the context of
+immunopeptidomic analysis for the identification of hybrid peptides and
+the predictions of binding affinity of all peptides using 'netMHCpan'
+<doi:10.1093/nar/gkaa379> while providing a summary of the netMHCpan
+output. 'RHybridFinder' (RHF) is destined for researchers who are looking
+to analyze their MS data for the purpose of identification of potential
+spliced peptides. This package, developed mainly in base R, is based on
+the workflow published by Faridi et al. in 2018
+<doi:10.1126/sciimmunol.aar3947>.
 
 %prep
 %setup -q -c -n %{packname}

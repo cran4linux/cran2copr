@@ -1,49 +1,44 @@
-%global packname  peacesciencer
-%global packver   0.5.0
+%global packname  cropgrowdays
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Various Tools and Data for Quantitative Peace Science
+Summary:          Crop Growing Degree Days and Agrometeorological Calculations
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stevemisc >= 1.1.0
-BuildRequires:    R-CRAN-bib2df 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-stevemisc >= 1.1.0
-Requires:         R-CRAN-bib2df 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-purrrlyr 
+BuildRequires:    R-CRAN-httr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-purrrlyr 
+Requires:         R-CRAN-httr 
 
 %description
-These are useful tools and data sets for the study of quantitative peace
-science. The goal for this package is to include tools and data sets for
-doing original research that mimics well what a user would have to
-previously get from a software package that may not be well-sourced or
-well-supported. Those software bundles were useful the extent to which
-they encourage replications of long-standing analyses by starting the
-data-generating process from scratch. However, a lot of the functionality
-can be done relatively quickly and more transparently in the R programming
-language.
+Calculate agrometeorological variables for crops including growing degree
+days (McMaster, GS & Wilhelm, WW (1997)
+<doi:10.1016/S0168-1923(97)00027-0>), cumulative rainfall, number of
+stress days and cumulative or mean radiation and evaporation. Convert
+dates to day of year and vice versa. Also, download curated and
+interpolated Australian weather data from the Queensland Government DES
+longpaddock website <https://www.longpaddock.qld.gov.au/>. This data is
+freely available under the Creative Commons 4.0 licence.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
-%global packname  stagedtrees
-%global packver   2.2.0
+%global packname  antaresEditObject
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Staged Event Trees
+Summary:          Edit an 'Antares' Simulation
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2) | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,22 +15,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-antaresRead >= 2.2.7
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-whisker 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-antaresRead >= 2.2.7
+Requires:         R-CRAN-assertthat 
+Requires:         R-grDevices 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-whisker 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-pbapply 
+Requires:         R-parallel 
 
 %description
-Creates and fits staged event tree probability models, which are
-probabilistic graphical models capable of representing asymmetric
-conditional independence statements for categorical variables. Includes
-functions to create, plot and fit staged event trees from data, as well as
-many efficient structure learning algorithms. References: Collazo R. A.,
-Görgen C. and Smith J. Q. (2018, ISBN:9781498729604). Görgen C., Bigatti
-A., Riccomagno E. and Smith J. Q. (2018) <arXiv:1705.09457>. Thwaites P.
-A., Smith, J. Q. (2017) <arXiv:1510.00186>. Barclay L. M., Hutton J. L.
-and Smith J. Q. (2013) <doi:10.1016/j.ijar.2013.05.006>. Smith J. Q. and
-Anderson P. E. (2008) <doi:10.1016/j.artint.2007.05.004>.
+Edit an 'Antares' simulation before running it : create new areas, links,
+thermal clusters or binding constraints or edit existing ones. Update
+'Antares' general & optimization settings. 'Antares' is an open source
+power system generator, more information available here :
+<https://antares-simulator.org/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,9 +1,9 @@
 %global packname  PAMpal
-%global packver   0.9.14
+%global packver   0.13.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.14
+Version:          0.13.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Load and Process Passive Acoustic Data
 

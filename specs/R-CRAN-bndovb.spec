@@ -1,36 +1,40 @@
-%global packname  stagedtrees
-%global packver   2.2.0
+%global packname  bndovb
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Staged Event Trees
+Summary:          Bounding Omitted Variable Bias Using Auxiliary Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-np 
+BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-factormodel 
+BuildRequires:    R-CRAN-nnet 
+Requires:         R-CRAN-np 
+Requires:         R-CRAN-pracma 
 Requires:         R-stats 
-Requires:         R-graphics 
+Requires:         R-utils 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-factormodel 
+Requires:         R-CRAN-nnet 
 
 %description
-Creates and fits staged event tree probability models, which are
-probabilistic graphical models capable of representing asymmetric
-conditional independence statements for categorical variables. Includes
-functions to create, plot and fit staged event trees from data, as well as
-many efficient structure learning algorithms. References: Collazo R. A.,
-Görgen C. and Smith J. Q. (2018, ISBN:9781498729604). Görgen C., Bigatti
-A., Riccomagno E. and Smith J. Q. (2018) <arXiv:1705.09457>. Thwaites P.
-A., Smith, J. Q. (2017) <arXiv:1510.00186>. Barclay L. M., Hutton J. L.
-and Smith J. Q. (2013) <doi:10.1016/j.ijar.2013.05.006>. Smith J. Q. and
-Anderson P. E. (2008) <doi:10.1016/j.artint.2007.05.004>.
+Functions to implement a Hwang(2021) <doi:10.2139/ssrn.3866876> estimator,
+which bounds an omitted variable bias using auxiliary data.
 
 %prep
 %setup -q -c -n %{packname}

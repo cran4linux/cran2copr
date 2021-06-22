@@ -1,13 +1,13 @@
-%global packname  regions
-%global packver   0.1.8
+%global packname  usdc
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Processing Regional Statistics
+Summary:          USDC and Centre Stablecoin Blockchain Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -15,42 +15,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-countrycode 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-here 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggthemes 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-countrycode 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-utils 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-glue 
-Requires:         R-stats 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-here 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ggthemes 
 
 %description
-Validating sub-national statistical typologies, re-coding across standard
-typologies of sub-national statistics, and making valid aggregate level
-imputation, re-aggregation, re-weighting and projection down to lower
-hierarchical levels to create meaningful data panels and time series.
+Client for data sources to track current and historical 'usdc' circulation
+on blockchains officially supported by the Centre Consortium (Algorand,
+Ethereum, Solana, Stellar).  USDC is a dollar-backed stablecoin issued by
+the Centre Consortium. This package utilizes block explorer APIs to
+retrieve current circulation data and the Coin Metrics API to retrieve
+historical metrics.  Additional utility functions are provided for
+charting and looking up the metrics definitions for Coin Metrics V4 API,
+which is documented at <https://docs.coinmetrics.io/api/v4>.
 
 %prep
 %setup -q -c -n %{packname}

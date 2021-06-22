@@ -1,9 +1,9 @@
 %global packname  fmtr
-%global packver   1.5.0
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Apply Formats to Data
 
@@ -12,15 +12,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-tibble 
 Requires:         R-stats 
 Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Contains a set of functions that can be used to apply formats to data

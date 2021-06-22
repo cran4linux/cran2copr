@@ -1,9 +1,9 @@
 %global packname  rio
-%global packver   0.5.26
+%global packver   0.5.27
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.26
+Version:          0.5.27
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Swiss-Army Knife for Data I/O
 

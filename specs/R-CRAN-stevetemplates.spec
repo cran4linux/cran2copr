@@ -1,11 +1,11 @@
 %global packname  stevetemplates
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Steve's 'R Markdown' Templates
+Summary:          Steve's R Markdown Templates
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}

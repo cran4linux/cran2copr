@@ -1,9 +1,9 @@
 %global packname  getDTeval
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Translating Coding Statements using get() and eval() for Improved Run-Time Coding Efficiency
 
@@ -17,10 +17,12 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-formulaic 
 BuildRequires:    R-CRAN-microbenchmark 
 BuildRequires:    R-utils 
 Requires:         R-stats 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-formulaic 
 Requires:         R-CRAN-microbenchmark 
 Requires:         R-utils 
 

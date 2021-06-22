@@ -1,9 +1,9 @@
 %global packname  ergm.ego
-%global packver   0.6.1
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit, Simulate and Diagnose Exponential-Family Random Graph Models to Egocentrically Sampled Network Data
 
@@ -12,32 +12,37 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-statnet.common >= 4.4.0
-BuildRequires:    R-CRAN-ergm >= 3.11.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-statnet.common >= 4.5.0
+BuildRequires:    R-CRAN-ergm >= 4.0.0
 BuildRequires:    R-CRAN-tibble >= 2.1.1
-BuildRequires:    R-CRAN-network >= 1.15
+BuildRequires:    R-CRAN-network >= 1.17.1
 BuildRequires:    R-CRAN-RColorBrewer >= 1.1.2
 BuildRequires:    R-CRAN-purrr >= 0.3.2
 BuildRequires:    R-CRAN-coda >= 0.19.2
+BuildRequires:    R-CRAN-egor 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-survey 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-statnet.common >= 4.4.0
-Requires:         R-CRAN-ergm >= 3.11.0
+Requires:         R-CRAN-statnet.common >= 4.5.0
+Requires:         R-CRAN-ergm >= 4.0.0
 Requires:         R-CRAN-tibble >= 2.1.1
-Requires:         R-CRAN-network >= 1.15
+Requires:         R-CRAN-network >= 1.17.1
 Requires:         R-CRAN-RColorBrewer >= 1.1.2
 Requires:         R-CRAN-purrr >= 0.3.2
 Requires:         R-CRAN-coda >= 0.19.2
+Requires:         R-CRAN-egor 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-survey 
 Requires:         R-stats 
 Requires:         R-methods 
 
 %description
 Utilities for managing egocentrically sampled network data and a wrapper
 around the 'ergm' package to facilitate ERGM inference and simulation from
-such data.
+such data. See Krivitsky and Morris (2017) <doi:10.1214/16-AOAS1010>.
 
 %prep
 %setup -q -c -n %{packname}
