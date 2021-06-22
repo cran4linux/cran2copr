@@ -1,9 +1,9 @@
 %global packname  RcppParallel
-%global packver   5.1.4
+%global packver   5.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.4
+Version:          5.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parallel Programming Tools for 'Rcpp'
 
