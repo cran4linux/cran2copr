@@ -11,7 +11,7 @@ pkgs <- sub("R-CRAN-", "", df.mism$Package)
 system2("./copr-rebuild.r", paste(pkgs, collapse=" "))
 
 # check failed and non-built
-i <- 4
+i <- 3
 df.fail <- subset_failed(df.mon[, c("Package", chroots[i])], nobuild=TRUE)
 pkgs <- sub("R-CRAN-", "", df.fail$Package)
 system2("./copr-rebuild.r", paste(pkgs, collapse=" "))

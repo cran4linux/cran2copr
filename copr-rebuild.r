@@ -4,8 +4,7 @@ source("config.r")
 source("common.r")
 check_copr()
 options(copr.bflags="--background")
-#options(copr.chroots=c("fedora-31-x86_64", "fedora-32-x86_64", "fedora-rawhide-x86_64"))
-#options(copr.chroots="fedora-31-x86_64")
+options(copr.chroots="fedora-rawhide-x86_64")
 
 args <- get_args("Usage: ", script_name(), " [--all | pkg1 ...]")
 

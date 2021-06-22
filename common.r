@@ -54,7 +54,7 @@ delete_builds <- function(ids) {
   copr_call("delete-build", paste(ids, collapse=" "))
 }
 
-do.call.retry <- function(what, args, ..., n=10, wait=60, skip=FALSE) {
+do.call.retry <- function(what, args, ..., n=3, wait=60, skip=TRUE) {
   repeat {
     out <- try(do.call(what, args, ...), silent=TRUE)
     errored <- inherits(out, "try-error")
