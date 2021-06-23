@@ -1,9 +1,9 @@
 %global packname  MoEClust
-%global packver   1.3.3
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gaussian Parsimonious Clustering Models with Covariates and a Noise Component
 
@@ -15,17 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-nnet >= 7.3.0
 BuildRequires:    R-CRAN-mclust >= 5.4
 BuildRequires:    R-CRAN-matrixStats >= 0.53.1
 BuildRequires:    R-CRAN-lattice >= 0.12
 BuildRequires:    R-CRAN-mvnfast 
-BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-vcd 
+Requires:         R-CRAN-nnet >= 7.3.0
 Requires:         R-CRAN-mclust >= 5.4
 Requires:         R-CRAN-matrixStats >= 0.53.1
 Requires:         R-CRAN-lattice >= 0.12
 Requires:         R-CRAN-mvnfast 
-Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-vcd 
 
 %description

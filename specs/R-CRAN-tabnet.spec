@@ -1,9 +1,9 @@
 %global packname  tabnet
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit 'TabNet' Models for Classification and Regression
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-torch 
+BuildRequires:    R-CRAN-torch >= 0.4.0
 BuildRequires:    R-CRAN-hardhat 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-glue 
@@ -23,8 +23,9 @@ BuildRequires:    R-CRAN-progress
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-coro 
 BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-torch 
+Requires:         R-CRAN-torch >= 0.4.0
 Requires:         R-CRAN-hardhat 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-glue 
@@ -32,6 +33,7 @@ Requires:         R-CRAN-progress
 Requires:         R-CRAN-rlang 
 Requires:         R-methods 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-coro 
 Requires:         R-CRAN-vctrs 
 
 %description

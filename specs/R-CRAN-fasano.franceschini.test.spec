@@ -1,11 +1,11 @@
-%global packname  tidytable
-%global packver   0.6.3
+%global packname  fasano.franceschini.test
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Interface to 'data.table'
+Summary:          Fasano-Franceschini Test: A 2-D Kolmogorov-Smirnov Two-Sample Test
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,26 +15,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pillar >= 1.5.0
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-glue >= 1.4.0
-BuildRequires:    R-CRAN-data.table >= 1.12.6
-BuildRequires:    R-CRAN-tidyselect >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 0.4.7
-BuildRequires:    R-CRAN-vctrs >= 0.3.5
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-Requires:         R-CRAN-pillar >= 1.5.0
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-glue >= 1.4.0
-Requires:         R-CRAN-data.table >= 1.12.6
-Requires:         R-CRAN-tidyselect >= 1.1.0
-Requires:         R-CRAN-rlang >= 0.4.7
-Requires:         R-CRAN-vctrs >= 0.3.5
-Requires:         R-CRAN-lifecycle >= 0.2.0
+BuildRequires:    R-stats 
+BuildRequires:    R-parallel 
+BuildRequires:    R-methods 
+Requires:         R-stats 
+Requires:         R-parallel 
+Requires:         R-methods 
 
 %description
-A tidy interface to 'data.table' that is 'rlang' compatible, giving users
-the speed of 'data.table' with the clean syntax of the tidyverse.
+An implementation of the 2-D Kolmogorov-Smirnov (KS) two-sample test as
+defined by Fasano and Franceschini (Fasano and Franceschini 1987). The
+'fasano.franceschini.test' package provides three improvements over the
+current 2-D KS test on the Comprehensive R Archive Network (CRAN): (i) the
+Fasano and Franceschini test has been shown to run in O(n^2) versus the
+Peacock implementation which runs in O(n^3); (ii) the package implements a
+procedure for handling ties in the data; and (iii) the package implements
+a parallelized bootstrapping procedure for improved significance testing.
+Ultimately, the 'fasano.franceschini.test' package presents a robust
+statistical test for analyzing random samples defined in 2-dimensions.
 
 %prep
 %setup -q -c -n %{packname}

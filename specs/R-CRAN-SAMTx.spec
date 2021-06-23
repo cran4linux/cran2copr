@@ -1,9 +1,9 @@
 %global packname  SAMTx
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sensitivity Assessment to Unmeasured Confounding with Multiple Treatments
 
@@ -26,11 +26,11 @@ effect estimates in response to various assumptions about the degree of
 unmeasured confounding. Nested multiple imputation is embedded within the
 Bayesian framework to integrate uncertainty about the sensitivity
 parameters and sampling variability.  Bayesian Additive Regression Model
-(BART) is used for outcome modeling. The causal estimands are the average
-treatment effects (ATE) based on the risk difference.  For more details,
-see paper: Hu L et al. (2020) A flexible sensitivity analysis approach for
-unmeasured confounding with a multiple treatments and a binary outcome
-<arXiv:2012.06093>.
+(BART) is used for outcome modeling. The causal estimands are the
+conditional average treatment effects (CATE) based on the risk difference.
+For more details, see paper: Hu L et al. (2020) A flexible sensitivity
+analysis approach for unmeasured confounding with a multiple treatments
+and a binary outcome <arXiv:2012.06093>.
 
 %prep
 %setup -q -c -n %{packname}

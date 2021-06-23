@@ -1,9 +1,9 @@
 %global packname  rbioapi
-%global packver   0.7.0
+%global packver   0.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          User-Friendly R Interface to Biologic Web Services' API
 
@@ -23,17 +23,14 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-utils 
 
 %description
-Currently fully supports miEAA, PANTHER, Reactome, STRING, and UniProt!
-The goal of rbioapi is to provide a user-friendly and consistent interface
-to biological databases and services; It is designed in a way that
-insulates the user from technicalities when it comes to using API services
-and creates a unified and easy-to-implement tool to connect to biological
-databases and services. With rbioapi, You are not required to have any
-prior technical knowledge. Just fill in a function's arguments and the
-rest is handled for you. This an ongoing project. New databases and
-services will be implemented periodically to gradually make rbioapi more
-comprehensive. Feel free to suggest any databases or services you often
-use.
+Currently fully supports Enrichr, JASPAR, miEAA, PANTHER, Reactome,
+STRING, and UniProt! The goal of rbioapi is to provide a user-friendly and
+consistent interface to biological databases and services: In a way that
+insulates the user from technicalities of using web services API and
+creates a unified and easy-to-use interface to biological and medical web
+services. This an ongoing project; New databases and services will be
+added periodically. Feel free to suggest any databases or services you
+often use.
 
 %prep
 %setup -q -c -n %{packname}

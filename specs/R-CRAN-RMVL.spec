@@ -1,40 +1,32 @@
-%global packname  tidytable
-%global packver   0.6.3
+%global packname  RMVL
+%global packver   0.0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Interface to 'data.table'
+Summary:          Mappable Vector Library for Handling Large Datasets
 
-License:          MIT + file LICENSE
+License:          LGPL-2.1
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-pillar >= 1.5.0
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-glue >= 1.4.0
-BuildRequires:    R-CRAN-data.table >= 1.12.6
-BuildRequires:    R-CRAN-tidyselect >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 0.4.7
-BuildRequires:    R-CRAN-vctrs >= 0.3.5
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-Requires:         R-CRAN-pillar >= 1.5.0
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-glue >= 1.4.0
-Requires:         R-CRAN-data.table >= 1.12.6
-Requires:         R-CRAN-tidyselect >= 1.1.0
-Requires:         R-CRAN-rlang >= 0.4.7
-Requires:         R-CRAN-vctrs >= 0.3.5
-Requires:         R-CRAN-lifecycle >= 0.2.0
 
 %description
-A tidy interface to 'data.table' that is 'rlang' compatible, giving users
-the speed of 'data.table' with the clean syntax of the tidyverse.
+Mappable vector library provides convenient way to access large datasets
+on solid state drives. This bypasses limitation of physical memory size as
+well as limited bandwidth of database interfaces. Access speed depends on
+storage medium, so solid state drive is recommended, preferably with PCI
+Express (or M.2 nvme) interface. The data is memory mapped into R and then
+accessed using usual R list and array subscription operators. The layout
+of underlying MVL files is optimized for large datasets. The vectors are
+stored to guarantee alignment for vector intrinsics after memory map. The
+package is built on top of libMVL, which can be used as standalone C
+library. libMVL has simple C API making it easy to interchange of datasets
+with outside programs.
 
 %prep
 %setup -q -c -n %{packname}

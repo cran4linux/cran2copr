@@ -1,32 +1,33 @@
-%global packname  ICON
-%global packver   0.4.0
+%global packname  cache
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Provides Easy Access to Complex Systems Datasets
+Summary:          Cache and Retrieve Computation Results
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils >= 3.6.1
-BuildRequires:    R-CRAN-network >= 1.16
-Requires:         R-utils >= 3.6.1
-Requires:         R-CRAN-network >= 1.16
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-assert 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-here 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-assert 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-here 
 
 %description
-Provides easy-to-use and easy-to-access datasets from the Index of COmplex
-Networks (ICON) database available on the University of Colorado website.
-All datasets can be loaded with a single function call and new datasets
-are being slowly added from ICON at <https://icon.colorado.edu>. Specific
-ICON datasets of interest can be requested at the BugReports URL
-<https://github.com/rrrlw/ICON/issues>.
+Easily cache and retrieve computation results. The package works
+seamlessly across interactive R sessions, R scripts and Rmarkdown
+documents.
 
 %prep
 %setup -q -c -n %{packname}

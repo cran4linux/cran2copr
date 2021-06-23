@@ -1,9 +1,9 @@
 %global packname  ggquickeda
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quickly Explore Your Data Using 'ggplot2' and 'table1' Summary Tables
 
@@ -16,7 +16,7 @@ Requires:         pandoc
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.4
 BuildRequires:    R-CRAN-GGally >= 2.1.0
 BuildRequires:    R-CRAN-table1 >= 1.2
 BuildRequires:    R-CRAN-shinyjs >= 1.1
@@ -46,7 +46,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-shinyFiles 
 BuildRequires:    R-CRAN-RPostgres 
-Requires:         R-CRAN-ggplot2 >= 3.3.2
+Requires:         R-CRAN-ggplot2 >= 3.3.4
 Requires:         R-CRAN-GGally >= 2.1.0
 Requires:         R-CRAN-table1 >= 1.2
 Requires:         R-CRAN-shinyjs >= 1.1

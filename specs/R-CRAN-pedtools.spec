@@ -1,9 +1,9 @@
 %global packname  pedtools
-%global packver   0.9.7
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creating and Working with Pedigrees and Marker Data
 
@@ -19,12 +19,17 @@ BuildRequires:    R-CRAN-kinship2
 Requires:         R-CRAN-kinship2 
 
 %description
-A lightweight, but comprehensive collection of tools for creating,
-manipulating and visualising pedigrees and genetic marker data. Pedigrees
-can be read from text files or created on the fly with built-in functions.
-A range of utilities enable modifications like adding or removing
-individuals, breaking loops, and merging pedigrees. Pedigree plots are
-produced by wrapping the plotting functionality of the 'kinship2' package.
+A comprehensive collection of tools for creating, manipulating and
+visualising pedigrees and genetic marker data. Pedigrees can be read from
+text files or created on the fly with built-in functions. A range of
+utilities enable modifications like adding or removing individuals,
+breaking loops, and merging pedigrees. Pedigree plots are produced by
+wrapping the plotting functionality of the 'kinship2' package. A Shiny app
+for creating pedigrees, based on 'pedtools', is available at
+<https://magnusdv.shinyapps.io/quickped>. 'pedtools' is the hub of the
+'ped suite', a collection of packages for pedigree analysis. A detailed
+presentation of the 'ped suite' is given in the book 'Pedigree Analysis in
+R' (Vigeland, 2021, ISBN:9780128244302).
 
 %prep
 %setup -q -c -n %{packname}

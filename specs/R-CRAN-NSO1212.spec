@@ -1,9 +1,9 @@
 %global packname  NSO1212
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          National Statistical Office of Mongolia's Open Data API Handler
 

@@ -1,37 +1,31 @@
-%global packname  ECSFargateProvider
+%global packname  regDIF
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The 'ECS Fargate' Cloud Provider for the 'DockerParallel' Package
+Summary:          Regularized Differential Item Functioning
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-aws.ecx 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-DockerParallel 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-stats > 3.0.0
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-aws.iam 
-Requires:         R-CRAN-aws.ecx 
-Requires:         R-methods 
-Requires:         R-CRAN-DockerParallel 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-statmod 
+Requires:         R-stats > 3.0.0
 Requires:         R-utils 
-Requires:         R-CRAN-aws.iam 
+Requires:         R-CRAN-statmod 
 
 %description
-Providing the implementation for the 'ECS Fargate' cloud provider. For the
-general information about 'ECS', please visit
-<https://aws.amazon.com/ecs/>.
+Performs regularization of differential item functioning (DIF) parameters
+in item response theory (IRT) models (Belzak & Bauer, 2020)
+<https://pubmed.ncbi.nlm.nih.gov/31916799/> using a penalized
+expectation-maximization algorithm.
 
 %prep
 %setup -q -c -n %{packname}

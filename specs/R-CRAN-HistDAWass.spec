@@ -1,9 +1,9 @@
 %global packname  HistDAWass
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Histogram-Valued Data Analysis
 
@@ -49,7 +49,7 @@ based on the L2 Wasserstein metric between distributions, i.e., the
 Euclidean metric between quantile functions. The package contains
 unsupervised classification techniques, least square regression and tools
 for histogram-valued data and for histogram time series. An introducing
-paper is Irpino A. Verde R. (2015) doi{10.1007/s11634-014-0176-4}.
+paper is Irpino A. Verde R. (2015) <doi: 10.1007/s11634-014-0176-4>.
 
 %prep
 %setup -q -c -n %{packname}
