@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  AdMit
 %global packver   2.1.8
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  mondate
 %global packver   0.10.02
 %global rlibdir   /usr/local/lib/R/library

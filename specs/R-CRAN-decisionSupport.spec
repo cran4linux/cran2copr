@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  decisionSupport
 %global packver   1.106
 %global rlibdir   /usr/local/lib/R/library

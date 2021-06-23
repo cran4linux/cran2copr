@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  isocir
 %global packver   2.0-6
 %global rlibdir   /usr/local/lib/R/library

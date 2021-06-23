@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  spam64
 %global packver   2.6-0
 %global rlibdir   /usr/local/lib/R/library

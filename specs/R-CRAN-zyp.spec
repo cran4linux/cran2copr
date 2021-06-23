@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  zyp
 %global packver   0.10-1.1
 %global rlibdir   /usr/local/lib/R/library

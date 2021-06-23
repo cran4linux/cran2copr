@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  rtf
 %global packver   0.4-14.1
 %global rlibdir   /usr/local/lib/R/library

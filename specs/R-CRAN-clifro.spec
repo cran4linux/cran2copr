@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  clifro
 %global packver   3.2-5
 %global rlibdir   /usr/local/lib/R/library

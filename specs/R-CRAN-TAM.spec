@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  TAM
 %global packver   3.6-45
 %global rlibdir   /usr/local/lib/R/library

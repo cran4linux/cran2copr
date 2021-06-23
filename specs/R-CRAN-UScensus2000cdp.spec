@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  UScensus2000cdp
 %global packver   0.03
 %global rlibdir   /usr/local/lib/R/library

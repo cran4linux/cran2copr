@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  dad
 %global packver   3.4.6
 %global rlibdir   /usr/local/lib/R/library

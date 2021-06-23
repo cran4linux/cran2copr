@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  APtools
 %global packver   6.8.8
 %global rlibdir   /usr/local/lib/R/library

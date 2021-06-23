@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  lsmeans
 %global packver   2.30-0
 %global rlibdir   /usr/local/lib/R/library

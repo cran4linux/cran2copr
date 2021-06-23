@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  vcdExtra
 %global packver   0.7-5
 %global rlibdir   /usr/local/lib/R/library

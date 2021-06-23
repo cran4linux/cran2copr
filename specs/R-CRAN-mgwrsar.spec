@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  mgwrsar
 %global packver   0.1-1
 %global rlibdir   /usr/local/lib/R/library

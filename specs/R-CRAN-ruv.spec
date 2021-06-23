@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  ruv
 %global packver   0.9.7.1
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  fpp2
 %global packver   2.4
 %global rlibdir   /usr/local/lib/R/library

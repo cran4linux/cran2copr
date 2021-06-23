@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  mfbvar
 %global packver   0.5.6
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  meteoForecast
 %global packver   0.54
 %global rlibdir   /usr/local/lib/R/library

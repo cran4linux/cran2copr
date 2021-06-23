@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  bsearchtools
 %global packver   0.0.61
 %global rlibdir   /usr/local/lib/R/library

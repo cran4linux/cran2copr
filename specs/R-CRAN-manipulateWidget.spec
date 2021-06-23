@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  manipulateWidget
 %global packver   0.11.0
 %global rlibdir   /usr/local/lib/R/library

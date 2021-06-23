@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  Delaporte
 %global packver   8.0.1
 %global rlibdir   /usr/local/lib/R/library

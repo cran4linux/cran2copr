@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  ecm
 %global packver   6.3.0
 %global rlibdir   /usr/local/lib/R/library

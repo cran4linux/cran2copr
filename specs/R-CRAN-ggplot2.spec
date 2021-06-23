@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  ggplot2
 %global packver   3.3.4
 %global rlibdir   /usr/local/lib/R/library

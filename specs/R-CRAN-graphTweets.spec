@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  graphTweets
 %global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library

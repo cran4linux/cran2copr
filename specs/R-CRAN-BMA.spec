@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  BMA
 %global packver   3.18.15
 %global rlibdir   /usr/local/lib/R/library

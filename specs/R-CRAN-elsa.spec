@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  elsa
 %global packver   1.1-28
 %global rlibdir   /usr/local/lib/R/library

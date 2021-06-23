@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  bigmemory
 %global packver   4.5.36
 %global rlibdir   /usr/local/lib/R/library

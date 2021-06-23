@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  CDM
 %global packver   7.5-15
 %global rlibdir   /usr/local/lib/R/library

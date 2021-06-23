@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  tm.plugin.lexisnexis
 %global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library

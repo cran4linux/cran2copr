@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  shinyBS
 %global packver   0.61
 %global rlibdir   /usr/local/lib/R/library

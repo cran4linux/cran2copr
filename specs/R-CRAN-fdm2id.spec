@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  fdm2id
 %global packver   0.9.5
 %global rlibdir   /usr/local/lib/R/library

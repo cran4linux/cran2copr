@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  emplik2
 %global packver   1.30
 %global rlibdir   /usr/local/lib/R/library

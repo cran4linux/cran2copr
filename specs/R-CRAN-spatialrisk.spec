@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  spatialrisk
 %global packver   0.6.9
 %global rlibdir   /usr/local/lib/R/library

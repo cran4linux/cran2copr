@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  setRNG
 %global packver   2013.9-1
 %global rlibdir   /usr/local/lib/R/library

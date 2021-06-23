@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  scatterplot3d
 %global packver   0.3-41
 %global rlibdir   /usr/local/lib/R/library

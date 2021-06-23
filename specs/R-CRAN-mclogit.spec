@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  mclogit
 %global packver   0.8.7.3
 %global rlibdir   /usr/local/lib/R/library

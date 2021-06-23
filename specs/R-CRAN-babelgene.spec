@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  babelgene
 %global packver   21.4
 %global rlibdir   /usr/local/lib/R/library

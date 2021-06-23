@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  simplegraphdb
 %global packver   2021.03.10
 %global rlibdir   /usr/local/lib/R/library

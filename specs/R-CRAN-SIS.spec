@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  SIS
 %global packver   0.8-8
 %global rlibdir   /usr/local/lib/R/library

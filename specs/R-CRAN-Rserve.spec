@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  Rserve
 %global packver   1.7-3.1
 %global rlibdir   /usr/local/lib/R/library

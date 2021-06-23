@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  svmpath
 %global packver   0.970
 %global rlibdir   /usr/local/lib/R/library

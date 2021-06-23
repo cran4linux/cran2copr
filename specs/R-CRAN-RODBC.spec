@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  RODBC
 %global packver   1.3-17
 %global rlibdir   /usr/local/lib/R/library

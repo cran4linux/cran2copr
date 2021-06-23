@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  EMCluster
 %global packver   0.2-13
 %global rlibdir   /usr/local/lib/R/library

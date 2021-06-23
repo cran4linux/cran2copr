@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  netassoc
 %global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library

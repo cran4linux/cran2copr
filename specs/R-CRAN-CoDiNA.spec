@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  CoDiNA
 %global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library

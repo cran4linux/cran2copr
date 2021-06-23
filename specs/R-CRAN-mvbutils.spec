@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  mvbutils
 %global packver   2.8.232
 %global rlibdir   /usr/local/lib/R/library

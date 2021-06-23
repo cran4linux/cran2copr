@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  uGMAR
 %global packver   3.3.1
 %global rlibdir   /usr/local/lib/R/library

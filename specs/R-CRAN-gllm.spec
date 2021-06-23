@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  gllm
 %global packver   0.37
 %global rlibdir   /usr/local/lib/R/library

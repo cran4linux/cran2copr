@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  lodGWAS
 %global packver   1.0-7
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  meta4diag
 %global packver   2.0.8
 %global rlibdir   /usr/local/lib/R/library

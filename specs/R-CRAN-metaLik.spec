@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  metaLik
 %global packver   0.43.0
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  BeastJar
 %global packver   1.10.6
 %global rlibdir   /usr/local/lib/R/library

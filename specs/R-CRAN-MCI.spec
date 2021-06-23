@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  MCI
 %global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library

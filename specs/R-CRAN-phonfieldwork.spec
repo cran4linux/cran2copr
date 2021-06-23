@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  phonfieldwork
 %global packver   0.0.11
 %global rlibdir   /usr/local/lib/R/library

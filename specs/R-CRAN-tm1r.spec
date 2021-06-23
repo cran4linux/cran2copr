@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  tm1r
 %global packver   1.1.8
 %global rlibdir   /usr/local/lib/R/library

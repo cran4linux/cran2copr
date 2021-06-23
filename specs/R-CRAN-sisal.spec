@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  sisal
 %global packver   0.48
 %global rlibdir   /usr/local/lib/R/library

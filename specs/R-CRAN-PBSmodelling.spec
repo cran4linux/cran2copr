@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  PBSmodelling
 %global packver   2.68.8
 %global rlibdir   /usr/local/lib/R/library

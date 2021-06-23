@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  rgdal
 %global packver   1.5-23
 %global rlibdir   /usr/local/lib/R/library

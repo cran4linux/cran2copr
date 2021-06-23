@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  EvalEst
 %global packver   2021.2-1
 %global rlibdir   /usr/local/lib/R/library

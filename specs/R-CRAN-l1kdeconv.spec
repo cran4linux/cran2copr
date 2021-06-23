@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  l1kdeconv
 %global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library

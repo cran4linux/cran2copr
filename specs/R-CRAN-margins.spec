@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  margins
 %global packver   0.3.26
 %global rlibdir   /usr/local/lib/R/library

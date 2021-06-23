@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  fishmethods
 %global packver   1.11-1
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  fit.models
 %global packver   0.64
 %global rlibdir   /usr/local/lib/R/library

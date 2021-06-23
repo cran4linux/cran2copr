@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  blm
 %global packver   2013.2.4.4
 %global rlibdir   /usr/local/lib/R/library

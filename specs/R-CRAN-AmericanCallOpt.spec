@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  AmericanCallOpt
 %global packver   0.95
 %global rlibdir   /usr/local/lib/R/library

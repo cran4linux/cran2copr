@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  REEMtree
 %global packver   0.90.4
 %global rlibdir   /usr/local/lib/R/library

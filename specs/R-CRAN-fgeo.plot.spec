@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  fgeo.plot
 %global packver   1.1.10
 %global rlibdir   /usr/local/lib/R/library

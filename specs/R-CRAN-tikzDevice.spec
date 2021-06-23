@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  tikzDevice
 %global packver   0.12.3.1
 %global rlibdir   /usr/local/lib/R/library

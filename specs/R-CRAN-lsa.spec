@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  lsa
 %global packver   0.73.2
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  revgeo
 %global packver   0.15
 %global rlibdir   /usr/local/lib/R/library

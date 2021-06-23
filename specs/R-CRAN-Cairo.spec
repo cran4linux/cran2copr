@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  Cairo
 %global packver   1.5-12.2
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  gSEM
 %global packver   0.4.3.4
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  costsensitive
 %global packver   0.1.2.10
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  RhpcBLASctl
 %global packver   0.20-137
 %global rlibdir   /usr/local/lib/R/library

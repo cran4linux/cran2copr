@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  fslr
 %global packver   2.24.1
 %global rlibdir   /usr/local/lib/R/library

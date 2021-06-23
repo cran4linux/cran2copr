@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  afex
 %global packver   0.28-1
 %global rlibdir   /usr/local/lib/R/library

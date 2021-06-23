@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  kutils
 %global packver   1.70
 %global rlibdir   /usr/local/lib/R/library

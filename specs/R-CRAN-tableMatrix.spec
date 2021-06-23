@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  tableMatrix
 %global packver   0.82.0
 %global rlibdir   /usr/local/lib/R/library

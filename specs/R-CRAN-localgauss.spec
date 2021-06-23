@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  localgauss
 %global packver   0.40
 %global rlibdir   /usr/local/lib/R/library

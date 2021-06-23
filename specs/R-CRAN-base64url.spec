@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  base64url
 %global packver   1.4
 %global rlibdir   /usr/local/lib/R/library

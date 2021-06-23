@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  fCopulae
 %global packver   3042.82.1
 %global rlibdir   /usr/local/lib/R/library

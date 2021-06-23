@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  vrtest
 %global packver   0.97
 %global rlibdir   /usr/local/lib/R/library

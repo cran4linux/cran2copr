@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  KernSmooth
 %global packver   2.23-20
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  canvasXpress
 %global packver   1.32.9
 %global rlibdir   /usr/local/lib/R/library

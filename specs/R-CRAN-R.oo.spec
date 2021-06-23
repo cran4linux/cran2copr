@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  R.oo
 %global packver   1.24.0
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  pems.utils
 %global packver   0.2.29.1
 %global rlibdir   /usr/local/lib/R/library

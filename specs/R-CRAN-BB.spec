@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  BB
 %global packver   2019.10-1
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  lamW
 %global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library

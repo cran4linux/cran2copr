@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  ez
 %global packver   4.4-0
 %global rlibdir   /usr/local/lib/R/library

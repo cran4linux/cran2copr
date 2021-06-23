@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  govdown
 %global packver   0.10.1
 %global rlibdir   /usr/local/lib/R/library

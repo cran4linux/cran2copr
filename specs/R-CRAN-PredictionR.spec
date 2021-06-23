@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  PredictionR
 %global packver   1.0-12
 %global rlibdir   /usr/local/lib/R/library

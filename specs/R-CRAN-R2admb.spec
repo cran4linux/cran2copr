@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  R2admb
 %global packver   0.7.16.2
 %global rlibdir   /usr/local/lib/R/library

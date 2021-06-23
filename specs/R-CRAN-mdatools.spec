@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  mdatools
 %global packver   0.11.5
 %global rlibdir   /usr/local/lib/R/library

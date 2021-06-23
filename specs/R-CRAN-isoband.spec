@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  isoband
 %global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library

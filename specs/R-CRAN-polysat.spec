@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  polysat
 %global packver   1.7-5
 %global rlibdir   /usr/local/lib/R/library

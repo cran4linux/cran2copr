@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  lotri
 %global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library

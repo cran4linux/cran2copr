@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  PartCensReg
 %global packver   1.39
 %global rlibdir   /usr/local/lib/R/library

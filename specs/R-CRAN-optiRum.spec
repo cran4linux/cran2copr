@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  optiRum
 %global packver   0.40.1
 %global rlibdir   /usr/local/lib/R/library

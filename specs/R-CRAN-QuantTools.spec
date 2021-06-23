@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  QuantTools
 %global packver   0.5.7.1
 %global rlibdir   /usr/local/lib/R/library

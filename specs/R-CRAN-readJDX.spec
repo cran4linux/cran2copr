@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  readJDX
 %global packver   0.5.41
 %global rlibdir   /usr/local/lib/R/library

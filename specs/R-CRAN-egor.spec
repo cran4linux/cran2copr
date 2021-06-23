@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  egor
 %global packver   1.21.6
 %global rlibdir   /usr/local/lib/R/library

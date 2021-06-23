@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  EmissV
 %global packver   0.665.5.2
 %global rlibdir   /usr/local/lib/R/library

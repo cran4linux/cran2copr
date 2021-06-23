@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  RcmdrPlugin.NMBU
 %global packver   1.8.12
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  systemfit
 %global packver   1.1-24
 %global rlibdir   /usr/local/lib/R/library

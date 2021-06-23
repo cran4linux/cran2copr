@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  ssym
 %global packver   1.5.7
 %global rlibdir   /usr/local/lib/R/library

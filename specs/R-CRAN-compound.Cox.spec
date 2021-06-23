@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  compound.Cox
 %global packver   3.20
 %global rlibdir   /usr/local/lib/R/library

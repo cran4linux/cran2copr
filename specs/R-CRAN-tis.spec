@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  tis
 %global packver   1.38
 %global rlibdir   /usr/local/lib/R/library

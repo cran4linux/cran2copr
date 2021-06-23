@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  lfe
 %global packver   2.8-6
 %global rlibdir   /usr/local/lib/R/library

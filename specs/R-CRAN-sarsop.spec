@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  sarsop
 %global packver   0.6.8
 %global rlibdir   /usr/local/lib/R/library

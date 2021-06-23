@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  simecol
 %global packver   0.8-13
 %global rlibdir   /usr/local/lib/R/library

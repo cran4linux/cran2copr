@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  tmod
 %global packver   0.46.2
 %global rlibdir   /usr/local/lib/R/library

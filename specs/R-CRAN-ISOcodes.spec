@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  ISOcodes
 %global packver   2021.02.24
 %global rlibdir   /usr/local/lib/R/library

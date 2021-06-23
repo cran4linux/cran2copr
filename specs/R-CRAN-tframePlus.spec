@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  tframePlus
 %global packver   2016.7-1
 %global rlibdir   /usr/local/lib/R/library

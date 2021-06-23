@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  statnet
 %global packver   2019.6
 %global rlibdir   /usr/local/lib/R/library

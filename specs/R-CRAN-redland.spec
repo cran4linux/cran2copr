@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  redland
 %global packver   1.0.17-14
 %global rlibdir   /usr/local/lib/R/library

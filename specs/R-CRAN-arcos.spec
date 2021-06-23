@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  arcos
 %global packver   1.27
 %global rlibdir   /usr/local/lib/R/library

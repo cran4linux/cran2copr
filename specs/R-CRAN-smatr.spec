@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  smatr
 %global packver   3.4-8
 %global rlibdir   /usr/local/lib/R/library

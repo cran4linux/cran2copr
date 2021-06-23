@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global debug_package %{nil}
 %global packname  pbdPROF
 %global packver   0.4-0

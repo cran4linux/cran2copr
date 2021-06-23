@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  prioritizr
 %global packver   7.0.1
 %global rlibdir   /usr/local/lib/R/library

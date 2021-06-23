@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  numDeriv
 %global packver   2016.8-1.1
 %global rlibdir   /usr/local/lib/R/library

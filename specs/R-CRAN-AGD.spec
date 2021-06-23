@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  AGD
 %global packver   0.39
 %global rlibdir   /usr/local/lib/R/library

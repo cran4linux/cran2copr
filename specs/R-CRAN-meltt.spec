@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  meltt
 %global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library

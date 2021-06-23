@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  MARSS
 %global packver   3.11.3
 %global rlibdir   /usr/local/lib/R/library

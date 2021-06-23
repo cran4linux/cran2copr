@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  geneSignatureFinder
 %global packver   2014.02.17
 %global rlibdir   /usr/local/lib/R/library

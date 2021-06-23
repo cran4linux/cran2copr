@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  alabama
 %global packver   2015.3-1
 %global rlibdir   /usr/local/lib/R/library

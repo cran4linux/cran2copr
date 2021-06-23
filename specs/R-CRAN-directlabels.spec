@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  directlabels
 %global packver   2021.1.13
 %global rlibdir   /usr/local/lib/R/library

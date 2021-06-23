@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  dtwclust
 %global packver   5.5.6
 %global rlibdir   /usr/local/lib/R/library

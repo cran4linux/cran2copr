@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  hgm
 %global packver   1.18
 %global rlibdir   /usr/local/lib/R/library

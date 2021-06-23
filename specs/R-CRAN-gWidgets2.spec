@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  gWidgets2
 %global packver   1.0-8
 %global rlibdir   /usr/local/lib/R/library

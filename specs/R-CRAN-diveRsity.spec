@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  diveRsity
 %global packver   1.9.90
 %global rlibdir   /usr/local/lib/R/library

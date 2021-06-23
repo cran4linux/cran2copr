@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  MasterBayes
 %global packver   2.57
 %global rlibdir   /usr/local/lib/R/library

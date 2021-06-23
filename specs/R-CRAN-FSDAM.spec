@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  FSDAM
 %global packver   2020.11-18
 %global rlibdir   /usr/local/lib/R/library

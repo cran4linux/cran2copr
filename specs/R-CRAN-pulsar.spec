@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  pulsar
 %global packver   0.3.7
 %global rlibdir   /usr/local/lib/R/library

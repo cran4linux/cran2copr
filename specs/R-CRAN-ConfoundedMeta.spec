@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  ConfoundedMeta
 %global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library

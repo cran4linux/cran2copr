@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  RMySQL
 %global packver   0.10.22
 %global rlibdir   /usr/local/lib/R/library

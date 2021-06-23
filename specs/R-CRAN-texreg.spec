@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  texreg
 %global packver   1.37.5
 %global rlibdir   /usr/local/lib/R/library

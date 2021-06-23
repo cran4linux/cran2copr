@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  magrittr
 %global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  klausuR
 %global packver   0.12-10
 %global rlibdir   /usr/local/lib/R/library

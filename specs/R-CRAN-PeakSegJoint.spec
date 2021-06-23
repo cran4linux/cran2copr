@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  PeakSegJoint
 %global packver   2018.10.3
 %global rlibdir   /usr/local/lib/R/library

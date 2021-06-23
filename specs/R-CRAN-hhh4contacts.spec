@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  hhh4contacts
 %global packver   0.13.1
 %global rlibdir   /usr/local/lib/R/library

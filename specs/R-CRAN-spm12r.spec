@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  spm12r
 %global packver   2.8.3
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  icenReg
 %global packver   2.0.15
 %global rlibdir   /usr/local/lib/R/library

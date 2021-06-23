@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  DataPackageR
 %global packver   0.15.8
 %global rlibdir   /usr/local/lib/R/library

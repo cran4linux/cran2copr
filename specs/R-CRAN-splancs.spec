@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  splancs
 %global packver   2.01-42
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  quantreg
 %global packver   5.86
 %global rlibdir   /usr/local/lib/R/library

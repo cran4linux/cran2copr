@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  ftnonpar
 %global packver   0.1-88
 %global rlibdir   /usr/local/lib/R/library

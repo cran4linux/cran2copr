@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  fBasics
 %global packver   3042.89.1
 %global rlibdir   /usr/local/lib/R/library

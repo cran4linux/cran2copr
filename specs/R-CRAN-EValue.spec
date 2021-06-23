@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  EValue
 %global packver   4.1.2
 %global rlibdir   /usr/local/lib/R/library

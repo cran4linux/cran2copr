@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  bslib
 %global packver   0.2.5.1
 %global rlibdir   /usr/local/lib/R/library

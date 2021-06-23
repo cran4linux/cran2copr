@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  metRology
 %global packver   0.9-28-1
 %global rlibdir   /usr/local/lib/R/library

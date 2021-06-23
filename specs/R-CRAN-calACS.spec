@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  calACS
 %global packver   2.2.2
 %global rlibdir   /usr/local/lib/R/library

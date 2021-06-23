@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  nonmem2R
 %global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library

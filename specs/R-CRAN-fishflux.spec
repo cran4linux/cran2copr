@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  fishflux
 %global packver   0.0.1.4
 %global rlibdir   /usr/local/lib/R/library

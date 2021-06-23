@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  mfdb
 %global packver   6.2-0
 %global rlibdir   /usr/local/lib/R/library

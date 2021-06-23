@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  sound
 %global packver   1.4.5
 %global rlibdir   /usr/local/lib/R/library

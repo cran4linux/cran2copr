@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  explor
 %global packver   0.3.9
 %global rlibdir   /usr/local/lib/R/library

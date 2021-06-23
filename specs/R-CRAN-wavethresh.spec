@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  wavethresh
 %global packver   4.6.8
 %global rlibdir   /usr/local/lib/R/library

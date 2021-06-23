@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  flashClust
 %global packver   1.01-2
 %global rlibdir   /usr/local/lib/R/library

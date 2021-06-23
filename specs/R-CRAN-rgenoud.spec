@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  rgenoud
 %global packver   5.8-3.0
 %global rlibdir   /usr/local/lib/R/library

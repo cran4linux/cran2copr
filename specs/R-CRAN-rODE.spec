@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  rODE
 %global packver   0.99.6
 %global rlibdir   /usr/local/lib/R/library

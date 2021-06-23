@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  resumer
 %global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  ISR3
 %global packver   0.98
 %global rlibdir   /usr/local/lib/R/library

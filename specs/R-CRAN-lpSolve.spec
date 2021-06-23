@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  lpSolve
 %global packver   5.6.15
 %global rlibdir   /usr/local/lib/R/library

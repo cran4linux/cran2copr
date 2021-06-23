@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  cffdrs
 %global packver   1.8.18
 %global rlibdir   /usr/local/lib/R/library

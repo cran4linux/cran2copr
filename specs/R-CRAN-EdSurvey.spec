@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  EdSurvey
 %global packver   2.6.9
 %global rlibdir   /usr/local/lib/R/library

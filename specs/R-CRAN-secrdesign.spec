@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  secrdesign
 %global packver   2.5.11
 %global rlibdir   /usr/local/lib/R/library

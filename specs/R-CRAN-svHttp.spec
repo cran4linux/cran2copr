@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  svHttp
 %global packver   0.9-55
 %global rlibdir   /usr/local/lib/R/library

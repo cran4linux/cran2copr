@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  support.BWS3
 %global packver   0.2-0
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  RcmdrPlugin.orloca
 %global packver   4.8.2
 %global rlibdir   /usr/local/lib/R/library

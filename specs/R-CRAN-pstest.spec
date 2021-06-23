@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  pstest
 %global packver   0.1.3.900
 %global rlibdir   /usr/local/lib/R/library

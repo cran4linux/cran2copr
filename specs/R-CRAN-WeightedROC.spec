@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  WeightedROC
 %global packver   2020.1.31
 %global rlibdir   /usr/local/lib/R/library

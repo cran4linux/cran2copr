@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  NNTbiomarker
 %global packver   0.29.11
 %global rlibdir   /usr/local/lib/R/library

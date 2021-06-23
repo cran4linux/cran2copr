@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  HDPenReg
 %global packver   0.94.7
 %global rlibdir   /usr/local/lib/R/library

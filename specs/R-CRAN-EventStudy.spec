@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  EventStudy
 %global packver   0.36
 %global rlibdir   /usr/local/lib/R/library

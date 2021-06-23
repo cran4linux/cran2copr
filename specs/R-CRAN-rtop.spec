@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  rtop
 %global packver   0.5-14
 %global rlibdir   /usr/local/lib/R/library

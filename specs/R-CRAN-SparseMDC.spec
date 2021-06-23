@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  SparseMDC
 %global packver   0.99.5
 %global rlibdir   /usr/local/lib/R/library

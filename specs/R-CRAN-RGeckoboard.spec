@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  RGeckoboard
 %global packver   0.1-5
 %global rlibdir   /usr/local/lib/R/library

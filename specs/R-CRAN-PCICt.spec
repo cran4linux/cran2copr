@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  PCICt
 %global packver   0.5-4.1
 %global rlibdir   /usr/local/lib/R/library

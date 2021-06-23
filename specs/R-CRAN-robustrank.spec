@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  robustrank
 %global packver   2019.9-10
 %global rlibdir   /usr/local/lib/R/library

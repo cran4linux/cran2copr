@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  fungible
 %global packver   1.97
 %global rlibdir   /usr/local/lib/R/library

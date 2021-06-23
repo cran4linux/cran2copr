@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  mmb
 %global packver   0.13.3
 %global rlibdir   /usr/local/lib/R/library

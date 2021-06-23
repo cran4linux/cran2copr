@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  gumbel
 %global packver   1.10-2
 %global rlibdir   /usr/local/lib/R/library

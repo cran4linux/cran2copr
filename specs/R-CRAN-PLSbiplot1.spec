@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  PLSbiplot1
 %global packver   0.1
 %global rlibdir   /usr/local/lib/R/library

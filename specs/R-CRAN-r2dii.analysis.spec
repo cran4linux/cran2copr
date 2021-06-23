@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  r2dii.analysis
 %global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library

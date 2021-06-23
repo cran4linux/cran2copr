@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  ncdf4
 %global packver   1.17
 %global rlibdir   /usr/local/lib/R/library

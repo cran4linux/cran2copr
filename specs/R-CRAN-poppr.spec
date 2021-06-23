@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  poppr
 %global packver   2.9.2
 %global rlibdir   /usr/local/lib/R/library

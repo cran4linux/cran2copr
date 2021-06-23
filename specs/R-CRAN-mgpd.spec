@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  mgpd
 %global packver   1.99
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  nontarget
 %global packver   1.9
 %global rlibdir   /usr/local/lib/R/library

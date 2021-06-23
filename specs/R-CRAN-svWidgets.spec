@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  svWidgets
 %global packver   0.9-45
 %global rlibdir   /usr/local/lib/R/library

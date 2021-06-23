@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  caret
 %global packver   6.0-88
 %global rlibdir   /usr/local/lib/R/library

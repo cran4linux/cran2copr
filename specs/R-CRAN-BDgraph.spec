@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  BDgraph
 %global packver   2.64
 %global rlibdir   /usr/local/lib/R/library

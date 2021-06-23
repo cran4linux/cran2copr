@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  googleway
 %global packver   2.7.3
 %global rlibdir   /usr/local/lib/R/library

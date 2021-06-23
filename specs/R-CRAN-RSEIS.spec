@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  RSEIS
 %global packver   3.9-3
 %global rlibdir   /usr/local/lib/R/library

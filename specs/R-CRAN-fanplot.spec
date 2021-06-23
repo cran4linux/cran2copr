@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  fanplot
 %global packver   3.4.2
 %global rlibdir   /usr/local/lib/R/library

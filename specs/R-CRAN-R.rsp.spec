@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  R.rsp
 %global packver   0.44.0
 %global rlibdir   /usr/local/lib/R/library

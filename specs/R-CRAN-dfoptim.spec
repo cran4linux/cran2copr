@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  dfoptim
 %global packver   2020.10-1
 %global rlibdir   /usr/local/lib/R/library

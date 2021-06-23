@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  redoc
 %global packver   2.0.0.49
 %global rlibdir   /usr/local/lib/R/library

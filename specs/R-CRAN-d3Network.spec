@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  d3Network
 %global packver   0.5.2.1
 %global rlibdir   /usr/local/lib/R/library

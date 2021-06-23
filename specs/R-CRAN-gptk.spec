@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  gptk
 %global packver   1.08
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  cmenet
 %global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library

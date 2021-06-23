@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  h2o
 %global packver   3.32.1.3
 %global rlibdir   /usr/local/lib/R/library

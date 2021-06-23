@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  vardpoor
 %global packver   0.20.1
 %global rlibdir   /usr/local/lib/R/library

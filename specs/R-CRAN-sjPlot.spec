@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  sjPlot
 %global packver   2.8.8
 %global rlibdir   /usr/local/lib/R/library

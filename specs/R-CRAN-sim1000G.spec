@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  sim1000G
 %global packver   1.40
 %global rlibdir   /usr/local/lib/R/library

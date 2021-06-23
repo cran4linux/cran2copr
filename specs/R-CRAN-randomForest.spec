@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  randomForest
 %global packver   4.6-14
 %global rlibdir   /usr/local/lib/R/library

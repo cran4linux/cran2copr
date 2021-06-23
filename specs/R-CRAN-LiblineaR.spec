@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  LiblineaR
 %global packver   2.10-12
 %global rlibdir   /usr/local/lib/R/library

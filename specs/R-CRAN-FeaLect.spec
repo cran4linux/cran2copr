@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  FeaLect
 %global packver   1.20
 %global rlibdir   /usr/local/lib/R/library

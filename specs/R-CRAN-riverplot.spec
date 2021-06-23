@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  riverplot
 %global packver   0.10
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  tm.plugin.dc
 %global packver   0.2-10
 %global rlibdir   /usr/local/lib/R/library

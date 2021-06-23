@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  CodataGS
 %global packver   1.43
 %global rlibdir   /usr/local/lib/R/library

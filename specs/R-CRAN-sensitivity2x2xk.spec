@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  sensitivity2x2xk
 %global packver   1.01
 %global rlibdir   /usr/local/lib/R/library

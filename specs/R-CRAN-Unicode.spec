@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  Unicode
 %global packver   13.0.0-2
 %global rlibdir   /usr/local/lib/R/library

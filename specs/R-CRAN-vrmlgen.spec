@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  vrmlgen
 %global packver   1.4.9
 %global rlibdir   /usr/local/lib/R/library

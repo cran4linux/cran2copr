@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  BART
 %global packver   2.9
 %global rlibdir   /usr/local/lib/R/library

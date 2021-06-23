@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  cherry
 %global packver   0.6-14
 %global rlibdir   /usr/local/lib/R/library

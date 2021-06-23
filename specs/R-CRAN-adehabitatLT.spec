@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  adehabitatLT
 %global packver   0.3.25
 %global rlibdir   /usr/local/lib/R/library

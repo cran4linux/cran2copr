@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  surveillance
 %global packver   1.19.1
 %global rlibdir   /usr/local/lib/R/library

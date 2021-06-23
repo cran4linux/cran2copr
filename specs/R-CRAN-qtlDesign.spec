@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  qtlDesign
 %global packver   0.941
 %global rlibdir   /usr/local/lib/R/library

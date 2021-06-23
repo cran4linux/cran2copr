@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  R.devices
 %global packver   2.17.0
 %global rlibdir   /usr/local/lib/R/library

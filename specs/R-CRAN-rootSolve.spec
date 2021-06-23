@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  rootSolve
 %global packver   1.8.2.1
 %global rlibdir   /usr/local/lib/R/library

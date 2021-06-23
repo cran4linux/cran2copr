@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  mgcv
 %global packver   1.8-36
 %global rlibdir   /usr/local/lib/R/library

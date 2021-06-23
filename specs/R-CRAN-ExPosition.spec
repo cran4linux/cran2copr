@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  ExPosition
 %global packver   2.8.23
 %global rlibdir   /usr/local/lib/R/library

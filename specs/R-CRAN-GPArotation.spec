@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  GPArotation
 %global packver   2014.11-1
 %global rlibdir   /usr/local/lib/R/library

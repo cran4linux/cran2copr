@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  lbfgsb3c
 %global packver   2020-3.2
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  digest
 %global packver   0.6.27
 %global rlibdir   /usr/local/lib/R/library

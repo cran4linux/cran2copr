@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  svSweave
 %global packver   0.9-8
 %global rlibdir   /usr/local/lib/R/library

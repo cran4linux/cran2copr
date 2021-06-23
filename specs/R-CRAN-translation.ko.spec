@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  translation.ko
 %global packver   0.0.1.5.2
 %global rlibdir   /usr/local/lib/R/library

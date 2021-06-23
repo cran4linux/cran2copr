@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  R2OpenBUGS
 %global packver   3.2-3.2.1
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  apsimx
 %global packver   1.977
 %global rlibdir   /usr/local/lib/R/library

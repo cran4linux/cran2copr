@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  ifa
 %global packver   7.0
 %global rlibdir   /usr/local/lib/R/library

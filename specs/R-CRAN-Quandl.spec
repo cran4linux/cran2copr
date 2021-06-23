@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  Quandl
 %global packver   2.10.0
 %global rlibdir   /usr/local/lib/R/library

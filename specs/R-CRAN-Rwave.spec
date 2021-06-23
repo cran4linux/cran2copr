@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  Rwave
 %global packver   2.4-8
 %global rlibdir   /usr/local/lib/R/library

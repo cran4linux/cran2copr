@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  chron
 %global packver   2.3-56
 %global rlibdir   /usr/local/lib/R/library

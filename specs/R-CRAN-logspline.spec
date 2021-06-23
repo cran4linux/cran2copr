@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  logspline
 %global packver   2.1.16
 %global rlibdir   /usr/local/lib/R/library

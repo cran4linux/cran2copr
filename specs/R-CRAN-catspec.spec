@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  catspec
 %global packver   0.97
 %global rlibdir   /usr/local/lib/R/library

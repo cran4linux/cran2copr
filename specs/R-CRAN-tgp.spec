@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  tgp
 %global packver   2.4-17
 %global rlibdir   /usr/local/lib/R/library

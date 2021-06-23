@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  nscancor
 %global packver   0.6.1-25
 %global rlibdir   /usr/local/lib/R/library

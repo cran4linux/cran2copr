@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  tripEstimation
 %global packver   0.0-44
 %global rlibdir   /usr/local/lib/R/library

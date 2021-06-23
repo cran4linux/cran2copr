@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  SciViews
 %global packver   0.9-13.1
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  HiveR
 %global packver   0.3.63
 %global rlibdir   /usr/local/lib/R/library

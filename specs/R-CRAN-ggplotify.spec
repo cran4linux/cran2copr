@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  ggplotify
 %global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library

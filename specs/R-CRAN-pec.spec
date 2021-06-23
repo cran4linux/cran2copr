@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  pec
 %global packver   2020.11.17
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  RcppArmadillo
 %global packver   0.10.5.0.0
 %global rlibdir   /usr/local/lib/R/library

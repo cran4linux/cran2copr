@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  MKLE
 %global packver   0.05
 %global rlibdir   /usr/local/lib/R/library

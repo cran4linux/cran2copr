@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  AtmRay
 %global packver   1.31
 %global rlibdir   /usr/local/lib/R/library

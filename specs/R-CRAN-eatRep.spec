@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  eatRep
 %global packver   0.13.5
 %global rlibdir   /usr/local/lib/R/library

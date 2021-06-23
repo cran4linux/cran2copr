@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  Fahrmeir
 %global packver   2016.5.31
 %global rlibdir   /usr/local/lib/R/library

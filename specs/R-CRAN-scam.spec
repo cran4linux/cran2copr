@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  scam
 %global packver   1.2-11
 %global rlibdir   /usr/local/lib/R/library

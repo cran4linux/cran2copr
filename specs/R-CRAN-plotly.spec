@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  plotly
 %global packver   4.9.4.1
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  riskRegression
 %global packver   2020.12.08
 %global rlibdir   /usr/local/lib/R/library

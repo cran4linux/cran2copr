@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  mblm
 %global packver   0.12.1
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  broomExtra
 %global packver   4.2.3
 %global rlibdir   /usr/local/lib/R/library

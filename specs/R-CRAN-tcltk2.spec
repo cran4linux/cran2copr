@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %undefine __brp_mangle_shebangs
 %global packname  tcltk2
 %global packver   1.2-11

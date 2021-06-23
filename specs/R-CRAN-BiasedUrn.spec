@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  BiasedUrn
 %global packver   1.07
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  ResourceSelection
 %global packver   0.3-5
 %global rlibdir   /usr/local/lib/R/library

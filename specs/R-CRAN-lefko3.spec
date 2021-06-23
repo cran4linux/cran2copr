@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  lefko3
 %global packver   3.4.0
 %global rlibdir   /usr/local/lib/R/library

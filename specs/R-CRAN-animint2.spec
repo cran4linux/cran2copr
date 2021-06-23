@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  animint2
 %global packver   2020.9.18
 %global rlibdir   /usr/local/lib/R/library

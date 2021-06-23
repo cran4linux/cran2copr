@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  PrivateLR
 %global packver   1.2-22
 %global rlibdir   /usr/local/lib/R/library

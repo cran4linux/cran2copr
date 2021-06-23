@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  MBC
 %global packver   0.10-5
 %global rlibdir   /usr/local/lib/R/library

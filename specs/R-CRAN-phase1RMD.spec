@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  phase1RMD
 %global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library

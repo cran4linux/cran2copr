@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  hopbyhop
 %global packver   3.41
 %global rlibdir   /usr/local/lib/R/library

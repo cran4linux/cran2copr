@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  TIMP
 %global packver   1.13.2
 %global rlibdir   /usr/local/lib/R/library

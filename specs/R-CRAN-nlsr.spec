@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  nlsr
 %global packver   2019.9.7
 %global rlibdir   /usr/local/lib/R/library

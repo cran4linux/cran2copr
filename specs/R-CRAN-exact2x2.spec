@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  exact2x2
 %global packver   1.6.5
 %global rlibdir   /usr/local/lib/R/library

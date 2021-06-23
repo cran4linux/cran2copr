@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  googleVis
 %global packver   0.6.10
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  logging
 %global packver   0.10-108
 %global rlibdir   /usr/local/lib/R/library

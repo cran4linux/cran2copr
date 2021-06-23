@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  RcmdrPlugin.HH
 %global packver   1.1-47
 %global rlibdir   /usr/local/lib/R/library

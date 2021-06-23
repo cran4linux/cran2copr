@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  Publish
 %global packver   2020.12.23
 %global rlibdir   /usr/local/lib/R/library

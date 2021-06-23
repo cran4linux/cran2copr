@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  HSAUR2
 %global packver   1.1-18
 %global rlibdir   /usr/local/lib/R/library

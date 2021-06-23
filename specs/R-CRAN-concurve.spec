@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  concurve
 %global packver   2.7.7
 %global rlibdir   /usr/local/lib/R/library

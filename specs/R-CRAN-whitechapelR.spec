@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  whitechapelR
 %global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  Density.T.HoldOut
 %global packver   2.00
 %global rlibdir   /usr/local/lib/R/library

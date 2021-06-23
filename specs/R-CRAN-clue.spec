@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  clue
 %global packver   0.3-59
 %global rlibdir   /usr/local/lib/R/library

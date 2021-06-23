@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  RcmdrPlugin.IPSUR
 %global packver   0.2-1.1
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  ChemoSpecUtils
 %global packver   0.4.96
 %global rlibdir   /usr/local/lib/R/library

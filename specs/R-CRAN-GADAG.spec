@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  GADAG
 %global packver   0.99.0
 %global rlibdir   /usr/local/lib/R/library

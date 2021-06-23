@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  qrmdata
 %global packver   2019-12-03-1
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  assertive.data.uk
 %global packver   0.0-2
 %global rlibdir   /usr/local/lib/R/library

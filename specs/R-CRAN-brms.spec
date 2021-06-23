@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  brms
 %global packver   2.15.0
 %global rlibdir   /usr/local/lib/R/library

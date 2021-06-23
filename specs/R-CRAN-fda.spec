@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  fda
 %global packver   5.1.9
 %global rlibdir   /usr/local/lib/R/library

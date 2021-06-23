@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  splm
 %global packver   1.4-11
 %global rlibdir   /usr/local/lib/R/library

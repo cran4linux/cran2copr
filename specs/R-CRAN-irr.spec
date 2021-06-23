@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  irr
 %global packver   0.84.1
 %global rlibdir   /usr/local/lib/R/library

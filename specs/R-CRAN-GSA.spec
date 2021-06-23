@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  GSA
 %global packver   1.03.1
 %global rlibdir   /usr/local/lib/R/library

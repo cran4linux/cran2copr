@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  taxotools
 %global packver   0.0.79
 %global rlibdir   /usr/local/lib/R/library

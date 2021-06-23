@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  BoutrosLab.plotting.general
 %global packver   6.0.3
 %global rlibdir   /usr/local/lib/R/library

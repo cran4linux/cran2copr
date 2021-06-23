@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  MethComp
 %global packver   1.30.0
 %global rlibdir   /usr/local/lib/R/library

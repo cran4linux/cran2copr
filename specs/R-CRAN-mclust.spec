@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  mclust
 %global packver   5.4.7
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  weightedScores
 %global packver   0.9.5.3
 %global rlibdir   /usr/local/lib/R/library

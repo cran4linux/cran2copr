@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  lqr
 %global packver   3.43
 %global rlibdir   /usr/local/lib/R/library

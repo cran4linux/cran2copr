@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  simmer.plot
 %global packver   0.1.16
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  FitAR
 %global packver   1.94
 %global rlibdir   /usr/local/lib/R/library

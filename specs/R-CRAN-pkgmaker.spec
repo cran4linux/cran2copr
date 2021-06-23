@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  pkgmaker
 %global packver   0.32.2
 %global rlibdir   /usr/local/lib/R/library

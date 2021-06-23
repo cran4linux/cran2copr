@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  rSFA
 %global packver   1.04
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  forestplot
 %global packver   1.10.1
 %global rlibdir   /usr/local/lib/R/library

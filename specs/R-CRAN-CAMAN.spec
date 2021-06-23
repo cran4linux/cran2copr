@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  CAMAN
 %global packver   0.74
 %global rlibdir   /usr/local/lib/R/library

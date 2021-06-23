@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  ROpenCVLite
 %global packver   4.51.0
 %global rlibdir   /usr/local/lib/R/library

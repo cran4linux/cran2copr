@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  rtkore
 %global packver   1.5.5
 %global rlibdir   /usr/local/lib/R/library

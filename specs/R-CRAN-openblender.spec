@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  openblender
 %global packver   0.5.81
 %global rlibdir   /usr/local/lib/R/library

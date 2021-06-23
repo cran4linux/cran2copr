@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  localModel
 %global packver   0.3.12
 %global rlibdir   /usr/local/lib/R/library

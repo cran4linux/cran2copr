@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  GameTheory
 %global packver   2.7
 %global rlibdir   /usr/local/lib/R/library

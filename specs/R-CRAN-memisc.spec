@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  memisc
 %global packver   0.99.27.3
 %global rlibdir   /usr/local/lib/R/library

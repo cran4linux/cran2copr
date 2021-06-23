@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  fpop
 %global packver   2019.08.26
 %global rlibdir   /usr/local/lib/R/library

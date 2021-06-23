@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  MPsychoR
 %global packver   0.10-8
 %global rlibdir   /usr/local/lib/R/library

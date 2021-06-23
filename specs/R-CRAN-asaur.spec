@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  asaur
 %global packver   0.50
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  nat
 %global packver   1.8.16
 %global rlibdir   /usr/local/lib/R/library

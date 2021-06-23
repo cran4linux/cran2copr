@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  PeakSegDP
 %global packver   2017.08.15
 %global rlibdir   /usr/local/lib/R/library

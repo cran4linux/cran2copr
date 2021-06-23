@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  performance
 %global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library

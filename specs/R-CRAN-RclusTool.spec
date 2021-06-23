@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  RclusTool
 %global packver   0.91.3
 %global rlibdir   /usr/local/lib/R/library

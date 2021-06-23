@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  RiskPortfolios
 %global packver   2.1.7
 %global rlibdir   /usr/local/lib/R/library

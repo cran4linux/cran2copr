@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  mkde
 %global packver   0.1
 %global rlibdir   /usr/local/lib/R/library

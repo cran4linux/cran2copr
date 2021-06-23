@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  PeakSegOptimal
 %global packver   2018.05.25
 %global rlibdir   /usr/local/lib/R/library

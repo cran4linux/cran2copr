@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  BayesS5
 %global packver   1.41
 %global rlibdir   /usr/local/lib/R/library

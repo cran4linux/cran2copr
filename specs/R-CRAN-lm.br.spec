@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  lm.br
 %global packver   2.9.3
 %global rlibdir   /usr/local/lib/R/library

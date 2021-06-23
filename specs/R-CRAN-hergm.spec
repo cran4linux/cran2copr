@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  hergm
 %global packver   4.1-7
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  FrF2.catlg128
 %global packver   1.2-1
 %global rlibdir   /usr/local/lib/R/library

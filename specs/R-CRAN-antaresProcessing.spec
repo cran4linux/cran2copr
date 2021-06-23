@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  antaresProcessing
 %global packver   0.18.0
 %global rlibdir   /usr/local/lib/R/library

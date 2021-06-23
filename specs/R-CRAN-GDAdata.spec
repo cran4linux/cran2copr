@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  GDAdata
 %global packver   0.93
 %global rlibdir   /usr/local/lib/R/library

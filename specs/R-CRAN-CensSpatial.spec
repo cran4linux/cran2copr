@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  CensSpatial
 %global packver   2.58
 %global rlibdir   /usr/local/lib/R/library

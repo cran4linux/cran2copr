@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  rosetteApi
 %global packver   1.14.4
 %global rlibdir   /usr/local/lib/R/library

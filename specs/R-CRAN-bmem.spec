@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  bmem
 %global packver   1.8
 %global rlibdir   /usr/local/lib/R/library

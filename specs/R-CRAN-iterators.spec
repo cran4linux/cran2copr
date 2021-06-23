@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  iterators
 %global packver   1.0.13
 %global rlibdir   /usr/local/lib/R/library

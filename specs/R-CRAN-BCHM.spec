@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  BCHM
 %global packver   1.00
 %global rlibdir   /usr/local/lib/R/library

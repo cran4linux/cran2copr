@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  hyperSpec
 %global packver   0.99-20201127
 %global rlibdir   /usr/local/lib/R/library

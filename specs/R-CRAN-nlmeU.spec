@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  nlmeU
 %global packver   0.70-3
 %global rlibdir   /usr/local/lib/R/library

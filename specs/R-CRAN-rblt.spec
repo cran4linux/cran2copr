@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  rblt
 %global packver   0.2.4.5
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  ecpc
 %global packver   2.0
 %global rlibdir   /usr/local/lib/R/library

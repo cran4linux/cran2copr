@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  forecastHybrid
 %global packver   5.0.19
 %global rlibdir   /usr/local/lib/R/library

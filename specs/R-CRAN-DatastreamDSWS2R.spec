@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  DatastreamDSWS2R
 %global packver   1.7.9
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  aucm
 %global packver   2019.12-1
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  rticles
 %global packver   0.19
 %global rlibdir   /usr/local/lib/R/library

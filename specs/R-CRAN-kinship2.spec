@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  kinship2
 %global packver   1.8.5
 %global rlibdir   /usr/local/lib/R/library

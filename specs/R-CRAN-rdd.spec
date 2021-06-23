@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  rdd
 %global packver   0.57
 %global rlibdir   /usr/local/lib/R/library

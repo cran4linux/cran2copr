@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  optimr
 %global packver   2019-12.16
 %global rlibdir   /usr/local/lib/R/library

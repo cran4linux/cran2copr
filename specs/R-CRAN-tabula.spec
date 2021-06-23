@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  tabula
 %global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library

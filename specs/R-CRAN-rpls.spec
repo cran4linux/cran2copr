@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  rpls
 %global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library

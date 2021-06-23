@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  rio
 %global packver   0.5.27
 %global rlibdir   /usr/local/lib/R/library

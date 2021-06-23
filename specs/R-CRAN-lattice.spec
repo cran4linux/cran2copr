@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  lattice
 %global packver   0.20-44
 %global rlibdir   /usr/local/lib/R/library

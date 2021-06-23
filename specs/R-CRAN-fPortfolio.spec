@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  fPortfolio
 %global packver   3042.83.1
 %global rlibdir   /usr/local/lib/R/library

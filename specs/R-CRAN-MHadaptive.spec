@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  MHadaptive
 %global packver   1.1-8
 %global rlibdir   /usr/local/lib/R/library

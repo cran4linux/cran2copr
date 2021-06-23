@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  MCMCvis
 %global packver   0.15.2
 %global rlibdir   /usr/local/lib/R/library

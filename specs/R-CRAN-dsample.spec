@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  dsample
 %global packver   0.91.2.2
 %global rlibdir   /usr/local/lib/R/library

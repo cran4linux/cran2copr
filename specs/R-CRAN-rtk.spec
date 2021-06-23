@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  rtk
 %global packver   0.2.6.1
 %global rlibdir   /usr/local/lib/R/library

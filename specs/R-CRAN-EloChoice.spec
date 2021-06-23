@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  EloChoice
 %global packver   0.29.4
 %global rlibdir   /usr/local/lib/R/library

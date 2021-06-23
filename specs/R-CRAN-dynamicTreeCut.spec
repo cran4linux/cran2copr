@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  dynamicTreeCut
 %global packver   1.63-1
 %global rlibdir   /usr/local/lib/R/library

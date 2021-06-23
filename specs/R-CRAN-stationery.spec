@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  stationery
 %global packver   0.98.30
 %global rlibdir   /usr/local/lib/R/library

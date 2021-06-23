@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  backShift
 %global packver   0.1.4.3
 %global rlibdir   /usr/local/lib/R/library

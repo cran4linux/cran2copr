@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  SenSrivastava
 %global packver   2015.6.25
 %global rlibdir   /usr/local/lib/R/library

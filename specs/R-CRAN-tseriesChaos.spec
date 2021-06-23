@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  tseriesChaos
 %global packver   0.1-13.1
 %global rlibdir   /usr/local/lib/R/library

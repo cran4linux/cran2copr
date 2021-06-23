@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  distrSim
 %global packver   2.8.0
 %global rlibdir   /usr/local/lib/R/library

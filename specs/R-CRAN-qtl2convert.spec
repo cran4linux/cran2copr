@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  qtl2convert
 %global packver   0.24
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  ggnetwork
 %global packver   0.5.9
 %global rlibdir   /usr/local/lib/R/library

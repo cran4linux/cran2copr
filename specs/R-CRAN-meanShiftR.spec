@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  meanShiftR
 %global packver   0.53
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  gee
 %global packver   4.13-20
 %global rlibdir   /usr/local/lib/R/library

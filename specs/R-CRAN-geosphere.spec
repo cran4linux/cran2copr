@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  geosphere
 %global packver   1.5-10
 %global rlibdir   /usr/local/lib/R/library

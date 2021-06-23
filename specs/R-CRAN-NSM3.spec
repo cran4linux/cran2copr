@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  NSM3
 %global packver   1.16
 %global rlibdir   /usr/local/lib/R/library

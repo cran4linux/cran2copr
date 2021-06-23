@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  anchors
 %global packver   3.0-8
 %global rlibdir   /usr/local/lib/R/library

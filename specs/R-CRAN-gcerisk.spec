@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  gcerisk
 %global packver   19.05.24
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  extrafont
 %global packver   0.17
 %global rlibdir   /usr/local/lib/R/library

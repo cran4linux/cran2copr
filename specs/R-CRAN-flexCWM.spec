@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  flexCWM
 %global packver   1.92
 %global rlibdir   /usr/local/lib/R/library

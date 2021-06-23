@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  qrmtools
 %global packver   0.0-14
 %global rlibdir   /usr/local/lib/R/library

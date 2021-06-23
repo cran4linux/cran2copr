@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  nCal
 %global packver   2020.9-10
 %global rlibdir   /usr/local/lib/R/library

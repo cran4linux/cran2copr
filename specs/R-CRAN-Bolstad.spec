@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  Bolstad
 %global packver   0.2-41
 %global rlibdir   /usr/local/lib/R/library

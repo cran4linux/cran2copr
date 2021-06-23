@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  pacbpred
 %global packver   0.92.2
 %global rlibdir   /usr/local/lib/R/library

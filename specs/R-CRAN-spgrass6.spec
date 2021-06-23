@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  spgrass6
 %global packver   0.8-9
 %global rlibdir   /usr/local/lib/R/library

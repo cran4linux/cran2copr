@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  fTrading
 %global packver   3042.79
 %global rlibdir   /usr/local/lib/R/library

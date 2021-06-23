@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  prop.comb.RR
 %global packver   1.2
 %global rlibdir   /usr/local/lib/R/library

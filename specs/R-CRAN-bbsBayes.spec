@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  bbsBayes
 %global packver   2.3.6.2020
 %global rlibdir   /usr/local/lib/R/library

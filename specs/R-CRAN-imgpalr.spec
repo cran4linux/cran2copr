@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  imgpalr
 %global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library

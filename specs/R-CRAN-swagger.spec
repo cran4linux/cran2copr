@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  swagger
 %global packver   3.33.1
 %global rlibdir   /usr/local/lib/R/library

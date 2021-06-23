@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  mlr3verse
 %global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library

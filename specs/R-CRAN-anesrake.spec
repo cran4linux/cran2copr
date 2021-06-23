@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  anesrake
 %global packver   0.80
 %global rlibdir   /usr/local/lib/R/library

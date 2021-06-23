@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  BNPdensity
 %global packver   2021.5.4
 %global rlibdir   /usr/local/lib/R/library

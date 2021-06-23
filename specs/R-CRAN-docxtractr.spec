@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  docxtractr
 %global packver   0.6.5
 %global rlibdir   /usr/local/lib/R/library

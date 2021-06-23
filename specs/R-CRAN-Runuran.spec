@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  Runuran
 %global packver   0.33
 %global rlibdir   /usr/local/lib/R/library

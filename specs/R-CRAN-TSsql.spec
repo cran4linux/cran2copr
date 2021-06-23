@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  TSsql
 %global packver   2017.4-1
 %global rlibdir   /usr/local/lib/R/library

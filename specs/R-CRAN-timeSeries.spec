@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  timeSeries
 %global packver   3062.100
 %global rlibdir   /usr/local/lib/R/library

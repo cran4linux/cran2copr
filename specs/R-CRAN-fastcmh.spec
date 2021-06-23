@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  fastcmh
 %global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library

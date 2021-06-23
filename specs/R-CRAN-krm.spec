@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  krm
 %global packver   2020.5-20
 %global rlibdir   /usr/local/lib/R/library

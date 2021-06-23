@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  seqminer
 %global packver   8.0
 %global rlibdir   /usr/local/lib/R/library

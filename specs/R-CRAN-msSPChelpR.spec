@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  msSPChelpR
 %global packver   0.8.6
 %global rlibdir   /usr/local/lib/R/library

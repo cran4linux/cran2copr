@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  Rttf2pt1
 %global packver   1.3.8
 %global rlibdir   /usr/local/lib/R/library

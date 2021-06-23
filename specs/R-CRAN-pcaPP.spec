@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  pcaPP
 %global packver   1.9-74
 %global rlibdir   /usr/local/lib/R/library

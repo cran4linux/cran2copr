@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  Umpire
 %global packver   2.0.10
 %global rlibdir   /usr/local/lib/R/library

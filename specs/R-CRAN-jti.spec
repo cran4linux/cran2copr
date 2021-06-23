@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  jti
 %global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library

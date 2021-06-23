@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  mice
 %global packver   3.13.0
 %global rlibdir   /usr/local/lib/R/library

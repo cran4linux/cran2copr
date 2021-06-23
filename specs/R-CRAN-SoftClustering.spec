@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  SoftClustering
 %global packver   1.1902.2
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  live
 %global packver   1.5.13
 %global rlibdir   /usr/local/lib/R/library

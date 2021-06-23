@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  shinytest
 %global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library

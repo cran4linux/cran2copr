@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  ContaminatedMixt
 %global packver   1.3.4.1
 %global rlibdir   /usr/local/lib/R/library

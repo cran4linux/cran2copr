@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  PeakSegDisk
 %global packver   2020.8.13
 %global rlibdir   /usr/local/lib/R/library

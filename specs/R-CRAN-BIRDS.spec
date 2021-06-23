@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  BIRDS
 %global packver   0.1.27.1
 %global rlibdir   /usr/local/lib/R/library

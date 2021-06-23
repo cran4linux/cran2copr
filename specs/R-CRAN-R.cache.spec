@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  R.cache
 %global packver   0.15.0
 %global rlibdir   /usr/local/lib/R/library

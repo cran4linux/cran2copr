@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  lineup
 %global packver   0.38-3
 %global rlibdir   /usr/local/lib/R/library

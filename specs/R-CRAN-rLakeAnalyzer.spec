@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  rLakeAnalyzer
 %global packver   1.11.4.1
 %global rlibdir   /usr/local/lib/R/library

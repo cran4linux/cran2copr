@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  SC2API
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library

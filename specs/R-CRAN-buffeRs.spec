@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  buffeRs
 %global packver   0.30
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  XML
 %global packver   3.99-0.6
 %global rlibdir   /usr/local/lib/R/library

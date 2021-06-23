@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  fAssets
 %global packver   3042.84
 %global rlibdir   /usr/local/lib/R/library

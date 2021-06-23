@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  frair
 %global packver   0.5.100
 %global rlibdir   /usr/local/lib/R/library

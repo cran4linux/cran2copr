@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  x.ent
 %global packver   1.1.7
 %global rlibdir   /usr/local/lib/R/library

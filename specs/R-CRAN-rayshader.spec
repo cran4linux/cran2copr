@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  rayshader
 %global packver   0.24.10
 %global rlibdir   /usr/local/lib/R/library

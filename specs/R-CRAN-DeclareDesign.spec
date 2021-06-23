@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  DeclareDesign
 %global packver   0.26.0
 %global rlibdir   /usr/local/lib/R/library

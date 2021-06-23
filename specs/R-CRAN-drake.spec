@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  drake
 %global packver   7.13.2
 %global rlibdir   /usr/local/lib/R/library

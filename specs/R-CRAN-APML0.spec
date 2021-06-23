@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  APML0
 %global packver   0.10
 %global rlibdir   /usr/local/lib/R/library

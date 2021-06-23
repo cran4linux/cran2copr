@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  ouch
 %global packver   2.17
 %global rlibdir   /usr/local/lib/R/library

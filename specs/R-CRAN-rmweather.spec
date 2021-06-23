@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  rmweather
 %global packver   0.1.51
 %global rlibdir   /usr/local/lib/R/library

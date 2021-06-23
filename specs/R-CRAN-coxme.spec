@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  coxme
 %global packver   2.2-16
 %global rlibdir   /usr/local/lib/R/library

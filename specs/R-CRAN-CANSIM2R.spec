@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  CANSIM2R
 %global packver   1.14.1
 %global rlibdir   /usr/local/lib/R/library

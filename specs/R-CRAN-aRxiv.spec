@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  aRxiv
 %global packver   0.5.19
 %global rlibdir   /usr/local/lib/R/library

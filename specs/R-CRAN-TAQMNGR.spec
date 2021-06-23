@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  TAQMNGR
 %global packver   2018.5-1
 %global rlibdir   /usr/local/lib/R/library

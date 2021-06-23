@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  ExtractTrainData
 %global packver   9.1.5
 %global rlibdir   /usr/local/lib/R/library

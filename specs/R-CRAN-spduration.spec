@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  spduration
 %global packver   0.17.1
 %global rlibdir   /usr/local/lib/R/library

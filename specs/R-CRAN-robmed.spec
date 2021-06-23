@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  robmed
 %global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library

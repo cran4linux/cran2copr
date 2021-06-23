@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  R2WinBUGS
 %global packver   2.1-21
 %global rlibdir   /usr/local/lib/R/library

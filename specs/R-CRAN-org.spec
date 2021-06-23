@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  org
 %global packver   2019.4.2
 %global rlibdir   /usr/local/lib/R/library

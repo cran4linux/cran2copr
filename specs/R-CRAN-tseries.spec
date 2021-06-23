@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  tseries
 %global packver   0.10-48
 %global rlibdir   /usr/local/lib/R/library

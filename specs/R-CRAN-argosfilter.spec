@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  argosfilter
 %global packver   0.63
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  mixAR
 %global packver   0.22.5
 %global rlibdir   /usr/local/lib/R/library

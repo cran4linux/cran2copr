@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  rrecsys
 %global packver   0.9.7.3.1
 %global rlibdir   /usr/local/lib/R/library

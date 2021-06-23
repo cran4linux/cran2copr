@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  optimx
 %global packver   2021-6.12
 %global rlibdir   /usr/local/lib/R/library

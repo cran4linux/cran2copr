@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  ig.vancouver.2014.topcolour
 %global packver   0.1.2.0
 %global rlibdir   /usr/local/lib/R/library

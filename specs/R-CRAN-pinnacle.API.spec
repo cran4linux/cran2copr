@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  pinnacle.API
 %global packver   2.3.3
 %global rlibdir   /usr/local/lib/R/library

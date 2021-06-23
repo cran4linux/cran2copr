@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  installr
 %global packver   0.23.2
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  TSodbc
 %global packver   2015.4-1
 %global rlibdir   /usr/local/lib/R/library

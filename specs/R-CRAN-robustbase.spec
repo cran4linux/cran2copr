@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  robustbase
 %global packver   0.93-8
 %global rlibdir   /usr/local/lib/R/library

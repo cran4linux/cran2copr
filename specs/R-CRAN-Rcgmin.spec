@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  Rcgmin
 %global packver   2013-2.21
 %global rlibdir   /usr/local/lib/R/library

@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  dafs
 %global packver   1.0-37
 %global rlibdir   /usr/local/lib/R/library

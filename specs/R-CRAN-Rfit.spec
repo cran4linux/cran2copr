@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  Rfit
 %global packver   0.24.2
 %global rlibdir   /usr/local/lib/R/library

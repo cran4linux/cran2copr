@@ -1,3 +1,4 @@
+%global __brp_check_rpaths %{nil}
 %global packname  miraculix
 %global packver   0.9.20
 %global rlibdir   /usr/local/lib/R/library
