@@ -47,6 +47,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
+# remove --static flag
+sed -i 's@--static@@g' %{packname}/configure
 
 %build
 
