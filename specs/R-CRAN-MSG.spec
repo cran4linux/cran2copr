@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MSG
-%global packver   0.6
+%global packver   0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data and Functions for the Book Modern Statistical Graphics
 

@@ -1,35 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DockerParallel
-%global packver   1.0.4
+%global packname  tidytreatment
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Using the Docker Container to Create R Workers on Local or Cloud Platform
+Summary:          Tidy Methods for Bayesian Treatment Effect Models
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-tidybayes 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-tidybayes 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
 
 %description
-This is the core package that provides both the user API and developer API
-to deploy the parallel cluster on the cloud using the container service.
-The user can call clusterPreset() to define the cloud service provider and
-container and makeDockerCluster() to create the cluster. The developer
-should see "developer's cookbook" on how to define the cloud provider and
-container.
+Functions for extracting tidy data from Bayesian treatment effect models,
+in particular BART, but extensions are possible. Functionality includes
+extracting tidy posterior summaries as in 'tidybayes'
+<https://github.com/mjskay/tidybayes>, estimating (average) treatment
+effects, common support calculations, and plotting useful summaries of
+these.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DockerParallel
-%global packver   1.0.4
+%global packname  hrqglas
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Using the Docker Container to Create R Workers on Local or Cloud Platform
+Summary:          Group Variable Selection for Quantile and Robust Mean Regression
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-Rcpp >= 1.0.4
+Requires:         R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-graphics 
 
 %description
-This is the core package that provides both the user API and developer API
-to deploy the parallel cluster on the cloud using the container service.
-The user can call clusterPreset() to define the cloud service provider and
-container and makeDockerCluster() to create the cluster. The developer
-should see "developer's cookbook" on how to define the cloud provider and
-container.
+A program that conducts group variable selection for quantile and robust
+mean regression (Sherwood and Li, 2021). The group lasso penalty (Yuan and
+Lin, 2006) is used for group-wise variable selection. Both of the quantile
+and mean regression models are based on the Huber loss. Specifically, with
+the tuning parameter in the Huber loss approaching to 0, the quantile
+check function can be approximated by the Huber loss for the median and
+the tilted version of Huber loss at other quantiles. Such approximation
+provides computational efficiency and stability, and has also been shown
+to be statistical consistent.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  polyqtlR
-%global packver   0.0.5
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          QTL Analysis in Autopolyploid Bi-Parental F1 Populations
 
@@ -40,8 +40,8 @@ Quantitative trait loci (QTL) analysis and exploration of meiotic patterns
 in autopolyploid bi-parental F1 populations. For all ploidy levels,
 identity-by-descent (IBD) probabilities can be estimated. Significance
 thresholds, exploring QTL allele effects and visualising results are
-provided. The methods have been largely described in the dissertation of
-P.M. Bourke in 2018 <doi:10.18174/444415>.
+provided. For background, see the 2018 dissertation of P.M. Bourke
+<doi:10.18174/444415>.
 
 %prep
 %setup -q -c -n %{packname}

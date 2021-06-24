@@ -1,35 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DockerParallel
-%global packver   1.0.4
+%global packname  rim
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Using the Docker Container to Create R Workers on Local or Cloud Platform
+Summary:          R's Interface to Maxima, Bringing Symbolic Computation into R
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-digest 
 Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-digest 
 
 %description
-This is the core package that provides both the user API and developer API
-to deploy the parallel cluster on the cloud using the container service.
-The user can call clusterPreset() to define the cloud service provider and
-container and makeDockerCluster() to create the cluster. The developer
-should see "developer's cookbook" on how to define the cloud provider and
-container.
+Provides an interface to the powerful and fairly complete computer algebra
+system maxima. It can be used to start and control maxima from within R by
+entering 'Maxima' commands. It facilitates outputting results from
+'Maxima' in 'LaTeX' and 'MathML'. 2D and 3D plots can be displayed
+directly. This package also registers a 'knitr'-engine enabling 'Maxima'
+code chunks to be written in 'RMarkdown' documents.
 
 %prep
 %setup -q -c -n %{packname}

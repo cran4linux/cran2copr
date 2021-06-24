@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rticles
-%global packver   0.19
+%global packver   0.20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.19
+Version:          0.20
 Release:          1%{?dist}%{?buildtag}
 Summary:          Article Formats for R Markdown
 

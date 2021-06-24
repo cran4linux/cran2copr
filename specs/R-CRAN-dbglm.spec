@@ -1,49 +1,53 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ergm.ego
+%global packname  dbglm
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit, Simulate and Diagnose Exponential-Family Random Graph Models to Egocentrically Sampled Network Data
+Summary:          Generalised Linear Models by Subsampling and One-Step Polishing
 
-License:          GPL-3 + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-statnet.common >= 4.5.0
-BuildRequires:    R-CRAN-ergm >= 4.0.0
-BuildRequires:    R-CRAN-tibble >= 2.1.1
-BuildRequires:    R-CRAN-network >= 1.17.1
-BuildRequires:    R-CRAN-RColorBrewer >= 1.1.2
-BuildRequires:    R-CRAN-purrr >= 0.3.2
-BuildRequires:    R-CRAN-coda >= 0.19.2
-BuildRequires:    R-CRAN-egor 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-survey 
-BuildRequires:    R-stats 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-tidypredict 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-statnet.common >= 4.5.0
-Requires:         R-CRAN-ergm >= 4.0.0
-Requires:         R-CRAN-tibble >= 2.1.1
-Requires:         R-CRAN-network >= 1.17.1
-Requires:         R-CRAN-RColorBrewer >= 1.1.2
-Requires:         R-CRAN-purrr >= 0.3.2
-Requires:         R-CRAN-coda >= 0.19.2
-Requires:         R-CRAN-egor 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-survey 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-tidypredict 
+Requires:         R-CRAN-rlang 
 Requires:         R-methods 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
 
 %description
-Utilities for managing egocentrically sampled network data and a wrapper
-around the 'ergm' package to facilitate ERGM inference and simulation from
-such data. See Krivitsky and Morris (2017) <doi:10.1214/16-AOAS1010>.
+Fast fitting of generalised linear models on moderately large datasets, by
+taking an initial sample, fitting in memory, then evaluating the score
+function for the full data in the database. Thomas Lumley
+<doi:10.1080/10618600.2019.1610312>.
 
 %prep
 %setup -q -c -n %{packname}

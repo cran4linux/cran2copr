@@ -1,35 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DockerParallel
-%global packver   1.0.4
+%global packname  quickNmix
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Using the Docker Container to Create R Workers on Local or Cloud Platform
+Summary:          Asymptotic N-Mixture Model Fitting
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
 
 %description
-This is the core package that provides both the user API and developer API
-to deploy the parallel cluster on the cloud using the container service.
-The user can call clusterPreset() to define the cloud service provider and
-container and makeDockerCluster() to create the cluster. The developer
-should see "developer's cookbook" on how to define the cloud provider and
-container.
+For fitting asymptotic N-mixture models. Asymptotic N-mixture models
+extend the work of Dail and Madsen (2011)
+<doi:10.1111/j.1541-0420.2010.01465.x>, to consider asymptotic solutions
+to the open population N-mixture models. The asymptotic models are derived
+and described in: "Parker, M.R.P., Elliott, L., Cowen, L.L.E., Cao, J.
+(2021). Asymptotic solutions for N-mixture models with count data
+[Manuscript in preparation]. Department of Statistics and Actuarial
+Sciences, Simon Fraser University.".
 
 %prep
 %setup -q -c -n %{packname}

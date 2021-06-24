@@ -1,41 +1,50 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cchsflow
-%global packver   1.8.2
+%global packname  wcde
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Transforming and Harmonizing CCHS Variables
+Summary:          Download Data from the Wittgenstein Human Capital Data Explorer
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr >= 1.2.0
-BuildRequires:    R-CRAN-haven >= 1.1.2
-BuildRequires:    R-CRAN-sjlabelled >= 1.0.17
-BuildRequires:    R-CRAN-dplyr >= 0.8.2
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-stringr >= 1.2.0
-Requires:         R-CRAN-haven >= 1.1.2
-Requires:         R-CRAN-sjlabelled >= 1.0.17
-Requires:         R-CRAN-dplyr >= 0.8.2
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-countrycode 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-lemon 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-countrycode 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-lemon 
 
 %description
-Supporting the use of the Canadian Community Health Survey (CCHS) by
-transforming variables from each cycle into harmonized, consistent
-versions that span survey cycles (currently, 2001 to 2014). CCHS data used
-in this library is accessed and adapted in accordance to the Statistics
-Canada Open Licence Agreement. This package uses rec_with_table(), which
-was developed from 'sjmisc' rec(). Lüdecke D (2018). "sjmisc: Data and
-Variable Transformation Functions". Journal of Open Source Software,
-3(26), 754. <doi:10.21105/joss.00754>.
+Download and plot education specific demographic data from the
+Wittgenstein Human Capital Data Explorer
+<http://dataexplorer.wittgensteincentre.org/>.
 
 %prep
 %setup -q -c -n %{packname}

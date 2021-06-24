@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  foqat
-%global packver   1.6.4
+%global packver   1.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.4
+Version:          1.6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Field Observation Quick Analysis Toolkit
 
@@ -53,7 +53,8 @@ time series are also applicable to other fields. For detail please view
 homepage<https://github.com/tianshu129/foqat>. Scientific Reference: 1.
 The Hydroxyl Radical (OH) Reactivity: Roger Atkinson and Janet Arey (2003)
 <doi:10.1021/cr0206420>. 2. Ozone Formation Potential (OFP):
-<https://ww3.arb.ca.gov/regact/2009/mir2009/mir10.pdf>. 3. TUV model:
+<https://ww2.arb.ca.gov/sites/default/files/classic/regact/2009/mir2009/mir10.pdf>.
+3. TUV model:
 <https://www2.acom.ucar.edu/modeling/tropospheric-ultraviolet-and-visible-tuv-radiation-model>.
 
 %prep

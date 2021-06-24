@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DockerParallel
-%global packver   1.0.4
+%global packname  genSEIR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Using the Docker Container to Create R Workers on Local or Cloud Platform
+Summary:          Predict Epidemic Curves with Generalized SEIR Modeling
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-nlsr 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-nlsr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-This is the core package that provides both the user API and developer API
-to deploy the parallel cluster on the cloud using the container service.
-The user can call clusterPreset() to define the cloud service provider and
-container and makeDockerCluster() to create the cluster. The developer
-should see "developer's cookbook" on how to define the cloud provider and
-container.
+Performs generalized Susceptible-Exposed-Infected-Recovered (SEIR)
+modeling to predict epidemic curves. The method is described in Peng et
+al. (2020) <doi:10.1101/2020.02.16.20023465>.
 
 %prep
 %setup -q -c -n %{packname}

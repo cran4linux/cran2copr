@@ -1,35 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DockerParallel
-%global packver   1.0.4
+%global packname  etrm
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Using the Docker Container to Create R Workers on Local or Cloud Platform
+Summary:          Energy Trading and Risk Management
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
 Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-jsonlite 
 
 %description
-This is the core package that provides both the user API and developer API
-to deploy the parallel cluster on the cloud using the container service.
-The user can call clusterPreset() to define the cloud service provider and
-container and makeDockerCluster() to create the cluster. The developer
-should see "developer's cookbook" on how to define the cloud provider and
-container.
+Provides a collection of functions to perform core tasks within Energy
+Trading and Risk Management (ETRM). Calculation of maximum smoothness
+forward price curves for electricity and natural gas contracts with flow
+delivery, as presented in F. E. Benth, S. Koekebakker, and F. Ollmar
+(2007) <doi:10.3905/jod.2007.694791> and F. E. Benth, J. S. Benth, and S.
+Koekebakker (2008) <doi:10.1142/6811>. Portfolio insurance trading
+strategies for price risk management in the forward market, see F. Black
+(1976) <doi:10.1016/0304-405X(76)90024-6>, T. Bjork (2009)
+<https://EconPapers.repec.org/RePEc:oxp:obooks:9780199574742>, F. Black
+and R. W. Jones (1987) <doi:10.3905/jpm.1987.409131> and H. E. Leland
+(1980) <http://www.jstor.org/stable/2327419>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  TotalCopheneticIndex
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantify the Balance of Phylogenetic Trees
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-TreeTools 
-Requires:         R-CRAN-TreeTools 
+BuildRequires:    R-CRAN-TreeTools >= 1.4.5
+Requires:         R-CRAN-TreeTools >= 1.4.5
 
 %description
 Measures the degree of balance for a given phylogenetic tree by

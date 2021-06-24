@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DockerParallel
-%global packver   1.0.4
+%global packname  RHRT
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Using the Docker Container to Create R Workers on Local or Cloud Platform
+Summary:          Heart Rate Turbulence Analysis
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
+BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-methods 
+Requires:         R-graphics 
 Requires:         R-utils 
-Requires:         R-CRAN-jsonlite 
 
 %description
-This is the core package that provides both the user API and developer API
-to deploy the parallel cluster on the cloud using the container service.
-The user can call clusterPreset() to define the cloud service provider and
-container and makeDockerCluster() to create the cluster. The developer
-should see "developer's cookbook" on how to define the cloud provider and
-container.
+Methods to scan RR interval data for Premature Ventricular Complexes
+(PVCs) and parameterise and plot the resulting Heart Rate Turbulence
+(HRT). The methodology of HRT analysis is based on the original
+publication by Schmidt et al. <doi:10.1016/S0140-6736(98)08428-1> and
+extended with suggestions from <doi:10.1088/1361-6579/ab98b3>.
 
 %prep
 %setup -q -c -n %{packname}

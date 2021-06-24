@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DockerParallel
-%global packver   1.0.4
+%global packname  ariExtra
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Using the Docker Container to Create R Workers on Local or Cloud Platform
+Summary:          Tools for Creating Automated Courses
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,20 +16,43 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-docxtractr >= 0.6.2
+BuildRequires:    R-CRAN-text2speech >= 0.2.8
+BuildRequires:    R-CRAN-ari >= 0.2.3
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-pdftools 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-mime 
+BuildRequires:    R-tools 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-tuneR 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-docxtractr >= 0.6.2
+Requires:         R-CRAN-text2speech >= 0.2.8
+Requires:         R-CRAN-ari >= 0.2.3
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-httr 
 Requires:         R-utils 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-pdftools 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-mime 
+Requires:         R-tools 
+Requires:         R-stats 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-tuneR 
+Requires:         R-CRAN-yaml 
 
 %description
-This is the core package that provides both the user API and developer API
-to deploy the parallel cluster on the cloud using the container service.
-The user can call clusterPreset() to define the cloud service provider and
-container and makeDockerCluster() to create the cluster. The developer
-should see "developer's cookbook" on how to define the cloud provider and
-container.
+Leverages the 'ari' package and other tools to create automated courses
+from slides and a script.  Also, uploads these to 'YouTube' and other
+services using 'tuber' package.
 
 %prep
 %setup -q -c -n %{packname}

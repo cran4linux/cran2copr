@@ -1,35 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DockerParallel
-%global packver   1.0.4
+%global packname  bravo
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Using the Docker Container to Create R Workers on Local or Cloud Platform
+Summary:          Bayesian Screening and Variable Selection
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildRequires:    R-CRAN-Matrix >= 1.2.17
+BuildRequires:    R-CRAN-Rcpp >= 1.0.2
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-Matrix >= 1.2.17
+Requires:         R-CRAN-Rcpp >= 1.0.2
 Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-jsonlite 
 
 %description
-This is the core package that provides both the user API and developer API
-to deploy the parallel cluster on the cloud using the container service.
-The user can call clusterPreset() to define the cloud service provider and
-container and makeDockerCluster() to create the cluster. The developer
-should see "developer's cookbook" on how to define the cloud provider and
-container.
+Performs Bayesian variable selection with embedded screening for
+ultra-high dimensional Gaussian linear regression models. The methodology
+is described in Li, Dutta and Roy (2020) <arXiv:2006.07561>.
 
 %prep
 %setup -q -c -n %{packname}

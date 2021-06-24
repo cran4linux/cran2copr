@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DockerParallel
-%global packver   1.0.4
+%global packname  MIIPW
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Using the Docker Container to Create R Workers on Local or Cloud Platform
+Summary:          IPW and Mean Score Methods for Time-Course Missing Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-R2jags 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-matlib 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-R2jags 
 Requires:         R-utils 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-matlib 
+Requires:         R-stats 
 
 %description
-This is the core package that provides both the user API and developer API
-to deploy the parallel cluster on the cloud using the container service.
-The user can call clusterPreset() to define the cloud service provider and
-container and makeDockerCluster() to create the cluster. The developer
-should see "developer's cookbook" on how to define the cloud provider and
-container.
+Contains functions for data analysis of Repeated measurement
+continuous,categorical data using MCMC. Data may contain missing value in
+response and covariates. Mean Score Method and Inverse Probability
+Weighted method for parameter estimation when there is missing value in
+covariates are also included. Reference for mean score method, inverse
+probability weighted method is Wang et
+al(2007)<doi:10.1093/biostatistics/kxl024>.
 
 %prep
 %setup -q -c -n %{packname}

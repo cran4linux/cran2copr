@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DSLite
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'DataSHIELD' Implementation on Local Datasets
 
@@ -16,10 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DSI >= 1.2
+BuildRequires:    R-CRAN-DSI >= 1.3
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-DSI >= 1.2
+Requires:         R-CRAN-DSI >= 1.3
 Requires:         R-methods 
 Requires:         R-CRAN-R6 
 
