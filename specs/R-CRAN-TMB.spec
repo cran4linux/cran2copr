@@ -23,7 +23,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Matrix >= 1.0.12
-Requires:         R-CRAN-RcppEigen
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-stats 
