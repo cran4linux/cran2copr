@@ -3,7 +3,7 @@
 %global rlibdir %{_datadir}/R/library
 
 Name:           R-%{packname}
-Version:        0.3.7.1
+Version:        0.3.8
 Release:        1%{?dist}%{?buildtag}
 Summary:        Package Manager for the 'cran2copr' Project
 
@@ -50,8 +50,9 @@ rm -f %{buildroot}%{rlibdir}/%{packname}/service/*.in
 # enable by default
 mkdir -p %{buildroot}%{_libdir}/R/etc/Rprofile.site.d
 cat <<EOF > %{buildroot}%{_libdir}/R/etc/Rprofile.site.d/50-%{packname}.site
+options(%{packname}.sudo.autodetect=TRUE)
+options(%{packname}.always.install.deps=TRUE)
 suppressMessages(%{packname}::enable())
-options(CoprManager.always.install.deps=TRUE)
 EOF
 cat <<EOF > %{buildroot}%{_libdir}/R/etc/Rprofile.site
 local({
