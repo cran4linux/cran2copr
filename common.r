@@ -379,8 +379,7 @@ pkg_exceptions <- function(tpl, pkg, path) {
   install <- grep("CMD INSTALL", tpl)
   tpl[install] <- paste0(tpl[install], switch(
     pkg,
-    udunits2 = "\\\n  --configure-args='--with-udunits2-include=/usr/include/udunits2'",
-    proj4 = "\\\n --configure-vars='PKG_CPPFLAGS=-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H'"
+    udunits2 = "\\\n  --configure-args='--with-udunits2-include=/usr/include/udunits2'"
   ))
 
   # other
