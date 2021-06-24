@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-raster
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppEigen
 Requires:         R-CRAN-TMB >= 1.7.18
 Requires:         R-CRAN-Rcpp >= 0.8.0
 Requires:         R-methods 
