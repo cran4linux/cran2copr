@@ -40,6 +40,8 @@ for these lower level tasks, and both do many other tasks.
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# add cxxflags
+sed -i '2065 i : ${CXXFLAGS=`"${RBIN}" CMD config CXXFLAGS`}' %{packname}/configure
 
 %build
 
