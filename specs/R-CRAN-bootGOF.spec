@@ -1,40 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  xaringanthemer
-%global packver   0.4.0
+%global packname  bootGOF
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Custom 'xaringan' CSS Themes
+Summary:          Bootstrap Based Goodness-of-Fit Tests
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-whisker 
-Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-glue 
-Requires:         R-methods 
-Requires:         R-CRAN-purrr 
-Requires:         R-utils 
-Requires:         R-CRAN-whisker 
+BuildRequires:    R-CRAN-R6 >= 2.4.1
+BuildRequires:    R-CRAN-checkmate >= 2.0.0
+Requires:         R-CRAN-R6 >= 2.4.1
+Requires:         R-CRAN-checkmate >= 2.0.0
 
 %description
-Create beautifully color-coordinated and customized themes for your
-'xaringan' slides, without writing any CSS. Complete your slide theme with
-'ggplot2' themes that match the font and colors used in your slides.
-Customized styles can be created directly in your slides' 'R Markdown'
-source file or in a separate external script.
+Bootstrap based goodness-of-fit tests. It allows to perform rigorous
+statistical tests to check if a chosen model family is correct based on
+the marked empirical process. The implemented algorithms are described in
+(Dikta and Scheer (2021) <doi:10.1007/978-3-030-73480-0>) and can be
+applied to generalized linear models without any further implementation
+effort. As far as certain linearity conditions are fulfilled the
+resampling scheme are also applicable beyond generalized linear models.
+This is reflected in the software architecture which allows to reuse the
+resampling scheme by implementing only certain interfaces for models that
+are not supported natively by the package.
 
 %prep
 %setup -q -c -n %{packname}

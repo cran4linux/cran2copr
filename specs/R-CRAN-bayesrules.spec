@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  xaringanthemer
-%global packver   0.4.0
+%global packname  bayesrules
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Custom 'xaringan' CSS Themes
+Summary:          Datasets and Supplemental Functions from Bayes Rules! Book
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,25 +16,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-whisker 
-Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-glue 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-rstanarm 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-groupdata2 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-stats 
 Requires:         R-CRAN-purrr 
-Requires:         R-utils 
-Requires:         R-CRAN-whisker 
+Requires:         R-CRAN-rstanarm 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-groupdata2 
 
 %description
-Create beautifully color-coordinated and customized themes for your
-'xaringan' slides, without writing any CSS. Complete your slide theme with
-'ggplot2' themes that match the font and colors used in your slides.
-Customized styles can be created directly in your slides' 'R Markdown'
-source file or in a separate external script.
+Provides datasets and functions used for analysis and visualizations in
+the Bayes Rules! book (<https://www.bayesrulesbook.com>). The package
+contains a set of functions that summarize and plot Bayesian models from
+some conjugate families and another set of functions for evaluation of
+some Bayesian models.
 
 %prep
 %setup -q -c -n %{packname}

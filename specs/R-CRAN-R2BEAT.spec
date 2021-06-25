@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  R2BEAT
-%global packver   1.0.2-1
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multistage Sampling Allocation and PSU Selection
+Summary:          Multistage Sampling Allocation and Sample Selection
 
 License:          EUPL
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,20 +19,23 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-sampling 
 BuildRequires:    R-CRAN-devtools 
+BuildRequires:    R-CRAN-SamplingStrata 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-sampling 
 Requires:         R-CRAN-devtools 
+Requires:         R-CRAN-SamplingStrata 
 
 %description
 Multivariate optimal allocation for different domains in one and two
-stages stratified sample design.R2BEAT extends the Neyman (1934) –
+stages stratified sample design. R2BEAT extends the Neyman (1934) –
 Tschuprow (1923) allocation method to the case of several variables,
-adopting a generalization of the Bethel’s proposal (1989). R2BEAT develops
+adopting a generalization of the Bethel’s proposal (1989).R2BEAT develops
 this methodology but, moreover, it allows to determine the sample
 allocation in the multivariate and multi-domains case of estimates for
-two-stage stratified samples. It also allows to perform Primary Stage
-Units selection. This package requires the availability of ReGenesees,
-that can be installed from <https://github.com/DiegoZardetto/ReGenesees>.
+two-stage stratified samples. It also allows to perform both Primary Stage
+Units and Secondary Stage Units selection. This package requires the
+availability of ReGenesees, that can be installed from
+<https://github.com/DiegoZardetto/ReGenesees>.
 
 %prep
 %setup -q -c -n %{packname}

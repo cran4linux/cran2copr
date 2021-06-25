@@ -1,40 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  xaringanthemer
-%global packver   0.4.0
+%global packname  ahMLE
+%global packver   1.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.18
 Release:          1%{?dist}%{?buildtag}
-Summary:          Custom 'xaringan' CSS Themes
+Summary:          Methods for the Additive Hazard Model
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-whisker 
-Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-glue 
-Requires:         R-methods 
-Requires:         R-CRAN-purrr 
-Requires:         R-utils 
-Requires:         R-CRAN-whisker 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-invGauss 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-invGauss 
 
 %description
-Create beautifully color-coordinated and customized themes for your
-'xaringan' slides, without writing any CSS. Complete your slide theme with
-'ggplot2' themes that match the font and colors used in your slides.
-Customized styles can be created directly in your slides' 'R Markdown'
-source file or in a separate external script.
+Methods for fitting additive hazards model. Perform the maximum likelihood
+method as well as the traditional Aalen's method for estimating the
+additive hazards model. For details see Chengyuan Lu(2021)
+<arXiv:2004.06156>.
 
 %prep
 %setup -q -c -n %{packname}

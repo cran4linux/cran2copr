@@ -1,40 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  xaringanthemer
-%global packver   0.4.0
+%global packname  RDP
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Custom 'xaringan' CSS Themes
+Summary:          The Ramer-Douglas-Peucker Algorithm
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-whisker 
-Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-glue 
-Requires:         R-methods 
-Requires:         R-CRAN-purrr 
-Requires:         R-utils 
-Requires:         R-CRAN-whisker 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Create beautifully color-coordinated and customized themes for your
-'xaringan' slides, without writing any CSS. Complete your slide theme with
-'ggplot2' themes that match the font and colors used in your slides.
-Customized styles can be created directly in your slides' 'R Markdown'
-source file or in a separate external script.
+Pretty fast implementation of the Ramer-Douglas-Peucker algorithm for
+reducing the number of points on a 2D curve. Urs Ramer (1972), "An
+iterative procedure for the polygonal approximation of plane curves"
+<doi:10.1016/S0146-664X(72)80017-0>. David H. Douglas and Thomas K.
+Peucker (1973), "Algorithms for the Reduction of the Number of Points
+Required to Represent a Digitized Line or its Caricature"
+<doi:10.3138/FM57-6770-U75U-7727>.
 
 %prep
 %setup -q -c -n %{packname}

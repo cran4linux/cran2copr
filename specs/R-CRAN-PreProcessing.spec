@@ -1,40 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  xaringanthemer
-%global packver   0.4.0
+%global packname  PreProcessing
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Custom 'xaringan' CSS Themes
+Summary:          Various Preprocessing Transformations of Numeric Data Matrices
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-whisker 
-Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-glue 
-Requires:         R-methods 
-Requires:         R-CRAN-purrr 
-Requires:         R-utils 
-Requires:         R-CRAN-whisker 
+BuildRequires:    R-stats >= 1.0.1
+BuildRequires:    R-CRAN-ggplot2 >= 1.0.1
+Requires:         R-stats >= 1.0.1
+Requires:         R-CRAN-ggplot2 >= 1.0.1
 
 %description
-Create beautifully color-coordinated and customized themes for your
-'xaringan' slides, without writing any CSS. Complete your slide theme with
-'ggplot2' themes that match the font and colors used in your slides.
-Customized styles can be created directly in your slides' 'R Markdown'
-source file or in a separate external script.
+Preprocess numeric data matrices into desired transformed representations.
+Standardization, Unitization, Cubitization and adaptive intervals are
+offered.
 
 %prep
 %setup -q -c -n %{packname}

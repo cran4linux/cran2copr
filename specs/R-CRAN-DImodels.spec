@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DImodels
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diversity-Interactions (DI) Models
 
@@ -37,16 +37,20 @@ modelling approach introduced by Kirwan et al. (2009)
 species and a community-level response variable, and may also include
 additional factors, such as blocks or treatments. The package can perform
 data manipulation tasks, such as computing pairwise interactions (the
-DI_data_prepare() function), can perform an automated model selection
-process (the autoDI() function) and has the flexibility to fit a wide
-range of user-defined DI models (the DI() function).
+DI_data() function), can perform an automated model selection process (the
+autoDI() function) and has the flexibility to fit a wide range of
+user-defined DI models (the DI() function).
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -56,6 +60,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

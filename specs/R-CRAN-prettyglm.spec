@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mind
-%global packver   0.1.2
+%global packname  prettyglm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Model Based Inference for Domains
+Summary:          Pretty Summaries of Generalized Linear Model Coefficients
 
-License:          EUPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,25 +16,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-qdap 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-JWileymisc 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-qdap 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidycat 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-vip 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-car 
 Requires:         R-CRAN-dplyr 
-Requires:         R-stats 
-Requires:         R-CRAN-JWileymisc 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidycat 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-vip 
 
 %description
-Allows users to produce estimates and MSE for multivariate variables using
-Linear Mixed Model. The package follows the approach of Datta, Day and
-Basawa (1999) <doi:10.1016/S0378-3758(98)00147-5>.
+One of the main advantages of using Generalised Linear Models is their
+interpretability.  The goal of 'prettyglm' is to provide a set of
+functions which easily create beautiful coefficient summaries which can
+readily be shared and explained.
 
 %prep
 %setup -q -c -n %{packname}

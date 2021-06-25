@@ -1,40 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  xaringanthemer
-%global packver   0.4.0
+%global packname  crypto2
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Custom 'xaringan' CSS Themes
+Summary:          Download Crypto Currency Data from 'CoinMarketCap' without 'API'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-whisker 
-Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-glue 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-purrr 
-Requires:         R-utils 
-Requires:         R-CRAN-whisker 
+Requires:         R-CRAN-progress 
+Requires:         R-stats 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-cli 
 
 %description
-Create beautifully color-coordinated and customized themes for your
-'xaringan' slides, without writing any CSS. Complete your slide theme with
-'ggplot2' themes that match the font and colors used in your slides.
-Customized styles can be created directly in your slides' 'R Markdown'
-source file or in a separate external script.
+Retrieves crypto currency information and historical prices as well as
+information on the exchanges they are listed on. Historical data contains
+daily open, high, low and close values for all crypto currencies. All data
+is scraped from <https://coinmarketcap.com> via their 'web-api'.
 
 %prep
 %setup -q -c -n %{packname}

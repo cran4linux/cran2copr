@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  AgroR
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Experimental Statistics and Graphics for Agricultural Sciences
 
@@ -70,7 +70,7 @@ test of means or regression, according to Pimentel-Gomes (2009, ISBN:
 978-85-7133-055-9), nonparametric test (Conover, 1999, ISBN: 0471160687),
 test for two samples, joint analysis of experiments according to Ferreira
 (2018, ISBN: 978-85-7269-566-4), Anova of aligned ranks (Wobbrock, JO,
-Findlater, L., Gergle, D., & Higgins , JJ (2011), <doi:
+Findlater, L., Gergle, D., Higgins , JJ (2011), <doi:
 10.1145/1978942.1978963>) and generalized linear model (glm) for binomial
 and Poisson family in CRD and RBD (Carvalho, FJ (2019), <doi:
 10.14393/ufu.te.2019.1244>). It can also be used to obtain descriptive

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tergm
-%global packver   3.7.0
+%global packver   4.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7.0
+Version:          4.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit, Simulate and Diagnose Models for Network Evolution Based on Exponential-Family Random Graph Models
 
@@ -17,26 +17,34 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-MASS >= 7.3.51.4
 BuildRequires:    R-CRAN-statnet.common >= 4.4.0
-BuildRequires:    R-CRAN-ergm >= 3.11.0
+BuildRequires:    R-CRAN-ergm >= 4.0.1
 BuildRequires:    R-CRAN-nlme >= 3.1.139
 BuildRequires:    R-CRAN-network >= 1.15
 BuildRequires:    R-CRAN-robustbase >= 0.93.5
 BuildRequires:    R-CRAN-coda >= 0.19.2
 BuildRequires:    R-CRAN-networkDynamic >= 0.10.0
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-MASS >= 7.3.51.4
 Requires:         R-CRAN-statnet.common >= 4.4.0
-Requires:         R-CRAN-ergm >= 3.11.0
+Requires:         R-CRAN-ergm >= 4.0.1
 Requires:         R-CRAN-nlme >= 3.1.139
 Requires:         R-CRAN-network >= 1.15
 Requires:         R-CRAN-robustbase >= 0.93.5
 Requires:         R-CRAN-coda >= 0.19.2
 Requires:         R-CRAN-networkDynamic >= 0.10.0
+Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-CRAN-purrr 
 
 %description
 An integrated set of extensions to the 'ergm' package to analyze and
 simulate network evolution based on exponential-family random graph models
 (ERGM). 'tergm' is a part of the 'statnet' suite of packages for network
-analysis.
+analysis. See Krivitsky and Handcock (2014) <doi:10.1111/rssb.12014> and
+Carnegie, Krivitsky, Hunter, and Goodreau (2015)
+<doi:10.1080/10618600.2014.903087>.
 
 %prep
 %setup -q -c -n %{packname}

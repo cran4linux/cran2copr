@@ -1,75 +1,62 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dyngen
-%global packver   1.0.2
+%global packname  CKMRpop
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Multi-Modal Simulator for Spearheading Single-Cell Omics Analyses
+Summary:          Forward-in-Time Simulation and Tallying of Pairwise Relationships
 
-License:          MIT + file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggraph >= 2.0
-BuildRequires:    R-CRAN-dynutils >= 1.0.4
-BuildRequires:    R-CRAN-rlang >= 0.4.1
-BuildRequires:    R-CRAN-GillespieSSA2 >= 0.2.6
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-ggraph 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-lmds 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidygraph 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-ggraph >= 2.0
-Requires:         R-CRAN-dynutils >= 1.0.4
-Requires:         R-CRAN-rlang >= 0.4.1
-Requires:         R-CRAN-GillespieSSA2 >= 0.2.6
-Requires:         R-CRAN-assertthat 
+BuildRequires:    R-CRAN-vroom 
+Requires:         R-CRAN-Rcpp >= 1.0.4
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-grDevices 
-Requires:         R-grid 
+Requires:         R-CRAN-ggraph 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-lmds 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidygraph 
 Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-vroom 
 
 %description
-A novel, multi-modal simulation engine for studying dynamic cellular
-processes at single-cell resolution. 'dyngen' is more flexible than
-current single-cell simulation engines. It allows better method
-development and benchmarking, thereby stimulating development and testing
-of novel computational methods. Cannoodt et al. (2021)
-<doi:10.1038/s41467-021-24152-2>.
+Provides an R wrapper around the program 'spip'
+(<https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1471-8286.2005.00884.x>),
+a C program for the simulation of pedigrees within age-structured
+populations with user-specified life histories.  Also includes a variety
+of functions to parse 'spip' output to compile information about related
+pairs amongst simulated, sampled individuals, to assess the feasibility
+and potential accuracy of close-kin mark-recapture (CKMR). Full
+documentation and vignettes are mirrored at
+<https://eriqande.github.io/CKMRpop/index.html> and can be read online
+there.
 
 %prep
 %setup -q -c -n %{packname}
