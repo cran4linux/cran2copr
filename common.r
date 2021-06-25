@@ -508,7 +508,7 @@ subset_forked <- function(x, chroots=seq_len(ncol(x)-1), nobuild=FALSE) {
   subset(x, apply(x.fork, 1, all))
 }
 
-subset_vmismatch <- function(x, cran=available_packages(), chroots=seq_len(ncol(x)-1)) {
+subset_vmismatch <- function(x, chroots=seq_len(ncol(x)-1), cran=available_packages()) {
   n <- ncol(x); chroots <- chroots
 
   cran <- as.data.frame(cran)[, c("Package", "Version")]

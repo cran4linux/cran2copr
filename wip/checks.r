@@ -6,15 +6,14 @@ chroots <- get_chroots()
 df.mon <- get_monitor()
 
 # check version mismatches
-df.mism <- subset_vmismatch(df.mon)
-pkgs <- sub("R-CRAN-", "", df.mism$Package)
-system2("./copr-rebuild.r", paste(pkgs, collapse=" "))
+df.mism <- subset_vmismatch(df.mon, tail(chroots, 1))
+pkgs.mism <- sub("R-CRAN-", "", df.mism$Package)
+system2("./copr-rebuild.r", paste(pkgs.mism, collapse=" "))
 
 # check failed and non-built
-i <- 3
-df.fail <- subset_failed(df.mon[, c("Package", chroots[i])], nobuild=TRUE)
-pkgs <- sub("R-CRAN-", "", df.fail$Package)
-system2("./copr-rebuild.r", paste(pkgs, collapse=" "))
+df.fail <- subset_failed(df.mon, tail(chroots, 1), nobuild=TRUE)
+pkgs.fail <- sub("R-CRAN-", "", df.fail$Package)
+system2("./copr-rebuild.r", paste(pkgs.fail, collapse=" "))
 
 # inspect failed builds and packages
 ids <- sapply(strsplit(df.fail[, chroots[i]], " "), "[", 1)
@@ -23,8 +22,7 @@ sapply(paste0(url, "/builder-live.log.gz"), browseURL)
 sapply(paste(get_url_copr(), "package", df.fail$Package, sep="/"), browseURL)
 
 # check forked
-i <- 3
-df.fork <- subset_forked(df.mon[, c("Package", chroots[i])], nobuild=TRUE)
+df.fork <- subset_forked(df.mon, chroots=2, nobuild=TRUE)
 pkgs <- sub("R-CRAN-", "", df.fork$Package)
 system2("./copr-rebuild.r", paste(pkgs, collapse=" "))
 
