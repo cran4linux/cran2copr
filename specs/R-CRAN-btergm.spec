@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  btergm
-%global packver   1.9.13
+%global packver   1.10.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.13
+Version:          1.10.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Temporal Exponential Random Graph Models by Bootstrapped Pseudolikelihood
 
@@ -16,50 +16,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-statnet.common >= 4.2.0
-BuildRequires:    R-CRAN-ergm >= 3.11.0
+BuildRequires:    R-CRAN-statnet.common >= 4.5.0
+BuildRequires:    R-CRAN-ergm >= 4.0.1
 BuildRequires:    R-CRAN-sna >= 2.3
-BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
-BuildRequires:    R-CRAN-xergm.common >= 1.7.7
+BuildRequires:    R-CRAN-Matrix >= 1.3.2
 BuildRequires:    R-CRAN-boot >= 1.3.17
-BuildRequires:    R-CRAN-Matrix >= 1.2.2
-BuildRequires:    R-CRAN-network >= 1.13.0
+BuildRequires:    R-CRAN-network >= 1.17.1
 BuildRequires:    R-CRAN-ROCR >= 1.0.7
-BuildRequires:    R-CRAN-RSiena >= 1.0.12.232
 BuildRequires:    R-CRAN-igraph >= 0.7.1
 BuildRequires:    R-CRAN-speedglm >= 0.3.1
 BuildRequires:    R-CRAN-coda >= 0.18.1
-BuildRequires:    R-stats4 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
 BuildRequires:    R-parallel 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-statnet.common >= 4.2.0
-Requires:         R-CRAN-ergm >= 3.11.0
+Requires:         R-CRAN-statnet.common >= 4.5.0
+Requires:         R-CRAN-ergm >= 4.0.1
 Requires:         R-CRAN-sna >= 2.3
-Requires:         R-CRAN-ggplot2 >= 2.0.0
-Requires:         R-CRAN-xergm.common >= 1.7.7
+Requires:         R-CRAN-Matrix >= 1.3.2
 Requires:         R-CRAN-boot >= 1.3.17
-Requires:         R-CRAN-Matrix >= 1.2.2
-Requires:         R-CRAN-network >= 1.13.0
+Requires:         R-CRAN-network >= 1.17.1
 Requires:         R-CRAN-ROCR >= 1.0.7
-Requires:         R-CRAN-RSiena >= 1.0.12.232
 Requires:         R-CRAN-igraph >= 0.7.1
 Requires:         R-CRAN-speedglm >= 0.3.1
 Requires:         R-CRAN-coda >= 0.18.1
-Requires:         R-stats4 
+Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-methods 
 Requires:         R-graphics 
 Requires:         R-parallel 
-Requires:         R-stats 
 
 %description
 Temporal Exponential Random Graph Models (TERGM) estimated by maximum
 pseudolikelihood with bootstrapped confidence intervals or Markov Chain
 Monte Carlo maximum likelihood. Goodness of fit assessment for ERGMs,
-TERGMs, and SAOMs. Micro-level interpretation of ERGMs and TERGMs.
+TERGMs, and SAOMs. Micro-level interpretation of ERGMs and TERGMs. As
+described in Leifeld, Cranmer and Desmarais (2018), JStatSoft
+<doi:10.18637/jss.v083.i06>.
 
 %prep
 %setup -q -c -n %{packname}

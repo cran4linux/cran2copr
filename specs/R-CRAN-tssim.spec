@@ -1,35 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  spam
-%global packver   2.7-0
+%global packname  tssim
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.0
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          SPArse Matrix
+Summary:          Simulation of Daily and Monthly Time Series
 
-License:          LGPL-2 | BSD_3_clause + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildRequires:    R-CRAN-dotCall64 
-BuildRequires:    R-grid 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-dotCall64 
-Requires:         R-grid 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildArch:        noarch
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-timeDate 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dsa 
+BuildRequires:    R-CRAN-tsbox 
+Requires:         R-utils 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-timeDate 
+Requires:         R-stats 
+Requires:         R-CRAN-dsa 
+Requires:         R-CRAN-tsbox 
 
 %description
-Set of functions for sparse matrix algebra. Differences with other sparse
-matrix packages are: (1) we only support (essentially) one sparse matrix
-format, (2) based on transparent and simple structure(s), (3) tailored for
-MCMC calculations within G(M)RF. (4) and it is fast and scalable (with the
-extension package spam64). Documentation about 'spam' is provided by
-vignettes included in this package, see also Furrer and Sain (2010)
-<doi:10.18637/jss.v036.i10>; see 'citation("spam")' for details.
+Flexible simulation of time series using time series components, including
+seasonal, calendar and outlier effects. Algorithm described in Ollech, D.
+(2021) <doi:10.1515/jtse-2020-0028>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  splithalfr
-%global packver   2.1.0
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Split-Half Reliabilities
 
@@ -28,13 +28,13 @@ Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-bcaboot >= 0.2.1
 
 %description
-Estimates split-half reliabilities for scoring algorithms of reaction time
-(RT) tasks and questionnaires. The 'splithalfr' supports
-researcher-provided scoring algorithms, with six vignettes illustrating
-how on included datasets. The package provides four splitting methods
-(first-second, odd-even, permutated, Monte Carlo), the option to stratify
-splits by task design, a number of reliability coefficients, and the
-option to sub-sample data.
+Estimates split-half reliabilities for scoring algorithms of cognitive
+tasks and questionnaires. The 'splithalfr' supports researcher-provided
+scoring algorithms, with six vignettes illustrating how on included
+datasets. The package provides four splitting methods (first-second,
+odd-even, permutated, Monte Carlo), the option to stratify splits by task
+design, a number of reliability coefficients, and the option to sub-sample
+data.
 
 %prep
 %setup -q -c -n %{packname}

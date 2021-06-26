@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ParallelDSM
-%global packver   0.2.1
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parallel Digital Soil Mapping using Machine Learning
 
@@ -18,6 +18,7 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-snowfall 
 BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pryr 
 BuildRequires:    R-utils 
@@ -26,11 +27,12 @@ BuildRequires:    R-CRAN-geoR
 BuildRequires:    R-CRAN-gstat 
 BuildRequires:    R-CRAN-quantregForest 
 BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-sp 
 Requires:         R-CRAN-snowfall 
 Requires:         R-CRAN-raster 
+Requires:         R-CRAN-sp 
 Requires:         R-methods 
 Requires:         R-CRAN-pryr 
 Requires:         R-utils 
@@ -39,9 +41,9 @@ Requires:         R-CRAN-geoR
 Requires:         R-CRAN-gstat 
 Requires:         R-CRAN-quantregForest 
 Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rgdal 
 Requires:         R-stats 
-Requires:         R-CRAN-sp 
 
 %description
 Parallel computing, multi-core CPU is used to efficiently compute and

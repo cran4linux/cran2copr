@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SimInf
-%global packver   8.2.0
+%global packver   8.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.2.0
+Version:          8.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Framework for Data-Driven Stochastic Disease Spread Simulations
 
@@ -14,11 +14,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    gsl-devel
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-Matrix
 Requires:         R-CRAN-digest 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-MASS 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -45,7 +47,10 @@ enable usage of the numerical solvers from other R extension packages in
 order to facilitate complex epidemiological research. The package contains
 template models and can be extended with user-defined models. For more
 details see the paper by Widgren, Bauer, Eriksson and Engblom (2019)
-<doi:10.18637/jss.v091.i12>.
+<doi:10.18637/jss.v091.i12>. The package also provides functionality to
+fit models to time series data using the Approximate Bayesian Computation
+Sequential Monte Carlo ('ABC-SMC') algorithm of Toni and others (2009)
+<doi:10.1098/rsif.2008.0172>.
 
 %prep
 %setup -q -c -n %{packname}

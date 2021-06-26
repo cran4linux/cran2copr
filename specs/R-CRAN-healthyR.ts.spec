@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  healthyR.ts
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Time Series Modeling Companion to 'healthyR'
 
@@ -20,32 +20,24 @@ BuildRequires:    R-CRAN-rlang >= 0.1.2
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-timetk 
-BuildRequires:    R-CRAN-modeltime 
-BuildRequires:    R-CRAN-modeltime.ensemble 
-BuildRequires:    R-CRAN-modeltime.resample 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tidyquant 
-BuildRequires:    R-CRAN-healthyR.data 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-recipes 
 Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-timetk 
-Requires:         R-CRAN-modeltime 
-Requires:         R-CRAN-modeltime.ensemble 
-Requires:         R-CRAN-modeltime.resample 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tidyquant 
-Requires:         R-CRAN-healthyR.data 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-recipes 
 
 %description
 Hospital time series data analysis workflow tools, modeling, and

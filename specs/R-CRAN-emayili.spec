@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  emayili
-%global packver   0.4.10
+%global packver   0.4.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.10
+Version:          0.4.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Send Email Messages
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-mime 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-curl >= 4.0
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-glue 
@@ -32,6 +33,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-mime 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringr 
 
 %description
 A light, simple tool for sending emails with minimal dependencies.

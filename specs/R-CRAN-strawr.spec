@@ -1,35 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  spam
-%global packver   2.7-0
+%global packname  strawr
+%global packver   0.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.0
+Version:          0.0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          SPArse Matrix
+Summary:          Fast Implementation of Reading/Dump for .hic Files
 
-License:          LGPL-2 | BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildRequires:    R-CRAN-dotCall64 
-BuildRequires:    R-grid 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-dotCall64 
-Requires:         R-grid 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Set of functions for sparse matrix algebra. Differences with other sparse
-matrix packages are: (1) we only support (essentially) one sparse matrix
-format, (2) based on transparent and simple structure(s), (3) tailored for
-MCMC calculations within G(M)RF. (4) and it is fast and scalable (with the
-extension package spam64). Documentation about 'spam' is provided by
-vignettes included in this package, see also Furrer and Sain (2010)
-<doi:10.18637/jss.v036.i10>; see 'citation("spam")' for details.
+API for fast data extraction for .hic files that provides programmatic
+access to the matrices. It doesn't store the pointer data for all the
+matrices, only the one queried, and currently we are only supporting
+matrices (not vectors).
 
 %prep
 %setup -q -c -n %{packname}

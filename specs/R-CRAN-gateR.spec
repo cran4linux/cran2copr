@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gateR
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flow/Mass Cytometry Gating via Spatial Kernel Density Estimation
 
@@ -25,6 +25,7 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sparr 
 BuildRequires:    R-CRAN-SpatialPack 
 BuildRequires:    R-stats 
@@ -39,6 +40,7 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-raster 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sparr 
 Requires:         R-CRAN-SpatialPack 
 Requires:         R-stats 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  TAM
-%global packver   3.6-45
+%global packver   3.7-16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6.45
+Version:          3.7.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Test Analysis Modules
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  furrr
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Apply Mapping Functions in Parallel using Futures
 
@@ -17,17 +17,17 @@ BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-future >= 1.19.1
+BuildRequires:    R-CRAN-lifecycle >= 1.0.0
 BuildRequires:    R-CRAN-vctrs >= 0.3.2
 BuildRequires:    R-CRAN-purrr >= 0.3.0
 BuildRequires:    R-CRAN-rlang >= 0.3.0
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-CRAN-globals >= 0.13.1
 BuildRequires:    R-CRAN-ellipsis 
 Requires:         R-CRAN-future >= 1.19.1
+Requires:         R-CRAN-lifecycle >= 1.0.0
 Requires:         R-CRAN-vctrs >= 0.3.2
 Requires:         R-CRAN-purrr >= 0.3.0
 Requires:         R-CRAN-rlang >= 0.3.0
-Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-CRAN-globals >= 0.13.1
 Requires:         R-CRAN-ellipsis 
 

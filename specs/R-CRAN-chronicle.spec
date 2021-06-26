@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  chronicle
-%global packver   0.2.5
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Grammar for Creating R Markdown Reports
 
@@ -16,10 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-dygraphs 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-plotly
 BuildRequires:    R-CRAN-prettydoc 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-rmdformats 
 BuildRequires:    R-CRAN-scales 
@@ -35,10 +36,10 @@ BuildRequires:    R-CRAN-skimr
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-DT 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-dygraphs 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-plotly
 Requires:         R-CRAN-prettydoc 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-rmdformats 
 Requires:         R-CRAN-scales 
@@ -56,8 +58,7 @@ Requires:         R-CRAN-viridis
 Requires:         R-CRAN-zoo 
 
 %description
-A system for creating beautiful and interactive R Markdown reports by
-adding modules like plots and tables to an empty header.
+A system for creating R Markdown reports with a sequential syntax.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  spam
-%global packver   2.7-0
+%global packname  Rfmtool
+%global packver   4.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.0
+Version:          4.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          SPArse Matrix
+Summary:          Fuzzy Measure Tools
 
-License:          LGPL-2 | BSD_3_clause + file LICENSE
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildRequires:    R-CRAN-dotCall64 
-BuildRequires:    R-grid 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-dotCall64 
-Requires:         R-grid 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 2.9.2
+Requires:         R-core >= 2.9.2
 
 %description
-Set of functions for sparse matrix algebra. Differences with other sparse
-matrix packages are: (1) we only support (essentially) one sparse matrix
-format, (2) based on transparent and simple structure(s), (3) tailored for
-MCMC calculations within G(M)RF. (4) and it is fast and scalable (with the
-extension package spam64). Documentation about 'spam' is provided by
-vignettes included in this package, see also Furrer and Sain (2010)
-<doi:10.18637/jss.v036.i10>; see 'citation("spam")' for details.
+Various tools for handling fuzzy measures, calculating Shapley value and
+interaction index, Choquet and Sugeno integrals, as well as fitting fuzzy
+measures to empirical data are provided. Construction of fuzzy measures
+from empirical data is done by solving a linear programming problem by
+using 'lpsolve' package, whose source in C adapted to the R environment is
+included. The description of the basic theory of fuzzy measures is in the
+manual in the Doc folder in this package. Please refer to the following:
+[1] <https://personal-sites.deakin.edu.au/~gleb/fmtools.html> [2] G.
+Beliakov, H. Bustince, T. Calvo, 'A Practical Guide to Averaging',
+Springer, (2016, ISBN: 978-3-319-24753-3). [3] G. Beliakov, S. James, J-Z.
+Wu, 'Discrete Fuzzy Measures', Springer, (2020, ISBN: 978-3-030-15305-2).
 
 %prep
 %setup -q -c -n %{packname}

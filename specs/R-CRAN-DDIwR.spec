@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DDIwR
-%global packver   0.5
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          DDI with R
 
@@ -16,22 +16,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-admisc >= 0.12
-BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-admisc >= 0.16
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-declared 
+BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-admisc >= 0.12
-Requires:         R-CRAN-haven 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-writexl 
+Requires:         R-CRAN-admisc >= 0.16
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-declared 
+Requires:         R-CRAN-haven 
 Requires:         R-tools 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-writexl 
 
 %description
 Useful functions for various DDI (Data Documentation Initiative) related
-inputs and outputs.
+inputs and outputs. Converts data files to and from SPSS, Stata, SAS, R
+and Excel, including user declared missing values.
 
 %prep
 %setup -q -c -n %{packname}

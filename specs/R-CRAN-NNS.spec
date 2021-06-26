@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  NNS
-%global packver   0.7.0.1
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0.1
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonlinear Nonparametric Statistics
 
@@ -23,10 +23,12 @@ BuildRequires:    R-CRAN-dtw
 BuildRequires:    R-CRAN-dynlm 
 BuildRequires:    R-CRAN-meboot 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-Quandl 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tdigest 
+BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-data.table 
@@ -34,10 +36,12 @@ Requires:         R-CRAN-dtw
 Requires:         R-CRAN-dynlm 
 Requires:         R-CRAN-meboot 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-Quandl 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tdigest 
+Requires:         R-CRAN-zoo 
 
 %description
 Nonlinear nonparametric statistics using partial moments.  Partial moments
