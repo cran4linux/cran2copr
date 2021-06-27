@@ -1,34 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  shipunov
-%global packver   1.15
+%global packname  TensorClustering
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.15
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Functions from Alexey Shipunov
+Summary:          Model-Based Tensor Clustering
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-PBSmapping 
-Requires:         R-CRAN-PBSmapping 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-tensr 
+BuildRequires:    R-CRAN-rTensor 
+BuildRequires:    R-CRAN-TRES 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-combinat 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-tensr 
+Requires:         R-CRAN-rTensor 
+Requires:         R-CRAN-TRES 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-combinat 
+Requires:         R-CRAN-pracma 
+Requires:         R-stats 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-Rcpp 
 
 %description
-A collection of functions for data manipulation, plotting and statistical
-computing, to use separately or with the book "Visual Statistics. Use R!":
-Shipunov (2020) <http://ashipunov.info/shipunov/software/r/r-en.htm>. Most
-useful functions: Bclust(), Jclust() and BootA() which bootstrap
-hierarchical clustering; Recode() which does multiple recoding in a fast,
-simple and flexible way; Misclass() which outputs confusion matrix even if
-classes are not concerted; Overlap() which measures group separation on
-any projection; Biarrows() which converts any scatterplot into biplot; and
-Pleiad() which is fast and flexible correlogram.
+Performs model-based tensor clustering methods including Tensor Gaussian
+Mixture Model (TGMM), Tensor Envelope Mixture Model (TEMM) by Deng and
+Zhang (2021) <DOI: 10.1111/biom.13486>, Doubly-Enhanced EM (DEEM)
+algorithm by Mai, Zhang, Pan and Deng (2021) <DOI:
+10.1080/01621459.2021.1904959>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  OpenRepGrid.ic
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interpretive Clustering for Repertory Grids
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-shinydashboardPlus >= 2.0.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
@@ -25,7 +26,6 @@ BuildRequires:    R-CRAN-shinyBS
 BuildRequires:    R-CRAN-shinythemes 
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-shinydashboard 
-BuildRequires:    R-CRAN-shinydashboardPlus 
 BuildRequires:    R-CRAN-shinycssloaders 
 BuildRequires:    R-CRAN-shinyFeedback 
 BuildRequires:    R-CRAN-rintrojs 
@@ -44,6 +44,7 @@ BuildRequires:    R-CRAN-testthat
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-RColorBrewer 
+Requires:         R-CRAN-shinydashboardPlus >= 2.0.0
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-utils 
@@ -53,7 +54,6 @@ Requires:         R-CRAN-shinyBS
 Requires:         R-CRAN-shinythemes 
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-shinydashboard 
-Requires:         R-CRAN-shinydashboardPlus 
 Requires:         R-CRAN-shinycssloaders 
 Requires:         R-CRAN-shinyFeedback 
 Requires:         R-CRAN-rintrojs 

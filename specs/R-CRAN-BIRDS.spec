@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BIRDS
-%global packver   0.1.27.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.27.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Biodiversity Information Review and Decision Support
 
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-leaflet >= 2.0
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
 BuildRequires:    R-CRAN-geosphere >= 1.5
 BuildRequires:    R-CRAN-rgdal >= 1.5
-BuildRequires:    R-CRAN-sp >= 1.4.4
 BuildRequires:    R-CRAN-stringr >= 1.4
 BuildRequires:    R-CRAN-sf >= 0.7
 BuildRequires:    R-CRAN-rgeos >= 0.4
@@ -28,6 +27,7 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-mapedit 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-rlang 
@@ -40,7 +40,6 @@ Requires:         R-CRAN-leaflet >= 2.0
 Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-geosphere >= 1.5
 Requires:         R-CRAN-rgdal >= 1.5
-Requires:         R-CRAN-sp >= 1.4.4
 Requires:         R-CRAN-stringr >= 1.4
 Requires:         R-CRAN-sf >= 0.7
 Requires:         R-CRAN-rgeos >= 0.4
@@ -48,6 +47,7 @@ Requires:         R-CRAN-data.table
 Requires:         R-CRAN-dbscan 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-mapedit 
 Requires:         R-methods 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-rlang 
