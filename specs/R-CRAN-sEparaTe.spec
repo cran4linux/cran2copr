@@ -1,34 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  glmmboot
-%global packver   0.6.0
+%global packname  sEparaTe
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bootstrap Resampling for Mixed Effects and Plain Models
+Summary:          Maximum Likelihood Estimation and Likelihood Ratio Test Functions for Separable Variance-Covariance Structures
 
-License:          AGPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-Requires:         R-methods 
-Requires:         R-stats 
 
 %description
-Performs bootstrap resampling for most models that update() works for.
-There are two primary functions: bootstrap_model() performs block
-resampling if random effects are present, and case resampling if not;
-bootstrap_ci() converts output from bootstrap model runs into confidence
-intervals and p-values. By default, bootstrap_model() calls
-bootstrap_ci(). Package motivated by Humphrey and Swingley (2018)
-<arXiv:1805.08670>.
+Maximum likelihood estimation of the parameters of matrix and 3rd-order
+tensor normal distributions with unstructured factor variance covariance
+matrices, two procedures, and for unbiased modified likelihood ratio
+testing of simple and double separability for variance-covariance
+structures, two procedures.
 
 %prep
 %setup -q -c -n %{packname}

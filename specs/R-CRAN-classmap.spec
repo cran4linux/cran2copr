@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  classmap
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualizing Classification Results by Classmaps
+Summary:          Visualizing Classification Results
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,6 +25,8 @@ BuildRequires:    R-CRAN-cellWise
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-kernlab 
 BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-randomForest 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-ggplot2 
@@ -34,16 +36,22 @@ Requires:         R-CRAN-cellWise
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-kernlab 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-randomForest 
 
 %description
-Tools to visualize the results of a classification obtained by
-discriminant analysis, k-nearest neighbors, and support vector machines,
-for two or more classes. Implements the techniques described and
-illustrated in Raymaekers, Rousseeuw and Hubert (2021), Class maps for
-visualizing classification results, Technometrics, to appear. In addition
-to class maps, also stacked plots are made. Examples can be found in the
-vignettes: "Discriminant_analysis_examples","K_nearest_neighbors_examples"
-and "Support_vector_machine_examples".
+Tools to visualize the results of a classification of cases. The graphical
+displays include stacked plots, silhouette plots, quasi residual plots,
+and class maps. Implements the techniques described and illustrated in
+Raymaekers, Rousseeuw and Hubert (2021), Class maps for visualizing
+classification results, Technometrics, appeared online.
+<doi:10.1080/00401706.2021.1927849> (open access) and Raymaekers and
+Rousseeuw (2021), Silhouettes and quasi residual plots for neural nets and
+tree-based classifiers, <arXiv:2106.08814>. Examples can be found in the
+vignettes:
+"Discriminant_analysis_examples","K_nearest_neighbors_examples",
+"Support_vector_machine_examples", "Rpart_examples",
+"Random_forest_examples", and "Neural_net_examples".
 
 %prep
 %setup -q -c -n %{packname}
