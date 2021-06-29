@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SimDesign
-%global packver   2.5
+%global packver   2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5
+Version:          2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Structure for Organizing Monte Carlo Simulation Designs
 
@@ -38,8 +38,8 @@ Provides tools to safely and efficiently organize and execute Monte Carlo
 simulation experiments in R. The package controls the structure and
 back-end of Monte Carlo simulation experiments by utilizing a
 generate-analyse-summarise workflow. The workflow safeguards against
-common simulation issues, such as automatically re-simulating
-non-convergent results, prevents inadvertently overwriting of simulation
+common simulation coding issues, such as automatically re-simulating
+non-convergent results, prevents inadvertently overwriting simulation
 files, catches error and warning messages during execution, and implicitly
 supports parallel processing. For a pedagogical introduction to the
 package see Sigal and Chalmers (2016) <doi:10.1080/10691898.2016.1246953>.

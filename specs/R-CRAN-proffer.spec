@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  proffer
-%global packver   0.1.1
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Profile R Code and Visualize with 'Pprof'
 
@@ -38,8 +38,8 @@ its utilization of 'pprof', which supplies interactive visualizations that
 are efficient and easy to interpret. Behind the scenes, the 'profile'
 package converts native Rprof() data to a protocol buffer that 'pprof'
 understands. For the documentation of 'proffer', visit
-<https://r-prof.github.io/proffer>. To learn about the implementations and
-methodologies of 'pprof', 'profile', and protocol buffers, visit
+<https://r-prof.github.io/proffer/>. To learn about the implementations
+and methodologies of 'pprof', 'profile', and protocol buffers, visit
 <https://github.com/google/pprof>.
 <https://developers.google.com/protocol-buffers>, and
 <https://github.com/r-prof/profile>, respectively.

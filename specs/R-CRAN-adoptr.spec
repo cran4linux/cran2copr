@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  adoptr
-%global packver   0.4.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adaptive Optimal Two-Stage Designs in R
 
@@ -19,20 +19,16 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-nloptr 
 Requires:         R-methods 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-stringr 
 
 %description
 Optimize one or two-arm, two-stage designs for clinical trials with
 respect to several pre-implemented objective criteria or implement custom
 objectives. Optimization under uncertainty and conditional (given
-stage-one outcome) constraints are supported. See Pilz M, Kunzmann K,
-Herrmann C, Rauch G, Kieser M. A variational approach to optimal two-stage
-designs. Statistics in Medicine. 2019;38(21):4159–4171.
-<doi:10.1002/sim.8291> for details.
+stage-one outcome) constraints are supported. See <doi:10.1002/sim.8291>
+and <doi:10.18637/jss.v098.i09> for details.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,27 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SparkR
-%global packver   3.1.2
+%global packname  ugomquantreg
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Front End for 'Apache Spark'
+Summary:          Quantile Regression Modeling for Unit-Gompertz Responses
 
-License:          Apache License (== 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         java
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-gamlss 
+BuildRequires:    R-CRAN-gamlss.dist 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
+Requires:         R-CRAN-gamlss 
+Requires:         R-CRAN-gamlss.dist 
+Requires:         R-CRAN-pracma 
 
 %description
-Provides an R Front end for 'Apache Spark' <https://spark.apache.org>.
+Unit-Gompertz density, cumulative distribution, quantile functions and
+random deviate generation of the unit-Gompertz distribution. In addition,
+there are a function for fitting the Generalized Additive Models for
+Location, Scale and Shape.
 
 %prep
 %setup -q -c -n %{packname}

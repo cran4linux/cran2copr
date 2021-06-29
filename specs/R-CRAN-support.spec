@@ -1,31 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  readobj
-%global packver   0.4.0
+%global packname  support
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Reader for 'Wavefront' OBJ 3D Scene Files
+Summary:          Support Points
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.6
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-Rcpp >= 0.11.6
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-Rcpp >= 0.12.4
+BuildRequires:    R-CRAN-randtoolbox 
+BuildRequires:    R-CRAN-MHadaptive 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 0.12.4
+Requires:         R-CRAN-randtoolbox 
+Requires:         R-CRAN-MHadaptive 
+Requires:         R-CRAN-nloptr 
 
 %description
-Wraps 'tiny_obj_loader' C++ library for reading the 'Wavefront' OBJ 3D
-file format including both mesh objects and materials files. The resultant
-R objects are either structured to match the 'tiny_obj_loader' internal
-data representation or in a form directly compatible with the 'rgl'
-package.
+Provides functions sp() and sp_seq() for computing the support points in
+Mak and Joseph (2018) <DOI:10.1214/17-AOS1629>. Support points can be used
+as a representative sample of a desired distribution, or a representative
+reduction of a big dataset (e.g., an "optimal" thinning of Markov-chain
+Monte Carlo sample chains). This work was supported by USARO grant
+W911NF-14-1-0024 and NSF DMS grant 1712642.
 
 %prep
 %setup -q -c -n %{packname}

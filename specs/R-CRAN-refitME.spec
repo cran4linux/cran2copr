@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  refitME
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Measurement Error Modelling using MCEM
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-SemiPar 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-SemiPar 
 Requires:         R-CRAN-mgcv 
@@ -38,6 +39,7 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-CRAN-sandwich 
 Requires:         R-stats 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-scales 
 
 %description
 Fits measurement error models using Monte Carlo Expectation Maximization

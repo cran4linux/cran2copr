@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mirt
-%global packver   1.33.2
+%global packver   1.34
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.33.2
+Version:          1.34
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multidimensional Item Response Theory
 
@@ -20,6 +20,7 @@ BuildRequires:    R-stats4
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-GPArotation 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-vegan 
@@ -32,6 +33,7 @@ Requires:         R-stats4
 Requires:         R-CRAN-lattice 
 Requires:         R-methods 
 Requires:         R-CRAN-GPArotation 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-vegan 

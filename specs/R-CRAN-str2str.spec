@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  str2str
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convert R Objects from One Structure to Another
 
@@ -19,6 +19,7 @@ BuildArch:        noarch
 BuildRequires:    R-datasets 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-plyr 
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-reshape
 Requires:         R-datasets 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-methods 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-plyr 

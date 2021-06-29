@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bayesmodels
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          The 'Tidymodels' Extension for Bayesian Models
 
@@ -22,20 +22,19 @@ BuildRequires:    R-CRAN-bayesforecast
 BuildRequires:    R-CRAN-bsts 
 BuildRequires:    R-CRAN-brms 
 BuildRequires:    R-CRAN-BASS 
-BuildRequires:    R-CRAN-StanHeaders 
 BuildRequires:    R-CRAN-Rlgt 
 BuildRequires:    R-CRAN-rstan 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dials 
-BuildRequires:    R-CRAN-rsample 
 BuildRequires:    R-CRAN-workflows 
 BuildRequires:    R-CRAN-modeltime 
 BuildRequires:    R-CRAN-timetk 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-parsnip 
@@ -43,26 +42,25 @@ Requires:         R-CRAN-bayesforecast
 Requires:         R-CRAN-bsts 
 Requires:         R-CRAN-brms 
 Requires:         R-CRAN-BASS 
-Requires:         R-CRAN-StanHeaders 
 Requires:         R-CRAN-Rlgt 
 Requires:         R-CRAN-rstan 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dials 
-Requires:         R-CRAN-rsample 
 Requires:         R-CRAN-workflows 
 Requires:         R-CRAN-modeltime 
 Requires:         R-CRAN-timetk 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-rstantools
 
 %description
 Bayesian framework for use with the 'tidymodels' ecosystem. Includes the
 following models: Sarima, Garch, Random walk (naive), Additive Linear
-State Space Models, Stochastic Volatily Models from 'bayesforecast'
+State Space Models, Stochastic Volatility Models from 'bayesforecast'
 package, Adaptive Splines Surfaces from 'BASS' package and ETS from 'Rlgt'
 package.
 

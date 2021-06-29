@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  vapour
-%global packver   0.5.5
+%global packver   0.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
-Release:          2%{?dist}%{?buildtag}
-Summary:          Lightweight Access to the 'Geospatial Data Abstraction Library'('GDAL')
+Version:          0.6.5
+Release:          1%{?dist}%{?buildtag}
+Summary:          Lightweight Access to the 'Geospatial Data Abstraction Library' ('GDAL')
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -30,18 +30,20 @@ to enable direct use of it for a variety of purposes. 'GDAL' is the
 'Geospatial Data Abstraction Library' a translator for raster and vector
 geospatial data formats that presents a single raster abstract data model
 and single vector abstract data model to the calling application for all
-supported formats <http://gdal.org/>. Other available packages 'rgdal' and
-'sf' also provide access to the 'GDAL' library, but neither can be used
-for these lower level tasks, and both do many other tasks.
+supported formats <https://gdal.org/>. Other available packages 'rgdal'
+and 'sf' also provide access to the 'GDAL' library, but neither can be
+used for these lower level tasks, and both do many other tasks.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
-# add cxxflags
-sed -i '2065 i : ${CXXFLAGS=`"${RBIN}" CMD config CXXFLAGS`}' %{packname}/configure
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -49,9 +51,10 @@ sed -i '2065 i : ${CXXFLAGS=`"${RBIN}" CMD config CXXFLAGS`}' %{packname}/config
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

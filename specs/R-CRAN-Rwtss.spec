@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Rwtss
-%global packver   0.8.0
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Client for Web Time-Series Service
 
@@ -46,9 +46,10 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-zoo 
 
 %description
-Allows remote access to satellite image time series provided by web time
-series services (WTSS). The WTSS API includes functions for listing the
-data sets available in WTSS servers, describing the contents of a data
+Allows remote access to satellite image time series provided by the web
+time series service (WTSS) available at servers such as
+<https://brazildatacube.dpi.inpe.br/wtss/>. The functions include listing
+the data sets available in WTSS servers, describing the contents of a data
 set, and retrieving a time series based on spatial location and temporal
 filters.
 

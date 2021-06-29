@@ -1,31 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  readobj
-%global packver   0.4.0
+%global packname  MultivariateAnalysis
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Reader for 'Wavefront' OBJ 3D Scene Files
+Summary:          Pacote Para Analise Multivariada
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.6
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-Rcpp >= 0.11.6
-Requires:         R-grDevices 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-biotools 
+BuildRequires:    R-CRAN-candisc 
+Requires:         R-CRAN-biotools 
+Requires:         R-CRAN-candisc 
 
 %description
-Wraps 'tiny_obj_loader' C++ library for reading the 'Wavefront' OBJ 3D
-file format including both mesh objects and materials files. The resultant
-R objects are either structured to match the 'tiny_obj_loader' internal
-data representation or in a form directly compatible with the 'rgl'
-package.
+Package with multivariate analysis methodologies for experiment
+evaluation. The package estimates dissimilarity measures, builds
+dendrograms, obtains MANOVA, principal components, canonical variables,
+etc. (Pacote com metodologias de analise multivariada para avaliação de
+experimentos. O pacote estima medidas de dissimilaridade, construi de
+dendogramas, obtem a MANOVA, componentes principais, variáveis canônicas,
+etc.)
 
 %prep
 %setup -q -c -n %{packname}

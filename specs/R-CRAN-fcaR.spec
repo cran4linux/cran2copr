@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fcaR
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Formal Concept Analysis
 
@@ -23,6 +23,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-registry 
+BuildRequires:    R-CRAN-settings 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tikzDevice 
@@ -36,6 +37,7 @@ Requires:         R-methods
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-registry 
+Requires:         R-CRAN-settings 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tikzDevice 

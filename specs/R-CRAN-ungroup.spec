@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ungroup
-%global packver   1.3.0
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Penalized Composite Link Model for Efficient Estimation of Smooth Distributions from Coarsely Binned Data
 
@@ -16,13 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-pbapply >= 1.3
-BuildRequires:    R-CRAN-rgl >= 0.99.0
 BuildRequires:    R-CRAN-Rdpack >= 0.8
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-pbapply >= 1.3
-Requires:         R-CRAN-rgl >= 0.99.0
 Requires:         R-CRAN-Rdpack >= 0.8
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-CRAN-Matrix 
