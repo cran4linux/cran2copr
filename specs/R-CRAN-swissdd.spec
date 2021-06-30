@@ -1,52 +1,55 @@
 %global __brp_check_rpaths %{nil}
-%global packname  academictwitteR
-%global packver   0.2.0
+%global packname  swissdd
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access the Twitter Academic Research Product Track V2 API Endpoint
+Summary:          Get Swiss Federal and Cantonal Vote Results from Opendata.swiss
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-usethis 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-usethis 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
-Package to query the Twitter Academic Research Product Track, providing
-access to full-archive search and other v2 API endpoints. Functions are
-written with academic research in mind. They provide flexibility in how
-the user wishes to store collected data, and encourage regular storage of
-data to mitigate loss when collecting large volumes of tweets. They also
-provide workarounds to manage and reshape the format in which data is
-provided on the client side.
+Builds upon the real time data service as well as the archive for national
+votes
+<https://opendata.swiss/api/3/action/package_show?id=echtzeitdaten-am-abstimmungstag-zu-eidgenoessischen-abstimmungsvorlagen>
+and cantonal votes
+<https://opendata.swiss/api/3/action/package_show?id=echtzeitdaten-am-abstimmungstag-zu-kantonalen-abstimmungsvorlagen>.
+It brings the results of Swiss popular votes, aggregated at the
+geographical level of choice, into R. Additionally, it allows to retrieve
+data from the Swissvotes-Database, one of the most comprehensive data
+platforms on Swiss referendums and initiatives
+<https://swissvotes.ch/page/dataset/swissvotes_dataset.csv>.
 
 %prep
 %setup -q -c -n %{packname}

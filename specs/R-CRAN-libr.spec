@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  libr
-%global packver   1.1.3
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Libraries, Data Dictionaries, and a Data Step for R
 
@@ -13,9 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-haven 
@@ -24,6 +23,8 @@ BuildRequires:    R-CRAN-crayon
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-haven 
@@ -32,6 +33,8 @@ Requires:         R-CRAN-crayon
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-tools 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-data.table 
 
 %description
 Contains a set of functions to create data libraries, generate data

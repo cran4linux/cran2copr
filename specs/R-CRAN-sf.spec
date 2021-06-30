@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sf
-%global packver   1.0-0
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Features for R
 
@@ -50,8 +50,8 @@ Requires:         R-utils
 Support for simple features, a standardized way to encode spatial vector
 data. Binds to 'GDAL' for reading and writing data, to 'GEOS' for
 geometrical operations, and to 'PROJ' for projection conversions and datum
-transformations. Optionally uses the 's2' package for spherical geometry
-operations on geographic coordinates.
+transformations. Uses by default the 's2' package for spherical geometry
+operations on ellipsoidal (long/lat) coordinates.
 
 %prep
 %setup -q -c -n %{packname}
@@ -63,8 +63,6 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
-# remove --static flag
-sed -i 's@--static@@g' %{packname}/configure
 
 %build
 

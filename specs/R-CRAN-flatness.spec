@@ -1,41 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  wordpressr
-%global packver   0.2.3
+%global packname  flatness
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          An API Wrapper for WordPress Site APIs
+Summary:          Indices and Tests for Assessing the Flatness of (Rank) Histograms
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-xtable 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-xtable 
 
 %description
-An API wrapper that helps R developers retrieve data from a WordPress
-site's API in tidy format, in addition to publishing content on the
-WordPress site (WordPress API documentation:
-<https://developer.wordpress.org/rest-api/>).
+S3 classes, plotting functions, indices and tests to analyse the flatness
+of histograms. It is specifically (but not only) aimed for assessing
+whether "rank" histograms (much used in weather forecasting) are flat.
+Specifically functions are provided to use the Jolliffe-Primo flatness
+tests introduced in Jolliffe and Primo (2008,
+<doi:10.1175/2007MWR2219.1>). Flatness indices described in Wilks (2019,
+<doi:10.1175/MWR-D-18-0369.1>) can be computed. Finally a function to use
+the Benjamini-Hochberg procedure for multiple hypothesis testing is
+provided (Benjamini and Hochberg, 1995,
+<doi:10.1111/j.2517-6161.1995.tb02031.x>).
 
 %prep
 %setup -q -c -n %{packname}

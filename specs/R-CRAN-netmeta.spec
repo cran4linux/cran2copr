@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  netmeta
-%global packver   1.4-0
+%global packver   1.5-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Network Meta-Analysis using Frequentist Methods
 
@@ -50,7 +50,9 @@ meta-analysis of binary data using the Mantel-Haenszel or non-central
 hypergeometric distribution method (Efthimiou et al., 2019)
 <DOI:10.1002/sim.8158>; - 'comparison-adjusted' funnel plot (Chaimani &
 Salanti, 2012) <DOI:10.1002/jrsm.57>; - automated drawing of network
-graphs described in Rücker & Schwarzer (2016) <DOI:10.1002/jrsm.1143>.
+graphs described in Rücker & Schwarzer (2016) <DOI:10.1002/jrsm.1143>; -
+rankograms based on SUCRA; - contribution matrix as described in
+Papakonstantinou et al. (2018) <DOI:10.12688/f1000research.14770.3>.
 
 %prep
 %setup -q -c -n %{packname}

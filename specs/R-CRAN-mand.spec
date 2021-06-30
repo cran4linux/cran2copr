@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mand
-%global packver   0.1
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
-Release:          3%{?dist}%{?buildtag}
+Version:          1.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Analysis for Neuroimaging Data
 
 License:          GPL (>= 2)
@@ -29,14 +29,22 @@ Requires:         R-CRAN-caret
 
 %description
 Several functions can be used to analyze neuroimaging data using
-multivariate methods based on the 'msma' package. For more details, please
-see Kawaguchi et al. (2017) <doi:10.1093/biostatistics/kxx011> and
-Kawaguchi (2019) <DOI:10.5772/intechopen.80531>.
+multivariate methods based on the 'msma' package. The functions used in
+the book entitled "Multivariate Analysis for Neuroimaging Data" (2021,
+ISBN-13: 978-0367255329) are contained. Please also see Kawaguchi et al.
+(2017) <doi:10.1093/biostatistics/kxx011> and Kawaguchi (2019)
+<DOI:10.5772/intechopen.80531>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -44,18 +52,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

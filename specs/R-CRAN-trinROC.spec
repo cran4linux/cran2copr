@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  trinROC
-%global packver   0.5
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Tests for Assessing Trinormal ROC Data
 
