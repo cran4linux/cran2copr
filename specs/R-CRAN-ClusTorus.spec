@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ClusTorus
-%global packver   0.0.1
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clustering on the Torus by Conformal Prediction
 
@@ -21,11 +21,15 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-BAMBI 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Provides various tools of for clustering multivariate angular data on the

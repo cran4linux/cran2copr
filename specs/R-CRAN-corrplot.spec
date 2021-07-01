@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  corrplot
-%global packver   0.89
+%global packver   0.90
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.89
+Version:          0.90
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization of a Correlation Matrix
 
@@ -18,10 +18,9 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-A graphical display of a correlation matrix or general matrix. It also
-contains some algorithms to do matrix reordering. In addition, corrplot is
-good at details, including choosing color, text labels, color labels,
-layout, etc.
+Provides a visual exploratory tool on correlation matrix that supports
+automatic variable reordering to help detect hidden patterns among
+variables.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  simplevis
-%global packver   4.2.0
+%global packver   4.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.0
+Version:          4.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple 'ggplot2' Visualisation with Less Brainpower and Typing
+Summary:          Simple 'ggplot2' Visualisation with Less Brainpower
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sf 
@@ -53,6 +54,7 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sf 
@@ -65,7 +67,7 @@ Requires:         R-CRAN-viridis
 
 %description
 Wrapper functions to make 'ggplot2' visualisation easier with less
-brainpower and typing.
+brainpower required.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ao
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Alternating Optimization
 
@@ -20,8 +20,8 @@ BuildArch:        noarch
 %description
 Alternating optimization of high-dimensional functions is an iterative
 procedure for minimizing (or maximizing) jointly over all parameters by
-alternately optimizing for parameter subsets. See Bezdek and Hathaway
-(2002) "Some Notes on Alternating Optimization"
+alternately optimizing for parameter subsets. For a reference, see Bezdek
+and Hathaway (2002) "Some Notes on Alternating Optimization"
 <doi:10.1007/3-540-45631-7_39>.
 
 %prep

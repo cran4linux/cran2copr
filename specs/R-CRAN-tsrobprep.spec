@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tsrobprep
-%global packver   0.1.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Preprocessing of Time Series Data
 
@@ -16,14 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-quantreg 
-Requires:         R-CRAN-mclust 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-textTinyR 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-quantreg 
+Requires:         R-splines 
+Requires:         R-CRAN-textTinyR 
+Requires:         R-CRAN-zoo 
 
 %description
 Methods for handling the missing values outliers are introduced in this

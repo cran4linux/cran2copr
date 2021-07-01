@@ -1,31 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cli
-%global packver   3.0.0
+%global packname  flipdownWidgets
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helpers for Developing Command Line Interfaces
+Summary:          A Wrapper of JavaScript Library 'flipdown.js'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-glue 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-htmlwidgets 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
-A suite of tools to build attractive command line interfaces ('CLIs'),
-from semantic elements: headings, lists, alerts, paragraphs, etc. Supports
-custom themes via a 'CSS'-like language. It also contains a number of
-lower level 'CLI' elements: rules, boxes, trees, and 'Unicode' symbols
-with 'ASCII' alternatives. It support ANSI colors and text styles as well.
+Include a countdown <https://github.com/PButcher/flipdown> in all R
+contexts with the convenience of 'htmlwidgets'.
 
 %prep
 %setup -q -c -n %{packname}

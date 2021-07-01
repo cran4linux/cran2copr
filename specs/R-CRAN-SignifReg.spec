@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SignifReg
-%global packver   4.0
+%global packver   4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0
+Version:          4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Consistent Significance Controlled Variable Selection in Generalized Linear Regression
 

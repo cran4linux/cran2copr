@@ -1,42 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  vein
-%global packver   0.9.3
+%global packname  MisRepARMA
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vehicular Emissions Inventories
+Summary:          Misreported Time Series Analysis
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-sf >= 1.0.1
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-dotCall64 
-Requires:         R-CRAN-sf >= 1.0.1
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-units 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-CRAN-dotCall64 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mixtools 
+BuildRequires:    R-CRAN-tseries 
+Requires:         R-CRAN-mixtools 
+Requires:         R-CRAN-tseries 
 
 %description
-Elaboration of vehicular emissions inventories, consisting in four stages,
-pre-processing activity data, preparing emissions factors, estimating the
-emissions and post-processing of emissions in maps and databases. More
-details in Ibarra-Espinosa et al (2018) <doi:10.5194/gmd-11-2209-2018>.
-Before using VEIN you need to know the vehicular composition of your study
-area, in other words, the combination of of type of vehicles, size and
-fuel of the fleet. Then, it is recommended to start with the project to
-download a template to create a structure of directories and scripts.
+Provides a simple and trustworthy methodology for the analysis of
+misreported continuous time series. See Moriña, D, Fernández-Fontelo, A,
+Cabaña, A, Puig P. (2021) <arXiv:2003.09202v2>.
 
 %prep
 %setup -q -c -n %{packname}

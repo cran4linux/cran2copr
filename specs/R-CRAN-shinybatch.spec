@@ -1,42 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  vein
-%global packver   0.9.3
+%global packname  shinybatch
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vehicular Emissions Inventories
+Summary:          Launch Tasks in Batch
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-sf >= 1.0.1
+BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-dotCall64 
-Requires:         R-CRAN-sf >= 1.0.1
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-futile.logger 
+BuildRequires:    R-CRAN-htmltools 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-units 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-CRAN-dotCall64 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-futile.logger 
+Requires:         R-CRAN-htmltools 
 
 %description
-Elaboration of vehicular emissions inventories, consisting in four stages,
-pre-processing activity data, preparing emissions factors, estimating the
-emissions and post-processing of emissions in maps and databases. More
-details in Ibarra-Espinosa et al (2018) <doi:10.5194/gmd-11-2209-2018>.
-Before using VEIN you need to know the vehicular composition of your study
-area, in other words, the combination of of type of vehicles, size and
-fuel of the fleet. Then, it is recommended to start with the project to
-download a template to create a structure of directories and scripts.
+Provides two modules to configure some R task, launch in batch, and
+retrieve result from shiny. Can be used both in windows system using
+Windows task scheduler, and on unix-alike system using 'crontab'.
 
 %prep
 %setup -q -c -n %{packname}

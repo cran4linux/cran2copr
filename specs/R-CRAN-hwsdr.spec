@@ -1,40 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ggseg
-%global packver   1.6.3
+%global packname  hwsdr
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plotting Tool for Brain Atlases
+Summary:          Interface to the 'HWSD' Web Services
 
-License:          MIT + file LICENSE
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-sf >= 0.9.2
-BuildRequires:    R-grid 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-ggplot2 >= 3.3
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-sf >= 0.9.2
-Requires:         R-grid 
-Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-httr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-httr 
 
 %description
-Contains 'ggplot2' geom for plotting brain atlases using simple features.
-The largest component of the package is the data for the two built-in
-atlases. Mowinckel & Vidal-Piñero (2020) <doi:10.1177/2515245920928009>.
+Programmatic interface to the Harmonized World Soil Database 'HWSD' web
+services (<https://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1247>). Allows
+for easy downloads of 'HWSD' soil data directly to your R workspace or
+your computer. Routines for both single pixel data downloads and gridded
+data are provided.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,38 +1,49 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ciu
-%global packver   0.5.0
+%global packname  wearables
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Contextual Importance and Utility
+Summary:          Tools to Read and Convert Wearables Data
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-RHRV 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-CRAN-waveslim 
+BuildRequires:    R-CRAN-futile.logger 
+BuildRequires:    R-CRAN-kernlab 
+BuildRequires:    R-CRAN-padr 
+BuildRequires:    R-CRAN-varian 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-grDevices 
-Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-RHRV 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-signal 
+Requires:         R-CRAN-waveslim 
+Requires:         R-CRAN-futile.logger 
+Requires:         R-CRAN-kernlab 
+Requires:         R-CRAN-padr 
+Requires:         R-CRAN-varian 
 Requires:         R-CRAN-ggplot2 
 
 %description
-Implementation of the Contextual Importance and Utility (CIU) concepts for
-Explainable AI (XAI). A recent description of CIU can be found in e.g.
-Främling (2020) <arXiv:2009.13996>.
+Package to read Empatica E4 data, perform several transformations, perform
+signal processing, batch analyses.
 
 %prep
 %setup -q -c -n %{packname}

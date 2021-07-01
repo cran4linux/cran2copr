@@ -1,42 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  vein
-%global packver   0.9.3
+%global packname  pasadr
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vehicular Emissions Inventories
+Summary:          An Implementation of Process-Aware Stealthy Attack Detection(PASAD)
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-sf >= 1.0.1
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-dotCall64 
-Requires:         R-CRAN-sf >= 1.0.1
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-units 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-CRAN-dotCall64 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-scales 
 
 %description
-Elaboration of vehicular emissions inventories, consisting in four stages,
-pre-processing activity data, preparing emissions factors, estimating the
-emissions and post-processing of emissions in maps and databases. More
-details in Ibarra-Espinosa et al (2018) <doi:10.5194/gmd-11-2209-2018>.
-Before using VEIN you need to know the vehicular composition of your study
-area, in other words, the combination of of type of vehicles, size and
-fuel of the fleet. Then, it is recommended to start with the project to
-download a template to create a structure of directories and scripts.
+Anomaly detection method based on the paper "Truth will out:
+Departure-based process-level detection of stealthy attacks on control
+systems" from Wissam Aoudi, Mikel Iturbe, and Magnus Almgren (2018)
+<DOI:10.1145/3243734.3243781>. Also referred to the following
+implementation: <https://github.com/rahulrajpl/PyPASAD>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,31 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cli
-%global packver   3.0.0
+%global packname  archive
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helpers for Developing Command Line Interfaces
+Summary:          Multi-Format Archive and Compression Support
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-glue 
-Requires:         R-utils 
+Requires:         R-CRAN-rlang 
 
 %description
-A suite of tools to build attractive command line interfaces ('CLIs'),
-from semantic elements: headings, lists, alerts, paragraphs, etc. Supports
-custom themes via a 'CSS'-like language. It also contains a number of
-lower level 'CLI' elements: rules, boxes, trees, and 'Unicode' symbols
-with 'ASCII' alternatives. It support ANSI colors and text styles as well.
+Bindings to 'libarchive' <http://www.libarchive.org> the Multi-format
+archive and compression library. Offers R connections and direct
+extraction for many archive formats including 'tar', 'ZIP', '7-zip',
+'RAR', 'CAB' and compression formats including 'gzip', 'bzip2',
+'compress', 'lzma' and 'xz'.
 
 %prep
 %setup -q -c -n %{packname}

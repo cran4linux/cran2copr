@@ -1,31 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cli
-%global packver   3.0.0
+%global packname  ProbitSpatial
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helpers for Developing Command Line Interfaces
+Summary:          Probit with Spatial Dependence, SAR, SEM and SARAR Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-glue 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4.6
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-RANN 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.4.6
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-RANN 
+Requires:         R-methods 
 
 %description
-A suite of tools to build attractive command line interfaces ('CLIs'),
-from semantic elements: headings, lists, alerts, paragraphs, etc. Supports
-custom themes via a 'CSS'-like language. It also contains a number of
-lower level 'CLI' elements: rules, boxes, trees, and 'Unicode' symbols
-with 'ASCII' alternatives. It support ANSI colors and text styles as well.
+Fast estimation of binomial spatial probit regression models with spatial
+autocorrelation for big datasets.
 
 %prep
 %setup -q -c -n %{packname}

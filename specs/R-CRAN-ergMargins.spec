@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ergMargins
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Process Analysis for Exponential Random Graph Models
 
@@ -17,7 +17,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-statnet 
+BuildRequires:    R-CRAN-statnet.common 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ergm 
 BuildRequires:    R-CRAN-Matrix 
@@ -25,9 +25,8 @@ BuildRequires:    R-CRAN-network
 BuildRequires:    R-CRAN-btergm 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-sna 
-BuildRequires:    R-CRAN-xergm.common 
 Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-statnet 
+Requires:         R-CRAN-statnet.common 
 Requires:         R-stats 
 Requires:         R-CRAN-ergm 
 Requires:         R-CRAN-Matrix 
@@ -35,7 +34,6 @@ Requires:         R-CRAN-network
 Requires:         R-CRAN-btergm 
 Requires:         R-methods 
 Requires:         R-CRAN-sna 
-Requires:         R-CRAN-xergm.common 
 
 %description
 Calculates marginal effects and conducts process analysis in exponential

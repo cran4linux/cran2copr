@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  snap
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Neural Application
 
@@ -16,30 +16,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-keras 
-BuildRequires:    R-CRAN-tensorflow 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-tictoc 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-CORElearn 
-BuildRequires:    R-CRAN-dbscan 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-reticulate 
-Requires:         R-CRAN-keras 
-Requires:         R-CRAN-tensorflow 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-tictoc 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-CORElearn 
-Requires:         R-CRAN-dbscan 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-reticulate 
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.3
+BuildRequires:    R-CRAN-keras >= 2.3.0.0
+BuildRequires:    R-CRAN-tensorflow >= 2.2.0
+BuildRequires:    R-CRAN-CORElearn >= 1.54.2
+BuildRequires:    R-CRAN-readr >= 1.4.0
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-reticulate >= 1.18
+BuildRequires:    R-CRAN-dbscan >= 1.1.5
+BuildRequires:    R-CRAN-dplyr >= 1.0.2
+BuildRequires:    R-CRAN-tictoc >= 1.0.1
+BuildRequires:    R-CRAN-forcats >= 0.5.0
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-ggplot2 >= 3.3.3
+Requires:         R-CRAN-keras >= 2.3.0.0
+Requires:         R-CRAN-tensorflow >= 2.2.0
+Requires:         R-CRAN-CORElearn >= 1.54.2
+Requires:         R-CRAN-readr >= 1.4.0
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-reticulate >= 1.18
+Requires:         R-CRAN-dbscan >= 1.1.5
+Requires:         R-CRAN-dplyr >= 1.0.2
+Requires:         R-CRAN-tictoc >= 1.0.1
+Requires:         R-CRAN-forcats >= 0.5.0
+Requires:         R-CRAN-purrr >= 0.3.4
 
 %description
 A simple wrapper to easily design vanilla deep neural networks using
