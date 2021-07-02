@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DRHotNet
-%global packver   1.3
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Differential Risk Hotspots in a Linear Network
 

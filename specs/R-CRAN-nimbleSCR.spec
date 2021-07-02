@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  nimbleSCR
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Capture-Recapture (SCR) Methods Using 'nimble'
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-nimble 
 Requires:         R-CRAN-nimble 
@@ -25,7 +25,7 @@ Markov chain Monte Carlo (MCMC) sampling efficiency for ecological Spatial
 Capture-Recapture (SCR) and Open Population Spatial Capture-Recapture
 (OPSCR) models.  The methods provided implement the techniques presented
 in "Estimation of Large-Scale Spatial Capture-Recapture Models" (Turek, et
-al (2020) <doi:10.1101/2020.05.07.081182>).
+al (2021); Eco-sphere 12(2):e03385. <doi:10.1002/ecs2.3385>).
 
 %prep
 %setup -q -c -n %{packname}

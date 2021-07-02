@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SPARSEMODr
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          SPAtial Resolution-SEnsitive Models of Outbreak Dynamics
 

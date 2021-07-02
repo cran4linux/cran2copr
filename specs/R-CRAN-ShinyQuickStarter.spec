@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ShinyQuickStarter
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'RStudio' Addin for Building Shiny Apps per Drag & Drop
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.2
 BuildRequires:    R-CRAN-shinyFiles >= 0.9
 BuildRequires:    R-CRAN-shinydashboard >= 0.7
 BuildRequires:    R-CRAN-shinyWidgets >= 0.5.7
+BuildRequires:    R-CRAN-miniUI >= 0.1.1.1
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-fs 
 Requires:         R-CRAN-plotly >= 4.9
@@ -48,6 +49,7 @@ Requires:         R-CRAN-dplyr >= 1.0.2
 Requires:         R-CRAN-shinyFiles >= 0.9
 Requires:         R-CRAN-shinydashboard >= 0.7
 Requires:         R-CRAN-shinyWidgets >= 0.5.7
+Requires:         R-CRAN-miniUI >= 0.1.1.1
 Requires:         R-stats 
 Requires:         R-CRAN-fs 
 

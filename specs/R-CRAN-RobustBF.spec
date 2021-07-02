@@ -1,39 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mlr3viz
-%global packver   0.5.4
+%global packname  RobustBF
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualizations for 'mlr3'
+Summary:          Robust Solution to the Behrens-Fisher Problem
 
-License:          LGPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.7.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-mlr3misc >= 0.7.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-data.table 
-Requires:         R-utils 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Provides visualizations for 'mlr3' objects such as tasks, predictions,
-resample results or benchmark results via the autoplot() generic of
-'ggplot2'. The returned 'ggplot' objects are intended to provide sensible
-defaults, yet can easily be customized to create camera-ready figures.
-Visualizations include barplots, boxplots, histograms, ROC curves, and
-Precision-Recall curves.
+Robust tests (RW and RF) are provided for testing the equality of two
+long-tailed symmetric (LTS) means when the variances are unknown and
+arbitrary. RW test is a robust version of Welch's two sample t test and
+the RF is a robust fiducial based test. The RW and RF tests are proposed
+using the adaptive modified maximum likelihood (AMML) estimators derived
+by Tiku and Surucu (2009) <doi:10.1016/j.spl.2008.12.001> and Donmez
+(2010) <https://open.metu.edu.tr/bitstream/handle/11511/19440/index.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

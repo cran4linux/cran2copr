@@ -1,39 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mlr3viz
-%global packver   0.5.4
+%global packname  tLagPropOdds
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualizations for 'mlr3'
+Summary:          Proportional Odds Model with Censored, Time-Lagged Categorical Outcome
 
-License:          LGPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.7.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-mlr3misc >= 0.7.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-data.table 
-Requires:         R-utils 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-R.utils 
+Requires:         R-methods 
+Requires:         R-CRAN-survival 
+Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-R.utils 
 
 %description
-Provides visualizations for 'mlr3' objects such as tasks, predictions,
-resample results or benchmark results via the autoplot() generic of
-'ggplot2'. The returned 'ggplot' objects are intended to provide sensible
-defaults, yet can easily be customized to create camera-ready figures.
-Visualizations include barplots, boxplots, histograms, ROC curves, and
-Precision-Recall curves.
+Implements a semiparametric estimator for the odds ratio model with
+censored, time-lagged, ordered categorical outcome in a randomized
+clinical trial that incorporates baseline and time-dependent information.
+Tsiatis, A. A. and Davidian, M. (2021) <arXiv:2106.15559>.
 
 %prep
 %setup -q -c -n %{packname}

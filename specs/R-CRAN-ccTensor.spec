@@ -1,39 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mlr3viz
-%global packver   0.5.4
+%global packname  ccTensor
+%global packver   0.99.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.99.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualizations for 'mlr3'
+Summary:          CUR/CX Tensor Decomposition
 
-License:          LGPL-3
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.7.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-mlr3misc >= 0.7.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-data.table 
-Requires:         R-utils 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-rTensor 
+Requires:         R-methods 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-rTensor 
 
 %description
-Provides visualizations for 'mlr3' objects such as tasks, predictions,
-resample results or benchmark results via the autoplot() generic of
-'ggplot2'. The returned 'ggplot' objects are intended to provide sensible
-defaults, yet can easily be customized to create camera-ready figures.
-Visualizations include barplots, boxplots, histograms, ROC curves, and
-Precision-Recall curves.
+CUR/CX decomposition factorizes a matrix into two factor matrices and
+Multidimensional CX Decomposition factorizes a tensor into a core tensor
+and some factor matrices. See the reference section of GitHub README.md
+<https://github.com/rikenbit/ccTensor>, for details of the methods.
 
 %prep
 %setup -q -c -n %{packname}

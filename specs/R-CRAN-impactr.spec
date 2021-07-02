@@ -1,52 +1,54 @@
 %global __brp_check_rpaths %{nil}
-%global packname  msSPChelpR
-%global packver   0.8.7
+%global packname  impactr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions for Second Primary Cancer Analyses
+Summary:          Mechanical Loading Prediction Through Accelerometer Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.12.9
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-tidytable >= 0.6.1
-BuildRequires:    R-CRAN-rlang >= 0.1.2
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-rlang >= 0.4.6
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-lvmisc 
+BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-sjlabelled 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-signal 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-toOrdinal 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table >= 1.12.9
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-tidytable >= 0.6.1
-Requires:         R-CRAN-rlang >= 0.1.2
+BuildRequires:    R-CRAN-vroom 
+Requires:         R-CRAN-rlang >= 0.4.6
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-progress 
+Requires:         R-CRAN-lvmisc 
+Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-sjlabelled 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-signal 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-toOrdinal 
 Requires:         R-utils 
+Requires:         R-CRAN-vroom 
 
 %description
-A collection of helper functions for analyzing Second Primary Cancer data,
-including functions to reshape data, to calculate patient states and
-analyze cancer incidence.
+Functions to read, process and analyse accelerometer data related to
+mechanical loading variables. This package is developed and tested for use
+with raw accelerometer data from triaxial 'ActiGraph'
+<https://actigraphcorp.com> accelerometers.
 
 %prep
 %setup -q -c -n %{packname}

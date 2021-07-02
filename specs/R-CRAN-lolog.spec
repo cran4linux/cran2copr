@@ -1,37 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  sbtools
-%global packver   1.1.16
+%global packname  lolog
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.16
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          USGS ScienceBase Tools
+Summary:          Latent Order Logistic Graph Models
 
-License:          CC0
+License:          MIT + file LICENCE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.0.0
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp >= 0.9.4
 BuildRequires:    R-methods 
-Requires:         R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-network 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-intergraph 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 0.9.4
 Requires:         R-methods 
+Requires:         R-CRAN-network 
+Requires:         R-parallel 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-intergraph 
+Requires:         R-CRAN-Matrix 
 
 %description
-Tools for interacting with U.S. Geological Survey ScienceBase
-<https://www.sciencebase.gov> interfaces. ScienceBase is a data cataloging
-and collaborative data management platform. Functions included for
-querying ScienceBase, and creating and fetching datasets.
+Estimation of Latent Order Logistic (LOLOG) Models for Networks. LOLOGs
+are a flexible and fully general class of statistical graph models. This
+package provides functions for performing MOM, GMM and variational
+inference. Visual diagnostics and goodness of fit metrics are provided.
+See Fellows (2018) <arXiv:1804.04583> for a detailed description of the
+methods.
 
 %prep
 %setup -q -c -n %{packname}

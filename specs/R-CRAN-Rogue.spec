@@ -1,39 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mlr3viz
-%global packver   0.5.4
+%global packname  Rogue
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualizations for 'mlr3'
+Summary:          Identify Rogue Taxa in Sets of Phylogenetic Trees
 
-License:          LGPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.7.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-mlr3misc >= 0.7.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-data.table 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-ape >= 5.0
+Requires:         R-CRAN-ape >= 5.0
 
 %description
-Provides visualizations for 'mlr3' objects such as tasks, predictions,
-resample results or benchmark results via the autoplot() generic of
-'ggplot2'. The returned 'ggplot' objects are intended to provide sensible
-defaults, yet can easily be customized to create camera-ready figures.
-Visualizations include barplots, boxplots, histograms, ROC curves, and
-Precision-Recall curves.
+Interface to 'RogueNaRok' (Aberer et al. 2013)
+<doi:10.1093/sysbio/sys078>. Rogue taxa are a class of taxa with uncertain
+position in a phylogenetic tree. For inference methods that yield a tree
+set (bootstrapping, Bayesian tree searches), rogue taxa can assume
+different positions for each tree. The presence of rogue taxa in a tree
+set can potentially remove all information from a consensus tree. The sum
+of branch support values in a consensus tree can often be increased by
+removing rogue taxa.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,60 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  refund
-%global packver   0.1-24
+%global packname  BOSO
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.24
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regression with Functional Data
+Summary:          Bilevel Optimization Selector Operator
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.00.0
-Requires:         R-core >= 3.00.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mgcv >= 1.8.23
-BuildRequires:    R-CRAN-fda 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-magic 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-gamm4 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-RLRsim 
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-grpreg 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-pbs 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-mgcv >= 1.8.23
-Requires:         R-CRAN-fda 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-boot 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-magic 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-gamm4 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-RLRsim 
-Requires:         R-splines 
-Requires:         R-CRAN-grpreg 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
-Requires:         R-CRAN-pbs 
 Requires:         R-methods 
 
 %description
-Methods for regression for functional data, including function-on-scalar,
-scalar-on-function, and function-on-function regression. Some of the
-functions are applicable to image data.
+A novel feature selection algorithm for linear regression called BOSO
+(Bilevel Optimization Selector Operator). The main contribution is the use
+a bilevel optimization problem to select the variables in the training
+problem that minimize the error in the validation set. Preprint available:
+[Valcarcel, L. V., San Jose-Eneriz, E., Cendoya, X., Rubio, A., Agirre,
+X., Prosper, F., & Planes, F. J. (2020). "BOSO: a novel feature selection
+algorithm for linear regression with high-dimensional data." bioRxiv.
+<doi:10.1101/2020.11.18.388579>]. In order to run the vignette, it is
+recommended to install the 'bestsubset' package, using the following
+command: devtools::install_github(repo="ryantibs/best-subset",
+subdir="bestsubset"). If you do not have gurobi, run
+devtools::install_github(repo="lvalcarcel/best-subset",
+subdir="bestsubset").
 
 %prep
 %setup -q -c -n %{packname}

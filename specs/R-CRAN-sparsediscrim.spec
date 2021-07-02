@@ -1,39 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mlr3viz
-%global packver   0.5.4
+%global packname  sparsediscrim
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualizations for 'mlr3'
+Summary:          Sparse and Regularized Discriminant Analysis
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.7.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-mlr3misc >= 0.7.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-data.table 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-bdsmatrix 
+BuildRequires:    R-CRAN-corpcor 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-bdsmatrix 
+Requires:         R-CRAN-corpcor 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-rlang 
 
 %description
-Provides visualizations for 'mlr3' objects such as tasks, predictions,
-resample results or benchmark results via the autoplot() generic of
-'ggplot2'. The returned 'ggplot' objects are intended to provide sensible
-defaults, yet can easily be customized to create camera-ready figures.
-Visualizations include barplots, boxplots, histograms, ROC curves, and
-Precision-Recall curves.
+A collection of sparse and regularized discriminant analysis methods
+intended for small-sample, high-dimensional data sets. The package
+features the High-Dimensional Regularized Discriminant Analysis classifier
+from Ramey et al. (2017) <arXiv:1602.01182>. Other classifiers include
+those from Dudoit et al. (2002) <doi:10.1198/016214502753479248>, Pang et
+al. (2009) <doi:10.1111/j.1541-0420.2009.01200.x>, and Tong et al. (2012)
+<doi:10.1093/bioinformatics/btr690>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  photosynthesis
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Plant Ecophysiology & Modeling
 
@@ -22,9 +22,9 @@ BuildRequires:    R-stats >= 4.0.0
 BuildRequires:    R-utils >= 4.0.0
 BuildRequires:    R-methods >= 3.5.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-nlme >= 3.1.147
+BuildRequires:    R-CRAN-nlme >= 3.1.147
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-magrittr >= 1.5.0
 BuildRequires:    R-CRAN-glue >= 1.4.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-crayon >= 1.3.4
@@ -45,9 +45,9 @@ Requires:         R-stats >= 4.0.0
 Requires:         R-utils >= 4.0.0
 Requires:         R-methods >= 3.5.0
 Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-nlme >= 3.1.147
+Requires:         R-CRAN-nlme >= 3.1.147
 Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-magrittr >= 1.5.0
 Requires:         R-CRAN-glue >= 1.4.0
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-crayon >= 1.3.4
@@ -99,9 +99,13 @@ gamma_star, R_d).
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -111,6 +115,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

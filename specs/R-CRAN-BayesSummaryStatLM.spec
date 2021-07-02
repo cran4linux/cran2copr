@@ -1,37 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Distance
-%global packver   1.0.3
+%global packname  BayesSummaryStatLM
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distance Sampling Detection Function and Abundance Estimation
+Summary:          MCMC Sampling of Bayesian Linear Models via Summary Statistics
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 3.1.1
+Requires:         R-core >= 3.1.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mrds >= 2.2.1
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-mrds >= 2.2.1
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-mvnfast 
+BuildRequires:    R-CRAN-ff 
+BuildRequires:    R-CRAN-bit 
+Requires:         R-CRAN-mvnfast 
+Requires:         R-CRAN-ff 
+Requires:         R-CRAN-bit 
 
 %description
-A simple way of fitting detection functions to distance sampling data for
-both line and point transects. Adjustment term selection, left and right
-truncation as well as monotonicity constraints and binning are supported.
-Abundance and density estimates can also be calculated (via a
-Horvitz-Thompson-like estimator) if survey area information is provided.
-See Miller et al. (2019) <doi:10.18637/jss.v089.i01> for more information
-on methods and <https://examples.distancesampling.org/> for example
-analyses.
+Methods for generating Markov Chain Monte Carlo (MCMC) posterior samples
+of Bayesian linear regression model parameters that require only summary
+statistics of data as input. Summary statistics are useful for systems
+with very limited amounts of physical memory. The package provides two
+functions: one function that computes summary statistics of data and one
+function that carries out the MCMC posterior sampling for Bayesian linear
+regression models where summary statistics are used as input. The function
+read.regress.data.ff utilizes the R package 'ff' to handle data sets that
+are too large to fit into a user's physical memory, by reading in data in
+chunks. See Miroshnikov, Savel'ev and Conlon (2015) <arXiv:1503.00635>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mlr3viz
-%global packver   0.5.4
+%global packname  bsub
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualizations for 'mlr3'
+Summary:          Submitter and Monitor of the 'LSF Cluster'
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.7.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-GetoptLong >= 0.1.8
+BuildRequires:    R-CRAN-GlobalOptions >= 0.1.1
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-mlr3misc >= 0.7.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-clisymbols 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-methods 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-GetoptLong >= 0.1.8
+Requires:         R-CRAN-GlobalOptions >= 0.1.1
+Requires:         R-CRAN-digest 
 Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-clisymbols 
+Requires:         R-CRAN-crayon 
+Requires:         R-methods 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 
 %description
-Provides visualizations for 'mlr3' objects such as tasks, predictions,
-resample results or benchmark results via the autoplot() generic of
-'ggplot2'. The returned 'ggplot' objects are intended to provide sensible
-defaults, yet can easily be customized to create camera-ready figures.
-Visualizations include barplots, boxplots, histograms, ROC curves, and
-Precision-Recall curves.
+It submits R code/R scripts/shell commands to 'LSF cluster'
+(<https://en.wikipedia.org/wiki/Platform_LSF>, the 'bsub' system) without
+leaving R. There is also an interactive 'shiny' app for monitoring the job
+status.
 
 %prep
 %setup -q -c -n %{packname}

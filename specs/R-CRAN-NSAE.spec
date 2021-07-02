@@ -1,39 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mlr3viz
-%global packver   0.5.4
+%global packname  NSAE
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualizations for 'mlr3'
+Summary:          Nonstationary Small Area Estimation
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.7.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-mlr3misc >= 0.7.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-data.table 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-rlist 
+Requires:         R-CRAN-rlist 
 
 %description
-Provides visualizations for 'mlr3' objects such as tasks, predictions,
-resample results or benchmark results via the autoplot() generic of
-'ggplot2'. The returned 'ggplot' objects are intended to provide sensible
-defaults, yet can easily be customized to create camera-ready figures.
-Visualizations include barplots, boxplots, histograms, ROC curves, and
-Precision-Recall curves.
+Executes spatial nonstationary Fay-Herriot models for small area
+estimation.The empirical best linear unbiased predictor (EBLUP) under
+stationary and nonstationary Fay-Herriot models along with the mean
+squared error estimation are included. EBLUP for prediction of non-sample
+area is also included under both stationary and nonstationary Fay-Herriot
+models. This extension to the Fay-Herriot model that accounts for the
+presence of spatial nonstationarity was developed by Hukum Chandra, Nicola
+Salvati and Ray Chambers (2015) <doi:10.1093/jssam/smu026>. This package
+is dedicated to the memory of Dr. Hukum Chandra who passed away while the
+package creation was in progress.
 
 %prep
 %setup -q -c -n %{packname}

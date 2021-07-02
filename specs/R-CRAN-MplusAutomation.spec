@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MplusAutomation
-%global packver   0.8
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An R Package for Facilitating Large-Scale Latent Variable Analyses in Mplus
 
@@ -31,6 +31,8 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-fastDummies 
+BuildRequires:    R-CRAN-checkmate 
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-CRAN-boot 
@@ -46,14 +48,16 @@ Requires:         R-parallel
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-fastDummies 
+Requires:         R-CRAN-checkmate 
 
 %description
 Leverages the R language to automate latent variable model estimation and
 interpretation using 'Mplus', a powerful latent variable modeling program
-developed by Muthen and Muthen (<http://www.statmodel.com>). Specifically,
-this package provides routines for creating related groups of models,
-running batches of models, and extracting and tabulating model parameters
-and fit statistics.
+developed by Muthen and Muthen (<https://www.statmodel.com>).
+Specifically, this package provides routines for creating related groups
+of models, running batches of models, and extracting and tabulating model
+parameters and fit statistics.
 
 %prep
 %setup -q -c -n %{packname}
