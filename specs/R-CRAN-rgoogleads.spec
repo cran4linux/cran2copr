@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rcol
-%global packver   0.2.0
+%global packname  rgoogleads
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Catalogue of Life Client
+Summary:          Loading Data from 'Google Ads API'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,23 +16,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crul 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-cli >= 2.5.0.9000
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-gargle 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-crul 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-snakecase 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-rlist 
+Requires:         R-CRAN-cli >= 2.5.0.9000
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-gargle 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-glue 
+Requires:         R-CRAN-snakecase 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-rlist 
 
 %description
-Client for the Catalogue of Life ('CoL')
-(<https://www.catalogueoflife.org/>); based on the new 'CoL' service, not
-the old one. Catalogue of Life is a database of taxonomic names. Includes
-functions for each of the API methods, including searching for names, and
-more.
+Interface for loading data from 'Google Ads API', see
+<https://developers.google.com/google-ads/api/docs/start>. Package provide
+function for authorization and loading reports.
 
 %prep
 %setup -q -c -n %{packname}

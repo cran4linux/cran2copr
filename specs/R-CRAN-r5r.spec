@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  r5r
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rapid Realistic Routing with 'R5'
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-curl
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-sfheaders 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-sf >= 0.9.3
@@ -34,6 +35,7 @@ Requires:         R-CRAN-curl
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-httr 
 Requires:         R-methods 
+Requires:         R-CRAN-raster 
 Requires:         R-CRAN-sfheaders 
 Requires:         R-utils 
 

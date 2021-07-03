@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rcol
-%global packver   0.2.0
+%global packname  BayesTools
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Catalogue of Life Client
+Summary:          Tools for Bayesian Analyses
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,23 +16,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crul 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-crul 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-CRAN-runjags 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-bridgesampling 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-extraDistr 
+Requires:         R-CRAN-runjags 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-bridgesampling 
+Requires:         R-parallel 
+Requires:         R-CRAN-rstan 
+Requires:         R-CRAN-rstantools
 
 %description
-Client for the Catalogue of Life ('CoL')
-(<https://www.catalogueoflife.org/>); based on the new 'CoL' service, not
-the old one. Catalogue of Life is a database of taxonomic names. Includes
-functions for each of the API methods, including searching for names, and
-more.
+Provides tools for conducting Bayesian analyses. The package contains
+functions for creating a wide range of prior distribution objects, mixing
+posterior samples from 'JAGS' and 'Stan' models, plotting posterior
+distributions, and etc... The tools for working with prior distribution
+span from visualization, generating 'JAGS' and 'bridgesampling' syntax to
+basic functions such as rng, quantile, and distribution functions.
 
 %prep
 %setup -q -c -n %{packname}

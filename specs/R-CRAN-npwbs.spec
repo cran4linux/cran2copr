@@ -1,32 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fontawesome
-%global packver   0.2.2
+%global packname  npwbs
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Work with 'Font Awesome' Icons
+Summary:          Nonparametric Multiple Change Point Detection Using WBS
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmltools >= 0.5.1.1
-BuildRequires:    R-CRAN-rlang >= 0.4.10
-Requires:         R-CRAN-htmltools >= 0.5.1.1
-Requires:         R-CRAN-rlang >= 0.4.10
 
 %description
-Easily and flexibly insert 'Font Awesome' icons into 'R Markdown'
-documents and 'Shiny' apps. These icons can be inserted into HTML content
-through inline 'SVG' tags or 'i' tags. There is also a utility function
-for exporting 'Font Awesome' icons as 'PNG' images for those situations
-where raster graphics are needed.
+Implements the procedure from G. J. Ross (2021) - "Nonparametric Detection
+of Multiple Location-Scale Change Points via Wild Binary Segmentation".
+This uses a version of Wild Binary Segmentation to detect location-scale
+(i.e. mean and/or variance) changes in a sequence of univariate
+observations.
 
 %prep
 %setup -q -c -n %{packname}

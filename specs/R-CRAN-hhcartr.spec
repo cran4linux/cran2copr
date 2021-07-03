@@ -1,32 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fontawesome
-%global packver   0.2.2
+%global packname  hhcartr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Work with 'Font Awesome' Icons
+Summary:          HHCART(G) - A Reflected Feature Space for CART
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmltools >= 0.5.1.1
-BuildRequires:    R-CRAN-rlang >= 0.4.10
-Requires:         R-CRAN-htmltools >= 0.5.1.1
-Requires:         R-CRAN-rlang >= 0.4.10
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-hash 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-DiagrammeR 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-DiagrammeRsvg 
+BuildRequires:    R-CRAN-captioner 
+BuildRequires:    R-CRAN-rsvg 
+BuildRequires:    R-CRAN-bookdown 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-hash 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-DiagrammeR 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-DiagrammeRsvg 
+Requires:         R-CRAN-captioner 
+Requires:         R-CRAN-rsvg 
+Requires:         R-CRAN-bookdown 
 
 %description
-Easily and flexibly insert 'Font Awesome' icons into 'R Markdown'
-documents and 'Shiny' apps. These icons can be inserted into HTML content
-through inline 'SVG' tags or 'i' tags. There is also a utility function
-for exporting 'Font Awesome' icons as 'PNG' images for those situations
-where raster graphics are needed.
+An implementation of the HHCART-G algorithm as described in the paper -
+Wickramarachchi C, Robertson B, Reale M, Price C, Brown J (2019). 'A
+reflected feature space for CART.' Australian & New Zealand Journal of
+Statistics, 61, 380–391. <doi:10.1111/anzs.12275>.
 
 %prep
 %setup -q -c -n %{packname}

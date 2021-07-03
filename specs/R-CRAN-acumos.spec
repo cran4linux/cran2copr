@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  acumos
-%global packver   0.4-1
+%global packver   0.4-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Acumos' R Interface
 
@@ -33,9 +33,9 @@ Requires:         R-CRAN-yaml
 Create, upload and run 'Acumos' R models. 'Acumos'
 (<https://www.acumos.org>) is a platform and open source framework
 intended to make it easy to build, share, and deploy AI apps. 'Acumos' is
-part of the 'LF AI Foundation', an umbrella organization within The Linux
-Foundation. With this package, user can create a component, and push it to
-an 'Acumos' platform.
+part of the 'LF AI Foundation', an umbrella organization within 'The Linux
+Foundation'. With this package, user can create a component, and push it
+to an 'Acumos' platform.
 
 %prep
 %setup -q -c -n %{packname}

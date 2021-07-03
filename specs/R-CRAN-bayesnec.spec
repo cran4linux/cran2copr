@@ -1,47 +1,53 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Andromeda
-%global packver   0.5.0
+%global packname  bayesnec
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Asynchronous Disk-Based Representation of Massive Data
+Summary:          A Bayesian No-Effect- Concentration (NEC) Algorithm
 
-License:          Apache License 2.0
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-brms 
+BuildRequires:    R-CRAN-loo 
+BuildRequires:    R-CRAN-extraDistr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-zip 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-lazyeval 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-evaluate 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-hms 
+Requires:         R-CRAN-brms 
+Requires:         R-CRAN-loo 
+Requires:         R-CRAN-extraDistr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-zip 
-Requires:         R-methods 
-Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-cli 
+Requires:         R-CRAN-lazyeval 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-evaluate 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-hms 
 
 %description
-Storing very large data objects on a local drive, while still making it
-possible to manipulate the data in an efficient manner.
+Implementation of No-Effect-Concentration estimation that uses 'brms' (see
+Burkner (2017)<doi:10.18637/jss.v080.i01>; Burkner
+(2018)<doi:10.32614/RJ-2018-017>; Carpenter 'et al.'
+(2017)<doi:10.18637/jss.v076.i01> to fit concentration(dose)-response data
+using Bayesian methods for the purpose of estimating 'ECX' values, but
+more particularly 'NEC' (see Fox (2010)<doi:10.1016/j.ecoenv.2009.09.012>.
+This package expands and supersedes an original version implemented in
+R2jags, see Fisher, Ricardo and Fox (2020)<doi:10.5281/ZENODO.3966864>.
 
 %prep
 %setup -q -c -n %{packname}
