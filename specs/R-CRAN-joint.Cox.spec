@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  joint.Cox
-%global packver   3.13
+%global packver   3.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.13
+Version:          3.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Frailty-Copula Models for Tumour Progression and Death in Meta-Analysis
 
