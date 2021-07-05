@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  umx
-%global packver   4.8.0
+%global packver   4.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.8.0
+Version:          4.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Structural Equation and Twin Modeling in R
 
@@ -17,13 +17,11 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-OpenMx >= 2.11.5
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-DiagrammeR 
 BuildRequires:    R-CRAN-DiagrammeRsvg 
 BuildRequires:    R-CRAN-rsvg 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
@@ -37,14 +35,14 @@ BuildRequires:    R-CRAN-RCurl
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xtable 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-knitr 
 Requires:         R-CRAN-OpenMx >= 2.11.5
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-DiagrammeR 
 Requires:         R-CRAN-DiagrammeRsvg 
 Requires:         R-CRAN-rsvg 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-kableExtra 
-Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
@@ -58,6 +56,8 @@ Requires:         R-CRAN-RCurl
 Requires:         R-CRAN-scales 
 Requires:         R-utils 
 Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-knitr 
 
 %description
 Quickly create, run, and report structural equation and twin models. See

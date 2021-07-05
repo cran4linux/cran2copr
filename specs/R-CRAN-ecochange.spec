@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ecochange
-%global packver   1.3
+%global packver   1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integrating Ecological Remote Sensing Data to Derive EBV Metrics
 
@@ -18,22 +18,23 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-gdalUtils 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-gdalUtils 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gdalUtilities 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-landscapemetrics 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-getPass 
@@ -43,24 +44,27 @@ BuildRequires:    R-CRAN-viridis
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-rasterDT 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-rgeos 
+Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-gdalUtils 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rgdal 
 Requires:         R-parallel 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-gdalUtils 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gdalUtilities 
 Requires:         R-graphics 
 Requires:         R-CRAN-rvest 
-Requires:         R-stats 
 Requires:         R-CRAN-landscapemetrics 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-sf 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-getPass 
@@ -70,13 +74,15 @@ Requires:         R-CRAN-viridis
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-rasterDT 
+Requires:         R-CRAN-data.table 
 
 %description
 Essential Biodiversity Variables (EBV) are state variables with dimensions
 on time, space, and biological organization that can document biodiversity
 change. Freely available remote sensing products (RSP) are downloaded and
-integrated with data for national or regional domains to derive EBV
-metrics related to horizontal ecosystem extent, forest fragmentation,
+integrated with data for national or regional domains to derive metrics
+for EBV related to horizontal ecosystem extent, forest fragmentation,
 species distribution ranges, among others. To process the spatial data,
 the users must provide at least a region of interest (polygon or
 geographic administrative unit). Downloadable RSP include Global Surface

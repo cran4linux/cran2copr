@@ -1,38 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  INLAMSM
-%global packver   0.2-3
+%global packname  leafR
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Spatial Models with 'INLA'
+Summary:          Calculates the Leaf Area Index (LAD) and Other Related Functions
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-lidR 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-spdep 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-lidR 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-raster 
+Requires:         R-stats 
 
 %description
-Implementation of several multivariate areal latent effects for 'INLA'
-using the 'rgeneric' latent effect (Palmí-Perales et al., 2019,
-<doi:10.18637/jss.v098.i02>). The 'INLA' package can be downloaded from
-<https://www.r-inla.org>. In particular, the package includes latent
-effects ready to use for several multivariate spatial models: intrinsic
-CAR, proper CAR and the M-model (Botella-Rocamora et al., 2015,
-<doi:10.1002/sim.6423>).
+A set of functions for analyzing the structure of forests based on the
+leaf area density (LAD) and leaf area index (LAI) measures calculated from
+Airborne Laser Scanning (ALS), i.e., scanning lidar (Light Detection and
+Ranging) data. The methodology is discussed and described in Almeida et
+al. (2019) <doi:10.3390/rs11010092> and Stark et al. (2012)
+<doi:10.1111/j.1461-0248.2012.01864.x>.
 
 %prep
 %setup -q -c -n %{packname}

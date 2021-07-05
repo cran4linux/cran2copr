@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pksensi
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Global Sensitivity Analysis in Physiologically Based Kinetic Modeling
 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-reshape 
+BuildRequires:    R-CRAN-reshape2 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-deSolve 
@@ -35,7 +35,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-foreach 
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-reshape 
+Requires:         R-CRAN-reshape2 
 
 %description
 Applying the global sensitivity analysis workflow to investigate the

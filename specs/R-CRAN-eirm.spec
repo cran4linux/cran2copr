@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  eirm
-%global packver   0.3
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explanatory Item Response Modeling for Dichotomous and Polytomous Items
 
@@ -24,6 +24,8 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-shinycssloaders 
 BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-ggeffects 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-optimx 
@@ -32,6 +34,8 @@ Requires:         R-CRAN-shiny
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-shinycssloaders 
 Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-ggeffects 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Analysis of dichotomous and polytomous response data using the explanatory
