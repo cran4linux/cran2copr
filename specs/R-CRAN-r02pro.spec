@@ -1,35 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ROpenCVLite
-%global packver   4.52.0
+%global packname  r02pro
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.52.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Package for Installing OpenCV with R
+Summary:          R Programming: Zero to Pro
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cmake
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-pkgbuild 
-BuildRequires:    R-parallel 
-Requires:         R-utils 
-Requires:         R-CRAN-pkgbuild 
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-learnr 
+Requires:         R-CRAN-learnr 
 
 %description
-Installs 'OpenCV' for use by other packages. 'OpenCV'
-<https://opencv.org/> is library of programming functions mainly aimed at
-real-time computer vision. This 'Lite' version contains the stable base
-version of 'OpenCV' and does not contain any of its externally contributed
-modules.
+This is a companion package of the book "R Programming: Zero to Pro"
+<https://r02pro.github.io/>. It contains the datasets used in the book and
+provides interactive exercises corresponding to the book. It covers a wide
+range of topics including visualization, data transformation, tidying
+data, data input and output.
 
 %prep
 %setup -q -c -n %{packname}

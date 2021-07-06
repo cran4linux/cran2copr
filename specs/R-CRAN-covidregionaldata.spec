@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  covidregionaldata
-%global packver   0.9.1
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Subnational Data for the COVID-19 Outbreak
+Summary:          Subnational Data for COVID-19 Epidemiology
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -54,11 +54,19 @@ Requires:         R-CRAN-withr
 Requires:         R-CRAN-xml2 
 
 %description
-An interface to subnational and national level COVID-19 data. For all
-countries supported, this includes a daily time-series of cases.  Wherever
-available we also provide data on deaths, hospitalisations, and tests.
-National level data is also supported using a range of data sources as
-well as line list data and links to intervention data sets.
+An interface to subnational and national level COVID-19 data sourced from
+both official sources, such as Public Health England in the UK, and from
+other COVID-19 data collections, including the World Health Organisation
+(WHO), European Centre for Disease Prevention and Control (ECDC), John
+Hopkins University (JHU), Google Open Data and others. Designed to
+streamline COVID-19 data extraction, cleaning, and processing from a range
+of data sources in an open and transparent way. This allows users to
+inspect and scrutinise the data, and tools used to process it, at every
+step. For all countries supported, data includes a daily time-series of
+cases. Wherever available data is also provided for deaths,
+hospitalisations, and tests. National level data are also supported using
+a range of sources as well as line list data and links to intervention
+data sets.
 
 %prep
 %setup -q -c -n %{packname}

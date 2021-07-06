@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RISmed
-%global packver   2.2
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Content from NCBI Databases
 
@@ -17,7 +17,11 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-methods 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-xml2 
 
 %description
 A set of tools to extract bibliographic content from the National Center

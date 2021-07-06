@@ -1,35 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ROpenCVLite
-%global packver   4.52.0
+%global packname  tangram.pipe
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.52.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Package for Installing OpenCV with R
+Summary:          Row-by-Row Table Building
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cmake
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-pkgbuild 
-BuildRequires:    R-parallel 
-Requires:         R-utils 
-Requires:         R-CRAN-pkgbuild 
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-dplyr 
 
 %description
-Installs 'OpenCV' for use by other packages. 'OpenCV'
-<https://opencv.org/> is library of programming functions mainly aimed at
-real-time computer vision. This 'Lite' version contains the stable base
-version of 'OpenCV' and does not contain any of its externally contributed
-modules.
+Builds tables with customizable rows. Users can specify the type of data
+to use for each row, as well as how to handle missing data and the types
+of comparison tests to run on the table columns.
 
 %prep
 %setup -q -c -n %{packname}

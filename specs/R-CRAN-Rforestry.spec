@@ -1,35 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ROpenCVLite
-%global packver   4.52.0
+%global packname  Rforestry
+%global packver   0.9.0.47
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.52.0
+Version:          0.9.0.47
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Package for Installing OpenCV with R
+Summary:          Random Forests, Linear Trees, and Gradient Boosting for Inference and Interpretability
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cmake
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-pkgbuild 
+BuildRequires:    R-CRAN-Rcpp >= 0.12.9
 BuildRequires:    R-parallel 
-Requires:         R-utils 
-Requires:         R-CRAN-pkgbuild 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-visNetwork 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-onehot 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppThread 
+Requires:         R-CRAN-Rcpp >= 0.12.9
 Requires:         R-parallel 
+Requires:         R-methods 
+Requires:         R-CRAN-visNetwork 
+Requires:         R-CRAN-glmnet 
+Requires:         R-grDevices 
+Requires:         R-CRAN-onehot 
+Requires:         R-CRAN-dplyr 
 
 %description
-Installs 'OpenCV' for use by other packages. 'OpenCV'
-<https://opencv.org/> is library of programming functions mainly aimed at
-real-time computer vision. This 'Lite' version contains the stable base
-version of 'OpenCV' and does not contain any of its externally contributed
-modules.
+Provides fast implementations of Honest Random Forests, Gradient Boosting,
+and Linear Random Forests, with an emphasis on inference and
+interpretability. Additionally contains methods for variable importance,
+out-of-bag prediction, regression monotonicity, and several methods for
+missing data imputation. Soren R. Kunzel, Theo F. Saarinen, Edward W. Liu,
+Jasjeet S. Sekhon (2019) <arXiv:1906.06463>.
 
 %prep
 %setup -q -c -n %{packname}

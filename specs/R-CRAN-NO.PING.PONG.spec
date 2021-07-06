@@ -1,35 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ROpenCVLite
-%global packver   4.52.0
+%global packname  NO.PING.PONG
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.52.0
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Package for Installing OpenCV with R
+Summary:          Incorporating Previous Findings When Evaluating New Data
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cmake
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-pkgbuild 
-BuildRequires:    R-parallel 
-Requires:         R-utils 
-Requires:         R-CRAN-pkgbuild 
-Requires:         R-parallel 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-metafor 
+BuildRequires:    R-CRAN-MCMCglmm 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-CRAN-metafor 
+Requires:         R-CRAN-MCMCglmm 
+Requires:         R-CRAN-MASS 
 
 %description
-Installs 'OpenCV' for use by other packages. 'OpenCV'
-<https://opencv.org/> is library of programming functions mainly aimed at
-real-time computer vision. This 'Lite' version contains the stable base
-version of 'OpenCV' and does not contain any of its externally contributed
-modules.
+Functions for revealing what happens when effect size estimates from
+previous studies are taken into account when evaluating each new dataset
+in a study sequence. The analyses can be conducted for cumulative
+meta-analyses and for Bayesian data analyses. The package contains sample
+data for a wide selection of research topics. Jointly considering previous
+findings along with new data is more likely to result in correct
+conclusions than does the traditional practice of not incorporating
+previous findings, which often results in a back and forth ping-pong of
+conclusions when evaluating a sequence of studies. O'Connor & Ermacora
+(2021, <doi:10.3758/bf03200807>).
 
 %prep
 %setup -q -c -n %{packname}

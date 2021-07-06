@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ShellChron
-%global packver   0.2.8
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Builds Chronologies from Oxygen Isotope Profiles in Shells
 
@@ -18,7 +18,6 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.2.1
 BuildRequires:    R-CRAN-zoo >= 1.8.7
-BuildRequires:    R-CRAN-tidyverse >= 1.3.0
 BuildRequires:    R-CRAN-tidyr >= 1.1.1
 BuildRequires:    R-CRAN-scales >= 1.1.0
 BuildRequires:    R-CRAN-rtop >= 0.5.14
@@ -27,7 +26,6 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-ggplot2 >= 3.2.1
 Requires:         R-CRAN-zoo >= 1.8.7
-Requires:         R-CRAN-tidyverse >= 1.3.0
 Requires:         R-CRAN-tidyr >= 1.1.1
 Requires:         R-CRAN-scales >= 1.1.0
 Requires:         R-CRAN-rtop >= 0.5.14
@@ -41,9 +39,9 @@ direction (D) through a shell + uncertainties in both variables (d18O_err
 & D_err). It then models the seasonality in the d18O record by fitting a
 combination of a growth and temperature sine wave to year-length chunks of
 the data (see Judd et al., (2018) <doi:10.1016/j.palaeo.2017.09.034>).
-This modelling is carried out along a sliding window through the data and
+This modeling is carried out along a sliding window through the data and
 yields estimates of the day of the year (Julian Day) and local growth rate
-for each data point. Uncertainties in both modelling routine and the data
+for each data point. Uncertainties in both modeling routine and the data
 itself are propagated and pooled to obtain a confidence envelope around
 the age of each data point in the shell. The end result is a shell
 chronology consisting of estimated ages of shell formation relative to the

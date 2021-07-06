@@ -1,35 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ROpenCVLite
-%global packver   4.52.0
+%global packname  cartogramR
+%global packver   0.9-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.52.0
+Version:          0.9.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Package for Installing OpenCV with R
+Summary:          Continuous Cartogram
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cmake
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-pkgbuild 
-BuildRequires:    R-parallel 
-Requires:         R-utils 
-Requires:         R-CRAN-pkgbuild 
-Requires:         R-parallel 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-data.table 
 
 %description
-Installs 'OpenCV' for use by other packages. 'OpenCV'
-<https://opencv.org/> is library of programming functions mainly aimed at
-real-time computer vision. This 'Lite' version contains the stable base
-version of 'OpenCV' and does not contain any of its externally contributed
-modules.
+Procedures for making continuous cartogram. Procedures available are: flow
+based cartogram (Gastner & Newman (2004) <doi:10.1073/pnas.0400280101>),
+fast flow based cartogram (Gastner, Seguy & More (2018)
+<doi:10.1073/pnas.1712674115>), rubber band based cartogram (Dougenik et
+al. (1985) <doi:10.1111/j.0033-0124.1985.00075.x>).
 
 %prep
 %setup -q -c -n %{packname}

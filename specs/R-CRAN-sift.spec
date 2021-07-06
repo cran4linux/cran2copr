@@ -1,35 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ROpenCVLite
-%global packver   4.52.0
+%global packname  sift
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.52.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Package for Installing OpenCV with R
+Summary:          Intelligently Peruse Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cmake
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-pkgbuild 
-BuildRequires:    R-parallel 
-Requires:         R-utils 
-Requires:         R-CRAN-pkgbuild 
-Requires:         R-parallel 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-pastecs >= 1.3.21
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 0.4.3
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-pastecs >= 1.3.21
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-rlang >= 0.4.3
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Installs 'OpenCV' for use by other packages. 'OpenCV'
-<https://opencv.org/> is library of programming functions mainly aimed at
-real-time computer vision. This 'Lite' version contains the stable base
-version of 'OpenCV' and does not contain any of its externally contributed
-modules.
+Facilitate extraction of key information from common datasets.
 
 %prep
 %setup -q -c -n %{packname}

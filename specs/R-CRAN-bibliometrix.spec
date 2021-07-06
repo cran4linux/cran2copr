@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bibliometrix
-%global packver   3.1.3
+%global packver   3.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.3
+Version:          3.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive Science Mapping Analysis
 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-DT
 BuildRequires:    R-CRAN-factoextra 
 BuildRequires:    R-CRAN-FactoMineR 
 BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggnetwork 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-igraph 
@@ -52,7 +51,6 @@ Requires:         R-CRAN-DT
 Requires:         R-CRAN-factoextra 
 Requires:         R-CRAN-FactoMineR 
 Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggnetwork 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-igraph 
