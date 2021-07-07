@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ggnetwork
-%global packver   0.5.9
+%global packver   0.5.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.9
+Version:          0.5.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geometries to Plot Networks with 'ggplot2'
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DecomposeR
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Empirical Mode Decomposition for Cyclostratigraphy
 
@@ -21,6 +21,8 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-tictoc 
 BuildRequires:    R-CRAN-hht 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-hexbin 
@@ -30,6 +32,8 @@ Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-tictoc 
 Requires:         R-CRAN-hht 
 Requires:         R-grid 
 Requires:         R-CRAN-hexbin 

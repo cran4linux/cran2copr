@@ -1,41 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SpATS
-%global packver   1.0-15
+%global packname  bagged.outliertrees
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.15
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Analysis of Field Trials with Splines
+Summary:          Robust Explainable Outlier Detection Based on OutlierTree
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-plot3Drgl 
-BuildRequires:    R-CRAN-spam 
+BuildRequires:    R-CRAN-outliertree 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
-Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-plot3Drgl 
-Requires:         R-CRAN-spam 
+Requires:         R-CRAN-outliertree 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-doSNOW 
+Requires:         R-parallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-rlist 
 Requires:         R-CRAN-data.table 
-Requires:         R-methods 
 
 %description
-Analysis of field trial experiments by modelling spatial trends using
-two-dimensional Penalised spline (P-spline) models.
+Bagged OutlierTrees is an explainable unsupervised outlier detection
+method based on an ensemble implementation of the existing OutlierTree
+procedure (Cortes, 2020). This implementation takes advantage of bootstrap
+aggregating (bagging) to improve robustness by reducing the possible
+masking effect and subsequent high variance (similarly to Isolation
+Forest), hence the name "Bagged OutlierTrees". To learn more about the
+base procedure OutlierTree (Cortes, 2020), please refer to
+<arXiv:2001.00636>.
 
 %prep
 %setup -q -c -n %{packname}

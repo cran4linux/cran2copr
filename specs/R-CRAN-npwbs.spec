@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  npwbs
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Multiple Change Point Detection Using WBS
 
@@ -19,10 +19,12 @@ BuildArch:        noarch
 
 %description
 Implements the procedure from G. J. Ross (2021) - "Nonparametric Detection
-of Multiple Location-Scale Change Points via Wild Binary Segmentation".
-This uses a version of Wild Binary Segmentation to detect location-scale
-(i.e. mean and/or variance) changes in a sequence of univariate
-observations.
+of Multiple Location-Scale Change Points via Wild Binary Segmentation"
+<arxiv:2107.01742>. This uses a version of Wild Binary Segmentation to
+detect multiple location-scale (i.e. mean and/or variance) change points
+in a sequence of univariate observations, with a strict control on the
+probability of incorrectly detecting a change point in a sequence which
+does not contain any.
 
 %prep
 %setup -q -c -n %{packname}

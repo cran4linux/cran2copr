@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  adepro
-%global packver   3.1.0
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'shiny' Application for the (Audio-)Visualization of Adverse Event Profiles
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-seriation >= 1.3.0
 BuildRequires:    R-CRAN-shinyBS 
-BuildRequires:    R-CRAN-seriation 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-jsonlite 
@@ -37,8 +37,8 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-gclus 
 BuildRequires:    R-CRAN-TeachingDemos 
+Requires:         R-CRAN-seriation >= 1.3.0
 Requires:         R-CRAN-shinyBS 
-Requires:         R-CRAN-seriation 
 Requires:         R-graphics 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-jsonlite 

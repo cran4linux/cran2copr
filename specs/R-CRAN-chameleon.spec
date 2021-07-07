@@ -1,41 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SpATS
-%global packver   1.0-15
+%global packname  chameleon
+%global packver   0.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.15
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Analysis of Field Trials with Splines
+Summary:          Automatic Colors for Multi-Dimensional Data
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-clue 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-plot3Drgl 
-BuildRequires:    R-CRAN-spam 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
-Requires:         R-stats 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-umap 
+Requires:         R-CRAN-clue 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-plot3Drgl 
-Requires:         R-CRAN-spam 
-Requires:         R-CRAN-data.table 
-Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-umap 
 
 %description
-Analysis of field trial experiments by modelling spatial trends using
-two-dimensional Penalised spline (P-spline) models.
+Assign distinct colors to arbitrary multi-dimensional data, considering
+its structure.
 
 %prep
 %setup -q -c -n %{packname}

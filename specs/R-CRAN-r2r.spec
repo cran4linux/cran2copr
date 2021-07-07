@@ -1,33 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bayeslincom
-%global packver   1.2.0
+%global packname  r2r
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linear Combinations of Bayesian Posterior Samples
+Summary:          R-Object to R-Object Hash Maps
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 >= 3.3.2
-Requires:         R-methods 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-rlang 
 
 %description
-Computes point estimates, standard deviations, and credible intervals for
-linear combinations of posterior samples. Optionally performs region
-practical equivalence (ROPE) tests as described in Kruschke and Liddell
-(2018) <doi:10.3758/s13423-016-1221-4>.
+Implementation of hash tables (hash sets and hash maps) in R, featuring
+arbitrary R objects as keys, arbitrary hash and key-comparison functions,
+and customizable behaviour upon queries of missing keys.
 
 %prep
 %setup -q -c -n %{packname}

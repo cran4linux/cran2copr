@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  eatATA
-%global packver   0.11.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Constraints for Small Test Assembly Problems
 
@@ -17,10 +17,14 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rglpk 
+BuildRequires:    R-CRAN-mathjaxr 
 BuildRequires:    R-CRAN-lpSolve 
 Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
 Requires:         R-CRAN-Rglpk 
+Requires:         R-CRAN-mathjaxr 
 Requires:         R-CRAN-lpSolve 
 
 %description

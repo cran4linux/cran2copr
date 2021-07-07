@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  autostsm
-%global packver   1.4
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Structural Time Series Models
 
@@ -18,7 +18,6 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-forecast >= 8.13
 BuildRequires:    R-parallel >= 4.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.3
-BuildRequires:    R-CRAN-imputeTS >= 3.1
 BuildRequires:    R-CRAN-sandwich >= 3.0
 BuildRequires:    R-CRAN-gridExtra >= 2.3
 BuildRequires:    R-CRAN-zoo >= 1.8
@@ -29,7 +28,6 @@ BuildRequires:    R-CRAN-maxLik >= 1.4
 BuildRequires:    R-CRAN-progress >= 1.2
 BuildRequires:    R-CRAN-data.table >= 1.13
 BuildRequires:    R-CRAN-doSNOW >= 1.0
-BuildRequires:    R-CRAN-tsutils >= 0.9
 BuildRequires:    R-CRAN-lmtest >= 0.9
 BuildRequires:    R-CRAN-ggrepel >= 0.9
 BuildRequires:    R-CRAN-Rcpp 
@@ -37,7 +35,6 @@ BuildRequires:    R-CRAN-RcppArmadillo
 Requires:         R-CRAN-forecast >= 8.13
 Requires:         R-parallel >= 4.0
 Requires:         R-CRAN-ggplot2 >= 3.3
-Requires:         R-CRAN-imputeTS >= 3.1
 Requires:         R-CRAN-sandwich >= 3.0
 Requires:         R-CRAN-gridExtra >= 2.3
 Requires:         R-CRAN-zoo >= 1.8
@@ -48,7 +45,6 @@ Requires:         R-CRAN-maxLik >= 1.4
 Requires:         R-CRAN-progress >= 1.2
 Requires:         R-CRAN-data.table >= 1.13
 Requires:         R-CRAN-doSNOW >= 1.0
-Requires:         R-CRAN-tsutils >= 0.9
 Requires:         R-CRAN-lmtest >= 0.9
 Requires:         R-CRAN-ggrepel >= 0.9
 

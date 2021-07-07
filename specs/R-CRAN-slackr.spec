@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  slackr
-%global packver   2.4.0
+%global packver   2.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          2.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Send Messages, Images, R Objects and Files to 'Slack' Channels/Users
 
