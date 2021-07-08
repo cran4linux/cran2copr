@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  naspaclust
-%global packver   0.2.1
+%global packname  sdmApp
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nature-Inspired Spatial Clustering
+Summary:          A User-Friendly Application for Species Distribution Modeling
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,27 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-rdist 
-BuildRequires:    R-CRAN-stabledist 
-BuildRequires:    R-CRAN-beepr 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-rdist 
-Requires:         R-CRAN-stabledist 
-Requires:         R-CRAN-beepr 
+BuildRequires:    R-CRAN-raster >= 2.6.7
+BuildRequires:    R-CRAN-sp >= 1.2.0
+BuildRequires:    R-CRAN-shiny >= 0.12.2
+Requires:         R-CRAN-raster >= 2.6.7
+Requires:         R-CRAN-sp >= 1.2.0
+Requires:         R-CRAN-shiny >= 0.12.2
 
 %description
-Implement and enhance the performance of spatial fuzzy clustering using
-Fuzzy Geographically Weighted Clustering with various optimization
-algorithms, mainly from Xin She Yang (2014) <ISBN:9780124167438> with book
-entitled Nature-Inspired Optimization Algorithms. The optimization
-algorithm is useful to tackle the disadvantages of clustering
-inconsistency when using the traditional approach. The distance
-measurements option is also provided in order to increase the quality of
-clustering results. The Fuzzy Geographically Weighted Clustering with
-nature inspired optimisation algorithm was firstly developed by Arie Wahyu
-Wijayanto and Ayu Purwarianti (2014) <doi:10.1109/CITSM.2014.7042178>
-using Artificial Bee Colony algorithm.
+A 'shiny' application that allows non-expert 'R' users to easily model
+species distribution. It offers a reproducible work flow for species
+distribution modeling into a single and user friendly environment.
+'sdmApp' takes 'raster' data (in format supported by the 'raster package')
+and species occurrence data (several format supported) as input argument.
+It provides an interactive graphical user interface (GUI).
 
 %prep
 %setup -q -c -n %{packname}

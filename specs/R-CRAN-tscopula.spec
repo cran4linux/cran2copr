@@ -1,49 +1,51 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gfilinreg
-%global packver   2.0.1
+%global packname  tscopula
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Fiducial Inference for Low-Dimensional Robust Linear Regression
+Summary:          Time Series Copula Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-spatstat >= 2.0.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-lazyeval 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-EigenR 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-memuse 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-spatstat >= 2.0.0
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-lazyeval 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-FKF 
+BuildRequires:    R-CRAN-ltsa 
+BuildRequires:    R-CRAN-rvinecopulib 
+BuildRequires:    R-CRAN-FitAR 
+BuildRequires:    R-CRAN-arfima 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-graphics 
 Requires:         R-utils 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-EigenR 
-Requires:         R-CRAN-data.table 
-Requires:         R-parallel 
-Requires:         R-CRAN-memuse 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-FKF 
+Requires:         R-CRAN-ltsa 
+Requires:         R-CRAN-rvinecopulib 
+Requires:         R-CRAN-FitAR 
+Requires:         R-CRAN-arfima 
+Requires:         R-CRAN-Matrix 
 
 %description
-Fiducial framework for linear regression models allowing normal, Student,
-Cauchy, or logistic error terms. Only low-dimensional models are possible,
-such as the simple linear regression model, or the one-way ANOVA model
-with two factor levels. Reference: Hannig, Lai & Lee (2014)
-<doi:10.1016/j.csda.2013.03.003>.
+Functions for the analysis of time series using copula models. The package
+is based on methodology described in the following references. McNeil,
+A.J. (2021) <doi:10.3390/risks9010014>, Bladt, M., & McNeil, A.J. (2020)
+<arXiv:2006.11088>.
 
 %prep
 %setup -q -c -n %{packname}

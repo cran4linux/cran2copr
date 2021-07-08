@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dragon
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Deep Time Redox Analysis of the Geobiology Ontology Network
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
 BuildRequires:    R-CRAN-visNetwork >= 2.0.9
 BuildRequires:    R-CRAN-colorspace >= 1.4
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
@@ -49,7 +49,7 @@ BuildRequires:    R-CRAN-xml2
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-ggplot2 >= 3.3.2
+Requires:         R-CRAN-ggplot2 >= 3.3.5
 Requires:         R-CRAN-visNetwork >= 2.0.9
 Requires:         R-CRAN-colorspace >= 1.4
 Requires:         R-CRAN-dplyr >= 1.0.0

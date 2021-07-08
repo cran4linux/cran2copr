@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ggVennDiagram
-%global packver   1.1.0
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'ggplot2' Implement of Venn Diagram
 
@@ -26,8 +26,6 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-RVenn 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-venn 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
@@ -38,8 +36,6 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-RVenn 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-venn 
 
 %description
 Easy-to-use functions to generate 2-7 sets Venn plot in publication

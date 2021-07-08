@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  JMbayes2
-%global packver   0.1-6
+%global packver   0.1-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extended Joint Models for Longitudinal and Time-to-Event Data
 

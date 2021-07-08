@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RJcluster
-%global packver   2.5.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          RJ Clustering Algorithm
+Summary:          A Fast Clustering Algorithm for High Dimensional Data Based on the Gram Matrix Decomposition
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,6 +24,7 @@ BuildRequires:    R-graphics
 BuildRequires:    R-CRAN-profvis 
 BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.2
 Requires:         R-CRAN-matrixStats 
@@ -34,18 +35,15 @@ Requires:         R-graphics
 Requires:         R-CRAN-profvis 
 Requires:         R-CRAN-mclust 
 Requires:         R-CRAN-foreach 
+Requires:         R-utils 
 
 %description
-Clustering algorithm for high dimensional data. This algorithm is ideal
-for data where N << P. Assuming that P feature measurements on N objects
-are arranged in an N×P matrix X, this package provides clustering based on
-the left Gram matrix XX^T. When the P-dimensional feature vectors of
-objects are drawn independently from a K distinct mixture distribution,
-the N-dimensional rows of the modified Gram matrix XX^T/P converges almost
-surely to K distinct cluster means. This transformation/projection thus
-allows the clusters to be tighter with order of P.  To simulate data, type
-"help('simulate_HD_data')" and to learn how to use the clustering
-algorithm, type "help('RJclust')".
+Clustering algorithm for high dimensional data. Assuming that P feature
+measurements on N objects are arranged in an N×P matrix X, this package
+provides clustering based on the left Gram matrix XX^T. To simulate test
+data, type "help('simulate_HD_data')" and to learn how to use the
+clustering algorithm, type "help('RJclust')". To cite this package, type
+'citation("RJcluster")'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DHARMa
-%global packver   0.4.2
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Residual Diagnostics for Hierarchical (Multi-Level / Mixed) Regression Models
 
@@ -17,7 +17,6 @@ BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-qgam >= 1.3.2
-BuildRequires:    R-CRAN-glmmTMB >= 1.0.1
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
@@ -30,7 +29,6 @@ BuildRequires:    R-CRAN-lmtest
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-lme4 
 Requires:         R-CRAN-qgam >= 1.3.2
-Requires:         R-CRAN-glmmTMB >= 1.0.1
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-utils 

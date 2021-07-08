@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  momentuHMM
-%global packver   1.5.2
+%global packver   1.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Maximum Likelihood Analysis of Animal Movement Behavior Using Multivariate Hidden Markov Models
 
@@ -16,47 +16,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-crawl >= 2.2.1
-BuildRequires:    R-CRAN-data.tree >= 1.0.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-CircStats 
-BuildRequires:    R-CRAN-mitools 
-BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Brobdingnag 
-BuildRequires:    R-CRAN-nleqslv 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-qdapRegex 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-prodlim 
 BuildRequires:    R-CRAN-doRNG 
-BuildRequires:    R-CRAN-extraDistr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-crawl >= 2.2.1
-Requires:         R-CRAN-data.tree >= 1.0.0
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-CircStats 
-Requires:         R-CRAN-mitools 
-Requires:         R-CRAN-car 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Brobdingnag 
-Requires:         R-CRAN-nleqslv 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-qdapRegex 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-prodlim 
 Requires:         R-CRAN-doRNG 
-Requires:         R-CRAN-extraDistr 
 Requires:         R-CRAN-rlang 
 
 %description

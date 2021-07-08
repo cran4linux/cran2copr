@@ -1,45 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  VancouvR
-%global packver   0.1.4
+%global packname  ctf
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access the 'City of Vancouver' Open Data API
+Summary:          Read and Write Column Text Format (CTF)
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-urltools 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-urltools 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-iotools 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-iotools 
 
 %description
-Wrapper around the 'City of Vancouver' Open Data API
-<https://opendata.vancouver.ca/api/v2/console> to simplify and standardize
-access to 'City of Vancouver' open data. Functionality to list the data
-catalogue and access data and geographic records.
+Column Text Format (CTF) is a new tabular data format designed for
+simplicity and performance. CTF is the simplest column store you can
+imagine: plain text files for each column in a table, and a metadata file.
+The underlying plain text means the data is human readable and familiar to
+programmers, unlike specialized binary formats. CTF is faster than row
+oriented formats like CSV when loading a subset of the columns in a table.
+This package provides functions to read and write CTF data from R.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nzilbb.labbcat
-%global packver   1.0-1
+%global packname  revpref
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Accessing Data Stored in 'LaBB-CAT' Instances
+Summary:          Tools for Computational Revealed Preference Analysis
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,26 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rstudioapi 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-stringr 
-Requires:         R-utils 
-Requires:         R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-gtools 
+Requires:         R-CRAN-gtools 
 
 %description
-'LaBB-CAT' is a web-based language corpus management system developed by
-the New Zealand Institute of Language, Brain and Behaviour (NZILBB) - see
-<https://labbcat.canterbury.ac.nz>. This package defines functions for
-accessing corpus data in a 'LaBB-CAT' instance. You must have at least
-version 20210601.1528 of 'LaBB-CAT' to use this package. For more
-information about 'LaBB-CAT', see Robert Fromont and Jennifer Hay (2008)
-<doi:10.3366/E1749503208000142> or Robert Fromont (2017)
-<doi:10.1016/j.csl.2017.01.004>.
+Tools to (i) check consistency of a finite set of consumer demand
+observations with a number of revealed preference axioms at a given
+efficiency level, (ii) compute goodness-of-fit indices when the data do
+not obey the axioms, and (iii) compute power against uniformly random
+behavior.
 
 %prep
 %setup -q -c -n %{packname}

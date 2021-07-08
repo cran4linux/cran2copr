@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  semTools
-%global packver   0.5-4
+%global packver   0.5-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Useful Tools for Structural Equation Modeling
 
@@ -21,11 +21,13 @@ BuildRequires:    R-utils
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-pbivnorm 
 Requires:         R-CRAN-lavaan >= 0.6.7
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-methods 
+Requires:         R-CRAN-pbivnorm 
 
 %description
 Provides tools for structural equation modeling, many of which extend the
