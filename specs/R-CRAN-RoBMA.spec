@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RoBMA
-%global packver   1.2.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Bayesian Meta-Analyses
 
@@ -14,8 +14,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    jags-devel
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-BayesTools 
 BuildRequires:    R-CRAN-runjags 
 BuildRequires:    R-CRAN-bridgesampling 
 BuildRequires:    R-CRAN-rjags 
@@ -25,10 +26,10 @@ BuildRequires:    R-stats
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-extraDistr 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-DPQ 
 BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-BayesTools 
 Requires:         R-CRAN-runjags 
 Requires:         R-CRAN-bridgesampling 
 Requires:         R-CRAN-rjags 
@@ -38,21 +39,24 @@ Requires:         R-stats
 Requires:         R-graphics 
 Requires:         R-CRAN-extraDistr 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-DPQ 
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-ggplot2 
 
 %description
 A framework for estimating ensembles of meta-analytic models (assuming
 either presence or absence of the effect, heterogeneity, and publication
-bias) and using Bayesian model averaging to combine them. The ensembles
-use Bayes factors to test for the presence or absence of the individual
-components (e.g., effect vs. no effect) and model-averages parameter
-estimates based on posterior model probabilities (Maier, Bartoš &
-Wagenmakers, 2020, <doi:10.31234/osf.io/u4cns>). The user can define a
-wide range of non-informative or informative priors for the effect size,
-heterogeneity, and weight functions. The package provides convenient
-functions for summary, visualizations, and fit diagnostics.
+bias). The RoBMA framework uses Bayesian model-averaging to combine the
+competing meta-analytic models into a model ensemble, weights the
+posterior parameter distributions based on posterior model probabilities
+and uses Bayes factors to test for the presence or absence of the
+individual components (e.g., effect vs. no effect; Bartoš et al., 2021,
+<doi:10.31234/osf.io/kvsp7>; Maier, Bartoš & Wagenmakers, in press,
+<doi:10.31234/osf.io/u4cns>). Users can define a wide range of
+non-informative or informative prior distributions for the effect size,
+heterogeneity, and publication bias components (including selection models
+and PET-PEESE). The package provides convenient functions for summary,
+visualizations, and fit diagnostics.
 
 %prep
 %setup -q -c -n %{packname}

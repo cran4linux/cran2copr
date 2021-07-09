@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  i2extras
-%global packver   0.1.2
+%global packname  fusen
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions to Work with 'incidence2' Objects
+Summary:          Build a Package from Rmarkdown File
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,38 +16,42 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-incidence2 >= 1.2.0
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-usethis >= 1.5.0
+BuildRequires:    R-CRAN-here >= 1.0.0
+BuildRequires:    R-CRAN-attachment 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-desc 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-parsermd 
+BuildRequires:    R-CRAN-rcmdcheck 
+BuildRequires:    R-CRAN-roxygen2 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-trending 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-ellipsis 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-incidence2 >= 1.2.0
-Requires:         R-utils 
+Requires:         R-CRAN-usethis >= 1.5.0
+Requires:         R-CRAN-here >= 1.0.0
+Requires:         R-CRAN-attachment 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-desc 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-parsermd 
+Requires:         R-CRAN-rcmdcheck 
+Requires:         R-CRAN-roxygen2 
 Requires:         R-stats 
-Requires:         R-CRAN-trending 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-ellipsis 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-tidyselect 
 
 %description
-Provides functions to work with 'incidence2' objects, including a
-simplified interface for trend fitting and peak estimation. This package
-is part of the RECON (<https://www.repidemicsconsortium.org/>) toolkit for
-outbreak analysis (<https://www.reconverse.org/).
+Use Rmarkdown First method to build your package. Start your package with
+documentation, functions, examples and tests in the same unique file.
+Everything can be set from the Rmarkdown template file provided in your
+project, then inflated as a package. Inflating the template copies the
+relevant chunks and sections in the appropriate files required for package
+development.
 
 %prep
 %setup -q -c -n %{packname}

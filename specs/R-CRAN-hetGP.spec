@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  hetGP
-%global packver   1.1.3
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Heteroskedastic Gaussian Process Modeling and Design under Replication
 
@@ -26,12 +26,14 @@ Requires:         R-CRAN-DiceDesign
 
 %description
 Performs Gaussian process regression with heteroskedastic noise following
-Binois, M., Gramacy, R., Ludkovski, M. (2016) <arXiv:1611.05902>. The
-input dependent noise is modeled as another Gaussian process. Replicated
-observations are encouraged as they yield computational savings.
-Sequential design procedures based on the integrated mean square
-prediction error and lookahead heuristics are provided, and notably fast
-update functions when adding new observations.
+the model by Binois, M., Gramacy, R., Ludkovski, M. (2016)
+<arXiv:1611.05902>, with implementation details in Binois, M. & Gramacy,
+R. B. (2021) <doi:10.18637/jss.v098.i13>. The input dependent noise is
+modeled as another Gaussian process. Replicated observations are
+encouraged as they yield computational savings. Sequential design
+procedures based on the integrated mean square prediction error and
+lookahead heuristics are provided, and notably fast update functions when
+adding new observations.
 
 %prep
 %setup -q -c -n %{packname}

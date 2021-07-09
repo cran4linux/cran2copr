@@ -1,38 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  qicharts2
-%global packver   0.7.2
+%global packname  MedianaDesigner
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quality Improvement Charts
+Summary:          Efficient Simulation-Based Power and Sample Size Calculations for a Broad Class of Late-Stage Clinical Trials
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 >= 2.2.0
-Requires:         R-CRAN-scales 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.1.2
+Requires:         R-core >= 3.1.2
+BuildRequires:    R-CRAN-Rcpp >= 0.12.10
+BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-devEMF 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-shinyMatrix 
+Requires:         R-CRAN-Rcpp >= 0.12.10
+Requires:         R-CRAN-officer 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-devEMF 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-shinyMatrix 
 
 %description
-Functions for making run charts, Shewhart control charts and Pareto charts
-for continuous quality improvement. Included control charts are: I, MR,
-Xbar, S, T, C, U, U', P, P', and G charts. Non-random variation in the
-form of minor to moderate persistent shifts in data over time is
-identified by the Anhoej rules for unusually long runs and unusually few
-crossing [Anhoej, Olesen (2014) <doi:10.1371/journal.pone.0113825>].
-Non-random variation in the form of larger, possibly transient, shifts is
-identified by Shewhart's 3-sigma rule [Mohammed, Worthington, Woodall
-(2008) <doi:10.1136/qshc.2004.012047>].
+The following modules are included in the package: Adaptive designs with
+data-driven sample size or event count re-estimation, Adaptive designs
+with data-driven treatment selection, Adaptive designs with data-driven
+population selection, Optimal selection of a futility stopping rule, Event
+prediction in event-driven trials.
 
 %prep
 %setup -q -c -n %{packname}

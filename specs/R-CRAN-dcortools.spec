@@ -1,33 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RMVL
-%global packver   0.0.1.4
+%global packname  dcortools
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mappable Vector Library for Handling Large Datasets
+Summary:          Providing Fast and Flexible Functions for Distance Correlation Analysis
 
-License:          LGPL-2.1
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.3.3
+Requires:         R-core >= 3.3.3
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlc 
+BuildRequires:    R-CRAN-pheatmap 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlc 
+Requires:         R-CRAN-pheatmap 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-stats 
 
 %description
-Mappable vector library provides convenient way to access large datasets
-on solid state drives. This bypasses limitation of physical memory size as
-well as limited bandwidth of database interfaces. Access speed depends on
-storage medium, so solid state drive is recommended, preferably with PCI
-Express (or M.2 nvme) interface. The data is memory mapped into R and then
-accessed using usual R list and array subscription operators. The layout
-of underlying MVL files is optimized for large datasets. The vectors are
-stored to guarantee alignment for vector intrinsics after memory map. The
-package is built on top of libMVL, which can be used as standalone C
-library. libMVL has simple C API making it easy to interchange of datasets
-with outside programs.
+Providing functionalities for calculating association measures and
+dependence tests based on distance covariance and distance correlation.
 
 %prep
 %setup -q -c -n %{packname}

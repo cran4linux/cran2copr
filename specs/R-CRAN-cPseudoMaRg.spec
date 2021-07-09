@@ -1,33 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RMVL
-%global packver   0.0.1.4
+%global packname  cPseudoMaRg
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mappable Vector Library for Handling Large Datasets
+Summary:          Constructs a Correlated Pseudo-Marginal Sampler
 
-License:          LGPL-2.1
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Mappable vector library provides convenient way to access large datasets
-on solid state drives. This bypasses limitation of physical memory size as
-well as limited bandwidth of database interfaces. Access speed depends on
-storage medium, so solid state drive is recommended, preferably with PCI
-Express (or M.2 nvme) interface. The data is memory mapped into R and then
-accessed using usual R list and array subscription operators. The layout
-of underlying MVL files is optimized for large datasets. The vectors are
-stored to guarantee alignment for vector intrinsics after memory map. The
-package is built on top of libMVL, which can be used as standalone C
-library. libMVL has simple C API making it easy to interchange of datasets
-with outside programs.
+The primary function makeCPMSampler() generates a sampler function which
+performs the correlated pseudo-marginal method of Deligiannidis, Doucet
+and Pitt (2017) <arXiv:1511.04992>. If the 'rho=' argument of
+makeCPMSampler() is set to 0, then the generated sampler function performs
+the original pseudo-marginal method of Andrieu and Roberts (2009)
+<DOI:10.1214/07-AOS574>. The sampler function is constructed with the
+user's choice of prior, parameter proposal distribution, and the
+likelihood approximation scheme. Note that this algorithm is not
+automatically tuned--each one of these arguments must be carefully chosen.
 
 %prep
 %setup -q -c -n %{packname}

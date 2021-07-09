@@ -1,33 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RMVL
-%global packver   0.0.1.4
+%global packname  ColorNameR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mappable Vector Library for Handling Large Datasets
+Summary:          Give Colors a Name
 
-License:          LGPL-2.1
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-purrr 
+Requires:         R-grDevices 
 
 %description
-Mappable vector library provides convenient way to access large datasets
-on solid state drives. This bypasses limitation of physical memory size as
-well as limited bandwidth of database interfaces. Access speed depends on
-storage medium, so solid state drive is recommended, preferably with PCI
-Express (or M.2 nvme) interface. The data is memory mapped into R and then
-accessed using usual R list and array subscription operators. The layout
-of underlying MVL files is optimized for large datasets. The vectors are
-stored to guarantee alignment for vector intrinsics after memory map. The
-package is built on top of libMVL, which can be used as standalone C
-library. libMVL has simple C API making it easy to interchange of datasets
-with outside programs.
+A tool for transforming coordinates in a color space to common color names
+using data from the Royal Horticultural Society and the International
+Union for the Protection of New Varieties of Plants.
 
 %prep
 %setup -q -c -n %{packname}

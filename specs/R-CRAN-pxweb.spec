@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pxweb
-%global packver   0.10.4
+%global packver   0.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.4
+Version:          0.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to PXWEB APIs
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr >= 1.1
 BuildRequires:    R-CRAN-checkmate 
