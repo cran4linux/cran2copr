@@ -1,44 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DataEditR
-%global packver   0.1.3
+%global packname  twoxtwo
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interactive Editor for Viewing, Entering, Filtering & Editing Data
+Summary:          Work with Two-by-Two Tables
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.5.0
-BuildRequires:    R-CRAN-shinyBS 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-shinythemes 
-BuildRequires:    R-CRAN-rhandsontable 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-miniUI 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-shiny >= 1.5.0
-Requires:         R-CRAN-shinyBS 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-shinythemes 
-Requires:         R-CRAN-rhandsontable 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-miniUI 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-knitr 
 
 %description
-An interactive editor built on 'rhandsontable' to allow the interactive
-viewing, entering, filtering and editing of data in R
-<https://dillonhammill.github.io/DataEditR/>.
+A collection of functions for data analysis with two-by-two contingency
+tables. The package provides tools to compute measures of effect (odds
+ratio, risk ratio, and risk difference), calculate impact numbers and
+attributable fractions, and perform hypothesis testing. Statistical
+analysis methods are oriented towards epidemiological investigation of
+relationships between exposures and outcomes.
 
 %prep
 %setup -q -c -n %{packname}

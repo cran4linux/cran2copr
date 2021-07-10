@@ -1,40 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gamlss.foreach
-%global packver   1.0-5
+%global packname  Rage
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Computations for Distributional Regression
+Summary:          Life History Metrics from Matrix Population Models
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.2.1
-Requires:         R-core >= 2.2.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gamlss 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-gamlss.data 
-BuildRequires:    R-CRAN-gamlss.dist 
-BuildRequires:    R-CRAN-glmnet 
-Requires:         R-CRAN-gamlss 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
-Requires:         R-methods 
-Requires:         R-CRAN-gamlss.data 
-Requires:         R-CRAN-gamlss.dist 
-Requires:         R-CRAN-glmnet 
+BuildRequires:    R-CRAN-popbio 
+BuildRequires:    R-CRAN-popdemo 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-DiagrammeR 
+BuildRequires:    R-CRAN-Rcompadre 
+Requires:         R-CRAN-popbio 
+Requires:         R-CRAN-popdemo 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-DiagrammeR 
+Requires:         R-CRAN-Rcompadre 
 
 %description
-Computational intensive calculations for Generalized Additive Models for
-Location Scale and Shape, Rigby and Stasinopoulos (2005),
-<doi:10.1111/j.1467-9876.2005.00510.x>.
+Functions for calculating life history metrics using matrix population
+models ('MPMs'). Described in Jones et al. (2021)
+<doi:10.1101/2021.04.26.441330>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

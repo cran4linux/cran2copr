@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DataEditR
-%global packver   0.1.3
+%global packname  maat
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interactive Editor for Viewing, Entering, Filtering & Editing Data
+Summary:          Multiple Administrations Adaptive Testing
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,29 +16,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.5.0
-BuildRequires:    R-CRAN-shinyBS 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-shinythemes 
-BuildRequires:    R-CRAN-rhandsontable 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-miniUI 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-shiny >= 1.5.0
-Requires:         R-CRAN-shinyBS 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-shinythemes 
-Requires:         R-CRAN-rhandsontable 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-miniUI 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-TestDesign >= 1.2.0
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-diagram 
+Requires:         R-CRAN-TestDesign >= 1.2.0
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-methods 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-diagram 
 
 %description
-An interactive editor built on 'rhandsontable' to allow the interactive
-viewing, entering, filtering and editing of data in R
-<https://dillonhammill.github.io/DataEditR/>.
+Provides an extension of the shadow-test approach to computerized adaptive
+testing (CAT) implemented in the 'TestDesign' package for the assessment
+framework involving multiple tests administered periodically throughout
+the year. This framework is referred to as the Multiple Administrations
+Adaptive Testing (MAAT) and supports multiple item pools vertically scaled
+and multiple phases (stages) of CAT within each test. Between phases and
+tests, transitioning from one item pool (and associated constraints) to
+another is allowed as deemed necessary to enhance the quality of
+measurement.
 
 %prep
 %setup -q -c -n %{packname}

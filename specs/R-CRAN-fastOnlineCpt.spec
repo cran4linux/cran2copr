@@ -1,44 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DataEditR
-%global packver   0.1.3
+%global packname  fastOnlineCpt
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interactive Editor for Viewing, Entering, Filtering & Editing Data
+Summary:          Online Multivariate Changepoint Detection
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.5.0
-BuildRequires:    R-CRAN-shinyBS 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-shinythemes 
-BuildRequires:    R-CRAN-rhandsontable 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-miniUI 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-shiny >= 1.5.0
-Requires:         R-CRAN-shinyBS 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-shinythemes 
-Requires:         R-CRAN-rhandsontable 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-miniUI 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-methods 
 
 %description
-An interactive editor built on 'rhandsontable' to allow the interactive
-viewing, entering, filtering and editing of data in R
-<https://dillonhammill.github.io/DataEditR/>.
+Implementation of a simple algorithm designed for online multivariate
+changepoint detection of a mean in sparse changepoint settings. The
+algorithm is based on a modified cusum statistic and guarantees control of
+the type I error on any false discoveries, while featuring O(1) time and
+O(1) memory updates per series as well as a proven detection delay.
 
 %prep
 %setup -q -c -n %{packname}

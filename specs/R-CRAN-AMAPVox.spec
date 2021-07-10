@@ -1,44 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DataEditR
-%global packver   0.1.3
+%global packname  AMAPVox
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interactive Editor for Viewing, Entering, Filtering & Editing Data
+Summary:          LiDAR Data Voxelisation
 
-License:          GPL-2
+License:          CeCILL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.5.0
-BuildRequires:    R-CRAN-shinyBS 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-shinythemes 
-BuildRequires:    R-CRAN-rhandsontable 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-miniUI 
+BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-shiny >= 1.5.0
-Requires:         R-CRAN-shinyBS 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-shinythemes 
-Requires:         R-CRAN-rhandsontable 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-miniUI 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-methods 
 Requires:         R-utils 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-stringr 
 
 %description
-An interactive editor built on 'rhandsontable' to allow the interactive
-viewing, entering, filtering and editing of data in R
-<https://dillonhammill.github.io/DataEditR/>.
+Read, manipulate and write voxel spaces. Voxel spaces are read from
+text-based output files of the 'AMAPVox' software. 'AMAPVox' is a LiDAR
+point cloud voxelisation software that aims at estimating leaf area
+through several theoretical/numerical approaches. See more in the article
+Vincent et al. (2017) <doi:10.23708/1AJNMP> and the technical note Vincent
+et al. (2021) <doi:10.23708/1AJNMP>.
 
 %prep
 %setup -q -c -n %{packname}

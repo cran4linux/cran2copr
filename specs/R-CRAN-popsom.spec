@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  popsom
-%global packver   5.1
+%global packver   5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1
+Version:          5.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Building, Visualizing, and Evaluating Self-Organizing Maps
+Summary:          A Very Efficient Implementation of Kohonen's Self-Organizing Maps (SOMs) with Starburst Visualizations
 
 License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
@@ -29,11 +29,15 @@ Requires:         R-stats
 Requires:         R-grDevices 
 
 %description
-A self-organizing map package with three distinguishing features: (1)
-Automatic cluster centroid detection and visualization using starbursts.
-(2) Maintains two models of the data: (a) a self-organizing map model (b)
-a centroid based clustering model. (3) A very efficient stochastic
-training algorithm based on ideas from tensor algebra.
+Kohonen's self-organizing maps with a number of distinguishing features:
+(1) A very efficient, single threaded, stochastic training algorithm based
+on ideas from tensor algebra.  Up to 60x faster than traditional
+single-threaded training algorithms. No special accelerator hardware
+required. (2) Automatic centroid detection and visualization using
+starbursts. (3) Two models of the data: (a) a self-organizing map model,
+(b) a centroid based clustering model. (4) A number of easily accessible
+quality metrics for the self-organizing map and the centroid based cluster
+model.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,6 +47,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

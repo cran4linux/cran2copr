@@ -1,44 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DataEditR
-%global packver   0.1.3
+%global packname  figpatch
+%global packver   0.1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interactive Editor for Viewing, Entering, Filtering & Editing Data
+Summary:          Easily Arrange External Figures with Patchwork Alongside 'ggplot2' Figures
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.5.0
-BuildRequires:    R-CRAN-shinyBS 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-shinythemes 
-BuildRequires:    R-CRAN-rhandsontable 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-miniUI 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-shiny >= 1.5.0
-Requires:         R-CRAN-shinyBS 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-shinythemes 
-Requires:         R-CRAN-rhandsontable 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-miniUI 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-patchwork 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-patchwork 
 
 %description
-An interactive editor built on 'rhandsontable' to allow the interactive
-viewing, entering, filtering and editing of data in R
-<https://dillonhammill.github.io/DataEditR/>.
+For including external figures into an assembled {patchwork}. This enables
+the creation of more complex figures that include images alongside plots.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,43 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  sitsfeats
-%global packver   0.0.1
+%global packname  agricolaeplotr
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Satellite Image Time Series Features
+Summary:          Visualization of Design of Experiments from the 'agricolae' Package
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sfheaders 
-BuildRequires:    R-CRAN-geos 
-BuildRequires:    R-CRAN-libgeos 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sfheaders 
-Requires:         R-CRAN-geos 
-Requires:         R-CRAN-libgeos 
+BuildRequires:    R-CRAN-agricolae 
+BuildRequires:    R-CRAN-rmarkdown 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-agricolae 
+Requires:         R-CRAN-rmarkdown 
 
 %description
-Provides a set of temporal metrics derived from satellite image time
-series. The basics metrics are composed of basic statistics,
-histogram-based statistics, and methods based on time series analysis. The
-polar metrics, an approach proposed by Korting et al. (2013)
-<doi:10.1016/j.cageo.2013.02.007>, is based on the polar representation to
-describe cyclic events, whose events are common in agricultural
-applications.
+Visualization of Design of Experiments from the 'agricolae' package with
+'ggplot2' framework The user provides an experiment design from the
+'agricolae' package, calls the corresponding function and will receive a
+visualization with 'ggplot2' based functions that are specific for each
+design. As there are many different designs, each design is tested on its
+type. The output can be modified with standard 'ggplot2' commands or with
+other packages with 'ggplot2' function extensions.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

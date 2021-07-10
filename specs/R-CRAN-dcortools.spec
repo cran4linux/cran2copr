@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dcortools
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Providing Fast and Flexible Functions for Distance Correlation Analysis
 
@@ -19,7 +19,6 @@ BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlc 
 BuildRequires:    R-CRAN-pheatmap 
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-stats 
@@ -29,7 +28,6 @@ Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlc 
 Requires:         R-CRAN-pheatmap 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-stats 
@@ -46,6 +44,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

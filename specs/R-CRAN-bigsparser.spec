@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bigsparser
-%global packver   0.4.4
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse Matrix Format with Data on Disk
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
-BuildRequires:    R-CRAN-rmio >= 0.2
+BuildRequires:    R-CRAN-rmio >= 0.3
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-bigassertr 
 BuildRequires:    R-methods 
@@ -30,7 +30,7 @@ both R and C++. This is intended for more efficient use of sparse data in
 C++ and also when parallelizing, since data on disk does not need copying.
 Only a limited number of features will be implemented. For now, conversion
 can be performed from a 'dgCMatrix' or a 'dsCMatrix' from R package
-'Matrix'.
+'Matrix'. A new compact format is also now available.
 
 %prep
 %setup -q -c -n %{packname}
@@ -40,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
