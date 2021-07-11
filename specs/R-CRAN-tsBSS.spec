@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tsBSS
-%global packver   0.5.7
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Blind Source Separation and Supervised Dimension Reduction for Time Series
 
@@ -37,14 +37,12 @@ Requires:         R-CRAN-zoo
 
 %description
 Different estimators are provided to solve the blind source separation
-problem for multivariate time series with stochastic volatility
-(Matilainen, Nordhausen and Oja (2015) <doi:10.1016/j.spl.2015.04.033>;
-Matilainen, Miettinen, Nordhausen, Oja and Taskinen (2017)
-<doi:10.17713/ajs.v46i3-4.671>) and supervised dimension reduction problem
-for multivariate time series (Matilainen, Croux, Nordhausen and Oja (2017)
-<doi:10.1016/j.ecosta.2017.04.002>). Different functions based on AMUSE
-and SOBI are also provided for estimating the dimension of the white noise
-subspace.
+problem for multivariate time series with stochastic volatility and
+supervised dimension reduction problem for multivariate time series.
+Different functions based on AMUSE and SOBI are also provided for
+estimating the dimension of the white noise subspace. The package is fully
+described in Nordhausen, Matilainen, Miettinen, Virta and Taskinen (2021)
+<doi:10.18637/jss.v098.i15>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,6 +52,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

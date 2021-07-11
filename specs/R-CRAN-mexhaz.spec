@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mexhaz
-%global packver   1.10
+%global packver   1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10
+Version:          1.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mixed Effect Excess Hazard Models
 
@@ -31,7 +31,9 @@ Requires:         R-CRAN-lamW
 %description
 Fit flexible (excess) hazard regression models with the possibility of
 including non-proportional effects of covariables and of adding a random
-effect at the cluster level (corresponding to a shared frailty).
+effect at the cluster level (corresponding to a shared frailty). A
+detailed description of the package functionalities is provided in Charvat
+and Belot (2021) <doi: 10.18637/jss.v098.i14>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -41,6 +43,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

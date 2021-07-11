@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sjPlot
-%global packver   2.8.8
+%global packver   2.8.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.8
+Version:          2.8.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Visualization for Statistics in Social Science
 
@@ -26,6 +26,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-bayestestR 
+BuildRequires:    R-CRAN-datawizard 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-effectsize 
 BuildRequires:    R-CRAN-ggeffects 
@@ -47,6 +48,7 @@ Requires:         R-grDevices
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-bayestestR 
+Requires:         R-CRAN-datawizard 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-effectsize 
 Requires:         R-CRAN-ggeffects 
@@ -77,6 +79,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
