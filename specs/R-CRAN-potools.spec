@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  potools
-%global packver   0.2.0
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Internationalization and Portability in R Packages
 
@@ -21,7 +21,7 @@ Requires:         R-CRAN-data.table
 
 %description
 Translating messages in R packages is managed using the po top-level
-directory and the gettext program. This package provides some helper
+directory and the 'gettext' program. This package provides some helper
 functions for building this support in R packages, e.g. common validation
 & I/O tasks.
 
@@ -33,6 +33,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

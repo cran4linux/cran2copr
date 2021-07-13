@@ -1,53 +1,48 @@
 %global __brp_check_rpaths %{nil}
-%global packname  WikidataR
-%global packver   2.3.1
+%global packname  lefko3
+%global packver   3.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          3.5.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read-Write API Client Library for 'Wikidata'
+Summary:          Historical and Ahistorical Population Projection Matrix Analysis
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-WikipediR 
-BuildRequires:    R-CRAN-WikidataQueryServiceR 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-MuMIn 
+BuildRequires:    R-CRAN-pscl 
+BuildRequires:    R-CRAN-SparseM 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-WikipediR 
-Requires:         R-CRAN-WikidataQueryServiceR 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-pbapply 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-MuMIn 
+Requires:         R-CRAN-pscl 
+Requires:         R-CRAN-SparseM 
 Requires:         R-stats 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-crayon 
-Requires:         R-utils 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-VGAM 
 
 %description
-An API client for the Wikidata
-<https://www.wikidata.org/wiki/Wikidata:Main_Page> store of semantic data.
+Creates matrix population models for use in population ecological
+analyses. Specializes on the construction of historical matrices, which
+are 2d matrices comprising 3 consecutive times of demographic information.
+Estimates both raw and function-based forms of historical and standard
+ahistorical matrices. It also estimates function-based age-by-stage
+matrices. Methodology based on Ehrlen (2000)
+<doi:10.1890/0012-9658(2000)081[1675:TDOPPD]2.0.CO;2>.
 
 %prep
 %setup -q -c -n %{packname}

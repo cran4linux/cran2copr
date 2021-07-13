@@ -1,46 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bayesian
-%global packver   0.0.6
+%global packname  OceanView
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bindings for Bayesian TidyModels
+Summary:          Visualisation of Oceanographic Data and Model Output
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-brms >= 2.15.0
-BuildRequires:    R-CRAN-parsnip >= 0.1.6
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
+BuildRequires:    R-CRAN-plot3D 
+BuildRequires:    R-CRAN-plot3Drgl 
+BuildRequires:    R-methods 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-brms >= 2.15.0
-Requires:         R-CRAN-parsnip >= 0.1.6
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-shape 
+Requires:         R-CRAN-plot3D 
+Requires:         R-CRAN-plot3Drgl 
+Requires:         R-methods 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-shape 
 
 %description
-Fit Bayesian models using 'brms'/'Stan' with 'parsnip'/'tidymodels' via
-'bayesian' <doi:10.5281/zenodo.5091194>. 'tidymodels' is a collection of
-packages for machine learning; see Kuhn and Wickham (2020)
-<https://www.tidymodels.org>). The technical details of 'brms' and 'Stan'
-are described in Bürkner (2017) <doi:10.18637/jss.v080.i01>, Bürkner
-(2018) <doi:10.32614/RJ-2018-017>, and Carpenter et al. (2017)
-<doi:10.18637/jss.v076.i01>.
+Functions for transforming and viewing 2-D and 3-D (oceanographic) data
+and model output.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,46 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ggheatmap
-%global packver   2.0
+%global packname  gsDesign
+%global packver   3.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          3.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plot Heatmap
+Summary:          Group Sequential Design
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-aplot 
-BuildRequires:    R-CRAN-factoextra 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-ggplot2 >= 0.9.2
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-methods 
+BuildRequires:    R-graphics 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-patchwork 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-aplot 
-Requires:         R-CRAN-factoextra 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-xtable 
+Requires:         R-CRAN-ggplot2 >= 0.9.2
+Requires:         R-stats 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-methods 
+Requires:         R-graphics 
+Requires:         R-tools 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-xtable 
 
 %description
-The flexibility and excellence of 'ggplot2' is unquestionable, so many
-drawing tools basically need 'ggplot2' as the operating object. In order
-to develop a heatmap drawing system based on ggplot2, we developed this
-tool, mainly to solve the heatmap puzzle problem and the flexible
-connection between the heatmap and the 'ggplot2' object. The advantages of
-this tool are as follows: 1. More flexible label settings; 2. Realize the
-linkage of heatmap and 'ggplot2' drawing system, which is helpful for
-operations such as puzzles; 3. Simple and easy to operate; 4. Optimization
-of clustering tree visualization.
+Derives group sequential clinical trial designs and describes their
+properties. Particular focus on time-to-event, binary and continuous
+outcomes. Largely based on methods described in Jennison, Christopher and
+Turnbull, Bruce W., 2000, "Group Sequential Methods with Applications to
+Clinical Trials" ISBN: 0-8493-0316-8.
 
 %prep
 %setup -q -c -n %{packname}

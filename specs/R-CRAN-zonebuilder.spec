@@ -1,42 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  stochvol
-%global packver   3.1.0
+%global packname  zonebuilder
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Bayesian Inference for Stochastic Volatility (SV) Models
+Summary:          Create and Explore Geographic Zoning Systems
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-Rcpp >= 1.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.900
-BuildRequires:    R-CRAN-coda >= 0.19
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-Rcpp >= 1.0
-Requires:         R-CRAN-coda >= 0.19
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-RColorBrewer 
 Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
 Requires:         R-grDevices 
 
 %description
-Efficient algorithms for fully Bayesian estimation of stochastic
-volatility (SV) models with and without asymmetry (leverage) via Markov
-chain Monte Carlo (MCMC) methods. Methodological details are given in
-Kastner and Frühwirth-Schnatter (2014) <doi:10.1016/j.csda.2013.01.002>
-and Hosszejni and Kastner (2019) <doi:10.1007/978-3-030-30611-3_8>; the
-most common use cases are described in Kastner (2016)
-<doi:10.18637/jss.v069.i05> and the package vignette.
+Functions, documentation and example data to help divide geographic space
+into discrete polygons (zones). The functions are motivated by research
+into the merits of different zoning systems <doi:10.1068/a090169>. A
+flexible 'ClockBoard' zoning system is provided, which breaks-up space by
+concentric rings and radial lines emanating from a central point. By
+default, the diameter of the rings grow according the triangular number
+sequence <doi:10.1080/26375451.2019.1598687> with the first 4 'doughnuts'
+(or 'annuli') measuring 1, 3, 6, and 10 km wide. These annuli are
+subdivided into equal segments (12 by default), creating the visual
+impression of a dartboard. Zones are labelled according to distance to the
+centre and angular distance from North, creating a simple geographic
+zoning and labelling system useful for visualising geographic phenomena
+with a clearly demarcated central location such as cities.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,46 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bayesian
-%global packver   0.0.6
+%global packname  scCAN
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bindings for Bayesian TidyModels
+Summary:          Single-Cell Clustering using Autoencoder and Network Fusion
 
-License:          MIT + file LICENSE
+License:          LGPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-brms >= 2.15.0
-BuildRequires:    R-CRAN-parsnip >= 0.1.6
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-scDHA 
+BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-brms >= 2.15.0
-Requires:         R-CRAN-parsnip >= 0.1.6
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-markdown 
+Requires:         R-CRAN-scDHA 
+Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+Requires:         R-CRAN-markdown 
 
 %description
-Fit Bayesian models using 'brms'/'Stan' with 'parsnip'/'tidymodels' via
-'bayesian' <doi:10.5281/zenodo.5091194>. 'tidymodels' is a collection of
-packages for machine learning; see Kuhn and Wickham (2020)
-<https://www.tidymodels.org>). The technical details of 'brms' and 'Stan'
-are described in Bürkner (2017) <doi:10.18637/jss.v080.i01>, Bürkner
-(2018) <doi:10.32614/RJ-2018-017>, and Carpenter et al. (2017)
-<doi:10.18637/jss.v076.i01>.
+A single-cell Clustering method using 'Autoencoder' and Network fusion
+('scCAN') for segregating the cells from the high-dimensional 'scRNA-Seq'
+data. The software automatically determines the optimal number of clusters
+and then partitions the cells in a way such that the results are robust to
+noise and dropouts. 'scCAN' is fast and it supports Windows, Linux, and
+Mac OS.
 
 %prep
 %setup -q -c -n %{packname}

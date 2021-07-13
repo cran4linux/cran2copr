@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  TestDesign
-%global packver   1.2.4
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Test Design Approach to Fixed and Adaptive Test Construction
 
@@ -35,8 +35,7 @@ ISBN:9781593119348) and van der Linden (2018) <doi:10.1201/9781315117430>
 in constructing fixed and adaptive tests. Supports the following
 mixed-integer programming (MIP) solver packages: 'lpsymphony',
 'Rsymphony', 'gurobi', 'lpSolve', and 'Rglpk'. The 'gurobi' package is not
-available from CRAN; see <https://www.gurobi.com/downloads/>. See vignette
-for installing 'Rsymphony' package on Mac systems.
+available from CRAN; see <https://www.gurobi.com/downloads/>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,6 +45,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
