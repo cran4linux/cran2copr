@@ -1,41 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mrbayes
-%global packver   0.4.0
+%global packname  MatTransMix
+%global packver   0.1.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.14
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Summary Data Models for Mendelian Randomization Studies
+Summary:          Clustering with Matrix Gaussian and Matrix Transformation Mixture Models
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-rstan >= 2.18.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
-BuildRequires:    R-CRAN-rstantools >= 2.0.0
-BuildRequires:    R-CRAN-BH >= 1.66.0
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-rstan >= 2.18.1
-Requires:         R-CRAN-rstantools >= 2.0.0
-Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-methods 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-rstantools
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Bayesian estimation of inverse variance weighted (IVW), Burgess et al.
-(2013) <doi:10.1002/gepi.21758>, and MR-Egger, Bowden et al. (2015)
-<doi:10.1093/ije/dyv080>, summary data models for Mendelian randomization
-analyses.
+Provides matrix Gaussian mixture models, matrix transformation mixture
+models and their model-based clustering results. The parsimonious models
+of the mean matrices and variance covariance matrices are implemented with
+a total of 196 variations.
 
 %prep
 %setup -q -c -n %{packname}

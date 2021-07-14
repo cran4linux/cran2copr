@@ -1,29 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  csv
-%global packver   0.6.1
+%global packname  mutualinf
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read and Write CSV Files with Selected Conventions
+Summary:          Calculation and Decomposition of the Mutual Information Index
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-parallel 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-stringi 
+Requires:         R-parallel 
+Requires:         R-stats 
 
 %description
-Reads and writes CSV with selected conventions. Uses the same generic
-function for reading and writing to promote consistent formats.
+The Mutual Information Index (M) introduced to social science literature
+by Theil and Finizza (1971) <doi:10.1080/0022250X.1971.9989795> is a
+multigroup segregation measure that is highly decomposable and that
+according to Frankel and Volij (2011) <doi:10.1016/j.jet.2010.10.008> and
+Mora and Ruiz-Castillo (2011) <doi:10.1111/j.1467-9531.2011.01237.x>
+satisfies the Strong Unit Decomposability and Strong Group Decomposability
+properties. This package allows calculating and decomposing the total
+index value into its "between" and "within" terms. These last terms can
+also be decomposed into their contributions, either by group or unit
+characteristics. The factors that produce each "within" term can also be
+displayed at the user's request. The results can be calculated considering
+a variable or sets of variables that define separate clusters.
 
 %prep
 %setup -q -c -n %{packname}

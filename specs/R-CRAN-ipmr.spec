@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ipmr
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fits Integral Projection Models Using an Expression Based Framework
+Summary:          Integral Projection Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -35,15 +35,15 @@ Requires:         R-utils
 Requires:         R-CRAN-Rcpp 
 
 %description
-Flexibly implements Integral Projection Models using an expression based
-framework. This will not abstract away the model selection process, but it
-will make sure you get everything after that correct. It handles density
-dependence and environmental stochasticity, with a couple of options for
-implementing the latter. In addition, provides functions to avoid
-unintentional eviction of individuals from models. Additionally, provides
-model diagnostic tools, plotting functionality, stochastic/deterministic
-simulations, and analysis tools. Integral projection models are described
-in depth by Easterling et al. (2000)
+Flexibly implements Integral Projection Models using a mathematical(ish)
+syntax. This package will not help with the vital rate modeling process,
+but will help convert those regression models into an IPM. 'ipmr' handles
+density dependence and environmental stochasticity, with a couple of
+options for implementing the latter. In addition, provides functions to
+avoid unintentional eviction of individuals from models. Additionally,
+provides model diagnostic tools, plotting functionality,
+stochastic/deterministic simulations, and analysis tools. Integral
+projection models are described in depth by Easterling et al. (2000)
 <doi:10.1890/0012-9658(2000)081[0694:SSSAAN]2.0.CO;2>, Merow et al. (2013)
 <doi:10.1111/2041-210X.12146>, Rees et al. (2014)
 <doi:10.1111/1365-2656.12178>, and Metcalf et al. (2015)
@@ -58,6 +58,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

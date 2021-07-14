@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BayesTools
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Bayesian Analyses
 
@@ -23,8 +23,7 @@ BuildRequires:    R-CRAN-runjags
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-bridgesampling 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-rstan 
-BuildRequires:    R-CRAN-rstantools
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-extraDistr 
@@ -32,8 +31,7 @@ Requires:         R-CRAN-runjags
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-bridgesampling 
 Requires:         R-parallel 
-Requires:         R-CRAN-rstan 
-Requires:         R-CRAN-rstantools
+Requires:         R-CRAN-ggplot2 
 
 %description
 Provides tools for conducting Bayesian analyses. The package contains
@@ -51,6 +49,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

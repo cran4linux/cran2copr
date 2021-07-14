@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RATest
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Randomization Tests
 
@@ -20,14 +20,16 @@ BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-compiler 
 Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-CRAN-gridExtra 
 Requires:         R-stats 
 Requires:         R-CRAN-quantreg 
+Requires:         R-compiler 
 
 %description
 A collection of randomization tests, data sets and examples. The current
-version focuses on four testing problems and their implementation in
+version focuses on five testing problems and their implementation in
 empirical work. First, it facilitates the empirical researcher to test for
 particular hypotheses, such as comparisons of means, medians, and
 variances from k populations using robust permutation tests, which
@@ -38,16 +40,20 @@ a permutation test for testing the continuity assumption of the baseline
 covariates in the sharp regression discontinuity design (RDD) as in Canay
 and Kamat (2018) <https://goo.gl/UZFqt7>. More specifically, it allows the
 user to select a set of covariates and test the aforementioned hypothesis
-using a permutation test based on the Cramer-von Miss test statistic.
+using a permutation test based on the Cramer-von Misses test statistic.
 Graphical inspection of the empirical CDF and histograms for the variables
 of interest is also supported in the package. Third, it provides the
 practitioner with an effortless implementation of a permutation test based
 on the martingale decomposition of the empirical process for testing for
 heterogeneous treatment effects in the presence of an estimated nuisance
-parameter as in Chung and Olivares (2020) <https://rb.gy/dwbbyx>. Lastly,
-this version considers the two-sample goodness-of-fit testing problem
-under covariate adaptive randomization and implements a permutation test
-based on a prepivoted Kolmogorov-Smirnov test statistic.
+parameter as in Chung and Olivares (2021)
+<doi:10.1016/j.jeconom.2020.09.015>. Fourth, this version considers the
+two-sample goodness-of-fit testing problem under covariate adaptive
+randomization and implements a permutation test based on a prepivoted
+Kolmogorov-Smirnov test statistic. Lastly, it implements an asymptotically
+valid permutation test based on the quantile process for the hypothesis of
+constant quantile treatment effects in the presence of an estimated
+nuisance parameter.
 
 %prep
 %setup -q -c -n %{packname}
@@ -57,6 +63,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

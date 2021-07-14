@@ -1,41 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mrbayes
-%global packver   0.4.0
+%global packname  BayesPPD
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Summary Data Models for Mendelian Randomization Studies
+Summary:          Bayesian Power Prior Design
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-rstan >= 2.18.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
-BuildRequires:    R-CRAN-rstantools >= 2.0.0
-BuildRequires:    R-CRAN-BH >= 1.66.0
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-rstan >= 2.18.1
-Requires:         R-CRAN-rstantools >= 2.0.0
-Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-methods 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-rstantools
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppNumerical 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppNumerical 
 
 %description
-Bayesian estimation of inverse variance weighted (IVW), Burgess et al.
-(2013) <doi:10.1002/gepi.21758>, and MR-Egger, Bowden et al. (2015)
-<doi:10.1093/ije/dyv080>, summary data models for Mendelian randomization
-analyses.
+Bayesian power/type I error calculation and model fitting using the power
+prior and the normalized power prior for generalized linear models. The
+Bayesian clinical trial design methodology is described in Chen et al.
+(2011) <doi:10.1111/j.1541-0420.2011.01561.x>, and Psioda and Ibrahim
+(2019) <doi:10.1093/biostatistics/kxy009>. The normalized power prior is
+described in Duan et al. (2006) <doi:10.1002/env.752> and Ibrahim et al.
+(2015) <doi:10.1002/sim.6728>.
 
 %prep
 %setup -q -c -n %{packname}

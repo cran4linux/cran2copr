@@ -1,41 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mrbayes
-%global packver   0.4.0
+%global packname  geckor
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Summary Data Models for Mendelian Randomization Studies
+Summary:          R Client for the 'CoinGecko' API
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-rstan >= 2.18.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
-BuildRequires:    R-CRAN-rstantools >= 2.0.0
-BuildRequires:    R-CRAN-BH >= 1.66.0
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-rstan >= 2.18.1
-Requires:         R-CRAN-rstantools >= 2.0.0
-Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-methods 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-rstantools
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Bayesian estimation of inverse variance weighted (IVW), Burgess et al.
-(2013) <doi:10.1002/gepi.21758>, and MR-Egger, Bowden et al. (2015)
-<doi:10.1093/ije/dyv080>, summary data models for Mendelian randomization
-analyses.
+Collect the current and historical cryptocurrency market data using the
+public 'CoinGecko' API (<https://www.coingecko.com/en/api>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mcbette
-%global packver   1.13
+%global packname  bcputility
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.13
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model Comparison Using 'babette'
+Summary:          Wrapper for SQL Server bcp Utility
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,31 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-beautier >= 2.4
-BuildRequires:    R-CRAN-mauricer >= 2.3
-BuildRequires:    R-CRAN-beastier >= 2.2.1
-BuildRequires:    R-CRAN-babette >= 2.1
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-devtools 
-BuildRequires:    R-CRAN-Rmpfr 
-BuildRequires:    R-CRAN-testit 
-BuildRequires:    R-CRAN-txtplot 
-Requires:         R-CRAN-beautier >= 2.4
-Requires:         R-CRAN-mauricer >= 2.3
-Requires:         R-CRAN-beastier >= 2.2.1
-Requires:         R-CRAN-babette >= 2.1
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-devtools 
-Requires:         R-CRAN-Rmpfr 
-Requires:         R-CRAN-testit 
-Requires:         R-CRAN-txtplot 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-odbc 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-odbc 
 
 %description
-'BEAST2' (<https://www.beast2.org>) is a widely used Bayesian phylogenetic
-tool, that uses DNA/RNA/protein data and many model priors to create a
-posterior of jointly estimated phylogenies and parameters. 'mcbette'
-allows to do a Bayesian model comparison over some site and clock models,
-using 'babette' (<https://github.com/ropensci/babette/>).
+Provides functions to utilize a command line utility that does bulk
+inserts and exports from SQL Server databases.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,6 +35,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  beautier
-%global packver   2.6
+%global packname  ugatsdb
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          'BEAUti' from R
+Summary:          Uganda Time Series Database API
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,29 +16,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-assertive 
-BuildRequires:    R-CRAN-pryr 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-seqinr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-testit 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-assertive 
-Requires:         R-CRAN-pryr 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-seqinr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-testit 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-RMySQL 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-collapse 
+BuildRequires:    R-CRAN-writexl 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-RMySQL 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-collapse 
+Requires:         R-CRAN-writexl 
 
 %description
-'BEAST2' (<https://www.beast2.org>) is a widely used Bayesian phylogenetic
-tool, that uses DNA/RNA/protein data and many model priors to create a
-posterior of jointly estimated phylogenies and parameters. 'BEAUti 2'
-(which is part of 'BEAST2') is a GUI tool that allows users to specify the
-many possible setups and generates the XML file 'BEAST2' needs to run.
-This package provides a way to create 'BEAST2' input files without active
-user input, but using R function calls instead.
+An R API providing easy access to a relational database with
+macroeconomic, financial and development related time series data for
+Uganda. Overall more than 5000 series at varying frequency (daily,
+monthly, quarterly, annual in fiscal or calendar years) can be accessed
+through the API. The data is provided by the Bank of Uganda, the Ugandan
+Ministry of Finance, Planning and Economic Development, the IMF and the
+World Bank. The database is being updated once a month.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,6 +44,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

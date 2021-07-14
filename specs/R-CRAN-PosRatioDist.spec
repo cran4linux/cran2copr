@@ -1,41 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mrbayes
-%global packver   0.4.0
+%global packname  PosRatioDist
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Summary Data Models for Mendelian Randomization Studies
+Summary:          Quotient of Random Variables Conditioned to the Positive Quadrant
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-rstan >= 2.18.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
-BuildRequires:    R-CRAN-rstantools >= 2.0.0
-BuildRequires:    R-CRAN-BH >= 1.66.0
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-rstan >= 2.18.1
-Requires:         R-CRAN-rstantools >= 2.0.0
-Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-methods 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-rstantools
+BuildArch:        noarch
+BuildRequires:    R-CRAN-BMS 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-NORMT3 
+Requires:         R-CRAN-BMS 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-stats 
+Requires:         R-CRAN-NORMT3 
 
 %description
-Bayesian estimation of inverse variance weighted (IVW), Burgess et al.
-(2013) <doi:10.1002/gepi.21758>, and MR-Egger, Bowden et al. (2015)
-<doi:10.1093/ije/dyv080>, summary data models for Mendelian randomization
-analyses.
+Computes the exact probability density function of X/Y conditioned on
+positive quadrant for series of bivariate distributions,for more details
+see Nadarajah,Song and Si (2019) <DOI:10.1080/03610926.2019.1576893>.
 
 %prep
 %setup -q -c -n %{packname}

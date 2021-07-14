@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mauricer
-%global packver   2.3
+%global packname  cubicBsplines
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Install 'BEAST2' Packages
+Summary:          Computation of a Cubic B-Spline Basis and Its Derivatives
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,21 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-beastier >= 2.2.1
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-beastier >= 2.2.1
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-stringr 
 
 %description
-'BEAST2' (<https://www.beast2.org>) is a widely used Bayesian phylogenetic
-tool, that uses DNA/RNA/protein data and many model priors to create a
-posterior of jointly estimated phylogenies and parameters. 'BEAST2' is
-commonly accompanied by 'BEAUti 2' (<https://www.beast2.org>), which,
-among others, allows one to install 'BEAST2' package. This package allows
-to install 'BEAST2' packages from 'R'.
+Computation of a cubic B-spline basis for arbitrary knots. It also
+provides the 1st and 2nd derivatives, as well as the integral of the basis
+elements. It is used by the author to fit penalized B-spline models, see
+e.g. Jullion, A. and Lambert, P. (2006) <doi:10.1016/j.csda.2006.09.027>,
+Lambert, P. and Eilers, P.H.C. (2009) <doi:10.1016/j.csda.2008.11.022>
+and, more recently, Lambert, P. (2021) <doi:10.1016/j.csda.2021.107250>.
+It is inspired by the algorithm developed by de Boor, C. (1977)
+<doi:10.1137/0714026>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -39,6 +34,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
