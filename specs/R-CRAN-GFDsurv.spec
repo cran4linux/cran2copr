@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  GFDsurv
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tests for Survival Data in General Factorial Designs
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-plyr >= 1.8.6
 BuildRequires:    R-CRAN-magic >= 1.5.9
 BuildRequires:    R-CRAN-shiny >= 1.5.0
 BuildRequires:    R-CRAN-shinythemes >= 1.1.2
-BuildRequires:    R-CRAN-shinyWidgets >= 0.5.4
 BuildRequires:    R-CRAN-survminer >= 0.4.8
 BuildRequires:    R-CRAN-tippy >= 0.1.0
 BuildRequires:    R-stats 
@@ -36,7 +35,6 @@ Requires:         R-CRAN-plyr >= 1.8.6
 Requires:         R-CRAN-magic >= 1.5.9
 Requires:         R-CRAN-shiny >= 1.5.0
 Requires:         R-CRAN-shinythemes >= 1.1.2
-Requires:         R-CRAN-shinyWidgets >= 0.5.4
 Requires:         R-CRAN-survminer >= 0.4.8
 Requires:         R-CRAN-tippy >= 0.1.0
 Requires:         R-stats 
@@ -60,6 +58,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,38 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  statswalesr
-%global packver   0.1.4
+%global packname  covglasso
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Extract Data from 'StatsWales'
+Summary:          Sparse Covariance Matrix Estimation
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
+BuildRequires:    R-CRAN-Rcpp >= 1.0
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0
 
 %description
-Download data from 'StatsWales' into R. Removes the need for the user to
-write their own loops when parsing data from the 'StatsWales' API.
-Provides functions for datasets
-(<http://open.statswales.gov.wales/en-gb/dataset>) and metadata
-(<http://open.statswales.gov.wales/en-gb/discover/metadata>) endpoints.
+Direct sparse covariance matrix estimation via the covariance graphical
+lasso by Bien, Tibshirani (2011) <doi:10.1093/biomet/asr054> using the
+fast coordinate descent algorithm of Wang (2014)
+<doi:10.1007/s11222-013-9385-5>.
 
 %prep
 %setup -q -c -n %{packname}

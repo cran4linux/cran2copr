@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  scoringutils
-%global packver   0.1.4
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Scoring and Assessing Predictions
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-goftest
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-scoringRules 
 BuildRequires:    R-stats 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-goftest
 Requires:         R-graphics 
 Requires:         R-CRAN-scoringRules 
 Requires:         R-stats 
+Requires:         R-methods 
 
 %description
 Combines a collection of metrics and proper scoring rules (Tilmann
@@ -57,6 +59,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

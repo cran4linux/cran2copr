@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  baguette
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Model Functions for Bagging
 
@@ -16,42 +16,42 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-hardhat >= 0.1.4
 BuildRequires:    R-CRAN-parsnip >= 0.1.3.9000
-BuildRequires:    R-CRAN-hardhat 
 BuildRequires:    R-CRAN-butcher 
-BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-C50 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-rsample 
+BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-earth 
 BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-rsample 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-earth 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-dials 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-hardhat >= 0.1.4
 Requires:         R-CRAN-parsnip >= 0.1.3.9000
-Requires:         R-CRAN-hardhat 
 Requires:         R-CRAN-butcher 
-Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-C50 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-rsample 
+Requires:         R-CRAN-dials 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-earth 
 Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-rsample 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-earth 
-Requires:         R-CRAN-magrittr 
 Requires:         R-utils 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-dials 
+Requires:         R-CRAN-withr 
 
 %description
 Tree- and rule-based models can be bagged using this package and their
@@ -66,6 +66,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

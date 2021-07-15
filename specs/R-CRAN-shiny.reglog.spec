@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  statswalesr
-%global packver   0.1.4
+%global packname  shiny.reglog
+%global packver   0.2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Extract Data from 'StatsWales'
+Summary:          Optional Login and Registration Module System for ShinyApps
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,23 +16,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-scrypt 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-googlesheets4 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-scrypt 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-googlesheets4 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-lubridate 
 
 %description
-Download data from 'StatsWales' into R. Removes the need for the user to
-write their own loops when parsing data from the 'StatsWales' API.
-Provides functions for datasets
-(<http://open.statswales.gov.wales/en-gb/dataset>) and metadata
-(<http://open.statswales.gov.wales/en-gb/discover/metadata>) endpoints.
+Package creates UI modules for Login, Register and Password Reset boxes
+and server module for reading and writing user database contained within
+googlesheet or sqlite file. Creates automatic e-mail messages after
+registration and for resetting password procedure. Currently supports
+English language (default) and Polish. The authentication system created
+with shiny.reglog is designed to be optional: user don't need to be
+logged-in to access your application, but when logged-in the user data can
+be used to read from and write to relational databases.
 
 %prep
 %setup -q -c -n %{packname}

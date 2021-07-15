@@ -1,43 +1,55 @@
 %global __brp_check_rpaths %{nil}
-%global packname  compositions
-%global packver   2.0-2
+%global packname  moreparty
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compositional Data Analysis
+Summary:          A Toolbox for Conditional Inference Random Forests
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.2.0
-Requires:         R-core >= 2.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-party 
+BuildRequires:    R-CRAN-partykit 
+BuildRequires:    R-CRAN-varImp 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-measures 
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tensorA 
-BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-bayesm 
-BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-iml 
+BuildRequires:    R-CRAN-pdp 
+BuildRequires:    R-CRAN-vip 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-party 
+Requires:         R-CRAN-partykit 
+Requires:         R-CRAN-varImp 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-measures 
 Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-CRAN-tensorA 
-Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-bayesm 
-Requires:         R-graphics 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-iml 
+Requires:         R-CRAN-pdp 
+Requires:         R-CRAN-vip 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
 
 %description
-Provides functions for the consistent analysis of compositional data (e.g.
-portions of substances) and positive numbers (e.g. concentrations) in the
-way proposed by J. Aitchison and V. Pawlowsky-Glahn.
+Additions to 'party' package : tools for the interpretation of forests
+(surrogate trees, prototypes, etc.), feature selection (see Gregorutti et
+al (2017) <arXiv:1310.5726>, Hapfelmeier and Ulm (2013)
+<doi:10.1016/j.csda.2012.09.020>, Altmann et al (2010)
+<doi:10.1093/bioinformatics/btq134>) and parallelized versions of
+conditional forest and variable importance functions.
 
 %prep
 %setup -q -c -n %{packname}

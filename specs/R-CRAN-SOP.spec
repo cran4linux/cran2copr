@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  statswalesr
-%global packver   0.1.4
+%global packname  SOP
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Extract Data from 'StatsWales'
+Summary:          Generalised Additive P-Spline Regression Models Estimation
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,23 +16,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-CRAN-MASS 
 
 %description
-Download data from 'StatsWales' into R. Removes the need for the user to
-write their own loops when parsing data from the 'StatsWales' API.
-Provides functions for datasets
-(<http://open.statswales.gov.wales/en-gb/dataset>) and metadata
-(<http://open.statswales.gov.wales/en-gb/discover/metadata>) endpoints.
+Generalised additive P-spline regression models estimation using the
+separation of overlapping precision matrices (SOP) method. Estimation is
+based on the equivalence between P-splines and linear mixed models, and
+variance/smoothing parameters are estimated based on restricted maximum
+likelihood (REML). The package enables users to estimate P-spline models
+with overlapping penalties. Based on the work described in
+Rodriguez-Alvarez et al. (2015) <doi:10.1007/s11222-014-9464-2>;
+Rodriguez-Alvarez et al. (2019) <doi:10.1007/s11222-018-9818-2>, and
+Eilers and Marx (1996) <doi:10.1214/ss/1038425655>.
 
 %prep
 %setup -q -c -n %{packname}

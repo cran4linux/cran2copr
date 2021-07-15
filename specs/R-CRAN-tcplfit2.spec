@@ -1,38 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  statswalesr
-%global packver   0.1.4
+%global packname  tcplfit2
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Extract Data from 'StatsWales'
+Summary:          Concentration-Response Modeling of HTS or Transcriptomics Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-stats 
+Requires:         R-CRAN-future 
+Requires:         R-methods 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-stringi 
 
 %description
-Download data from 'StatsWales' into R. Removes the need for the user to
-write their own loops when parsing data from the 'StatsWales' API.
-Provides functions for datasets
-(<http://open.statswales.gov.wales/en-gb/dataset>) and metadata
-(<http://open.statswales.gov.wales/en-gb/discover/metadata>) endpoints.
+Performs the basic concentration response curve fitting used in the 'tcpl'
+package. It is a substitute for the original tcplFit() function (and
+sub-functions) and allows a wider variety of concentration-response
+models. All of the models included in the 'BMDExpress' package are now
+part of this package, and the output includes a calculation of the bmd
+(Benchmark Dose or concentration) value.
 
 %prep
 %setup -q -c -n %{packname}

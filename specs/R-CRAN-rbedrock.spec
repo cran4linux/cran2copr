@@ -1,55 +1,56 @@
 %global __brp_check_rpaths %{nil}
-%global packname  incidence2
-%global packver   1.2.1
+%global packname  rbedrock
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compute, Handle and Plot Incidence of Dated Events
+Summary:          Analysis and Manipulation of Data from Minecraft Bedrock Edition
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.1.2
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-ellipsis 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-grates 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-bit64 
+BuildRequires:    R-CRAN-bitops 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-clock 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-rlang >= 0.1.2
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-fs 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-ellipsis 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-data.table 
-Requires:         R-stats 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-grates 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-bit64 
+Requires:         R-CRAN-bitops 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-clock 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-readr 
+Requires:         R-utils 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-fs 
 
 %description
-Provides functions and classes to compute, handle and visualise incidence
-from dated events for a defined time interval. Dates can be provided in
-various standard formats. The class 'incidence2' is used to store computed
-incidence and can be easily manipulated, subsetted, and plotted. This
-package is part of the RECON (<https://www.repidemicsconsortium.org/>)
-toolkit for outbreak analysis (<https://www.reconverse.org>).
+Implements an interface to Minecraft (Bedrock Edition) worlds. Supports
+the analysis and management of these worlds and game saves.
 
 %prep
 %setup -q -c -n %{packname}
