@@ -1,31 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  katex
-%global packver   1.1.0
+%global packname  SEofM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rendering Math to HTML, 'MathML', or R-Documentation Format
+Summary:          Standard Error of Measurement
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-V8 
-Requires:         R-CRAN-V8 
 
 %description
-Convert latex math expressions to HTML and 'MathML' for use in markdown
-documents or package manual pages. The rendering is done in R using the V8
-engine (i.e. server-side), which eliminates the need for embedding the
-'MathJax' library into your web pages. In addition a 'math-to-rd' wrapper
-is provided to automatically render beautiful math in R documentation
-files.
+To calculate the standard error of measurement (SEM) to assess the
+observer variability (inter- and intra-observer variation). The methods
+used in this package are referenced from Zoran B. Popović (2017)
+<doi:10.21037/cdt.2017.03.12>.
 
 %prep
 %setup -q -c -n %{packname}

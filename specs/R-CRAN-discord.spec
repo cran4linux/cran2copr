@@ -1,31 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  katex
+%global packname  discord
 %global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rendering Math to HTML, 'MathML', or R-Documentation Format
+Summary:          Functions for Discordant Kinship Modeling
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-V8 
-Requires:         R-CRAN-V8 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Convert latex math expressions to HTML and 'MathML' for use in markdown
-documents or package manual pages. The rendering is done in R using the V8
-engine (i.e. server-side), which eliminates the need for embedding the
-'MathJax' library into your web pages. In addition a 'math-to-rd' wrapper
-is provided to automatically render beautiful math in R documentation
-files.
+Functions for discordant kinship modeling (and other sibling-based
+quasi-experimental designs). Currently, the package contains data
+restructuring functions and functions for generating biometrically
+informed data for kin pairs.
 
 %prep
 %setup -q -c -n %{packname}

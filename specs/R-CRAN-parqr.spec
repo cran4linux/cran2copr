@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  katex
-%global packver   1.1.0
+%global packname  parqr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rendering Math to HTML, 'MathML', or R-Documentation Format
+Summary:          Read in Multi-Part Parquet Files
 
-License:          MIT + file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,16 +16,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-V8 
-Requires:         R-CRAN-V8 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-magrittr 
 
 %description
-Convert latex math expressions to HTML and 'MathML' for use in markdown
-documents or package manual pages. The rendering is done in R using the V8
-engine (i.e. server-side), which eliminates the need for embedding the
-'MathJax' library into your web pages. In addition a 'math-to-rd' wrapper
-is provided to automatically render beautiful math in R documentation
-files.
+Reads in multi-part parquet files. Will read in parquet files that have
+not been previously coalesced into one file. Convenient for reading in
+moderately sized, but split files.
 
 %prep
 %setup -q -c -n %{packname}

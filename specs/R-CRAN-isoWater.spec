@@ -1,31 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  katex
-%global packver   1.1.0
+%global packname  isoWater
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rendering Math to HTML, 'MathML', or R-Documentation Format
+Summary:          Discovery, Retrieval, and Analysis of Water Isotope Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-V8 
-Requires:         R-CRAN-V8 
+BuildRequires:    R-CRAN-R2jags 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-R2WinBUGS 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-R2jags 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-R2WinBUGS 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Convert latex math expressions to HTML and 'MathML' for use in markdown
-documents or package manual pages. The rendering is done in R using the V8
-engine (i.e. server-side), which eliminates the need for embedding the
-'MathJax' library into your web pages. In addition a 'math-to-rd' wrapper
-is provided to automatically render beautiful math in R documentation
-files.
+The wiDB...() functions provide an interface to the public API of the wiDB
+<https://github.com/SPATIAL-Lab/isoWater/blob/master/Protocol.md>: build,
+check and submit queries, and receive and unpack responses. Data analysis
+functions support Bayesian inference of the source and source isotope
+composition of water samples that may have experienced evaporation.
+Algorithms adapted from Bowen et al. (2018,
+<doi:10.1007/s00442-018-4192-5>).
 
 %prep
 %setup -q -c -n %{packname}

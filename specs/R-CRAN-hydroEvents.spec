@@ -1,31 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  katex
-%global packver   1.1.0
+%global packname  hydroEvents
+%global packver   0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rendering Math to HTML, 'MathML', or R-Documentation Format
+Summary:          Extract Event Statistics in Hydrologic Time Series
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-V8 
-Requires:         R-CRAN-V8 
 
 %description
-Convert latex math expressions to HTML and 'MathML' for use in markdown
-documents or package manual pages. The rendering is done in R using the V8
-engine (i.e. server-side), which eliminates the need for embedding the
-'MathJax' library into your web pages. In addition a 'math-to-rd' wrapper
-is provided to automatically render beautiful math in R documentation
-files.
+Events from individual hydrologic time series are extracted, and events
+from multiple time series can be matched to each other. The key references
+for approach are: Tang & Carey (2017) <doi:10.1002/hyp.11185>, Kaur et al.
+(2017) <doi:10.1080/24705357.2016.1276418> and Ladson et al. (2013)
+<https://www.tandfonline.com/doi/abs/10.7158/13241583.2013.11465417>.
 
 %prep
 %setup -q -c -n %{packname}

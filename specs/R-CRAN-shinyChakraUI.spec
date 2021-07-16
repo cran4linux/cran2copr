@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  katex
-%global packver   1.1.0
+%global packname  shinyChakraUI
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rendering Math to HTML, 'MathML', or R-Documentation Format
+Summary:          A Wrapper of the 'React' Library 'Chakra UI' for 'Shiny'
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,16 +16,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-V8 
-Requires:         R-CRAN-V8 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-reactR 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-formatR 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-reactR 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-grDevices 
+Requires:         R-utils 
+Requires:         R-CRAN-formatR 
 
 %description
-Convert latex math expressions to HTML and 'MathML' for use in markdown
-documents or package manual pages. The rendering is done in R using the V8
-engine (i.e. server-side), which eliminates the need for embedding the
-'MathJax' library into your web pages. In addition a 'math-to-rd' wrapper
-is provided to automatically render beautiful math in R documentation
-files.
+Makes the 'React' library 'Chakra UI' usable in 'Shiny' apps. 'Chakra UI'
+components include alert dialogs, drawers (sliding panels), menus, modals,
+popovers, sliders, and more.
 
 %prep
 %setup -q -c -n %{packname}
