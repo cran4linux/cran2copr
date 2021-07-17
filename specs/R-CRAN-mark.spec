@@ -1,38 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ParallelLogger
-%global packver   2.0.2
+%global packname  mark
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Support for Parallel Computation, Logging, and Function Automation
+Summary:          Miscellaneous, Analytic R Kernels
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-snow 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-snow 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-utils 
+BuildRequires:    R-methods >= 3.6
+BuildRequires:    R-stats >= 3.6
+BuildRequires:    R-tools >= 3.6
+BuildRequires:    R-utils >= 3.6
+BuildRequires:    R-CRAN-tibble >= 3.0.4
+BuildRequires:    R-CRAN-magrittr >= 2.0.1
+Requires:         R-methods >= 3.6
+Requires:         R-stats >= 3.6
+Requires:         R-tools >= 3.6
+Requires:         R-utils >= 3.6
+Requires:         R-CRAN-tibble >= 3.0.4
+Requires:         R-CRAN-magrittr >= 2.0.1
 
 %description
-Support for parallel computation with progress bar, and option to stop or
-proceed on errors. Also provides logging to console and disk, and the
-logging persists in the parallel threads. Additional functions support
-function call automation with delayed execution (e.g. for executing
-functions in parallel).
+Miscellaneous functions and wrappers for development in other packages
+created, maintained by Jordan Mark Barbone.
 
 %prep
 %setup -q -c -n %{packname}

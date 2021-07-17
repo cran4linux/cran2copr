@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MOSS
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Omic Integration via Sparse Singular Value Decomposition
 
@@ -31,7 +31,7 @@ challenge the omic integration task. Here we present an omic integration
 method based on sparse singular value decomposition (SVD) to deal with
 these limitations, by: a. obtaining the main axes of variation of the
 combined omics, b. imposing sparsity constraints at both subjects (rows)
-and features (columns) levels using Elastic Net type of shrinkage, and d.
+and features (columns) levels using Elastic Net type of shrinkage, and c.
 allowing both linear and non-linear projections (via t-Stochastic Neighbor
 Embedding) of the omic data to detect clusters in very convoluted data
 (Gonzalez-Reymundez & Vazquez, 2020) <doi:10.1038/s41598-020-65119-5>.
@@ -44,6 +44,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

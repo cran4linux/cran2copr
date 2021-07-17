@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ausplotsR
-%global packver   1.2.5
+%global packver   1.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          1.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          TERN AusPlots Analysis Package
 
@@ -31,7 +31,6 @@ BuildRequires:    R-CRAN-gtools
 BuildRequires:    R-CRAN-jose 
 BuildRequires:    R-CRAN-betapart 
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-sentryR 
 Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-maps 
 Requires:         R-CRAN-mapdata 
@@ -47,7 +46,6 @@ Requires:         R-CRAN-gtools
 Requires:         R-CRAN-jose 
 Requires:         R-CRAN-betapart 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-sentryR 
 
 %description
 Extraction, preparation, visualisation and analysis of TERN AusPlots

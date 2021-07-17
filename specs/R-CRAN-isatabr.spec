@@ -1,38 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ParallelLogger
-%global packver   2.0.2
+%global packname  isatabr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Support for Parallel Computation, Logging, and Function Automation
+Summary:          Implementation for the ISA Abstract Model
 
-License:          Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-snow 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-snow 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-methods 
-Requires:         R-utils 
 
 %description
-Support for parallel computation with progress bar, and option to stop or
-proceed on errors. Also provides logging to console and disk, and the
-logging persists in the parallel threads. Additional functions support
-function call automation with delayed execution (e.g. for executing
-functions in parallel).
+ISA is a metadata framework to manage an increasingly diverse set of life
+science, environmental and biomedical experiments. In isatabr methods for
+reading, modifying and writing of files in the ISA-Tab format are
+implemented. It also contains methods for processing assay data.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ParallelLogger
-%global packver   2.0.2
+%global packname  mlr3tuningspaces
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Support for Parallel Computation, Logging, and Function Automation
+Summary:          Search Spaces for Hyperparameter Tuning
 
-License:          Apache License 2.0
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,23 +16,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-snow 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-snow 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-R6 >= 2.5.0
+BuildRequires:    R-CRAN-checkmate >= 2.0.0
+BuildRequires:    R-CRAN-data.table >= 1.14.0
+BuildRequires:    R-CRAN-mlr3misc >= 0.9.1
+BuildRequires:    R-CRAN-mlr3tuning >= 0.8.0
+BuildRequires:    R-CRAN-paradox >= 0.7.1
+BuildRequires:    R-CRAN-mlr3 >= 0.11.0
+Requires:         R-CRAN-R6 >= 2.5.0
+Requires:         R-CRAN-checkmate >= 2.0.0
+Requires:         R-CRAN-data.table >= 1.14.0
+Requires:         R-CRAN-mlr3misc >= 0.9.1
+Requires:         R-CRAN-mlr3tuning >= 0.8.0
+Requires:         R-CRAN-paradox >= 0.7.1
+Requires:         R-CRAN-mlr3 >= 0.11.0
 
 %description
-Support for parallel computation with progress bar, and option to stop or
-proceed on errors. Also provides logging to console and disk, and the
-logging persists in the parallel threads. Additional functions support
-function call automation with delayed execution (e.g. for executing
-functions in parallel).
+Collection of search spaces for hyperparameter tuning. Includes various
+search spaces that can be directly applied on an `mlr3` learner.
+Additionally, meta information about the search space can be queried.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  grattan
-%global packver   1.9.0.4
+%global packver   1.9.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.0.4
+Version:          1.9.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Australian Tax Policy Analysis
 
@@ -22,10 +22,11 @@ BuildRequires:    R-CRAN-ineq >= 0.2.10
 BuildRequires:    R-CRAN-fy >= 0.2.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.3
 BuildRequires:    R-CRAN-assertthat >= 0.1
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-hutilscpp 
 BuildRequires:    R-CRAN-fastmatch 
 BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-hutilscpp 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-zoo >= 1.5.5
 Requires:         R-CRAN-magrittr >= 1.5
@@ -34,10 +35,11 @@ Requires:         R-CRAN-ineq >= 0.2.10
 Requires:         R-CRAN-fy >= 0.2.0
 Requires:         R-CRAN-Rcpp >= 0.12.3
 Requires:         R-CRAN-assertthat >= 0.1
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-hutilscpp 
 Requires:         R-CRAN-fastmatch 
 Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-hutilscpp 
 Requires:         R-utils 
 
 %description
@@ -57,6 +59,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
