@@ -1,55 +1,62 @@
 %global __brp_check_rpaths %{nil}
-%global packname  swissdd
-%global packver   1.1.4
+%global packname  CKMRpop
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Get Swiss Federal and Cantonal Vote Results from Opendata.swiss
+Summary:          Forward-in-Time Simulation and Tallying of Pairwise Relationships
 
-License:          GPL (>= 2)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-tidygraph 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-vroom 
+Requires:         R-CRAN-Rcpp >= 1.0.4
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-ggraph 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-sf 
+Requires:         R-CRAN-readr 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidygraph 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-vroom 
 
 %description
-Builds upon the real time data service as well as the archive for national
-votes
-<https://opendata.swiss/api/3/action/package_show?id=echtzeitdaten-am-abstimmungstag-zu-eidgenoessischen-abstimmungsvorlagen>
-and cantonal votes
-<https://opendata.swiss/api/3/action/package_show?id=echtzeitdaten-am-abstimmungstag-zu-kantonalen-abstimmungsvorlagen>.
-It brings the results of Swiss popular votes, aggregated at the
-geographical level of choice, into R. Additionally, it allows to retrieve
-data from the Swissvotes-Database, one of the most comprehensive data
-platforms on Swiss referendums and initiatives
-<https://swissvotes.ch/page/dataset/swissvotes_dataset.csv>.
+Provides an R wrapper around the program 'spip'
+(<https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1471-8286.2005.00884.x>),
+a C program for the simulation of pedigrees within age-structured
+populations with user-specified life histories.  Also includes a variety
+of functions to parse 'spip' output to compile information about related
+pairs amongst simulated, sampled individuals, to assess the feasibility
+and potential accuracy of close-kin mark-recapture (CKMR). Full
+documentation and vignettes are mirrored at
+<https://eriqande.github.io/CKMRpop/index.html> and can be read online
+there.
 
 %prep
 %setup -q -c -n %{packname}

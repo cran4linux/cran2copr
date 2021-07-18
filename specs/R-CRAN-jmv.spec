@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  jmv
-%global packver   1.2.23
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.23
-Release:          2%{?dist}%{?buildtag}
+Version:          2.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          The 'jamovi' Analyses
 
 License:          GPL (>= 2)
@@ -18,10 +18,10 @@ Requires:         R-core >= 3.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-car >= 3.0.0
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
+BuildRequires:    R-CRAN-jmvcore >= 1.8
 BuildRequires:    R-CRAN-psych >= 1.7.5
-BuildRequires:    R-CRAN-jmvcore >= 1.2.19
-BuildRequires:    R-CRAN-emmeans >= 1.1.3
-BuildRequires:    R-CRAN-afex >= 0.20.2
+BuildRequires:    R-CRAN-emmeans >= 1.4.2
+BuildRequires:    R-CRAN-afex >= 0.28.0
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-multcomp 
 BuildRequires:    R-CRAN-PMCMR 
@@ -34,14 +34,14 @@ BuildRequires:    R-CRAN-mvnormtest
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-ggridges 
 BuildRequires:    R-CRAN-ROCR 
-BuildRequires:    R-nnet 
-BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-car >= 3.0.0
 Requires:         R-CRAN-ggplot2 >= 2.2.1
+Requires:         R-CRAN-jmvcore >= 1.8
 Requires:         R-CRAN-psych >= 1.7.5
-Requires:         R-CRAN-jmvcore >= 1.2.19
-Requires:         R-CRAN-emmeans >= 1.1.3
-Requires:         R-CRAN-afex >= 0.20.2
+Requires:         R-CRAN-emmeans >= 1.4.2
+Requires:         R-CRAN-afex >= 0.28.0
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-multcomp 
 Requires:         R-CRAN-PMCMR 
@@ -54,8 +54,8 @@ Requires:         R-CRAN-mvnormtest
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-ggridges 
 Requires:         R-CRAN-ROCR 
-Requires:         R-nnet 
-Requires:         R-MASS 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-MASS 
 
 %description
 A suite of common statistical methods such as descriptives, t-tests,
@@ -67,9 +67,15 @@ information).
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -79,6 +85,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

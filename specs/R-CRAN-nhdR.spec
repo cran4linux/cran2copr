@@ -1,46 +1,62 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dotwhisker
-%global packver   0.7.0
+%global packname  nhdR
+%global packver   0.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.5.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dot-and-Whisker Plots of Regression Results
+Summary:          Tools for Working with the National Hydrography Dataset
 
-License:          MIT + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+Requires:         p7zip
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
-BuildRequires:    R-grid 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-parameters 
-BuildRequires:    R-CRAN-margins 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-ggstance 
+BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-foreign 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-units 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-gtable 
-Requires:         R-CRAN-ggplot2 >= 2.2.1
-Requires:         R-grid 
-Requires:         R-stats 
-Requires:         R-CRAN-parameters 
-Requires:         R-CRAN-margins 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-ggstance 
+Requires:         R-CRAN-maps 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-foreign 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-units 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-gtable 
 
 %description
-Quick and easy dot-and-whisker plots of regression results.
+Tools for working with the National Hydrography Dataset, with functions
+for querying, downloading, and networking both the NHD
+<https://www.usgs.gov/core-science-systems/ngp/national-hydrography> and
+NHDPlus
+<https://www.epa.gov/waterdata/nhdplus-national-hydrography-dataset-plus>
+datasets.
 
 %prep
 %setup -q -c -n %{packname}

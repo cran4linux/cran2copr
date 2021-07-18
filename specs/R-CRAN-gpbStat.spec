@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gpbStat
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive Statistical Analysis of Plant Breeding Experiments
 
@@ -13,14 +13,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
 Performs statistical data analysis of various Plant Breeding experiments.
 Contains functions for Line by Tester analysis as per Arunachalam,
-V.(1974) <http://repository.ias.ac.in/89299/>.
+V.(1974) <http://repository.ias.ac.in/89299/> and Diallel analysis as per
+Griffing, B. (1956) <https://www.publish.csiro.au/bi/pdf/BI9560463>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -30,6 +31,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

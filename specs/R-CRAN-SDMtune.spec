@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SDMtune
-%global packver   1.1.4
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Species Distribution Model Selection
 
@@ -28,7 +28,7 @@ BuildRequires:    R-CRAN-Rcpp >= 1.0.1
 BuildRequires:    R-CRAN-rlang >= 0.4.5
 BuildRequires:    R-CRAN-whisker >= 0.3
 BuildRequires:    R-CRAN-rstudioapi >= 0.10
-BuildRequires:    R-CRAN-maxnet >= 0.1.2
+BuildRequires:    R-CRAN-maxnet >= 0.1.4
 BuildRequires:    R-methods 
 Requires:         R-CRAN-nnet >= 7.3.12
 Requires:         R-CRAN-randomForest >= 4.6.14
@@ -43,7 +43,7 @@ Requires:         R-CRAN-Rcpp >= 1.0.1
 Requires:         R-CRAN-rlang >= 0.4.5
 Requires:         R-CRAN-whisker >= 0.3
 Requires:         R-CRAN-rstudioapi >= 0.10
-Requires:         R-CRAN-maxnet >= 0.1.2
+Requires:         R-CRAN-maxnet >= 0.1.4
 Requires:         R-methods 
 
 %description
@@ -62,6 +62,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

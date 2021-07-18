@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gridpattern
-%global packver   0.1.2
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'grid' Pattern Grobs
 
@@ -39,8 +39,9 @@ Requires:         R-utils
 Provides 'grid' grobs that fill in a user-defined area with various
 patterns.  Includes enhanced versions of the geometric and image-based
 patterns originally contained in the 'ggpattern' package as well as
-original 'pch', 'polygon_tiling', 'regular_polygon', and 'weave' patterns
-plus support for custom user-defined patterns.
+original 'pch', 'polygon_tiling', 'regular_polygon', 'rose', 'text',
+'wave', and 'weave' patterns plus support for custom user-defined
+patterns.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,6 +51,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
