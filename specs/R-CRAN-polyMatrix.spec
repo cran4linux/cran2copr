@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  polyMatrix
-%global packver   0.9.11
+%global packver   0.9.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.11
+Version:          0.9.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Infrastructure for Manipulation Polynomial Matrices
 
