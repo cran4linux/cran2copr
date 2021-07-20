@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  elevatr
-%global packver   0.3.4
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Elevation Data from Various APIs
 
@@ -20,16 +20,24 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-units 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-progress 
+Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-purrr 
 Requires:         R-methods 
+Requires:         R-CRAN-units 
 
 %description
 Several web services are available that provide access to elevation data.
@@ -49,6 +57,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

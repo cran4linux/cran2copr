@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BAwiR
-%global packver   1.2.6
+%global packver   1.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          1.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Basketball Data
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggthemes 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-hrbrthemes 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
@@ -42,7 +41,6 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggthemes 
 Requires:         R-grid 
-Requires:         R-CRAN-hrbrthemes 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
@@ -61,12 +59,12 @@ Requires:         R-CRAN-xml2
 Collection of tools to work with basketball data. Functions available are
 related to friendly web scraping and visualization. Data were obtained
 from <https://www.euroleague.net/>, <https://www.eurocupbasketball.com/>
-and <http://www.acb.com>, following the instructions of their respectives
-robots.txt files, when available. Tools for visualization include a
-population pyramid, 2D plots, circular plots of players' percentiles,
-plots of players' monthly/yearly stats, team heatmaps, team shooting
-plots, team four factors plots, cross-tables with the results of regular
-season games and maps of nationalities. Please see Vinue (2020)
+and <https://www.acb.com/>, following the instructions of their
+respectives robots.txt files, when available. Tools for visualization
+include a population pyramid, 2D plots, circular plots of players'
+percentiles, plots of players' monthly/yearly stats, team heatmaps, team
+shooting plots, team four factors plots, cross-tables with the results of
+regular season games and maps of nationalities. Please see Vinue (2020)
 <doi:10.1089/big.2018.0124>.
 
 %prep
@@ -77,6 +75,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

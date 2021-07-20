@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  aldvmm
-%global packver   0.8.4
+%global packname  RawHummus
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adjusted Limited Dependent Variable Mixture Models
+Summary:          Raw Data Quality Control Tool for LC-MS System
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,25 +16,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-optimr 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-stats 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-optimr 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-shinydashboardPlus 
+BuildRequires:    R-CRAN-shinyFiles 
+BuildRequires:    R-CRAN-shinyMatrix 
+BuildRequires:    R-CRAN-shinyvalidate 
+BuildRequires:    R-CRAN-shinycustomloader 
+BuildRequires:    R-CRAN-RaMS 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-DT 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-shinydashboardPlus 
+Requires:         R-CRAN-shinyFiles 
+Requires:         R-CRAN-shinyMatrix 
+Requires:         R-CRAN-shinyvalidate 
+Requires:         R-CRAN-shinycustomloader 
+Requires:         R-CRAN-RaMS 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-DT 
 
 %description
-The goal of the package 'aldvmm' is to fit adjusted limited dependent
-variable mixture models of health state utilities. Adjusted limited
-dependent variable mixture models are finite mixtures of normal
-distributions with an accumulation of density mass at the limits, and a
-gap between 100%% quality of life and the next smaller utility value. The
-package 'aldvmm' uses the likelihood and expected value functions proposed
-by Hernandez Alava and Wailoo (2015) <doi:10.1177/1536867X1501500307>
-using normal component distributions and a multinomial logit model of
-probabilities of component membership.
+Assess LC–MS system performance by visualizing instrument log files and
+monitoring raw quality control samples within a project.
 
 %prep
 %setup -q -c -n %{packname}

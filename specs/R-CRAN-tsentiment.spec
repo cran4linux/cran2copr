@@ -1,58 +1,63 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rdhs
-%global packver   0.7.3
+%global packname  tsentiment
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          API Client and Dataset Management for the Demographic and Health Survey (DHS) Data
+Summary:          Fetching Tweet Data for Sentiment Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-brio 
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-SnowballC 
+BuildRequires:    R-CRAN-wordcloud 
+BuildRequires:    R-CRAN-wordcloud2 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tm 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-foreign 
+BuildRequires:    R-CRAN-syuzhet 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-tidytext 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-storr 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-qdapRegex 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-getPass 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-iotools 
-Requires:         R-CRAN-brio 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-readr 
+Requires:         R-grid 
+Requires:         R-CRAN-SnowballC 
+Requires:         R-CRAN-wordcloud 
+Requires:         R-CRAN-wordcloud2 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tm 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-foreign 
+Requires:         R-CRAN-syuzhet 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-tidytext 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-storr 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-qdapRegex 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-getPass 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-iotools 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-grDevices 
 
 %description
-Provides a client for (1) querying the DHS API for survey indicators and
-metadata (<https://api.dhsprogram.com/#/index.html>), (2) identifying
-surveys and datasets for analysis, (3) downloading survey datasets from
-the DHS website, (4) loading datasets and associate metadata into R, and
-(5) extracting variables and combining datasets for pooled analysis.
+First of all need Twitter Developer Account, package has exporting image
+for result after using.
 
 %prep
 %setup -q -c -n %{packname}

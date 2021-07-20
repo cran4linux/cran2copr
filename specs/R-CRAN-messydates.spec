@@ -1,52 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  robis
-%global packver   2.6.0
+%global packname  messydates
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ocean Biodiversity Information System (OBIS) Client
+Summary:          A Flexible Class for Messy Dates
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.3
-Requires:         R-core >= 3.1.3
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-httpcache 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-mapedit 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-covr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-httpcache 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-mapedit 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-covr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-curl 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
 
 %description
-Client for the Ocean Biodiversity Information System (<https://obis.org>).
+Contains a set of tools for constructing and coercing into and from the
+messydt class. This date class implements ISO 8601-2:2019(E) and allows
+regular dates to be annotated to express unspecified date components,
+approximate or uncertain date components, date ranges, and sets of dates.
+This is useful for describing and analysing temporal information, whether
+historical or recent, where date precision may vary.
 
 %prep
 %setup -q -c -n %{packname}
@@ -56,6 +45,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

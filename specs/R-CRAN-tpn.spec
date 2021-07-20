@@ -1,43 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  eatGADS
-%global packver   0.17.0
+%global packname  tpn
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Management of Large Hierarchical Data
+Summary:          Truncated Positive Normal Model and Extensions
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-haven >= 2.4.0
-BuildRequires:    R-CRAN-eatDB >= 0.4.1
-BuildRequires:    R-CRAN-eatTools >= 0.4.0
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-haven >= 2.4.0
-Requires:         R-CRAN-eatDB >= 0.4.1
-Requires:         R-CRAN-eatTools >= 0.4.0
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-hms 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-pracma 
 
 %description
-Import 'SPSS' data, handle and change 'SPSS' meta data, store and access
-large hierarchical data in 'SQLite' data bases.
+Provide data generation and estimation tools for the truncated positive
+normal model discussed in Gomez, Olmos, Varela and Bolfarine (2018)
+<doi:10.1007/s11766-018-3354-x> and the slash truncated positive normal
+distribution.
 
 %prep
 %setup -q -c -n %{packname}

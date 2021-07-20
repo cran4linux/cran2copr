@@ -1,43 +1,49 @@
 %global __brp_check_rpaths %{nil}
-%global packname  eatGADS
-%global packver   0.17.0
+%global packname  fedstatAPIr
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Management of Large Hierarchical Data
+Summary:          Unofficial API for Fedstat (EMISS) for Automatic and Efficient Data Queries
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-haven >= 2.4.0
-BuildRequires:    R-CRAN-eatDB >= 0.4.1
-BuildRequires:    R-CRAN-eatTools >= 0.4.0
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-readsdmx 
+BuildRequires:    R-CRAN-rsdmx 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-haven >= 2.4.0
-Requires:         R-CRAN-eatDB >= 0.4.1
-Requires:         R-CRAN-eatTools >= 0.4.0
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-hms 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-readsdmx 
+Requires:         R-CRAN-rsdmx 
+Requires:         R-CRAN-magrittr 
 Requires:         R-utils 
+Requires:         R-CRAN-rlang 
+Requires:         R-methods 
 
 %description
-Import 'SPSS' data, handle and change 'SPSS' meta data, store and access
-large hierarchical data in 'SQLite' data bases.
+An API for automatic data queries to the fedstat <https://www.fedstat.ru>,
+using a small set of functions with a common interface.
 
 %prep
 %setup -q -c -n %{packname}
