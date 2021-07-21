@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  funtimes
-%global packver   7.0
+%global packver   8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.0
+Version:          8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Time Series Analysis
 
@@ -16,14 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-Jmisc 
 BuildRequires:    R-CRAN-Kendall 
 BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-dbscan 
+BuildRequires:    R-CRAN-TDA 
+BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-CRAN-dbscan 
+BuildRequires:    R-CRAN-igraph 
 Requires:         R-CRAN-Jmisc 
 Requires:         R-CRAN-Kendall 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-TDA 
+Requires:         R-CRAN-FNN 
+Requires:         R-CRAN-dbscan 
+Requires:         R-CRAN-igraph 
 
 %description
 Includes nonparametric estimators and tests for time series analysis. The
@@ -39,6 +45,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

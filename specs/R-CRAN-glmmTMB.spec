@@ -1,37 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  sbtools
-%global packver   1.1.17
+%global packname  glmmTMB
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.17
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          USGS ScienceBase Tools
+Summary:          Generalized Linear Mixed Models using Template Model Builder
 
-License:          CC0
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.0.0
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildRequires:    R-CRAN-TMB >= 1.7.14
+BuildRequires:    R-CRAN-lme4 >= 1.1.18.9000
 BuildRequires:    R-methods 
-Requires:         R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-TMB >= 1.7.14
+Requires:         R-CRAN-lme4 >= 1.1.18.9000
 Requires:         R-methods 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-numDeriv 
 
 %description
-Tools for interacting with U.S. Geological Survey ScienceBase
-<https://www.sciencebase.gov> interfaces. ScienceBase is a data cataloging
-and collaborative data management platform. Functions included for
-querying ScienceBase, and creating and fetching datasets.
+Fit linear and generalized linear mixed models with various extensions,
+including zero-inflation. The models are fitted using maximum likelihood
+estimation via 'TMB' (Template Model Builder). Random effects are assumed
+to be Gaussian on the scale of the linear predictor and are integrated out
+using the Laplace approximation. Gradients are calculated using automatic
+differentiation.
 
 %prep
 %setup -q -c -n %{packname}

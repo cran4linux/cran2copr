@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  sbtools
-%global packver   1.1.17
+%global packname  dbMC
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.17
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          USGS ScienceBase Tools
+Summary:          Confidence Interval for Matrix Completion via De-Biased Estimator
 
-License:          CC0
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,22 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.0.0
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-stringr 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-softImpute 
+Requires:         R-CRAN-softImpute 
 
 %description
-Tools for interacting with U.S. Geological Survey ScienceBase
-<https://www.sciencebase.gov> interfaces. ScienceBase is a data cataloging
-and collaborative data management platform. Functions included for
-querying ScienceBase, and creating and fetching datasets.
+Implements the de-biased estimator for low-rank matrix completion and
+provides confidence intervals for entries of interest. See: by Chen et al.
+(2019) <doi:10.1073/pnas.1910053116>, Mai (2021) <arXiv:2103.11749>.
 
 %prep
 %setup -q -c -n %{packname}

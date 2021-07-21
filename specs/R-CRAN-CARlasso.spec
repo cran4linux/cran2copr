@@ -1,37 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  sbtools
-%global packver   1.1.17
+%global packname  CARlasso
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.17
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          USGS ScienceBase Tools
+Summary:          Conditional Autoregressive LASSO
 
-License:          CC0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.0.0
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppProgress 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-ggraph 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-MASS 
 Requires:         R-methods 
 
 %description
-Tools for interacting with U.S. Geological Survey ScienceBase
-<https://www.sciencebase.gov> interfaces. ScienceBase is a data cataloging
-and collaborative data management platform. Functions included for
-querying ScienceBase, and creating and fetching datasets.
+Algorithms to fit Bayesian Conditional Autoregressive LASSO with automatic
+and adaptive shrinkage described in Shen and Solis-Lemus (2020)
+<arXiv:2012.08397>.
 
 %prep
 %setup -q -c -n %{packname}

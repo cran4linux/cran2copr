@@ -1,37 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  sbtools
-%global packver   1.1.17
+%global packname  kdtools
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.17
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          USGS ScienceBase Tools
+Summary:          Tools for Working with Multidimensional Data
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.0.0
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-stringr 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-Rcpp >= 0.12.14
+BuildRequires:    R-CRAN-strider 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 0.12.14
 
 %description
-Tools for interacting with U.S. Geological Survey ScienceBase
-<https://www.sciencebase.gov> interfaces. ScienceBase is a data cataloging
-and collaborative data management platform. Functions included for
-querying ScienceBase, and creating and fetching datasets.
+Provides various tools for working with multidimensional data in R and
+C++, including extremely fast nearest-neighbor- and range- queries without
+the overhead of linked tree nodes.
 
 %prep
 %setup -q -c -n %{packname}

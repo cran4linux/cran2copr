@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  QFASA
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantitative Fatty Acid Signature Analysis
 
@@ -50,9 +50,9 @@ ecology, but for many species current methods are imprecise, limited to
 the last meal, and often biased. The diversity of fatty acids and their
 patterns in organisms, coupled with the narrow limitations on their
 biosynthesis, properties of digestion in monogastric animals, and the
-prevalence of large storage reservoirs of lipid in many predators, led us
-to propose the use of quantitative fatty acid signature analysis (QFASA)
-to study predator diets.
+prevalence of large storage reservoirs of lipid in many predators, led to
+the development of quantitative fatty acid signature analysis (QFASA) to
+study predator diets.
 
 %prep
 %setup -q -c -n %{packname}
@@ -62,6 +62,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

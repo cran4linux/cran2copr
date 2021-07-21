@@ -1,49 +1,53 @@
 %global __brp_check_rpaths %{nil}
-%global packname  vimp
-%global packver   2.2.3
+%global packname  romic
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Perform Inference on Algorithm-Agnostic Variable Importance
+Summary:          R for High-Dimensional Omic Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.2.3
+Requires:         R-core >= 3.2.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SuperLearner 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-shiny >= 1.5.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ROCR 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-SuperLearner 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-shiny >= 1.5.0
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ROCR 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
-Calculate point estimates of and valid confidence intervals for
-nonparametric, algorithm-agnostic variable importance measures in high and
-low dimensions, using flexible estimators of the underlying regression
-functions. For more information about the methods, please see Williamson
-et al. (Biometrics, 2020), Williamson et al. (arXiv, 2020+)
-<arXiv:2004.03683>, and Williamson and Feng (ICML, 2020).
+Represents high-dimensional data as tables of features, samples and
+measurements, and a design list for tracking the meaning of individual
+variables. Using this format, filtering, normalization, and other
+transformations of a dataset can be carried out in a flexible manner.
+'romic' takes advantage of these transformations to create interactive
+'shiny' apps for exploratory data analysis such as an interactive heatmap.
 
 %prep
 %setup -q -c -n %{packname}

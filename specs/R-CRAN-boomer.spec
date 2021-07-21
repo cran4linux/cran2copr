@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  sbtools
-%global packver   1.1.17
+%global packname  boomer
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.17
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          USGS ScienceBase Tools
+Summary:          Debugging Tools to Inspect the Intermediate Steps of a Call
 
-License:          CC0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,22 +16,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.0.0
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-pryr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-styler 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-crayon 
 Requires:         R-methods 
+Requires:         R-CRAN-pryr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-styler 
+Requires:         R-CRAN-withr 
 
 %description
-Tools for interacting with U.S. Geological Survey ScienceBase
-<https://www.sciencebase.gov> interfaces. ScienceBase is a data cataloging
-and collaborative data management platform. Functions included for
-querying ScienceBase, and creating and fetching datasets.
+Provides debugging tools that let you inspect the intermediate results of
+a call. The output looks as if we explode a call into its parts hence the
+package name.
 
 %prep
 %setup -q -c -n %{packname}

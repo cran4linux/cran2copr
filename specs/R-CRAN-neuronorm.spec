@@ -1,37 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  sbtools
-%global packver   1.1.17
+%global packname  neuronorm
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.17
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          USGS ScienceBase Tools
+Summary:          Preprocessing of Structural MRI for Multiple Neurodegenerative Diseases
 
-License:          CC0
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.0.0
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-stringr 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-oro.nifti 
+BuildRequires:    R-CRAN-fslr 
+BuildRequires:    R-CRAN-neurobase 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-oro.nifti 
+Requires:         R-CRAN-fslr 
+Requires:         R-CRAN-neurobase 
+Requires:         R-stats 
 
 %description
-Tools for interacting with U.S. Geological Survey ScienceBase
-<https://www.sciencebase.gov> interfaces. ScienceBase is a data cataloging
-and collaborative data management platform. Functions included for
-querying ScienceBase, and creating and fetching datasets.
+Preprocessing pipeline for normalizing and cleaning T1-weighted,
+T2-weighted and FLAIR MRI images coming from different sources, diseases,
+patients, scanners and sites.
 
 %prep
 %setup -q -c -n %{packname}

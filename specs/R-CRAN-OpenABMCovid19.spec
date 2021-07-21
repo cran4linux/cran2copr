@@ -1,37 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  sbtools
-%global packver   1.1.17
+%global packname  OpenABMCovid19
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.17
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          USGS ScienceBase Tools
+Summary:          Agent-Based Model for Modelling the COVID-19
 
-License:          CC0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.0.0
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-xptr 
+Requires:         R-CRAN-R6 
 Requires:         R-methods 
+Requires:         R-CRAN-xptr 
 
 %description
-Tools for interacting with U.S. Geological Survey ScienceBase
-<https://www.sciencebase.gov> interfaces. ScienceBase is a data cataloging
-and collaborative data management platform. Functions included for
-querying ScienceBase, and creating and fetching datasets.
+OpenABM-Covid19 is an agent-based model (ABM) developed to simulate the
+spread of COVID-19 in a city and to analyse the effect of both passive and
+active intervention strategies. Interactions between individuals are
+modelled on networks representing households, work-places and random
+contacts. The infection is transmitted between these contacts and the
+progression of the disease in individuals is modelled. Instantaneous
+contract-tracing and quarantining of contacts is modelled allowing the
+evaluation of the design and configuration of digital contract-tracing
+mobile phone apps. Robert Hinch, William J M Probert, et al. (2020)
+<doi:10.1101/2020.09.16.20195925>.
 
 %prep
 %setup -q -c -n %{packname}
