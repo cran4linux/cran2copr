@@ -1,40 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  stats19
-%global packver   1.4.3
+%global packname  influxdbclient
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Work with Open Road Traffic Casualty Data from Great Britain
+Summary:          InfluxDB 2.x Client for R
 
-License:          GPL-3
+License:          MIT License + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-readr 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-nanotime >= 0.3.0
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-bit64 
+BuildRequires:    R-CRAN-plyr 
+Requires:         R-CRAN-nanotime >= 0.3.0
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-bit64 
+Requires:         R-CRAN-plyr 
 
 %description
-Tools to help download, process and analyse the UK road collision data
-collected using the 'STATS19' form. The data are provided as 'CSV' files
-with detailed road safety data about the circumstances of car crashes and
-other incidents on the roads resulting in casualties in Great Britain from
-1979, the types (including make and model) of vehicles involved and the
-consequential casualties.  The statistics relate only to personal
-casualties on public roads that are reported to the police, and
-subsequently recorded, using the 'STATS19' accident reporting form. See
-the Department for Transport website
-<https://data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-safety-data>
-for more information on these data.
+InfluxDB 2.x time-series database client. Supports both InfluxDB OSS
+(<https://portal.influxdata.com/downloads/>) and Cloud
+(<https://cloud2.influxdata.com/>) version.
 
 %prep
 %setup -q -c -n %{packname}

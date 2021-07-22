@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  scoringutils
-%global packver   0.1.7
+%global packver   0.1.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Scoring and Assessing Predictions
 
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-goftest 
-BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-scoringRules 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
@@ -28,7 +27,6 @@ Requires:         R-CRAN-data.table
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-goftest 
-Requires:         R-graphics 
 Requires:         R-CRAN-scoringRules 
 Requires:         R-stats 
 Requires:         R-methods 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  disaggR
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Two-Steps Benchmarks for Time Series Disaggregation
 
@@ -13,35 +13,31 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.5.0
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-RColorBrewer >= 1.1.2
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-shiny >= 1.5.0
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-RColorBrewer >= 1.1.2
 Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-methods 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
 The twoStepsBenchmark() and threeRuleSmooth() functions allow you to
-disaggregate a low-frequency time-serie with time-series of higher
-frequency, using the French National Accounts methodology. The aggregated
-sum of the resulting time-serie is strictly equal to the low-frequency
-serie within the benchmarking window. Typically, the low-frequency serie
-is an annual one, unknown for the last year, and the high frequency one is
-either quarterly or mensual. See "Methodology of quarterly national
-accounts", Insee Méthodes N°126, by Insee (2012, ISBN:978-2-11-068613-8).
+disaggregate a low-frequency time-serie with higher frequency time-series,
+using the French National Accounts methodology. The aggregated sum of the
+resulting time-serie is strictly equal to the low-frequency serie within
+the benchmarking window. Typically, the low-frequency serie is an annual
+one, unknown for the last year, and the high frequency one is either
+quarterly or mensual. See "Methodology of quarterly national accounts",
+Insee Méthodes N°126, by Insee (2012, ISBN:978-2-11-068613-8).
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,6 +47,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

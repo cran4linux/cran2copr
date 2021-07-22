@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mutualinf
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculation and Decomposition of the Mutual Information Index
+Summary:          Computation and Decomposition of the Mutual Information Index
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -30,12 +30,12 @@ multigroup segregation measure that is highly decomposable and that
 according to Frankel and Volij (2011) <doi:10.1016/j.jet.2010.10.008> and
 Mora and Ruiz-Castillo (2011) <doi:10.1111/j.1467-9531.2011.01237.x>
 satisfies the Strong Unit Decomposability and Strong Group Decomposability
-properties. This package allows calculating and decomposing the total
-index value into its "between" and "within" terms. These last terms can
-also be decomposed into their contributions, either by group or unit
+properties. This package allows computing and decomposing the total index
+value into its "between" and "within" terms. These last terms can also be
+decomposed into their contributions, either by group or unit
 characteristics. The factors that produce each "within" term can also be
-displayed at the user's request. The results can be calculated considering
-a variable or sets of variables that define separate clusters.
+displayed at the user's request. The results can be computed considering a
+variable or sets of variables that define separate clusters.
 
 %prep
 %setup -q -c -n %{packname}

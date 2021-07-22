@@ -1,50 +1,54 @@
 %global __brp_check_rpaths %{nil}
-%global packname  regrrr
-%global packver   0.1.2
+%global packname  ConfusionTableR
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Toolkit for Compiling, (Post-Hoc) Testing, and Plotting Regression Results
+Summary:          Confusion Matrix Toolset
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-usdm 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-mlbench 
+BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-MuMIn 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lspline 
-Requires:         R-stats 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-randomForest 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-usdm 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-mlbench 
+Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-MuMIn 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lspline 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-randomForest 
 
 %description
-Compiling regression results into a publishable format, conducting
-post-hoc hypothesis testing, and plotting moderating effects (the effect
-of X on Y becomes stronger/weaker as Z increases).
+Takes the outputs of a 'caret' confusion matrix and allows for the quick
+conversion of these list items to lists. The intended usage is to allow
+the tool to work with the outputs of machine learning classification
+models. This tool works with classification problems for binary and
+multi-classification problems and allows for the record level conversion
+of the confusion matrix outputs. This is useful, as it allows quick
+conversion of these objects for storage in database systems and to track
+ML model performance over time. Traditionally, this approach has been used
+for highlighting model representation and feature slippage.
 
 %prep
 %setup -q -c -n %{packname}

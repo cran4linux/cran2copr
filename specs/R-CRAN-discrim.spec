@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  discrim
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Wrappers for Discriminant Analysis
 
@@ -16,18 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-parsnip >= 0.1.3.9000
+BuildRequires:    R-CRAN-parsnip >= 0.1.6.9000
+BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-dials 
-Requires:         R-CRAN-parsnip >= 0.1.3.9000
+Requires:         R-CRAN-parsnip >= 0.1.6.9000
+Requires:         R-CRAN-dials 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 Requires:         R-CRAN-withr 
-Requires:         R-CRAN-dials 
 
 %description
 Bindings for additional classification models for use with the 'parsnip'
@@ -46,6 +48,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

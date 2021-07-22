@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  googlesheets4
-%global packver   0.3.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Google Sheets using the Sheets API V4
 
@@ -13,40 +13,40 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.0.0
 BuildRequires:    R-CRAN-tibble >= 2.1.1
+BuildRequires:    R-CRAN-googledrive >= 2.0.0
 BuildRequires:    R-CRAN-glue >= 1.3.0
-BuildRequires:    R-CRAN-gargle >= 1.0.0
-BuildRequires:    R-CRAN-googledrive >= 1.0.0
+BuildRequires:    R-CRAN-gargle >= 1.2.0
+BuildRequires:    R-CRAN-rlang >= 0.4.11
 BuildRequires:    R-CRAN-vctrs >= 0.2.3
 BuildRequires:    R-CRAN-cellranger 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-ids 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rematch2 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-tibble >= 2.1.1
+Requires:         R-CRAN-googledrive >= 2.0.0
 Requires:         R-CRAN-glue >= 1.3.0
-Requires:         R-CRAN-gargle >= 1.0.0
-Requires:         R-CRAN-googledrive >= 1.0.0
+Requires:         R-CRAN-gargle >= 1.2.0
+Requires:         R-CRAN-rlang >= 0.4.11
 Requires:         R-CRAN-vctrs >= 0.2.3
 Requires:         R-CRAN-cellranger 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-ids 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rematch2 
-Requires:         R-CRAN-rlang 
 Requires:         R-utils 
 
 %description
@@ -66,6 +66,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

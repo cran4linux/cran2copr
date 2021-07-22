@@ -1,50 +1,60 @@
 %global __brp_check_rpaths %{nil}
-%global packname  regrrr
+%global packname  covid19india
 %global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Toolkit for Compiling, (Post-Hoc) Testing, and Plotting Regression Results
+Summary:          Pulling Clean Data from Covid19india.org
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-EpiEstim 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-usdm 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-MuMIn 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lspline 
-Requires:         R-stats 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-EpiEstim 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-usdm 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-robustbase 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-MuMIn 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lspline 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Compiling regression results into a publishable format, conducting
-post-hoc hypothesis testing, and plotting moderating effects (the effect
-of X on Y becomes stronger/weaker as Z increases).
+Pull raw and pre-cleaned versions of national and state-level COVID-19
+time-series data from covid19india.org <https://www.covid19india.org>.
+Easily obtain and merge case count data, testing data, and vaccine data.
+Also assists in calculating the time-varying effective reproduction number
+with sensible parameters for COVID-19.
 
 %prep
 %setup -q -c -n %{packname}

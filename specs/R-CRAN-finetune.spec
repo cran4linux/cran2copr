@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  finetune
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Additional Functions for Model Tuning
 
@@ -16,32 +16,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tune >= 0.1.2
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-yardstick 
-BuildRequires:    R-CRAN-workflows 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-workflows >= 0.2.3
+BuildRequires:    R-CRAN-tune >= 0.1.6
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-tune >= 0.1.2
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-yardstick 
-Requires:         R-CRAN-workflows 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-yardstick 
+Requires:         R-CRAN-workflows >= 0.2.3
+Requires:         R-CRAN-tune >= 0.1.6
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dials 
 Requires:         R-CRAN-dplyr 
-Requires:         R-utils 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-utils 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-yardstick 
 
 %description
 The ability to tune models is important. 'finetune' enhances the 'tune'
@@ -59,6 +63,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

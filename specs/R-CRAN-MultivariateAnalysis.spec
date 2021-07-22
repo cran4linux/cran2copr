@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MultivariateAnalysis
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pacote Para Analise Multivariada
 
@@ -18,8 +18,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-candisc 
 BuildRequires:    R-CRAN-biotools 
+BuildRequires:    R-CRAN-corrplot 
 Requires:         R-CRAN-candisc 
 Requires:         R-CRAN-biotools 
+Requires:         R-CRAN-corrplot 
 
 %description
 Package with multivariate analysis methodologies for experiment
@@ -38,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

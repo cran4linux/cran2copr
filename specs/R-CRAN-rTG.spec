@@ -1,40 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  stats19
-%global packver   1.4.3
+%global packname  rTG
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Work with Open Road Traffic Casualty Data from Great Britain
+Summary:          Methods to Analyse Seasonal Radial Tree Growth Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-readr 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
+BuildRequires:    R-CRAN-mgcv >= 1.8.34
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-knitr >= 1.19
+BuildRequires:    R-CRAN-brnn >= 0.6
+BuildRequires:    R-CRAN-dplyr >= 0.1.0
+Requires:         R-CRAN-ggplot2 >= 2.2.0
+Requires:         R-CRAN-mgcv >= 1.8.34
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-knitr >= 1.19
+Requires:         R-CRAN-brnn >= 0.6
+Requires:         R-CRAN-dplyr >= 0.1.0
 
 %description
-Tools to help download, process and analyse the UK road collision data
-collected using the 'STATS19' form. The data are provided as 'CSV' files
-with detailed road safety data about the circumstances of car crashes and
-other incidents on the roads resulting in casualties in Great Britain from
-1979, the types (including make and model) of vehicles involved and the
-consequential casualties.  The statistics relate only to personal
-casualties on public roads that are reported to the police, and
-subsequently recorded, using the 'STATS19' accident reporting form. See
-the Department for Transport website
-<https://data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-safety-data>
-for more information on these data.
+Methods for comparing different regression algorithms for describing the
+temporal dynamics of secondary tree growth (xylem and phloem). Users can
+compare the accuracy of the most common fitting methods usually used to
+analyse xylem and phloem data, i.e., Gompertz function and General
+Additive Models (GAMs); and an algorithm newly introduced to the field,
+i.e., Bayesian Regularised Neural Networks (brnn). The core function of
+the package is XPSgrowth(), while the results can be interpreted using
+implemented generic S3 methods, such as plot() and summary().
 
 %prep
 %setup -q -c -n %{packname}

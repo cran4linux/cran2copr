@@ -1,40 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  stats19
-%global packver   1.4.3
+%global packname  meedr
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Work with Open Road Traffic Casualty Data from Great Britain
+Summary:          Macroeconomic Expectations Data in R using the Central Bank of Brazil API
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-readr 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-lubridate 
 
 %description
-Tools to help download, process and analyse the UK road collision data
-collected using the 'STATS19' form. The data are provided as 'CSV' files
-with detailed road safety data about the circumstances of car crashes and
-other incidents on the roads resulting in casualties in Great Britain from
-1979, the types (including make and model) of vehicles involved and the
-consequential casualties.  The statistics relate only to personal
-casualties on public roads that are reported to the police, and
-subsequently recorded, using the 'STATS19' accident reporting form. See
-the Department for Transport website
-<https://data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-safety-data>
-for more information on these data.
+Provides quick and easy access to market expectations data to the main
+macroeconomic indicators in the Focus report, made available by the
+Central Bank of Brazil through the Expectations System data API
+<https://dadosabertos.bcb.gov.br/>. This package offers an R interface to
+the API and other advantages, such as using a caching system and the
+option to use all the machine's cores (parallel computing).
 
 %prep
 %setup -q -c -n %{packname}

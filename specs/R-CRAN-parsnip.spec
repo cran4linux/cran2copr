@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  parsnip
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Common API to Modeling and Analysis Functions
 
@@ -21,29 +21,31 @@ BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.0.1
 BuildRequires:    R-CRAN-rlang >= 0.3.1
 BuildRequires:    R-CRAN-vctrs >= 0.2.0
+BuildRequires:    R-CRAN-hardhat >= 0.1.5.9000
 BuildRequires:    R-CRAN-generics >= 0.1.0
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-globals 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-globals 
 BuildRequires:    R-CRAN-prettyunits 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-tibble >= 2.1.1
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.0.1
 Requires:         R-CRAN-rlang >= 0.3.1
 Requires:         R-CRAN-vctrs >= 0.2.0
+Requires:         R-CRAN-hardhat >= 0.1.5.9000
 Requires:         R-CRAN-generics >= 0.1.0
-Requires:         R-CRAN-purrr 
-Requires:         R-utils 
+Requires:         R-CRAN-globals 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
-Requires:         R-stats 
-Requires:         R-CRAN-globals 
 Requires:         R-CRAN-prettyunits 
+Requires:         R-CRAN-purrr 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 A common interface is provided to allow users to specify a model without
@@ -58,6 +60,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
