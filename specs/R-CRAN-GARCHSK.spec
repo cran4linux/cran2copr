@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  meedr
-%global packver   0.0.2
+%global packname  GARCHSK
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Macroeconomic Expectations Data in R using the Central Bank of Brazil API
+Summary:          Estimating a GARCHSK Model and GJRSK Model
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,30 +16,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-lubridate 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-lubridate 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rsolnp 
+Requires:         R-stats 
+Requires:         R-CRAN-Rsolnp 
 
 %description
-Provides quick and easy access to market expectations data to the main
-macroeconomic indicators in the Focus report, made available by the
-Central Bank of Brazil through the Expectations System data API
-<https://dadosabertos.bcb.gov.br/>. This package offers an R interface to
-the API and other advantages, such as using a caching system and the
-option to use all the machine's cores (parallel computing).
+Functions for estimating a GARCHSK model and GJRSK model based on a
+publication by Leon et,al (2005)<doi:10.1016/j.qref.2004.12.020> and
+Nakagawa and Uchiyama (2020)<doi:10.3390/math8111990>. These are a
+GARCH-type model allowing for time-varying volatility, skewness and
+kurtosis.
 
 %prep
 %setup -q -c -n %{packname}

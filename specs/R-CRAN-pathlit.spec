@@ -1,47 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ichimoku
-%global packver   0.3.0
+%global packname  pathlit
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualization and Tools for Ichimoku Kinko Hyo Strategies
+Summary:          An SDK for the PathLit Engine
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-timeSeries 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-timeSeries 
+Requires:         R-parallel 
+Requires:         R-CRAN-testthat 
+Requires:         R-CRAN-usethis 
+Requires:         R-utils 
 
 %description
-An implementation of 'Ichimoku Kinko Hyo', also commonly known as 'cloud
-charts'. Static and interactive visualizations with tools for creating,
-backtesting and development of quantitative 'ichimoku' strategies. As
-described in Sasaki (1996, ISBN:4925152009), the technique is a refinement
-on candlestick charting originating from Japan, now in widespread use in
-technical analysis worldwide. Translating as 'one-glance equilibrium
-chart', it allows the price action and market structure of financial
-securities to be determined 'at-a-glance'. Incorporates an interface with
-the OANDA fxTrade API <https://developer.oanda.com/> for retrieving
-historical and live streaming price data for major currencies, metals,
-commodities, government bonds and stock indices.
+This wrapper houses PathLit API endpoints for R. The usage of these
+endpoints require the use of an API key which can be obtained at
+<https://www.pathlit.io/docs/cli/>.
 
 %prep
 %setup -q -c -n %{packname}

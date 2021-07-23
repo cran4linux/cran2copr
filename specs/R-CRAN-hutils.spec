@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  hutils
-%global packver   1.6.0
+%global packver   1.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous R Functions and Aliases
 
@@ -16,17 +16,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table < 2.0.0
-BuildRequires:    R-CRAN-fastmatch < 2.0.0
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-fastmatch 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-data.table < 2.0.0
-Requires:         R-CRAN-fastmatch < 2.0.0
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-magrittr 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-fastmatch 
 Requires:         R-grDevices 
 
 %description
@@ -43,6 +43,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

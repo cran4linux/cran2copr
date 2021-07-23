@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sdcLog
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Statistical Disclosure Control in Research Data Centers
 
@@ -20,12 +20,14 @@ BuildRequires:    R-CRAN-checkmate >= 2.0.0
 BuildRequires:    R-CRAN-crayon >= 1.3.4
 BuildRequires:    R-CRAN-data.table >= 1.12.8
 BuildRequires:    R-CRAN-broom >= 0.5.5
-BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-checkmate >= 2.0.0
 Requires:         R-CRAN-crayon >= 1.3.4
 Requires:         R-CRAN-data.table >= 1.12.8
 Requires:         R-CRAN-broom >= 0.5.5
-Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Tools for researchers to explicitly show that their results comply to
@@ -45,6 +47,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

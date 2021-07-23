@@ -1,47 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  REDCapR
-%global packver   1.0.0
+%global packname  codemeta
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interaction Between R and REDCap
+Summary:          A Smaller 'codemetar' Package
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate >= 2.0
-BuildRequires:    R-CRAN-readr >= 2.0
-BuildRequires:    R-CRAN-tibble >= 2.0
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-httr >= 1.4.0
-BuildRequires:    R-CRAN-dplyr >= 1.0
-BuildRequires:    R-CRAN-tidyr >= 1.0
-BuildRequires:    R-CRAN-rlang >= 0.4
+BuildRequires:    R-CRAN-jsonlite >= 1.6
+BuildRequires:    R-CRAN-desc 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-checkmate >= 2.0
-Requires:         R-CRAN-readr >= 2.0
-Requires:         R-CRAN-tibble >= 2.0
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-httr >= 1.4.0
-Requires:         R-CRAN-dplyr >= 1.0
-Requires:         R-CRAN-tidyr >= 1.0
-Requires:         R-CRAN-rlang >= 0.4
+BuildRequires:    R-utils 
+Requires:         R-CRAN-jsonlite >= 1.6
+Requires:         R-CRAN-desc 
 Requires:         R-methods 
+Requires:         R-utils 
 
 %description
-Encapsulates functions to streamline calls from R to the REDCap API.
-REDCap (Research Electronic Data CAPture) is a web application for
-building and managing online surveys and databases developed at Vanderbilt
-University.  The Application Programming Interface (API) offers an avenue
-to access and modify data programmatically, improving the capacity for
-literate and reproducible programming.
+The 'Codemeta' Project defines a 'JSON-LD' format for describing software
+metadata, as detailed at <https://codemeta.github.io>. This package
+provides core utilities to generate this metadata with a minimum of
+dependencies.
 
 %prep
 %setup -q -c -n %{packname}

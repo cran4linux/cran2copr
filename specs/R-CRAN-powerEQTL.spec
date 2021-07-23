@@ -1,38 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  NPCirc
-%global packver   3.0.1
+%global packname  powerEQTL
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonparametric Circular Methods
+Summary:          Power and Sample Size Calculation for Bulk Tissue and Single-Cell eQTL Analysis
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-circular 
-BuildRequires:    R-CRAN-misc3d 
-BuildRequires:    R-CRAN-movMF 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-shape 
-Requires:         R-CRAN-circular 
-Requires:         R-CRAN-misc3d 
-Requires:         R-CRAN-movMF 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-shape 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-GLMMadaptive 
+BuildRequires:    R-parallel 
+Requires:         R-stats 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-GLMMadaptive 
+Requires:         R-parallel 
 
 %description
-Nonparametric smoothing methods for density and regression estimation
-involving circular data, including methods described in Oliveira et al.
-(2014) and proposals in Alonso-Pena et al. (2021).
+Power and sample size calculation for bulk tissue and single-cell eQTL
+analysis based on ANOVA, simple linear regression, or linear mixed effects
+model. It can also calculate power/sample size for testing the association
+of a SNP to a continuous type phenotype. Please see the reference: Dong X,
+Li X, Chang T-W, Scherzer CR, Weiss ST, Qiu W. (2021)
+<doi:10.1093/bioinformatics/btab385>.
 
 %prep
 %setup -q -c -n %{packname}

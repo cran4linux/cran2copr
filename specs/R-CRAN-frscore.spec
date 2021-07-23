@@ -1,38 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  NPCirc
-%global packver   3.0.1
+%global packname  frscore
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonparametric Circular Methods
+Summary:          Functions for Calculating Fit-Robustness of CNA-Solutions
 
-License:          GPL-2
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-circular 
-BuildRequires:    R-CRAN-misc3d 
-BuildRequires:    R-CRAN-movMF 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-shape 
-Requires:         R-CRAN-circular 
-Requires:         R-CRAN-misc3d 
-Requires:         R-CRAN-movMF 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-shape 
+BuildRequires:    R-CRAN-cna >= 3.2.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-cna >= 3.2.0
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
 
 %description
-Nonparametric smoothing methods for density and regression estimation
-involving circular data, including methods described in Oliveira et al.
-(2014) and proposals in Alonso-Pena et al. (2021).
+Functions for automatically performing a reanalysis series on a data set
+using CNA, and for calculating the fit-robustness of the resulting models,
+as described in Parkkinen and Baumgartner (2021)
+<doi:10.1177/0049124120986200>.
 
 %prep
 %setup -q -c -n %{packname}

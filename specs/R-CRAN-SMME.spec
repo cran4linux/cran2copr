@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SMME
-%global packver   1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Soft Maximin Estimation for Large Scale Heterogeneus Data
+Summary:          Soft Maximin Estimation for Large Scale Heterogeneous Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mapping
-%global packver   1.2.1
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Download, Linking, Manipulating Coordinates for Maps
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-cartography >= 2.3.0
 BuildRequires:    R-CRAN-leaflet >= 2.0.3
 BuildRequires:    R-CRAN-tmaptools >= 2.0.2
 BuildRequires:    R-CRAN-jsonlite >= 1.7.1
+BuildRequires:    R-CRAN-stringi >= 1.6.2
 BuildRequires:    R-CRAN-rgdal >= 1.4.8
 BuildRequires:    R-CRAN-httr >= 1.4.1
 BuildRequires:    R-CRAN-stringr >= 1.4.0
@@ -49,6 +50,7 @@ Requires:         R-CRAN-cartography >= 2.3.0
 Requires:         R-CRAN-leaflet >= 2.0.3
 Requires:         R-CRAN-tmaptools >= 2.0.2
 Requires:         R-CRAN-jsonlite >= 1.7.1
+Requires:         R-CRAN-stringi >= 1.6.2
 Requires:         R-CRAN-rgdal >= 1.4.8
 Requires:         R-CRAN-httr >= 1.4.1
 Requires:         R-CRAN-stringr >= 1.4.0
@@ -86,6 +88,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  languageserver
-%global packver   0.3.10
+%global packver   0.3.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
+Version:          0.3.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Language Server Protocol
 
@@ -18,9 +18,9 @@ Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-roxygen2 >= 7.0.0
 BuildRequires:    R-CRAN-callr >= 3.0.0
 BuildRequires:    R-CRAN-R6 >= 2.4.1
-BuildRequires:    R-CRAN-lintr >= 2.0.0
+BuildRequires:    R-CRAN-lintr >= 2.0.1
 BuildRequires:    R-CRAN-jsonlite >= 1.6
-BuildRequires:    R-CRAN-styler >= 1.4.1
+BuildRequires:    R-CRAN-styler >= 1.5.1
 BuildRequires:    R-CRAN-fs >= 1.3.1
 BuildRequires:    R-CRAN-xml2 >= 1.2.2
 BuildRequires:    R-CRAN-desc >= 1.2.0
@@ -34,9 +34,9 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-roxygen2 >= 7.0.0
 Requires:         R-CRAN-callr >= 3.0.0
 Requires:         R-CRAN-R6 >= 2.4.1
-Requires:         R-CRAN-lintr >= 2.0.0
+Requires:         R-CRAN-lintr >= 2.0.1
 Requires:         R-CRAN-jsonlite >= 1.6
-Requires:         R-CRAN-styler >= 1.4.1
+Requires:         R-CRAN-styler >= 1.5.1
 Requires:         R-CRAN-fs >= 1.3.1
 Requires:         R-CRAN-xml2 >= 1.2.2
 Requires:         R-CRAN-desc >= 1.2.0
@@ -62,6 +62,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,43 +1,50 @@
 %global __brp_check_rpaths %{nil}
-%global packname  UScensus2010
-%global packver   0.20.0
+%global packname  GeoFIS
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          US Census 2010 Suite of R Packages
+Summary:          Spatial Data Processing for Decision Making
 
-License:          GPL (>= 2)
+License:          CeCILL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-maptools 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-FisPro >= 1.1
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-foreign 
+BuildRequires:    R-CRAN-data.tree 
 BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-base 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-maptools 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-CRAN-nnls 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-FisPro >= 1.1
+Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-foreign 
+Requires:         R-CRAN-data.tree 
 Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-base 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rgeos 
+Requires:         R-CRAN-nnls 
 
 %description
-US Census 2010 shape files and additional demographic data from the SF1
-100 percent files. This package contains a number of helper functions for
-the UScensus2010blk, UScensus2010blkgrp, UScensus2010tract,
-UScensus2010cdp packages.
+Methods for processing spatial data for decision-making. This package is
+an R implementation of methods provided by the open source software GeoFIS
+<https://www.geofis.org> (Leroux et al. 2018)
+<doi:10.3390/agriculture8060073>. The main functionalities are the
+management zone delineation (Pedroso et al. 2010)
+<doi:10.1016/j.compag.2009.10.007> and data aggregation (Mora-Herrera et
+al. 2020) <doi:10.1016/j.compag.2020.105624>.
 
 %prep
 %setup -q -c -n %{packname}

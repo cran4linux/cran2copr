@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  REDCapR
-%global packver   1.0.0
+%global packname  RMBC
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interaction Between R and REDCap
+Summary:          Robust Model Based Clustering
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,32 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate >= 2.0
-BuildRequires:    R-CRAN-readr >= 2.0
-BuildRequires:    R-CRAN-tibble >= 2.0
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-httr >= 1.4.0
-BuildRequires:    R-CRAN-dplyr >= 1.0
-BuildRequires:    R-CRAN-tidyr >= 1.0
-BuildRequires:    R-CRAN-rlang >= 0.4
-BuildRequires:    R-methods 
-Requires:         R-CRAN-checkmate >= 2.0
-Requires:         R-CRAN-readr >= 2.0
-Requires:         R-CRAN-tibble >= 2.0
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-httr >= 1.4.0
-Requires:         R-CRAN-dplyr >= 1.0
-Requires:         R-CRAN-tidyr >= 1.0
-Requires:         R-CRAN-rlang >= 0.4
-Requires:         R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ktaucenters 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-CRAN-ktaucenters 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-MASS 
 
 %description
-Encapsulates functions to streamline calls from R to the REDCap API.
-REDCap (Research Electronic Data CAPture) is a web application for
-building and managing online surveys and databases developed at Vanderbilt
-University.  The Application Programming Interface (API) offers an avenue
-to access and modify data programmatically, improving the capacity for
-literate and reproducible programming.
+A robust clustering algorithm (Model-Based) similar to Expectation
+Maximization for finite mixture normal distributions is implemented, its
+main advantage is that the estimator is resistant to outliers, that means
+that results of parameter estimation are still correct when there are
+atypical values in the sample (see Gonzalez, Maronna, Yohai and Zamar
+(2021) <arxiv:2102.06851>).
 
 %prep
 %setup -q -c -n %{packname}

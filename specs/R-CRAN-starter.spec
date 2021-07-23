@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  starter
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Starter Kit for New Projects
 
@@ -28,8 +28,7 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.6
 BuildRequires:    R-CRAN-here >= 1.0.1
 BuildRequires:    R-CRAN-rlang >= 0.4.11
 BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-CRAN-renv >= 0.13.2
-BuildRequires:    R-CRAN-rstudioapi >= 0.13
+BuildRequires:    R-CRAN-renv >= 0.14.0
 Requires:         R-CRAN-tibble >= 3.1.2
 Requires:         R-CRAN-R.utils >= 2.10.1
 Requires:         R-CRAN-usethis >= 2.0.1
@@ -42,13 +41,12 @@ Requires:         R-CRAN-dplyr >= 1.0.6
 Requires:         R-CRAN-here >= 1.0.1
 Requires:         R-CRAN-rlang >= 0.4.11
 Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-renv >= 0.13.2
-Requires:         R-CRAN-rstudioapi >= 0.13
+Requires:         R-CRAN-renv >= 0.14.0
 
 %description
 Get started with new projects by dropping a skeleton of a new project into
-a new or existing directory, initialise Git repositories, and create
-reproducible environments with the renv package. The package allows for
+a new or existing directory, initialise git repositories, and create
+reproducible environments with the 'renv' package. The package allows for
 dynamically named files, folders, file content, as well as the
 functionality to drop individual template files into existing projects.
 

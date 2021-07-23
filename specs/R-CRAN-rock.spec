@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rock
-%global packver   0.4.1
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reproducible Open Coding Kit
 
@@ -20,6 +20,7 @@ BuildRequires:    R-utils >= 3.5.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
 BuildRequires:    R-graphics >= 3.0.0
 BuildRequires:    R-stats >= 3.0.0
+BuildRequires:    R-CRAN-yaml >= 2.2.0
 BuildRequires:    R-CRAN-glue >= 1.3.0
 BuildRequires:    R-CRAN-markdown >= 1.1
 BuildRequires:    R-CRAN-DiagrammeR >= 1.0.0
@@ -27,12 +28,13 @@ BuildRequires:    R-CRAN-data.tree >= 0.7.8
 BuildRequires:    R-CRAN-dplyr >= 0.7.8
 BuildRequires:    R-CRAN-htmltools >= 0.5.0
 BuildRequires:    R-CRAN-purrr >= 0.2.5
+BuildRequires:    R-CRAN-yum >= 0.1.0
 BuildRequires:    R-CRAN-DiagrammeRsvg >= 0.1
-BuildRequires:    R-CRAN-yum >= 0.0.1
 Requires:         R-utils >= 3.5.0
 Requires:         R-CRAN-ggplot2 >= 3.2.0
 Requires:         R-graphics >= 3.0.0
 Requires:         R-stats >= 3.0.0
+Requires:         R-CRAN-yaml >= 2.2.0
 Requires:         R-CRAN-glue >= 1.3.0
 Requires:         R-CRAN-markdown >= 1.1
 Requires:         R-CRAN-DiagrammeR >= 1.0.0
@@ -40,8 +42,8 @@ Requires:         R-CRAN-data.tree >= 0.7.8
 Requires:         R-CRAN-dplyr >= 0.7.8
 Requires:         R-CRAN-htmltools >= 0.5.0
 Requires:         R-CRAN-purrr >= 0.2.5
+Requires:         R-CRAN-yum >= 0.1.0
 Requires:         R-CRAN-DiagrammeRsvg >= 0.1
-Requires:         R-CRAN-yum >= 0.0.1
 
 %description
 The Reproducible Open Coding Kit ('ROCK', and this package, 'rock') was
