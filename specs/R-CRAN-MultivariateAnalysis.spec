@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MultivariateAnalysis
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pacote Para Analise Multivariada
 
@@ -19,9 +19,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-candisc 
 BuildRequires:    R-CRAN-biotools 
 BuildRequires:    R-CRAN-corrplot 
+BuildRequires:    R-CRAN-PCAmixdata 
 Requires:         R-CRAN-candisc 
 Requires:         R-CRAN-biotools 
 Requires:         R-CRAN-corrplot 
+Requires:         R-CRAN-PCAmixdata 
 
 %description
 Package with multivariate analysis methodologies for experiment

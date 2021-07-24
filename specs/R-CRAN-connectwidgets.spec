@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  sovereign
-%global packver   1.2.0
+%global packname  connectwidgets
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          State-Dependent Empirical Analysis
+Summary:          Organize and Curate Your Content Within 'RStudio Connect'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,50 +16,46 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-reactable 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-lmtest 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-crosstalk 
+BuildRequires:    R-CRAN-reactR 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-strucchange 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-broom 
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-sass 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-reactable 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-lmtest 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-crosstalk 
+Requires:         R-CRAN-reactR 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-sandwich 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-strucchange 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-sass 
 
 %description
-A set of tools for state-dependent empirical analysis through both VAR-
-and local projection-based state-dependent forecasts, impulse response
-functions, historical decompositions, and forecast error variance
-decompositions.
+A collection of helper functions and 'htmlwidgets' to help publishers
+curate content collections on 'RStudio Connect'. The components, Card,
+Grid, Table, Search, and Filter can be used to produce a showcase page or
+gallery contained within a static or interactive R Markdown page.
 
 %prep
 %setup -q -c -n %{packname}

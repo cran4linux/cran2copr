@@ -1,31 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cartogramR
-%global packver   1.0-1
+%global packname  rstyles
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Continuous Cartogram
+Summary:          Generating Simulated Data Mimicking Response Styles to Survey Questions
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
 
 %description
-Procedures for making continuous cartogram. Procedures available are: flow
-based cartogram (Gastner & Newman (2004) <doi:10.1073/pnas.0400280101>),
-fast flow based cartogram (Gastner, Seguy & More (2018)
-<doi:10.1073/pnas.1712674115>), rubber band based cartogram (Dougenik et
-al. (1985) <doi:10.1111/j.0033-0124.1985.00075.x>).
+Package allows to generate simulated datasets using algorithms that mimic
+different response styles to survey questions using: 1) IRTree approach
+(Bockenholt (2012) <doi:10.1037/a0028111>, (2017)
+<doi:10.1037/met0000106>), 2) (G)PCM (and rating scale version of a
+partial credit model) random-thresholds approach (Falk & Cai (2016)
+<doi:10.1037/met0000059>; Henninger & Meiser (2020a)
+<doi:10.1037/met0000249>, (2020b) <doi:10.1037/met0000268>; Plieninger
+(2017) <doi:10.1177/0013164416636655>), 3) user provided function that
+(with some probability) chooses response using information about previous
+responses. This allows to cover wide range of potential response styles
+like: extreme and middle (ERS, MRS), acquiesce (ARS) and also
+careless/inattentive responding (CR, IR).
 
 %prep
 %setup -q -c -n %{packname}

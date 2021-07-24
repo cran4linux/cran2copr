@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  occCite
-%global packver   0.4.9
+%global packname  CausalGPS
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.9
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Querying and Managing Large Biodiversity Occurrence Datasets
+Summary:          Matching on Generalized Propensity Scores with Continuous Exposures
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,50 +15,51 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rgbif >= 3.1
-BuildRequires:    R-CRAN-bib2df 
-BuildRequires:    R-CRAN-BIEN 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-taxize 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-SuperLearner 
+BuildRequires:    R-CRAN-xgboost 
+BuildRequires:    R-CRAN-earth 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-gam 
+BuildRequires:    R-CRAN-KernSmooth 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-polycor 
+BuildRequires:    R-CRAN-wCorr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-logger 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-gnm 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-RPostgreSQL 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-waffle 
-Requires:         R-CRAN-rgbif >= 3.1
-Requires:         R-CRAN-bib2df 
-Requires:         R-CRAN-BIEN 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-methods 
-Requires:         R-CRAN-taxize 
-Requires:         R-CRAN-stringr 
+Requires:         R-parallel 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-SuperLearner 
+Requires:         R-CRAN-xgboost 
+Requires:         R-CRAN-earth 
+Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-gam 
+Requires:         R-CRAN-KernSmooth 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-polycor 
+Requires:         R-CRAN-wCorr 
 Requires:         R-stats 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-logger 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-gnm 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-RPostgreSQL 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-waffle 
 
 %description
-Facilitates the gathering of biodiversity occurrence data from disparate
-sources. Metadata is managed throughout the process to facilitate
-reporting and enhanced ability to repeat analyses.
+Provides a framework for estimating causal effects of a continuous
+exposure using observational data, and implementing matching and weighting
+on the generalized propensity score. Wu, X., Mealli, F., Kioumourtzoglou,
+M.A., Dominici, F. and Braun, D., 2018. Matching on generalized propensity
+scores with continuous exposures. arXiv preprint <arXiv:1812.06575>.
 
 %prep
 %setup -q -c -n %{packname}

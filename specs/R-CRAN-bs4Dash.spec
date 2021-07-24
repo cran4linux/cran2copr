@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bs4Dash
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'Bootstrap 4' Version of 'shinydashboard'
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-bslib >= 0.2.4
 BuildRequires:    R-CRAN-fresh 
 BuildRequires:    R-CRAN-waiter 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-httr 
 Requires:         R-CRAN-shiny >= 1.6.0
 Requires:         R-CRAN-httpuv >= 1.5.2
 Requires:         R-CRAN-jsonlite >= 0.9.16
@@ -32,6 +33,7 @@ Requires:         R-CRAN-bslib >= 0.2.4
 Requires:         R-CRAN-fresh 
 Requires:         R-CRAN-waiter 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-httr 
 
 %description
 Make 'Bootstrap 4' Shiny dashboards. Use the full power of 'AdminLTE3', a

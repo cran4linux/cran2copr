@@ -1,39 +1,51 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ggmulti
-%global packver   1.0.4
+%global packname  deeptime
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          High Dimensional Data Visualization
+Summary:          Plotting Tools for Anyone Working in Deep Time
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggnewscale 
 BuildRequires:    R-utils 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
+Requires:         R-CRAN-ggnewscale 
 Requires:         R-utils 
 Requires:         R-grid 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-gtable 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 
 %description
-It provides materials (i.e. 'serial axes' objects, Andrew's plot, various
-glyphs for scatter plot) to visualize high dimensional data.
+Extends the functionality of other plotting packages like 'ggplot2' and
+'lattice' to help facilitate the plotting of data over long time
+intervals, including, but not limited to, geological, evolutionary, and
+ecological data. The primary goal of 'deeptime' is to enable users to add
+highly customizable timescales to their visualizations. Other functions
+are also included to assist with other areas of deep time visualization.
 
 %prep
 %setup -q -c -n %{packname}

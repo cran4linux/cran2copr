@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ctsem
-%global packver   3.5.3
+%global packver   3.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.3
+Version:          3.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous Time Structural Equation Modelling
 
@@ -68,16 +68,16 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-rstantools
 
 %description
-Hierarchical continuous time state space modelling, for linear and
-nonlinear systems measured by continuous variables, with limited support
-for binary data. The subject specific dynamic system is modelled as a
-stochastic differential equation (SDE), measurement models are typically
-multivariate normal factor models. Linear mixed effects SDE's estimated
-via maximum likelihood and optimization are the default. Nonlinearities,
-(state dependent parameters) and random effects on all parameters are
-possible, using either max likelihood / max a posteriori optimization
-(with optional importance sampling) or Stan's Hamiltonian Monte Carlo
-sampling. See
+Hierarchical continuous (and discrete) time state space modelling, for
+linear and nonlinear systems measured by continuous variables, with
+limited support for binary data. The subject specific dynamic system is
+modelled as a stochastic differential equation (SDE) or difference
+equation, measurement models are typically multivariate normal factor
+models. Linear mixed effects SDE's estimated via maximum likelihood and
+optimization are the default. Nonlinearities, (state dependent parameters)
+and random effects on all parameters are possible, using either max
+likelihood / max a posteriori optimization (with optional importance
+sampling) or Stan's Hamiltonian Monte Carlo sampling. See
 <https://github.com/cdriveraus/ctsem/raw/master/vignettes/hierarchicalmanual.pdf>
 for details. Priors may be used. For the conceptual overview of the
 hierarchical Bayesian linear SDE approach, see
@@ -96,6 +96,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

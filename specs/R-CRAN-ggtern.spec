@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ggtern
-%global packver   3.3.0
+%global packver   3.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.0
-Release:          3%{?dist}%{?buildtag}
+Version:          3.3.5
+Release:          1%{?dist}%{?buildtag}
 Summary:          An Extension to 'ggplot2', for the Creation of Ternary Diagrams
 
 License:          GPL-2 | file LICENSE
@@ -13,37 +13,37 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
+BuildRequires:    R-CRAN-gridExtra >= 2.3
+BuildRequires:    R-CRAN-compositions >= 2.0.2
 BuildRequires:    R-CRAN-plyr >= 1.8.3
-BuildRequires:    R-CRAN-compositions >= 1.40.2
-BuildRequires:    R-CRAN-latex2exp >= 0.4
+BuildRequires:    R-CRAN-hexbin >= 1.28.2
+BuildRequires:    R-CRAN-proto >= 1.0
+BuildRequires:    R-CRAN-latex2exp >= 0.5
 BuildRequires:    R-CRAN-scales >= 0.3.0
 BuildRequires:    R-CRAN-gtable >= 0.1.2
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-proto 
 BuildRequires:    R-utils 
-BuildRequires:    R-lattice 
-BuildRequires:    R-CRAN-hexbin 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-lattice 
+Requires:         R-CRAN-ggplot2 >= 3.3.5
+Requires:         R-CRAN-gridExtra >= 2.3
+Requires:         R-CRAN-compositions >= 2.0.2
 Requires:         R-CRAN-plyr >= 1.8.3
-Requires:         R-CRAN-compositions >= 1.40.2
-Requires:         R-CRAN-latex2exp >= 0.4
+Requires:         R-CRAN-hexbin >= 1.28.2
+Requires:         R-CRAN-proto >= 1.0
+Requires:         R-CRAN-latex2exp >= 0.5
 Requires:         R-CRAN-scales >= 0.3.0
 Requires:         R-CRAN-gtable >= 0.1.2
 Requires:         R-grid 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-MASS 
+Requires:         R-CRAN-MASS 
 Requires:         R-stats 
-Requires:         R-CRAN-proto 
 Requires:         R-utils 
-Requires:         R-lattice 
-Requires:         R-CRAN-hexbin 
+Requires:         R-CRAN-lattice 
 
 %description
 Extends the functionality of 'ggplot2', providing the capability to plot
@@ -55,7 +55,15 @@ please proceed to the 'ggtern' website.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -63,22 +71,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%doc %{rlibdir}/%{packname}/demo
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/staticdocs
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

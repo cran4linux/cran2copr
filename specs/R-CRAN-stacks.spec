@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  stacks
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Model Stacking
 
@@ -20,7 +20,7 @@ BuildRequires:    R-CRAN-tibble >= 2.1.3
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-purrr >= 0.3.2
-BuildRequires:    R-CRAN-workflows >= 0.2.1.9000
+BuildRequires:    R-CRAN-workflows >= 0.2.2
 BuildRequires:    R-CRAN-butcher >= 0.1.3
 BuildRequires:    R-CRAN-tune >= 0.1.2.9000
 BuildRequires:    R-CRAN-recipes >= 0.1.15
@@ -41,7 +41,7 @@ Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-purrr >= 0.3.2
-Requires:         R-CRAN-workflows >= 0.2.1.9000
+Requires:         R-CRAN-workflows >= 0.2.2
 Requires:         R-CRAN-butcher >= 0.1.3
 Requires:         R-CRAN-tune >= 0.1.2.9000
 Requires:         R-CRAN-recipes >= 0.1.15
@@ -73,6 +73,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
