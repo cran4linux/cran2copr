@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  parseRPDR
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parse and Manipulate Research Patient Data Registry ('RPDR') Text Queries
 
@@ -20,12 +20,14 @@ BuildRequires:    R-CRAN-bigmemory >= 4.5.36
 BuildRequires:    R-CRAN-foreach >= 1.5.1
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-readr >= 1.4.0
+BuildRequires:    R-CRAN-reticulate >= 1.20
 BuildRequires:    R-CRAN-data.table >= 1.13.2
 BuildRequires:    R-CRAN-doParallel >= 1.0.16
 Requires:         R-CRAN-bigmemory >= 4.5.36
 Requires:         R-CRAN-foreach >= 1.5.1
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-readr >= 1.4.0
+Requires:         R-CRAN-reticulate >= 1.20
 Requires:         R-CRAN-data.table >= 1.13.2
 Requires:         R-CRAN-doParallel >= 1.0.16
 
@@ -33,11 +35,12 @@ Requires:         R-CRAN-doParallel >= 1.0.16
 Functions to load Research Patient Data Registry ('RPDR') text queries
 from Partners Healthcare institutions into R. The package also provides
 helper functions to manipulate data and execute common procedures such as
-finding the closest radiological exams considering a given timepoint.
-'parseRPDR' currently supports txt sources: "mrn", "con", "dem", "enc",
-"rdt", "lab", "med", "dia", "rfv", "prc", "phy", "lno", "car", "dis",
-"end", "hnp", "opn", "pat", "prg", "pul", "rad" and "vis". All
-functionalities are parallelized for fast and efficient analyses.
+finding the closest radiological exams considering a given timepoint, or
+creating a DICOM header database from the downloaded images. 'parseRPDR'
+currently supports txt sources: "mrn", "con", "dem", "enc", "rdt", "lab",
+"med", "dia", "rfv", "prc", "phy", "lno", "car", "dis", "end", "hnp",
+"opn", "pat", "prg", "pul", "rad" and "vis". All functionalities are
+parallelized for fast and efficient analyses.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +50,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

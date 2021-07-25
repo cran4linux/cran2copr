@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ibdsim2
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation of Chromosomal Regions Shared by Family Members
 
@@ -16,23 +16,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ribd >= 1.1.0
-BuildRequires:    R-CRAN-pedtools >= 0.9.5
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-pedtools >= 1.0.0
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-ribd >= 1.1.0
-Requires:         R-CRAN-pedtools >= 0.9.5
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-pedtools >= 1.0.0
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Simulation of segments shared identical-by-descent (IBD) by pedigree
 members. Using sex specific recombination rates along the human genome
 (Halldorsson et al. (2019) <doi:10.1126/science.aau1043>), phased
-chromosomes are simulated for all pedigree members. Additional features
-include calculation of realised IBD coefficients and plots of IBD segment
-distributions.
+chromosomes are simulated for all pedigree members. Applications include
+calculation of realised relatedness coefficients and IBD segment
+distributions. 'ibdsim2' is part of the 'ped suite' collection of packages
+for pedigree analysis. A detailed presentation of the 'ped suite',
+including a separate chapter on 'ibdsim2', is available in the book
+'Pedigree analysis in R' (Vigeland, 2021, ISBN:9780128244302). A 'shiny'
+app for visualising and comparing IBD distributions is available at
+<https://magnusdv.shinyapps.io/ibdsim2-shiny/>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,6 +47,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
