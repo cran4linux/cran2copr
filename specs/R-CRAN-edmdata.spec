@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  edmdata
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Sets for Psychometric Modeling
 
@@ -21,8 +21,9 @@ BuildArch:        noarch
 Collection of data sets from various assessments that can be used to
 evaluate psychometric models. These data sets have been analyzed in the
 following papers that introduced new methodology as part of the
-application section: Chen, Y., Culpepper, S. A., & Liang, F. (2020)
-<doi:10.1007/s11336-019-09693-2> Culpepper, S. A. (2019a)
+application section: Yinghan Chen et al. (2021)
+<doi:10.1007/s11336-021-09750-9>, Yinyin Chen et al. (2020)
+<doi:10.1007/s11336-019-09693-2>, Culpepper, S. A. (2019a)
 <doi:10.1007/s11336-019-09683-4>, Culpepper, S. A. (2019b)
 <doi:10.1007/s11336-018-9643-8>, Culpepper, S. A., & Chen, Y. (2019)
 <doi:10.3102/1076998618791306>, Culpepper, S. A., & Balamuta, J. J. (2017)
@@ -37,6 +38,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

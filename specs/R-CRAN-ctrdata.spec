@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ctrdata
-%global packver   1.6.0
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve and Analyze Clinical Trials in Public Registers
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nodbi >= 0.4
+BuildRequires:    R-CRAN-nodbi >= 0.4.3
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-curl 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-xml2
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-nodbi >= 0.4
+Requires:         R-CRAN-nodbi >= 0.4.3
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-curl 
@@ -57,6 +57,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

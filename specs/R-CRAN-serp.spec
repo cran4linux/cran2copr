@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
 %global packname  serp
-%global packver   0.1.8
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Smooth Effects on Response Penalty for 'CLM'
 
-License:          GPL-2
+License:          GPL-2 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -34,9 +34,9 @@ parameter space. Thus, by maximizing a penalized rather than the usual
 non-penalized log-likelihood, this and other numerical problems common
 with the general model are to a large extent eliminated. Fitting is via a
 modified Newton's method. Several standard model performance and
-descriptive methods are also available. An outline of the penalty
-implemented here is found in Tutz, G and Gertheiss, J (2016)
-<doi:10.1177/1471082X16642560>.
+descriptive methods are also available. For more details on the penalty
+implemented here, see, 'Ugba et al. (2021)' <doi:10.3390/stats4030037> and
+Tutz and Gertheiss (2016) <doi:10.1177/1471082X16642560>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,6 +46,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
