@@ -1,34 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  grpreg
-%global packver   3.4.0
+%global packname  rUM
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regularization Paths for Regression Models with Grouped Covariates
+Summary:          R Templates from the University of Miami
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-bookdown 
+BuildRequires:    R-CRAN-conflicted 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-table1 
+BuildRequires:    R-CRAN-tidyverse 
+Requires:         R-CRAN-bookdown 
+Requires:         R-CRAN-conflicted 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-table1 
+Requires:         R-CRAN-tidyverse 
 
 %description
-Efficient algorithms for fitting the regularization path of linear
-regression, GLM, and Cox regression models with grouped penalties.  This
-includes group selection methods such as group lasso, group MCP, and group
-SCAD as well as bi-level selection methods such as the group exponential
-lasso, the composite MCP, and the group bridge.  For more information, see
-Breheny and Huang (2009) <doi:10.4310/sii.2009.v2.n3.a10>, Huang, Breheny,
-and Ma (2012) <doi:10.1214/12-sts392>, Breheny and Huang (2015)
-<doi:10.1007/s11222-013-9424-2>, and Breheny (2015)
-<doi:10.1111/biom.12300>, or visit the package homepage
-<https://pbreheny.github.io/grpreg/>.
+This holds some r markdown templates and a template to create a research
+project in RStudio.
 
 %prep
 %setup -q -c -n %{packname}

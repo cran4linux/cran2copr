@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  FMM
-%global packver   0.1.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rhythmic Patterns Modeling by FMM Models
 
@@ -17,11 +17,13 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-iterators 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
 Requires:         R-methods 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-iterators 
 Requires:         R-parallel 
@@ -43,6 +45,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

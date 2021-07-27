@@ -1,34 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  grpreg
-%global packver   3.4.0
+%global packname  lpl
+%global packver   0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.0
+Version:          0.11
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regularization Paths for Regression Models with Grouped Covariates
+Summary:          Local Partial Likelihood Estimation and Simultaneous Confidence Band
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-MASS 
+Requires:         R-parallel 
+Requires:         R-CRAN-survival 
 
 %description
-Efficient algorithms for fitting the regularization path of linear
-regression, GLM, and Cox regression models with grouped penalties.  This
-includes group selection methods such as group lasso, group MCP, and group
-SCAD as well as bi-level selection methods such as the group exponential
-lasso, the composite MCP, and the group bridge.  For more information, see
-Breheny and Huang (2009) <doi:10.4310/sii.2009.v2.n3.a10>, Huang, Breheny,
-and Ma (2012) <doi:10.1214/12-sts392>, Breheny and Huang (2015)
-<doi:10.1007/s11222-013-9424-2>, and Breheny (2015)
-<doi:10.1111/biom.12300>, or visit the package homepage
-<https://pbreheny.github.io/grpreg/>.
+Local partial likelihood estimation by Fan, Lin and
+Zhou(2006)<doi:10.1214/009053605000000796> and simultaneous confidence
+band is a set of tools to test the covariates-biomarker interaction for
+survival data. Test for the covariates-biomarker interaction using the
+bootstrap method and the asymptotic method with simultaneous confidence
+band (Liu, Jiang and Chen (2015)<doi:10.1002/sim.6563>).
 
 %prep
 %setup -q -c -n %{packname}

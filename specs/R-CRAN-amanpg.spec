@@ -1,34 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  grpreg
-%global packver   3.4.0
+%global packname  amanpg
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regularization Paths for Regression Models with Grouped Covariates
+Summary:          Alternating Manifold Proximal Gradient Method for Sparse PCA
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 
 %description
-Efficient algorithms for fitting the regularization path of linear
-regression, GLM, and Cox regression models with grouped penalties.  This
-includes group selection methods such as group lasso, group MCP, and group
-SCAD as well as bi-level selection methods such as the group exponential
-lasso, the composite MCP, and the group bridge.  For more information, see
-Breheny and Huang (2009) <doi:10.4310/sii.2009.v2.n3.a10>, Huang, Breheny,
-and Ma (2012) <doi:10.1214/12-sts392>, Breheny and Huang (2015)
-<doi:10.1007/s11222-013-9424-2>, and Breheny (2015)
-<doi:10.1111/biom.12300>, or visit the package homepage
-<https://pbreheny.github.io/grpreg/>.
+Alternating Manifold Proximal Gradient Method for Sparse PCA uses the
+Alternating Manifold Proximal Gradient (AManPG) method to find sparse
+principal components from a data or covariance matrix. Provides a novel
+algorithm for solving the sparse principal component analysis problem
+which provides advantages over existing methods in terms of efficiency and
+convergence guarantees. Chen, S., Xue, L., & Zou, H. (2020)
+<doi:10.1287/ijoo.2019.0032>. Zou, H., Hastie, T., & Tibshirani, R. (2006)
+<doi:10.1198/106186006X113430>. Zou, H., & Xue, L. (2018)
+<doi:10.1109/JPROC.2018.2846588>.
 
 %prep
 %setup -q -c -n %{packname}

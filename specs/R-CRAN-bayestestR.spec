@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bayestestR
-%global packver   0.10.0
+%global packver   0.10.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.10.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Understand and Describe Bayesian Models and Posterior Distributions
 
@@ -16,11 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.13.2
+BuildRequires:    R-CRAN-insight >= 0.14.1
+BuildRequires:    R-CRAN-datawizard 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 0.13.2
+Requires:         R-CRAN-insight >= 0.14.1
+Requires:         R-CRAN-datawizard 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -40,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

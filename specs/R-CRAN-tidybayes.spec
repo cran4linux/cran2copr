@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tidybayes
-%global packver   2.3.1
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Data and 'Geoms' for Bayesian Models
 
@@ -16,32 +16,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-ggdist >= 2.3.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
+BuildRequires:    R-CRAN-ggdist >= 3.0.0
+BuildRequires:    R-CRAN-posterior >= 1.0.1
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.0
 BuildRequires:    R-CRAN-rlang >= 0.3.0
-BuildRequires:    R-CRAN-purrr >= 0.2.3
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-arrayhelpers 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-ggdist >= 2.3.0
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-ggplot2 >= 3.3.5
+Requires:         R-CRAN-ggdist >= 3.0.0
+Requires:         R-CRAN-posterior >= 1.0.1
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.0
 Requires:         R-CRAN-rlang >= 0.3.0
-Requires:         R-CRAN-purrr >= 0.2.3
-Requires:         R-CRAN-plyr 
+Requires:         R-methods 
 Requires:         R-CRAN-coda 
-Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-arrayhelpers 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-vctrs 
 
 %description
 Compose data for and extract, manipulate, and visualize posterior draws
@@ -61,6 +63,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

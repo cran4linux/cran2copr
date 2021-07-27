@@ -1,41 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidytreatment
-%global packver   0.2.1
+%global packname  OmicNavigator
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Methods for Bayesian Treatment Effect Models
+Summary:          Open-Source Software for 'Omic' Data Analysis and Visualization
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidybayes 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-tidybayes 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-data.table >= 1.12.4
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-stats 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-data.table >= 1.12.4
+Requires:         R-graphics 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-stats 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Functions for extracting tidy data from Bayesian treatment effect models,
-in particular BART, but extensions are possible. Functionality includes
-extracting tidy posterior summaries as in 'tidybayes'
-<https://github.com/mjskay/tidybayes>, estimating (average) treatment
-effects, common support calculations, and plotting useful summaries of
-these.
+A tool for interactive exploration of the results from 'omics' experiments
+to facilitate novel discoveries from high-throughput biology. The software
+includes R functions for the 'bioinformatician' to deposit study metadata
+and the outputs from statistical analyses (e.g. differential expression,
+enrichment). These results are then exported to an interactive JavaScript
+dashboard that can be interrogated on the user’s local machine or deployed
+online to be explored by collaborators. The dashboard includes 'sortable'
+tables, interactive plots including network visualization, and
+fine-grained filtering based on statistical significance.
 
 %prep
 %setup -q -c -n %{packname}

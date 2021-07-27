@@ -1,34 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  grpreg
-%global packver   3.4.0
+%global packname  dataverse
+%global packver   0.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.0
+Version:          0.3.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regularization Paths for Regression Models with Grouped Covariates
+Summary:          Client for Dataverse 4+ Repositories
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-readr 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-xml2 
 
 %description
-Efficient algorithms for fitting the regularization path of linear
-regression, GLM, and Cox regression models with grouped penalties.  This
-includes group selection methods such as group lasso, group MCP, and group
-SCAD as well as bi-level selection methods such as the group exponential
-lasso, the composite MCP, and the group bridge.  For more information, see
-Breheny and Huang (2009) <doi:10.4310/sii.2009.v2.n3.a10>, Huang, Breheny,
-and Ma (2012) <doi:10.1214/12-sts392>, Breheny and Huang (2015)
-<doi:10.1007/s11222-013-9424-2>, and Breheny (2015)
-<doi:10.1111/biom.12300>, or visit the package homepage
-<https://pbreheny.github.io/grpreg/>.
+Provides access to Dataverse APIs <https://dataverse.org/> (versions 4-5),
+enabling data search, retrieval, and deposit. For Dataverse versions <=
+3.0, use the archived 'dvn' package
+<https://cran.r-project.org/package=dvn>.
 
 %prep
 %setup -q -c -n %{packname}

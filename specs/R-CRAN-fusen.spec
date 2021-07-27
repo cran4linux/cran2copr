@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fusen
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Build a Package from Rmarkdown File
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-usethis >= 1.5.0
 BuildRequires:    R-CRAN-here >= 1.0.0

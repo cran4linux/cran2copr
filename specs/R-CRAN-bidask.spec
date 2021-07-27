@@ -1,34 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  grpreg
-%global packver   3.4.0
+%global packname  bidask
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regularization Paths for Regression Models with Grouped Covariates
+Summary:          Efficient Estimation of Bid-Ask Spreads from Open, High, Low, and Close Prices
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
 
 %description
-Efficient algorithms for fitting the regularization path of linear
-regression, GLM, and Cox regression models with grouped penalties.  This
-includes group selection methods such as group lasso, group MCP, and group
-SCAD as well as bi-level selection methods such as the group exponential
-lasso, the composite MCP, and the group bridge.  For more information, see
-Breheny and Huang (2009) <doi:10.4310/sii.2009.v2.n3.a10>, Huang, Breheny,
-and Ma (2012) <doi:10.1214/12-sts392>, Breheny and Huang (2015)
-<doi:10.1007/s11222-013-9424-2>, and Breheny (2015)
-<doi:10.1111/biom.12300>, or visit the package homepage
-<https://pbreheny.github.io/grpreg/>.
+Implements a novel estimation procedure of bid-ask spreads from open,
+high, low, and close prices as described in Ardia-Guidotti-Kroencke
+<https://www.ssrn.com/abstract=3892335>. Moreover, it provides an
+implementation of the estimators proposed in Roll (1984)
+<doi:10.1111/j.1540-6261.1984.tb03897.x>, Corwin-Schultz (2012)
+<doi:10.1111/j.1540-6261.2012.01729.x>, and Abdi-Ranaldo (2017)
+<doi:10.1093/rfs/hhx084>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,34 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  grpreg
-%global packver   3.4.0
+%global packname  cuml4r
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regularization Paths for Regression Models with Grouped Covariates
+Summary:          R Interface for the RAPIDS cuML Suite of Libraries
 
-License:          GPL-3
+License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.6
+BuildRequires:    R-CRAN-rlang >= 0.1.4
+BuildRequires:    R-CRAN-zeallot >= 0.1.0
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-Rcpp >= 1.0.6
+Requires:         R-CRAN-rlang >= 0.1.4
+Requires:         R-CRAN-zeallot >= 0.1.0
+Requires:         R-CRAN-magrittr 
 
 %description
-Efficient algorithms for fitting the regularization path of linear
-regression, GLM, and Cox regression models with grouped penalties.  This
-includes group selection methods such as group lasso, group MCP, and group
-SCAD as well as bi-level selection methods such as the group exponential
-lasso, the composite MCP, and the group bridge.  For more information, see
-Breheny and Huang (2009) <doi:10.4310/sii.2009.v2.n3.a10>, Huang, Breheny,
-and Ma (2012) <doi:10.1214/12-sts392>, Breheny and Huang (2015)
-<doi:10.1007/s11222-013-9424-2>, and Breheny (2015)
-<doi:10.1111/biom.12300>, or visit the package homepage
-<https://pbreheny.github.io/grpreg/>.
+The purpose of 'cuml4r' is to provide a simple and intuitive R interface
+for cuML (<https://github.com/rapidsai/cuml>). CuML is a suite of
+GPU-accelerated machine learning libraries powered by CUDA
+(<https://en.wikipedia.org/wiki/CUDA>).
 
 %prep
 %setup -q -c -n %{packname}
