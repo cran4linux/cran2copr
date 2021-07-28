@@ -1,43 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  HURDAT
-%global packver   0.2.3.2
+%global packname  emoji
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hurricane Re-Analysis Project
+Summary:          Data and Function to Work with Emojis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-stringr 
 
 %description
-Scraped dataset of the Hurricane Research Division's Hurricane Re-Analysis
-Project known as HURDAT. Storm details are available for most known
-hurricanes and tropical storms for the Atlantic and northeastern Pacific
-ocean (northwestern hemisphere). See
-<https://www.aoml.noaa.gov/hrd/hurdat/Data_Storm.html> for more
-information.
+Contains data about emojis with relevant metadata, and functions to work
+with emojis when they are in strings.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +31,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

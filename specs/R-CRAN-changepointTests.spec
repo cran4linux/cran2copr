@@ -1,34 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  apcf
-%global packver   0.1.6
+%global packname  changepointTests
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adapted Pair Correlation Function
+Summary:          Change Point Tests for Joint Distributions and Copulas
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gdal-devel >= 2.0.0
-BuildRequires:    geos-devel >= 3.4.0
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-Rcpp >= 0.12
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-stats 
 
 %description
-The adapted pair correlation function transfers the concept of the pair
-correlation function from point patterns to patterns of objects of finite
-size and irregular shape (e.g. lakes within a country). This is a
-reimplementation of the method suggested by Nuske et al. (2009)
-<doi:10.1016/j.foreco.2009.09.050> using the libraries 'GEOS' and 'GDAL'
-directly instead of through 'PostGIS'.
+Change point tests for joint distributions and copulas using
+pseudo-observations with multipliers or bootstrap. The processes used here
+have been defined in Bucher, Kojadinovic, Rohmer & Segers
+<doi:10.1016/j.jmva.2014.07.012> and Nasri & Remillard
+<doi:10.1016/j.jmva.2019.03.002>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  osmextract
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Read OpenStreetMap Data Extracts
+Summary:          Download and Import Open Stree tMap Data Extracts
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,7 +24,7 @@ Requires:         R-utils
 Requires:         R-tools 
 
 %description
-Find, download, convert and read Open Street Map data extracts obtained
+Match, download, convert and import Open Street Map data extracts obtained
 from several providers.
 
 %prep
@@ -35,6 +35,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

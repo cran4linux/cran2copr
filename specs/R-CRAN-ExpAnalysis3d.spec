@@ -1,37 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  popkin
-%global packver   1.3.13
+%global packname  ExpAnalysis3d
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.13
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Kinship and FST under Arbitrary Population Structure
+Summary:          Pacote Para Analise De Experimentos Com Graficos De Superficie Resposta
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.10
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 0.12.10
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-ape 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-fields 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-fields 
 
 %description
-Provides functions to estimate the kinship matrix of individuals from a
-large set of biallelic SNPs, and extract inbreeding coefficients and the
-generalized FST (Wright's fixation index).  Method described in Ochoa and
-Storey (2021) <doi:10.1371/journal.pgen.1009241>.
+Pacote para a analise de experimentos havendo duas variaveis explicativas
+quantitativas e uma variavel dependente quantitativa. Os experimentos
+podem ser sem repeticoes ou com delineamento estatistico. Sao ajustados 12
+modelos de regressao multipla e plotados graficos de superficie resposta
+(Hair JF, 2016) <ISBN:13:978-0138132637>.(Package for the analysis of
+experiments having two explanatory quantitative variables and one
+quantitative dependent variable. The experiments can be without
+repetitions or with a statistical design. Twelve multiple regression
+models are fitted and response surface graphs are plotted (Hair JF, 2016)
+<ISBN:13:978-0138132637>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  neonUtilities
-%global packver   2.1.0
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Working with NEON Data
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-pbapply 
@@ -38,7 +37,6 @@ Requires:         R-CRAN-data.table
 Requires:         R-utils 
 Requires:         R-CRAN-R.utils 
 Requires:         R-stats 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-pbapply 
@@ -47,7 +45,7 @@ Requires:         R-CRAN-curl
 
 %description
 NEON data packages can be accessed through the NEON Data Portal
-<https://data.neonscience.org/home> or through the NEON Data API (see
+<https://www.neonscience.org> or through the NEON Data API (see
 <https://data.neonscience.org/data-api> for documentation). Data delivered
 from the Data Portal are provided as monthly zip files packaged within a
 parent zip file, while individual files can be accessed from the API. This
@@ -65,6 +63,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

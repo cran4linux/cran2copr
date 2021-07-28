@@ -1,34 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  apcf
-%global packver   0.1.6
+%global packname  Rfmtool
+%global packver   4.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          4.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adapted Pair Correlation Function
+Summary:          Fuzzy Measure Tools
 
-License:          GPL (>= 3)
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gdal-devel >= 2.0.0
-BuildRequires:    geos-devel >= 3.4.0
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-Rcpp >= 0.12
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 2.9.2
+Requires:         R-core >= 2.9.2
 
 %description
-The adapted pair correlation function transfers the concept of the pair
-correlation function from point patterns to patterns of objects of finite
-size and irregular shape (e.g. lakes within a country). This is a
-reimplementation of the method suggested by Nuske et al. (2009)
-<doi:10.1016/j.foreco.2009.09.050> using the libraries 'GEOS' and 'GDAL'
-directly instead of through 'PostGIS'.
+Various tools for handling fuzzy measures, calculating Shapley value and
+interaction index, Choquet and Sugeno integrals, as well as fitting fuzzy
+measures to empirical data are provided. Construction of fuzzy measures
+from empirical data is done by solving a linear programming problem by
+using 'lpsolve' package, whose source in C adapted to the R environment is
+included. The description of the basic theory of fuzzy measures is in the
+manual in the Doc folder in this package. Please refer to the following:
+[1] <https://personal-sites.deakin.edu.au/~gleb/fmtools.html> [2] G.
+Beliakov, H. Bustince, T. Calvo, 'A Practical Guide to Averaging',
+Springer, (2016, ISBN: 978-3-319-24753-3). [3] G. Beliakov, S. James, J-Z.
+Wu, 'Discrete Fuzzy Measures', Springer, (2020, ISBN: 978-3-030-15305-2).
 
 %prep
 %setup -q -c -n %{packname}

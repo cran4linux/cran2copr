@@ -1,34 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  apcf
-%global packver   0.1.6
+%global packname  biClassify
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adapted Pair Correlation Function
+Summary:          Binary Classification Using Extensions of Discriminant Analysis
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gdal-devel >= 2.0.0
-BuildRequires:    geos-devel >= 3.4.0
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-Rcpp >= 0.12
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-datasets 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-CRAN-DAAG 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-Matrix 
+Requires:         R-stats 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-MASS 
+Requires:         R-datasets 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-expm 
+Requires:         R-CRAN-DAAG 
 
 %description
-The adapted pair correlation function transfers the concept of the pair
-correlation function from point patterns to patterns of objects of finite
-size and irregular shape (e.g. lakes within a country). This is a
-reimplementation of the method suggested by Nuske et al. (2009)
-<doi:10.1016/j.foreco.2009.09.050> using the libraries 'GEOS' and 'GDAL'
-directly instead of through 'PostGIS'.
+Implements methods for sample size reduction within Linear and Quadratic
+Discriminant Analysis in Lapanowski and Gaynanova (2020)
+<arXiv:2005.03858>. Also includes methods for non-linear discriminant
+analysis with simultaneous sparse feature selection in Lapanowski and
+Gaynanova (2019) PMLR 89:1704-1713.
 
 %prep
 %setup -q -c -n %{packname}

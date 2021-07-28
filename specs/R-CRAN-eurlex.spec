@@ -1,34 +1,49 @@
 %global __brp_check_rpaths %{nil}
-%global packname  apcf
-%global packver   0.1.6
+%global packname  eurlex
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adapted Pair Correlation Function
+Summary:          Retrieve Data on European Union Law
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gdal-devel >= 2.0.0
-BuildRequires:    geos-devel >= 3.4.0
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-Rcpp >= 0.12
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-pdftools 
+BuildRequires:    R-CRAN-antiword 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-pdftools 
+Requires:         R-CRAN-antiword 
 
 %description
-The adapted pair correlation function transfers the concept of the pair
-correlation function from point patterns to patterns of objects of finite
-size and irregular shape (e.g. lakes within a country). This is a
-reimplementation of the method suggested by Nuske et al. (2009)
-<doi:10.1016/j.foreco.2009.09.050> using the libraries 'GEOS' and 'GDAL'
-directly instead of through 'PostGIS'.
+Access to data on European Union laws and court decisions made easy with
+pre-defined 'SPARQL' queries and 'GET' requests.
 
 %prep
 %setup -q -c -n %{packname}

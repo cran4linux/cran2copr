@@ -1,34 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  apcf
-%global packver   0.1.6
+%global packname  findInGit
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adapted Pair Correlation Function
+Summary:          Find Pattern in Files of All Branches of a 'git' Repository
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gdal-devel >= 2.0.0
-BuildRequires:    geos-devel >= 3.4.0
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-Rcpp >= 0.12
-Requires:         R-graphics 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-htmlwidgets 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
-The adapted pair correlation function transfers the concept of the pair
-correlation function from point patterns to patterns of objects of finite
-size and irregular shape (e.g. lakes within a country). This is a
-reimplementation of the method suggested by Nuske et al. (2009)
-<doi:10.1016/j.foreco.2009.09.050> using the libraries 'GEOS' and 'GDAL'
-directly instead of through 'PostGIS'.
+Creates a HTML widget which displays the results of searching for a
+pattern in files in a given 'git' repository, including all its branches.
+The results can also be returned in a dataframe.
 
 %prep
 %setup -q -c -n %{packname}
