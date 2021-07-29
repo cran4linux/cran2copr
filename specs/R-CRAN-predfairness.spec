@@ -1,32 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cld3
-%global packver   1.4.2
+%global packname  predfairness
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Google's Compact Language Detector 3
+Summary:          Discrimination Mitigation for Machine Learning Models
 
-License:          Apache License 2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    protobuf-devel
-BuildRequires:    protobuf-compiler
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 
 %description
-Google's Compact Language Detector 3 is a neural network model for
-language identification and the successor of 'cld2' (available from CRAN).
-The algorithm is still experimental and takes a novel approach to language
-detection with different properties and outcomes. It can be useful to
-combine this with the Bayesian classifier results from 'cld2'. See
-<https://github.com/google/cld3#readme> for more information.
+Based on different statistical definitions of discrimination, several
+methods have been proposed to detect and mitigate social inequality in
+machine learning models. This package aims to provide an alternative to
+fairness treatment in predictive models. The ROC method implemented in
+this package is described by Kamiran, Karim and Zhang (2012)
+<https://ieeexplore.ieee.org/document/6413831/>.
 
 %prep
 %setup -q -c -n %{packname}

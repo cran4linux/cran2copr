@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ctmm
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous-Time Movement Modeling
 
@@ -78,8 +78,8 @@ Calabrese (2017) <doi:10.1111/2041-210X.12673>, Péron et al (2017)
 <doi:10.1111/2041-210X.13027>, Fleming et al (2019)
 <doi:10.1111/2041-210X.13270>, Noonan & Fleming et al (2019)
 <doi:10.1186/s40462-019-0177-1>, Fleming et al (2020)
-<doi:10.1101/2020.06.12.130195>, and Noonan et al (2020)
-<doi:10.1101/2020.08.24.261628>.
+<doi:10.1101/2020.06.12.130195>, and Noonan et al (2021)
+<doi:10.1111/2041-210X.13597>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -89,6 +89,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

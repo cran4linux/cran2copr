@@ -1,32 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cld3
-%global packver   1.4.2
+%global packname  profoc
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Google's Compact Language Detector 3
+Summary:          Probabilistic Forecast Combination Using CRPS Learning
 
-License:          Apache License 2.0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    protobuf-devel
-BuildRequires:    protobuf-compiler
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-splines2 >= 0.3.0
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppProgress 
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-Matrix 
 
 %description
-Google's Compact Language Detector 3 is a neural network model for
-language identification and the successor of 'cld2' (available from CRAN).
-The algorithm is still experimental and takes a novel approach to language
-detection with different properties and outcomes. It can be useful to
-combine this with the Bayesian classifier results from 'cld2'. See
-<https://github.com/google/cld3#readme> for more information.
+Combine probabilistic forecasts using CRPS learning algorithms proposed in
+Berrisch, Ziel (2021) <arXiv:2102.00968>. The package implements multiple
+online learning algorithms like Bernstein online aggregation; see
+Wintenberger (2014) <arXiv:1404.1356>. Quantile regression is also
+implemented for comparison purposes. Model parameters can be tuned
+automatically with respect to the loss of the forecast combination.
+Methods like predict(), update(), plot() and print() are available for
+convenience. This package utilizes the optim C++ library for numeric
+optimization <https://github.com/kthohr/optim>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,32 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cld3
-%global packver   1.4.2
+%global packname  ipeadatar
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Google's Compact Language Detector 3
+Summary:          API Wrapper for 'Ipeadata'
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    protobuf-devel
-BuildRequires:    protobuf-compiler
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-sjlabelled 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-sjlabelled 
 
 %description
-Google's Compact Language Detector 3 is a neural network model for
-language identification and the successor of 'cld2' (available from CRAN).
-The algorithm is still experimental and takes a novel approach to language
-detection with different properties and outcomes. It can be useful to
-combine this with the Bayesian classifier results from 'cld2'. See
-<https://github.com/google/cld3#readme> for more information.
+Allows direct access to the macroeconomic, financial and regional database
+maintained by Brazilian Institute for Applied Economic Research ('Ipea').
+This R package uses the 'Ipeadata' API. For more information, see
+<http://www.ipeadata.gov.br/>.
 
 %prep
 %setup -q -c -n %{packname}

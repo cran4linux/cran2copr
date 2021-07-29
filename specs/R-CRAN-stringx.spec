@@ -1,32 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cld3
-%global packver   1.4.2
+%global packname  stringx
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Google's Compact Language Detector 3
+Summary:          Drop-in Replacements for Base String Functions Powered by 'stringi'
 
-License:          Apache License 2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    protobuf-devel
-BuildRequires:    protobuf-compiler
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-stringi >= 1.7.2
+Requires:         R-CRAN-stringi >= 1.7.2
 
 %description
-Google's Compact Language Detector 3 is a neural network model for
-language identification and the successor of 'cld2' (available from CRAN).
-The algorithm is still experimental and takes a novel approach to language
-detection with different properties and outcomes. It can be useful to
-combine this with the Bayesian classifier results from 'cld2'. See
-<https://github.com/google/cld3#readme> for more information.
+English is the native language for only 5%% of the World population. Also,
+only 17%% of us can understand this text. Moreover, the Latin alphabet is
+the main one for merely 36%% of the total. The early computer era, now a
+very long time ago, was dominated by the US. Due to the proliferation of
+the internet, smartphones, social media, and other technologies and
+communication platforms, this is no longer the case. This package replaces
+base R string functions (such as grep(), tolower(), and sprintf()) with
+ones that fully support the Unicode standards related to natural language
+processing, fixes some long-standing inconsistencies, and introduces some
+new, useful features. Thanks to 'ICU' (International Components for
+Unicode) and 'stringi', they are fast, reliable, and portable across
+different platforms.
 
 %prep
 %setup -q -c -n %{packname}

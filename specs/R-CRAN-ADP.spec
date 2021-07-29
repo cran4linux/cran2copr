@@ -1,32 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cld3
-%global packver   1.4.2
+%global packname  ADP
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Google's Compact Language Detector 3
+Summary:          Adoption Probability, Triers and Users Rate of a New Product
 
-License:          Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    protobuf-devel
-BuildRequires:    protobuf-compiler
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
 
 %description
-Google's Compact Language Detector 3 is a neural network model for
-language identification and the successor of 'cld2' (available from CRAN).
-The algorithm is still experimental and takes a novel approach to language
-detection with different properties and outcomes. It can be useful to
-combine this with the Bayesian classifier results from 'cld2'. See
-<https://github.com/google/cld3#readme> for more information.
+Calculating users of a product based on the prevalence of triers in the
+population. The measuring of triers is relatively easy. It is just a
+question of whether a person tried a product even once in his life or not.
+While measuring the rate of people who also adopt it as part of their life
+is more complicated since the adoption of an innovative product is a
+subjective view of the individual. Mickey Kislev and Shira Kislev
+developed a formula to calculates the prevalence of users of a product to
+overcome this difficulty. The current calculator assists in calculating
+the users of a product based on the prevalence of triers in the
+population. See for: Kislev, M., and S. Kislev (2020)
+<doi:10.5539/ijms.v12n4p63>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,32 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cld3
-%global packver   1.4.2
+%global packname  MedianaDesigner
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Google's Compact Language Detector 3
+Summary:          Efficient Simulation-Based Power and Sample Size Calculations for a Broad Class of Late-Stage Clinical Trials
 
-License:          Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    protobuf-devel
-BuildRequires:    protobuf-compiler
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.1.2
+Requires:         R-core >= 3.1.2
+BuildRequires:    R-CRAN-Rcpp >= 0.12.10
+BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-devEMF 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-shinyMatrix 
+Requires:         R-CRAN-Rcpp >= 0.12.10
+Requires:         R-CRAN-officer 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-devEMF 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-shinyMatrix 
 
 %description
-Google's Compact Language Detector 3 is a neural network model for
-language identification and the successor of 'cld2' (available from CRAN).
-The algorithm is still experimental and takes a novel approach to language
-detection with different properties and outcomes. It can be useful to
-combine this with the Bayesian classifier results from 'cld2'. See
-<https://github.com/google/cld3#readme> for more information.
+The following modules are included in the package: Adaptive designs with
+data-driven sample size or event count re-estimation, Adaptive designs
+with data-driven treatment selection, Adaptive designs with data-driven
+population selection, Optimal selection of a futility stopping rule, Event
+prediction in event-driven trials.
 
 %prep
 %setup -q -c -n %{packname}

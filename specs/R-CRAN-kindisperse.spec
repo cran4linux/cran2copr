@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  kindisperse
-%global packver   0.10.1
+%global packver   0.10.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.1
+Version:          0.10.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate and Estimate Close-Kin Dispersal Kernels
 

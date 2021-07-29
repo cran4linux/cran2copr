@@ -1,44 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  apsimx
-%global packver   1.995
+%global packname  tldr
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.995
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inspect, Read, Edit and Run 'APSIM' "Next Generation" and 'APSIM' Classic
+Summary:          T Loux Doing R: Functions to Simplify Data Analysis and Reporting
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.3.1
+Requires:         R-core >= 3.3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-tools 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-tableone 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-CRAN-tableone 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
 
 %description
-The functions in this package inspect, read, edit and run files for
-'APSIM' "Next Generation" ('JSON') and 'APSIM' "Classic" ('XML'). The
-files with an 'apsim' extension correspond to 'APSIM' Classic (7.x) -
-Windows only - and the ones with an 'apsimx' extension correspond to
-'APSIM' "Next Generation". For more information about 'APSIM' see
-(<https://www.apsim.info/>) and for 'APSIM' next generation
-(<https://apsimnextgeneration.netlify.app/>).
+Gives a number of functions to aid common data analysis processes and
+reporting statistical results in an 'RMarkdown' file. Data analysis
+functions combine multiple base R functions used to describe simple
+bivariate relationships into a single, easy to use function. Reporting
+functions will return character strings to report p-values, confidence
+intervals, and hypothesis test and regression results. Strings will be
+LaTeX-formatted as necessary and will knit pretty in an 'RMarkdown'
+document. The package also provides a wrapper for the CreateTableOne()
+function in the 'tableone' package to make the results knit-able.
 
 %prep
 %setup -q -c -n %{packname}

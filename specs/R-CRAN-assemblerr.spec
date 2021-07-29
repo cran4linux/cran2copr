@@ -1,58 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  covid19india
-%global packver   0.1.3
+%global packname  assemblerr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pulling Clean Data from Covid19india.org
+Summary:          Assembly of Pharmacometric Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-EpiEstim 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-gt 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-cli >= 2.1.0
+BuildRequires:    R-CRAN-vctrs >= 0.3.4
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-EpiEstim 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-gt 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-cli >= 2.1.0
+Requires:         R-CRAN-vctrs >= 0.3.4
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-tidyselect 
 
 %description
-Pull raw and pre-cleaned versions of national and state-level COVID-19
-time-series data from covid19india.org <https://www.covid19india.org>.
-Easily obtain and merge case count data, testing data, and vaccine data.
-Also assists in calculating the time-varying effective reproduction number
-with sensible parameters for COVID-19.
+Construct pharmacometric nonlinear mixed effect models by combining
+predefined model components and automatically generate model code for
+NONMEM. Models are created by combining parameter and observation models,
+algebraic relationships, compartments, and flows. Pharmacokinetic models
+can be assembled from the higher-order components: absorption,
+distribution, and elimination. The generated code is optimized for
+performance by recognizing, for example, linear differential equations or
+differential equations with an analytic solution.
 
 %prep
 %setup -q -c -n %{packname}

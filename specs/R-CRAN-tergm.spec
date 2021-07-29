@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tergm
-%global packver   4.0.1
+%global packver   4.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.1
+Version:          4.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit, Simulate and Diagnose Models for Network Evolution Based on Exponential-Family Random Graph Models
 
@@ -17,7 +17,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-MASS >= 7.3.51.4
 BuildRequires:    R-CRAN-statnet.common >= 4.4.0
-BuildRequires:    R-CRAN-ergm >= 4.0.1
+BuildRequires:    R-CRAN-ergm >= 4.1.0
 BuildRequires:    R-CRAN-nlme >= 3.1.139
 BuildRequires:    R-CRAN-network >= 1.15
 BuildRequires:    R-CRAN-robustbase >= 0.93.5
@@ -28,7 +28,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-MASS >= 7.3.51.4
 Requires:         R-CRAN-statnet.common >= 4.4.0
-Requires:         R-CRAN-ergm >= 4.0.1
+Requires:         R-CRAN-ergm >= 4.1.0
 Requires:         R-CRAN-nlme >= 3.1.139
 Requires:         R-CRAN-network >= 1.15
 Requires:         R-CRAN-robustbase >= 0.93.5
@@ -54,6 +54,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

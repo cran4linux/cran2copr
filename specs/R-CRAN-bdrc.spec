@@ -1,32 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cld3
-%global packver   1.4.2
+%global packname  bdrc
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Google's Compact Language Detector 3
+Summary:          Bayesian Discharge Rating Curves
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    protobuf-devel
-BuildRequires:    protobuf-compiler
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grid 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 
 %description
-Google's Compact Language Detector 3 is a neural network model for
-language identification and the successor of 'cld2' (available from CRAN).
-The algorithm is still experimental and takes a novel approach to language
-detection with different properties and outcomes. It can be useful to
-combine this with the Bayesian classifier results from 'cld2'. See
-<https://github.com/google/cld3#readme> for more information.
+Fits a discharge rating curve based on the power-law and the generalized
+power-law from data on paired stage and discharge measurements in a given
+river using a Bayesian hierarchical model as described in Hrafnkelsson et
+al. (2020) <arXiv:2010.04769>.
 
 %prep
 %setup -q -c -n %{packname}
