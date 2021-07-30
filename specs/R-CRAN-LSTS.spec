@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  LSTS
-%global packver   2.0
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Locally Stationary Time Series
 
@@ -29,13 +29,7 @@ Requires:         R-CRAN-patchwork
 
 %description
 A set of functions that allow stationary analysis and locally stationary
-time series analysis. The principal references are Dahlhaus (1997)
-<doi:10.1214/aos/1034276620>, Dahlhaus and Giraitis (1998)
-<doi:10.1111/1467-9892.00114>, Brockwell, et al. (2002)
-<isbn:978-3-319-29854-2>, Ljung and Box (1978)
-<doi:10.1093/biomet/65.2.297>, Palma (2007) <isbn:978-0-470-11402-5>,
-Palma, et al. (2011) <doi:10.1002/for.1259>, and Palma and Olea (2010)
-<doi:10.1214/10-AOS812>.
+time series analysis.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

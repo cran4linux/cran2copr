@@ -1,56 +1,57 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rbedrock
-%global packver   0.1.0
+%global packname  cansim
+%global packver   0.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.3.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis and Manipulation of Data from Minecraft Bedrock Edition
+Summary:          Accessing Statistics Canada Data Table and Vectors
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-bitops 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr >= 1.0.0
+BuildRequires:    R-CRAN-jsonlite >= 1.0
+BuildRequires:    R-CRAN-dplyr >= 0.7
+BuildRequires:    R-CRAN-digest >= 0.1
 BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-fs 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-bitops 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-RSQLite 
+Requires:         R-CRAN-httr >= 1.0.0
+Requires:         R-CRAN-jsonlite >= 1.0
+Requires:         R-CRAN-dplyr >= 0.7
+Requires:         R-CRAN-digest >= 0.1
 Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
 Requires:         R-utils 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-fs 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-RSQLite 
 
 %description
-Implements an interface to Minecraft (Bedrock Edition) worlds. Supports
-the analysis and management of these worlds and game saves.
+Searches for, accesses, and retrieves new-format and old-format Statistics
+Canada data tables, as well as individual vectors, as tidy data frames.
+This package deals with encoding issues, allows for bilingual English or
+French language data retrieval, and bundles convenience functions to make
+it easier to work with retrieved table data. Optional caching features are
+provided.
 
 %prep
 %setup -q -c -n %{packname}

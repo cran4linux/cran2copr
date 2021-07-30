@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Rilostat
-%global packver   1.1.7
+%global packver   1.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.7
+Version:          1.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          ILO Open Data via Ilostat Bulk Download Facility or SDMX Web Service
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-readr >= 1.4.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.4
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-data.table 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-readr >= 1.4.0
 Requires:         R-CRAN-dplyr >= 1.0.4
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-data.table 
@@ -49,6 +51,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

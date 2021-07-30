@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  kubik
-%global packver   0.3.0
+%global packname  pacs
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cubic Hermite Splines and Related Root Finding Methods
+Summary:          Supplementary Tools for R Packages Developers
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,14 +16,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-memoise 
+Requires:         R-CRAN-memoise 
 
 %description
-Supports cubic Hermite splines (Fritsch & Carlson, 1980
-<doi:10.1137/0717021>), along with their derivatives/integrals. Also,
-supports monotonically increasing/decreasing splines, and computes their
-roots and minimum/maximum points.
+Supplementary utils for CRAN maintainers and R packages developers.
+Validating the library or packages health. Exploring complexity of a
+certain package like evaluating sizes in bytes of all its dependencies.
+Assessing life duration of a specific package version. Checking a package
+CRAN check page status for any errors and warnings. Retrieving a
+DESCRIPTION file for any package version. Getting a list of all releases
+for a specific package.
 
 %prep
 %setup -q -c -n %{packname}
@@ -33,6 +36,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

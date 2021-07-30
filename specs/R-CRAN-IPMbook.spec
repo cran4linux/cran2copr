@@ -1,34 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  glmmboot
-%global packver   0.6.0
+%global packname  IPMbook
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bootstrap Resampling for Mixed Effects and Plain Models
+Summary:          Functions and Data for the Book 'Integrated Population Models'
 
-License:          AGPL-3 | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-abind 
 Requires:         R-stats 
+Requires:         R-CRAN-abind 
 
 %description
-Performs bootstrap resampling for most models that update() works for.
-There are two primary functions: bootstrap_model() performs block
-resampling if random effects are present, and case resampling if not;
-bootstrap_ci() converts output from bootstrap model runs into confidence
-intervals and p-values. By default, bootstrap_model() calls
-bootstrap_ci(). Package motivated by Humphrey and Swingley (2018)
-<arXiv:1805.08670>.
+Provides functions and data sets to accompany the book 'Integrated
+Population Models: Theory and Ecological Applications with R and JAGS' by
+Michael Schaub and Marc Kéry (ISBN: 9780128205648).
 
 %prep
 %setup -q -c -n %{packname}
@@ -38,6 +34,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

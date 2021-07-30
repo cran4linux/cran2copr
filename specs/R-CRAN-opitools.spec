@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  opitools
-%global packver   1.0.3
+%global packver   1.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Tool for Analyzing Opinions in a Text Document
+Summary:          Analyzing the Opinions in a Big Text Document
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,6 +25,9 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-likert 
+BuildRequires:    R-CRAN-tm 
+BuildRequires:    R-CRAN-wordcloud2 
+BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-cowplot 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tibble 
@@ -35,17 +38,22 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-likert 
+Requires:         R-CRAN-tm 
+Requires:         R-CRAN-wordcloud2 
+Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-cowplot 
 
 %description
-This tool analyzes the opinions inherent in a text document relating to a
-specific subject (A), and assesses the impacts that opinion expressed with
-respect to another subject (B) have on subject A. This package is
-specifically designed for application to social media datasets, such as
-Twitter and Facebook. The utility of the package has been demonstrated in
-Adepeju and Jimoh (2021) <doi:10.31235/osf.io/c32qh> in the assessment of
-impacts of COVID-19 pandemic on public opinions concerning neighborhood
-policing across England and Wales.
+Designed for performing impact analysis of opinions in a digital text
+document (DTD). The package allows a user to assess the extent to which a
+theme or subject within a document impacts the overall opinion expressed
+in the document. The package can be applied to a wide range of
+opinion-based DTD, including commentaries on social media platforms (such
+as 'Facebook', 'Twitter' and 'Youtube'), online products reviews, and so
+on. The utility of 'opitools' was originally demonstrated in Adepeju and
+Jimoh (2021) <doi:10.31235/osf.io/c32qh> in the assessment of COVID-19
+impacts on neighbourhood policing using Twitter data. Further examples can
+be found in the vignette of the package.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,6 +63,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

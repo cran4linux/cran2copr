@@ -1,46 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  haploR
-%global packver   4.0.2
+%global packname  censable
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.2
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Query 'HaploReg', 'RegulomeDB'
+Summary:          Making Census Data More Usable
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-dplyr >= 1.0.4
+BuildRequires:    R-CRAN-sf >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 0.1.2
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidycensus 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-RUnit 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-RJSONIO 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-XML 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-memoise 
+Requires:         R-CRAN-dplyr >= 1.0.4
+Requires:         R-CRAN-sf >= 1.0.0
+Requires:         R-CRAN-rlang >= 0.1.2
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidycensus 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-RUnit 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-RJSONIO 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-memoise 
 
 %description
-A set of utilities for querying 'HaploReg'
-<https://pubs.broadinstitute.org/mammals/haploreg/haploreg.php>,
-'RegulomeDB' <https://www.regulomedb.org/regulome-search/> web-based
-tools. The package connects to 'HaploReg', 'RegulomeDB' searches and
-downloads results, without opening web pages, directly from R environment.
-Results are stored in a data frame that can be directly used in various
-kinds of downstream analyses.
+Creates a common framework for organizing, naming, and gathering
+population, age, race, and ethnicity data from the Census Bureau. Accesses
+the API <https://www.census.gov/data/developers/data-sets.html> via the
+package tidycensus. Provides tools for adding information to existing data
+to line up with Census data.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,6 +48,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

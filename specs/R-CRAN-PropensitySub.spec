@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  solitude
-%global packver   1.1.3
+%global packname  PropensitySub
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Implementation of Isolation Forest
+Summary:          Treatment Effect Estimate in Strata with Missing Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,23 +16,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 2.4.0
-BuildRequires:    R-CRAN-igraph >= 1.2.2
-BuildRequires:    R-CRAN-data.table >= 1.11.4
-BuildRequires:    R-CRAN-lgr >= 0.3.4
-BuildRequires:    R-CRAN-future.apply >= 0.2.0
-BuildRequires:    R-CRAN-ranger >= 0.11.0
-Requires:         R-CRAN-R6 >= 2.4.0
-Requires:         R-CRAN-igraph >= 1.2.2
-Requires:         R-CRAN-data.table >= 1.11.4
-Requires:         R-CRAN-lgr >= 0.3.4
-Requires:         R-CRAN-future.apply >= 0.2.0
-Requires:         R-CRAN-ranger >= 0.11.0
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-Matching 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-survminer 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-Matching 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-survminer 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-gtable 
+Requires:         R-grid 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-scales 
 
 %description
-Isolation forest is anomaly detection method introduced by the paper
-Isolation based Anomaly Detection (Liu, Ting and Zhou
-<doi:10.1145/2133360.2133363>).
+Estimate treatment effect in strata when subjects have missing strata
+labels, via inverse probability weighting or propensity score matching.
 
 %prep
 %setup -q -c -n %{packname}

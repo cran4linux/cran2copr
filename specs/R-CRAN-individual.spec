@@ -1,35 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  statgenGWAS
-%global packver   1.0.7
+%global packname  individual
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Genome Wide Association Studies
+Summary:          Framework for Specifying and Simulating Individual Based Models
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-sommer >= 3.7.3
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-sommer >= 3.7.3
-Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-Rcpp 
 
 %description
-Fast single trait Genome Wide Association Studies (GWAS) following the
-method described in Kang et al. (2010), <doi:10.1038/ng.548>. One of a
-series of statistical genetic packages for streamlining the analysis of
-typical plant breeding experiments developed by Biometris.
+A framework which provides users a set of useful primitive elements for
+specifying individual based simulation models, with special attention
+models for infectious disease epidemiology. Users build models by
+specifying variables for each characteristic of individuals in the
+simulated population by using data structures exposed by the package. The
+package provides efficient methods for finding subsets of individuals
+based on these variables, or cohorts. Cohorts can then be targeted for
+variable updates or scheduled for events. Variable updates queued during a
+time step are executed at the end of a discrete time step, and the code
+places no restrictions on how individuals are allowed to interact. These
+data structures are designed to provide an intuitive way for users to turn
+their conceptual model of a system into executable code, which is fast and
+memory efficient.
 
 %prep
 %setup -q -c -n %{packname}

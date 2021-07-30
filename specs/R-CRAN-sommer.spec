@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sommer
-%global packver   4.1.3
+%global packver   4.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.3
+Version:          4.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Solving Mixed Model Equations in R
 
@@ -43,7 +43,7 @@ Average Information algorithms. Designed for genomic prediction and genome
 wide association studies (GWAS), particularly focused in the p > n problem
 (more coefficients than observations) and dense known covariance
 structures for levels of random effects. Spatial models can also be fitted
-using i.e. the two-dimensional spline functionality available in sommer.
+using the two-dimensional spline functionality available in sommer.
 
 %prep
 %setup -q -c -n %{packname}
@@ -53,6 +53,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
