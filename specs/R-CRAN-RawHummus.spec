@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RawHummus
-%global packver   0.1.0
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Raw Data Quality Control Tool for LC-MS System
 
@@ -24,12 +24,13 @@ BuildRequires:    R-CRAN-shinyMatrix
 BuildRequires:    R-CRAN-shinyvalidate 
 BuildRequires:    R-CRAN-shinycustomloader 
 BuildRequires:    R-CRAN-RaMS 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-kableExtra 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-shinydashboardPlus 
@@ -38,12 +39,13 @@ Requires:         R-CRAN-shinyMatrix
 Requires:         R-CRAN-shinyvalidate 
 Requires:         R-CRAN-shinycustomloader 
 Requires:         R-CRAN-RaMS 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-DT 
+Requires:         R-CRAN-kableExtra 
 
 %description
 Assess LC–MS system performance by visualizing instrument log files and

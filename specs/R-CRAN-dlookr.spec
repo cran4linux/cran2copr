@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dlookr
-%global packver   0.4.5
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Data Diagnosis, Exploration, Transformation
 
@@ -18,46 +18,44 @@ Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-knitr >= 1.22
-BuildRequires:    R-CRAN-corrplot >= 0.84
 BuildRequires:    R-CRAN-hrbrthemes >= 0.8.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.6
 BuildRequires:    R-CRAN-extrafont >= 0.17
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-pagedown >= 0.15
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mice 
 BuildRequires:    R-CRAN-partykit 
-BuildRequires:    R-CRAN-prettydoc 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-RcmdrMisc 
+BuildRequires:    R-CRAN-reactable 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-knitr >= 1.22
-Requires:         R-CRAN-corrplot >= 0.84
 Requires:         R-CRAN-hrbrthemes >= 0.8.0
 Requires:         R-CRAN-dplyr >= 0.7.6
 Requires:         R-CRAN-extrafont >= 0.17
-Requires:         R-CRAN-cli 
+Requires:         R-CRAN-pagedown >= 0.15
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-kableExtra 
-Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-mice 
 Requires:         R-CRAN-partykit 
-Requires:         R-CRAN-prettydoc 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-RcmdrMisc 
+Requires:         R-CRAN-reactable 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
@@ -83,6 +81,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

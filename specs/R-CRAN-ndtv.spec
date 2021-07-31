@@ -1,38 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ThresholdROC
-%global packver   2.9.0
+%global packname  ndtv
+%global packver   0.13.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.0
+Version:          0.13.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimum Threshold Estimation
+Summary:          Network Dynamic Temporal Visualizations
 
-License:          GPL (>= 2)
+License:          GPL-3 + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-animation >= 2.4
+BuildRequires:    R-CRAN-network >= 1.13
+BuildRequires:    R-CRAN-networkDynamic >= 0.9
+BuildRequires:    R-CRAN-sna 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-pROC 
-BuildRequires:    R-CRAN-ks 
+BuildRequires:    R-CRAN-statnet.common 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-base64 
+Requires:         R-CRAN-animation >= 2.4
+Requires:         R-CRAN-network >= 1.13
+Requires:         R-CRAN-networkDynamic >= 0.9
+Requires:         R-CRAN-sna 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-pROC 
-Requires:         R-CRAN-ks 
+Requires:         R-CRAN-statnet.common 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-base64 
 
 %description
-Functions that provide point and interval estimations of optimum
-thresholds for continuous diagnostic tests. The methodology used is based
-on minimizing an overall cost function in the two- and three-state
-settings. We also provide functions for sample size determination and
-estimation of diagnostic accuracy measures. We also include graphical
-tools. The statistical methodology used here can be found in Perez-Jaume
-et al (2017) <doi:10.18637/jss.v082.i04>.
+Renders dynamic network data from 'networkDynamic' objects as movies,
+interactive animations, or other representations of changing relational
+structures and attributes.
 
 %prep
 %setup -q -c -n %{packname}

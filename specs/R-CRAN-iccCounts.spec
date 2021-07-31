@@ -1,42 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dssd
-%global packver   0.3.0
+%global packname  iccCounts
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distance Sampling Survey Design
+Summary:          Intraclass Correlation Coefficient for Count Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-plot3D 
-BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-glmmTMB 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-plot3D 
-Requires:         R-CRAN-rgdal 
+BuildRequires:    R-CRAN-Deriv 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-glmmTMB 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
+Requires:         R-CRAN-Deriv 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-VGAM 
+Requires:         R-CRAN-dplyr 
 
 %description
-Creates survey designs for distance sampling surveys. These designs can be
-assessed for various effort and coverage statistics. Once the user is
-satisfied with the design characteristics they can generate a set of
-transects to use in their distance sampling survey. Many of the designs
-implemented in this R package were first made available in our 'Distance'
-for Windows software and are detailed in Chapter 7 of Advanced Distance
-Sampling, Buckland et. al. (2008, ISBN-13: 978-0199225873). Find out more
-about estimating animal/plant abundance with distance sampling at
-<http://distancesampling.org/>.
+Estimates the intraclass correlation coefficient (ICC) for count data to
+assess repeatability (intra-methods concordance) and concordance
+(between-method concordance). In the concordance setting, the ICC is
+equivalent to the concordance correlation coefficient estimated by
+variance components. The ICC is estimated using the estimates from
+generalized linear mixed models. The within-subjects distributions
+considered are: Poisson; Negative Binomial with additive and proportional
+extradispersion; Zero-Inflated Poisson; and Zero-Inflated Negative
+Binomial with additive and proportional extradispersion. The statistical
+methodology used to estimate the ICC with count data can be found in
+Carrasco (2010) <doi:10.1111/j.1541-0420.2009.01335.x>.
 
 %prep
 %setup -q -c -n %{packname}

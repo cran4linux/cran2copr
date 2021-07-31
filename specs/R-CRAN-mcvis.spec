@@ -1,38 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ThresholdROC
-%global packver   2.9.0
+%global packname  mcvis
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.0
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimum Threshold Estimation
+Summary:          Multi-Collinearity Visualization
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-pROC 
-BuildRequires:    R-CRAN-ks 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-pROC 
-Requires:         R-CRAN-ks 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-rlang 
 
 %description
-Functions that provide point and interval estimations of optimum
-thresholds for continuous diagnostic tests. The methodology used is based
-on minimizing an overall cost function in the two- and three-state
-settings. We also provide functions for sample size determination and
-estimation of diagnostic accuracy measures. We also include graphical
-tools. The statistical methodology used here can be found in Perez-Jaume
-et al (2017) <doi:10.18637/jss.v082.i04>.
+Visualize the relationship between linear regression variables and causes
+of multi-collinearity. Implements the method in Lin et. al. (2020)
+<doi:10.1080/10618600.2020.1779729>.
 
 %prep
 %setup -q -c -n %{packname}

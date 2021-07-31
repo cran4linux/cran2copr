@@ -1,38 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ThresholdROC
-%global packver   2.9.0
+%global packname  apsimx
+%global packver   1.998
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.0
+Version:          1.998
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimum Threshold Estimation
+Summary:          Inspect, Read, Edit and Run 'APSIM' "Next Generation" and 'APSIM' Classic
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-pROC 
-BuildRequires:    R-CRAN-ks 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-pROC 
-Requires:         R-CRAN-ks 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-tools 
+Requires:         R-utils 
+Requires:         R-CRAN-xml2 
 
 %description
-Functions that provide point and interval estimations of optimum
-thresholds for continuous diagnostic tests. The methodology used is based
-on minimizing an overall cost function in the two- and three-state
-settings. We also provide functions for sample size determination and
-estimation of diagnostic accuracy measures. We also include graphical
-tools. The statistical methodology used here can be found in Perez-Jaume
-et al (2017) <doi:10.18637/jss.v082.i04>.
+The functions in this package inspect, read, edit and run files for
+'APSIM' "Next Generation" ('JSON') and 'APSIM' "Classic" ('XML'). The
+files with an 'apsim' extension correspond to 'APSIM' Classic (7.x) -
+Windows only - and the ones with an 'apsimx' extension correspond to
+'APSIM' "Next Generation". For more information about 'APSIM' see
+(<https://www.apsim.info/>) and for 'APSIM' next generation
+(<https://apsimnextgeneration.netlify.app/>).
 
 %prep
 %setup -q -c -n %{packname}

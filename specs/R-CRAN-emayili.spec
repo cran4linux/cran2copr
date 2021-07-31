@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  emayili
-%global packver   0.4.12
+%global packver   0.4.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.12
+Version:          0.4.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Send Email Messages
 

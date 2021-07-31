@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  micemd
-%global packver   1.6.0
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
-Release:          3%{?dist}%{?buildtag}
+Version:          1.7.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Imputation by Chained Equations with Multilevel Data
 
 License:          GPL-2 | GPL-3
@@ -19,13 +19,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-jomo >= 2.6.3
 BuildRequires:    R-CRAN-mice >= 2.42
 BuildRequires:    R-CRAN-mvmeta >= 0.4.7
-BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-parallel 
-BuildRequires:    R-nlme 
+BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-digest 
@@ -33,13 +33,13 @@ BuildRequires:    R-CRAN-abind
 Requires:         R-CRAN-jomo >= 2.6.3
 Requires:         R-CRAN-mice >= 2.42
 Requires:         R-CRAN-mvmeta >= 0.4.7
-Requires:         R-Matrix 
+Requires:         R-CRAN-Matrix 
 Requires:         R-graphics 
 Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-MASS 
+Requires:         R-CRAN-MASS 
 Requires:         R-parallel 
-Requires:         R-nlme 
+Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-digest 
@@ -58,6 +58,15 @@ parallel calculation and overimputation for 'mice'.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -67,14 +76,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
