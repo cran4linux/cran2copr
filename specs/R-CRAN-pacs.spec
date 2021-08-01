@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pacs
-%global packver   0.2.5
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Supplementary Tools for R Packages Developers
 
@@ -17,16 +17,18 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-stringi 
 Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-stringi 
 
 %description
 Supplementary utils for CRAN maintainers and R packages developers.
-Validating the library or packages health. Exploring complexity of a
-certain package like evaluating sizes in bytes of all its dependencies.
-Assessing life duration of a specific package version. Checking a package
-CRAN check page status for any errors and warnings. Retrieving a
-DESCRIPTION file for any package version. Getting a list of all releases
-for a specific package.
+Validating the library or packages. Exploring a complexity of a specific
+package like evaluating sizes in bytes of all its dependencies. Assessing
+the life duration of a specific package version. Checking a package CRAN
+check page status for any errors and warnings. Retrieving a DESCRIPTION
+file for any package version. Getting a list of all releases for a
+specific package.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  isocalcR
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Isotope Calculations in R
 
@@ -22,7 +22,8 @@ Requires:         R-CRAN-dplyr >= 1.0.6
 %description
 Perform common calculations based on published stable isotope theory, such
 as calculating carbon isotope discrimination and intrinsic water use
-efficiency from wood or leaf carbon isotope composition.
+efficiency from wood or leaf carbon isotope composition. See Farquhar,
+O'Leary, and Berry (1982) <doi:10.1071/PP9820121>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -32,6 +33,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

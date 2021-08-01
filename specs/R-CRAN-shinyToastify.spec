@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  shinyToastify
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pretty Notifications for 'Shiny'
 
@@ -20,10 +20,12 @@ BuildRequires:    R-CRAN-htmltools
 BuildRequires:    R-CRAN-reactR 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-fontawesome 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-reactR 
 Requires:         R-CRAN-shiny 
 Requires:         R-utils 
+Requires:         R-CRAN-fontawesome 
 
 %description
 This is a wrapper of the 'React' library 'React-Toastify'. It allows to
