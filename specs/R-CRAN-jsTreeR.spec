@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  jsTreeR
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Wrapper of the JavaScript Library 'jsTree'
 
@@ -27,6 +27,8 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-fontawesome 
+BuildRequires:    R-CRAN-jquerylib 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-htmltools 
@@ -38,6 +40,8 @@ Requires:         R-stats
 Requires:         R-CRAN-base64enc 
 Requires:         R-utils 
 Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-fontawesome 
+Requires:         R-CRAN-jquerylib 
 
 %description
 Creates interactive trees that can be included in 'Shiny' apps and R
@@ -57,6 +61,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
