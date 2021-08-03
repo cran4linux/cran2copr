@@ -1,53 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rRofex
-%global packver   2.0.6
+%global packname  chronochrt
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'Matba Rofex' Trading API
+Summary:          Creating Chronological Charts with R
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-websocket 
-BuildRequires:    R-CRAN-later 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-tibble >= 3.0.0
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grid 
+Requires:         R-CRAN-magick 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-glue 
-Requires:         R-methods 
-Requires:         R-CRAN-websocket 
-Requires:         R-CRAN-later 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Execute API calls to the 'Matba Rofex' <https://apihub.primary.com.ar>
-trading platform. Functionality includes accessing account data and
-current holdings, retrieving investment quotes, placing and canceling
-orders, and getting reference data for instruments.
+Easy way to draw chronological charts from tables, aiming to include an
+intuitive environment for anyone new to R. Includes 'ggplot2' geoms and
+theme for chronological charts.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,44 +1,48 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SSDforR
-%global packver   1.5.22
+%global packname  refineR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.22
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions to Analyze Single System Data
+Summary:          Reference Interval Estimation using Real-World Data
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-TTR 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ash 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-parallel 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-MAd 
-BuildRequires:    R-CRAN-metafor 
-BuildRequires:    R-CRAN-SingleCaseES 
-Requires:         R-CRAN-psych 
-Requires:         R-CRAN-TTR 
-Requires:         R-CRAN-MASS 
 Requires:         R-stats 
+Requires:         R-CRAN-ash 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
+Requires:         R-parallel 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-utils 
-Requires:         R-CRAN-MAd 
-Requires:         R-CRAN-metafor 
-Requires:         R-CRAN-SingleCaseES 
 
 %description
-Functions to visually and statistically analyze single system data.
+Indirect method for the estimation of reference intervals using Real-World
+Data ('RWD'). It takes routine measurements of diagnostic tests,
+containing pathological and non-pathological samples as input and uses
+sophisticated statistical methods to derive a model describing the
+distribution of the non-pathological samples. This distribution can then
+be used to derive reference intervals. Furthermore, the package offers
+functions for printing and plotting the results of the algorithm. The
+method is described in detail in Ammer T., Schuetzenmeister A., Prokosch
+H.-U., Rauh M., Rank C.M., Zierk J. "refineR: A Novel Algorithm for
+Reference Interval Estimation from Real-World Data". Scientific Reports
+(2021) [accepted July 21, 2021].
 
 %prep
 %setup -q -c -n %{packname}

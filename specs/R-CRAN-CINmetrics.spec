@@ -1,41 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidycat
-%global packver   0.1.2
+%global packname  CINmetrics
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Expand Tidy Output for Categorical Parameter Estimates
+Summary:          Calculate Chromosomal Instability Metrics
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-forcats 
-Requires:         R-CRAN-magrittr 
-Requires:         R-utils 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
 Requires:         R-stats 
-Requires:         R-CRAN-forcats 
 
 %description
-Create additional rows and columns on broom::tidy() output to allow for
-easier control on categorical parameter estimates.
+Implement various chromosomal instability metrics. 'CINmetrics'
+(Chromosomal INstability metrics) provides functions to calculate various
+chromosomal instability metrics on masked Copy Number Variation(CNV) data
+at individual sample level. The chromosomal instability metrics have been
+implemented as described in the following studies: Baumbusch LO et al.
+2013 <doi:10.1371/journal.pone.0054356>, Davidson JM et al. 2014
+<doi:10.1371/journal.pone.0079079>, Chin SF et al. 2007
+<doi:10.1186/gb-2007-8-10-r215>.
 
 %prep
 %setup -q -c -n %{packname}

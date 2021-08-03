@@ -1,41 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidycat
-%global packver   0.1.2
+%global packname  sorcering
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Expand Tidy Output for Categorical Parameter Estimates
+Summary:          Soil Organic Carbon and CN Ratio Driven Nitrogen Modelling Framework
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-forcats 
-Requires:         R-CRAN-magrittr 
-Requires:         R-utils 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-stats 
-Requires:         R-CRAN-forcats 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.6
+BuildRequires:    R-CRAN-mathjaxr 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.6
+Requires:         R-CRAN-mathjaxr 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Create additional rows and columns on broom::tidy() output to allow for
-easier control on categorical parameter estimates.
+Can be used to model the fate of soil organic carbon and soil organic
+nitrogen and to calculate N mineralisation rates. Provides a framework
+that numerically solves differential equations of soil organic carbon
+models based on first-order kinetics and extends these models to include
+the nitrogen component. The name 'sorcering' is an acronym for 'Soil
+ORganic Carbon & CN Ratio drIven Nitrogen modellinG framework'.
 
 %prep
 %setup -q -c -n %{packname}

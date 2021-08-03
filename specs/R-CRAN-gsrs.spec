@@ -1,41 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidycat
-%global packver   0.1.2
+%global packname  gsrs
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Expand Tidy Output for Categorical Parameter Estimates
+Summary:          A Group-Specific Recommendation System
 
-License:          GPL-3
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-forcats 
-Requires:         R-CRAN-magrittr 
-Requires:         R-utils 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-stats 
-Requires:         R-CRAN-forcats 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
 
 %description
-Create additional rows and columns on broom::tidy() output to allow for
-easier control on categorical parameter estimates.
+A group-specific recommendation system to use dependency information from
+users and items which share similar characteristics under the singular
+value decomposition framework. Refer to paper A Group-Specific Recommender
+System <doi:10.1080/01621459.2016.1219261> for the details.
 
 %prep
 %setup -q -c -n %{packname}

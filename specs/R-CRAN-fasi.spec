@@ -1,41 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidycat
-%global packver   0.1.2
+%global packname  fasi
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Expand Tidy Output for Categorical Parameter Estimates
+Summary:          Fair Adjusted Selective Inference
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-naivebayes 
+BuildRequires:    R-CRAN-fastAdaboost 
+BuildRequires:    R-CRAN-gam 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-forcats 
-Requires:         R-CRAN-magrittr 
-Requires:         R-utils 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-naivebayes 
+Requires:         R-CRAN-fastAdaboost 
+Requires:         R-CRAN-gam 
 Requires:         R-stats 
-Requires:         R-CRAN-forcats 
 
 %description
-Create additional rows and columns on broom::tidy() output to allow for
-easier control on categorical parameter estimates.
+The Fair Adjusted Selective Inference (FASI) procedure as described in the
+paper "A Fairness-Adjusted Selective Inference Framework For
+Classification" By: Bradley Rava, Wen Sun, Gareth James and Xin Tong
+(2021). The package includes a function that preforms the FASI procedure
+and returns both the r-scores and classification for new observations.
 
 %prep
 %setup -q -c -n %{packname}

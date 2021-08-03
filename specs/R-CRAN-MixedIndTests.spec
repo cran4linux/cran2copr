@@ -1,41 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidycat
-%global packver   0.1.2
+%global packname  MixedIndTests
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Expand Tidy Output for Categorical Parameter Estimates
+Summary:          Tests of Randomness and Tests of Independence
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-forcats 
-Requires:         R-CRAN-magrittr 
-Requires:         R-utils 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-survey 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-CRAN-foreach 
 Requires:         R-stats 
-Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-survey 
 
 %description
-Create additional rows and columns on broom::tidy() output to allow for
-easier control on categorical parameter estimates.
+Functions for testing randomness for a univariate time series with
+arbitrary distribution (discrete, continuous, mixture of both types) and
+for testing independence between random variables with arbitrary
+distributions. The test statistics are based on the multilinear empirical
+copula and multipliers are used to compute P-values. The test of
+independence between random variables appeared in
+<doi:10.1093/biomet/asy059>.
 
 %prep
 %setup -q -c -n %{packname}

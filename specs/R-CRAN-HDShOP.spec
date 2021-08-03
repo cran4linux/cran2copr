@@ -1,41 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidycat
-%global packver   0.1.2
+%global packname  HDShOP
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Expand Tidy Output for Categorical Parameter Estimates
+Summary:          High-Dimensional Shrinkage Optimal Portfolios
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-forcats 
-Requires:         R-CRAN-magrittr 
-Requires:         R-utils 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-stats 
-Requires:         R-CRAN-forcats 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Create additional rows and columns on broom::tidy() output to allow for
-easier control on categorical parameter estimates.
+Applications of the shrinkage-type methods for estimation and inference of
+high- dimensional mean-variance portfolios. The techniques developed in
+Bodnar et al. (2018) <doi:10.1016/j.ejor.2017.09.028>, Bodnar et al.
+(2019) <doi:10.1109/TSP.2019.2929964>, Bodnar et al. (2020)
+<doi:10.1109/TSP.2020.3037369> are central to the package. They provide
+simple and feasible estimators and tests for optimal portfolio weights,
+which are applicable for 'large p and large n' situations, where p is the
+portfolio dimension (number of stocks) and n is the sample size. The
+package also includes tools for constructing portfolios with shrinkage
+means and covariance matrices as well as a new Bayesian estimator for the
+Markowitz efficient frontier recently developed by Bauder et al. (2021)
+<doi:10.1080/14697688.2020.1748214>.
 
 %prep
 %setup -q -c -n %{packname}

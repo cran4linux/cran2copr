@@ -1,41 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidycat
+%global packname  BlanketStatsments
 %global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Expand Tidy Output for Categorical Parameter Estimates
+Summary:          Build and Compare Statistical Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-basecamb 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-survAUC 
+BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-forcats 
-Requires:         R-CRAN-magrittr 
-Requires:         R-utils 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-assertive.types 
+Requires:         R-CRAN-basecamb 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-survAUC 
+Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-Hmisc 
 Requires:         R-stats 
-Requires:         R-CRAN-forcats 
+Requires:         R-utils 
+Requires:         R-CRAN-assertive.types 
 
 %description
-Create additional rows and columns on broom::tidy() output to allow for
-easier control on categorical parameter estimates.
+Build and compare nested statistical models with sets of equal and
+different independent variables. An analysis using this package is
+Marquardt et al. (2021)
+<https://github.com/p-mq/Percentile_based_averaging>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SpatialEpi
-%global packver   1.2.4
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods and Data for Spatial Epidemiology
 
@@ -20,26 +20,12 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-maptools 
 Requires:         R-CRAN-spdep 
-Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
 
 %description
 Methods and data for cluster detection and disease mapping.

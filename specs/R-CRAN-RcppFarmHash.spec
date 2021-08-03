@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RcppFarmHash
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the Google 'FarmHash' Family of Hash Functions
 
@@ -22,7 +22,8 @@ Requires:         R-CRAN-Rcpp >= 1.0.7
 The Google 'FarmHash' family of hash functions is used by the Google
 'BigQuery' data warehouse via the 'FARM_FINGERPRINT' function. This
 package permits to calculate these hash digest fingerprints directly from
-R.
+R, and uses the included 'FarmHash' files written by G. Pike and
+copyrighted by Google, Inc.
 
 %prep
 %setup -q -c -n %{packname}

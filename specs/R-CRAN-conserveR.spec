@@ -1,53 +1,52 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rRofex
-%global packver   2.0.6
+%global packname  conserveR
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.6
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'Matba Rofex' Trading API
+Summary:          Identifying Conservation Prioritization Methods Based on Data Availability
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.0.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-network 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-websocket 
-BuildRequires:    R-CRAN-later 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-tibble >= 3.0.0
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-sna 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-GGally 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-network 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-glue 
-Requires:         R-methods 
-Requires:         R-CRAN-websocket 
-Requires:         R-CRAN-later 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-sna 
+Requires:         R-utils 
 
 %description
-Execute API calls to the 'Matba Rofex' <https://apihub.primary.com.ar>
-trading platform. Functionality includes accessing account data and
-current holdings, retrieving investment quotes, placing and canceling
-orders, and getting reference data for instruments.
+Helping biologists to choose the most suitable approach to link their
+research to conservation. After answering few questions on the data
+available, geographic and taxonomic scope, 'conserveR' ranks existing
+methods for conservation prioritization and systematic conservation
+planning by suitability. The methods data base of 'conserveR' contains 133
+methods for conservation prioritization based on a systematic review of >
+12,000 scientific publications from the fields of spatial conservation
+prioritization, systematic conservation planning, biogeography and
+ecology.
 
 %prep
 %setup -q -c -n %{packname}

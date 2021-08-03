@@ -1,41 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidycat
-%global packver   0.1.2
+%global packname  edgebundle
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Expand Tidy Output for Categorical Parameter Estimates
+Summary:          Algorithms for Bundling Edges in Networks and Visualizing Flow and Metro Maps
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-forcats 
-Requires:         R-CRAN-magrittr 
-Requires:         R-utils 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-stats 
-Requires:         R-CRAN-forcats 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-interp 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-interp 
 
 %description
-Create additional rows and columns on broom::tidy() output to allow for
-easier control on categorical parameter estimates.
+Implements several algorithms for bundling edges in networks and flow and
+metro map layouts. This includes force directed edge bundling
+<doi:10.1111/j.1467-8659.2009.01450.x>, a flow algorithm based on Steiner
+trees<doi:10.1080/15230406.2018.1437359> and a multicriteria optimization
+method for metro map layouts <doi:10.1109/TVCG.2010.24>.
 
 %prep
 %setup -q -c -n %{packname}

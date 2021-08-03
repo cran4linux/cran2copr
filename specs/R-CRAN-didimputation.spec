@@ -1,53 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rRofex
-%global packver   2.0.6
+%global packname  didimputation
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'Matba Rofex' Trading API
+Summary:          Imputation Estimator from Borusyak, Jaravel, and Spiess (2021)
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.0.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-fixest >= 0.9.0
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-websocket 
-BuildRequires:    R-CRAN-later 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-tibble >= 3.0.0
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-fixest >= 0.9.0
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
 Requires:         R-methods 
-Requires:         R-CRAN-websocket 
-Requires:         R-CRAN-later 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
 
 %description
-Execute API calls to the 'Matba Rofex' <https://apihub.primary.com.ar>
-trading platform. Functionality includes accessing account data and
-current holdings, retrieving investment quotes, placing and canceling
-orders, and getting reference data for instruments.
+Estimates Two-way Fixed Effects difference-in-differences/event-study
+models using the imputation-based approach proposed by Borusyak, Jaravel,
+and Spiess (2021).
 
 %prep
 %setup -q -c -n %{packname}

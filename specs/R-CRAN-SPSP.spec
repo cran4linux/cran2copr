@@ -1,29 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mactivate
-%global packver   0.6.6
+%global packname  SPSP
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiplicative Activation
+Summary:          Selection by Partitioning the Solution Paths
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-lars 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-lars 
+Requires:         R-CRAN-MASS 
 
 %description
-Provides methods and classes for adding m-activation ("multiplicative
-activation") layers to MLR or multivariate logistic regression models.
-M-activation layers created in this library detect and add input
-interaction (polynomial) effects into a predictive model.  M-activation
-can detect high-order interactions -- a traditionally non-trivial
-challenge.  Details concerning application, methodology, and relevant
-survey literature can be found in this library's vignette, "About."
+An implementation of the feature Selection procedure by Partitioning the
+entire Solution Paths (namely SPSP) to identify the relevant features
+rather than using a single tuning parameter. By utilizing the entire
+solution paths, this procedure can obtain better selection accuracy than
+the commonly used approach of selecting only one tuning parameter based on
+existing criteria, cross-validation (CV), generalized CV, AIC, BIC, and
+extended BIC (Liu, Y., & Wang, P. (2018) <doi:10.1214/18-EJS1434>). It is
+more stable and accurate (low false positive and false negative rates)
+than other variable selection approaches. In addition, it can be flexibly
+coupled with the solution paths of Lasso, adaptive Lasso, ridge
+regression, and other penalized estimators.
 
 %prep
 %setup -q -c -n %{packname}
