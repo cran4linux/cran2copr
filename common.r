@@ -358,7 +358,8 @@ pkg_exceptions <- function(tpl, pkg, path) {
     uavRmp = paste0(
       "sed -i '1d' %{packname}/inst/python/io_solo_params_community.py\n",
       "find %{packname} -type f -exec ",
-      "sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \\;")
+      "sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \\;"),
+    arrow = "sed -i 's|PKGCONFIG_DIRS=.*|PKGCONFIG_DIRS=-L%{_libdir}|' %{packname}/configure"
   ))
 
   # install
