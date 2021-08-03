@@ -39,9 +39,10 @@
 %define have_rapidjson 1
 %define have_re2 1
 %define have_utf8proc 1
+%define have_zstd 1
 
 Name:		arrow
-Version:	4.0.1
+Version:	5.0.0
 Release:	1%{?dist}%{?buildtag}
 Summary:	Apache Arrow is a data processing library for analysis
 
@@ -70,7 +71,9 @@ BuildRequires:	gflags-devel
 %endif
 BuildRequires:	git
 BuildRequires:	glog-devel
+%if %{have_zstd}
 BuildRequires:	libzstd-devel
+%endif
 BuildRequires:	lz4-devel %{lz4_requirement}
 BuildRequires:	ninja-build
 BuildRequires:	openssl-devel
@@ -182,13 +185,14 @@ cd -
 
 %package libs
 Summary:	Runtime libraries for Apache Arrow C++
-License:	ASL 2.0
 Requires:	brotli
 %if %{use_gflags}
 Requires:	gflags
 %endif
 Requires:	glog
+%if %{have_zstd}
 Requires:	libzstd
+%endif
 Requires:	lz4 %{lz4_requirement}
 %if %{have_re2}
 Requires:	re2
@@ -210,14 +214,15 @@ This package contains the libraries for Apache Arrow C++.
 
 %package devel
 Summary:	Libraries and header files for Apache Arrow C++
-License:	ASL 2.0
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	brotli-devel
 Requires:	bzip2-devel
 %if %{use_flight}
 Requires:	c-ares-devel
 %endif
+%if %{have_zstd}
 Requires:	libzstd-devel
+%endif
 Requires:	lz4-devel %{lz4_requirement}
 Requires:	openssl-devel
 %if %{have_rapidjson}
@@ -252,7 +257,7 @@ Libraries and header files for Apache Arrow C++.
 %{_libdir}/cmake/arrow/FindLz4.cmake
 %{_libdir}/cmake/arrow/FindSnappy.cmake
 %if %{use_flight}
-#{_libdir}/cmake/arrow/Findc-aresAlt.cmake
+%{_libdir}/cmake/arrow/Findc-aresAlt.cmake
 %endif
 %if %{have_re2}
 %{_libdir}/cmake/arrow/Findre2Alt.cmake
@@ -260,7 +265,9 @@ Libraries and header files for Apache Arrow C++.
 %if %{have_utf8proc}
 %{_libdir}/cmake/arrow/Findutf8proc.cmake
 %endif
+%if %{have_zstd}
 %{_libdir}/cmake/arrow/Findzstd.cmake
+%endif
 %{_libdir}/cmake/arrow/arrow-config.cmake
 %{_libdir}/libarrow.a
 %{_libdir}/libarrow.so
@@ -274,7 +281,6 @@ Libraries and header files for Apache Arrow C++.
 
 %package dataset-libs
 Summary:	C++ library to read and write semantic datasets stored in different locations and formats
-License:	ASL 2.0
 Requires:	%{name}-libs = %{version}-%{release}
 
 %description dataset-libs
@@ -287,7 +293,6 @@ This package contains the libraries for Apache Arrow dataset.
 
 %package dataset-devel
 Summary:	Libraries and header files for Apache Arrow dataset.
-License:	ASL 2.0
 Requires:	%{name}-dataset-libs = %{version}-%{release}
 
 %description dataset-devel
@@ -307,7 +312,6 @@ Libraries and header files for Apache Arrow dataset.
 %if %{use_flight}
 %package flight-libs
 Summary:	C++ library for fast data transport.
-License:	ASL 2.0
 Requires:	%{name}-libs = %{version}-%{release}
 %if %{use_flight}
 Requires:	c-ares
@@ -324,7 +328,6 @@ This package contains the libraries for Apache Arrow Flight.
 
 %package flight-devel
 Summary:	Libraries and header files for Apache Arrow Flight.
-License:	ASL 2.0
 Requires:	%{name}-flight-libs = %{version}-%{release}
 
 %description flight-devel
@@ -345,7 +348,6 @@ Libraries and header files for Apache Arrow Flight.
 %if %{use_gandiva}
 %package -n gandiva-libs
 Summary:	C++ library for compiling and evaluating expressions on Apache Arrow data.
-License:	ASL 2.0
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	ncurses-libs
 
@@ -359,7 +361,6 @@ This package contains the libraries for Gandiva.
 
 %package -n gandiva-devel
 Summary:	Libraries and header files for Gandiva.
-License:	ASL 2.0
 Requires:	gandiva-libs = %{version}-%{release}
 Requires:	llvm-devel
 
@@ -381,7 +382,6 @@ Libraries and header files for Gandiva.
 %if %{use_python}
 %package python-libs
 Summary:	Python integration library for Apache Arrow
-License:	ASL 2.0
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	python%{python_version}-numpy
 
@@ -395,7 +395,6 @@ This package contains the Python integration library for Apache Arrow.
 
 %package python-devel
 Summary:	Libraries and header files for Python integration library for Apache Arrow
-License:	ASL 2.0
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	python%{python_version}-devel
@@ -418,7 +417,6 @@ Libraries and header files for Python integration library for Apache Arrow.
 %if %{use_flight}
 %package python-flight-libs
 Summary:	Python integration library for Apache Arrow Flight
-License:	ASL 2.0
 Requires:	%{name}-flight-libs = %{version}-%{release}
 Requires:	%{name}-python-libs = %{version}-%{release}
 
@@ -432,7 +430,6 @@ This package contains the Python integration library for Apache Arrow Flight.
 
 %package python-flight-devel
 Summary:	Libraries and header files for Python integration library for Apache Arrow Flight.
-License:	ASL 2.0
 Requires:	%{name}-flight-devel = %{version}-%{release}
 Requires:	%{name}-python-devel = %{version}-%{release}
 Requires:	%{name}-python-flight-libs = %{version}-%{release}
@@ -456,7 +453,6 @@ Apache Arrow Flight.
 
 %package -n plasma-libs
 Summary:	Runtime libraries for Plasma in-memory object store
-License:	ASL 2.0
 Requires:	%{name}-libs = %{version}-%{release}
 
 %description -n plasma-libs
@@ -469,7 +465,6 @@ This package contains the libraries for Plasma in-memory object store.
 
 %package -n plasma-store-server
 Summary:	Server for Plasma in-memory object store
-License:	ASL 2.0
 Requires:	plasma-libs = %{version}-%{release}
 
 %description -n plasma-store-server
@@ -482,7 +477,6 @@ This package contains the server for Plasma in-memory object store.
 
 %package -n plasma-devel
 Summary:	Libraries and header files for Plasma in-memory object store
-License:	ASL 2.0
 Requires:	plasma-libs = %{version}-%{release}
 
 %description -n plasma-devel
@@ -501,7 +495,6 @@ Libraries and header files for Plasma in-memory object store.
 
 %package -n parquet-libs
 Summary:	Runtime libraries for Apache Parquet C++
-License:	ASL 2.0
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	openssl
 
@@ -515,7 +508,6 @@ This package contains the libraries for Apache Parquet C++.
 
 %package -n parquet-devel
 Summary:	Libraries and header files for Apache Parquet C++
-License:	ASL 2.0
 Requires:	parquet-libs = %{version}-%{release}
 Requires:	zlib-devel
 
@@ -535,7 +527,6 @@ Libraries and header files for Apache Parquet C++.
 
 %package glib-libs
 Summary:	Runtime libraries for Apache Arrow GLib
-License:	ASL 2.0
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	glib2
 
@@ -550,7 +541,6 @@ This package contains the libraries for Apache Arrow GLib.
 
 %package glib-devel
 Summary:	Libraries and header files for Apache Arrow GLib
-License:	ASL 2.0
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	glib2-devel
 Requires:	gobject-introspection-devel
@@ -571,7 +561,6 @@ Libraries and header files for Apache Arrow GLib.
 
 %package glib-doc
 Summary:	Documentation for Apache Arrow GLib
-License:	ASL 2.0
 
 %description glib-doc
 Documentation for Apache Arrow GLib.
@@ -584,7 +573,6 @@ Documentation for Apache Arrow GLib.
 
 %package dataset-glib-libs
 Summary:	Runtime libraries for Apache Arrow Dataset GLib
-License:	ASL 2.0
 Requires:	%{name}-dataset-libs = %{version}-%{release}
 Requires:	%{name}-glib-libs = %{version}-%{release}
 
@@ -599,7 +587,6 @@ This package contains the libraries for Apache Arrow Dataset GLib.
 
 %package dataset-glib-devel
 Summary:	Libraries and header files for Apache Arrow Dataset GLib
-License:	ASL 2.0
 Requires:	%{name}-dataset-devel = %{version}-%{release}
 Requires:	%{name}-glib-devel = %{version}-%{release}
 
@@ -617,7 +604,6 @@ Libraries and header files for Apache Arrow Dataset GLib.
 
 %package dataset-glib-doc
 Summary:	Documentation for Apache Arrow Dataset GLib
-License:	ASL 2.0
 
 %description dataset-glib-doc
 Documentation for Apache Arrow dataset GLib.
@@ -627,10 +613,53 @@ Documentation for Apache Arrow dataset GLib.
 %doc README.md LICENSE.txt NOTICE.txt
 %{_datadir}/gtk-doc/html/arrow-dataset-glib/
 
+%if %{use_flight}
+%package flight-glib-libs
+Summary:	Runtime libraries for Apache Arrow Flight GLib
+Requires:	%{name}-flight-libs = %{version}-%{release}
+Requires:	%{name}-glib-libs = %{version}-%{release}
+
+%description flight-glib-libs
+This package contains the libraries for Apache Arrow Flight GLib.
+
+%files flight-glib-libs
+%defattr(-,root,root,-)
+%doc README.md LICENSE.txt NOTICE.txt
+%{_libdir}/libarrow-flight-glib.so.*
+%{_datadir}/gir-1.0/ArrowFlight-1.0.gir
+
+%package flight-glib-devel
+Summary:	Libraries and header files for Apache Arrow Flight GLib
+Requires:	%{name}-flight-devel = %{version}-%{release}
+Requires:	%{name}-glib-devel = %{version}-%{release}
+
+%description flight-glib-devel
+Libraries and header files for Apache Arrow Flight GLib.
+
+%files flight-glib-devel
+%defattr(-,root,root,-)
+%doc README.md LICENSE.txt NOTICE.txt
+%{_includedir}/arrow-flight-glib/
+%{_libdir}/libarrow-flight-glib.a
+%{_libdir}/libarrow-flight-glib.so
+%{_libdir}/pkgconfig/arrow-flight-glib.pc
+%{_libdir}/girepository-1.0/ArrowFlight-1.0.typelib
+
+%package flight-glib-doc
+Summary:	Documentation for Apache Arrow Flight GLib
+
+%description flight-glib-doc
+Documentation for Apache Arrow Flight GLib.
+
+%files flight-glib-doc
+%defattr(-,root,root,-)
+%doc README.md LICENSE.txt NOTICE.txt
+%{_datadir}/gtk-doc/html/arrow-flight-glib/
+%endif
+
 %if %{use_gandiva}
 %package -n gandiva-glib-libs
 Summary:	Runtime libraries for Gandiva GLib
-License:	ASL 2.0
 Requires:	gandiva-libs = %{version}-%{release}
 Requires:	%{name}-glib-libs = %{version}-%{release}
 
@@ -645,7 +674,6 @@ This package contains the libraries for Gandiva GLib.
 
 %package -n gandiva-glib-devel
 Summary:	Libraries and header files for Gandiva GLib
-License:	ASL 2.0
 Requires:	gandiva-devel = %{version}-%{release}
 Requires:	%{name}-glib-devel = %{version}-%{release}
 
@@ -663,7 +691,6 @@ Libraries and header files for Gandiva GLib.
 
 %package -n gandiva-glib-doc
 Summary:	Documentation for Gandiva GLib
-License:	ASL 2.0
 
 %description -n gandiva-glib-doc
 Documentation for Gandiva GLib.
@@ -676,7 +703,6 @@ Documentation for Gandiva GLib.
 
 %package -n plasma-glib-libs
 Summary:	Runtime libraries for Plasma GLib
-License:	ASL 2.0
 Requires:	plasma-libs = %{version}-%{release}
 Requires:	%{name}-glib-libs = %{version}-%{release}
 
@@ -691,7 +717,6 @@ This package contains the libraries for Plasma GLib.
 
 %package -n plasma-glib-devel
 Summary:	Libraries and header files for Plasma GLib
-License:	ASL 2.0
 Requires:	plasma-devel = %{version}-%{release}
 Requires:	%{name}-glib-devel = %{version}-%{release}
 
@@ -709,7 +734,6 @@ Libraries and header files for Plasma GLib.
 
 %package -n plasma-glib-doc
 Summary:	Documentation for Plasma GLib
-License:	ASL 2.0
 
 %description -n plasma-glib-doc
 Documentation for Plasma GLib.
@@ -721,7 +745,6 @@ Documentation for Plasma GLib.
 
 %package -n parquet-glib-libs
 Summary:	Runtime libraries for Apache Parquet GLib
-License:	ASL 2.0
 Requires:	parquet-libs = %{version}-%{release}
 Requires:	%{name}-glib-libs = %{version}-%{release}
 
@@ -736,7 +759,6 @@ This package contains the libraries for Apache Parquet GLib.
 
 %package -n parquet-glib-devel
 Summary:	Libraries and header files for Apache Parquet GLib
-License:	ASL 2.0
 Requires:	parquet-devel = %{version}-%{release}
 Requires:	%{name}-glib-devel = %{version}-%{release}
 
@@ -754,7 +776,6 @@ Libraries and header files for Apache Parquet GLib.
 
 %package -n parquet-glib-doc
 Summary:	Documentation for Apache Parquet GLib
-License:	ASL 2.0
 
 %description -n parquet-glib-doc
 Documentation for Apache Parquet GLib.
@@ -765,6 +786,9 @@ Documentation for Apache Parquet GLib.
 %{_datadir}/gtk-doc/html/parquet-glib/
 
 %changelog
+* Tue Aug 03 2021 Iñaki Úcar <iucar@fedoraproject.org> - 5.0.0-1
+- New upstream release.
+
 * Thu Jul 22 2021 Iñaki Úcar <iucar@fedoraproject.org> - 4.0.1-1
 - New upstream release.
 
