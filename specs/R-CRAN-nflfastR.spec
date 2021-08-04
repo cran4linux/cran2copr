@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  nflfastR
-%global packver   4.1.0
+%global packver   4.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.0
+Version:          4.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Efficiently Access NFL Play by Play Data
 
@@ -16,10 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.0.0
 BuildRequires:    R-CRAN-tibble >= 3.0
-BuildRequires:    R-CRAN-usethis >= 1.6.0
 BuildRequires:    R-CRAN-stringr >= 1.3.0
-BuildRequires:    R-CRAN-cli >= 1.1.0
 BuildRequires:    R-CRAN-tidyselect >= 1.1.0
 BuildRequires:    R-CRAN-xgboost >= 1.1
 BuildRequires:    R-CRAN-fastrmodels >= 1.0.1
@@ -36,10 +35,9 @@ BuildRequires:    R-CRAN-lubridate
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-tibble >= 3.0
-Requires:         R-CRAN-usethis >= 1.6.0
 Requires:         R-CRAN-stringr >= 1.3.0
-Requires:         R-CRAN-cli >= 1.1.0
 Requires:         R-CRAN-tidyselect >= 1.1.0
 Requires:         R-CRAN-xgboost >= 1.1
 Requires:         R-CRAN-fastrmodels >= 1.0.1
@@ -69,6 +67,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

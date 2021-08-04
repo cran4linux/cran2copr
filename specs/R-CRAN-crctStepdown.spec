@@ -1,41 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nser
-%global packver   1.1.0
+%global packname  crctStepdown
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bhavcopy and Live Market Data from National Stock Exchange(NSE) India of Equities and Derivatives(F&O)
+Summary:          Univariate Analysis of Cluster Trials with Multiple Outcomes
 
-License:          GPL-2
+License:          CC BY-SA 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-fastglm 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-lme4 
+Requires:         R-CRAN-fastglm 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-methods 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lme4 
 
 %description
-Download Historical Bhavcopy and get Live Market data from NSE of Equities
-and Derivatives(F&O) segment. Data source <https://www.nseindia.com/>.
+Frequentist statistical inference for cluster randomised trials with
+multiple outcomes that controls the family-wise error rate and provides
+nominal coverage of confidence sets. A full description of the methods can
+be found in Watson et al. (2021) <arXiv:2107.10017>.
 
 %prep
 %setup -q -c -n %{packname}

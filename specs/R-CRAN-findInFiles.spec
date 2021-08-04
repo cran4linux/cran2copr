@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  findInFiles
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Find Pattern in Files
 
@@ -19,9 +19,15 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-stringi 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-stringi 
 
 %description
 Creates a HTML widget which displays the results of searching for a

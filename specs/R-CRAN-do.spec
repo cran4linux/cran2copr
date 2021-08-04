@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  do
-%global packver   1.9.0.0
+%global packver   2.0.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.0.0
+Version:          2.0.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Operator
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-plyr 
@@ -29,7 +29,6 @@ BuildRequires:    R-CRAN-crayon
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-CRAN-desc 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-stringr 
@@ -47,7 +46,6 @@ Requires:         R-CRAN-crayon
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-usethis 
 Requires:         R-CRAN-desc 
-Requires:         R-CRAN-magrittr 
 Requires:         R-utils 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-stringr 

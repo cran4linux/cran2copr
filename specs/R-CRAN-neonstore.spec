@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  neonstore
-%global packver   0.4.3
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          NEON Data Store
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-vroom >= 1.5.1
 BuildRequires:    R-CRAN-duckdb >= 0.2.3
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-httr 
@@ -24,8 +25,8 @@ BuildRequires:    R-CRAN-R.utils
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-thor 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vroom 
 BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-vroom >= 1.5.1
 Requires:         R-CRAN-duckdb >= 0.2.3
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-httr 
@@ -34,7 +35,6 @@ Requires:         R-CRAN-R.utils
 Requires:         R-tools 
 Requires:         R-CRAN-thor 
 Requires:         R-utils 
-Requires:         R-CRAN-vroom 
 Requires:         R-CRAN-zip 
 
 %description
@@ -42,12 +42,10 @@ The National Ecological Observatory Network (NEON) provides access to its
 numerous data products through its REST API,
 <https://data.neonscience.org/data-api/>. This package provides a
 high-level user interface for downloading and storing NEON data products.
-While each of NEON data products consist of hundreds or thousands of
-individual files.  Unlike 'neonUtilities', this package will avoid
-repeated downloading, provides persistent storage, and improves
-performance.  'neonstore' can also construct a local 'duckdb' database of
-stacked tables, making it possible to work with tables that are far to big
-to fit into memory.
+Unlike 'neonUtilities', this package will avoid repeated downloading,
+provides persistent storage, and improves performance.  'neonstore' can
+also construct a local 'duckdb' database of stacked tables, making it
+possible to work with tables that are far to big to fit into memory.
 
 %prep
 %setup -q -c -n %{packname}
@@ -57,6 +55,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fedmatch
-%global packver   2.0.0
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast, Flexible, and User-Friendly Record Linkage Methods
 
@@ -15,9 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-BH >= 1.75.0
 BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-CRAN-SnowballC 
-BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rcpp 
@@ -26,10 +26,8 @@ BuildRequires:    R-CRAN-forcats
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-stringdist 
 Requires:         R-CRAN-SnowballC 
-Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rcpp 

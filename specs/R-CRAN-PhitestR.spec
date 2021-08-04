@@ -1,41 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nser
-%global packver   1.1.0
+%global packname  PhitestR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bhavcopy and Live Market Data from National Stock Exchange(NSE) India of Equities and Derivatives(F&O)
+Summary:          Analyzing the Heterogeneity of Single-Cell Populations
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-fitdistrplus 
+BuildRequires:    R-CRAN-Seurat 
+Requires:         R-parallel 
+Requires:         R-CRAN-fitdistrplus 
+Requires:         R-CRAN-Seurat 
 
 %description
-Download Historical Bhavcopy and get Live Market data from NSE of Equities
-and Derivatives(F&O) segment. Data source <https://www.nseindia.com/>.
+A bioinformatics method developed for analyzing the heterogeneity of
+single-cell populations. Phitest provides an objective and automatic
+method to evaluate the performance of clustering and quality of cell
+clusters.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,41 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nser
-%global packver   1.1.0
+%global packname  locpolExpectile
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bhavcopy and Live Market Data from National Stock Exchange(NSE) India of Equities and Derivatives(F&O)
+Summary:          Local Polynomial Expectile Regression
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-locpol 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-expectreg 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-lestat 
+Requires:         R-CRAN-locpol 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-expectreg 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-lestat 
 
 %description
-Download Historical Bhavcopy and get Live Market data from NSE of Equities
-and Derivatives(F&O) segment. Data source <https://www.nseindia.com/>.
+Provides the local polynomial expectile regression method and different
+bandwidth selection procedures. The codes include local polynomial
+univariate expectile regression with several data-driven methods for
+bandwidth selection; local linear bivariate and trivariate expectile
+regression; and partially linear expectile regression, allowing for
+different errors structures (homoscedastic error and various
+heteroscedastic error structures). For more details, see Adam and Gijbels
+(2021a) <doi:10.1007/s10463-021-00799-y> and Adam and Gijbels (2021b)
+<doi:10.1007/978-3-030-73249-3_8>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,41 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nser
-%global packver   1.1.0
+%global packname  mixtur
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bhavcopy and Live Market Data from National Stock Exchange(NSE) India of Equities and Derivatives(F&O)
+Summary:          Modelling Continuous Report Visual Short-Term Memory Studies
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-RColorBrewer 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
-Download Historical Bhavcopy and get Live Market data from NSE of Equities
-and Derivatives(F&O) segment. Data source <https://www.nseindia.com/>.
+A set of utility functions for analysing and modelling data from
+continuous report short-term memory experiments using either the
+2-component mixture model of Zhang and Luck (2008)
+<doi:10.1038/nature06860> or the 3-component mixture model of Bays et al.
+(2009) <doi:10.1167/9.10.7>. Users are also able to simulate from these
+models.
 
 %prep
 %setup -q -c -n %{packname}
