@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fdaPOIFD
-%global packver   1.0.2
+%global packname  ei.Datasets
+%global packver   0.0.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Partially Observed Integrated Functional Depth
+Summary:          Real Datasets for Assessing Ecological Inference Algorithms
 
-License:          GPL-3
+License:          EPL | CC BY 4.0 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,31 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-fdapace 
-BuildRequires:    R-CRAN-FastGP 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-fdapace 
-Requires:         R-CRAN-FastGP 
-Requires:         R-stats 
 
 %description
-Integrated Depths for Partially Observed Functional Data (POFD).
-Applications to visualization, outlier detection and classification.
-Software companion for Elías, Antonio, Jiménez, Raúl, Paganoni, Anna M.
-and Sangalli, Laura M., (2020), "Integrated Depth for Partially Observed
-Functional Data".
+Provides more than 550 data sets of actual election results. Each of the
+data sets includes aggregate party and candidate outcomes at the voting
+unit (polling stations) level and two-way cross-tabulated results at the
+district level. These data sets can be used to assess ecological inference
+algorithms devised for estimating RxC (global) ecological contingency
+tables using exclusively aggregate results from voting units.
 
 %prep
 %setup -q -c -n %{packname}

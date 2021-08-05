@@ -1,46 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fdaPOIFD
-%global packver   1.0.2
+%global packname  degross
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Partially Observed Integrated Functional Depth
+Summary:          Density Estimation from GROuped Summary Statistics
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-fdapace 
-BuildRequires:    R-CRAN-FastGP 
+BuildRequires:    R-CRAN-cubicBsplines 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-fdapace 
-Requires:         R-CRAN-FastGP 
+Requires:         R-CRAN-cubicBsplines 
 Requires:         R-stats 
 
 %description
-Integrated Depths for Partially Observed Functional Data (POFD).
-Applications to visualization, outlier detection and classification.
-Software companion for Elías, Antonio, Jiménez, Raúl, Paganoni, Anna M.
-and Sangalli, Laura M., (2020), "Integrated Depth for Partially Observed
-Functional Data".
+Estimation of a density from grouped (tabulated) summary statistics
+evaluated in each of the big bins (or classes) partitioning the support of
+the variable. These statistics include class frequencies and central
+moments of order one up to four. The log-density is modelled using a
+linear combination of penalised B-splines. The multinomial log-likelihood
+involving the frequencies adds up to a roughness penalty based on the
+differences in the coefficients of neighbouring B-splines and the log of a
+root-n approximation of the sampling density of the observed vector of
+central moments in each class. The so-obtained penalized log-likelihood is
+maximized using the EM algorithm to get an estimate of the spline
+parameters and, consequently, of the variable density and related
+quantities such as quantiles, see Lambert, P. (2021) <arXiv:2107.03883>
+for details.
 
 %prep
 %setup -q -c -n %{packname}

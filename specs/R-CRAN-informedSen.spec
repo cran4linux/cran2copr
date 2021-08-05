@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fdaPOIFD
-%global packver   1.0.2
+%global packname  informedSen
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Partially Observed Integrated Functional Depth
+Summary:          Sensitivity Analysis Informed by a Test for Bias
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,31 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-fdapace 
-BuildRequires:    R-CRAN-FastGP 
+BuildRequires:    R-CRAN-sensitivitymult 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-fdapace 
-Requires:         R-CRAN-FastGP 
+Requires:         R-CRAN-sensitivitymult 
 Requires:         R-stats 
 
 %description
-Integrated Depths for Partially Observed Functional Data (POFD).
-Applications to visualization, outlier detection and classification.
-Software companion for Elías, Antonio, Jiménez, Raúl, Paganoni, Anna M.
-and Sangalli, Laura M., (2020), "Integrated Depth for Partially Observed
-Functional Data".
+After testing for biased treatment assignment in an observational study
+using an unaffected outcome, the sensitivity analysis is constrained to be
+compatible with that test.  The package uses the optimization software
+gurobi obtainable from <https://www.gurobi.com/>, together with its
+associated R package, also called gurobi; see:
+<https://www.gurobi.com/documentation/7.0/refman/installing_the_r_package.html>.
+The method is a substantial computational and practical enhancement of a
+concept introduced in Rosenbaum (1992) Detecting bias with confidence in
+observational studies Biometrika, 79(2), 367-374
+<doi:10.1093/biomet/79.2.367>.
 
 %prep
 %setup -q -c -n %{packname}

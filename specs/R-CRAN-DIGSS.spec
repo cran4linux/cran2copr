@@ -1,43 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  blaise
-%global packver   1.3.7
+%global packname  DIGSS
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.7
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read and Write FWF Files in the Blaise Format
+Summary:          Determination of Intervals Using Georeferenced Survey Simulation
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-utils >= 3.4.1
-BuildRequires:    R-tools >= 3.4.1
-BuildRequires:    R-methods >= 3.4.1
-BuildRequires:    R-stats >= 3.4.1
-BuildRequires:    R-CRAN-tibble >= 1.3.3
-BuildRequires:    R-CRAN-stringr >= 1.2.0
-BuildRequires:    R-CRAN-readr >= 1.1.1
-BuildRequires:    R-CRAN-dplyr >= 0.7.2
-Requires:         R-utils >= 3.4.1
-Requires:         R-tools >= 3.4.1
-Requires:         R-methods >= 3.4.1
-Requires:         R-stats >= 3.4.1
-Requires:         R-CRAN-tibble >= 1.3.3
-Requires:         R-CRAN-stringr >= 1.2.0
-Requires:         R-CRAN-readr >= 1.1.1
-Requires:         R-CRAN-dplyr >= 0.7.2
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-utils 
 
 %description
-Can be used to read and write a fwf with an accompanying blaise datamodel.
-When supplying a datamodel for writing, the dataframe will be
-automatically converted to that format and checked for compatibility.
-Supports dataframes, tibbles and LaF objects.
+Simulation tool to estimate the rate of success that surveys possessing
+user-specific characteristics have in identifying archaeological sites (or
+any groups of clouds of objects), given specific parameters of survey
+area, survey methods, and site properties. The survey approach used is
+largely based on the work of Kintigh (1988) <doi:10.2307/281113>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +44,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  equatags
-%global packver   0.1.1
+%global packname  roclang
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Equations to 'XML'
+Summary:          Functions for Diffusing Function Documentations into 'Roxygen' Comments
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,21 +16,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-xslt 
-BuildRequires:    R-CRAN-locatexec 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-xslt 
-Requires:         R-CRAN-locatexec 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-roxygen2 >= 7.1.1
+BuildRequires:    R-methods >= 4.0.0
+BuildRequires:    R-CRAN-tibble >= 3.0.4
+BuildRequires:    R-CRAN-magrittr >= 2.0.1
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-rex >= 1.2.0
+BuildRequires:    R-CRAN-tidyr >= 1.1.2
+BuildRequires:    R-CRAN-dplyr >= 1.0.2
+BuildRequires:    R-CRAN-rlang >= 0.4.10
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-roxygen2 >= 7.1.1
+Requires:         R-methods >= 4.0.0
+Requires:         R-CRAN-tibble >= 3.0.4
+Requires:         R-CRAN-magrittr >= 2.0.1
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-rex >= 1.2.0
+Requires:         R-CRAN-tidyr >= 1.1.2
+Requires:         R-CRAN-dplyr >= 1.0.2
+Requires:         R-CRAN-rlang >= 0.4.10
+Requires:         R-CRAN-purrr >= 0.3.4
 
 %description
-Provides function transform_mathjax() to transform equations defined using
-'MathML', 'LaTeX' or 'ASCIIMathML' notation into format 'SVG' or 'Office
-Open XML Math'. The 'XML' result can then be included in 'HTML',
-'Microsoft Word' documents or 'Microsoft PowerPoint' presentations by
-using a 'Markdown' document or the R package 'officer'.
+Efficient diffusing of content across function documentations. Sections,
+parameters or dot parameters are extracted from function documentations
+and turned into valid Rd character strings, which are ready to diffuse
+into the 'roxygen' comments of another function by inserting inline code.
 
 %prep
 %setup -q -c -n %{packname}

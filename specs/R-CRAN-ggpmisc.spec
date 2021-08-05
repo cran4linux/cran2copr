@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ggpmisc
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Extensions to 'ggplot2'
 
@@ -23,14 +23,11 @@ BuildRequires:    R-CRAN-tibble >= 3.0.3
 BuildRequires:    R-CRAN-plyr >= 1.8.6
 BuildRequires:    R-CRAN-lubridate >= 1.7.9
 BuildRequires:    R-CRAN-polynom >= 1.4.0
-BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-splus2R >= 1.2.2
 BuildRequires:    R-CRAN-scales >= 1.1.1
 BuildRequires:    R-CRAN-dplyr >= 1.0.2
-BuildRequires:    R-CRAN-broom >= 0.7.3
 BuildRequires:    R-CRAN-rlang >= 0.4.7
 BuildRequires:    R-CRAN-ggpp >= 0.4.0
-BuildRequires:    R-CRAN-vctrs >= 0.3.8
 BuildRequires:    R-CRAN-generics >= 0.1.0
 BuildRequires:    R-grid 
 BuildRequires:    R-stats 
@@ -41,14 +38,11 @@ Requires:         R-CRAN-tibble >= 3.0.3
 Requires:         R-CRAN-plyr >= 1.8.6
 Requires:         R-CRAN-lubridate >= 1.7.9
 Requires:         R-CRAN-polynom >= 1.4.0
-Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-splus2R >= 1.2.2
 Requires:         R-CRAN-scales >= 1.1.1
 Requires:         R-CRAN-dplyr >= 1.0.2
-Requires:         R-CRAN-broom >= 0.7.3
 Requires:         R-CRAN-rlang >= 0.4.7
 Requires:         R-CRAN-ggpp >= 0.4.0
-Requires:         R-CRAN-vctrs >= 0.3.8
 Requires:         R-CRAN-generics >= 0.1.0
 Requires:         R-grid 
 Requires:         R-stats 

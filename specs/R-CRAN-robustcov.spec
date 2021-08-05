@@ -1,46 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fdaPOIFD
-%global packver   1.0.2
+%global packname  robustcov
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Partially Observed Integrated Functional Depth
+Summary:          Collection of Robust Covariance and (Sparse) Precision Matrix Estimators
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-fdapace 
-BuildRequires:    R-CRAN-FastGP 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-fdapace 
-Requires:         R-CRAN-FastGP 
-Requires:         R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.6
+BuildRequires:    R-CRAN-glasso 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.6
+Requires:         R-CRAN-glasso 
+Requires:         R-CRAN-caret 
 
 %description
-Integrated Depths for Partially Observed Functional Data (POFD).
-Applications to visualization, outlier detection and classification.
-Software companion for Elías, Antonio, Jiménez, Raúl, Paganoni, Anna M.
-and Sangalli, Laura M., (2020), "Integrated Depth for Partially Observed
-Functional Data".
+Collection of methods for robust covariance and (sparse) precision matrix
+estimation based on Loh and Tan (2018) <doi:10.1214/18-EJS1427>.
 
 %prep
 %setup -q -c -n %{packname}

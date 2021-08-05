@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  IPDFileCheck
-%global packver   0.6.6
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.6
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Basic Functions to Check Readability, Consistency, and Content of an Individual Participant Data File
 
@@ -16,22 +16,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-testthat >= 1.0.2
-BuildRequires:    R-CRAN-GlobalOptions >= 0.1.0
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-eeptools 
 BuildRequires:    R-CRAN-hash 
 BuildRequires:    R-CRAN-kableExtra 
-Requires:         R-CRAN-testthat >= 1.0.2
-Requires:         R-CRAN-GlobalOptions >= 0.1.0
+BuildRequires:    R-CRAN-gtsummary 
+BuildRequires:    R-CRAN-effsize 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyverse 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-testthat 
 Requires:         R-CRAN-lubridate 
 Requires:         R-methods 
 Requires:         R-CRAN-eeptools 
 Requires:         R-CRAN-hash 
 Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-gtsummary 
+Requires:         R-CRAN-effsize 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyverse 
 
 %description
 Basic checks needed with an individual level participant data from
@@ -47,6 +53,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

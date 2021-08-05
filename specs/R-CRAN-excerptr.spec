@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  excerptr
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
-Release:          4%{?dist}%{?buildtag}
-Summary:          Excerpt Structuring Comments from Your Code File and Set a Tableof Contents
+Version:          2.0.1
+Release:          1%{?dist}%{?buildtag}
+Summary:          Excerpt Structuring Comments from Your Code File and Set a Table of Contents
 
 License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,12 +23,21 @@ Requires:         R-CRAN-reticulate
 
 %description
 This is an R interface to the python package 'excerpts'
-(<https://pypi.python.org/pypi/excerpts>).
+(<https://pypi.org/project/excerpts/>).
 
 %prep
 %setup -q -c -n %{packname}
 find %{packname}/inst -type f -name *.cl -exec chmod a-x {} \;
  find %{packname}/inst -type f -exec sed -Ei 's@#!( )*(/usr)*/bin/(env )*dash@#!/usr/bin/sh@g' {} \;
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -38,19 +47,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/excerpts
-%doc %{rlibdir}/%{packname}/runit_tests
-%doc %{rlibdir}/%{packname}/tests
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

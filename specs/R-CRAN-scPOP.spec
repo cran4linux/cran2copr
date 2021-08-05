@@ -1,46 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fdaPOIFD
-%global packver   1.0.2
+%global packname  scPOP
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Partially Observed Integrated Functional Depth
+Summary:          Metrics for Benchmarking scRNA-Seq Batch Correction
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-fdapace 
-BuildRequires:    R-CRAN-FastGP 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-fdapace 
-Requires:         R-CRAN-FastGP 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-RANN 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-RANN 
+Requires:         R-CRAN-cluster 
 
 %description
-Integrated Depths for Partially Observed Functional Data (POFD).
-Applications to visualization, outlier detection and classification.
-Software companion for Elías, Antonio, Jiménez, Raúl, Paganoni, Anna M.
-and Sangalli, Laura M., (2020), "Integrated Depth for Partially Observed
-Functional Data".
+Evaluate batch effect correction algorithms for scRNA-seq using multiple
+established methods, including the Adjusted Rand Index, Normalized Mutual
+Information, Local Inverse Simpson Index, and Silhouette Width. Methods
+for aggregating and weighing multiple metrics together are also included.
+For further explanation of methods, see Swamy et al.
+(2021)<doi:10.1101/2021.03.26.437190> .
 
 %prep
 %setup -q -c -n %{packname}
