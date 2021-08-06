@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mcmcr
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manipulate MCMC Samples
 
@@ -16,25 +16,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nlist >= 0.3.1
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-chk 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-extras 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-nlist 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-term 
 BuildRequires:    R-CRAN-universals 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-nlist >= 0.3.1
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-chk 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-extras 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-nlist 
 Requires:         R-CRAN-purrr 
 Requires:         R-stats 
 Requires:         R-CRAN-term 
@@ -54,6 +54,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

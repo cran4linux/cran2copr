@@ -1,26 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gss
-%global packver   2.2-3
+%global packname  FCVAR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          General Smoothing Splines
+Summary:          Estimation and Inference for the Fractionally Cointegrated VAR
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-fracdist 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-fracdist 
 
 %description
-A comprehensive package for structural multivariate function estimation
-using smoothing splines.
+Estimation and inference using the Fractionally Cointegrated Vector
+Autoregressive (VAR) model. It includes functions for model specification,
+including lag selection and cointegration rank selection, as well as a
+comprehensive set of options for hypothesis testing, including tests of
+hypotheses on the cointegrating relations, the adjustment coefficients and
+the fractional differencing parameters. An article describing the FCVAR
+model with examples is available on the Webpage
+<https://sites.google.com/view/mortennielsen/software>.
 
 %prep
 %setup -q -c -n %{packname}

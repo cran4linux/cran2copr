@@ -1,26 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gss
-%global packver   2.2-3
+%global packname  PICBayes
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          General Smoothing Splines
+Summary:          Bayesian Models for Partly Interval-Censored Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-CRAN-survival 
 
 %description
-A comprehensive package for structural multivariate function estimation
-using smoothing splines.
+Contains functions to fit proportional hazards (PH) model to partly
+interval-censored (PIC) data (Pan et al. (2020)
+<doi:10.1177/0962280220921552>), PH model with spatial frailty to
+spatially dependent PIC data (Pan and Cai (2021)
+<doi:10.1080/03610918.2020.1839497>), and mixed effects PH model to
+clustered PIC data. Each random intercept/random effect can follow both a
+normal prior and a Dirichlet process mixture prior. It also includes the
+corresponding functions for general interval-censored data.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,26 +1,50 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gss
-%global packver   2.2-3
+%global packname  EPP
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.3
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          General Smoothing Splines
+Summary:          Evaluation of Proximity Programs
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-CRAN-maptools 
+BuildRequires:    R-CRAN-flexclust 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-osrm 
+BuildRequires:    R-CRAN-deldir 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-leaflet.extras 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-rgeos 
+Requires:         R-CRAN-maptools 
+Requires:         R-CRAN-flexclust 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-osrm 
+Requires:         R-CRAN-deldir 
+Requires:         R-methods 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-leaflet.extras 
+Requires:         R-CRAN-sf 
 
 %description
-A comprehensive package for structural multivariate function estimation
-using smoothing splines.
+A toolbox for coverage evaluation of proximity programs.
 
 %prep
 %setup -q -c -n %{packname}

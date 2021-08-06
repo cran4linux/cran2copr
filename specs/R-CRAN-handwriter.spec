@@ -1,26 +1,48 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gss
-%global packver   2.2-3
+%global packname  handwriter
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          General Smoothing Splines
+Summary:          Handwriting Analysis in R
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rjson 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-randomForest 
 
 %description
-A comprehensive package for structural multivariate function estimation
-using smoothing splines.
+Process handwriting document into letters, words, and lines. Provides
+measurements at all levels. Webpage provided at:
+<https://csafe-isu.github.io/handwriter/index.html>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mlr3
-%global packver   0.11.0
+%global packver   0.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.0
+Version:          0.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Machine Learning in R - Next Generation
 
@@ -20,12 +20,12 @@ BuildRequires:    R-CRAN-R6 >= 2.4.1
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
 BuildRequires:    R-CRAN-future.apply >= 1.5.0
 BuildRequires:    R-CRAN-data.table >= 1.13.6
-BuildRequires:    R-CRAN-mlr3misc >= 0.7.0
+BuildRequires:    R-CRAN-mlr3misc >= 0.9.3
 BuildRequires:    R-CRAN-paradox >= 0.6.0
 BuildRequires:    R-CRAN-lgr >= 0.3.4
 BuildRequires:    R-CRAN-mlr3measures >= 0.3.0
 BuildRequires:    R-CRAN-backports 
-BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-mlbench 
 BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-palmerpenguins 
@@ -34,12 +34,12 @@ Requires:         R-CRAN-R6 >= 2.4.1
 Requires:         R-CRAN-checkmate >= 2.0.0
 Requires:         R-CRAN-future.apply >= 1.5.0
 Requires:         R-CRAN-data.table >= 1.13.6
-Requires:         R-CRAN-mlr3misc >= 0.7.0
+Requires:         R-CRAN-mlr3misc >= 0.9.3
 Requires:         R-CRAN-paradox >= 0.6.0
 Requires:         R-CRAN-lgr >= 0.3.4
 Requires:         R-CRAN-mlr3measures >= 0.3.0
 Requires:         R-CRAN-backports 
-Requires:         R-CRAN-digest 
+Requires:         R-CRAN-future 
 Requires:         R-CRAN-mlbench 
 Requires:         R-CRAN-parallelly 
 Requires:         R-CRAN-palmerpenguins 
@@ -61,6 +61,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

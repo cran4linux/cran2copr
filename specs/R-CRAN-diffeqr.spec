@@ -1,26 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gss
-%global packver   2.2-3
+%global packname  diffeqr
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.3
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          General Smoothing Splines
+Summary:          Solving Differential Equations (ODEs, SDEs, DDEs, DAEs)
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-JuliaCall 
+Requires:         R-CRAN-JuliaCall 
 
 %description
-A comprehensive package for structural multivariate function estimation
-using smoothing splines.
+An interface to 'DifferentialEquations.jl' <https://diffeq.sciml.ai/dev/>
+from the R programming language. It has unique high performance methods
+for solving ordinary differential equations (ODE), stochastic differential
+equations (SDE), delay differential equations (DDE),
+differential-algebraic equations (DAE), and more. Much of the
+functionality, including features like adaptive time stepping in SDEs, are
+unique and allow for multiple orders of magnitude speedup over more common
+methods. 'diffeqr' attaches an R interface onto the package, allowing
+seamless use of this tooling by R users. For more information, see
+Rackauckas and Nie (2017) <doi:10.5334/jors.151>.
 
 %prep
 %setup -q -c -n %{packname}
