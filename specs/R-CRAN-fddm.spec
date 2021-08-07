@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fddm
-%global packver   0.3-3
+%global packver   0.4-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Implementation of the Diffusion Decision Model
 
@@ -19,15 +19,17 @@ BuildRequires:    R-CRAN-Rcpp >= 1.0.1
 Requires:         R-CRAN-Rcpp >= 1.0.1
 
 %description
-Provides the probability density function (PDF) of the diffusion decision
-model (DDM; e.g., Ratcliff & McKoon, 2008,
-<doi:10.1162/neco.2008.12-06-420>) with across-trial variability in the
-drift rate. Because the PDF of the DDM contains an infinite sum, it needs
-to be approximated. 'fddm' implements all published approximations
-(Navarro & Fuss, 2009, <doi:10.1016/j.jmp.2009.02.003>; Gondan, Blurton, &
-Kesselmeier, 2014, <doi:10.1016/j.jmp.2014.05.002>) plus new
-approximations. All approximations are implemented purely in 'C++'
-providing faster speed than existing packages.
+Provides the probability density function (PDF) and cumulative
+distribution function (CDF) of the diffusion decision model (DDM; e.g.,
+Ratcliff & McKoon, 2008, <doi:10.1162/neco.2008.12-06-420>) with
+across-trial variability in the drift rate. Because the PDF and CDF of the
+DDM both contain an infinite sum, they needs to be approximated. 'fddm'
+implements all published approximations (Navarro & Fuss, 2009,
+<doi:10.1016/j.jmp.2009.02.003>; Gondan, Blurton, & Kesselmeier, 2014,
+<doi:10.1016/j.jmp.2014.05.002>; Blurton, Kesselmeier, & Gondan, 2017,
+<doi:10.1016/j.jmp.2016.11.003>) plus new approximations. All
+approximations are implemented purely in 'C++' providing faster speed than
+existing packages.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

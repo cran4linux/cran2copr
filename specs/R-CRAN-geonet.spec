@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  geonet
-%global packver   0.1.1
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Intensity Estimation on Geometric Networks with Penalized Splines
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
 BuildRequires:    R-CRAN-dplyr >= 1.0.2
 BuildRequires:    R-CRAN-spatstat.linnet 
 BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.core 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-splines 
@@ -28,6 +29,7 @@ Requires:         R-CRAN-ggplot2 >= 3.3.2
 Requires:         R-CRAN-dplyr >= 1.0.2
 Requires:         R-CRAN-spatstat.linnet 
 Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.core 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-Matrix 
 Requires:         R-splines 
@@ -48,6 +50,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

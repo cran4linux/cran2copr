@@ -1,39 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  greeks
-%global packver   0.3.1
+%global packname  gumboot
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sensitivities of Prices of Financial Options
+Summary:          Bootstrap Analyses of Sampling Uncertainty in Goodness-of-Fit Statistics
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-dqrng 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-dqrng 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-hydroGOF 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-hydroGOF 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-ncdf4 
+Requires:         R-CRAN-reshape2 
 
 %description
-Methods to calculate sensitivities of financial option prices for European
-and Asian and American options in the Black Scholes model. Classical
-formulas are implemented for European options in the Black Scholes Model,
-as is presented in Hull, J. C. (2017). Options, Futures, and Other
-Derivatives, Global Edition (9th Edition). Pearson. In the case of Asian
-options, Malliavin Monte Carlo Greeks are implemented, see Hudde, A. &
-Rüschendorf, L. (2016). European and Asian Greeks for exponential Lévy
-processes. <arXiv:1603.00920>. For American options, the Binomial Tree
-Method is implemented, see also as is presented in Hull, J. C. (2017).
+Uses jackknife and bootstrap methods to quantify the sampling uncertainty
+in goodness-of-fit statistics. Full details are in Clark et al. (2021),
+"The abuse of popular performance metrics in hydrologic modeling", Water
+Resources Research, <doi:10.1029/2020WR029001>.
 
 %prep
 %setup -q -c -n %{packname}

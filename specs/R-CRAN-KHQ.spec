@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  KHQ
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Calculating 'KHQ' Scores and 'KHQ5D' Utility Index Scores
 
@@ -39,7 +39,7 @@ not as popular as the SF6D <doi:10.1016/S0895-4356(98)00103-6> and EQ-5D
 instruments mentioned. The KHQ5D ca be used in the clinical and economic
 evaluation of health care. The subject self-rates their health in terms of
 five dimensions: Role Limitation (RL), Physical Limitations (PL), Social
-Limitations (SL), Emotions (E), and Sleep (S). Frequently the scores on
+Limitations (SL), Emotions (E), and Sleep (S). Frequently the states on
 these five dimensions are converted to a single utility index using
 country specific value sets, which can be used in the clinical and
 economic evaluation of health care as well as in population health

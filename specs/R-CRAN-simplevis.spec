@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  simplevis
-%global packver   4.4.0
+%global packver   4.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.0
+Version:          4.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple 'ggplot2' Visualisation with Less Brainpower
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-kimisc 
 BuildRequires:    R-CRAN-leafpop 
 BuildRequires:    R-CRAN-leaflet.extras 
 BuildRequires:    R-CRAN-jsonlite 
@@ -48,6 +49,7 @@ Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-kimisc 
 Requires:         R-CRAN-leafpop 
 Requires:         R-CRAN-leaflet.extras 
 Requires:         R-CRAN-jsonlite 
@@ -66,8 +68,8 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-viridis 
 
 %description
-Wrapper functions to make 'ggplot2' visualisation easier with less
-brainpower required.
+Wrapper functions to make 'ggplot2' and 'leaflet' visualisation easier
+with less brainpower required.
 
 %prep
 %setup -q -c -n %{packname}
@@ -77,6 +79,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

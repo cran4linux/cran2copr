@@ -1,39 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  greeks
-%global packver   0.3.1
+%global packname  piecemaker
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sensitivities of Prices of Financial Options
+Summary:          Tools for Preparing Text for Tokenizers
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-dqrng 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-dqrng 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 0.4.2
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-rlang >= 0.4.2
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringr 
 
 %description
-Methods to calculate sensitivities of financial option prices for European
-and Asian and American options in the Black Scholes model. Classical
-formulas are implemented for European options in the Black Scholes Model,
-as is presented in Hull, J. C. (2017). Options, Futures, and Other
-Derivatives, Global Edition (9th Edition). Pearson. In the case of Asian
-options, Malliavin Monte Carlo Greeks are implemented, see Hudde, A. &
-Rüschendorf, L. (2016). European and Asian Greeks for exponential Lévy
-processes. <arXiv:1603.00920>. For American options, the Binomial Tree
-Method is implemented, see also as is presented in Hull, J. C. (2017).
+Tokenizers break text into pieces that are more usable by machine learning
+models. Many tokenizers share some preparation steps. This package
+provides those shared steps, along with a simple tokenizer.
 
 %prep
 %setup -q -c -n %{packname}

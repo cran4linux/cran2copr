@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dae
-%global packver   3.2-10
+%global packname  sprtt
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.10
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions Useful in the Design and ANOVA of Experiments
+Summary:          Sequential Probability Ratio Tests: Using t-Statistic
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,27 +16,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
 Requires:         R-methods 
-Requires:         R-CRAN-plyr 
 Requires:         R-stats 
 
 %description
-The content falls into the following groupings: (i) Data, (ii) Factor
-manipulation functions, (iii) Design functions, (iv) ANOVA functions, (v)
-Matrix functions, (vi) Projector and canonical efficiency functions, and
-(vii) Miscellaneous functions. There is a vignette describing how to use
-the design functions for randomizing and assessing designs available as a
-vignette called 'DesignNotes'. The ANOVA functions facilitate the
-extraction of information when the 'Error' function has been used in the
-call to 'aov'. The package 'dae' can also be installed from
-<http://chris.brien.name/rpackages/>.
+The seq_ttest() function is the implementation of Abraham Wald’s (1947)
+<doi:10.2134/agronj1947.00021962003900070011x> Sequential Probability
+Ratio Test (SPRT) for the test of a normal mean (difference) with unknown
+variance in R (R Core Team, 2018). It performs sequential t tests
+developed by Rushton (1950) <doi:10.2307/2332385>, Rushton (1952)
+<doi:10.2307/2334026> and Hajnal (1961) <doi:10.2307/2333131>, based on
+the SPRT. Specifically, seq_ttest() performs one-sample, two-sample, and
+paired t tests for testing one- and two-sided hypotheses.  The test is to
+be applied to the data during the sampling process, ideally after each
+observation. At any stage, it will return a decision to either continue
+sampling or terminate and accept one of the specified hypotheses. For more
+information on the SPRT t test, see Schnuerch & Erdfelder (2019)
+<doi:10.1037/met0000234>.
 
 %prep
 %setup -q -c -n %{packname}

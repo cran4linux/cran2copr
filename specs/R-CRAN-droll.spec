@@ -1,39 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  greeks
-%global packver   0.3.1
+%global packname  droll
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sensitivities of Prices of Financial Options
+Summary:          Analyze Roll Distributions
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-dqrng 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-dqrng 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Ryacas 
+Requires:         R-methods 
+Requires:         R-CRAN-Ryacas 
 
 %description
-Methods to calculate sensitivities of financial option prices for European
-and Asian and American options in the Black Scholes model. Classical
-formulas are implemented for European options in the Black Scholes Model,
-as is presented in Hull, J. C. (2017). Options, Futures, and Other
-Derivatives, Global Edition (9th Edition). Pearson. In the case of Asian
-options, Malliavin Monte Carlo Greeks are implemented, see Hudde, A. &
-Rüschendorf, L. (2016). European and Asian Greeks for exponential Lévy
-processes. <arXiv:1603.00920>. For American options, the Binomial Tree
-Method is implemented, see also as is presented in Hull, J. C. (2017).
+A toolkit for parsing dice notation, analyzing rolls, calculating success
+probabilities, and plotting outcome distributions.
 
 %prep
 %setup -q -c -n %{packname}

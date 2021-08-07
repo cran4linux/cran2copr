@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bcputility
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wrapper for SQL Server bcp Utility
 
@@ -19,9 +19,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-odbc 
+BuildRequires:    R-CRAN-sf 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-odbc 
+Requires:         R-CRAN-sf 
 
 %description
 Provides functions to utilize a command line utility that does bulk
