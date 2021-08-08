@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ivsacim
-%global packver   1.3
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Structural Additive Cumulative Intensity Models with IV
 
