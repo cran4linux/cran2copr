@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RecordTest
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inference Tools in Time Series Based on Record Statistics
 
@@ -25,8 +25,8 @@ Requires:         R-stats
 Statistical tools based on the probabilistic properties of the record
 occurrence in a sequence of independent and identically distributed
 continuous random variables. In particular, tools to prepare a time series
-as well as distribution-free tests and graphical tools to visualize the
-record occurrence.
+as well as distribution-free trend and change-point tests and graphical
+tools to study the record occurrence.
 
 %prep
 %setup -q -c -n %{packname}
@@ -36,6 +36,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

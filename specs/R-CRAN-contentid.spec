@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  contentid
-%global packver   0.0.11
+%global packver   0.0.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.11
+Version:          0.0.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Interface for Content-Based Identifiers
 
