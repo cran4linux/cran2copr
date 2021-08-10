@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  precautionary
-%global packver   0.2-1
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Safety Diagnostics for Dose-Escalation Trial Designs
 
@@ -13,27 +13,36 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-escalation 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-microbenchmark 
+BuildRequires:    R-CRAN-dfcrm 
+BuildRequires:    R-CRAN-BOIN 
+BuildRequires:    R-CRAN-parallelly 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-escalation 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-R6 
 Requires:         R-methods 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-microbenchmark 
+Requires:         R-CRAN-dfcrm 
+Requires:         R-CRAN-BOIN 
+Requires:         R-CRAN-parallelly 
 
 %description
 Enhances various R packages that support the design and simulation of
@@ -52,6 +61,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,51 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  galah
-%global packver   1.3.0
+%global packname  cloudos
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Atlas of Living Australia (ALA) Data and Resources in R
+Summary:          R Client Library for CloudOS
 
-License:          MPL-2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr >= 1.0.0
-BuildRequires:    R-CRAN-jsonlite >= 0.9.8
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-crul 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-wellknown 
-Requires:         R-CRAN-stringr >= 1.0.0
-Requires:         R-CRAN-jsonlite >= 0.9.8
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-crul 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
 Requires:         R-utils 
-Requires:         R-CRAN-wellknown 
+Requires:         R-methods 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tibble 
 
 %description
-The Atlas of Living Australia ('ALA') provides tools to enable users of
-biodiversity information to find, access, combine and visualise data on
-Australian plants and animals; these have been made available from
-<https://ala.org.au/>. 'galah' provides a subset of the tools to be
-directly used within R. It enables the R community to directly access data
-and resources hosted by the 'ALA'.
+The 'CloudOS' client library for R makes it easy to interact with CloudOS
+<https://cloudos.lifebit.ai/> in the R environment for analysis.
 
 %prep
 %setup -q -c -n %{packname}

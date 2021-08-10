@@ -1,38 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  logbin
-%global packver   2.0.5
+%global packname  divseg
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Relative Risk Regression Using the Log-Binomial Model
+Summary:          Calculate Diversity and Segregation Indices
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-turboEM >= 2021
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-glm2 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-itertools2 
-BuildRequires:    R-CRAN-iterators 
-Requires:         R-CRAN-turboEM >= 2021
-Requires:         R-splines 
-Requires:         R-CRAN-glm2 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-itertools2 
-Requires:         R-CRAN-iterators 
+BuildRequires:    R-CRAN-sf >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 0.1.2
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-units 
+Requires:         R-CRAN-sf >= 1.0.0
+Requires:         R-CRAN-rlang >= 0.1.2
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-units 
 
 %description
-Methods for fitting log-link GLMs and GAMs to binomial data, including
-EM-type algorithms with more stable convergence properties than standard
-methods.
+Implements common measures of diversity and spatial segregation. This
+package has tools to compute the majority of measures are reviewed in
+Douglas and Massey (1988) <doi:10.2307/2579183>. Multiple common measures
+of within-geography diversity are implemented as well. All functions
+operate on data frames with a 'tidyselect' based workflow.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,38 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  logbin
-%global packver   2.0.5
+%global packname  NonpModelCheck
+%global packver   4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Relative Risk Regression Using the Log-Binomial Model
+Summary:          Model Checking and Variable Selection in Nonparametric Regression
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-turboEM >= 2021
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-glm2 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-itertools2 
-BuildRequires:    R-CRAN-iterators 
-Requires:         R-CRAN-turboEM >= 2021
-Requires:         R-splines 
-Requires:         R-CRAN-glm2 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-itertools2 
-Requires:         R-CRAN-iterators 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-dr 
+Requires:         R-CRAN-dr 
 
 %description
-Methods for fitting log-link GLMs and GAMs to binomial data, including
-EM-type algorithms with more stable convergence properties than standard
-methods.
+Provides tests of significance for covariates (or groups of covariates) in
+a fully nonparametric regression model and a variable (or group) selection
+procedure based on False Discovery Rate. In addition, it provides a
+function for local polynomial regression for any number of dimensions,
+using a bandwidth specified by the user or automatically chosen by cross
+validation or an adaptive procedure. Zambom and Akritas (2014)
+<doi:10.5705/ss.2013.112>, Zambom and Akritas (2015)
+<doi:10.1016/j.jmva.2014.08.014>, Zambom and Akritas (2017)
+<doi:10.18637/jss.v077.i10>.
 
 %prep
 %setup -q -c -n %{packname}

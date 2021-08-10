@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  joinet
-%global packver   0.0.9
+%global packver   0.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.0.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Elastic Net Regression
 
@@ -25,8 +25,8 @@ Requires:         R-CRAN-cornet
 
 %description
 Implements high-dimensional multivariate regression by stacked
-generalisation (Wolpert 1992 <doi:10.1016/S0893-6080(05)80023-1>). For
-positively correlated outcomes, a single multivariate regression is
+generalisation (Rauschenberger 2021 <doi:10.1093/bioinformatics/btab576>).
+For positively correlated outcomes, a single multivariate regression is
 typically more predictive than multiple univariate regressions. Includes
 functions for model fitting, extracting coefficients, outcome prediction,
 and performance measurement. If required, install MRCE or remMap from

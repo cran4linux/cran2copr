@@ -1,38 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  logbin
-%global packver   2.0.5
+%global packname  PLFD
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Relative Risk Regression Using the Log-Binomial Model
+Summary:          Portmanteau Local Feature Discrimination for Matrix-Variate Data
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-turboEM >= 2021
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-glm2 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-itertools2 
-BuildRequires:    R-CRAN-iterators 
-Requires:         R-CRAN-turboEM >= 2021
-Requires:         R-splines 
-Requires:         R-CRAN-glm2 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-itertools2 
-Requires:         R-CRAN-iterators 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.2
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.800
+BuildRequires:    R-CRAN-mathjaxr 
+Requires:         R-CRAN-Rcpp >= 1.0.2
+Requires:         R-CRAN-mathjaxr 
 
 %description
-Methods for fitting log-link GLMs and GAMs to binomial data, including
-EM-type algorithms with more stable convergence properties than standard
-methods.
+The portmanteau local feature discriminant approach first identifies the
+local discriminant features and their differential structures, then
+constructs the discriminant rule by pooling the identified local features
+together. This method is applicable to high-dimensional matrix-variate
+data.
 
 %prep
 %setup -q -c -n %{packname}

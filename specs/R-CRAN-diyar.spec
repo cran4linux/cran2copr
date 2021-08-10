@@ -1,42 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  reportfactory
-%global packver   0.4.0
+%global packname  diyar
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lightweight Infrastructure for Handling Multiple R Markdown Documents
+Summary:          Record Linkage and Epidemiological Case Definitions in R
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rprojroot 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-methods 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-callr 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-knitr 
-Requires:         R-CRAN-rprojroot 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-methods 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 Requires:         R-utils 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-callr 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
 
 %description
-Provides an infrastructure for handling multiple R Markdown reports,
-including automated curation and time-stamping of outputs,
-parameterisation and provision of helper functions to manage dependencies.
+An R package for record linkage and implementing epidemiological case
+definitions in R. Record linkage is implemented either through a
+multistage deterministic approach or a probabilistic approach. Matching
+records are assigned to unique groups. There are mechanisms to address
+missing data and conflicting matches across linkage stages. Track and
+assign events (e.g. sample collection) and periods (e.g. hospital
+admission) to unique groups based on a case definition. The tracking
+process permits several options such as episode lengths and recurrence.
+Duplicate events or records can then be identified for removal or further
+analyses.
 
 %prep
 %setup -q -c -n %{packname}

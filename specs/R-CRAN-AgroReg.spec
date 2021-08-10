@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  AgroReg
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Analysis Linear and Nonlinear for Agriculture
 
@@ -42,7 +42,7 @@ package includes linear, quadratic, cubic, inverse quadratic, exponential,
 negative exponential, biexponential, Gaussian, three- or four-parameter
 logistic, four- or five-parameter Brain-Cousens logistic, four- or
 five-parameter Cedergreen-Ritz-Streibig logistic models. five parameters,
-gompertz logistic, Michaelis-Menten, logarithmic, linear-linear segmented,
+Gompertz logistic, Michaelis-Menten, logarithmic, linear-linear segmented,
 linear-plate segmented, quadratic-plate segmented, nonparametric loess.
 The functions return the model coefficients and their respective p values,
 coefficient of determination, root mean square error, AIC, BIC, as well as

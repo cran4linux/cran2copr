@@ -1,38 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  logbin
-%global packver   2.0.5
+%global packname  IDSpatialStats
+%global packver   0.3.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          0.3.12
 Release:          1%{?dist}%{?buildtag}
-Summary:          Relative Risk Regression Using the Log-Binomial Model
+Summary:          Estimate Global Clustering in Infectious Disease
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-turboEM >= 2021
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-glm2 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-itertools2 
-BuildRequires:    R-CRAN-iterators 
-Requires:         R-CRAN-turboEM >= 2021
-Requires:         R-splines 
-Requires:         R-CRAN-glm2 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-itertools2 
-Requires:         R-CRAN-iterators 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-spatstat.core 
+BuildRequires:    R-CRAN-spatstat.geom 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-spatstat.core 
+Requires:         R-CRAN-spatstat.geom 
 
 %description
-Methods for fitting log-link GLMs and GAMs to binomial data, including
-EM-type algorithms with more stable convergence properties than standard
-methods.
+Implements various novel and standard clustering statistics and other
+analyses useful for understanding the spread of infectious disease.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,38 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  logbin
-%global packver   2.0.5
+%global packname  nflreadr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Relative Risk Regression Using the Log-Binomial Model
+Summary:          Download 'nflverse' Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-turboEM >= 2021
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-glm2 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-itertools2 
-BuildRequires:    R-CRAN-iterators 
-Requires:         R-CRAN-turboEM >= 2021
-Requires:         R-splines 
-Requires:         R-CRAN-glm2 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-itertools2 
-Requires:         R-CRAN-iterators 
+BuildRequires:    R-CRAN-curl >= 4.3.2
+BuildRequires:    R-CRAN-memoise >= 2.0.0
+BuildRequires:    R-CRAN-cachem >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-rappdirs >= 0.3.3
+BuildRequires:    R-CRAN-purrr >= 0.3.0
+BuildRequires:    R-CRAN-qs >= 0.24.0
+Requires:         R-CRAN-curl >= 4.3.2
+Requires:         R-CRAN-memoise >= 2.0.0
+Requires:         R-CRAN-cachem >= 1.0.0
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-rappdirs >= 0.3.3
+Requires:         R-CRAN-purrr >= 0.3.0
+Requires:         R-CRAN-qs >= 0.24.0
 
 %description
-Methods for fitting log-link GLMs and GAMs to binomial data, including
-EM-type algorithms with more stable convergence properties than standard
-methods.
+A low-level package for downloading data from 'GitHub' repositories of the
+'nflverse' project.
 
 %prep
 %setup -q -c -n %{packname}

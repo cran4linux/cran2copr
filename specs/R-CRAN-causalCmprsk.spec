@@ -1,42 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  florestal
-%global packver   0.1.3
+%global packname  causalCmprsk
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Results for Forest Inventories
+Summary:          Nonparametric and Cox-Based Estimation of ATE in Competing Risks
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-inline 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-BiodiversityR 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-inline 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-utils 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-BiodiversityR 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
 
 %description
-The functions return sampling parameters for forest inventories with
-tables and graphics. Methods used in the package refers to Pellico e Brena
-(1997) <https://bit.ly/2BDbHJI>.
+Estimation of average treatment effects (ATE) of two static treatment
+regimes on time-to-event outcomes with K competing events (K can be 1).
+The method uses propensity scores weighting for emulation of baseline
+randomization.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,6 +47,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fairml
-%global packver   0.6
+%global packname  LexFindR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fair Models in Machine Learning
+Summary:          Find Related Items and Lexical Dimensions in a Lexicon
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,22 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-optiSolve 
-BuildRequires:    R-CRAN-CVXR 
-BuildRequires:    R-CRAN-glmnet 
-Requires:         R-methods 
-Requires:         R-CRAN-optiSolve 
-Requires:         R-CRAN-CVXR 
-Requires:         R-CRAN-glmnet 
 
 %description
-Fair machine learning regression models which take sensitive attributes
-into account in model estimation. Currently implementing Komiyama et al.
-(2018) <http://proceedings.mlr.press/v80/komiyama18a/komiyama18a.pdf>,
-Zafar et al. (2019)
-<https://www.jmlr.org/papers/volume20/18-262/18-262.pdf> and my own
-approach that uses ridge regression to enforce fairness.
+Implements code to identify lexical competitors in a given list of words.
+We include many of the standard competitor types used in spoken word
+recognition research, such as functions to find cohorts, neighbors, and
+rhymes, amongst many others. The package includes documentation for using
+a variety of lexicon files, including those with form codes made up of
+multiple letters (i.e., phoneme codes) and also basic orthographies.
+Importantly, the code makes use of multiple CPU cores and vectorization
+when possible, making it extremely fast and able to handle large lexicons.
+Additionally, the package contains documentation for users to easily write
+new functions, allowing researchers to examine other relationships within
+a lexicon. Li, Z., Crinnion, A. M., & Magnuson, J. S. (2021) "LexFindR: A
+fast, simple, and extensible R package for finding similar words in a
+lexicon."
+<https://magnuson.psy.uconn.edu/wp-content/uploads/sites/1140/2021/02/lexfindr-brm-rev-2021-02-25.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

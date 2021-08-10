@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  domir
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Support Relative Importance Analysis
 
@@ -29,7 +29,7 @@ estimates (Luchman, J. N, Lei, X., & Kaplan, S. (2020)
 <doi:10.47263/JASEM.4(2)02>). These tools are intended to extend relative
 importance analysis to, effectively, any statistical or machine learning
 function as defined or desired by the user-especially those where the user
-wants to use custom importance/fit metric or modeling function.
+wants to use custom importance/fit statistic or modeling function.
 
 %prep
 %setup -q -c -n %{packname}
@@ -39,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
