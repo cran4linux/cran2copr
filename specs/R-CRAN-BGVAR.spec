@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BGVAR
-%global packver   2.2.4
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.4
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Global Vector Autoregressions
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xts 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-Matrix
 Requires:         R-methods 
 Requires:         R-parallel 
 Requires:         R-CRAN-RcppParallel 
+Requires:         R-CRAN-readxl 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-xts 

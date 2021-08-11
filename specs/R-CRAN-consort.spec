@@ -1,42 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  scam
-%global packver   1.2-12
+%global packname  consort
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.12
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Shape Constrained Additive Models
+Summary:          Create Consort Diagram
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.0
-Requires:         R-core >= 2.15.0
-BuildRequires:    R-CRAN-mgcv >= 1.8.2
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-splines 
-Requires:         R-CRAN-mgcv >= 1.8.2
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-Matrix 
-Requires:         R-splines 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Gmisc >= 2.1.0
+BuildRequires:    R-grid 
+Requires:         R-CRAN-Gmisc >= 2.1.0
+Requires:         R-grid 
 
 %description
-Routines for generalized additive modelling under shape constraints on the
-component functions of the linear predictor (Pya and Wood, 2015)
-<doi:10.1007/s11222-013-9448-7>. Models can contain multiple shape
-constrained (univariate and/or bivariate) and unconstrained terms. The
-routines of gam() in package 'mgcv' are used for setting up the model
-matrix, printing and plotting the results.  Penalized likelihood
-maximization based on Newton-Raphson method is used to fit a model with
-multiple smoothing parameter selection by GCV or UBRE/AIC.
+To make it easy to create CONSORT diagrams for the transparent reporting
+of participant allocation in randomized, controlled clinical trials. This
+is done by creating a standardized disposition data, and using this data
+as the source for the creation a standard CONSORT diagram. Human effort by
+supplying text labels on the node can also be achieved.
 
 %prep
 %setup -q -c -n %{packname}

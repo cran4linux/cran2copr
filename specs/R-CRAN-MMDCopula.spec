@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MMDCopula
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Estimation of Copulas by Maximum Mean Discrepancy
 
@@ -20,10 +20,12 @@ BuildRequires:    R-CRAN-VineCopula
 BuildRequires:    R-CRAN-cubature 
 BuildRequires:    R-CRAN-pcaPP 
 BuildRequires:    R-CRAN-randtoolbox 
+BuildRequires:    R-CRAN-pbapply 
 Requires:         R-CRAN-VineCopula 
 Requires:         R-CRAN-cubature 
 Requires:         R-CRAN-pcaPP 
 Requires:         R-CRAN-randtoolbox 
+Requires:         R-CRAN-pbapply 
 
 %description
 Provides functions for the robust estimation of parametric families of
@@ -39,6 +41,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

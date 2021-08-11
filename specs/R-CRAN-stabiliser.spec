@@ -1,27 +1,51 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dfadjust
-%global packver   1.0.3
+%global packname  stabiliser
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Degrees of Freedom Adjustment for Robust Standard Errors
+Summary:          Stabilising Variable Selection
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-bigstep 
+BuildRequires:    R-CRAN-rsample 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-ncvreg 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-bigstep 
+Requires:         R-CRAN-rsample 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-ncvreg 
 
 %description
-Computes small-sample degrees of freedom adjustment for heteroskedasticity
-robust standard errors, and for clustered standard errors in linear
-regression. See Imbens and Kolesár (2016) <doi:10.1162/REST_a_00552> for a
-discussion of these adjustments.
+A stable approach to variable selection through stability selection and
+the use of an objective threshold based on a model from permuted data.
+Lima et al (2021) <doi:10.1038/s41598-020-79317-8>, Meinshausen and
+Buhlmann (2010) <doi:10.1111/j.1467-9868.2010.00740.x>.
 
 %prep
 %setup -q -c -n %{packname}

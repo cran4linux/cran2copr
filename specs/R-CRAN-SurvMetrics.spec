@@ -1,42 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  scam
-%global packver   1.2-12
+%global packname  SurvMetrics
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.12
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Shape Constrained Additive Models
+Summary:          Predictive Evaluation Metrics in Survival Analysis
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.0
-Requires:         R-core >= 2.15.0
-BuildRequires:    R-CRAN-mgcv >= 1.8.2
-BuildRequires:    R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-survminer 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-splines 
-Requires:         R-CRAN-mgcv >= 1.8.2
-Requires:         R-methods 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-survminer 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-Matrix 
-Requires:         R-splines 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-MASS 
 
 %description
-Routines for generalized additive modelling under shape constraints on the
-component functions of the linear predictor (Pya and Wood, 2015)
-<doi:10.1007/s11222-013-9448-7>. Models can contain multiple shape
-constrained (univariate and/or bivariate) and unconstrained terms. The
-routines of gam() in package 'mgcv' are used for setting up the model
-matrix, printing and plotting the results.  Penalized likelihood
-maximization based on Newton-Raphson method is used to fit a model with
-multiple smoothing parameter selection by GCV or UBRE/AIC.
+An implementation of popular evaluation metrics that are commonly used in
+survival prediction including Concordance Index, Brier Score, Integrated
+Brier Score, Integrated Square Error, Integrated Absolute Error and Mean
+Absolute Error. For a detailed information, see (Ishwaran H, Kogalur UB,
+Blackstone EH and Lauer MS (2008) <doi:10.1214/08-AOAS169>) and (Moradian
+H, Larocque D and Bellavance F (2017) <doi:10.1007/s10985-016-9372-1>) for
+different evaluation metrics.
 
 %prep
 %setup -q -c -n %{packname}
