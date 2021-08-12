@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  materialmodifier
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Apply Material Editing Effects
+Summary:          Apply Photo Editing Effects
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -37,11 +37,11 @@ Requires:         R-CRAN-moments
 
 %description
 You can apply image processing effects that modifies the perceived
-material properties such as gloss, smoothness, and blemishes. This is an
-implementation of the algorithm proposed by Boyadzhiev et al. (2015)
-"Band-Sifting Decomposition for Image Based Material Editing".
-Documentation and practical tips of the package is available at
-<https://github.com/tsuda16k/materialmodifier>.
+material properties of objects in photos, such as gloss, smoothness, and
+blemishes. This is an implementation of the algorithm proposed by
+Boyadzhiev et al. (2015) "Band-Sifting Decomposition for Image Based
+Material Editing". Documentation and practical tips of the package is
+available at <https://github.com/tsuda16k/materialmodifier>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,6 +51,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

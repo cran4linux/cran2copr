@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mlr3verse
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Install and Load the 'mlr3' Package Family
 
@@ -16,9 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mlr3tuning >= 0.7.0
+BuildRequires:    R-CRAN-mlr3tuning >= 0.8.0
 BuildRequires:    R-CRAN-paradox >= 0.6.0
-BuildRequires:    R-CRAN-mlr3 >= 0.11.0
+BuildRequires:    R-CRAN-mlr3proba >= 0.4.0
+BuildRequires:    R-CRAN-mlr3 >= 0.12.0
 BuildRequires:    R-CRAN-bbotk 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-mlr3cluster 
@@ -28,11 +29,11 @@ BuildRequires:    R-CRAN-mlr3fselect
 BuildRequires:    R-CRAN-mlr3learners 
 BuildRequires:    R-CRAN-mlr3misc 
 BuildRequires:    R-CRAN-mlr3pipelines 
-BuildRequires:    R-CRAN-mlr3proba 
 BuildRequires:    R-CRAN-mlr3viz 
-Requires:         R-CRAN-mlr3tuning >= 0.7.0
+Requires:         R-CRAN-mlr3tuning >= 0.8.0
 Requires:         R-CRAN-paradox >= 0.6.0
-Requires:         R-CRAN-mlr3 >= 0.11.0
+Requires:         R-CRAN-mlr3proba >= 0.4.0
+Requires:         R-CRAN-mlr3 >= 0.12.0
 Requires:         R-CRAN-bbotk 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-mlr3cluster 
@@ -42,7 +43,6 @@ Requires:         R-CRAN-mlr3fselect
 Requires:         R-CRAN-mlr3learners 
 Requires:         R-CRAN-mlr3misc 
 Requires:         R-CRAN-mlr3pipelines 
-Requires:         R-CRAN-mlr3proba 
 Requires:         R-CRAN-mlr3viz 
 
 %description
@@ -60,6 +60,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rdacca.hp
-%global packver   0.5-6
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.6
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical and Variation Partitioning for Canonical Analysis
 
@@ -24,11 +24,11 @@ Requires:         R-CRAN-ggplot2
 %description
 This function conducts variation partitioning and hierarchical
 partitioning to calculate the unique, shared (referred as to "common") and
-independent contributions of each predictor (or matrix) to explained
-variation (R-squared and adjusted R-squared) on canonical analysis
-(RDA,CCA and db-RDA), applying the hierarchy algorithm of Chevan, A. and
-Sutherland, M. 1991 Hierarchical Partitioning.The American Statistician,
-90-96 <DOI:10.1080/00031305.1991.10475776>.
+individual contributions of each predictor (or matrix) towards explained
+variation (R-square and adjusted R-square) on canonical analysis (RDA,CCA
+and db-RDA), applying the algorithm of Chevan, A. and Sutherland, M. 1991
+Hierarchical Partitioning.The American Statistician, 90-96
+<doi:10.1080/00031305.1991.10475776>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -38,6 +38,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

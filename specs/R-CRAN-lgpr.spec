@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  lgpr
-%global packver   1.1.3
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Longitudinal Gaussian Process Regression
 
@@ -49,7 +49,7 @@ Gaussian process regression. Contains functionality for inferring
 covariate effects and assessing covariate relevances. Models are specified
 using a convenient formula syntax, and can include shared, group-specific,
 non-stationary, heterogeneous and temporally uncertain effects. Bayesian
-inference for model parameters is performed using Stan. The modeling
+inference for model parameters is performed using 'Stan'. The modeling
 approach and methods are described in detail in Timonen et al. (2021)
 <doi:10.1093/bioinformatics/btab021>.
 
@@ -61,6 +61,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
