@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  jfa
-%global packver   0.5.6
+%global packver   0.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.6
+Version:          0.5.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian and Classical Audit Sampling
 
@@ -25,9 +25,9 @@ Requires:         R-stats
 Implements the audit sampling workflow as discussed in Derks et al. (2019)
 <doi:10.31234/osf.io/9f6ub>. The package makes it easy for an auditor to
 plan a statistical sample, select the sample from the population, and
-evaluate the sample using various methods according to the International
-Standards on Auditing. Furthermore, the package implements Bayesian
-equivalents of these methods.
+evaluate the misstatement in the sample using various methods compliant
+with the International Standards on Auditing. Furthermore, the package
+implements Bayesian equivalents of these methods.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +37,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

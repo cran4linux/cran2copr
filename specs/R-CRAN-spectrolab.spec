@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spectrolab
-%global packver   0.0.13
+%global packver   0.0.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.13
+Version:          0.0.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Class and Methods for Spectral Data
 
@@ -13,21 +13,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny >= 1.5.0
+BuildRequires:    R-CRAN-shinyjs >= 1.1
+BuildRequires:    R-CRAN-RColorBrewer >= 1.0
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyjs 
+Requires:         R-CRAN-shiny >= 1.5.0
+Requires:         R-CRAN-shinyjs >= 1.1
+Requires:         R-CRAN-RColorBrewer >= 1.0
 Requires:         R-stats 
 Requires:         R-grDevices 
 Requires:         R-parallel 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyjs 
 
 %description
 Input/Output, processing and visualization of spectra taken with different

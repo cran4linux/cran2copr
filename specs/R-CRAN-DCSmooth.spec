@@ -1,37 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Distance
-%global packver   1.0.4
+%global packname  DCSmooth
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distance Sampling Detection Function and Abundance Estimation
+Summary:          Nonparametric Regression and Bandwidth Selection for Spatial Models
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-mrds >= 2.2.1
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-mrds >= 2.2.1
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-fracdiff 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-fracdiff 
+Requires:         R-stats 
 
 %description
-A simple way of fitting detection functions to distance sampling data for
-both line and point transects. Adjustment term selection, left and right
-truncation as well as monotonicity constraints and binning are supported.
-Abundance and density estimates can also be calculated (via a
-Horvitz-Thompson-like estimator) if survey area information is provided.
-See Miller et al. (2019) <doi:10.18637/jss.v089.i01> for more information
-on methods and <https://examples.distancesampling.org/> for example
-analyses.
+Nonparametric smoothing techniques for data on a lattice and functional
+time series. Smoothing is done via kernel regression or local polynomial
+regression, a bandwidth selection procedure based on an iterative plug-in
+algorithm is implemented. This package allows for modeling a dependency
+structure of the error terms of the nonparametric regression model.
+Methods used in this paper are described in Beran/Feng (2002)
+<doi:10.1198/106186002420>, Mueller/Wang (1994) <doi:10.2307/2533197>,
+Feng/Schaefer (2021) <https://ideas.repec.org/p/pdn/ciepap/144.html>,
+Schaefer/Feng (2021) <https://ideas.repec.org/p/pdn/ciepap/143.html>.
 
 %prep
 %setup -q -c -n %{packname}

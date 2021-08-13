@@ -1,39 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mlr3viz
-%global packver   0.5.5
+%global packname  fastverse
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualizations for 'mlr3'
+Summary:          A Suite of High-Performance Packages for Statistics and Data Manipulation
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.7.0
-BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-mlr3misc >= 0.7.0
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-CRAN-collapse 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-kit 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-fst 
 Requires:         R-CRAN-data.table 
-Requires:         R-utils 
+Requires:         R-CRAN-collapse 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-kit 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-fst 
 
 %description
-Provides visualizations for 'mlr3' objects such as tasks, predictions,
-resample results or benchmark results via the autoplot() generic of
-'ggplot2'. The returned 'ggplot' objects are intended to provide sensible
-defaults, yet can easily be customized to create camera-ready figures.
-Visualizations include barplots, boxplots, histograms, ROC curves, and
-Precision-Recall curves.
+Easy installation, loading and management, of a complementary set of
+high-performance packages for statistical computing and data manipulation.
+The core 'fastverse' consists of 6 packages: 'data.table', 'collapse',
+'matrixStats', 'kit', 'magrittr' and 'fst', that jointly only depend on
+'Rcpp'. These packages are attached and harmonized through the
+'fastverse'. In addition, the 'fastverse' can be freely and permanently
+extended with additional packages, both globally or for individual
+projects. Selected fast and low-dependency packages are suggested for
+various topics such as time series, dates and times, strings, spatial data
+and statistics (see 'README.md' on GitHub / website).
 
 %prep
 %setup -q -c -n %{packname}

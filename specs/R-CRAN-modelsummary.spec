@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  modelsummary
-%global packver   0.8.1
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Summary Tables and Plots for Statistical Models and Data: Beautiful, Customizable, and Publication-Ready
 
@@ -26,8 +26,6 @@ BuildRequires:    R-CRAN-parameters
 BuildRequires:    R-CRAN-performance 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tables 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-kableExtra >= 1.2.1
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-checkmate 
@@ -38,8 +36,6 @@ Requires:         R-CRAN-parameters
 Requires:         R-CRAN-performance 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tables 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
 
 %description
 Create beautiful and customizable tables to summarize several statistical
@@ -58,6 +54,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

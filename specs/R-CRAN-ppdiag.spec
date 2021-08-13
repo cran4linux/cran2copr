@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ppdiag
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diagnosis and Visualizations Tools for Temporal Point Processes
 
@@ -26,8 +26,9 @@ A suite of diagnostic tools for univariate point processes. This includes
 tools for simulating and fitting both common and more complex temporal
 point processes. We also include functions to visualise these point
 processes and collect existing diagnostic tools of Brown et al. (2002)
-<doi:10.1162/08997660252741149> and Wu et al. (2020) <arxiv:2001.09359>,
-which can be used to assess the fit of a chosen point process model.
+<doi:10.1162/08997660252741149> and Wu et al. (2021)
+<doi:10.1002/9781119821588.ch7>, which can be used to assess the fit of a
+chosen point process model.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +38,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

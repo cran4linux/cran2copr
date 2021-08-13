@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dataquieR
-%global packver   1.0.5
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Quality in Epidemiological Research
 
@@ -13,12 +13,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 2.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.2
-BuildRequires:    R-CRAN-cowplot >= 0.9.4
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-lme4 
@@ -33,7 +33,7 @@ BuildRequires:    R-CRAN-robustbase
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 >= 2.1.0
 Requires:         R-CRAN-dplyr >= 1.0.2
-Requires:         R-CRAN-cowplot >= 0.9.4
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-lme4 
@@ -51,7 +51,7 @@ Requires:         R-utils
 A set of functions to assess data quality issues in studies. See 'TMF'
 <https://www.tmf-ev.de/EnglishSite/Home.aspx> guideline and 'DFG'
 <https://www.dfg.de/en/index.jsp> project at
-<https://dfg-qa.ship-med.uni-greifswald.de>.
+<https://dataquality.ship-med.uni-greifswald.de>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -61,6 +61,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

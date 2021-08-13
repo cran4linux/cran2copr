@@ -1,37 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Distance
-%global packver   1.0.4
+%global packname  Revticulate
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distance Sampling Detection Function and Abundance Estimation
+Summary:          Interaction with "RevBayes" in R
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mrds >= 2.2.1
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-mrds >= 2.2.1
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-comprehenr 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-knitr 
+Requires:         R-utils 
+Requires:         R-CRAN-comprehenr 
 
 %description
-A simple way of fitting detection functions to distance sampling data for
-both line and point transects. Adjustment term selection, left and right
-truncation as well as monotonicity constraints and binning are supported.
-Abundance and density estimates can also be calculated (via a
-Horvitz-Thompson-like estimator) if survey area information is provided.
-See Miller et al. (2019) <doi:10.18637/jss.v089.i01> for more information
-on methods and <https://examples.distancesampling.org/> for example
-analyses.
+Interaction with "RevBayes" via R. Objects created in "RevBayes" can be
+passed into the R environment, and many types can be converted into
+similar R objects. To download "RevBayes", go to
+<https://revbayes.github.io/download>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Microsoft365R
-%global packver   2.2.1
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'Microsoft 365' Suite of Cloud Services
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-AzureGraph >= 1.3.0
+BuildRequires:    R-CRAN-AzureGraph >= 1.3.1
 BuildRequires:    R-CRAN-AzureAuth 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-curl 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-mime 
-Requires:         R-CRAN-AzureGraph >= 1.3.0
+Requires:         R-CRAN-AzureGraph >= 1.3.1
 Requires:         R-CRAN-AzureAuth 
 Requires:         R-utils 
 Requires:         R-CRAN-curl 
@@ -52,6 +52,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
