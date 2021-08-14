@@ -1,40 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  stochvolTMB
-%global packver   0.2.0
+%global packname  chyper
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Likelihood Estimation of Stochastic Volatility Models
+Summary:          Functions for Conditional Hypergeometric Distributions
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-TMB 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-sn 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-TMB 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-sn 
-Requires:         R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Parameter estimation for stochastic volatility models using maximum
-likelihood. The latent log-volatility is integrated out of the likelihood
-using the Laplace approximation. The models are fitted via 'TMB' (Template
-Model Builder) (Kristensen, Nielsen, Berg, Skaug, and Bell (2016)
-<doi:10.18637/jss.v070.i05>).
+An implementation of the probability mass function, cumulative density
+function, quantile function, random number generator, maximum likelihood
+estimator, and p-value generator from a conditional hypergeometric
+distribution: the distribution of how many items are in the overlap of all
+samples when samples of arbitrary size are each taken without replacement
+from populations of arbitrary size.
 
 %prep
 %setup -q -c -n %{packname}

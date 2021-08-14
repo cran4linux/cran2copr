@@ -1,40 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  stochvolTMB
-%global packver   0.2.0
+%global packname  lmDiallel
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.9.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Likelihood Estimation of Stochastic Volatility Models
+Summary:          Linear Fixed Effects Models for Diallel Crosses
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-TMB 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-sn 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-TMB 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-sn 
-Requires:         R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-MASS 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-multcomp 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-sommer 
+Requires:         R-CRAN-multcomp 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-sommer 
 
 %description
-Parameter estimation for stochastic volatility models using maximum
-likelihood. The latent log-volatility is integrated out of the likelihood
-using the Laplace approximation. The models are fitted via 'TMB' (Template
-Model Builder) (Kristensen, Nielsen, Berg, Skaug, and Bell (2016)
-<doi:10.18637/jss.v070.i05>).
+Several service functions to be used to analyse datasets obtained from
+diallel experiments within the frame of linear models in R, as described
+in Onofri et al (2020) <DOI:10.1007/s00122-020-03716-8>.
 
 %prep
 %setup -q -c -n %{packname}

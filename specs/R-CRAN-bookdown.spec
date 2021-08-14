@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bookdown
-%global packver   0.22
+%global packver   0.23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.22
+Version:          0.23
 Release:          1%{?dist}%{?buildtag}
 Summary:          Authoring Books and Technical Documents with R Markdown
 
@@ -17,18 +17,20 @@ Requires:         pandoc
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 2.6
+BuildRequires:    R-CRAN-rmarkdown >= 2.9
 BuildRequires:    R-CRAN-yaml >= 2.1.19
-BuildRequires:    R-CRAN-knitr >= 1.22
+BuildRequires:    R-CRAN-knitr >= 1.31
 BuildRequires:    R-CRAN-htmltools >= 0.3.6
 BuildRequires:    R-CRAN-xfun >= 0.22
 BuildRequires:    R-CRAN-tinytex >= 0.12
-Requires:         R-CRAN-rmarkdown >= 2.6
+BuildRequires:    R-CRAN-jquerylib 
+Requires:         R-CRAN-rmarkdown >= 2.9
 Requires:         R-CRAN-yaml >= 2.1.19
-Requires:         R-CRAN-knitr >= 1.22
+Requires:         R-CRAN-knitr >= 1.31
 Requires:         R-CRAN-htmltools >= 0.3.6
 Requires:         R-CRAN-xfun >= 0.22
 Requires:         R-CRAN-tinytex >= 0.12
+Requires:         R-CRAN-jquerylib 
 
 %description
 Output formats and utilities for authoring books and technical documents
@@ -42,6 +44,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

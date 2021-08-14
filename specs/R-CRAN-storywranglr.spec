@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  storywranglr
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explore Twitter Trends with the 'Storywrangler' API
 
@@ -19,15 +19,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-urltools 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-urltools 
 

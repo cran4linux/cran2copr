@@ -1,40 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  stochvolTMB
-%global packver   0.2.0
+%global packname  psr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Likelihood Estimation of Stochastic Volatility Models
+Summary:          Functions for Analyzing Performance Science Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-TMB 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-sn 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-TMB 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-sn 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-psych 
 Requires:         R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-MASS 
 
 %description
-Parameter estimation for stochastic volatility models using maximum
-likelihood. The latent log-volatility is integrated out of the likelihood
-using the Laplace approximation. The models are fitted via 'TMB' (Template
-Model Builder) (Kristensen, Nielsen, Berg, Skaug, and Bell (2016)
-<doi:10.18637/jss.v070.i05>).
+Contains functions to compute statistics relevant to performance
+scientists, coaches, and athletes. The functions within the package that
+report group-wide statistics have to do with measurement instrument
+reliability and individual change of athletes. Many of them come from the
+work of Hopkins (2000) <doi:10.2165/00007256-200030010-00001>. There are
+also functions that apply a particular statistical concept to each
+measurement in the data.
 
 %prep
 %setup -q -c -n %{packname}

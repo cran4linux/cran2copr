@@ -1,40 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  stochvolTMB
-%global packver   0.2.0
+%global packname  digitTests
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Likelihood Estimation of Stochastic Volatility Models
+Summary:          Tests for Detecting Irregular Digit Patterns
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-TMB 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-sn 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-TMB 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-sn 
+Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-MASS 
 
 %description
-Parameter estimation for stochastic volatility models using maximum
-likelihood. The latent log-volatility is integrated out of the likelihood
-using the Laplace approximation. The models are fitted via 'TMB' (Template
-Model Builder) (Kristensen, Nielsen, Berg, Skaug, and Bell (2016)
-<doi:10.18637/jss.v070.i05>).
+Provides statistical tests and support functions for detecting irregular
+digit patterns in numerical data. The package includes tools for
+extracting digits at various locations in a number, tests for repeated
+values, and (Bayesian) tests of digit distributions.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  HDBRR
-%global packver   0.1.8
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Dimensional Bayesian Ridge Regression without MCMC
 
@@ -13,23 +13,24 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-bigstatsr 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-parallel 
 Requires:         R-CRAN-bigstatsr 
 Requires:         R-CRAN-MASS 
+Requires:         R-graphics 
 
 %description
 The svd(singular value decomposition) or qr decomposition was using for
 the implementation, this avoid the recursion optimizing the time in the
-compute
-<https://drive.google.com/drive/folders/1xJw7gM5_XiJipQ3grTZkfc6q4K0hzuCx?usp=sharing>.
+compute.
 
 %prep
 %setup -q -c -n %{packname}
@@ -39,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

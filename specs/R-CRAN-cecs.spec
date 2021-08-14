@@ -1,40 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  stochvolTMB
-%global packver   0.2.0
+%global packname  cecs
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Likelihood Estimation of Stochastic Volatility Models
+Summary:          R Interface for the C Implementation of CEC Benchmark Functions
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-TMB 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-sn 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-TMB 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-sn 
-Requires:         R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-cec2013 >= 0.1.5
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-cec2013 >= 0.1.5
 
 %description
-Parameter estimation for stochastic volatility models using maximum
-likelihood. The latent log-volatility is integrated out of the likelihood
-using the Laplace approximation. The models are fitted via 'TMB' (Template
-Model Builder) (Kristensen, Nielsen, Berg, Skaug, and Bell (2016)
-<doi:10.18637/jss.v070.i05>).
+Goal of this package is to provide access to benchmark functions defined
+for the Special Session and Competition on Real-Parameter Single Objective
+Optimization in one place. The package contains functions from following
+years: 2013, 2014, 2015, 2017, 2019, 2021
+(<https://github.com/P-N-Suganthan>). Implementations of CEC-2013 (Y.
+Gonzalez-Fernandez & M. Zambrano-Bigiarini) and CEC2017 (D. Jagodziński)
+are taken from existed R packages. Also, the original C source code has
+been cleaned and reorganized for better readability.
 
 %prep
 %setup -q -c -n %{packname}
