@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  packer
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Opinionated Framework for Using 'JavaScript'
 
@@ -36,8 +36,9 @@ Requires:         R-CRAN-rstudioapi
 %description
 Enforces good practice and provides convenience functions to make work
 with 'JavaScript' not just easier but also scalable. It is a robust
-wrapper to 'NPM' and 'webpack' that enables to compartmentalize
-'JavaScript' code, leverage 'NPM' packages, and much more.
+wrapper to 'NPM', 'yarn', and 'webpack' that enables to compartmentalize
+'JavaScript' code, leverage 'NPM' and 'yarn' packages, include
+'TypeScript', 'React', or 'Vue' in web applications, and much more.
 
 %prep
 %setup -q -c -n %{packname}

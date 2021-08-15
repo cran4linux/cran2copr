@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  funtimes
-%global packver   8.0
+%global packver   8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.0
+Version:          8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Time Series Analysis
 

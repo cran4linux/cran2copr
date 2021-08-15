@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  AlleleShift
-%global packver   1.0-1
+%global packver   1.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Predict and Visualize Population-Level Changes in Allele Frequencies in Response to Climate Change
 
@@ -24,7 +24,7 @@ Requires:         R-CRAN-BiodiversityR >= 2.12.3
 Requires:         R-CRAN-adegenet 
 
 %description
-Methods (Kindt, R. 2021. <doi:10.1101/2021.01.15.426775>) are provided of
+Methods (Kindt, R. 2021. <doi:10.7717/peerj.11534>) are provided of
 calibrating and predicting shifts in allele frequencies through redundancy
 analysis ('vegan::rda()') and generalized additive models ('mgcv::gam()').
 Visualization functions for predicted changes in allele frequencies
@@ -44,6 +44,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
