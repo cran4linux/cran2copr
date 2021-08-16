@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RMVL
-%global packver   0.0.1.6
+%global packver   0.0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.6
+Version:          0.0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mappable Vector Library for Handling Large Datasets
 
@@ -19,9 +19,10 @@ Requires:         R-core >= 3.5.0
 %description
 Mappable vector library provides convenient way to access large datasets
 on solid state drives. This bypasses limitation of physical memory size as
-well as limited bandwidth of database interfaces. Access speed depends on
-storage medium, so solid state drive is recommended, preferably with PCI
-Express (or M.2 nvme) interface. The data is memory mapped into R and then
+well as limited bandwidth of database interfaces. Memory mapped data can
+be shared between multiple R processes. Access speed depends on storage
+medium, so solid state drive is recommended, preferably with PCI Express
+(or M.2 nvme) interface. The data is memory mapped into R and then
 accessed using usual R list and array subscription operators. The layout
 of underlying MVL files is optimized for large datasets. The vectors are
 stored to guarantee alignment for vector intrinsics after memory map. The
