@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SemNetCleaner
-%global packver   1.3.1
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Automated Cleaning Tool for Semantic and Linguistic Data
 
@@ -26,6 +26,9 @@ BuildRequires:    R-CRAN-R.matlab
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-easycsv 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-editData 
+BuildRequires:    R-CRAN-miniUI 
 Requires:         R-CRAN-SemNetDictionaries >= 0.1.8
 Requires:         R-CRAN-stringdist 
 Requires:         R-CRAN-searcher 
@@ -36,6 +39,9 @@ Requires:         R-CRAN-R.matlab
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-easycsv 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-editData 
+Requires:         R-CRAN-miniUI 
 
 %description
 Implements several functions that automates the cleaning and
@@ -52,6 +58,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

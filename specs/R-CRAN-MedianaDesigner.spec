@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MedianaDesigner
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Simulation-Based Power and Sample Size Calculations for a Broad Class of Late-Stage Clinical Trials
 
@@ -16,16 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.2
 Requires:         R-core >= 3.1.2
 BuildRequires:    R-CRAN-Rcpp >= 0.12.10
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-RcppNumerical 
 BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-devEMF 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-shinyMatrix 
 Requires:         R-CRAN-Rcpp >= 0.12.10
+Requires:         R-CRAN-RcppEigen 
+Requires:         R-CRAN-RcppNumerical 
 Requires:         R-CRAN-officer 
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-devEMF 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-shinyMatrix 

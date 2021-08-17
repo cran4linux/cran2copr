@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SemNetDictionaries
-%global packver   0.1.9
+%global packname  statgenIBD
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dictionaries for the 'SemNetCleaner' Package
+Summary:          Calculation of IBD Probabilities
 
-License:          GPL (>= 3.0)
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-easycsv 
-BuildRequires:    R-CRAN-knitr 
-Requires:         R-CRAN-easycsv 
-Requires:         R-CRAN-knitr 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Implements dictionaries that can be used in the 'SemNetCleaner' package.
-Also includes several functions aimed at facilitating the text cleaning
-analysis in the 'SemNetCleaner' package. This package is designed to
-integrate and update word lists and dictionaries based on each user's
-individual needs by allowing users to store and save their own
-dictionaries. Dictionaries can be added to the 'SemNetDictionaries'
-package by submitting user-defined dictionaries to
-<https://github.com/AlexChristensen/SemNetDictionaries>.
+For biparental, three and four-way crosses Identity by Descent (IBD)
+probabilities can be calculated using Hidden Markov Models and inheritance
+vectors following Lander and Green (<https://www.jstor.org/stable/29713>)
+and Huang (<doi:10.1073/pnas.1100465108>). One of a series of statistical
+genetic packages for streamlining the analysis of typical plant breeding
+experiments developed by Biometris.
 
 %prep
 %setup -q -c -n %{packname}

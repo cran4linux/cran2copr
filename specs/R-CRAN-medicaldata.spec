@@ -1,35 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SemNetDictionaries
-%global packver   0.1.9
+%global packname  medicaldata
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dictionaries for the 'SemNetCleaner' Package
+Summary:          Data Package for Medical Datasets
 
-License:          GPL (>= 3.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-easycsv 
-BuildRequires:    R-CRAN-knitr 
-Requires:         R-CRAN-easycsv 
-Requires:         R-CRAN-knitr 
 
 %description
-Implements dictionaries that can be used in the 'SemNetCleaner' package.
-Also includes several functions aimed at facilitating the text cleaning
-analysis in the 'SemNetCleaner' package. This package is designed to
-integrate and update word lists and dictionaries based on each user's
-individual needs by allowing users to store and save their own
-dictionaries. Dictionaries can be added to the 'SemNetDictionaries'
-package by submitting user-defined dictionaries to
-<https://github.com/AlexChristensen/SemNetDictionaries>.
+Provides access to well-documented medical datasets for teaching.
+Featuring several from the Teaching of Statistics in the Health Sciences
+website <https://www.causeweb.org/tshs/category/dataset/>, a few
+reconstructed datasets of historical significance in medical research,
+some reformatted and extended from existing R packages, and some data
+donations.
 
 %prep
 %setup -q -c -n %{packname}

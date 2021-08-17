@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  forestmangr
-%global packver   0.9.3
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.9.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forest Mensuration and Management
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-ggthemes
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-systemfit 
 BuildRequires:    R-CRAN-ggpmisc 
@@ -35,11 +34,9 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-CRAN-FinCal 
-BuildRequires:    R-CRAN-formattable 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-ggdendro 
 BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-miniUI 
 Requires:         R-CRAN-tibble >= 3.0.0
@@ -49,7 +46,6 @@ Requires:         R-CRAN-ggthemes
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-systemfit 
 Requires:         R-CRAN-ggpmisc 
@@ -61,11 +57,9 @@ Requires:         R-methods
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-minpack.lm 
 Requires:         R-CRAN-FinCal 
-Requires:         R-CRAN-formattable 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-ggdendro 
 Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-miniUI 
 
@@ -84,6 +78,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,49 +1,58 @@
 %global __brp_check_rpaths %{nil}
-%global packname  vimp
-%global packver   2.2.5
+%global packname  simlandr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.5
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Perform Inference on Algorithm-Agnostic Variable Importance
+Summary:          Simulation-Based Landscape Construction for Dynamical Systems
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SuperLearner 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ROCR 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-SuperLearner 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-bigmemory 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ks 
+BuildRequires:    R-CRAN-gganimate 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ROCR 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-bigmemory 
+Requires:         R-CRAN-digest 
+Requires:         R-methods 
+Requires:         R-CRAN-ks 
+Requires:         R-CRAN-gganimate 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-rlang 
 
 %description
-Calculate point estimates of and valid confidence intervals for
-nonparametric, algorithm-agnostic variable importance measures in high and
-low dimensions, using flexible estimators of the underlying regression
-functions. For more information about the methods, please see Williamson
-et al. (Biometrics, 2020), Williamson et al. (arXiv, 2020+)
-<arXiv:2004.03683>, and Williamson and Feng (ICML, 2020).
+A set of tools for constructing potential landscapes for dynamical systems
+using Monte-Carlo simulation. Especially suitable for psychological formal
+models.
 
 %prep
 %setup -q -c -n %{packname}

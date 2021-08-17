@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  objectremover
-%global packver   0.8.0
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'RStudio' Addin for Removing Objects from the Global Environment Based on Patterns and Object Type
 

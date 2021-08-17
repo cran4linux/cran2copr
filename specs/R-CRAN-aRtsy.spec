@@ -1,35 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SemNetDictionaries
-%global packver   0.1.9
+%global packname  aRtsy
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dictionaries for the 'SemNetCleaner' Package
+Summary:          Generative Art with 'ggplot2'
 
-License:          GPL (>= 3.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-easycsv 
-BuildRequires:    R-CRAN-knitr 
-Requires:         R-CRAN-easycsv 
-Requires:         R-CRAN-knitr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-reshape2 
 
 %description
-Implements dictionaries that can be used in the 'SemNetCleaner' package.
-Also includes several functions aimed at facilitating the text cleaning
-analysis in the 'SemNetCleaner' package. This package is designed to
-integrate and update word lists and dictionaries based on each user's
-individual needs by allowing users to store and save their own
-dictionaries. Dictionaries can be added to the 'SemNetDictionaries'
-package by submitting user-defined dictionaries to
-<https://github.com/AlexChristensen/SemNetDictionaries>.
+Provides various algorithms for creating artworks in the 'ggplot2'
+language that incorporate some form of randomness.
 
 %prep
 %setup -q -c -n %{packname}

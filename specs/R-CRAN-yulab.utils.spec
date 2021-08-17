@@ -1,35 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SemNetDictionaries
-%global packver   0.1.9
+%global packname  yulab.utils
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dictionaries for the 'SemNetCleaner' Package
+Summary:          Supporting Functions for Packages Maintained by 'YuLab-SMU'
 
-License:          GPL (>= 3.0)
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-easycsv 
-BuildRequires:    R-CRAN-knitr 
-Requires:         R-CRAN-easycsv 
-Requires:         R-CRAN-knitr 
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
-Implements dictionaries that can be used in the 'SemNetCleaner' package.
-Also includes several functions aimed at facilitating the text cleaning
-analysis in the 'SemNetCleaner' package. This package is designed to
-integrate and update word lists and dictionaries based on each user's
-individual needs by allowing users to store and save their own
-dictionaries. Dictionaries can be added to the 'SemNetDictionaries'
-package by submitting user-defined dictionaries to
-<https://github.com/AlexChristensen/SemNetDictionaries>.
+Miscellaneous functions commonly used by 'YuLab-SMU', such as
+'install_zip_gh' to install R package from github zip file, 'o' to open
+selected directory and file.
 
 %prep
 %setup -q -c -n %{packname}

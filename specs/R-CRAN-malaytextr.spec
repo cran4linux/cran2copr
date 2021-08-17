@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SemNetDictionaries
-%global packver   0.1.9
+%global packname  malaytextr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dictionaries for the 'SemNetCleaner' Package
+Summary:          Text Mining for Bahasa Malaysia
 
-License:          GPL (>= 3.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-easycsv 
-BuildRequires:    R-CRAN-knitr 
-Requires:         R-CRAN-easycsv 
-Requires:         R-CRAN-knitr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
-Implements dictionaries that can be used in the 'SemNetCleaner' package.
-Also includes several functions aimed at facilitating the text cleaning
-analysis in the 'SemNetCleaner' package. This package is designed to
-integrate and update word lists and dictionaries based on each user's
-individual needs by allowing users to store and save their own
-dictionaries. Dictionaries can be added to the 'SemNetDictionaries'
-package by submitting user-defined dictionaries to
-<https://github.com/AlexChristensen/SemNetDictionaries>.
+Text mining application (Bahasa Malaysia).
 
 %prep
 %setup -q -c -n %{packname}
