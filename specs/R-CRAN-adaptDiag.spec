@@ -1,34 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  miRecSurv
-%global packver   1.0.2
+%global packname  adaptDiag
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Left-Censored Recurrent Events Survival Models
+Summary:          Bayesian Adaptive Designs for Diagnostic Trials
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-COMPoissonReg 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-COMPoissonReg 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-stringi 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbmcapply 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-extraDistr 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
+Requires:         R-CRAN-pbmcapply 
+Requires:         R-stats 
 
 %description
-Fitting recurrent events survival models for left-censored data with
-multiple imputation of the number of previous episodes. See
-Hernández-Herrera G, Moriña D, Navarro A. (2020) <arXiv:2007.15031>.
+Simulate clinical trials for diagnostic test devices and evaluate the
+operating characteristics under an adaptive design with futility
+assessment determined via the posterior predictive probabilities.
 
 %prep
 %setup -q -c -n %{packname}

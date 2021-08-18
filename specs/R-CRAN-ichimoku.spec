@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ichimoku
-%global packver   0.3.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization and Tools for Ichimoku Kinko Hyo Strategies
 
@@ -15,18 +15,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-zoo 
 

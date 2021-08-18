@@ -1,34 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  miRecSurv
-%global packver   1.0.2
+%global packname  taylor
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Left-Censored Recurrent Events Survival Models
+Summary:          Lyrics and Song Data for Taylor Swift's Discography
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-COMPoissonReg 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-COMPoissonReg 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-stringi 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glue 
+Requires:         R-methods 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-vctrs 
 
 %description
-Fitting recurrent events survival models for left-censored data with
-multiple imputation of the number of previous episodes. See
-Hernández-Herrera G, Moriña D, Navarro A. (2020) <arXiv:2007.15031>.
+A comprehensive resource for data on Taylor Swift songs. Data is included
+for all officially released studio albums, extended plays (EPs), and
+individual singles are included. Data comes from 'Genius' (lyrics) and
+'Spotify' (song characteristics). Additional functions are included for
+easily creating data visualizations with color palettes inspired by Taylor
+Swift's album covers.
 
 %prep
 %setup -q -c -n %{packname}

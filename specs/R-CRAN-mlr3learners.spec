@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mlr3learners
-%global packver   0.4.5
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Recommended Learners for 'mlr3'
 
@@ -18,11 +18,13 @@ Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mlr3misc >= 0.5.0
 BuildRequires:    R-CRAN-mlr3 >= 0.11.0
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-paradox 
 BuildRequires:    R-CRAN-R6 
 Requires:         R-CRAN-mlr3misc >= 0.5.0
 Requires:         R-CRAN-mlr3 >= 0.11.0
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-paradox 
 Requires:         R-CRAN-R6 
@@ -42,6 +44,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

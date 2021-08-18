@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ordPens
-%global packver   0.3-1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
-Release:          3%{?dist}%{?buildtag}
-Summary:          Selection and/or Smoothing of Ordinal Predictors
+Version:          1.0.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          Selection, Fusion, Smoothing and Principal Components Analysis for Ordinal Variables
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,21 +17,34 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-grplasso 
-BuildRequires:    R-mgcv 
+BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-RLRsim 
-BuildRequires:    R-tcltk 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-glmpath 
 Requires:         R-CRAN-grplasso 
-Requires:         R-mgcv 
+Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-RLRsim 
-Requires:         R-tcltk 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-glmpath 
 
 %description
-Selection and/or smoothing of ordinally scaled independent variables using
-a group lasso or generalized ridge penalty.
+Selection, fusion, and/or smoothing of ordinally scaled independent
+variables using a group lasso, fused lasso or generalized ridge penalty,
+as well as non-linear principal components analysis for ordinal variables
+using a second-order difference/smoothing penalty.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -39,17 +52,10 @@ a group lasso or generalized ridge penalty.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RCurl
-%global packver   1.98-1.3
+%global packver   1.98-1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.98.1.3
+Version:          1.98.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          General Network (HTTP/FTP/...) Client Interface for R
 
@@ -22,8 +22,8 @@ Requires:         R-methods
 Requires:         R-CRAN-bitops 
 
 %description
-A wrapper for 'libcurl' <http://curl.haxx.se/libcurl/> Provides functions
-to allow one to compose general HTTP requests and provides convenient
+A wrapper for 'libcurl' <https://curl.se/libcurl/> Provides functions to
+allow one to compose general HTTP requests and provides convenient
 functions to fetch URIs, get & post forms, etc. and process the results
 returned by the Web server. This provides a great deal of control over the
 HTTP/FTP/... connection and the form of the request while providing a
@@ -40,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

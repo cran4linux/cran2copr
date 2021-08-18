@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  skpr
-%global packver   0.66.5
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.66.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Design of Experiments Suite: Generate and Evaluate Optimal Designs
 
@@ -74,7 +74,8 @@ censored responses. Provides a framework to evaluate power using functions
 provided in other packages or written by the user. Includes a Shiny
 graphical user interface that displays the underlying code used to create
 and evaluate the design to improve ease-of-use and make analyses more
-reproducible.
+reproducible. For details, see Morgan-Wall et al. (2021)
+<doi:10.18637/jss.v099.i01>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -84,6 +85,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

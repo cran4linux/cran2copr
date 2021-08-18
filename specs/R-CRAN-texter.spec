@@ -1,34 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  miRecSurv
-%global packver   1.0.2
+%global packname  texter
+%global packver   0.0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.0.0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Left-Censored Recurrent Events Survival Models
+Summary:          An Easy Text and Sentiment Analysis Library
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.14
+Requires:         R-core >= 2.14
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-COMPoissonReg 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-COMPoissonReg 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-stringi 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stopwords 
+BuildRequires:    R-CRAN-textdata 
+BuildRequires:    R-CRAN-tidytext 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stopwords 
+Requires:         R-CRAN-textdata 
+Requires:         R-CRAN-tidytext 
 
 %description
-Fitting recurrent events survival models for left-censored data with
-multiple imputation of the number of previous episodes. See
-Hernández-Herrera G, Moriña D, Navarro A. (2020) <arXiv:2007.15031>.
+Implement text and sentiment analysis with 'texter'. Generate sentiment
+scores on text data and also visualize sentiments. 'texter' allows you
+quickly generate insights on your data. It includes support for lexicons
+such as 'NRC' and 'Bing'.
 
 %prep
 %setup -q -c -n %{packname}

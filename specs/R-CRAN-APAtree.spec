@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  APAtree
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computation of the 'Area Potentially Available' (APA) to Trees
 
@@ -47,8 +47,10 @@ version of 'weighted voronoi diagrams' using a an approximation of the
 trees competitive ability (e.g., crown radius, leaf area) as weight. The
 main output are 'Raster*'- objects from the 'raster' package that are
 stored together with the raw data in apa_list's, the main class of the
-'APAtree' package. Aggregation functions are provided to calculate the
-most important stand characteristics based on APA-maps.
+'APAtree' package. Aggregation functions are provided to calculate stand
+characteristics based on APA-maps such as relative proportions according
+to APA-size and the neighborhood diversity index NDiv (Glatthorn (2021)
+<doi:10.1016/j.ecolind.2021.108073>).
 
 %prep
 %setup -q -c -n %{packname}

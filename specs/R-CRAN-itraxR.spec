@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  itraxR
-%global packver   1.2
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Itrax Data Analysis Tools
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-ggfortify 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-chemometrics 
 BuildRequires:    R-CRAN-tiff 
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-ggcorrplot 
@@ -30,12 +29,12 @@ BuildRequires:    R-CRAN-compositions
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggfortify 
 Requires:         R-grid 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-chemometrics 
 Requires:         R-CRAN-tiff 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-ggcorrplot 
@@ -44,6 +43,7 @@ Requires:         R-CRAN-compositions
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-stringr 
 
 %description
 Parse, trim, join, visualise and analyse data from Itrax sediment core
@@ -63,6 +63,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

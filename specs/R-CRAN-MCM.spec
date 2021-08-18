@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  miRecSurv
-%global packver   1.0.2
+%global packname  MCM
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Left-Censored Recurrent Events Survival Models
+Summary:          Estimating and Testing Intergenerational Social Mobility Effect
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,19 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-COMPoissonReg 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-COMPoissonReg 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-stringi 
+BuildRequires:    R-CRAN-gee 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-broomExtra 
+Requires:         R-CRAN-gee 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-broomExtra 
 
 %description
-Fitting recurrent events survival models for left-censored data with
-multiple imputation of the number of previous episodes. See
-Hernández-Herrera G, Moriña D, Navarro A. (2020) <arXiv:2007.15031>.
+Estimate and test inter-generational social mobility effect on an outcome
+with cross-sectional or longitudinal data.
 
 %prep
 %setup -q -c -n %{packname}

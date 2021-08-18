@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pacs
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Supplementary Tools for R Packages Developers
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-stringi 
@@ -31,7 +31,7 @@ the life duration of a specific package version. Checking a package CRAN
 check page status for any errors and warnings. Retrieving a DESCRIPTION or
 NAMESPACE file for any package version. Comparing DESCRIPTION or NAMESPACE
 files between different package versions. Getting a list of all releases
-for a specific package.
+for a specific package. The Bioconductor is partly supported.
 
 %prep
 %setup -q -c -n %{packname}

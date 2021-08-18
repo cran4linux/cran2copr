@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  htmldf
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Scraping and Tidy Webpage Summaries
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-ranger 
@@ -36,6 +37,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-processx 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-ranger 
