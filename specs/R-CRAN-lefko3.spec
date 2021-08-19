@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  lefko3
-%global packver   3.6.0
+%global packver   3.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6.0
+Version:          3.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Historical and Ahistorical Population Projection Matrix Analysis
 
@@ -44,7 +44,8 @@ are 2d matrices comprising 3 consecutive times of demographic information.
 Estimates both raw and function-based forms of historical and standard
 ahistorical matrices. It also estimates function-based age-by-stage
 matrices. Methodology based on Ehrlen (2000)
-<doi:10.1890/0012-9658(2000)081[1675:TDOPPD]2.0.CO;2>.
+<doi:10.1890/0012-9658(2000)081[1675:TDOPPD]2.0.CO;2> and deVries and
+Caswell (2018) <doi:10.1007/s12080-017-0353-0>.
 
 %prep
 %setup -q -c -n %{packname}

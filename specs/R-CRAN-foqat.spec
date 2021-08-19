@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  foqat
-%global packver   1.6.5
+%global packver   1.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.5
+Version:          1.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Field Observation Quick Analysis Toolkit
 
@@ -18,8 +18,6 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-stats 
@@ -28,12 +26,14 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-lmodel2 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggprism 
 BuildRequires:    R-CRAN-ggplotify 
 BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-plyr 
 Requires:         R-stats 
@@ -42,8 +42,12 @@ Requires:         R-utils
 Requires:         R-CRAN-lmodel2 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggprism 
 Requires:         R-CRAN-ggplotify 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-xml2 
 
 %description
 Tools for quickly processing and analyzing field observation data and air
@@ -53,8 +57,10 @@ time series are also applicable to other fields. For detail please view
 homepage<https://github.com/tianshu129/foqat>. Scientific Reference: 1.
 The Hydroxyl Radical (OH) Reactivity: Roger Atkinson and Janet Arey (2003)
 <doi:10.1021/cr0206420>. 2. Ozone Formation Potential (OFP):
-<https://ww2.arb.ca.gov/sites/default/files/classic/regact/2009/mir2009/mir10.pdf>.
-3. TUV model:
+<https://ww2.arb.ca.gov/sites/default/files/classic/regact/2009/mir2009/mir10.pdf>,
+Zhang et al.(2021) <doi:10.5194/acp-21-11053-2021>. 3. Aerosol Formation
+Potential (AFP): Wenjing Wu et al. (2016) <doi:10.1016/j.jes.2016.03.025>.
+4. TUV model:
 <https://www2.acom.ucar.edu/modeling/tropospheric-ultraviolet-and-visible-tuv-radiation-model>.
 
 %prep
@@ -65,6 +71,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

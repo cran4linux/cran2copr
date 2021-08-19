@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  textplot
-%global packver   0.1.4
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Text Plots
 
@@ -34,8 +34,9 @@ Requires:         R-graphics
 %description
 Visualise complex relations in texts. This is done by providing
 functionalities for displaying text co-occurrence networks, text
-correlation networks, dependency relationships as well as text clustering.
-Feel free to join the effort of providing interesting text visualisations.
+correlation networks, dependency relationships as well as text clustering
+and semantic text 'embeddings'. Feel free to join the effort of providing
+interesting text visualisations.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,6 +46,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

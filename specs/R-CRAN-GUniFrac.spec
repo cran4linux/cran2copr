@@ -1,42 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global packname  GUniFrac
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized UniFrac Distances and Distance-Based Multivariate Analysis of Variance
+Summary:          Generalized UniFrac Distances, Distance-Based Multivariate Methods and Feature-Based Univariate Methods for Microbiome Data Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.13
+BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-rmutil 
+BuildRequires:    R-CRAN-dirmult 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-Rcpp >= 0.12.13
+Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-ape 
 Requires:         R-parallel 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-statmod 
+Requires:         R-CRAN-rmutil 
+Requires:         R-CRAN-dirmult 
+Requires:         R-CRAN-MASS 
 
 %description
-Implementation of generalized UniFrac distances for comparing microbial
-communities and three extensions to the PERMANOVA procedure.  The three
-extensions are: (1) PERMANOVA using the Freedman-Lane permutation scheme;
-(2) PERMANOVA omnibus test using multiple matrices; and (3) Analytical
-approach to approximating PERMANOVA p-value.
+A suite of methods for powerful and robust microbiome data analysis
+including data normalization, data simulation, community-level association
+testing and differential abundance analysis. It implements generalized
+UniFrac distances, Geometric Mean of Pairwise Ratios (GMPR) normalization,
+semiparametric data simulator, distance-based statistical methods, and
+feature-based statistical methods. The distance-based statistical methods
+include three extensions of PERMANOVA: (1) PERMANOVA using the
+Freedman-Lane permutation scheme, (2) PERMANOVA omnibus test using
+multiple matrices, and (3) analytical approach to approximating PERMANOVA
+p-value. Feature-based statistical methods include linear model-based
+permutation tests for differential abundance analysis of zero-inflated
+compositional data.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,6 +62,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

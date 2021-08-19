@@ -1,50 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MazamaCoreUtils
-%global packver   0.4.8
+%global packname  r2dii.analysis
+%global packver   0.1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.8
+Version:          0.1.12
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utility Functions for Production R Code
+Summary:          Measure Climate Scenario Alignment of Corporate Loans
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 0.8.5
 BuildRequires:    R-CRAN-rlang >= 0.1.2
-BuildRequires:    R-CRAN-devtools 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-futile.logger 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-r2dii.data 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-dplyr >= 0.8.5
 Requires:         R-CRAN-rlang >= 0.1.2
-Requires:         R-CRAN-devtools 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-futile.logger 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-r2dii.data 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-zoo 
 
 %description
-A suite of utility functions providing functionality commonly needed for
-production level projects such as logging, error handling, cache
-management and date-time parsing. Functions for date-time parsing and
-formatting require that time zones be specified explicitly, avoiding a
-common source of error when working with environmental time series.
+These tools help you to assess if a corporate lending portfolio aligns
+with climate goals. They summarize key climate indicators attributed to
+the portfolio (e.g. production, emission factors), and calculate alignment
+targets based on climate scenarios. They implement in R the last step of
+the free software 'PACTA' (Paris Agreement Capital Transition Assessment;
+<https://2degrees-investing.org/>). Financial institutions use 'PACTA' to
+study how their capital allocation decisions align with climate change
+mitigation goals.
 
 %prep
 %setup -q -c -n %{packname}

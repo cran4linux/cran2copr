@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  purgeR
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inbreeding-Purging Estimation in Pedigreed Populations
 
@@ -34,13 +34,8 @@ computation of the inbreeding coefficient, partial, ancestral and purged
 inbreeding coefficients, and measures of the opportunity of purging
 related to the individual reduction of inbreeding load. In addition,
 functions to calculate the effective population size and other parameters
-relevant to population genetics are included. Caballero A. and Toro M.A.
-(2000) <doi:10.1017/s0016672399004449>. García-Dorado A., Wang J. and
-López-Cortegano E. (2016) <doi:10.1534/g3.116.032425>. Gulisija D. and
-Crow J.F. (2007) <doi:10.1111/j.1558-5646.2007.00088.x>. Gutiérrez J.P.,
-Cervantes I., Goyache F. (2009) <doi:10.1111/j.1439-0388.2009.00810.x>.
-López-Cortegano E., Bersabé D., Wang J., García-Dorado A. (2018)
-<doi:10.1038/s41437-017-0045-y>.
+relevant to population genetics are included. See López-Cortegano E.
+(2021) <doi:10.1093/bioinformatics/btab599>.
 
 %prep
 %setup -q -c -n %{packname}

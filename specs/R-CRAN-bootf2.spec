@@ -1,43 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cold
-%global packver   2.0-2
+%global packname  bootf2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Count Longitudinal Data
+Summary:          Simulation and Comparison of Dissolution Profiles
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.3
-Requires:         R-core >= 3.5.3
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-CRAN-MASS 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-utils 
-Requires:         R-CRAN-cubature 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-minpack.lm 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-readxl 
+Requires:         R-stats 
 
 %description
-Performs regression analysis for longitudinal count data, allowing for
-serial dependence among observations from a given individual and two
-dimensional random effects on the linear predictor. Estimation is via
-maximization of the exact likelihood of a suitably defined model. Missing
-values and unbalanced data are allowed; M. Helena Goncalves et al.(2007).
-<doi:10.1016/j.csda.2007.03.002>. M. Helena Goncalves and M. Salome Cabral
-(2021). <doi:10.18637/jss.v099.i03>.
+Compare dissolution profiles with confidence interval of similarity factor
+f2 using bootstrap methodology as described in the literature, such as
+Efron and Tibshirani (1993, ISBN:9780412042317), Davison and Hinkley
+(1997, ISBN:9780521573917), and Shah et al. (1998)
+<doi:10.1023/A:1011976615750>. The package can also be used to simulate
+dissolution profiles based on mathematical modelling and multivariate
+normal distribution.
 
 %prep
 %setup -q -c -n %{packname}

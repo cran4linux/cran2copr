@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  AtmChile
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Air Quality and Meteorological Information of Chile
 
@@ -17,7 +17,19 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-openair 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-shinycssloaders 
+BuildRequires:    R-CRAN-DT 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-openair 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-shinycssloaders 
+Requires:         R-CRAN-DT 
 
 %description
 Download air quality and meteorological information of Chile from the
