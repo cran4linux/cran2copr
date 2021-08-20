@@ -1,42 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  lavacreg
-%global packver   0.1-2
+%global packname  readmoRe
+%global packver   0.2-12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.12
 Release:          1%{?dist}%{?buildtag}
-Summary:          Latent Variable Count Regression Models
+Summary:          Utilities for Importing and Manipulating Biomedical Data Files
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-fastGHQuad 
-BuildRequires:    R-CRAN-pracma 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-utils 
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-SparseGrid 
-Requires:         R-CRAN-Rcpp >= 1.0.5
-Requires:         R-CRAN-fastGHQuad 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-plyr 
+Requires:         R-CRAN-R.utils 
+Requires:         R-utils 
 Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-SparseGrid 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-plyr 
 
 %description
-Estimation of a multi-group count regression models (i.e., Poisson,
-negative binomial) with latent covariates. This packages provides two
-extensions compared to ordinary count regression models based on a
-generalized linear model: First, measurement models for the predictors can
-be specified allowing to account for measurement error. Second, the count
-regression can be simultaneously estimated in multiple groups with
-stochastic group weights. The marginal maximum likelihood estimation is
-described in Kiefer & Mayer (2020) <doi:10.1080/00273171.2020.1751027>.
+Tools to read various file types into one list of data structures,
+usually, but not limited to, data frames. Excel files are read sheet-wise,
+i.e., all or a selection of sheets can be read. Field delimiters and
+decimal separators are determined automatically.
 
 %prep
 %setup -q -c -n %{packname}

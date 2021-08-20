@@ -1,38 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dosearch
-%global packver   1.0.8
+%global packname  Rxnat
+%global packver   1.0.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.15
 Release:          1%{?dist}%{?buildtag}
-Summary:          Causal Effect Identification from Multiple Incomplete Data Sources
+Summary:          Queries and Extracts Images from Extensible Neuroimaging Archive Toolkit Public/Private Datasets
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.19
-Requires:         R-CRAN-Rcpp >= 0.12.19
+BuildArch:        noarch
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-httr 
+Requires:         R-utils 
+Requires:         R-CRAN-tibble 
 
 %description
-Identification of causal effects from arbitrary observational and
-experimental probability distributions via do-calculus and standard
-probability manipulations using a search-based algorithm by Tikka et al.
-(2021) <doi:10.18637/jss.v099.i05>. Allows for the presence of mechanisms
-related to selection bias (Bareinboim, E. and Tian, J. (2015)
-<http://ftp.cs.ucla.edu/pub/stat_ser/r445.pdf>), transportability
-(Bareinboim, E. and Pearl, J. (2014)
-<http://ftp.cs.ucla.edu/pub/stat_ser/r443.pdf>), missing data (Mohan, K.
-and Pearl, J. and Tian., J. (2013)
-<http://ftp.cs.ucla.edu/pub/stat_ser/r410.pdf>) and arbitrary combinations
-of these. Also supports identification in the presence of context-specific
-independence (CSI) relations through labeled directed acyclic graphs
-(LDAG). For details on CSIs see Corander et al. (2019)
-<doi:10.1016/j.apal.2019.04.004>.
+Allows communication with Extensible Neuroimaging Archive Toolkit
+<https://www.xnat.org>. 'Rxnat' is using the 'XNAT' REST API to perform
+data queries and download images.
 
 %prep
 %setup -q -c -n %{packname}

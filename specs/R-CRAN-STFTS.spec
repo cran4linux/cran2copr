@@ -1,40 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  misty
-%global packver   0.4.1
+%global packname  STFTS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Functions 'T. Yanagida'
+Summary:          Statistical Tests for Functional Time Series
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.3
-Requires:         R-core >= 3.3.3
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-readxl 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-lavaan 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-readxl 
+BuildRequires:    R-CRAN-e1071 
+Requires:         R-CRAN-e1071 
 
 %description
-Miscellaneous functions for descriptive statistics (e.g., frequency table,
-cross tabulation, multilevel descriptive statistics, coefficient alpha and
-omega, and various effect size measures), missing data (e.g., descriptive
-statistics for missing data, missing data pattern and auxiliary variable
-analysis), data management (e.g., grand-mean and group-mean centering,
-recode variables and reverse code items, scale and group scores, reading
-and writing SPSS and Excel files), and statistical analysis (e.g.,
-confidence intervals, collinearity diagnostics, Levene's test, t-test,
-z-test, and sample size determination).
+A collection of statistical hypothesis tests of functional time series.
+While it will include more tests when the related literature are enriched,
+this package contains the following key tests: functional stationarity
+test, functional trend stationarity test, functional unit root test, to
+name a few.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +34,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

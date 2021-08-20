@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DDIwR
-%global packver   0.6
+%global packver   0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          DDI with R
 
@@ -16,17 +16,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-admisc >= 0.16
+BuildRequires:    R-CRAN-declared >= 0.6
+BuildRequires:    R-CRAN-admisc >= 0.17
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-declared 
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-writexl 
-Requires:         R-CRAN-admisc >= 0.16
+Requires:         R-CRAN-declared >= 0.6
+Requires:         R-CRAN-admisc >= 0.17
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-declared 
 Requires:         R-CRAN-haven 
 Requires:         R-tools 
 Requires:         R-CRAN-xml2 
@@ -46,6 +46,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

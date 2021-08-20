@@ -1,38 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dosearch
-%global packver   1.0.8
+%global packname  RADstackshelpR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Causal Effect Identification from Multiple Incomplete Data Sources
+Summary:          Optimize the De Novo Stacks Pipeline via R
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.19
-Requires:         R-CRAN-Rcpp >= 0.12.19
+BuildArch:        noarch
+BuildRequires:    R-CRAN-vcfR 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggridges 
+BuildRequires:    R-CRAN-gridExtra 
+Requires:         R-CRAN-vcfR 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggridges 
+Requires:         R-CRAN-gridExtra 
 
 %description
-Identification of causal effects from arbitrary observational and
-experimental probability distributions via do-calculus and standard
-probability manipulations using a search-based algorithm by Tikka et al.
-(2021) <doi:10.18637/jss.v099.i05>. Allows for the presence of mechanisms
-related to selection bias (Bareinboim, E. and Tian, J. (2015)
-<http://ftp.cs.ucla.edu/pub/stat_ser/r445.pdf>), transportability
-(Bareinboim, E. and Pearl, J. (2014)
-<http://ftp.cs.ucla.edu/pub/stat_ser/r443.pdf>), missing data (Mohan, K.
-and Pearl, J. and Tian., J. (2013)
-<http://ftp.cs.ucla.edu/pub/stat_ser/r410.pdf>) and arbitrary combinations
-of these. Also supports identification in the presence of context-specific
-independence (CSI) relations through labeled directed acyclic graphs
-(LDAG). For details on CSIs see Corander et al. (2019)
-<doi:10.1016/j.apal.2019.04.004>.
+Offers a handful of useful wrapper functions which streamline the reading,
+analyzing, and visualizing of variant call format (vcf) files in R. This
+package was designed to facilitate an explicit pipeline for optimizing
+Stacks (Rochette et al., 2019) (<doi:10.1111/mec.15253>) parameters during
+de novo (without a reference genome) assembly and variant calling of
+restriction-enzyme associated DNA sequence (RADseq) data. The pipeline
+implemented here is based on the 2017 paper "Lost in Parameter Space"
+(Paris et al., 2017) (<doi:10.1111/2041-210X.12775>) which establishes
+clear recommendations for optimizing the parameters 'm', 'M', and 'n',
+during the process of assembling loci.
 
 %prep
 %setup -q -c -n %{packname}

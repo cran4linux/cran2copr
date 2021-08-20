@@ -1,38 +1,50 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dosearch
-%global packver   1.0.8
+%global packname  beastier
+%global packver   2.4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          2.4.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Causal Effect Identification from Multiple Incomplete Data Sources
+Summary:          Call 'BEAST2'
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.19
-Requires:         R-CRAN-Rcpp >= 0.12.19
+BuildArch:        noarch
+BuildRequires:    R-CRAN-beautier >= 2.6.2
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-assertive 
+BuildRequires:    R-CRAN-devtools 
+BuildRequires:    R-CRAN-phangorn 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rJava 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-beautier >= 2.6.2
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-assertive 
+Requires:         R-CRAN-devtools 
+Requires:         R-CRAN-phangorn 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rJava 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-xml2 
 
 %description
-Identification of causal effects from arbitrary observational and
-experimental probability distributions via do-calculus and standard
-probability manipulations using a search-based algorithm by Tikka et al.
-(2021) <doi:10.18637/jss.v099.i05>. Allows for the presence of mechanisms
-related to selection bias (Bareinboim, E. and Tian, J. (2015)
-<http://ftp.cs.ucla.edu/pub/stat_ser/r445.pdf>), transportability
-(Bareinboim, E. and Pearl, J. (2014)
-<http://ftp.cs.ucla.edu/pub/stat_ser/r443.pdf>), missing data (Mohan, K.
-and Pearl, J. and Tian., J. (2013)
-<http://ftp.cs.ucla.edu/pub/stat_ser/r410.pdf>) and arbitrary combinations
-of these. Also supports identification in the presence of context-specific
-independence (CSI) relations through labeled directed acyclic graphs
-(LDAG). For details on CSIs see Corander et al. (2019)
-<doi:10.1016/j.apal.2019.04.004>.
+'BEAST2' (<https://www.beast2.org>) is a widely used Bayesian phylogenetic
+tool, that uses DNA/RNA/protein data and many model priors to create a
+posterior of jointly estimated phylogenies and parameters. 'BEAST2' is a
+command-line tool. This package provides a way to call 'BEAST2' from an
+'R' function call.
 
 %prep
 %setup -q -c -n %{packname}

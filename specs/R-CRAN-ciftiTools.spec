@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ciftiTools
-%global packver   0.3.1
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Reading and Visualizing CIFTI Brain Files
+Summary:          Tools for Reading, Writing, Viewing and Manipulating CIFTI Files
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -36,13 +36,16 @@ Requires:         R-CRAN-viridisLite
 Requires:         R-CRAN-xml2 
 
 %description
-CIFTI files contain brain imaging data in "gray-ordinates", which
-represent the gray matter as cortical surface vertices (left and right)
-and subcortical voxels (cerebellum, basal ganglia, and other deep gray
-matter). 'ciftiTools' uses the Connectome Workbench to read CIFTI files
-into R and apply common pre-processing steps (e.g. smoothing, resampling).
-It also provides tools for visualizing the cortical surface with GIFTI
-files, and for visualizing the subcortical volume.
+CIFTI files contain brain imaging data in "grayordinates," which represent
+the gray matter as cortical surface vertices (left and right) and
+subcortical voxels (cerebellum, basal ganglia, and other deep gray
+matter). 'ciftiTools' provides a unified environment for reading, writing,
+visualizing and manipulating CIFTI-format data. It supports the "dscalar,"
+"dlabel," and "dtseries" intents. Greyordinate data is read in as a
+"xifti" object, which is structured for convenient access to the data and
+metadata, and includes support for surface geometry files to enable
+spatially-dependent functionality such as static or interactive
+visualizations and smoothing.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,6 +55,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

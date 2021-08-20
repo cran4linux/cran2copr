@@ -1,38 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dosearch
-%global packver   1.0.8
+%global packname  eurocordexr
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Causal Effect Identification from Multiple Incomplete Data Sources
+Summary:          Makes it Easier to Work with Daily 'netCDF' from EURO-CORDEX RCMs
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.19
-Requires:         R-CRAN-Rcpp >= 0.12.19
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-CRAN-ncdf4.helpers 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-PCICt 
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ncdf4 
+Requires:         R-CRAN-ncdf4.helpers 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-PCICt 
+Requires:         R-CRAN-lubridate 
 
 %description
-Identification of causal effects from arbitrary observational and
-experimental probability distributions via do-calculus and standard
-probability manipulations using a search-based algorithm by Tikka et al.
-(2021) <doi:10.18637/jss.v099.i05>. Allows for the presence of mechanisms
-related to selection bias (Bareinboim, E. and Tian, J. (2015)
-<http://ftp.cs.ucla.edu/pub/stat_ser/r445.pdf>), transportability
-(Bareinboim, E. and Pearl, J. (2014)
-<http://ftp.cs.ucla.edu/pub/stat_ser/r443.pdf>), missing data (Mohan, K.
-and Pearl, J. and Tian., J. (2013)
-<http://ftp.cs.ucla.edu/pub/stat_ser/r410.pdf>) and arbitrary combinations
-of these. Also supports identification in the presence of context-specific
-independence (CSI) relations through labeled directed acyclic graphs
-(LDAG). For details on CSIs see Corander et al. (2019)
-<doi:10.1016/j.apal.2019.04.004>.
+Daily 'netCDF' data from e.g. regional climate models (RCMs) are not
+trivial to work with. This package, which relies on 'data.table', makes it
+easier to deal with large data from RCMs, such as from EURO-CORDEX
+(<https://www.euro-cordex.net/>, <https://cordex.org/data-access/>). It
+has functions to extract single grid cells from rotated pole grids as well
+as the whole array in long format. Can handle non-standard calendars (360,
+noleap) and interpolate them to a standard one. Potentially works with
+many CF-conform 'netCDF' files.
 
 %prep
 %setup -q -c -n %{packname}

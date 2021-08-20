@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  betafunctions
-%global packver   1.5.0
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Working with Two- And Four-Parameter Beta Probability Distributions
 
@@ -26,9 +26,10 @@ functions for estimating classification accuracy, diagnostic performance,
 and consistency, making use of what is generally known as the 'Livingston
 and Lewis approach' in the psychometric literature as the foundational
 method, which makes extensive use of the Beta distribution. A shiny app is
-available, providing a GUI for the Livingston and Lewis approach. For
-link, see documentation for the LL.CA() function. Livingston and Lewis
-(1995) <doi:10.1111/j.1745-3984.1995.tb00462.x>. Hanson (1991)
+available, providing a GUI for the Livingston and Lewis approach for
+binary classifications. For link, see documentation for the LL.CA()
+function. Livingston and Lewis (1995)
+<doi:10.1111/j.1745-3984.1995.tb00462.x>. Hanson (1991)
 <https://files.eric.ed.gov/fulltext/ED344945.pdf>. Tharwat (2020)
 <doi:10.1016/j.aci.2018.08.003>.
 
@@ -40,6 +41,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

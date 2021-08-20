@@ -1,42 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  lavacreg
-%global packver   0.1-2
+%global packname  fastqq
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Latent Variable Count Regression Models
+Summary:          Faster Generation of Quantile Quantile Plots with Large Samples
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-fastGHQuad 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-SparseGrid 
-Requires:         R-CRAN-Rcpp >= 1.0.5
-Requires:         R-CRAN-fastGHQuad 
-Requires:         R-CRAN-pracma 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-SparseGrid 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Estimation of a multi-group count regression models (i.e., Poisson,
-negative binomial) with latent covariates. This packages provides two
-extensions compared to ordinary count regression models based on a
-generalized linear model: First, measurement models for the predictors can
-be specified allowing to account for measurement error. Second, the count
-regression can be simultaneously estimated in multiple groups with
-stochastic group weights. The marginal maximum likelihood estimation is
-described in Kiefer & Mayer (2020) <doi:10.1080/00273171.2020.1751027>.
+New and faster implementations for quantile quantile plots. The package
+also includes a function to prune data for quantile quantile plots. This
+can drastically reduce the running time for large samples, for 100 million
+samples, you can expect a factor 80X speedup.
 
 %prep
 %setup -q -c -n %{packname}
