@@ -1,56 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  geometr
-%global packver   0.2.9
+%global packname  healthyR.ai
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate and Modify Interoperable Geometric Shapes
+Summary:          The Machine Learning and AI Modeling Companion to 'healthyR'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-deldir 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 0.1.2
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-deldir 
-Requires:         R-CRAN-dplyr 
-Requires:         R-grDevices 
-Requires:         R-grid 
-Requires:         R-methods 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-rlang >= 0.1.2
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-utils 
 
 %description
-Provides tools that generate and process fully accessible and tidy
-geometric shapes. The package improves interoperability of spatial and
-other geometric classes by providing getters and setters that produce
-identical output from various classes.
+Hospital machine learning and ai data analysis workflow tools, modeling,
+and automations. This library provides many useful tools to review common
+administrative hospital data. Some of these include predicting length of
+stay, and readmits. The aim is to provide a simple and consistent verb
+framework that takes the guesswork out of everything.
 
 %prep
 %setup -q -c -n %{packname}

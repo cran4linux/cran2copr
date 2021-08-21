@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  healthyR
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hospital Data Analysis Workflow Tools
 
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-sqldf
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-plotly 
 Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
@@ -50,6 +51,7 @@ Requires:         R-CRAN-sqldf
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-plotly 
 
 %description
 Hospital data analysis workflow tools, modeling, and automations. This
@@ -67,6 +69,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

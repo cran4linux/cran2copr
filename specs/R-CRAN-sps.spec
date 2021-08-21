@@ -1,45 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ggimage
-%global packver   0.2.9
+%global packname  sps
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Use Image in 'ggplot2'
+Summary:          Sequential Poisson Sampling
 
-License:          Artistic-2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggfun 
-BuildRequires:    R-CRAN-ggplotify 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggfun 
-Requires:         R-CRAN-ggplotify 
-Requires:         R-grid 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magick 
-Requires:         R-methods 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-tibble 
-Requires:         R-tools 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Supports image files and graphic objects to be visualized in 'ggplot2'
-graphic system.
+Sequential Poisson sampling is a method for drawing
+probability-proportional-to-size samples with a given number of units, and
+is commonly used for price-index surveys. This package gives functions to
+draw a stratified sequential Poisson sample according to the method by
+Ohlsson (1998, ISSN:0282-423X), and generate bootstrap replicate weights
+according to the generalized bootstrap method by Beaumont and Patak (2012,
+<doi:10.1111/j.1751-5823.2011.00166.x>).
 
 %prep
 %setup -q -c -n %{packname}

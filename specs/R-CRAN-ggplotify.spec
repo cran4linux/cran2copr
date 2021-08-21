@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ggplotify
-%global packver   0.0.8
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convert Plot to 'grob' or 'ggplot' Object
 
@@ -21,13 +21,13 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridGraphics 
-BuildRequires:    R-CRAN-rvcheck 
+BuildRequires:    R-CRAN-yulab.utils 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-grid 
 Requires:         R-CRAN-gridGraphics 
-Requires:         R-CRAN-rvcheck 
+Requires:         R-CRAN-yulab.utils 
 
 %description
 Convert plot function call (using expression or formula) to 'grob' or

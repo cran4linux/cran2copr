@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ggimage
-%global packver   0.2.9
+%global packname  metaboData
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Use Image in 'ggplot2'
+Summary:          Example Metabolomics Data Sets
 
-License:          Artistic-2.0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,30 +16,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggfun 
-BuildRequires:    R-CRAN-ggplotify 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-piggyback 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggfun 
-Requires:         R-CRAN-ggplotify 
-Requires:         R-grid 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magick 
-Requires:         R-methods 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-piggyback 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-tools 
+Requires:         R-CRAN-yaml 
 
 %description
-Supports image files and graphic objects to be visualized in 'ggplot2'
-graphic system.
+Data sets from a variety of biological sample matrices, analysed using a
+number of mass spectrometry based metabolomic analytical techniques. The
+example data sets are stored remotely using GitHub releases
+<https://github.com/aberHRML/metaboData/releases> which can be accessed
+from R using the package. The package also includes the 'abr1' FIE-MS data
+set from the 'FIEmspro' package <https://users.aber.ac.uk/jhd/>
+<doi:10.1038/nprot.2007.511>.
 
 %prep
 %setup -q -c -n %{packname}

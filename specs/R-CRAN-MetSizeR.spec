@@ -1,45 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ggimage
-%global packver   0.2.9
+%global packname  MetSizeR
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Use Image in 'ggplot2'
+Summary:          A Shiny App for Sample Size Estimation in Metabolomic Experiments
 
-License:          Artistic-2.0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggfun 
-BuildRequires:    R-CRAN-ggplotify 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-MetabolAnalyze 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-stats 
 BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vroom 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggfun 
-Requires:         R-CRAN-ggplotify 
-Requires:         R-grid 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magick 
-Requires:         R-methods 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-MetabolAnalyze 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinythemes 
+Requires:         R-stats 
 Requires:         R-tools 
+Requires:         R-utils 
+Requires:         R-CRAN-vroom 
 
 %description
-Supports image files and graphic objects to be visualized in 'ggplot2'
-graphic system.
+Provides a Shiny application to estimate the sample size required for a
+metabolomic experiment to achieve a desired statistical power. Estimation
+is possible with or without available data from a pilot study.
 
 %prep
 %setup -q -c -n %{packname}

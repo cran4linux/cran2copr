@@ -1,38 +1,51 @@
 %global __brp_check_rpaths %{nil}
-%global packname  scatterpie
-%global packver   0.1.7
+%global packname  dreamer
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Scatter Pie Plot
+Summary:          Dose Response Models for Bayesian Model Averaging
 
-License:          Artistic-2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rjags >= 4.8
+BuildRequires:    R-CRAN-tidyselect >= 1.1
+BuildRequires:    R-CRAN-tidyr >= 1.0.2
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 0.4.5
+BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggforce 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggfun 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rootSolve 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
+Requires:         R-CRAN-rjags >= 4.8
+Requires:         R-CRAN-tidyselect >= 1.1
+Requires:         R-CRAN-tidyr >= 1.0.2
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-rlang >= 0.4.5
+Requires:         R-CRAN-coda 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggforce 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggfun 
+Requires:         R-graphics 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rootSolve 
 Requires:         R-stats 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
 
 %description
-Creates scatterpie plots, especially useful for plotting pies on a map.
+Fits (longitudinal) dose-response models utilizing a Bayesian model
+averaging approach as outlined in Gould (2019)
+<doi:10.1002/bimj.201700211> for both continuous and binary responses.
+Functions for plotting and calculating various posterior quantities (e.g.
+posterior mean, quantiles, probability of minimum efficacious dose, etc.)
+are also implemented.  Copyright Eli Lilly and Company (2019).
 
 %prep
 %setup -q -c -n %{packname}

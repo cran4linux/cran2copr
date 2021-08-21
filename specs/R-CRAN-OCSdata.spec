@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  OCSdata
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Data from the 'Open Case Studies' Repository
 
@@ -32,7 +32,9 @@ as download the whole case study repository. All the user needs to do is
 input the name of the case study being worked on. The package relies on
 the httr::GET() function to access files through the 'GitHub' API. The
 functions usethis::use_zip() and usethis::create_from_github() are used to
-clone and/or download the case study repositories.
+clone and/or download the case study repositories. To cite an individual
+case study, please see the respective 'README' file at
+<https://github.com/opencasestudies/>.
 <https://github.com/opencasestudies/ocs-bp-rural-and-urban-obesity>
 <https://github.com/opencasestudies/ocs-bp-air-pollution>
 <https://github.com/opencasestudies/ocs-bp-vaping-case-study>

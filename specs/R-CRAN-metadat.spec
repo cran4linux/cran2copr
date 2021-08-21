@@ -1,45 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ggimage
-%global packver   0.2.9
+%global packname  metadat
+%global packver   1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Use Image in 'ggplot2'
+Summary:          Meta-Analysis Datasets
 
-License:          Artistic-2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggfun 
-BuildRequires:    R-CRAN-ggplotify 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
 BuildRequires:    R-tools 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggfun 
-Requires:         R-CRAN-ggplotify 
-Requires:         R-grid 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magick 
-Requires:         R-methods 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-mathjaxr 
+Requires:         R-utils 
 Requires:         R-tools 
+Requires:         R-CRAN-mathjaxr 
 
 %description
-Supports image files and graphic objects to be visualized in 'ggplot2'
-graphic system.
+A collection of meta-analysis datasets for teaching purposes,
+illustrating/testing meta-analytic methods, and validating published
+analyses.
 
 %prep
 %setup -q -c -n %{packname}

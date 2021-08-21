@@ -1,45 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ggimage
-%global packver   0.2.9
+%global packname  GofCens
+%global packver   0.91
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.91
 Release:          1%{?dist}%{?buildtag}
-Summary:          Use Image in 'ggplot2'
+Summary:          Goodness-of-Fit Methods for Right-Censored Data
 
-License:          Artistic-2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggfun 
-BuildRequires:    R-CRAN-ggplotify 
+BuildRequires:    R-CRAN-eha 
+BuildRequires:    R-CRAN-actuar 
+BuildRequires:    R-CRAN-fitdistrplus 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-survsim 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggfun 
-Requires:         R-CRAN-ggplotify 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+Requires:         R-CRAN-eha 
+Requires:         R-CRAN-actuar 
+Requires:         R-CRAN-fitdistrplus 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-survsim 
 Requires:         R-grid 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magick 
-Requires:         R-methods 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-tibble 
-Requires:         R-tools 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
 
 %description
-Supports image files and graphic objects to be visualized in 'ggplot2'
-graphic system.
+Graphical tools and goodness-of-fit tests for right-censored data: 1.
+Kolmogorov-Smirnov, Crámer-von Mises, and Anderson-Darling tests based on
+the empirical distribution function for complete data and their extensions
+for right-censored data. 2. Generalized chi-squared-type tests based on
+the squared difference between observed and expected counts using random
+cells with right-censored data. 3. A series of graphical tools such as
+probability or cumulative hazard plots to guide the decision about the
+parametric model that best fits the data.
 
 %prep
 %setup -q -c -n %{packname}
