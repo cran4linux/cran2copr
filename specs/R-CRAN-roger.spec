@@ -1,32 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Sequential
-%global packver   3.3.3
+%global packname  roger
+%global packver   0.99-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.3
+Version:          0.99.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exact Sequential Analysis for Poisson and Binomial Data
+Summary:          Automated Grading of R Scripts
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-boot 
-Requires:         R-CRAN-boot 
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
-Functions to calculate exact critical values, statistical power, expected
-time to signal, and required sample sizes for performing exact sequential
-analysis. All these calculations can be done for either Poisson or
-binomial data, for continuous or group sequential analyses, and for
-different types of rejection boundaries. In case of group sequential
-analyses, the group sizes do not have to be specified in advance and the
-alpha spending can be arbitrarily settled.
+Tools for grading the coding style and documentation of R scripts. This is
+the R component of Roger the Omni Grader, an automated grading system for
+computer programming projects based on Unix shell scripts; see
+<https://gitlab.com/roger-project>. The package also provides an R
+interface to the shell scripts. Inspired by the lintr package.
 
 %prep
 %setup -q -c -n %{packname}

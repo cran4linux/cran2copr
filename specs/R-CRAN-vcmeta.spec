@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Sequential
-%global packver   3.3.3
+%global packname  vcmeta
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exact Sequential Analysis for Poisson and Binomial Data
+Summary:          Varying Coefficient Meta-Analysis
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,17 +16,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-boot 
-Requires:         R-CRAN-boot 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mathjaxr 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-CRAN-mathjaxr 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Functions to calculate exact critical values, statistical power, expected
-time to signal, and required sample sizes for performing exact sequential
-analysis. All these calculations can be done for either Poisson or
-binomial data, for continuous or group sequential analyses, and for
-different types of rejection boundaries. In case of group sequential
-analyses, the group sizes do not have to be specified in advance and the
-alpha spending can be arbitrarily settled.
+Implements functions for varying coefficient meta-analysis methods. These
+methods do not assume effect size homogeneity. Subgroup effect size
+comparisons, general linear effect size contrasts, and linear models of
+effect sizes based on varying coefficient methods can be used to describe
+effect size heterogeneity. Varying coefficient meta-analysis methods do
+not require the unrealistic assumptions of the traditional fixed-effect
+and random-effects meta-analysis methods. For details, see: Bonett (2008)
+<doi:10.1037/a0012868>, Bonett (2009) <doi:10.1037/a0016619>, Bonett
+(2010) <doi:10.1037/a0020142>, Bonett & Price (2014)
+<doi:10.1111/bmsp.12024>, Bonett & Price (2015) <doi:10.1111/bmsp.12024>,
+Bonett (2020) <doi:10.1111/bmsp.12189>, Bonett (2021)
+<doi:10.1177/1094428120911088>.
 
 %prep
 %setup -q -c -n %{packname}

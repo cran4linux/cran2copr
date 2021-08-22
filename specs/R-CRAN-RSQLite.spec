@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RSQLite
-%global packver   2.2.7
+%global packver   2.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.7
+Version:          2.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          'SQLite' Interface for R
 
@@ -17,15 +17,15 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildRequires:    R-CRAN-blob >= 1.2.0
 BuildRequires:    R-CRAN-DBI >= 1.1.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-plogr >= 0.2.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.7
 BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pkgconfig 
 Requires:         R-CRAN-blob >= 1.2.0
 Requires:         R-CRAN-DBI >= 1.1.0
-Requires:         R-CRAN-Rcpp >= 0.12.7
+Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-bit64 
 Requires:         R-CRAN-memoise 
 Requires:         R-methods 
@@ -44,6 +44,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

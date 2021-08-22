@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Sequential
-%global packver   3.3.3
+%global packname  KLexp
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exact Sequential Analysis for Poisson and Binomial Data
+Summary:          Kernel_lasso Expansion
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,17 +16,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-boot 
-Requires:         R-CRAN-boot 
+BuildRequires:    R-CRAN-glmnet >= 4.1.2
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-glmnet >= 4.1.2
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-Functions to calculate exact critical values, statistical power, expected
-time to signal, and required sample sizes for performing exact sequential
-analysis. All these calculations can be done for either Poisson or
-binomial data, for continuous or group sequential analyses, and for
-different types of rejection boundaries. In case of group sequential
-analyses, the group sizes do not have to be specified in advance and the
-alpha spending can be arbitrarily settled.
+Provides the function to calculate the kernel-lasso expansion, Z-score,
+and max-min-scale standardization.It can increase the dimension of existed
+dataset and remove abundant features by lasso. Z Dai, L Jiayi, T Gong, C
+Wang (2021) <doi:10.1088/1742-6596/1955/1/012047>.
 
 %prep
 %setup -q -c -n %{packname}

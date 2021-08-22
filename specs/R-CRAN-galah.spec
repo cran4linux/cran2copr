@@ -1,48 +1,53 @@
 %global __brp_check_rpaths %{nil}
-%global packname  echor
-%global packver   0.1.6
+%global packname  galah
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access EPA 'ECHO' Data
+Summary:          Atlas of Living Australia (ALA) Data and Resources in R
 
-License:          MIT + file LICENSE
+License:          MPL-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-geojsonsf 
+BuildRequires:    R-CRAN-stringr >= 1.0.0
+BuildRequires:    R-CRAN-jsonlite >= 0.9.8
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-crul 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-data.tree 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-geojsonsf 
+BuildRequires:    R-CRAN-wellknown 
+Requires:         R-CRAN-stringr >= 1.0.0
+Requires:         R-CRAN-jsonlite >= 0.9.8
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-crul 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-data.tree 
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sp 
 Requires:         R-utils 
+Requires:         R-CRAN-wellknown 
 
 %description
-An R interface to United States Environmental Protection Agency (EPA)
-Environmental Compliance History Online ('ECHO') Application Program
-Interface (API). 'ECHO' provides information about EPA permitted
-facilities, discharges, and other reporting info associated with permitted
-entities. Data are obtained from <https://echo.epa.gov/>.
+The Atlas of Living Australia ('ALA') provides tools to enable users of
+biodiversity information to find, access, combine and visualise data on
+Australian plants and animals; these have been made available from
+<https://ala.org.au/>. 'galah' provides a subset of the tools to be
+directly used within R. It enables the R community to directly access data
+and resources hosted by the 'ALA'.
 
 %prep
 %setup -q -c -n %{packname}

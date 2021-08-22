@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Sequential
-%global packver   3.3.3
+%global packname  coffee
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exact Sequential Analysis for Poisson and Binomial Data
+Summary:          Chronological Ordering for Fossils and Environmental Events
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,17 +16,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-boot 
-Requires:         R-CRAN-boot 
+BuildRequires:    R-CRAN-IntCal >= 0.2.2
+Requires:         R-CRAN-IntCal >= 0.2.2
 
 %description
-Functions to calculate exact critical values, statistical power, expected
-time to signal, and required sample sizes for performing exact sequential
-analysis. All these calculations can be done for either Poisson or
-binomial data, for continuous or group sequential analyses, and for
-different types of rejection boundaries. In case of group sequential
-analyses, the group sizes do not have to be specified in advance and the
-alpha spending can be arbitrarily settled.
+While individual calibrated radiocarbon dates can span several centuries,
+combining multiple dates together with any chronological constraints can
+make a chronology much more robust and precise. This package uses Bayesian
+methods to enforce the chronological ordering of radiocarbon and other
+dates, for example for trees with multiple radiocarbon dates spaced at
+exactly known intervals (e.g., 10 annual rings). For methods see Christen
+2003 <doi:10.11141/ia.13.2>. Another example is sites where the relative
+chronological position of the dates is taken into account - the ages of
+dates further down a site must be older than those of dates further up
+(Buck, Kenworthy, Litton and Smith 1991 <doi:10.1017/S0003598X00080534>;
+Nicholls and Jones 2001 <doi:10.1111/1467-9876.00250>).
 
 %prep
 %setup -q -c -n %{packname}

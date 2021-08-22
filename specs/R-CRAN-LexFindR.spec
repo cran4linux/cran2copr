@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  LexFindR
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Find Related Items and Lexical Dimensions in a Lexicon
 
@@ -28,10 +28,7 @@ Importantly, the code makes use of multiple CPU cores and vectorization
 when possible, making it extremely fast and able to handle large lexicons.
 Additionally, the package contains documentation for users to easily write
 new functions, allowing researchers to examine other relationships within
-a lexicon. Li, Z., Crinnion, A. M., & Magnuson, J. S. (2021) "LexFindR: A
-fast, simple, and extensible R package for finding similar words in a
-lexicon."
-<https://magnuson.psy.uconn.edu/wp-content/uploads/sites/1140/2021/02/lexfindr-brm-rev-2021-02-25.pdf>.
+a lexicon. <https://psyarxiv.com/8dyru/>.
 
 %prep
 %setup -q -c -n %{packname}

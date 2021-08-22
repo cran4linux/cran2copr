@@ -1,50 +1,61 @@
 %global __brp_check_rpaths %{nil}
-%global packname  keras
-%global packver   2.6.0
+%global packname  naturaList
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to 'Keras'
+Summary:          Classify Occurrences by Confidence Levels in the Species ID
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tensorflow >= 2.6.0
-BuildRequires:    R-CRAN-reticulate >= 1.10
-BuildRequires:    R-CRAN-tfruns >= 1.0
-BuildRequires:    R-CRAN-generics >= 0.0.1
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyWidgets 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-leaflet.extras 
+BuildRequires:    R-CRAN-tidytext 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-zeallot 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-fasterize 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-tensorflow >= 2.6.0
-Requires:         R-CRAN-reticulate >= 1.10
-Requires:         R-CRAN-tfruns >= 1.0
-Requires:         R-CRAN-generics >= 0.0.1
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyWidgets 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-leaflet.extras 
+Requires:         R-CRAN-tidytext 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-zeallot 
-Requires:         R-CRAN-glue 
+Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-fasterize 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-htmltools 
 Requires:         R-methods 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-ellipsis 
 Requires:         R-CRAN-rlang 
 
 %description
-Interface to 'Keras' <https://keras.io>, a high-level neural networks
-'API'. 'Keras' was developed with a focus on enabling fast
-experimentation, supports both convolution based networks and recurrent
-networks (as well as combinations of the two), and runs seamlessly on both
-'CPU' and 'GPU' devices.
+Classify occurrence records based on confidence levels of species
+identification. In addition, implement tools to filter occurrence inside
+grid cells and to manually check for possibles errors with an interactive
+shiny application.
 
 %prep
 %setup -q -c -n %{packname}

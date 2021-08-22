@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Sequential
-%global packver   3.3.3
+%global packname  onc.api
+%global packver   2.0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.3
+Version:          2.0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exact Sequential Analysis for Poisson and Binomial Data
+Summary:          Oceans 2.0 API Client Library
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,17 +16,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-boot 
-Requires:         R-CRAN-boot 
+BuildRequires:    R-CRAN-anytime 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-humanize 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-tictoc 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-anytime 
+Requires:         R-CRAN-httr 
+Requires:         R-methods 
+Requires:         R-CRAN-humanize 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-tictoc 
+Requires:         R-CRAN-crayon 
+Requires:         R-utils 
+Requires:         R-CRAN-testthat 
 
 %description
-Functions to calculate exact critical values, statistical power, expected
-time to signal, and required sample sizes for performing exact sequential
-analysis. All these calculations can be done for either Poisson or
-binomial data, for continuous or group sequential analyses, and for
-different types of rejection boundaries. In case of group sequential
-analyses, the group sizes do not have to be specified in advance and the
-alpha spending can be arbitrarily settled.
+Allows users to discover and retrieve Ocean Networks Canada's
+oceanographic data in raw, text, image, audio, video or any other format
+available. Provides a class that wraps web service calls and business
+logic so that users can download data with a single line of code.
 
 %prep
 %setup -q -c -n %{packname}
