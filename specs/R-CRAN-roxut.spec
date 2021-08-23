@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  roxut
-%global packver   0.3.23
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.23
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Document Unit Tests Roxygen-Style
 

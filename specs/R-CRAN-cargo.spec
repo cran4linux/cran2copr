@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cargo
-%global packver   0.1.37
+%global packver   0.1.38
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.37
+Version:          0.1.38
 Release:          1%{?dist}%{?buildtag}
 Summary:          Develop R Packages using Rust
 

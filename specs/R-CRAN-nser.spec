@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  nser
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bhavcopy and Live Market Data from National Stock Exchange(NSE) India of Equities and Derivatives(F&O)
+Summary:          Bhavcopy and Live Market Data from National Stock Exchange(NSE) India of Equities and Derivatives (F&O)
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,7 +25,10 @@ BuildRequires:    R-CRAN-tidyverse
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-RSelenium 
-BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-googleVis 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-readr 
@@ -35,12 +38,15 @@ Requires:         R-CRAN-tidyverse
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-RSelenium 
-Requires:         R-CRAN-haven 
+Requires:         R-CRAN-googleVis 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-dplyr 
 
 %description
-Download Historical Bhavcopy and get Live Market data from NSE of Equities
-and Derivatives(F&O) segment. Data source
-<https://www.nseindia.com/all-reports>.
+Download Historical Bhavcopy and get Live Market data from NSE India of
+Equities and Derivatives(F&O) segment. Data source
+<https://www.nseindia.com/>.
 
 %prep
 %setup -q -c -n %{packname}
