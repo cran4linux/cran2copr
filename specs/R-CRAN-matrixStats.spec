@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  matrixStats
-%global packver   0.60.0
+%global packver   0.60.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.60.0
+Version:          0.60.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions that Apply to Rows and Columns of Matrices (and to Vectors)
 

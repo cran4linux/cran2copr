@@ -1,30 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rD3plot
-%global packver   1.0.22
+%global packname  heapsofpapers
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.22
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Networks, Timelines, Barplots, Galleries with 'D3.js'
+Summary:          Easily Download Heaps of PDF and CSV Files
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph >= 1.0.1
-Requires:         R-CRAN-igraph >= 1.0.1
+BuildRequires:    R-CRAN-aws.s3 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-aws.s3 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-utils 
 
 %description
-Creates interactive analytic graphs with 'R'. It joins the data analysis
-power of R and the visualization libraries of JavaScript in one package.
-The package provides interactive networks, timelines, barplots, image
-galleries and evolving networks. Graphs are represented as 'D3.js' graphs
-embedded in a web page ready for its interactive analysis and exploration.
+Makes it easy to download a large number of files such as PDF files and
+CSV files, while automatically slowing down requests, letting you know
+where it is up to, and adjusting for files that have already been
+downloaded.
 
 %prep
 %setup -q -c -n %{packname}

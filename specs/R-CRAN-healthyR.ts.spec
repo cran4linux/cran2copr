@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  healthyR.ts
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Time Series Modeling Companion to 'healthyR'
 
@@ -20,24 +20,42 @@ BuildRequires:    R-CRAN-rlang >= 0.1.2
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-timetk 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyquant 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tidyquant 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-recipes 
+BuildRequires:    R-CRAN-modeltime 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-parsnip 
+BuildRequires:    R-CRAN-workflowsets 
+BuildRequires:    R-CRAN-earth 
 Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-timetk 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyquant 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tidyquant 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-recipes 
+Requires:         R-CRAN-modeltime 
+Requires:         R-CRAN-cowplot 
+Requires:         R-graphics 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-parsnip 
+Requires:         R-CRAN-workflowsets 
+Requires:         R-CRAN-earth 
 
 %description
 Hospital time series data analysis workflow tools, modeling, and
@@ -54,6 +72,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,30 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rD3plot
-%global packver   1.0.22
+%global packname  GramQuad
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.22
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Networks, Timelines, Barplots, Galleries with 'D3.js'
+Summary:          Gram Quadrature
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph >= 1.0.1
-Requires:         R-CRAN-igraph >= 1.0.1
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-compiler 
+Requires:         R-CRAN-pracma 
+Requires:         R-compiler 
 
 %description
-Creates interactive analytic graphs with 'R'. It joins the data analysis
-power of R and the visualization libraries of JavaScript in one package.
-The package provides interactive networks, timelines, barplots, image
-galleries and evolving networks. Graphs are represented as 'D3.js' graphs
-embedded in a web page ready for its interactive analysis and exploration.
+Numerical integration with Gram polynomials (based on <arXiv:2106.14875>
+[math.NA] 28 Jun 2021, by Irfan Muhammad [School of Computer Science,
+University of Birmingham, UK]).
 
 %prep
 %setup -q -c -n %{packname}

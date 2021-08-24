@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  see
-%global packver   0.6.4
+%global packver   0.6.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.6.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualisation Toolbox for 'easystats' and Extra Geoms, Themes and Color Palettes for 'ggplot2'
 
@@ -16,23 +16,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
+BuildRequires:    R-CRAN-datawizard >= 0.2.0
 BuildRequires:    R-CRAN-parameters >= 0.13.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-bayestestR 
 BuildRequires:    R-CRAN-effectsize 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggridges 
 BuildRequires:    R-CRAN-insight 
 BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 >= 3.3.5
+Requires:         R-CRAN-datawizard >= 0.2.0
 Requires:         R-CRAN-parameters >= 0.13.0
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-CRAN-bayestestR 
 Requires:         R-CRAN-effectsize 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggridges 
 Requires:         R-CRAN-insight 
 Requires:         R-CRAN-rlang 
@@ -41,7 +43,7 @@ Requires:         R-CRAN-rlang
 Provides plotting utilities supporting easystats-packages
 (<https://github.com/easystats/easystats>) and some extra themes, geoms,
 and scales for 'ggplot2'. Color scales are based on
-<https://www.materialui.co/colors>.
+<https://materialui.co/colors>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,6 +53,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

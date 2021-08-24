@@ -1,30 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rD3plot
-%global packver   1.0.22
+%global packname  doRedis
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.22
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Networks, Timelines, Barplots, Galleries with 'D3.js'
+Summary:          'Foreach' Parallel Adapter Using the 'Redis' Database
 
-License:          GPL-2 | GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph >= 1.0.1
-Requires:         R-CRAN-igraph >= 1.0.1
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
+BuildRequires:    R-CRAN-foreach >= 1.3.0
+BuildRequires:    R-CRAN-iterators >= 1.0.0
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-redux 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-foreach >= 1.3.0
+Requires:         R-CRAN-iterators >= 1.0.0
+Requires:         R-utils 
+Requires:         R-CRAN-redux 
+Requires:         R-stats 
 
 %description
-Creates interactive analytic graphs with 'R'. It joins the data analysis
-power of R and the visualization libraries of JavaScript in one package.
-The package provides interactive networks, timelines, barplots, image
-galleries and evolving networks. Graphs are represented as 'D3.js' graphs
-embedded in a web page ready for its interactive analysis and exploration.
+Create and manage fault-tolerant task queues for the 'foreach' package
+using the 'Redis' key/value database.
 
 %prep
 %setup -q -c -n %{packname}

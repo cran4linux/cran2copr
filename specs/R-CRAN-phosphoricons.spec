@@ -1,30 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rD3plot
-%global packver   1.0.22
+%global packname  phosphoricons
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.22
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Networks, Timelines, Barplots, Galleries with 'D3.js'
+Summary:          'Phosphor' Icons for R
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph >= 1.0.1
-Requires:         R-CRAN-igraph >= 1.0.1
+BuildRequires:    R-CRAN-htmltools >= 0.3
+Requires:         R-CRAN-htmltools >= 0.3
 
 %description
-Creates interactive analytic graphs with 'R'. It joins the data analysis
-power of R and the visualization libraries of JavaScript in one package.
-The package provides interactive networks, timelines, barplots, image
-galleries and evolving networks. Graphs are represented as 'D3.js' graphs
-embedded in a web page ready for its interactive analysis and exploration.
+Use 'Phosphor' icons in 'shiny' applications or 'rmarkdown' documents.
+Icons are available in 5 different weights and can be customized by
+setting color, size, orientation and more.
 
 %prep
 %setup -q -c -n %{packname}

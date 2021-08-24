@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rD3plot
-%global packver   1.0.22
+%global packname  LCCR
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.22
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Networks, Timelines, Barplots, Galleries with 'D3.js'
+Summary:          Latent Class Capture Recapture Models
 
-License:          GPL-2 | GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,15 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph >= 1.0.1
-Requires:         R-CRAN-igraph >= 1.0.1
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-MASS 
 
 %description
-Creates interactive analytic graphs with 'R'. It joins the data analysis
-power of R and the visualization libraries of JavaScript in one package.
-The package provides interactive networks, timelines, barplots, image
-galleries and evolving networks. Graphs are represented as 'D3.js' graphs
-embedded in a web page ready for its interactive analysis and exploration.
+Estimation of latent class models with individual covariates for capture
+recapture data. See Forcina and Bartolucci (2021)<arxiv:2106.03811>.
 
 %prep
 %setup -q -c -n %{packname}

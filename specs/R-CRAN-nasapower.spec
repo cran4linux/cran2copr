@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  nasapower
-%global packver   3.0.1
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          NASA POWER API Client
 
@@ -17,13 +17,11 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-crul 
-BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-crul 
-Requires:         R-CRAN-curl 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-readr 
@@ -32,11 +30,13 @@ Requires:         R-CRAN-tibble
 %description
 Client for 'NASA' 'POWER' global meteorology, surface solar energy and
 climatology data 'API'.  'POWER' (Prediction Of Worldwide Energy Resource)
-data are freely available global meteorology and surface solar energy
-climatology data for download with a resolution of 1/2 by 1/2 arc degree
-longitude and latitude and are funded through the 'NASA' Earth Science
-Directorate Applied Science Program.  For more on the data themselves, a
-web-based data viewer and web access, please see
+data are freely available for download with a spatial resolution of 0.5 x
+0.625 degree latitude and longitude for meteorology and 1 x 1 degree
+latitude and longitude for solar parameters with various temporal
+resolutions depending on the POWER parameter and community.  This work is
+funded through the 'NASA' Earth Science Directorate Applied Science
+Program. For more on the data themselves, the methodologies used in
+creating, a web- based data viewer and web access, please see
 <https://power.larc.nasa.gov/>.
 
 %prep
@@ -47,6 +47,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

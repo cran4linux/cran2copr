@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  waldo
-%global packver   0.3.0
+%global packname  monobinShiny
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Find Differences Between R Objects
+Summary:          Shiny User Interface for 'monobin' Package
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,27 +16,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.4.10
-BuildRequires:    R-CRAN-diffobj >= 0.3.4
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-fansi 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rematch2 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-rlang >= 0.4.10
-Requires:         R-CRAN-diffobj >= 0.3.4
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-fansi 
-Requires:         R-CRAN-glue 
-Requires:         R-methods 
-Requires:         R-CRAN-rematch2 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-monobin 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-monobin 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-dplyr 
 
 %description
-Compare complex R objects and reveal the key differences.  Designed
-particularly for use in testing packages where being able to quickly
-isolate key differences makes understanding test failures much easier.
+This is an add-on package to the 'monobin' package that simplifies its
+use. It provides shiny-based user interface (UI) that is especially handy
+for less experienced 'R' users as well as for those who intend to perform
+quick scanning of numeric risk factors when building credit rating models.
+The additional functions implemented in 'monobinShiny' that do no exist in
+'monobin' package are: descriptive statistics, special case and outliers
+imputation. The function descriptive statistics is exported and can be
+used in 'R' sessions independently from the user interface, while special
+case and outlier imputation functions are written to be used with shiny
+UI.
 
 %prep
 %setup -q -c -n %{packname}

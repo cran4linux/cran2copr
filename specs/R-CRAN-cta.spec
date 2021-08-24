@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  waldo
-%global packver   0.3.0
+%global packname  cta
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Find Differences Between R Objects
+Summary:          Contingency Table Analysis Based on ML Fitting of MPH Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,27 +16,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.4.10
-BuildRequires:    R-CRAN-diffobj >= 0.3.4
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-fansi 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-intervals 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-limSolve 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rematch2 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-rlang >= 0.4.10
-Requires:         R-CRAN-diffobj >= 0.3.4
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-fansi 
-Requires:         R-CRAN-glue 
+Requires:         R-CRAN-intervals 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-limSolve 
 Requires:         R-methods 
-Requires:         R-CRAN-rematch2 
-Requires:         R-CRAN-tibble 
 
 %description
-Compare complex R objects and reveal the key differences.  Designed
-particularly for use in testing packages where being able to quickly
-isolate key differences makes understanding test failures much easier.
+Contingency table analysis is performed based on maximum likelihood (ML)
+fitting of multinomial-Poisson homogeneous (MPH) and homogeneous linear
+predictor (HLP) models. See Lang (2004) <doi:10.1214/aos/1079120140> and
+Lang (2005) <doi:10.1198/016214504000001042> for MPH and HLP models.
+Objects computed include model goodness-of-fit statistics; likelihood-
+based (cell- and link-specific) residuals; and cell probability and
+expected count estimates along with standard errors. This package can also
+compute test-inversion--e.g. Wald, profile likelihood, score,
+power-divergence--confidence intervals for contingency table estimands,
+when table probabilities are potentially subject to equality constraints.
+For test-inversion intervals, see Lang (2008) <doi:10.1002/sim.3391> and
+Zhu (2020) <doi:10.17077/etd.005331>.
 
 %prep
 %setup -q -c -n %{packname}
