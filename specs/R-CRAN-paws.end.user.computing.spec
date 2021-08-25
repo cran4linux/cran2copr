@@ -1,37 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  survival
-%global packver   3.2-13
+%global packname  paws.end.user.computing
+%global packver   0.1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.13
+Version:          0.1.12
 Release:          1%{?dist}%{?buildtag}
-Summary:          Survival Analysis
+Summary:          'Amazon Web Services' End User Computing Services
 
-License:          LGPL (>= 2)
+License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-splines 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-splines 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-paws.common >= 0.3.0
+Requires:         R-CRAN-paws.common >= 0.3.0
 
 %description
-Contains the core survival analysis routines, including definition of Surv
-objects, Kaplan-Meier and Aalen-Johansen (multi-state) curves, Cox models,
-and parametric accelerated failure time models.
+Interface to 'Amazon Web Services' end user computing services, including
+collaborative document editing, mobile intranet, and more
+<https://aws.amazon.com/>.
 
 %prep
 %setup -q -c -n %{packname}
