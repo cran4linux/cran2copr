@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tibble
-%global packver   3.1.3
+%global packver   3.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.3
+Version:          3.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Data Frames
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-pillar >= 1.6.0
+BuildRequires:    R-CRAN-pillar >= 1.6.2
 BuildRequires:    R-CRAN-rlang >= 0.4.3
 BuildRequires:    R-CRAN-fansi >= 0.4.0
 BuildRequires:    R-CRAN-vctrs >= 0.3.8
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pkgconfig 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-pillar >= 1.6.0
+Requires:         R-CRAN-pillar >= 1.6.2
 Requires:         R-CRAN-rlang >= 0.4.3
 Requires:         R-CRAN-fansi >= 0.4.0
 Requires:         R-CRAN-vctrs >= 0.3.8
@@ -37,8 +37,8 @@ Requires:         R-CRAN-pkgconfig
 Requires:         R-utils 
 
 %description
-Provides a 'tbl_df' class (the 'tibble') that provides stricter checking
-and better formatting than the traditional data frame.
+Provides a 'tbl_df' class (the 'tibble') with stricter checking and better
+formatting than the traditional data frame.
 
 %prep
 %setup -q -c -n %{packname}

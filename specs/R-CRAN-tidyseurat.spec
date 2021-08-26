@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tidyseurat
-%global packver   0.2.0
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Brings Seurat to the Tidyverse
 
@@ -17,6 +17,7 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Seurat 
+BuildRequires:    R-CRAN-SeuratObject 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
@@ -35,6 +36,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-fansi 
 Requires:         R-CRAN-Seurat 
+Requires:         R-CRAN-SeuratObject 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
@@ -65,6 +67,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

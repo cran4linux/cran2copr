@@ -1,35 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  htmltools
-%global packver   0.5.2
+%global packname  DataGraph
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for HTML
+Summary:          Export Data from R so 'DataGraph' can Read it
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.1
-Requires:         R-core >= 2.14.1
-BuildRequires:    R-CRAN-rlang >= 0.4.10
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-fastmap 
-Requires:         R-CRAN-rlang >= 0.4.10
-Requires:         R-utils 
-Requires:         R-CRAN-digest 
-Requires:         R-grDevices 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-fastmap 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.12.10
+Requires:         R-CRAN-Rcpp >= 0.12.10
 
 %description
-Tools for HTML generation and output.
+Functions to save either '.dtable' or '.dtbin' files that can be read by
+'DataGraph', a graphing and analysis application for mac OS. Can save a
+data frame, collection of data frames and sequences of data frames and
+individual vectors. For more information see
+<https://community.visualdatatools.com/datagraph/knowledge-base/r-package/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  future
-%global packver   1.21.0
+%global packver   1.22.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.21.0
+Version:          1.22.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unified Parallel and Distributed Processing in R for Everyone
 
@@ -16,16 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-parallelly >= 1.21.0
+BuildRequires:    R-CRAN-parallelly >= 1.26.1
 BuildRequires:    R-CRAN-listenv >= 0.8.0
-BuildRequires:    R-CRAN-globals >= 0.13.1
+BuildRequires:    R-CRAN-globals >= 0.14.0
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-parallel 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-parallelly >= 1.21.0
+Requires:         R-CRAN-parallelly >= 1.26.1
 Requires:         R-CRAN-listenv >= 0.8.0
-Requires:         R-CRAN-globals >= 0.13.1
+Requires:         R-CRAN-globals >= 0.14.0
 Requires:         R-CRAN-digest 
 Requires:         R-parallel 
 Requires:         R-tools 
@@ -35,12 +35,12 @@ Requires:         R-utils
 The purpose of this package is to provide a lightweight and unified Future
 API for sequential and parallel processing of R expression via futures.
 The simplest way to evaluate an expression in parallel is to use `x %%<-%% {
-expression }` with `plan(multiprocess)`. This package implements
+expression }` with `plan(multisession)`. This package implements
 sequential, multicore, multisession, and cluster futures.  With these, R
 expressions can be evaluated on the local machine, in parallel a set of
 local machines, or distributed on a mix of local and remote machines.
 Extensions to this package implement additional backends for processing
-futures via compute cluster schedulers etc. Because of its unified API,
+futures via compute cluster schedulers, etc. Because of its unified API,
 there is no need to modify any code in order switch from sequential on the
 local machine to, say, distributed processing on a remote compute cluster.
 Another strength of this package is that global variables and functions
@@ -55,6 +55,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

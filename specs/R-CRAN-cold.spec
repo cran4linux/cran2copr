@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cold
-%global packver   2.0-2
+%global packver   2.0-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Count Longitudinal Data
 
@@ -35,9 +35,11 @@ Performs regression analysis for longitudinal count data, allowing for
 serial dependence among observations from a given individual and two
 dimensional random effects on the linear predictor. Estimation is via
 maximization of the exact likelihood of a suitably defined model. Missing
-values and unbalanced data are allowed; M. Helena Goncalves et al.(2007).
-<doi:10.1016/j.csda.2007.03.002>. M. Helena Goncalves and M. Salome Cabral
-(2021). <doi:10.18637/jss.v099.i03>.
+values and unbalanced data are allowed. Details can be found in the
+accompanying scientific papers: Goncalves & Cabral (2021, Journal of
+Statistical Software, <doi:10.18637/jss.v099.i03>) and Goncalves et al.
+(2007, Computational Statistics & Data Analysis,
+<doi:10.1016/j.csda.2007.03.002>).
 
 %prep
 %setup -q -c -n %{packname}
