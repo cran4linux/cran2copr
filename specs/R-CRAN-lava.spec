@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  lava
-%global packver   1.6.9
+%global packver   1.6.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.9
+Version:          1.6.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Latent Variable Models
 
@@ -16,6 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
@@ -24,6 +26,8 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-SQUAREM 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-progressr 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-methods 
@@ -52,6 +56,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

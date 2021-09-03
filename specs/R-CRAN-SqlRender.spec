@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SqlRender
-%global packver   1.7.0
+%global packver   1.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          1.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rendering Parameterized SQL and Translation to Dialects
 
@@ -25,7 +25,7 @@ Requires:         R-CRAN-rlang
 A rendering tool for parameterized SQL that also translates into different
 SQL dialects.  These dialects include 'Microsoft Sql Server', 'Oracle',
 'PostgreSql', 'Amazon RedShift', 'Apache Impala', 'IBM Netezza', 'Google
-BigQuery', 'Microsoft PDW', and 'SQLite'.
+BigQuery', 'Microsoft PDW', 'Apache Spark', and 'SQLite'.
 
 %prep
 %setup -q -c -n %{packname}
@@ -35,6 +35,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

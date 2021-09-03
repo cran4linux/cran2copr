@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  basedosdados
-%global packver   0.0.5
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Base Dos Dados' R Client
 
@@ -16,34 +16,42 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-googleAuthR 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-dotenv 
-BuildRequires:    R-CRAN-bigrquery 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-writexl 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-googleAuthR 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-dotenv 
-Requires:         R-CRAN-bigrquery 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-writexl 
+BuildRequires:    R-CRAN-tibble >= 3.1.1
+BuildRequires:    R-CRAN-cli >= 2.5.0
+BuildRequires:    R-CRAN-dbplyr >= 2.1.1
+BuildRequires:    R-CRAN-magrittr >= 2.0.1
+BuildRequires:    R-CRAN-fs >= 1.5.0
+BuildRequires:    R-CRAN-httr >= 1.4.2
+BuildRequires:    R-CRAN-glue >= 1.4.2
+BuildRequires:    R-CRAN-googleAuthR >= 1.4.0
+BuildRequires:    R-CRAN-readr >= 1.4.0
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-bigrquery >= 1.4.0
+BuildRequires:    R-CRAN-writexl >= 1.4.0
+BuildRequires:    R-CRAN-scales >= 1.1.1
+BuildRequires:    R-CRAN-DBI >= 1.1.1
+BuildRequires:    R-CRAN-dplyr >= 1.0.6
+BuildRequires:    R-CRAN-dotenv >= 1.0.2
+BuildRequires:    R-CRAN-rlang >= 0.4.0
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-tibble >= 3.1.1
+Requires:         R-CRAN-cli >= 2.5.0
+Requires:         R-CRAN-dbplyr >= 2.1.1
+Requires:         R-CRAN-magrittr >= 2.0.1
+Requires:         R-CRAN-fs >= 1.5.0
+Requires:         R-CRAN-httr >= 1.4.2
+Requires:         R-CRAN-glue >= 1.4.2
+Requires:         R-CRAN-googleAuthR >= 1.4.0
+Requires:         R-CRAN-readr >= 1.4.0
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-bigrquery >= 1.4.0
+Requires:         R-CRAN-writexl >= 1.4.0
+Requires:         R-CRAN-scales >= 1.1.1
+Requires:         R-CRAN-DBI >= 1.1.1
+Requires:         R-CRAN-dplyr >= 1.0.6
+Requires:         R-CRAN-dotenv >= 1.0.2
+Requires:         R-CRAN-rlang >= 0.4.0
+Requires:         R-CRAN-purrr >= 0.3.4
 
 %description
 An R interface to the 'Base dos Dados' API
@@ -58,6 +66,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

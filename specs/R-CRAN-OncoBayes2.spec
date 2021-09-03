@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  OncoBayes2
-%global packver   0.7-0
+%global packver   0.8-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Logistic Regression for Oncology Dose-Escalation Trials
 
@@ -15,10 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
 BuildRequires:    R-CRAN-rstan >= 2.19.3
 BuildRequires:    R-CRAN-StanHeaders >= 2.19.0
-BuildRequires:    R-CRAN-rstantools >= 2.0.0
+BuildRequires:    R-CRAN-rstantools >= 2.1.1
 BuildRequires:    R-CRAN-BH >= 1.72.0
 BuildRequires:    R-CRAN-bayesplot >= 1.4.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
@@ -37,9 +38,10 @@ BuildRequires:    R-CRAN-tidyselect
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-CRAN-rstan >= 2.19.3
-Requires:         R-CRAN-rstantools >= 2.0.0
+Requires:         R-CRAN-rstantools >= 2.1.1
 Requires:         R-CRAN-bayesplot >= 1.4.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.0
@@ -75,6 +77,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

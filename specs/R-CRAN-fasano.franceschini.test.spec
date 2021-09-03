@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fasano.franceschini.test
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fasano-Franceschini Test: A 2-D Kolmogorov-Smirnov Two-Sample Test
 
@@ -31,7 +31,7 @@ current 2-D KS test on the Comprehensive R Archive Network (CRAN): (i) the
 Fasano and Franceschini test has been shown to run in O(n^2) versus the
 Peacock implementation which runs in O(n^3); (ii) the package implements a
 procedure for handling ties in the data; and (iii) the package implements
-a parallelized bootstrapping procedure for improved significance testing.
+a parallelized permutation procedure for improved significance testing.
 Ultimately, the 'fasano.franceschini.test' package presents a robust
 statistical test for analyzing random samples defined in 2-dimensions.
 

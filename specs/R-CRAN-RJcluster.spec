@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RJcluster
-%global packver   3.1.1
+%global packver   3.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          3.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Fast Clustering Algorithm for High Dimensional Data Based on the Gram Matrix Decomposition
 

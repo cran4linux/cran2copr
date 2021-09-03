@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  amanpg
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Alternating Manifold Proximal Gradient Method for Sparse PCA
 
@@ -23,7 +23,7 @@ Alternating Manifold Proximal Gradient (AManPG) method to find sparse
 principal components from a data or covariance matrix. Provides a novel
 algorithm for solving the sparse principal component analysis problem
 which provides advantages over existing methods in terms of efficiency and
-convergence guarantees. Chen, S., Xue, L., & Zou, H. (2020)
+convergence guarantees. Chen, S., Ma, S., Xue, L., & Zou, H. (2020)
 <doi:10.1287/ijoo.2019.0032>. Zou, H., Hastie, T., & Tibshirani, R. (2006)
 <doi:10.1198/106186006X113430>. Zou, H., & Xue, L. (2018)
 <doi:10.1109/JPROC.2018.2846588>.

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DSSAT
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Comprehensive R Interface for the DSSAT Cropping Systems Model
 
@@ -18,6 +18,7 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-utils 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-purrr 
@@ -27,6 +28,7 @@ BuildRequires:    R-CRAN-lubridate
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-utils 
+Requires:         R-methods 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-purrr 
@@ -38,10 +40,9 @@ Requires:         R-CRAN-rlang
 %description
 The purpose of this package is to provide a comprehensive R interface to
 the Decision Support System for Agrotechnology Transfer Cropping Systems
-Model (DSSAT-CSM) documented by Jones et al (2003)
-<doi:10.1016/S1161-0301(02)00107-7>. The package provides cross-platform
-functions to read and write input files, run DSSAT-CSM, and read output
-files.
+Model (DSSAT-CSM; see <https://dssat.net> for more information). The
+package provides cross-platform functions to read and write input files,
+run DSSAT-CSM, and read output files.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ffscrapr
-%global packver   1.4.5
+%global packver   1.4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.5
+Version:          1.4.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          API Client for Fantasy Football League Platforms
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-magrittr >= 1.5.0
 BuildRequires:    R-CRAN-httr >= 1.4.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-glue >= 1.3.0
+BuildRequires:    R-CRAN-nflreadr >= 1.1.0
 BuildRequires:    R-CRAN-cachem >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
@@ -42,6 +43,7 @@ Requires:         R-CRAN-magrittr >= 1.5.0
 Requires:         R-CRAN-httr >= 1.4.0
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-glue >= 1.3.0
+Requires:         R-CRAN-nflreadr >= 1.1.0
 Requires:         R-CRAN-cachem >= 1.0.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0

@@ -1,41 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  TestDataImputation
-%global packver   2.2
+%global packname  simfam
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Missing Item Responses Imputation for Test and Assessment Data
+Summary:          Simulate and Model Family Pedigrees with Structured Founders
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mice 
-BuildRequires:    R-CRAN-Amelia 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
-Requires:         R-CRAN-mice 
-Requires:         R-CRAN-Amelia 
+Requires:         R-CRAN-tibble 
 
 %description
-Functions for imputing missing item responses for dichotomous and
-polytomous test and assessment data. This package enables missing
-imputation methods that are suitable for test and assessment data,
-including: listwise (LW) deletion (see De Ayala et al. 2001
-<doi:10.1111/j.1745-3984.2001.tb01124.x>), treating as incorrect (IN, see
-Lord, 1974 <doi: 10.1111/j.1745-3984.1974.tb00996.x>; Mislevy & Wu, 1996
-<doi: 10.1002/j.2333-8504.1996.tb01708.x>; Pohl et al., 2014 <doi:
-10.1177/0013164413504926>), person mean imputation (PM), item mean
-imputation (IM), two-way (TW) and response function (RF) imputation (see
-Sijtsma & van der Ark, 2003 <doi: 10.1207/s15327906mbr3804_4>), logistic
-regression (LR) imputation, and expectation–maximization (EM) imputation
-(see Finch, 2008 <doi: 10.1111/j.1745-3984.2008.00062.x>).
+The focus is on simulating and modeling families with founders drawn from
+a structured population (for example, with different ancestries or other
+potentially non-family relatedness), in contrast to traditional pedigree
+analysis that treats all founders as equally unrelated.  Main function
+simulates a random pedigree for many generations, avoiding close
+relatives, pairing closest individuals according to a 1D geography and
+their randomly-drawn sex, and with variable children sizes to result in a
+target population size per generation.  Auxiliary functions calculate
+kinship matrices, admixture matrices, and draw random genotypes across
+arbitrary pedigree structures starting from the corresponding founder
+values.  The code is built around the plink FAM table format for
+pedigrees.  Partially described in Yao and Ochoa (2019)
+<doi:10.1101/858399>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Luminescence
-%global packver   0.9.14
+%global packver   0.9.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.14
+Version:          0.9.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive Luminescence Dating Data Analysis
 
@@ -20,17 +20,16 @@ BuildRequires:    R-CRAN-plotrix >= 3.8.1
 BuildRequires:    R-CRAN-raster >= 3.4.10
 BuildRequires:    R-CRAN-DEoptim >= 2.2.6
 BuildRequires:    R-CRAN-lamW >= 2.1.0
-BuildRequires:    R-CRAN-magrittr >= 2.0.1
 BuildRequires:    R-CRAN-zoo >= 1.8
 BuildRequires:    R-CRAN-shape >= 1.4.6
 BuildRequires:    R-CRAN-httr >= 1.4.2
 BuildRequires:    R-CRAN-readxl >= 1.3.1
 BuildRequires:    R-CRAN-minpack.lm >= 1.2.1
 BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.6
-BuildRequires:    R-CRAN-bbmle >= 1.0.23
-BuildRequires:    R-CRAN-matrixStats >= 0.59.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.10.5.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-bbmle >= 1.0.24
+BuildRequires:    R-CRAN-matrixStats >= 0.60.0
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.10.6.0.0
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
@@ -39,15 +38,14 @@ Requires:         R-CRAN-plotrix >= 3.8.1
 Requires:         R-CRAN-raster >= 3.4.10
 Requires:         R-CRAN-DEoptim >= 2.2.6
 Requires:         R-CRAN-lamW >= 2.1.0
-Requires:         R-CRAN-magrittr >= 2.0.1
 Requires:         R-CRAN-zoo >= 1.8
 Requires:         R-CRAN-shape >= 1.4.6
 Requires:         R-CRAN-httr >= 1.4.2
 Requires:         R-CRAN-readxl >= 1.3.1
 Requires:         R-CRAN-minpack.lm >= 1.2.1
 Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-bbmle >= 1.0.23
-Requires:         R-CRAN-matrixStats >= 0.59.0
+Requires:         R-CRAN-bbmle >= 1.0.24
+Requires:         R-CRAN-matrixStats >= 0.60.0
 Requires:         R-utils 
 Requires:         R-methods 
 Requires:         R-parallel 

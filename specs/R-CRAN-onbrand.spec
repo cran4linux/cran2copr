@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  onbrand
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Templated Reporting Workflows in Word and PowerPoint
 
@@ -35,9 +35,10 @@ Requires:         R-CRAN-yaml
 
 %description
 Automated reporting in Word and PowerPoint can require customization for
-each organizational template.  Onbrand adds standard reporting functions
-and an abstraction layer to facilitate automated reporting workflows that
-can be replicated across different organizational templates.
+each organizational template. This package works around this by adding
+standard reporting functions and an abstraction layer to facilitate
+automated reporting workflows that can be replicated across different
+organizational templates.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  nlist
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lists of Numeric Atomic Objects
 
@@ -41,9 +41,9 @@ Requires:         R-CRAN-universals
 
 %description
 Create and manipulate numeric list ('nlist') objects.  An 'nlist' is an S3
-list of uniquely named numeric objects. An numeric object is an integer or
-double vector, matrix or array.  An 'nlists' object is a S3 class list of
-'nlist' objects with the same names, dimensionalities and typeofs.
+list of uniquely named numeric objects.  An numeric object is an integer
+or double vector, matrix or array.  An 'nlists' object is a S3 class list
+of 'nlist' objects with the same names, dimensionalities and typeofs.
 Numeric list objects are of interest because they are the raw data inputs
 for analytic engines such as 'JAGS', 'STAN' and 'TMB'.  Numeric lists
 objects, which are useful for storing multiple realizations of of

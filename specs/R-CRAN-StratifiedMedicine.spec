@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  StratifiedMedicine
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stratified Medicine
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-glmnet
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggparty 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-coin 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-partykit 
 Requires:         R-CRAN-ranger 
@@ -32,20 +33,19 @@ Requires:         R-CRAN-glmnet
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggparty 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-coin 
 
 %description
 A toolkit for stratified medicine, subgroup identification, and precision
 medicine. Current tools include (1) filtering models (reduce covariate
 space), (2) patient-level estimate models (counterfactual patient-level
-quantities, for example the individual treatment effect), (3) subgroup
-identification models (find subsets of patients with similar treatment
-effects), and (4) parameter estimation and inference (for the overall
-population and discovered subgroups). These tools can directly feed into
-stratified medicine algorithms including PRISM (patient response
-identifiers for stratified medicine; Jemielita and Mehrotra 2019
-<arXiv:1912.03337>. PRISM is a flexible and general framework which
-accepts user-created models/functions. This package is in beta and will be
-continually updated.
+quantities, such as the conditional average treatment effect), (3)
+subgroup identification models (find subsets of patients with similar
+treatment effects), and (4) treatment effect estimation and inference (for
+the overall population and discovered subgroups). These tools can be
+customized and are directly used in PRISM (patient response identifiers
+for stratified medicine; Jemielita and Mehrotra 2019 <arXiv:1912.03337>.
+This package is in beta and will be continually updated.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,6 +55,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

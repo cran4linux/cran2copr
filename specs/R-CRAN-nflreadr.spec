@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  nflreadr
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download 'nflverse' Data
 
@@ -16,19 +16,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl >= 4.3.2
+BuildRequires:    R-CRAN-curl >= 4.3.0
 BuildRequires:    R-CRAN-memoise >= 2.0.0
+BuildRequires:    R-CRAN-data.table >= 1.14.0
 BuildRequires:    R-CRAN-cachem >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-rappdirs >= 0.3.3
-BuildRequires:    R-CRAN-purrr >= 0.3.0
+BuildRequires:    R-CRAN-rlang >= 0.4.0
+BuildRequires:    R-CRAN-rappdirs >= 0.3.0
 BuildRequires:    R-CRAN-qs >= 0.24.0
-Requires:         R-CRAN-curl >= 4.3.2
+Requires:         R-CRAN-curl >= 4.3.0
 Requires:         R-CRAN-memoise >= 2.0.0
+Requires:         R-CRAN-data.table >= 1.14.0
 Requires:         R-CRAN-cachem >= 1.0.0
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-rappdirs >= 0.3.3
-Requires:         R-CRAN-purrr >= 0.3.0
+Requires:         R-CRAN-rlang >= 0.4.0
+Requires:         R-CRAN-rappdirs >= 0.3.0
 Requires:         R-CRAN-qs >= 0.24.0
 
 %description

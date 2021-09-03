@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  uGMAR
-%global packver   3.3.2
+%global packver   3.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.2
+Version:          3.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Univariate Gaussian or Student's t Mixture Autoregressive Model
 
@@ -35,7 +35,7 @@ residual tests, graphical diagnostics, forecast and simulate from GMAR,
 StMAR and G-StMAR processes. Leena Kalliovirta, Mika Meitz, Pentti
 Saikkonen (2015) <doi:10.1111/jtsa.12108>, Mika Meitz, Daniel Preve,
 Pentti Saikkonen (2021) <doi:10.1080/03610926.2021.1916531>, Savi
-Virolainen (forthcoming), currently available as <arXiv:2003.05221>.
+Virolainen (2021) <doi:10.1515/snde-2020-0060>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,6 +45,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

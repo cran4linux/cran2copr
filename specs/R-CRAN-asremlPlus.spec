@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  asremlPlus
-%global packver   4.2-32
+%global packver   4.3-19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.32
+Version:          4.3.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Augments 'ASReml-R' in Fitting Mixed Models and Packages Generally in Exploring Prediction Differences
 
@@ -22,11 +22,12 @@ BuildRequires:    R-stats
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-reshape 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-sticky 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
@@ -36,11 +37,12 @@ Requires:         R-stats
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-CRAN-reshape 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-sticky 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-grDevices 
+Requires:         R-graphics 
 Requires:         R-CRAN-foreach 
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
@@ -75,6 +77,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,47 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  helsinki
-%global packver   1.0.1
+%global packname  Rnvd3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Tools for Helsinki Open Data
+Summary:          An Incomplete Wrapper of the 'nvd3' JavaScript Library
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-lazyeval 
+BuildRequires:    R-CRAN-viridisLite 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-httpcache 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-lazyeval 
+Requires:         R-CRAN-viridisLite 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-xml2 
-Requires:         R-methods 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-httpcache 
+Requires:         R-grDevices 
+Requires:         R-utils 
 
 %description
-Tools for accessing various open data sources in the Helsinki region in
-Finland. Current data sources include the Real Estate Department
-(<http://ptp.hel.fi/avoindata/>), Service Map API
-(<http://api.hel.fi/servicemap/v2/>), Linked Events API
-(<http://api.hel.fi/linkedevents/v1/>), Helsinki Region Infoshare
-statistics API (<https://dev.hel.fi/stats/>).
+Creates JavaScript charts with the 'nvd3' library. So far only the
+multibar chart, the horizontal multibar chart, the line chart and the line
+chart with focus are available.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,6 +48,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

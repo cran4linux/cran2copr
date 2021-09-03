@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  QTLEMM
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          QTL Mapping and Hotspots Detection
 
@@ -46,14 +46,15 @@ data and summarized QTL data for QTL hotspots detection. Our statistical
 framework can overcome the underestimation of threshold arising from
 ignoring the correlation structure among traits, and also identify the
 different types of hotspots with very low computational cost during the
-detection process. Here, we attempt to provide the R code for our
-statistical framework. The QTL mapping program is carried out by EM
-process, which can be seen in Kao, C.-H. ,Z.-B. Zeng and R. D. Teasdale
-(1999) <doi:10.1534/genetics.103.021642>. The analyze of selective
-genotyping can be seen in H.-I LEE, H.-A. HO and C.-H. Kao (2014)
-<doi:10.1534/genetics.114.168385>. The analyze of QTL hotspot detection
-can be seen in Wu, P.-Y., M.-.H. Yang, and C.-H. Kao (2020)
-<doi:10.1101/2020.08.13.249342>.
+detection process. Here, we attempt to provide the R codes of our QTL
+mapping and hotspot detection methods for general use in genes, genomics
+and genetics studies. The QTL mapping methods for the complete and
+selective genotyping designs are based on the multiple interval mapping
+(MIM) model proposed by Kao, C.-H. , Z.-B. Zeng and R. D. Teasdale (1999)
+<doi:10.1534/genetics.103.021642> and H.-I Lee, H.-A. Ho and C.-H. Kao
+(2014) <doi:10.1534/genetics.114.168385>, respectively. The QTL hotspot
+detection analysis is based on the method by Wu, P.-Y., M.-.H. Yang, and
+C.-H. Kao (2021) .
 
 %prep
 %setup -q -c -n %{packname}
@@ -63,6 +64,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

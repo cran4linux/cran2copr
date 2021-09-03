@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  recometrics
-%global packver   0.1.3
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evaluation Metrics for Implicit-Feedback Recommender Systems
 
@@ -17,13 +17,13 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Matrix >= 1.3.4
 BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-CRAN-MatrixExtra 
+BuildRequires:    R-CRAN-MatrixExtra >= 0.1.6
 BuildRequires:    R-CRAN-float 
 BuildRequires:    R-CRAN-RhpcBLASctl 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-Matrix >= 1.3.4
 Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-CRAN-MatrixExtra 
+Requires:         R-CRAN-MatrixExtra >= 0.1.6
 Requires:         R-CRAN-float 
 Requires:         R-CRAN-RhpcBLASctl 
 Requires:         R-methods 

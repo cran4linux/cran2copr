@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tvgarch
-%global packver   2.0
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Varying GARCH Modelling
 
@@ -18,12 +18,10 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-garchx 
 BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-hier.part 
 Requires:         R-CRAN-garchx 
 Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-hier.part 
 
@@ -35,7 +33,7 @@ asymmetry order, and 'X' indicates that covariates can be included. In the
 multivariate case, variances are estimated equation by equation and
 dynamic conditional correlations are allowed. The TV long-term component
 of the variance as in the multiplicative TV-GARCH model of Amado and
-Ter"{a}svirta (2013) <doi:10.1016/j.jeconom.2013.03.006> introduces
+Ter{"a}svirta (2013) <doi:10.1016/j.jeconom.2013.03.006> introduces
 non-stationarity whereas the GARCH-X short-term component describes
 conditional heteroscedasticity. Maximisation by parts leads to consistent
 and asymptotically normal estimates.
@@ -48,6 +46,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

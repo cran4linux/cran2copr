@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  neonUtilities
-%global packver   2.1.1
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Working with NEON Data
 
@@ -16,7 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 0.7.1
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-downloader 
@@ -29,7 +28,6 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-dplyr >= 0.7.1
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-downloader 

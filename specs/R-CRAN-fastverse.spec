@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fastverse
-%global packver   0.1.8
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Suite of High-Performance Packages for Statistics and Data Manipulation
 
@@ -37,9 +37,10 @@ The core 'fastverse' consists of 6 packages: 'data.table', 'collapse',
 'Rcpp'. These packages are attached and harmonized through the
 'fastverse'. In addition, the 'fastverse' can be freely and permanently
 extended with additional packages, both globally or for individual
-projects. Selected fast and low-dependency packages are suggested for
-various topics such as time series, dates and times, strings, spatial data
-and statistics (see 'README.md' on GitHub / website).
+projects. Entirely separate package verses can also be created. Selected
+fast and low-dependency packages are suggested for various topics such as
+time series, dates and times, strings, spatial data, statistics and data
+serialization (see GitHub / website).
 
 %prep
 %setup -q -c -n %{packname}

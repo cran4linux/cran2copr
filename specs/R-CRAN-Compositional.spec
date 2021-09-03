@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Compositional
-%global packver   4.8
+%global packver   4.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.8
+Version:          4.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 
@@ -84,9 +84,9 @@ without zero values. Journal of Data Science, 17(1): 219--238.
 <doi:10.6339/JDS.201901_17(1).0010>. i) Tsagris M. and Stewart C. (2020).
 A folded model for compositional data analysis. Australian and New Zealand
 Journal of Statistics, 62(2):249--277. <doi:10.1111/anzs.12289>. j)
-Tsagris M., Alenazi A. and Stewart C. (2021). The alpha-k-NN regression
-for compositional data. <arXiv:2002.05137>. We further include functions
-for percentages (or proportions).
+Tsagris M., Alenazi A. and Stewart C. (2021). Non-parametric regression
+models for compositional data. <arXiv:2002.05137>. We further include
+functions for percentages (or proportions).
 
 %prep
 %setup -q -c -n %{packname}
@@ -96,6 +96,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
