@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  FORTLS
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Processing of TLS Point Cloud Data for Forestry Purposes
 
@@ -15,12 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-Distance 
 BuildRequires:    R-CRAN-ggvoronoi 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-lidR 
+BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-raster 
@@ -29,12 +30,13 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-vroom 
 BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-dbscan 
 Requires:         R-CRAN-Distance 
 Requires:         R-CRAN-ggvoronoi 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-lidR 
+Requires:         R-CRAN-moments 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-raster 
@@ -52,7 +54,7 @@ stand variables (e.g. density, basal area, mean and dominant height),
 estimated in Forest Inventories (FIs) at stand level and (iv) optimization
 of plot design for combining TLS data and field measured data.
 Documentation about 'FORTLS' is described in Molina-Valero et al. (2020,
-<doi:10.3390/IECF2020-08066>).
+<doi:10.3390/IECF2020-08003>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -62,6 +64,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

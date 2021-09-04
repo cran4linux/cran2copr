@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MINTplates
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Encode "License-Plates" from Sequences and Decode Them Back
 
@@ -20,11 +20,13 @@ BuildArch:        noarch
 %description
 It can be used to create/encode molecular "license-plates" from sequences
 and to also decode the "license-plates" back to sequences.  While
-initially created for transfer RNA-derived small fragments, this tool can
-be used for any genomic sequences including but not limited to: transfer
-RNA-derived small fragments, microRNAs, etc. The detailed information can
-reference to the Pliatsika V, Loher P, Telonis AG, Rigoutsos I (2016)
-<doi:10.1093/bioinformatics/btw194>.
+initially created for transfer RNA-derived small fragments (tRFs), this
+tool can be used for any genomic sequences including but not limited to:
+tRFs, microRNAs, etc. The detailed information can reference to Pliatsika
+V, Loher P, Telonis AG, Rigoutsos I (2016)
+<doi:10.1093/bioinformatics/btw194>. It can also be used to annotate tRFs.
+The detailed information can reference to Loher P, Telonis AG, Rigoutsos I
+(2017) <doi:10.1038/srep41184>.
 
 %prep
 %setup -q -c -n %{packname}

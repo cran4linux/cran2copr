@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  stringx
-%global packver   0.1.3
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Drop-in Replacements for Base String Functions Powered by 'stringi'
 
@@ -26,12 +26,12 @@ the main one for merely 36%% of the total. The early computer era, now a
 very long time ago, was dominated by the US. Due to the proliferation of
 the internet, smartphones, social media, and other technologies and
 communication platforms, this is no longer the case. This package replaces
-base R string functions (such as grep(), tolower(), and sprintf()) with
-ones that fully support the Unicode standards related to natural language
-processing, fixes some long-standing inconsistencies, and introduces some
-new, useful features. Thanks to 'ICU' (International Components for
-Unicode) and 'stringi', they are fast, reliable, and portable across
-different platforms.
+base R string functions (such as grep(), tolower(), sprintf(), and
+strptime()) with ones that fully support the Unicode standards related to
+natural language and date-time processing. It also fixes some
+long-standing inconsistencies, and introduces some new, useful features.
+Thanks to 'ICU' (International Components for Unicode) and 'stringi', they
+are fast, reliable, and portable across different platforms.
 
 %prep
 %setup -q -c -n %{packname}

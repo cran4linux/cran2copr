@@ -1,35 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  stratEst
-%global packver   1.1.0
+%global packname  mvLSW
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Strategy Estimation
+Summary:          Multivariate, Locally Stationary Wavelet Process Estimation
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.900.0.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.18
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-Rcpp >= 0.12.18
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-wavethresh 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-wavethresh 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
 
 %description
-Variants of strategy estimation (Dal Bo & Frechette, 2011,
-<doi:10.1257/aer.101.1.411>), including the model with parameters for the
-choice probabilities of the strategies (Breitmoser, 2015,
-<doi:10.1257/aer.20130675>), and the model with individual level
-covariates for the selection of strategies by individuals (Dvorak &
-Fehrler, 2018, <doi:10.2139/ssrn.2986445>).
+Tools for analysing multivariate time series with wavelets. This includes:
+simulation of a multivariate locally stationary wavelet (mvLSW) process
+from a multivariate evolutionary wavelet spectrum (mvEWS); estimation of
+the mvEWS, local coherence and local partial coherence. See Park, Eckley
+and Ombao (2014) <doi:10.1109/TSP.2014.2343937> for details.
 
 %prep
 %setup -q -c -n %{packname}

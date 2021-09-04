@@ -1,33 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rpanel
-%global packver   1.1-5
+%global packname  ggseg
+%global packver   1.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.6.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Interactive Controls for R using the 'tcltk' Package
+Summary:          Plotting Tool for Brain Atlases
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    xorg-x11-server-Xvfb
-BuildRequires:    bwidget
-Requires:         bwidget
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-tcltk 
-Requires:         R-tcltk 
+BuildRequires:    R-CRAN-ggplot2 >= 3.3
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-sf >= 0.9.2
+BuildRequires:    R-grid 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-ggplot2 >= 3.3
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-sf >= 0.9.2
+Requires:         R-grid 
+Requires:         R-utils 
+Requires:         R-CRAN-vctrs 
 
 %description
-A set of functions to build simple GUI controls for R functions.  These
-are built on the 'tcltk' package. Uses could include changing a parameter
-on a graph by animating it with a slider or a "doublebutton", up to more
-sophisticated control panels. Some functions for specific graphical tasks,
-referred to as 'cartoons', are provided.
+Contains 'ggplot2' geom for plotting brain atlases using simple features.
+The largest component of the package is the data for the two built-in
+atlases. Mowinckel & Vidal-Piñeiro (2020) <doi:10.1177/2515245920928009>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,7 +54,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %install
 
 mkdir -p %{buildroot}%{rlibdir}
-xvfb-run %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 # remove buildroot from installed files

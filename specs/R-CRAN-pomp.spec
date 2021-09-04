@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pomp
-%global packver   3.5
+%global packver   3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5
+Version:          3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Inference for Partially Observed Markov Processes
 

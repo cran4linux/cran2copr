@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  link2GI
-%global packver   0.4-5
+%global packver   0.4-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.4.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linking Geographic Information Systems, Remote Sensing and Other Command Line Tools
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-roxygen2
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-methods 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-sf >= 0.9
 Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-R.utils 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-roxygen2
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-raster 
 Requires:         R-methods 
+Requires:         R-utils 
 
 %description
 Functions to simplify the linking of open source GIS and remote sensing
@@ -43,6 +45,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

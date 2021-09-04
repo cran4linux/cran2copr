@@ -1,33 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  statgenIBD
-%global packver   1.0.0
+%global packname  bs4cards
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculation of IBD Probabilities
+Summary:          Generate Bootstrap 4 Cards
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-CRAN-rlang 
 
 %description
-For biparental, three and four-way crosses Identity by Descent (IBD)
-probabilities can be calculated using Hidden Markov Models and inheritance
-vectors following Lander and Green (<https://www.jstor.org/stable/29713>)
-and Huang (<doi:10.1073/pnas.1100465108>). One of a series of statistical
-genetic packages for streamlining the analysis of typical plant breeding
-experiments developed by Biometris.
+Allows the user to generate bootstrap cards within R markdown documents.
+Intended for use in conjunction with R markdown HTML outputs and other
+formats that support the bootstrap 4 library.
 
 %prep
 %setup -q -c -n %{packname}

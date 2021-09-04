@@ -1,33 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  NonpModelCheck
-%global packver   4.0
+%global packname  dauphin
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model Checking and Variable Selection in Nonparametric Regression
+Summary:          Compact Standard for Australian Phone Numbers
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-dr 
-Requires:         R-CRAN-dr 
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
-Provides tests of significance for covariates (or groups of covariates) in
-a fully nonparametric regression model and a variable (or group) selection
-procedure based on False Discovery Rate. In addition, it provides a
-function for local polynomial regression for any number of dimensions,
-using a bandwidth specified by the user or automatically chosen by cross
-validation or an adaptive procedure. Zambom and Akritas (2014)
-<doi:10.5705/ss.2013.112>, Zambom and Akritas (2015)
-<doi:10.1016/j.jmva.2014.08.014>, Zambom and Akritas (2017)
-<doi:10.18637/jss.v077.i10>.
+Phone numbers are often represented as strings because there is no obvious
+and suitable native representation for them.  This leads to high memory
+use and a lack of standard representation.  The package provides integer
+representation of Australian phone numbers with optional raw vector
+calling code. The package name is an extension of 'au' and 'ph'.
 
 %prep
 %setup -q -c -n %{packname}

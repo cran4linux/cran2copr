@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RedditExtractoR
-%global packver   3.0.1
+%global packver   3.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          3.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reddit Data Extraction Toolkit
 
@@ -17,8 +17,10 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-RJSONIO 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-RJSONIO 
+Requires:         R-utils 
 Requires:         R-CRAN-rlang 
 
 %description

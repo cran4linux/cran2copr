@@ -1,48 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fMRIscrub
-%global packver   0.8.2
+%global packname  matrixdist
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Scrubbing and Other Data Cleaning Routines for fMRI
+Summary:          Statistics for Matrix Distributions
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-pesel 
-BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-expm 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-pesel 
-Requires:         R-CRAN-robustbase 
-Requires:         R-stats 
-Requires:         R-utils 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-methods 
 
 %description
-Data-driven fMRI denoising with projection scrubbing (Pham et al (2021)
-<arXiv:2108.00319>). Also includes routines for DVARS (Derivatives
-VARianceS) (Afyouni and Nichols (2018)
-<doi:10.1016/j.neuroimage.2017.12.098>), motion scrubbing (Power et al
-(2012) <doi:10.1016/j.neuroimage.2011.10.018>), aCompCor (anatomical
-Components Correction) (Muschelli et al (2014)
-<doi:10.1016/j.neuroimage.2014.03.028>), detrending, and nuisance
-regression. Projection scrubbing and DVARS are also applicable to other
-outlier detection tasks involving high-dimensional data.
+Tools for homogeneous and in-homogeneous phase-type distributions. Methods
+for functional evaluation, simulation and estimation using the
+expectation-maximization (EM) algorithm are provided. The methods of this
+package are based on the following references. Asmussen, S., Nerman, O., &
+Olsson, M. (1996) <https://www.jstor.org/stable/4616418>, Olsson, M.
+(1996) <https://www.jstor.org/stable/4616419>. Albrecher, H., & Bladt, M.
+(2019) <doi:10.1017/jpr.2019.60> Albrecher, H., Bladt, M., & Yslas, J.
+(2020) <doi:10.1111/sjos.12505> Bladt, M., & Yslas, J. (2020)
+<arXiv:2011.03219>.
 
 %prep
 %setup -q -c -n %{packname}

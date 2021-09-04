@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  netrankr
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzing Partial Rankings in Networks
 
@@ -17,9 +17,11 @@ BuildRequires:    R-devel >= 3.0.1
 Requires:         R-core >= 3.0.1
 BuildRequires:    R-CRAN-igraph >= 1.0.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.8
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-igraph >= 1.0.1
 Requires:         R-CRAN-Rcpp >= 0.12.8
+Requires:         R-CRAN-Matrix 
 
 %description
 Implements methods for centrality related analyses of networks. While the

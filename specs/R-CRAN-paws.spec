@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  paws
-%global packver   0.1.11
+%global packver   0.1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.11
+Version:          0.1.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Amazon Web Services Software Development Kit
 
@@ -16,28 +16,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.compute >= 0.1.11
-BuildRequires:    R-CRAN-paws.storage >= 0.1.11
-BuildRequires:    R-CRAN-paws.database >= 0.1.11
-BuildRequires:    R-CRAN-paws.networking >= 0.1.11
-BuildRequires:    R-CRAN-paws.management >= 0.1.11
-BuildRequires:    R-CRAN-paws.machine.learning >= 0.1.11
-BuildRequires:    R-CRAN-paws.analytics >= 0.1.11
-BuildRequires:    R-CRAN-paws.security.identity >= 0.1.11
-BuildRequires:    R-CRAN-paws.application.integration >= 0.1.11
-BuildRequires:    R-CRAN-paws.cost.management >= 0.1.11
-BuildRequires:    R-CRAN-paws.customer.engagement >= 0.1.11
-Requires:         R-CRAN-paws.compute >= 0.1.11
-Requires:         R-CRAN-paws.storage >= 0.1.11
-Requires:         R-CRAN-paws.database >= 0.1.11
-Requires:         R-CRAN-paws.networking >= 0.1.11
-Requires:         R-CRAN-paws.management >= 0.1.11
-Requires:         R-CRAN-paws.machine.learning >= 0.1.11
-Requires:         R-CRAN-paws.analytics >= 0.1.11
-Requires:         R-CRAN-paws.security.identity >= 0.1.11
-Requires:         R-CRAN-paws.application.integration >= 0.1.11
-Requires:         R-CRAN-paws.cost.management >= 0.1.11
-Requires:         R-CRAN-paws.customer.engagement >= 0.1.11
+BuildRequires:    R-CRAN-paws.analytics >= 0.1.12
+BuildRequires:    R-CRAN-paws.application.integration >= 0.1.12
+BuildRequires:    R-CRAN-paws.compute >= 0.1.12
+BuildRequires:    R-CRAN-paws.cost.management >= 0.1.12
+BuildRequires:    R-CRAN-paws.customer.engagement >= 0.1.12
+BuildRequires:    R-CRAN-paws.database >= 0.1.12
+BuildRequires:    R-CRAN-paws.developer.tools >= 0.1.12
+BuildRequires:    R-CRAN-paws.end.user.computing >= 0.1.12
+BuildRequires:    R-CRAN-paws.machine.learning >= 0.1.12
+BuildRequires:    R-CRAN-paws.management >= 0.1.12
+BuildRequires:    R-CRAN-paws.networking >= 0.1.12
+BuildRequires:    R-CRAN-paws.security.identity >= 0.1.12
+BuildRequires:    R-CRAN-paws.storage >= 0.1.12
+Requires:         R-CRAN-paws.analytics >= 0.1.12
+Requires:         R-CRAN-paws.application.integration >= 0.1.12
+Requires:         R-CRAN-paws.compute >= 0.1.12
+Requires:         R-CRAN-paws.cost.management >= 0.1.12
+Requires:         R-CRAN-paws.customer.engagement >= 0.1.12
+Requires:         R-CRAN-paws.database >= 0.1.12
+Requires:         R-CRAN-paws.developer.tools >= 0.1.12
+Requires:         R-CRAN-paws.end.user.computing >= 0.1.12
+Requires:         R-CRAN-paws.machine.learning >= 0.1.12
+Requires:         R-CRAN-paws.management >= 0.1.12
+Requires:         R-CRAN-paws.networking >= 0.1.12
+Requires:         R-CRAN-paws.security.identity >= 0.1.12
+Requires:         R-CRAN-paws.storage >= 0.1.12
 
 %description
 Interface to Amazon Web Services <https://aws.amazon.com>, including
@@ -52,6 +56,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

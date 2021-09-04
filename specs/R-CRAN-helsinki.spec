@@ -1,50 +1,49 @@
 %global __brp_check_rpaths %{nil}
-%global packname  CCAMLRGIS
-%global packver   3.1.0
+%global packname  helsinki
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Antarctic Spatial Data Manipulation
+Summary:          R Tools for Helsinki Open Data
 
-License:          GPL-3
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-httpcache 
+BuildRequires:    R-CRAN-curl 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-sp 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-raster 
+Requires:         R-CRAN-xml2 
 Requires:         R-methods 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-geosphere 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-httpcache 
+Requires:         R-CRAN-curl 
 
 %description
-Loads and creates spatial data, including layers and tools that are
-relevant to the activities of the Commission for the Conservation of
-Antarctic Marine Living Resources. Provides two categories of functions:
-load functions and create functions. Load functions are used to import
-existing spatial layers from the online CCAMLR GIS such as the ASD
-boundaries. Create functions are used to create layers from user data such
-as polygons and grids.
+Tools for accessing various open data sources in the Helsinki region in
+Finland. Current data sources include the Real Estate Department
+(<http://ptp.hel.fi/avoindata/>), Service Map API
+(<http://api.hel.fi/servicemap/v2/>), Linked Events API
+(<http://api.hel.fi/linkedevents/v1/>), Helsinki Region Infoshare
+statistics API (<https://dev.hel.fi/stats/>).
 
 %prep
 %setup -q -c -n %{packname}
