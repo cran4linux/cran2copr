@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  glca
-%global packver   1.2.2
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimating a Group-Effect in Latent Class Analysis
+Summary:          An R Package for Multiple-Group Latent Class Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,12 +25,12 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 
 %description
-Fits latent class analysis (LCA) including group variable and covariates.
-The group variable can be handled either by multilevel LCA described in
-Vermunt (2003) <DOI:10.1111/j.0081-1750.2003.t01-1-00131.x> or standard
-LCA at each level of group variable. The covariates can be incorporated in
-the form of logistic regression (Bandeen-Roche et al. (1997)
-<DOI:10.1080/01621459.1997.10473658>).
+Fits multiple-group latent class analysis (LCA) for exploring differences
+between populations in the data with a multilevel structure. There are two
+approaches to reflect group differences in glca: fixed-effect LCA
+(Bandeen-Roche et al, 1997 <doi:10.1080/01621459.1997.10473658>; Clogg and
+Goodman, 1985 <doi:10.2307/270847>) and nonparametric random-effect LCA
+(Vermunt, 2003 <doi:10.1111/j.0081-1750.2003.t01-1-00131.x>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -40,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

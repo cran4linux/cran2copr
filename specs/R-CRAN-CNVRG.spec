@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  CNVRG
-%global packver   0.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dirichlet-Multinomial Modelling of Relative Abundance Data
+Summary:          Dirichlet Multinomial Modeling of Relative Abundance Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,22 +24,24 @@ BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rstan >= 2.18.1
 Requires:         R-CRAN-rstantools >= 2.1.1
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-methods 
 Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rstantools
 
 %description
-Implements Dirichlet multinomial modelling of relative abundance data
-using functionality provided by the 'Stan' software. The purpose of this
-package is to provide a user friendly way to interface with 'Stan' that is
-suitable for those new to modelling. For more regarding the modelling
+Implements Dirichlet multinomial modeling of relative abundance data using
+functionality provided by the 'Stan' software. The purpose of this package
+is to provide a user friendly way to interface with 'Stan' that is
+suitable for those new to modeling. For more regarding the modeling
 mathematics and computational techniques we use see our publication in
-Molecular Ecology Resources titled "Dirichlet multinomial modelling
-outperforms alternatives for analysis of ecological count data" (Harrison
+Molecular Ecology Resources titled 'Dirichlet multinomial modeling
+outperforms alternatives for analysis of ecological count data' (Harrison
 et al. 2020 <doi:10.1111/1755-0998.13128>).
 
 %prep
@@ -50,6 +52,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

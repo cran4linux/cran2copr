@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  eye
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Eye Data
 
@@ -13,32 +13,32 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.1.0
-BuildRequires:    R-CRAN-cli >= 2.3.1
+BuildRequires:    R-CRAN-tibble >= 3.1.3
+BuildRequires:    R-CRAN-cli >= 3.0.1
 BuildRequires:    R-CRAN-magrittr >= 2.0.1
 BuildRequires:    R-CRAN-lubridate >= 1.7.10
-BuildRequires:    R-CRAN-pillar >= 1.5.1
+BuildRequires:    R-CRAN-pillar >= 1.6.2
 BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-english >= 1.2.5
+BuildRequires:    R-CRAN-english >= 1.2.6
 BuildRequires:    R-CRAN-tidyr >= 1.1.3
-BuildRequires:    R-CRAN-tidyselect >= 1.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.5
-BuildRequires:    R-CRAN-rlang >= 0.4.10
+BuildRequires:    R-CRAN-tidyselect >= 1.1.1
+BuildRequires:    R-CRAN-dplyr >= 1.0.7
+BuildRequires:    R-CRAN-rlang >= 0.4.11
 BuildRequires:    R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-tibble >= 3.1.0
-Requires:         R-CRAN-cli >= 2.3.1
+Requires:         R-CRAN-tibble >= 3.1.3
+Requires:         R-CRAN-cli >= 3.0.1
 Requires:         R-CRAN-magrittr >= 2.0.1
 Requires:         R-CRAN-lubridate >= 1.7.10
-Requires:         R-CRAN-pillar >= 1.5.1
+Requires:         R-CRAN-pillar >= 1.6.2
 Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-english >= 1.2.5
+Requires:         R-CRAN-english >= 1.2.6
 Requires:         R-CRAN-tidyr >= 1.1.3
-Requires:         R-CRAN-tidyselect >= 1.1.0
-Requires:         R-CRAN-dplyr >= 1.0.5
-Requires:         R-CRAN-rlang >= 0.4.10
+Requires:         R-CRAN-tidyselect >= 1.1.1
+Requires:         R-CRAN-dplyr >= 1.0.7
+Requires:         R-CRAN-rlang >= 0.4.11
 Requires:         R-CRAN-purrr >= 0.3.4
 
 %description
@@ -64,6 +64,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
