@@ -1,37 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SleepCycles
-%global packver   1.1.3
+%global packname  ecopower
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sleep Cycle Detection
+Summary:          Power Estimates and Equivalence Testing for Multivariate Data
 
-License:          GPL-3
+License:          LGPL (>= 2.1)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-viridis 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-mvabund 
+BuildRequires:    R-CRAN-ecoCopula 
+BuildRequires:    R-stats 
+Requires:         R-parallel 
+Requires:         R-CRAN-mvabund 
+Requires:         R-CRAN-ecoCopula 
+Requires:         R-stats 
 
 %description
-Sleep cycles are largely detected according to the originally proposed
-criteria by Feinberg & Floyd (1979)
-<doi:10.1111/j.1469-8986.1979.tb02991.x> as described in Blume & Cajochen
-(2021) <doi:10.1016/j.mex.2021.101318>.
+Estimates power by simulation for multivariate abundance data to be used
+for sample size estimates. Multivariate equivalence testing by simulation
+from a Gaussian copula model. The package also provides functions for
+parameterising multivariate effect sizes and simulating multivariate
+abundance data jointly. The discrete Gaussian copula approach is described
+in Popovic et al. (2018) <doi:10.1016/j.jmva.2017.12.002>.
 
 %prep
 %setup -q -c -n %{packname}

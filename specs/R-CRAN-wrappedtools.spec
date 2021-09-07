@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  wrappedtools
-%global packver   0.7.8
+%global packver   0.7.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.8
+Version:          0.7.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Useful Wrappers Around Commonly Used Functions
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-stats 
@@ -57,9 +57,9 @@ variable names; rounding to desired precision with special case for
 p-values; selecting columns based on pattern and storing their position,
 name, and backticked name; computing and formatting of descriptive
 statistics (e.g. mean±SD), comparing groups and creating publication-ready
-tables with descriptive statics and p-values; creating specialized plots
-for correlation or regression trees. Functions were mainly written for my
-own daily work or teaching, but may be of use to others as well.
+tables with descriptive statistics and p-values; creating specialized
+plots for correlation matrices. Functions were mainly written for my own
+daily work or teaching, but may be of use to others as well.
 
 %prep
 %setup -q -c -n %{packname}
@@ -69,6 +69,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

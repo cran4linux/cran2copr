@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DOVE
-%global packver   1.6
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Durability of Vaccine Efficacy
 
@@ -13,24 +13,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4.6
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.4.6
 Requires:         R-methods 
+Requires:         R-CRAN-survival 
 Requires:         R-stats 
 Requires:         R-graphics 
-Requires:         R-CRAN-survival 
 
 %description
-Implements a nonparametric maximum likelihood method for evaluating the
-durability of vaccine efficacy in a randomized, placebo-controlled
-clinical trial with staggered enrollment of participants and potential
-crossover of placebo recipients. Lin, D. Y., Zeng, D., and Gilbert, P. B.
-(2021) <doi:10.1101/2021.01.13.21249779>.
+Implements maximum likelihood methods for evaluating the durability of
+vaccine efficacy in a randomized, placebo-controlled clinical trial with
+staggered enrollment of participants and potential crossover of placebo
+recipients before the end of the trial. Lin, D. Y., Zeng, D., and Gilbert,
+P. B. (2021) <doi:10.1093/cid/ciab226> and Lin, D. Y., Gu, Y., Zeng, D.,
+Janes, H. E., and Gilbert, P. B. (2021) <doi:10.1093/cid/ciab630>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -40,6 +43,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

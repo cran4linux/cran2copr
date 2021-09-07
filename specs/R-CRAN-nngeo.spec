@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  nngeo
-%global packver   0.4.3
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          k-Nearest Neighbor Join for Spatial Data
 
@@ -22,6 +22,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-lwgeom 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-s2 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-sf >= 0.6
 Requires:         R-CRAN-nabor 
 Requires:         R-CRAN-units 
@@ -29,6 +30,7 @@ Requires:         R-methods
 Requires:         R-CRAN-lwgeom 
 Requires:         R-parallel 
 Requires:         R-CRAN-s2 
+Requires:         R-CRAN-data.table 
 
 %description
 K-nearest neighbor search for projected and non-projected 'sf' spatial
@@ -46,6 +48,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

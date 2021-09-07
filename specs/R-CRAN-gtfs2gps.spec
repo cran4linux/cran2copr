@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gtfs2gps
-%global packver   1.5-0
+%global packver   1.5-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Converting Transport Data from GTFS Format to GPS-Like Records
 
@@ -31,7 +31,6 @@ BuildRequires:    R-CRAN-lwgeom
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-progressr 
-BuildRequires:    R-CRAN-zip 
 BuildRequires:    R-CRAN-readr 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-furrr 
@@ -49,7 +48,6 @@ Requires:         R-CRAN-lwgeom
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-progressr 
-Requires:         R-CRAN-zip 
 Requires:         R-CRAN-readr 
 
 %description

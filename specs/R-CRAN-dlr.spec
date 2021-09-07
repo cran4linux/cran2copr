@@ -1,34 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cecs
-%global packver   0.2.2
+%global packname  dlr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface for the C Implementation of CEC Benchmark Functions
+Summary:          Download and Cache Files Safely
 
-License:          GPL (>= 3)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-cec2013 >= 0.1.5
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-cec2013 >= 0.1.5
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-rlang 
+Requires:         R-utils 
 
 %description
-Goal of this package is to provide access to benchmark functions defined
-for the Special Session and Competition on Real-Parameter Single Objective
-Optimization in one place. The package contains functions from following
-years: 2013, 2014, 2015, 2017, 2019, 2021
-(<https://github.com/P-N-Suganthan>). Implementations of CEC-2013 (Y.
-Gonzalez-Fernandez & M. Zambrano-Bigiarini) and CEC2017 (D. Jagodziński)
-are taken from existed R packages. Also, the original C source code has
-been cleaned and reorganized for better readability.
+The goal of dlr is to provide a friendly wrapper around the common pattern
+of downloading a file if that file does not already exist locally.
 
 %prep
 %setup -q -c -n %{packname}

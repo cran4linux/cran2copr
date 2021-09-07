@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cmsafvis
-%global packver   1.1.1
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Visualize CM SAF NetCDF Data
 
@@ -27,9 +27,9 @@ BuildRequires:    R-CRAN-sp >= 1.4
 BuildRequires:    R-CRAN-mapproj >= 1.2.7
 BuildRequires:    R-CRAN-progress >= 1.2.2
 BuildRequires:    R-CRAN-ncdf4 >= 1.17
+BuildRequires:    R-CRAN-cmsafops >= 1.1.1
 BuildRequires:    R-CRAN-countrycode >= 1.1
 BuildRequires:    R-CRAN-rworldxtra >= 1.01
-BuildRequires:    R-CRAN-cmsafops >= 1.0.0
 BuildRequires:    R-CRAN-maptools >= 0.9
 BuildRequires:    R-CRAN-assertthat >= 0.2.1
 BuildRequires:    R-CRAN-png >= 0.1
@@ -50,9 +50,9 @@ Requires:         R-CRAN-sp >= 1.4
 Requires:         R-CRAN-mapproj >= 1.2.7
 Requires:         R-CRAN-progress >= 1.2.2
 Requires:         R-CRAN-ncdf4 >= 1.17
+Requires:         R-CRAN-cmsafops >= 1.1.1
 Requires:         R-CRAN-countrycode >= 1.1
 Requires:         R-CRAN-rworldxtra >= 1.01
-Requires:         R-CRAN-cmsafops >= 1.0.0
 Requires:         R-CRAN-maptools >= 0.9
 Requires:         R-CRAN-assertthat >= 0.2.1
 Requires:         R-CRAN-png >= 0.1
@@ -85,6 +85,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

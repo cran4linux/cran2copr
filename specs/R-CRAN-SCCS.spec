@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SCCS
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Self-Controlled Case Series Method
 
@@ -39,7 +39,7 @@ information on the self-controlled case series method and its extensions
 with more examples can be found in Farrington, P., Whitaker, H., and
 Ghebremichael Weldeselassie, Y. (2018, ISBN: 978-1-4987-8159-6.
 Self-controlled Case Series studies: A modelling Guide with R. Boca Raton:
-Chapman & Hall/CRC Press) and <https://sccs-studies.info>.
+Chapman & Hall/CRC Press) and <https://sccs-studies.info/index.html>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,6 +49,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  nat
-%global packver   1.8.17
+%global packver   1.8.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.17
+Version:          1.8.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          NeuroAnatomy Toolbox for Analysis of 3D Image Data
 
