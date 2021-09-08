@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bkmrhat
-%global packver   1.0.2
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parallel Chain Tools for Bayesian Kernel Machine Regression
 
@@ -18,11 +18,13 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-bkmr 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-rstan 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-bkmr 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-rstan 
 Requires:         R-CRAN-rstantools
@@ -46,6 +48,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

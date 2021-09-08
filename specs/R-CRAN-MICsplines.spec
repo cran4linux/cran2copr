@@ -1,31 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  striprtf
-%global packver   0.5.3
+%global packname  MICsplines
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Text from RTF File
+Summary:          The Computing of Monotonic Spline Bases and Constrained Least-Squares Estimates
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-stringr 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-Extracts plain text from RTF (Rich Text Format) file.
+Providing C implementation for the computing of monotonic spline bases,
+including M-splines, I-splines, and C-splines, denoted by MIC splines. The
+definitions of the spline bases are described in Meyer (2008) <doi:
+10.1214/08-AOAS167>. The package also provides the computing of
+constrained least-squares estimates when a subset of or all of the
+regression coefficients are constrained to be non-negative.
 
 %prep
 %setup -q -c -n %{packname}

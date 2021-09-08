@@ -1,51 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rmoo
-%global packver   0.1.7
+%global packname  adea
+%global packver   1.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multi-Objective Optimization in R
+Summary:          Alternate DEA Package
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-ecr 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Benchmarking 
+BuildRequires:    R-CRAN-combinat 
+BuildRequires:    R-CRAN-lpSolveAPI 
 BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-cdata 
-BuildRequires:    R-CRAN-plotly 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-ecr 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-Benchmarking 
+Requires:         R-CRAN-combinat 
+Requires:         R-CRAN-lpSolveAPI 
 Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-cdata 
-Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-knitr 
 
 %description
-A multiobjective optimization package based on K. Deb's algorithm and
-inspired in 'GA' package by Luca Scrucca (2017)
-<DOI:10.32614/RJ-2017-008>. The 'rmoo' package is a framework for multi-
-and many-objective optimization, allowing to work with representation of
-real numbers, permutations and binaries, offering a high range of
-configurations.
+The meaning of adea is "alternate DEA". This package is devoted to provide
+the alternative method of DEA described in the paper entitled "Stepwise
+Selection of Variables in DEA Using Contribution Load", by F.
+Fernandez-Palacin, M. A. Lopez-Sanchez and M. Munoz-Marquez. Pesquisa
+Operacional 38 (1), pg. 1-24, 2018.
+<doi:10.1590/0101-7438.2018.038.01.0031>. A full functional on-line and
+interactive version is available at <https://knuth.uca.es/shiny/DEA/>.
 
 %prep
 %setup -q -c -n %{packname}

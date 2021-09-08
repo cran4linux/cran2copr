@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  maptools
-%global packver   1.1-1
+%global packver   1.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Handling Spatial Objects
 
@@ -33,10 +33,12 @@ Requires:         R-utils
 Requires:         R-grDevices 
 
 %description
-Set of tools for manipulating geographic data. It includes binary access
-to 'GSHHG' shoreline files. The package also provides interface wrappers
-for exchanging spatial objects with packages such as 'PBSmapping',
-'spatstat.geom', 'maps', and others.
+Please note that 'maptools' will be retired by the end of 2023, plan
+transition at your earliest convenience; some functionality will be moved
+to 'sp'. Set of tools for manipulating geographic data. It includes binary
+access to 'GSHHG' shoreline files. The package also provides interface
+wrappers for exchanging spatial objects with packages such as
+'PBSmapping', 'spatstat.geom', 'maps', and others.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,6 +48,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

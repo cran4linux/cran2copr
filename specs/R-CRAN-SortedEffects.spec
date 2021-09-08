@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SortedEffects
-%global packver   1.5.0
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation and Inference Methods for Sorted Causal Effects and Classification Analysis
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-Hmisc
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-CRAN-SparseM 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dummies 
@@ -32,7 +31,6 @@ Requires:         R-CRAN-Hmisc
 Requires:         R-CRAN-pbapply 
 Requires:         R-parallel 
 Requires:         R-CRAN-quantreg 
-Requires:         R-CRAN-rlist 
 Requires:         R-CRAN-SparseM 
 Requires:         R-stats 
 Requires:         R-CRAN-dummies 

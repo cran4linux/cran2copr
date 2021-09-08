@@ -1,31 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  striprtf
-%global packver   0.5.3
+%global packname  CSTE
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Text from RTF File
+Summary:          Covariate Specific Treatment Effect (CSTE) Curve
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-stringr 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4
+BuildRequires:    R-CRAN-fda 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-Rcpp >= 1.0.4
+Requires:         R-CRAN-fda 
+Requires:         R-splines 
+Requires:         R-CRAN-survival 
 
 %description
-Extracts plain text from RTF (Rich Text Format) file.
+A uniform statistical inferential tool in making individualized treatment
+decisions, which implements the methods of Ma et al.
+(2017)<DOI:10.1177/0962280214541724> and Guo et al.
+(2021)<DOI:10.1080/01621459.2020.1865167>. It uses a flexible
+semiparametric modeling strategy for heterogeneous treatment effect
+estimation in high-dimensional settings and can gave valid confidence
+bands. Based on it, one can find the subgroups of patients that benefit
+from each treatment, thereby making individualized treatment selection.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,51 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rmoo
-%global packver   0.1.7
+%global packname  mexicolors
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multi-Objective Optimization in R
+Summary:          Mexican Politics-Inspired Color Palette Generator
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-ecr 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-cdata 
-BuildRequires:    R-CRAN-plotly 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-ecr 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-cdata 
-Requires:         R-CRAN-plotly 
 
 %description
-A multiobjective optimization package based on K. Deb's algorithm and
-inspired in 'GA' package by Luca Scrucca (2017)
-<DOI:10.32614/RJ-2017-008>. The 'rmoo' package is a framework for multi-
-and many-objective optimization, allowing to work with representation of
-real numbers, permutations and binaries, offering a high range of
-configurations.
+A color palette generator inspired by Mexican politics, with colors
+ranging from red on the left to gray in the middle and green on the right.
+Palette options range from only a few colors to several colors, but with
+discrete and continuous options to offer greatest flexibility to the user.
+This package allows for a range of applications, from mapping brief
+discrete scales (e.g., four colors for Morena, PRI, and PAN) to continuous
+interpolated arrays including dozens of shades graded from red to green.
 
 %prep
 %setup -q -c -n %{packname}

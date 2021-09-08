@@ -1,31 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  striprtf
-%global packver   0.5.3
+%global packname  sship
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Text from RTF File
+Summary:          Tool for Secure Shipment of Content
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-stringr 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-yaml 
 
 %description
-Extracts plain text from RTF (Rich Text Format) file.
+Convenient tools for exchanging files securely from within R. By
+encrypting the content safe passage of files (shipment) can be provided by
+common but insecure carriers such as ftp and email. Based on asymmetric
+cryptography no management of shared secrets is needed to make a secure
+shipment as long as authentic public keys are available. Public keys used
+for secure shipments may also be obtained from external providers as part
+of the overall process. Transportation of files will require that relevant
+services such as ftp and email servers are available.
 
 %prep
 %setup -q -c -n %{packname}

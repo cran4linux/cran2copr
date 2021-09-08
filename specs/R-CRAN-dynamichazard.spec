@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dynamichazard
-%global packver   0.6.8
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Hazard Models using State Space Models
 
@@ -36,9 +36,10 @@ Contains functions that lets you fit dynamic hazard models using state
 space models. The first implemented model is described in Fahrmeir (1992)
 <doi:10.1080/01621459.1992.10475232> and Fahrmeir (1994)
 <doi:10.1093/biomet/81.2.317>. Extensions hereof are available where the
-Extended Kalman filter is replaced by an unscented Kalman filter and other
-options including particle filters. The implemented particle filters
-support more general state space models.
+Extended Kalman filter is replaced by an unscented Kalman filter. See
+Christoffersen (2021) <doi:10.18637/jss.v099.i07> for more details.
+Particle filters and smoothers are also supported more general state space
+models.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,6 +49,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
