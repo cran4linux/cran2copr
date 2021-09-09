@@ -1,45 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidytree
-%global packver   0.3.5
+%global packname  mauricer
+%global packver   2.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          2.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Tidy Tool for Phylogenetic Tree Data Manipulation
+Summary:          Work with 'BEAST2' Packages
 
-License:          Artistic-2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-beastier >= 2.4.7
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-beastier >= 2.4.7
+Requires:         R-CRAN-stringr 
 
 %description
-Phylogenetic tree generally contains multiple components including node,
-edge, branch and associated data. 'tidytree' provides an approach to
-convert tree object to tidy data frame as well as provides tidy interfaces
-to manipulate tree data.
+'BEAST2' (<https://www.beast2.org>) is a widely used Bayesian phylogenetic
+tool, that uses DNA/RNA/protein data and many model priors to create a
+posterior of jointly estimated phylogenies and parameters. 'BEAST2' is
+commonly accompanied by 'BEAUti 2' (<https://www.beast2.org>), which,
+among others, allows one to install 'BEAST2' package. This package allows
+to work with 'BEAST2' packages from 'R'.
 
 %prep
 %setup -q -c -n %{packname}

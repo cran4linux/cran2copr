@@ -1,50 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  artemis
-%global packver   1.1.1
+%global packname  splmm
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis and Simulation of Environmental DNA Experiments
+Summary:          Simultaneous Penalized Linear Mixed Effects Models
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-rstan >= 2.19.0
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
-BuildRequires:    R-CRAN-rstantools >= 2.1.1
-BuildRequires:    R-CRAN-BH >= 1.66.0
-BuildRequires:    R-CRAN-lme4 >= 1.1.21
 BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-emulator 
+BuildRequires:    R-CRAN-miscTools 
+BuildRequires:    R-CRAN-penalized 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-loo 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-rstan >= 2.19.0
-Requires:         R-CRAN-rstantools >= 2.1.1
-Requires:         R-CRAN-lme4 >= 1.1.21
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-plot3D 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-stats 
+Requires:         R-CRAN-emulator 
+Requires:         R-CRAN-miscTools 
+Requires:         R-CRAN-penalized 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-loo 
-Requires:         R-utils 
-Requires:         R-CRAN-rstantools
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-plot3D 
+Requires:         R-CRAN-MASS 
 
 %description
-Provides a modeling framework for the design and analysis of experiments
-collecting environmental DNA.
+Contains functions that fit linear mixed-effects models for
+high-dimensional data (p>>n) with penalty for both the fixed effects and
+random effects for variable selection. The details of the algorithm can be
+found in Luoying Yang PhD thesis (Yang and Wu 2020). The algorithm
+implementation is based on the R package 'lmmlasso'. Reference: Yang L, Wu
+TT (2020). Model-Based Clustering of Longitudinal Data in
+High-Dimensionality. Unpublished thesis.
 
 %prep
 %setup -q -c -n %{packname}

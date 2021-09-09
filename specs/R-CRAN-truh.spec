@@ -1,45 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidytree
-%global packver   0.3.5
+%global packname  truh
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Tidy Tool for Phylogenetic Tree Data Manipulation
+Summary:          Two-Sample Nonparametric Testing Under Heterogeneity
 
-License:          Artistic-2.0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-CRAN-fpc 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-iterators 
+Requires:         R-CRAN-fpc 
+Requires:         R-parallel 
 
 %description
-Phylogenetic tree generally contains multiple components including node,
-edge, branch and associated data. 'tidytree' provides an approach to
-convert tree object to tidy data frame as well as provides tidy interfaces
-to manipulate tree data.
+Implements the TRUH test statistic for two sample testing under
+heterogeneity. TRUH incorporates the underlying heterogeneity and
+imbalance in the samples, and provides a conservative test for the
+composite null hypothesis that the two samples arise from the same mixture
+distribution but may differ with respect to the mixing weights. See
+Trambak Banerjee, Bhaswar B. Bhattacharya, Gourab Mukherjee Ann. Appl.
+Stat. 14(4): 1777-1805 (December 2020). <DOI:10.1214/20-AOAS1362> for more
+details.
 
 %prep
 %setup -q -c -n %{packname}

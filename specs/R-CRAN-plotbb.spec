@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  scrubr
-%global packver   0.4.0
+%global packname  plotbb
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clean Biological Occurrence Records
+Summary:          Grammar of Graphics for 'base' Plot
 
-License:          MIT + file LICENSE
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,40 +16,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-qlcMatrix 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-fastmatch 
-BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-crul 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-hoardr 
-BuildRequires:    R-CRAN-curl 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-qlcMatrix 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-fastmatch 
-Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-crul 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-hoardr 
-Requires:         R-CRAN-curl 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-methods 
+Requires:         R-utils 
 
 %description
-Clean biological occurrence records. Includes functionality for cleaning
-based on various aspects of spatial coordinates, unlikely values due to
-political 'centroids', coordinates based on where collections of specimens
-are held, and more.
+Proof of concept for implementing grammar of graphics using base plot. The
+bbplot() function initializes a 'bbplot' object to store input data,
+aesthetic mapping, a list of layers and theme elements. The object will be
+rendered as a graphic using base plot command if it is printed.
 
 %prep
 %setup -q -c -n %{packname}
@@ -59,6 +43,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

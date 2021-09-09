@@ -1,45 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidytree
-%global packver   0.3.5
+%global packname  loadings
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Tidy Tool for Phylogenetic Tree Data Manipulation
+Summary:          Loadings for Principal Component Analysis and Partial Least Squares
 
-License:          Artistic-2.0
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
 
 %description
-Phylogenetic tree generally contains multiple components including node,
-edge, branch and associated data. 'tidytree' provides an approach to
-convert tree object to tidy data frame as well as provides tidy interfaces
-to manipulate tree data.
+Computing principal component (Yamamoto, H. et al. (2014)
+<doi:10.1186/1471-2105-15-51> and Yamamoto, H. et al. (2021)
+<doi:10.3390/metabo11030149>) and partial least squares loading (Yamamoto,
+H. (2017) <doi:10.1002/cem.2883>) and its statistical hypothesis testing.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,45 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidytree
-%global packver   0.3.5
+%global packname  filearray
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Tidy Tool for Phylogenetic Tree Data Manipulation
+Summary:          File-Backed Array for Out-of-Memory Computation
 
-License:          Artistic-2.0
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Phylogenetic tree generally contains multiple components including node,
-edge, branch and associated data. 'tidytree' provides an approach to
-convert tree object to tidy data frame as well as provides tidy interfaces
-to manipulate tree data.
+Stores large arrays in files to avoid occupying large memories.
+Implemented with super fast gigabyte-level multi-threaded reading/writing
+via 'OpenMP'. Supports multiple non-character data types (double, integer,
+logical and raw).
 
 %prep
 %setup -q -c -n %{packname}

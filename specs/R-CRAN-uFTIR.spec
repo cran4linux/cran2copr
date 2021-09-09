@@ -1,45 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidytree
-%global packver   0.3.5
+%global packname  uFTIR
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Tidy Tool for Phylogenetic Tree Data Manipulation
+Summary:          Process and Analyze Agilent Cary 620 FTIR Microscope Images
 
-License:          Artistic-2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
+BuildRequires:    gdal-devel >= 1.11.4
+BuildRequires:    proj-devel >= 4.8.0
+BuildRequires:    sqlite-devel
+BuildRequires:    R-devel >= 4.0.4.0
+Requires:         R-core >= 4.0.4.0
+BuildRequires:    R-parallel >= 4.0.4
+BuildRequires:    R-methods >= 4.0.4
+BuildRequires:    R-CRAN-raster >= 3.4.13
+BuildRequires:    R-CRAN-sp >= 1.4.5
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-parallel >= 4.0.4
+Requires:         R-methods >= 4.0.4
+Requires:         R-CRAN-raster >= 3.4.13
+Requires:         R-CRAN-sp >= 1.4.5
+Requires:         R-CRAN-Rcpp >= 1.0.7
 
 %description
-Phylogenetic tree generally contains multiple components including node,
-edge, branch and associated data. 'tidytree' provides an approach to
-convert tree object to tidy data frame as well as provides tidy interfaces
-to manipulate tree data.
+A set of tools to read, process, and summarize Agilent Cary 620 uFTIR
+Microscope hyperspectral images primarily intended for microplastic
+analysis.
 
 %prep
 %setup -q -c -n %{packname}

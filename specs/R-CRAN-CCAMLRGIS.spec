@@ -1,45 +1,50 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidytree
-%global packver   0.3.5
+%global packname  CCAMLRGIS
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Tidy Tool for Phylogenetic Tree Data Manipulation
+Summary:          Antarctic Spatial Data Manipulation
 
-License:          Artistic-2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-ape 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-sp 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-raster 
 Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-rgeos 
+Requires:         R-CRAN-geosphere 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-magrittr 
 
 %description
-Phylogenetic tree generally contains multiple components including node,
-edge, branch and associated data. 'tidytree' provides an approach to
-convert tree object to tidy data frame as well as provides tidy interfaces
-to manipulate tree data.
+Loads and creates spatial data, including layers and tools that are
+relevant to the activities of the Commission for the Conservation of
+Antarctic Marine Living Resources. Provides two categories of functions:
+load functions and create functions. Load functions are used to import
+existing spatial layers from the online CCAMLR GIS such as the ASD
+boundaries. Create functions are used to create layers from user data such
+as polygons and grids.
 
 %prep
 %setup -q -c -n %{packname}

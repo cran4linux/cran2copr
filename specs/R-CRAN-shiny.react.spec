@@ -1,45 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidytree
-%global packver   0.3.5
+%global packname  shiny.react
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Tidy Tool for Phylogenetic Tree Data Manipulation
+Summary:          Tools for Using React in Shiny
 
-License:          Artistic-2.0
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-logger 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-logger 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-shiny 
 
 %description
-Phylogenetic tree generally contains multiple components including node,
-edge, branch and associated data. 'tidytree' provides an approach to
-convert tree object to tidy data frame as well as provides tidy interfaces
-to manipulate tree data.
+A toolbox for defining React component wrappers which can be used
+seamlessly in Shiny apps.
 
 %prep
 %setup -q -c -n %{packname}

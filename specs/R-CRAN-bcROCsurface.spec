@@ -1,45 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidytree
-%global packver   0.3.5
+%global packname  bcROCsurface
+%global packver   1.0-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Tidy Tool for Phylogenetic Tree Data Manipulation
+Summary:          Bias-Corrected Methods for Estimating the ROC Surface of Continuous Diagnostic Tests
 
-License:          Artistic-2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.2
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.2
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-boot 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-graphics 
+Requires:         R-parallel 
 
 %description
-Phylogenetic tree generally contains multiple components including node,
-edge, branch and associated data. 'tidytree' provides an approach to
-convert tree object to tidy data frame as well as provides tidy interfaces
-to manipulate tree data.
+The bias-corrected estimation methods for the receiver operating
+characteristics ROC surface and the volume under ROC surfaces (VUS) under
+missing at random (MAR) assumption.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,27 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  kdtools
-%global packver   0.5.2
+%global packname  clockify
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Working with Multidimensional Data
+Summary:          A Wrapper for the 'Clockify' API
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.14
-Requires:         R-CRAN-Rcpp >= 0.12.14
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-logger 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-anytime 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-logger 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-anytime 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides various tools for working with multidimensional data in R and
-C++, including extremely fast nearest-neighbor- and range- queries without
-the overhead of linked tree nodes.
+A wrapper for the Clockify API <https://clockify.me/developers-api>,
+making it possible to query, insert and update time keeping data.
 
 %prep
 %setup -q -c -n %{packname}
