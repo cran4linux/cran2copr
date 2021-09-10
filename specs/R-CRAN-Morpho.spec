@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Morpho
-%global packver   2.8
+%global packver   2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8
-Release:          3%{?dist}%{?buildtag}
-Summary:          Calculations and Visualisations Related to GeometricMorphometrics
+Version:          2.9
+Release:          1%{?dist}%{?buildtag}
+Summary:          Calculations and Visualisations Related to Geometric Morphometrics
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,11 +17,11 @@ BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildRequires:    R-CRAN-foreach >= 1.4.0
 BuildRequires:    R-CRAN-doParallel >= 1.0.6
-BuildRequires:    R-Matrix >= 1.0.1
+BuildRequires:    R-CRAN-Matrix >= 1.0.1
 BuildRequires:    R-CRAN-Rvcg >= 0.7
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.4
 BuildRequires:    R-CRAN-rgl >= 0.100.18
-BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-colorRamps 
 BuildRequires:    R-CRAN-Rcpp 
@@ -30,12 +30,14 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-bezier 
 Requires:         R-CRAN-foreach >= 1.4.0
 Requires:         R-CRAN-doParallel >= 1.0.6
-Requires:         R-Matrix >= 1.0.1
+Requires:         R-CRAN-Matrix >= 1.0.1
 Requires:         R-CRAN-Rvcg >= 0.7
 Requires:         R-CRAN-rgl >= 0.100.18
-Requires:         R-MASS 
+Requires:         R-CRAN-MASS 
 Requires:         R-parallel 
 Requires:         R-CRAN-colorRamps 
 Requires:         R-CRAN-Rcpp 
@@ -44,6 +46,8 @@ Requires:         R-grDevices
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-bezier 
 
 %description
 A toolset for Geometric Morphometrics and mesh processing. This includes
@@ -54,7 +58,15 @@ semi-landmarks and semi-automated surface landmark placement.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -62,22 +74,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/COPYRIGHTS
-%{rlibdir}/%{packname}/extdata
-%doc %{rlibdir}/%{packname}/NEWS.Rd
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

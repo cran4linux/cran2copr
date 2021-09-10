@@ -1,27 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  brnn
-%global packver   0.9
+%global packname  RDnp
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Regularization for Feed-Forward Neural Networks
+Summary:          Robust Test for Complete Independence in High-Dimensions
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-truncnorm 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-truncnorm 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cellWise 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-cellWise 
+Requires:         R-CRAN-MASS 
 
 %description
-Bayesian regularization for feed-forward neural networks.
+Test Statistics for Independence in High-Dimensional Datasets. This
+package consists of two functions to perform the complete independence
+test based on test statistics proposed by Bulut (unpublished yet) and
+suggested by Najarzadeh (2021) <doi: 10.1080/03610926.2019.1702699>. The
+Bulut's statistic is not sensitive to outliers in high-dimensional data,
+unlike one of Najarzadeh (2021) <doi: 10.1080/03610926.2019.1702699>. So,
+the Bulut's statistic can be performed robustly by using RDnp function.
 
 %prep
 %setup -q -c -n %{packname}

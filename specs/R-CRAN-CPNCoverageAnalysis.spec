@@ -1,27 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  brnn
-%global packver   0.9
+%global packname  CPNCoverageAnalysis
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Regularization for Feed-Forward Neural Networks
+Summary:          Conceptual Properties Norming Studies as Parameter Estimation
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-truncnorm 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-truncnorm 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 
 %description
-Bayesian regularization for feed-forward neural networks.
+Implementation of conceptual properties norming studies, including
+estimates of CPNs parameters with their corresponding variances and
+estimates for the sampling process. See Canessa et al. (2021)
+<doi:10.3758/s13428-020-01439-8>. "How to Carry Out Conceptual Properties
+Norming Studies as Parameter Estimation Studies: Lessons from Ecology".
 
 %prep
 %setup -q -c -n %{packname}

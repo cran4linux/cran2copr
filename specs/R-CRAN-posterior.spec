@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  posterior
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Working with Posterior Distributions
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-tensorA
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-distributional 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-matrixStats 
 Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-rlang >= 0.4.7
 Requires:         R-CRAN-abind 
@@ -36,6 +37,7 @@ Requires:         R-CRAN-tensorA
 Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-distributional 
 Requires:         R-parallel 
+Requires:         R-CRAN-matrixStats 
 
 %description
 Provides useful tools for both users and developers of packages for

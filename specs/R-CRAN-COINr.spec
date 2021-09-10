@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  COINr
-%global packver   0.5.3
+%global packver   0.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Composite Indicator Construction and Analysis
 
@@ -35,6 +35,7 @@ BuildRequires:    R-CRAN-rlang >= 0.4.10
 BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-reactable >= 0.2.3
 BuildRequires:    R-CRAN-Amelia 
+BuildRequires:    R-CRAN-rmarkdown 
 Requires:         R-CRAN-plotly >= 4.9.3
 Requires:         R-CRAN-openxlsx >= 4.2.3
 Requires:         R-stats >= 4.0.3
@@ -54,6 +55,7 @@ Requires:         R-CRAN-rlang >= 0.4.10
 Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-reactable >= 0.2.3
 Requires:         R-CRAN-Amelia 
+Requires:         R-CRAN-rmarkdown 
 
 %description
 A comprehensive high-level package for composite indicator construction

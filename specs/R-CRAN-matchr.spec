@@ -1,27 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  brnn
-%global packver   0.9
+%global packname  matchr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Regularization for Feed-Forward Neural Networks
+Summary:          Pattern Matching and Enumerated Types in R
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-truncnorm 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-truncnorm 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-rlang 
+Requires:         R-utils 
 
 %description
-Bayesian regularization for feed-forward neural networks.
+Inspired by pattern matching and enum types in Rust and many functional
+programming languages, this package offers an updated version of the
+'switch' function called 'Match' that accepts atomic values, functions,
+expressions, and enum variants. Conditions and return expressions are
+separated by '->' and multiple conditions can be associated with the same
+return expression using '|'. 'Match' also includes support for
+'fallthrough'. The package also replicates the Result and Option enums
+from Rust.
 
 %prep
 %setup -q -c -n %{packname}

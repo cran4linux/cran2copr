@@ -1,27 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  brnn
-%global packver   0.9
+%global packname  onpoint
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Regularization for Feed-Forward Neural Networks
+Summary:          Helper Functions for Point Pattern Analysis
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-truncnorm 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-truncnorm 
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-spatstat.core 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-spatstat.core 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-stats 
 
 %description
-Bayesian regularization for feed-forward neural networks.
+Growing collection of helper functions for point pattern analysis. Most
+functions are designed to work with the 'spatstat' (<http://spatstat.org>)
+package. The focus of most functions are either null models or summary
+functions for spatial point patterns. For a detailed description of all
+null models and summary functions, see Wiegand and Moloney (2014,
+ISBN:9781420082548).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,27 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  brnn
-%global packver   0.9
+%global packname  CMAPSS
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Regularization for Feed-Forward Neural Networks
+Summary:          Commercial Modular Aero-Propulsion System Simulation Data Set
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-truncnorm 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-truncnorm 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Bayesian regularization for feed-forward neural networks.
+Contains the Commercial Modular Aero-Propulsion System Simulation
+(C-MAPSS) data set.
 
 %prep
 %setup -q -c -n %{packname}

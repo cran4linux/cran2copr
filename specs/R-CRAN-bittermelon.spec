@@ -1,27 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  brnn
-%global packver   0.9
+%global packname  bittermelon
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Regularization for Feed-Forward Neural Networks
+Summary:          Monochrome Bitmap Font Tools
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-truncnorm 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-truncnorm 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-findpython 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-Unicode 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-findpython 
+Requires:         R-grDevices 
+Requires:         R-grid 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-Unicode 
+Requires:         R-utils 
 
 %description
-Bayesian regularization for feed-forward neural networks.
+Provides functions for creating and modifying bitmaps with special
+emphasis on bitmap fonts and their glyphs.  Provides native read/write
+support for the 'hex' and 'yaff' bitmap font formats and if 'Python' is
+installed can also read/write several more bitmap font formats using an
+embedded version of 'monobit'.
 
 %prep
 %setup -q -c -n %{packname}

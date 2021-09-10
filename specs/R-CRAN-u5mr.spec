@@ -1,27 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  brnn
-%global packver   0.9
+%global packname  u5mr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Regularization for Feed-Forward Neural Networks
+Summary:          Under-Five Child Mortality Estimation
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-truncnorm 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-truncnorm 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Bayesian regularization for feed-forward neural networks.
+Contains functions for calculating under-five child mortality estimates
+using the Trussell version of the Brass method (United Nations (1990)
+<https://www.un.org/en/development/desa/population/publications/pdf/mortality/stepguide_childmort.pdf>
+and United Nations (1983)
+<https://www.un.org/en/development/desa/population/publications/pdf/mortality/stepguide_childmort.pdf>)
+as well as applying the cohort-derived methods by Rajaratnam and
+colleagues (Rajaratnam JK, Tran LN, Lopez AD, Murray CJL (2010) "Measuring
+Under-Five Mortality: Validation of New Low-Cost Methods"
+<doi:10.1371/journal.pmed.1000253>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,46 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidyestimate
-%global packver   1.1.0
+%global packname  statpsych
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Tidy Implementation of 'ESTIMATE'
+Summary:          Statistical Methods for Psychologists
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-mathjaxr 
+BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-utils 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-dplyr 
 Requires:         R-stats 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-mathjaxr 
+Requires:         R-CRAN-Rdpack 
 
 %description
-The 'ESTIMATE' package infers tumor purity from expression data as a
-function of immune and stromal infiltrate, but requires writing of
-intermediate files, is un-pipeable, and performs poorly when presented
-with modern datasets with current gene symbols. 'tidyestimate' a fast,
-tidy, modern reimagination of 'ESTIMATE' (2013) <doi:10.1038/ncomms3612>.
+Implements confidence interval and sample size methods that are especially
+useful in psychological research. The methods can be applied in 1-group,
+2-group, paired-samples, and multiple-group designs and to a variety of
+parameters including means, medians, proportions, slopes, standardized
+mean differences, standardized linear contrasts of means, plus several
+measures of correlation and association. The confidence intervals and
+sample size functions are applicable to single parameters as well as
+differences, ratios, and linear contrasts of parameters.  The sample size
+functions can be used to approximate the sample size needed to estimate a
+parameter or function of parameters with desired confidence interval
+precision or to perform a variety of hypothesis tests (directional
+two-sided, equivalence, superiority, noninferiority) with desired power.
+For details, see:
+<https://csass.ucsc.edu/self-study%%20courses/statistical_methods.html>.
 
 %prep
 %setup -q -c -n %{packname}

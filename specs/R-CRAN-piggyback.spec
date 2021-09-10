@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  piggyback
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Managing Larger Data on a GitHub Repository
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-clisymbols 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-memoise 
 Requires:         R-CRAN-gh 
@@ -31,7 +30,6 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-clisymbols 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-memoise 
 

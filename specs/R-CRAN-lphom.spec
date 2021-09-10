@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
 %global packname  lphom
-%global packver   0.1.4
+%global packver   0.3.0-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.3.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ecological Inference by Linear Programming under Homogeneity
 
-License:          GPL (>= 2) | file LICENSE
+License:          EPL | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,18 +17,20 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lpSolve 
+BuildRequires:    R-CRAN-Rsymphony 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-lpSolve 
+Requires:         R-CRAN-Rsymphony 
 Requires:         R-stats 
 
 %description
 Provides a bunch of algorithms based on linear programming for estimating
-RxC ecological contingency tables (vote transitions matrices) using
+RxC ecological contingency tables (or vote transition matrices) using
 exclusively aggregate results from voting units under the homogeneity
 hypothesis. References: Romero, Pavia, Martin and Romero (2020)
-<doi:10.1080/02664763.2020.1804842>. Pavia and Romero (2021) Improving
-estimates accuracy of voter transitions. Two new algorithms for ecological
-inference based on linear programming.
+<doi:10.1080/02664763.2020.1804842>. Pavia and Romero (2021a)
+<doi:10.31124/advance.14716638.v1>. Pavia and Romero (2021b) Symmetry
+estimating R×C vote transfer matrices from aggregate data.
 
 %prep
 %setup -q -c -n %{packname}
@@ -38,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

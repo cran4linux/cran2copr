@@ -1,27 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  brnn
-%global packver   0.9
+%global packname  populR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Regularization for Feed-Forward Neural Networks
+Summary:          Population Down-Scaling
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-truncnorm 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-truncnorm 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-lwgeom 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-lwgeom 
 
 %description
-Bayesian regularization for feed-forward neural networks.
+Population down-scaling from census blocks to building units using
+Areametric and Volumetric approaches. The aforementioned methods were
+adopted by Lwin K. K. and Murayama Y. work
+<doi:10.1111/j.1467-9671.2009.01171.x>.
 
 %prep
 %setup -q -c -n %{packname}

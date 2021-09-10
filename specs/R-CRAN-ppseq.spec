@@ -1,45 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  getCRUCLdata
-%global packver   0.3.2
+%global packname  ppseq
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'CRU' 'CL' v. 2.0 Climatology Client
+Summary:          Design Clinical Trials using Sequential Predictive Probability Monitoring
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-hoardr 
-BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-hoardr 
-Requires:         R-CRAN-raster 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-tidyr 
 
 %description
-Provides functions that automate downloading and importing University of
-East Anglia Climate Research Unit ('CRU') 'CL' v. 2.0 climatology data,
-facilitates the calculation of minimum temperature and maximum temperature
-and formats the data into a tidy data frame as a 'tibble' or a list of
-'raster' 'stack' objects for use.  'CRU' 'CL' v. 2.0 data are a gridded
-climatology of 1961-1990 monthly means released in 2002 and cover all land
-areas (excluding Antarctica) at 10 arcminutes (0.1666667 degree)
-resolution.  For more information see the description of the data provided
-by the University of East Anglia Climate Research Unit,
-<https://crudata.uea.ac.uk/cru/data/hrg/tmc/readme.txt>.
+Functions are available to calibrate designs over a range of posterior and
+predictive thresholds, to plot the various design options, and to obtain
+the operating characteristics of optimal accuracy and optimal efficiency
+designs.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,6 +49,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
