@@ -1,30 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  multigraph
-%global packver   0.96
+%global packname  MCID
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.96
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plot and Manipulate Multigraphs
+Summary:          Estimating the Minimal Clinically Important Difference
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-multiplex >= 2.9.6
-BuildRequires:    R-methods 
-Requires:         R-CRAN-multiplex >= 2.9.6
-Requires:         R-methods 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Functions to plot and manipulate multigraphs, signed and valued graphs,
-bipartite graphs, multilevel graphs, and Cayley graphs with various layout
-options. Please note that this package still under a devel version.
+Apply the marginal classification method to achieve the purpose of
+providing the point and interval estimates for the minimal clinically
+important difference based on the classical anchor-based method. For more
+details of the methodology, please see Zehua Zhou, Leslie J. Bisson and
+Jiwei Zhao (2021) <arXiv:2108.11589>.
 
 %prep
 %setup -q -c -n %{packname}

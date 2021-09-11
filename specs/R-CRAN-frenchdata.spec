@@ -1,47 +1,55 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dials
-%global packver   0.0.10
+%global packname  frenchdata
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.10
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Creating Tuning Parameter Values
+Summary:          Download Data Sets from Kenneth's French Finance Data Library Site
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 0.8.5
-BuildRequires:    R-CRAN-vctrs >= 0.3.1
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-DiceDesign 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-rvest >= 1.0.0
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-dplyr >= 0.8.5
-Requires:         R-CRAN-vctrs >= 0.3.1
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-DiceDesign 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-readr 
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-rvest >= 1.0.0
 Requires:         R-utils 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-readr 
 
 %description
-Many models contain tuning parameters (i.e. parameters that cannot be
-directly estimated from the data). These tools can be used to define
-objects for creating, simulating, or validating values for such
-parameters.
+Download data sets from Kenneth's French finance data library site
+<http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html>,
+reads all the data subsets from the file. Allows R users to collect the
+data as 'tidyverse'-ready data frames.
 
 %prep
 %setup -q -c -n %{packname}

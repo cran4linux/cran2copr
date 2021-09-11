@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  easySdcTable
-%global packver   0.8.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Interface to the Statistical Disclosure Control Package 'sdcTable' Extended with the 'GaussSuppression' Method
 
@@ -20,10 +20,12 @@ BuildRequires:    R-CRAN-SSBtools
 BuildRequires:    R-CRAN-sdcTable 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-SSBtools 
 Requires:         R-CRAN-sdcTable 
 Requires:         R-CRAN-shiny 
 Requires:         R-methods 
+Requires:         R-CRAN-Matrix 
 
 %description
 The main function, ProtectTable(), performs table suppression according to

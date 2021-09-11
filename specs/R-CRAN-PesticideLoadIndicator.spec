@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  PesticideLoadIndicator
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computes Danish Pesticide Load Indicator
 
@@ -17,11 +17,15 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-readxl 
-Requires:         R-stats 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
 
 %description
 Computes the Danish Pesticide Load Indicator as described in Kudsk et al.

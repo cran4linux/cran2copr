@@ -1,34 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  jmvReadWrite
-%global packver   0.2.1
+%global packname  ooplah
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read and Write 'jamovi' Files ('.omv')
+Summary:          Helper Functions for Class Object-Oriented Programming
 
-License:          AGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-CRAN-jmvcore 
-BuildRequires:    R-CRAN-RProtoBuf 
-Requires:         R-CRAN-rjson 
-Requires:         R-CRAN-jmvcore 
-Requires:         R-CRAN-RProtoBuf 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-R6 
 
 %description
-The free and open a statistical spreadsheet 'jamovi' (www.jamovi.org) aims
-to make statistical analyses easy and intuitive. 'jamovi' produces syntax
-that can directly be used in R (in connection with the R-package 'jmv').
-Having import / export routines for the data files 'jamovi' produces
-('.omv') permits an easy transfer of analyses between 'jamovi' and R.
+Helper functions for coding object-oriented programming with a focus on
+R6. Includes functions for assertions and testing, looping, and re-usable
+design patterns including Abstract and Decorator classes.
 
 %prep
 %setup -q -c -n %{packname}

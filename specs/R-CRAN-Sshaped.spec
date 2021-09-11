@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Sshaped
-%global packver   0.99
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonparametric, Tuning-Free Estimation of an S-Shaped Function
+Summary:          Nonparametric, Tuning-Free Estimation of S-Shaped Functions
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,12 +21,9 @@ Requires:         R-CRAN-Rcpp >= 1.0.5
 
 %description
 Estimation of an S-shaped function and its corresponding inflection point
-via a least squares approach. A sequential mixed primal-dual bases
-algorithm is implemented for the fast computation of the estimator. The
-same algorithm can also be used to solve other shape-restricted regression
-problems, such as convex regression. For more details, see the PhD thesis
-of Feng (2021)
-<https://www.dpmms.cam.ac.uk/~oyf20/Thesis-oyf20-final.pdf>.
+via a least squares approach. A sequential mixed primal-dual based
+algorithm is implemented for the fast computation. Details can be found in
+Feng et al. (2021) <arXiv:2107.07257>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -36,6 +33,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

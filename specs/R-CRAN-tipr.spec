@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tipr
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tipping Point Analyses
 
@@ -31,7 +31,7 @@ interval closest to the null, a plausible residual effect size for an
 unmeasured continuous or binary confounder, and a realistic mean
 difference or prevalence difference for this hypothetical confounder.
 Building on the methods put forth by Lin, Psaty, & Kronmal (1998)
-DOI:10.2307/2533848, we can use these quantities to assess how an
+<doi:10.2307/2533848>, we can use these quantities to assess how an
 unmeasured confounder may tip our result to insignificance, rendering the
 study inconclusive.
 
@@ -43,6 +43,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

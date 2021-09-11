@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  multigraph
-%global packver   0.96
+%global packname  StackImpute
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.96
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plot and Manipulate Multigraphs
+Summary:          Tools for Analysis of Stacked Multiple Imputations
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,15 +16,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-multiplex >= 2.9.6
-BuildRequires:    R-methods 
-Requires:         R-CRAN-multiplex >= 2.9.6
-Requires:         R-methods 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-mice 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-boot 
+Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-mice 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-boot 
 
 %description
-Functions to plot and manipulate multigraphs, signed and valued graphs,
-bipartite graphs, multilevel graphs, and Cayley graphs with various layout
-options. Please note that this package still under a devel version.
+Provides methods for inference using stacked multiple imputations
+augmented with weights. The vignette provides example R code for
+implementation in general multiple imputation settings. For additional
+details about the estimation algorithm, we refer the reader to Beesley,
+Lauren J and Taylor, Jeremy M G (2020) “A stacked approach for chained
+equations multiple imputation incorporating the substantive model”
+<doi:10.1111/biom.13372>, and Beesley, Lauren J and Taylor, Jeremy M G
+(2021) “Accounting for not-at-random missingness through imputation
+stacking” <arXiv:2101.07954>.
 
 %prep
 %setup -q -c -n %{packname}
