@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mizer
-%global packver   2.2.1
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Species sIZE Spectrum Modelling in R
 
@@ -19,25 +19,31 @@ BuildRequires:    R-CRAN-assertthat
 BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-deSolve 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
 Requires:         R-grid 
+Requires:         R-CRAN-lubridate 
 Requires:         R-methods 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-lifecycle 
 
 %description

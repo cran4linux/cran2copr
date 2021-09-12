@@ -1,37 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rticles
-%global packver   0.21
+%global packname  macleish
+%global packver   0.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.21
+Version:          0.3.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Article Formats for R Markdown
+Summary:          Retrieve Data from MacLeish Field Station
 
-License:          GPL-3
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 2.5
-BuildRequires:    R-CRAN-knitr >= 1.30
-BuildRequires:    R-CRAN-tinytex >= 0.30
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-xfun 
-Requires:         R-CRAN-rmarkdown >= 2.5
-Requires:         R-CRAN-knitr >= 1.30
-Requires:         R-CRAN-tinytex >= 0.30
-Requires:         R-utils 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-xfun 
+BuildRequires:    R-CRAN-etl 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-etl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-sf 
 
 %description
-A suite of custom R Markdown formats and templates for authoring journal
-articles and conference submissions.
+Download data from the Ada and Archibald MacLeish Field Station in
+Whately, MA. The Ada and Archibald MacLeish Field Station is a 260-acre
+patchwork of forest and farmland located in West Whately, MA that provides
+opportunities for faculty and students to pursue environmental research,
+outdoor education, and low-impact recreation (see
+<https://www.smith.edu/about-smith/sustainable-smith/macleish> for more
+information). This package contains weather data over several years, and
+spatial data on various man-made and natural structures.
 
 %prep
 %setup -q -c -n %{packname}

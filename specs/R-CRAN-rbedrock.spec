@@ -1,44 +1,54 @@
 %global __brp_check_rpaths %{nil}
-%global packname  pkgload
-%global packver   1.2.2
+%global packname  rbedrock
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulate Package Installation and Attach
+Summary:          Analysis and Manipulation of Data from Minecraft Bedrock Edition
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-desc 
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-bit64 
+BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rprojroot 
-BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-desc 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-fs 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-bit64 
+Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rprojroot 
-Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-readr 
 Requires:         R-utils 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-fs 
 
 %description
-Simulates the process of installing a package and then attaching it. This
-is a key part of the 'devtools' package as it allows you to rapidly
-iterate while developing a package.
+Implements an interface to Minecraft (Bedrock Edition) worlds. Supports
+the analysis and management of these worlds and game saves.
 
 %prep
 %setup -q -c -n %{packname}

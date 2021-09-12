@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rAmCharts4
-%global packver   1.3.2
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the JavaScript Library 'amCharts 4'
 
@@ -50,7 +50,8 @@ Based on the JavaScript library 'amCharts 4' and the R packages
 'htmlwidgets' and 'reactR'. Currently available types of chart are:
 vertical and horizontal bar chart, radial bar chart, stacked bar chart,
 vertical and horizontal Dumbbell chart, line chart, scatter chart, range
-area chart, gauge chart, boxplot chart, and pie chart.
+area chart, gauge chart, boxplot chart, pie chart, and 100%% stacked bar
+chart.
 
 %prep
 %setup -q -c -n %{packname}
@@ -60,6 +61,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

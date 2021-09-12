@@ -1,31 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  webex
-%global packver   0.9.2
+%global packname  bigsimr
+%global packver   0.11.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.11.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Interactive Web Exercises in 'R Markdown'
+Summary:          Fast Generation of High-Dimensional Random Vectors
 
-License:          CC BY-SA 4.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-knitr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-knitr 
+BuildRequires:    R-CRAN-JuliaCall 
+Requires:         R-CRAN-JuliaCall 
 
 %description
-Functions for easily creating interactive web pages using 'R Markdown'
-that students can use in self-guided learning.
+Simulate multivariate data with arbitrary marginal distributions.
+'bigsimr' is an package for simulating high-dimensional multivariate data
+with a target correlation and arbitrary marginal distributions via
+Gaussian copula. It utilizes a Julia package named 'Bigsimr.jl' for its
+core routines.
 
 %prep
 %setup -q -c -n %{packname}
@@ -35,6 +34,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

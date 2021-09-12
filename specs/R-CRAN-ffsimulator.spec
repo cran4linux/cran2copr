@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ffsimulator
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate Fantasy Football Seasons
 
@@ -16,30 +16,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.0.0
+BuildRequires:    R-CRAN-cli >= 3.0.0
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-ffscrapr >= 1.4.3
-BuildRequires:    R-CRAN-httr >= 1.4.0
-BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-ffscrapr >= 1.4.6
 BuildRequires:    R-CRAN-glue >= 1.3.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-data.table >= 1.14.0
 BuildRequires:    R-CRAN-magrittr >= 1.0.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-nflreadr >= 1.0.0
+BuildRequires:    R-CRAN-tidytable >= 0.6.4
 BuildRequires:    R-CRAN-Rglpk >= 0.6.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-purrr >= 0.3.0
-Requires:         R-CRAN-tibble >= 3.0.0
+Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-ffscrapr >= 1.4.3
-Requires:         R-CRAN-httr >= 1.4.0
-Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-ffscrapr >= 1.4.6
 Requires:         R-CRAN-glue >= 1.3.0
-Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-data.table >= 1.14.0
 Requires:         R-CRAN-magrittr >= 1.0.0
-Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-nflreadr >= 1.0.0
+Requires:         R-CRAN-tidytable >= 0.6.4
 Requires:         R-CRAN-Rglpk >= 0.6.0
 Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-purrr >= 0.3.0
 
 %description
 Uses bootstrap resampling to run fantasy football season simulations

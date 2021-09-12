@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  walker
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Generalized Linear Models with Time-Varying Coefficients
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-KFAS 
 BuildRequires:    R-CRAN-loo 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-rstantools
@@ -43,6 +44,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-KFAS 
 Requires:         R-CRAN-loo 
 Requires:         R-methods 
+Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rstantools
 
@@ -65,6 +67,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

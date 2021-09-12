@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spatialTIME
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Analysis of Vectra Immunoflourescent Data
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
@@ -32,17 +31,17 @@ BuildRequires:    R-CRAN-RColorBrewer
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-pheatmap 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-viridis 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-stringr 
 Requires:         R-grDevices 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
@@ -53,17 +52,18 @@ Requires:         R-CRAN-RColorBrewer
 Requires:         R-stats 
 Requires:         R-CRAN-rlist 
 Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-viridis 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-pheatmap 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-viridis 
 
 %description
 Visualization and analysis of Vectra Immunoflourescent data. Options for
 calculating both the univariate and bivariate Ripley's K are included.
 Calculations are performed using a permutation-based approach presented by
-Wilson et al. <doi:10.1101/2021.04.27.21256104>.
+Wilson et al.  <doi:10.1101/2021.04.27.21256104>.
 
 %prep
 %setup -q -c -n %{packname}
