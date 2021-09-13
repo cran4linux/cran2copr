@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cuperdec
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cumulative Percent Decay Curve Generator
 
@@ -34,7 +34,9 @@ Calculates and visualises cumulative percent 'decay' curves, which are
 typically calculated from metagenomic taxonomic profiles. These can be
 used to estimate the level of expected 'endogenous' taxa at different
 abundance levels retrieved from metagenomic samples, when comparing to
-samples of known sampling site or source.
+samples of known sampling site or source. Method described in Fellows
+Yates, J. A. et. al. (2021) Proceedings of the National Academy of
+Sciences USA <doi:10.1073/pnas.2021655118>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +46,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

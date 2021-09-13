@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ezcox
-%global packver   0.8.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Process a Batch of Cox Models
 
@@ -20,18 +20,22 @@ BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-dplyr >= 0.8.3
 BuildRequires:    R-CRAN-purrr >= 0.3.2
 BuildRequires:    R-CRAN-rlang >= 0.1.2
-BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-forestmodel 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-dplyr >= 0.8.3
 Requires:         R-CRAN-purrr >= 0.3.2
 Requires:         R-CRAN-rlang >= 0.1.2
-Requires:         R-CRAN-survival 
 Requires:         R-CRAN-forestmodel 
-Requires:         R-utils 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
 A tool to operate a batch of univariate or multivariate Cox models and
@@ -45,6 +49,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bqror
-%global packver   0.1.6
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Quantile Regression for Ordinal Models
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-pracma 
@@ -23,6 +23,8 @@ BuildRequires:    R-CRAN-GIGrvg
 BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-CRAN-NPflow 
 BuildRequires:    R-CRAN-invgamma 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-pracma 
 Requires:         R-tcltk 
@@ -30,6 +32,8 @@ Requires:         R-CRAN-GIGrvg
 Requires:         R-CRAN-truncnorm 
 Requires:         R-CRAN-NPflow 
 Requires:         R-CRAN-invgamma 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
 Provides an estimation technique for Bayesian quantile regression in

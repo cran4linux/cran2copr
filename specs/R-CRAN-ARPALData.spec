@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ARPALData
-%global packver   1.0.2
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieving, Managing and Analysing Air Quality and Weather Data for Lombardy (Italy) using ARPA Lombardia Open Database
 
@@ -71,8 +71,9 @@ monitoring network. See the webpage
 information on ARPA Lombardia's activities and history. Data quality (e.g.
 missing values, exported values, graphical mapping) has been checked
 involving members of the ARPA Lombardia's office for air quality control.
-The package makes available observations since 2011 and are updated with
-daily frequency by the regional agency.
+The package makes available observations since 1989 (for weather) and 1996
+(for air quality) and are updated with daily frequency by the regional
+agency.
 
 %prep
 %setup -q -c -n %{packname}
