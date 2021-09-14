@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mlbstatsR
-%global packver   0.1.0.2
+%global packver   0.1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0.2
+Version:          0.1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stats, Photos, Logos, and Colors of M.L.B. (Major League Baseball)
 
@@ -18,6 +18,7 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.0
 BuildRequires:    R-CRAN-tidyr >= 1.0
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
@@ -25,10 +26,13 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-dplyr >= 1.0
 Requires:         R-CRAN-tidyr >= 1.0
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
@@ -36,7 +40,9 @@ Requires:         R-utils
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-ggtext 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-xml2 
 
 %description

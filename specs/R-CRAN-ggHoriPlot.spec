@@ -1,40 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bbotk
-%global packver   0.4.0
+%global packname  ggHoriPlot
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Black-Box Optimization Toolkit
+Summary:          Horizon Plots for 'ggplot2'
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-paradox >= 0.7.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.7.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lgr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-paradox >= 0.7.0
-Requires:         R-CRAN-mlr3misc >= 0.7.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lgr 
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Provides a common framework for optimization of black-box functions for
-other packages, e.g. 'mlr3tuning' or 'mlr3fselect'. It offers various
-optimization methods e.g. grid search, random search, generalized
-simulated annealing and iterated racing.
+A user-friendly, highly customizable R package for building horizon plots
+in the 'ggplot2' environment.
 
 %prep
 %setup -q -c -n %{packname}

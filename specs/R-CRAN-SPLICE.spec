@@ -1,52 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nser
-%global packver   1.3.1
+%global packname  SPLICE
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bhavcopy and Live Market Data from National Stock Exchange (NSE) India for Equities and Equity Derivatives (F&O)
+Summary:          Synthetic Paid Loss and Incurred Cost Experience (SPLICE) Simulator
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-SynthETIC >= 1.0.0
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-RSelenium 
-BuildRequires:    R-CRAN-googleVis 
-BuildRequires:    R-CRAN-gt 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-SynthETIC >= 1.0.0
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-RSelenium 
-Requires:         R-CRAN-googleVis 
-Requires:         R-CRAN-gt 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-dplyr 
+Requires:         R-methods 
+Requires:         R-CRAN-zoo 
 
 %description
-Download Historical Bhavcopy and get Live Market data from NSE India of
-Equities and Derivatives(F&O) segment. Data source
-<https://www.nseindia.com/>.
+An extension to the individual claim simulator called 'SynthETIC' (on
+CRAN), to simulate the evolution of case estimates of incurred losses
+through the lifetime of an insurance claim. The transactional simulation
+output now comprises key dates, and both claim payments and revisions of
+estimated incurred losses. An initial set of test parameters, designed to
+mirror the experience of a real insurance portfolio, were set up and
+applied by default to generate a realistic test data set of incurred
+histories (see vignette). However, the distributional assumptions used to
+generate this data set can be easily modified by users to match their
+experiences. Reference: Avanzi B, Taylor G, Wang M (2021) "SPLICE: A
+Synthetic Paid Loss and Incurred Cost Experience Simulator"
+<arXiv:2109.04058>.
 
 %prep
 %setup -q -c -n %{packname}

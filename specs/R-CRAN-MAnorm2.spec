@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mdatools
-%global packver   0.12.0
+%global packname  MAnorm2
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Data Analysis for Chemometrics
+Summary:          Tools for Normalizing and Comparing ChIP-seq Samples
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,21 +16,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-locfit >= 1.5.9
+BuildRequires:    R-CRAN-statmod >= 1.4.34
+BuildRequires:    R-CRAN-scales >= 0.3.0
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-locfit >= 1.5.9
+Requires:         R-CRAN-statmod >= 1.4.34
+Requires:         R-CRAN-scales >= 0.3.0
 Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
+Requires:         R-graphics 
+Requires:         R-methods 
 
 %description
-Projection based methods for preprocessing, exploring and analysis of
-multivariate data used in chemometrics. S. Kucheryavskiy (2020) <doi:
-10.1016/j.chemolab.2020.103937>.
+Chromatin immunoprecipitation followed by high-throughput sequencing
+(ChIP-seq) is the premier technology for profiling genome-wide
+localization of chromatin-binding proteins, including transcription
+factors and histones with various modifications. This package provides a
+robust method for normalizing ChIP-seq signals across individual samples
+or groups of samples. It also designs a self-contained system of
+statistical models for calling differential ChIP-seq signals between two
+or more biological conditions as well as for calling hypervariable
+ChIP-seq signals across samples. Refer to Tu et al. (2021)
+<doi:10.1101/gr.262675.120> and Chen et al. (2021)
+<doi:10.1101/2021.07.27.453915> for associated statistical details.
 
 %prep
 %setup -q -c -n %{packname}

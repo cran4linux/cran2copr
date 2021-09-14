@@ -1,52 +1,48 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nser
-%global packver   1.3.1
+%global packname  causal.decomp
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bhavcopy and Live Market Data from National Stock Exchange (NSE) India for Equities and Equity Derivatives (F&O)
+Summary:          Causal Decomposition Analysis
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-SuppDists 
+BuildRequires:    R-CRAN-CBPS 
+BuildRequires:    R-CRAN-PSweight 
+BuildRequires:    R-CRAN-spelling 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-RSelenium 
-BuildRequires:    R-CRAN-googleVis 
-BuildRequires:    R-CRAN-gt 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-dplyr 
 Requires:         R-stats 
+Requires:         R-parallel 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-SuppDists 
+Requires:         R-CRAN-CBPS 
+Requires:         R-CRAN-PSweight 
+Requires:         R-CRAN-spelling 
 Requires:         R-utils 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-RSelenium 
-Requires:         R-CRAN-googleVis 
-Requires:         R-CRAN-gt 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-dplyr 
 
 %description
-Download Historical Bhavcopy and get Live Market data from NSE India of
-Equities and Derivatives(F&O) segment. Data source
-<https://www.nseindia.com/>.
+We implement causal decomposition analysis using the methods proposed by
+Park, Lee, and Qin (2020) <arXiv:2008.12812> and Park, Kang, and Lee
+(2021+). This package allows researchers to use the
+multiple-mediator-imputation, single-mediator-imputation, and
+product-of-coefficients regression methods to estimate the initial
+disparity, disparity reduction, and disparity remaining. It also allows to
+make the inference conditional on baseline covariates.
 
 %prep
 %setup -q -c -n %{packname}

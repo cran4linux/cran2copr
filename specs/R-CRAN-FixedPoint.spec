@@ -1,40 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bbotk
-%global packver   0.4.0
+%global packname  FixedPoint
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Black-Box Optimization Toolkit
+Summary:          Algorithms for Finding Fixed Point Vectors of Functions
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-paradox >= 0.7.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.7.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lgr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-paradox >= 0.7.0
-Requires:         R-CRAN-mlr3misc >= 0.7.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lgr 
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-MASS 
 
 %description
-Provides a common framework for optimization of black-box functions for
-other packages, e.g. 'mlr3tuning' or 'mlr3fselect'. It offers various
-optimization methods e.g. grid search, random search, generalized
-simulated annealing and iterated racing.
+For functions that take and return vectors (or scalars), this package
+provides 8 algorithms for finding fixed point vectors (vectors for which
+the inputs and outputs to the function are the same vector). These
+algorithms include Anderson (1965) acceleration
+<doi:10.1145/321296.321305>, epsilon extrapolation methods (Wynn 1962
+<doi:10.2307/2004051>) and minimal polynomial methods (Cabay and Jackson
+1976 <doi:10.1137/0713060>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bbotk
-%global packver   0.4.0
+%global packname  prider
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Black-Box Optimization Toolkit
+Summary:          Multiplexed Primer Design by Linear Set Coverage Approximation
 
-License:          LGPL-3
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-paradox >= 0.7.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.7.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lgr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-paradox >= 0.7.0
-Requires:         R-CRAN-mlr3misc >= 0.7.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lgr 
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-blaster 
+BuildRequires:    R-CRAN-gplots 
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-blaster 
+Requires:         R-CRAN-gplots 
 
 %description
-Provides a common framework for optimization of black-box functions for
-other packages, e.g. 'mlr3tuning' or 'mlr3fselect'. It offers various
-optimization methods e.g. grid search, random search, generalized
-simulated annealing and iterated racing.
+Implementation of an oligonucleotide primer and probe design algorithm
+using a linearly scaling approximation of set coverage. A detailed
+description available at Smolander and Tamminen, 2021;
+<doi:10.1101/2021.09.06.459073>.
 
 %prep
 %setup -q -c -n %{packname}

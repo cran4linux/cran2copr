@@ -1,40 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bbotk
-%global packver   0.4.0
+%global packname  TiPS
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Black-Box Optimization Toolkit
+Summary:          Trajectories and Phylogenies Simulator
 
-License:          LGPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-paradox >= 0.7.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.7.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lgr 
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.14
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-inline 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-paradox >= 0.7.0
-Requires:         R-CRAN-mlr3misc >= 0.7.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lgr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-Rcpp >= 0.12.14
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-inline 
 Requires:         R-methods 
-Requires:         R-CRAN-R6 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-utils 
 
 %description
-Provides a common framework for optimization of black-box functions for
-other packages, e.g. 'mlr3tuning' or 'mlr3fselect'. It offers various
-optimization methods e.g. grid search, random search, generalized
-simulated annealing and iterated racing.
+Generates stochastic time series and genealogies associated with a
+population dynamics model. Times series are simulated using the Gillespie
+exact and approximate algorithms and a new algorithm we introduce that
+uses both approaches to optimize the time execution of the simulations.
+Genealogies are simulated from a trajectory using a backwards-in-time
+based approach. Methods are described in Danesh G et al (2020)
+<doi:10.1101/2020.11.09.373795>.
 
 %prep
 %setup -q -c -n %{packname}

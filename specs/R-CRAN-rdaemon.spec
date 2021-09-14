@@ -1,40 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bbotk
-%global packver   0.4.0
+%global packname  rdaemon
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Black-Box Optimization Toolkit
+Summary:          Run an R Daemon Process in the Background
 
-License:          LGPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-paradox >= 0.7.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.7.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lgr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-paradox >= 0.7.0
-Requires:         R-CRAN-mlr3misc >= 0.7.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lgr 
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.6
+BuildRequires:    R-CRAN-futile.logger 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-Rcpp >= 1.0.6
+Requires:         R-CRAN-futile.logger 
+Requires:         R-CRAN-base64enc 
+Requires:         R-utils 
 
 %description
-Provides a common framework for optimization of black-box functions for
-other packages, e.g. 'mlr3tuning' or 'mlr3fselect'. It offers various
-optimization methods e.g. grid search, random search, generalized
-simulated annealing and iterated racing.
+Run an independent R daemon process in the background. The process will
+keep running even after its terminal quits. The other R sessions can
+connect with the existing daemon using the same daemon name and send the
+task via daemonSetTask().
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spaMM
-%global packver   3.8.23
+%global packver   3.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8.23
+Version:          3.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mixed-Effect Models, Particularly Spatial Models
+Summary:          Mixed-Effect Models, with or without Spatial Random Effects
 
 License:          CeCILL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -48,16 +48,18 @@ Requires:         R-CRAN-ROI
 Requires:         R-CRAN-boot 
 
 %description
-Inference based on mixed-effect models, including generalized linear mixed
-models with spatial correlations, multivariate responses, and models with
-non-Gaussian random effects (e.g., Beta). Various approximations of
-likelihood or restricted likelihood are implemented, in particular Laplace
-approximation and h-likelihood (Lee and Nelder 2001
-<doi:10.1093/biomet/88.4.987>). Both classical geostatistical models, and
-Markov random field models on irregular grids (as considered in the 'INLA'
-package, <https://www.r-inla.org>), can be fitted. Variation in residual
-variance (heteroscedasticity) can itself be represented by a mixed-effect
-model.
+Inference based on models with or without spatially-correlated random
+effects, multivariate responses, or non-Gaussian random effects (e.g.,
+Beta). Variation in residual variance (heteroscedasticity) can itself be
+represented by a mixed-effect model. Both classical geostatistical models,
+and Markov random field models on irregular grids (as considered in the
+'INLA' package, <https://www.r-inla.org>), can be fitted, with distinct
+computational procedures exploiting the sparse matrix representations for
+the latter case and other autoregressive models. Laplace approximations
+are used for likelihood or restricted likelihood. Penalized
+quasi-likelihood and other variants discussed in the h-likelihood
+literature (Lee and Nelder 2001 <doi:10.1093/biomet/88.4.987>) are also
+implemented.
 
 %prep
 %setup -q -c -n %{packname}

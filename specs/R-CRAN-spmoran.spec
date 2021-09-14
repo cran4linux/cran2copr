@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spmoran
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Moran Eigenvector-Based Scalable Spatial Additive Mixed Models
+Summary:          Moran Eigenvector-Based Spatial Additive Mixed Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-spdep
 BuildRequires:    R-CRAN-rARPACK 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-fields 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-spdep
 Requires:         R-CRAN-rARPACK 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-splines 
+Requires:         R-CRAN-FNN 
 Requires:         R-methods 
 
 %description
@@ -47,7 +49,7 @@ regression models for Gaussian and non-Gaussian data. Moran eigenvectors
 are used to an approximate Gaussian process modeling which is
 interpretable in terms of the Moran coefficient. The GP is used for
 modeling the spatial processes in residuals and regression coefficients.
-For details see Murakami (2020) <arXiv:1703.04467>.
+For details see Murakami (2021) <arXiv:1703.04467v10>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -57,6 +59,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

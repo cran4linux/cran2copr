@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Rogue
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identify Rogue Taxa in Sets of Phylogenetic Trees
 
@@ -16,17 +16,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ape >= 5.0
+BuildRequires:    R-CRAN-cli >= 3.0
+BuildRequires:    R-CRAN-TreeDist >= 2.1.1
+BuildRequires:    R-CRAN-TreeTools >= 1.5.0
+BuildRequires:    R-CRAN-Rdpack >= 0.7
+BuildRequires:    R-CRAN-fastmatch 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-ape >= 5.0
+Requires:         R-CRAN-cli >= 3.0
+Requires:         R-CRAN-TreeDist >= 2.1.1
+Requires:         R-CRAN-TreeTools >= 1.5.0
+Requires:         R-CRAN-Rdpack >= 0.7
+Requires:         R-CRAN-fastmatch 
+Requires:         R-grDevices 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-Rfast 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Interface to 'RogueNaRok' (Aberer et al. 2013)
-<doi:10.1093/sysbio/sys078>. Rogue taxa are a class of taxa with uncertain
-position in a phylogenetic tree. For inference methods that yield a tree
-set (bootstrapping, Bayesian tree searches), rogue taxa can assume
-different positions for each tree. The presence of rogue taxa in a tree
-set can potentially remove all information from a consensus tree. The sum
-of branch support values in a consensus tree can often be increased by
-removing rogue taxa.
+Rogue ('wildcard') taxa are leaves with uncertain phylogenetic position.
+Their position may vary from tree to tree under inference methods that
+yield a tree set (e.g. bootstrapping, Bayesian tree searches, maximum
+parsimony). The presence of rogue taxa in a tree set can potentially
+remove all information from a consensus tree. The information content of a
+consensus tree - a function of its resolution and branch support values -
+can often be increased by removing rogue taxa. 'Rogue' provides an
+explicitly information-theoretic approach to rogue detection (Smith,
+forthcoming), and an interface to 'RogueNaRok' (Aberer et al. 2013)
+<doi:10.1093/sysbio/sys078>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -36,6 +58,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

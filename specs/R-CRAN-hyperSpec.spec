@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  hyperSpec
-%global packver   0.99-20201127
+%global packver   0.100.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.20201127
+Version:          0.100.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Work with Hyperspectral Data, i.e. Spectra + Meta Information (Spatial, Time, Concentration, ...)
 
@@ -43,7 +43,7 @@ time-resolved spectra, or spectra with any other kind of information
 associated with each of the spectra. The spectra can be data as obtained
 in XRF, UV/VIS, Fluorescence, AES, NIR, IR, Raman, NMR, MS, etc. More
 generally, any data that is recorded over a discretized variable, e.g.
-absorbance = f (wavelength), stored as a vector of absorbance values for
+absorbance = f(wavelength), stored as a vector of absorbance values for
 discrete wavelengths is suitable.
 
 %prep
@@ -54,6 +54,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

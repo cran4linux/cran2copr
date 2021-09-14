@@ -1,40 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bbotk
-%global packver   0.4.0
+%global packname  SplitKnockoff
+%global packver   0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Black-Box Optimization Toolkit
+Summary:          Split Knockoffs for Structural Sparsity
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-paradox >= 0.7.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.7.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lgr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-paradox >= 0.7.0
-Requires:         R-CRAN-mlr3misc >= 0.7.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lgr 
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-latex2exp 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-latex2exp 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Matrix 
+Requires:         R-stats 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Provides a common framework for optimization of black-box functions for
-other packages, e.g. 'mlr3tuning' or 'mlr3fselect'. It offers various
-optimization methods e.g. grid search, random search, generalized
-simulated annealing and iterated racing.
+A novel method for controlling the false discovery rate (FDR) in
+structural sparsity setting. This proposed scheme relaxes the linear
+subspace constraint to its neighborhood, often known as variable splitting
+in optimization. Simulation experiments can be reproduced following the
+Vignette. 'Split Knockoffs' is defined in Cao et al. (2021)
+<arXiv:2103.16159>.
 
 %prep
 %setup -q -c -n %{packname}
