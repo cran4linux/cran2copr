@@ -1,30 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  AGHmatrix
-%global packver   2.0.4
+%global packname  statgenIBD
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Relationship Matrices for Diploid and Autopolyploid Species
+Summary:          Calculation of IBD Probabilities
 
-License:          GPL-3
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-zoo >= 1.8.6
-BuildRequires:    R-CRAN-Matrix >= 1.2.7.1
-Requires:         R-CRAN-zoo >= 1.8.6
-Requires:         R-CRAN-Matrix >= 1.2.7.1
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Computation of A (pedigree), G (genomic-base), and H (A corrected by G)
-relationship matrices for diploid and autopolyploid species. Several
-methods are implemented considering additive and non-additive models.
+For biparental, three and four-way crosses Identity by Descent (IBD)
+probabilities can be calculated using Hidden Markov Models and inheritance
+vectors following Lander and Green (<https://www.jstor.org/stable/29713>)
+and Huang (<doi:10.1073/pnas.1100465108>). One of a series of statistical
+genetic packages for streamlining the analysis of typical plant breeding
+experiments developed by Biometris.
 
 %prep
 %setup -q -c -n %{packname}

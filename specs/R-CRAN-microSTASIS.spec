@@ -1,56 +1,51 @@
 %global __brp_check_rpaths %{nil}
-%global packname  grobblR
-%global packver   0.2.1
+%global packname  microSTASIS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creating Flexible, Reproducible 'PDF' Reports
+Summary:          Microbiota STability ASsessment via Iterative cluStering
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-fmsb 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-ggside 
+BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-fmsb 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-grid 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-methods 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-png 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-ggside 
+Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-tools 
 
 %description
-A tool which allows users the ability to intuitively create flexible,
-reproducible portable document format reports comprised of aesthetically
-pleasing tables, images, plots and/or text.
+The toolkit 'µSTASIS' has been developed for the stability analysis of
+microbiota in a temporal framework by leveraging on iterative clustering.
+Concretely, the core function uses Hartigan-Wong k-means algorithm as many
+times as possible for stressing out paired samples from the same
+individuals to test if they remain together for multiple numbers of
+clusters over a whole data set of individuals. Moreover, the package
+includes multiple functions to subset samples from paired times, validate
+the results or visualize the output.
 
 %prep
 %setup -q -c -n %{packname}

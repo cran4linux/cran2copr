@@ -1,30 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  AGHmatrix
-%global packver   2.0.4
+%global packname  dagirlite
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Relationship Matrices for Diploid and Autopolyploid Species
+Summary:          Spatial Vector Data for Danmarks Administrative Geografiske Inddeling DAGI
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-zoo >= 1.8.6
-BuildRequires:    R-CRAN-Matrix >= 1.2.7.1
-Requires:         R-CRAN-zoo >= 1.8.6
-Requires:         R-CRAN-Matrix >= 1.2.7.1
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-knitr 
 
 %description
-Computation of A (pedigree), G (genomic-base), and H (A corrected by G)
-relationship matrices for diploid and autopolyploid species. Several
-methods are implemented considering additive and non-additive models.
+Compressed spatial vector data originally from
+<https://dawadocs.dataforsyningen.dk/> saved as Simple Features, SF,
+objects with data on population, age and gender from Statistics Denmark
+<https://www.dst.dk/da/>.
 
 %prep
 %setup -q -c -n %{packname}

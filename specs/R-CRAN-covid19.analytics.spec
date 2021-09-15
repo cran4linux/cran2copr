@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  covid19.analytics
-%global packver   2.1
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Load and Analyze Live Data from the CoViD-19 Pandemic
+Summary:          Load and Analyze Live Data from the COVID-19 Pandemic
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -47,19 +47,19 @@ Requires:         R-CRAN-collapsibleTree
 
 %description
 Load and analyze updated time series worldwide data of reported cases for
-the Novel CoronaVirus Disease (CoViD-19) from different sources, including
+the Novel Coronavirus Disease (COVID-19) from different sources, including
 the Johns Hopkins University Center for Systems Science and Engineering
 (JHU CSSE) data repository <https://github.com/CSSEGISandData/COVID-19>,
 "Our World in Data" <https://github.com/owid/> among several others. The
-datasets reporting the CoViD19 cases are available in two main modalities,
-as a time series sequences and aggregated data for the last day with
-greater spatial resolution. Several analysis, visualization and modelling
-functions are available in the package that will allow the user to compute
-and visualize total number of cases, total number of changes and growth
-rate globally or for an specific geographical location, while at the same
-time generating models using these trends; generate interactive
-visualizations and generate Susceptible-Infected-Recovered (SIR) model for
-the disease spread.
+datasets reporting the COVID-19 cases are available in two main
+modalities, as a time series sequences and aggregated data for the last
+day with greater spatial resolution. Several analysis, visualization and
+modelling functions are available in the package that will allow the user
+to compute and visualize total number of cases, total number of changes
+and growth rate globally or for an specific geographical location, while
+at the same time generating models using these trends; generate
+interactive visualizations and generate Susceptible-Infected-Recovered
+(SIR) model for the disease spread.
 
 %prep
 %setup -q -c -n %{packname}
@@ -69,6 +69,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

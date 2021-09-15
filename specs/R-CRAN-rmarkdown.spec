@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rmarkdown
-%global packver   2.10
+%global packver   2.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.10
+Version:          2.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Documents for R
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-evaluate >= 0.13
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-jquerylib 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-yaml >= 2.1.19
 Requires:         R-CRAN-knitr >= 1.22
@@ -38,6 +39,7 @@ Requires:         R-CRAN-evaluate >= 0.13
 Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-jquerylib 
 Requires:         R-methods 
 
 %description

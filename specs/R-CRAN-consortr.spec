@@ -1,30 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  AGHmatrix
-%global packver   2.0.4
+%global packname  consortr
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Relationship Matrices for Diploid and Autopolyploid Species
+Summary:          Interactive Consort Flow Diagrams
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-zoo >= 1.8.6
-BuildRequires:    R-CRAN-Matrix >= 1.2.7.1
-Requires:         R-CRAN-zoo >= 1.8.6
-Requires:         R-CRAN-Matrix >= 1.2.7.1
+BuildRequires:    R-CRAN-DiagrammeR 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-DiagrammeR 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-data.table 
 
 %description
-Computation of A (pedigree), G (genomic-base), and H (A corrected by G)
-relationship matrices for diploid and autopolyploid species. Several
-methods are implemented considering additive and non-additive models.
+Shiny app for creating interactive consort flow diagrams and other types
+of flow diagrams, see Moher, Schulz and Altman (2001)
+<doi:10.1016/S0140-6736(00)04337-3>.
 
 %prep
 %setup -q -c -n %{packname}

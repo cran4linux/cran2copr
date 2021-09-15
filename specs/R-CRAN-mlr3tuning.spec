@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mlr3tuning
-%global packver   0.8.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tuning for 'mlr3'
 
@@ -17,27 +17,30 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-mlr3 >= 0.7.0
+BuildRequires:    R-CRAN-mlr3misc >= 0.9.4
 BuildRequires:    R-CRAN-paradox >= 0.7.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.7.0
-BuildRequires:    R-CRAN-bbotk >= 0.3.0
+BuildRequires:    R-CRAN-bbotk >= 0.4.0
+BuildRequires:    R-CRAN-mlr3 >= 0.12.0
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-lgr 
 BuildRequires:    R-CRAN-R6 
 Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-mlr3 >= 0.7.0
+Requires:         R-CRAN-mlr3misc >= 0.9.4
 Requires:         R-CRAN-paradox >= 0.7.0
-Requires:         R-CRAN-mlr3misc >= 0.7.0
-Requires:         R-CRAN-bbotk >= 0.3.0
+Requires:         R-CRAN-bbotk >= 0.4.0
+Requires:         R-CRAN-mlr3 >= 0.12.0
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-lgr 
 Requires:         R-CRAN-R6 
 
 %description
-Implements methods for hyperparameter tuning with 'mlr3', e.g. Grid
-Search, Random Search, or Simulated Annealing. Various termination
-criteria can be set and combined.  The class 'AutoTuner' provides a
-convenient way to perform nested resampling in combination with 'mlr3'.
+Implements methods for hyperparameter tuning with 'mlr3', e.g. grid
+search, random search, generalized simulated annealing and iterated
+racing.  Various termination criteria can be set and combined.  The class
+'AutoTuner' provides a convenient way to perform nested resampling in
+combination with 'mlr3'.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +50,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

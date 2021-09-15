@@ -1,30 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  AGHmatrix
-%global packver   2.0.4
+%global packname  FAIRmaterials
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Relationship Matrices for Diploid and Autopolyploid Species
+Summary:          Make Materials Data FAIR
 
-License:          GPL-3
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-zoo >= 1.8.6
-BuildRequires:    R-CRAN-Matrix >= 1.2.7.1
-Requires:         R-CRAN-zoo >= 1.8.6
-Requires:         R-CRAN-Matrix >= 1.2.7.1
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-stringr 
 
 %description
-Computation of A (pedigree), G (genomic-base), and H (A corrected by G)
-relationship matrices for diploid and autopolyploid species. Several
-methods are implemented considering additive and non-additive models.
+We provide here tools used by the Solar Durability and Lifetime Extension
+Center (SDLE) for FAIRifying data from materials science projects.
+Functions have been created for numerous tools common in the field in
+order to make the metadata more Findable, Accessible, Interoperable, and
+Reproducible.
 
 %prep
 %setup -q -c -n %{packname}

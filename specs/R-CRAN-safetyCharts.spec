@@ -1,57 +1,55 @@
 %global __brp_check_rpaths %{nil}
-%global packname  qualtRics
-%global packver   3.1.5
+%global packname  safetyCharts
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download 'Qualtrics' Survey Data
+Summary:          Charts for Monitoring Clinical Trial Safety
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-Tplyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sjlabelled 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr >= 1.0
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-Tendril 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-huxtable 
+BuildRequires:    R-CRAN-pharmaRTF 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-Tplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sjlabelled 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-Tendril 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-huxtable 
+Requires:         R-CRAN-pharmaRTF 
 
 %description
-Provides functions to access survey results directly into R using the
-'Qualtrics' API. 'Qualtrics' <https://www.qualtrics.com/about/> is an
-online survey and data collection software platform. See
-<https://api.qualtrics.com/> for more information about the 'Qualtrics'
-API.  This package is community-maintained and is not officially supported
-by 'Qualtrics'.
+Contains chart code for monitoring clinical trial safety. Charts can be
+used as standalone output, but are also designed for use with the
+'safetyGraphics' package, which makes it easy to load data and customize
+the charts using an interactive web-based interface created with Shiny.
 
 %prep
 %setup -q -c -n %{packname}
