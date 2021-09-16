@@ -1,27 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nipals
-%global packver   0.8
+%global packname  argoFloats
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Principal Components Analysis using NIPALS or Weighted EMPCA, with Gram-Schmidt Orthogonalization
+Summary:          Analysis of Oceanographic Argo Floats
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-oce >= 1.3.0
+BuildRequires:    R-methods 
+Requires:         R-CRAN-oce >= 1.3.0
+Requires:         R-methods 
 
 %description
-Principal Components Analysis of a matrix using Non-linear Iterative
-Partial Least Squares or weighted Expectation Maximization PCA with
-Gram-Schmidt orthogonalization of the scores and loadings. Optimized for
-speed. See Andrecut (2009) <doi:10.1089/cmb.2008.0221>.
+Supports the analysis of oceanographic data recorded by Argo autonomous
+drifting profiling floats. Functions are provided to (a) download and
+cache data files, (b) subset data in various ways, (c) handle
+quality-control flags and (d) plot the results according to oceanographic
+conventions. A shiny app is provided for easy exploration of datasets. The
+package is designed to work well with the 'oce' package, providing a wide
+range of processing capabilities that are particular to oceanographic
+analysis. See Kelley, Harbin, and Richards (2021)
+<doi:10.3389/fmars.2021.635922> for more on the scientific context and
+applications.
 
 %prep
 %setup -q -c -n %{packname}

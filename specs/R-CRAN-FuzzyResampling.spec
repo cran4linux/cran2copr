@@ -1,27 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nipals
-%global packver   0.8
+%global packname  FuzzyResampling
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Principal Components Analysis using NIPALS or Weighted EMPCA, with Gram-Schmidt Orthogonalization
+Summary:          Resampling Methods for Triangular and Trapezoidal Fuzzy Numbers
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ttutils 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ttutils 
+Requires:         R-stats 
 
 %description
-Principal Components Analysis of a matrix using Non-linear Iterative
-Partial Least Squares or weighted Expectation Maximization PCA with
-Gram-Schmidt orthogonalization of the scores and loadings. Optimized for
-speed. See Andrecut (2009) <doi:10.1089/cmb.2008.0221>.
+The classical (i.e. Efron's, see Efron and Tibshirani (1994,
+ISBN:978-0412042317) "An Introduction to the Bootstrap") bootstrap is
+widely used for both the real (i.e. "crisp") and fuzzy data. The main aim
+of the algorithms implemented in this package is to overcome a problem
+with repetition of a few distinct values and to create fuzzy numbers,
+which are "similar" (but not the same) to values from the initial sample.
+To do this, different characteristics of triangular/trapezoidal numbers
+are kept (like the value, the ambiguity, etc., see Grzegorzewski et al.
+<doi:10.2991/eusflat-19.2019.68>, Grzegorzewski et al. (2020)
+<doi:10.2991/ijcis.d.201012.003>, Grzegorzewski et al. (2020)
+<doi:10.34768/amcs-2020-0022>, Romaniuk and Hryniewicz (2019)
+<doi:10.1007/s00500-018-3251-5>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,27 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nipals
-%global packver   0.8
+%global packname  staggered
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Principal Components Analysis using NIPALS or Weighted EMPCA, with Gram-Schmidt Orthogonalization
+Summary:          Efficient Estimation Under Staggered Treatment Timing
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-coop 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-coop 
 
 %description
-Principal Components Analysis of a matrix using Non-linear Iterative
-Partial Least Squares or weighted Expectation Maximization PCA with
-Gram-Schmidt orthogonalization of the scores and loadings. Optimized for
-speed. See Andrecut (2009) <doi:10.1089/cmb.2008.0221>.
+Efficiently estimates treatment effects in settings with randomized
+staggered rollouts, using tools proposed by Roth and Sant'Anna (2021)
+<arXiv:2102.01291>.
 
 %prep
 %setup -q -c -n %{packname}

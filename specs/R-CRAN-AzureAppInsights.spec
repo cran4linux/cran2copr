@@ -1,27 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nipals
-%global packver   0.8
+%global packname  AzureAppInsights
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Principal Components Analysis using NIPALS or Weighted EMPCA, with Gram-Schmidt Orthogonalization
+Summary:          Include Azure Application Insights in Shiny Apps
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite >= 1.7.2
+BuildRequires:    R-CRAN-lubridate >= 1.7
+BuildRequires:    R-CRAN-shiny >= 1.5.0
+BuildRequires:    R-CRAN-rlang >= 0.4.11
+BuildRequires:    R-CRAN-assertthat >= 0.2.0
+Requires:         R-CRAN-jsonlite >= 1.7.2
+Requires:         R-CRAN-lubridate >= 1.7
+Requires:         R-CRAN-shiny >= 1.5.0
+Requires:         R-CRAN-rlang >= 0.4.11
+Requires:         R-CRAN-assertthat >= 0.2.0
 
 %description
-Principal Components Analysis of a matrix using Non-linear Iterative
-Partial Least Squares or weighted Expectation Maximization PCA with
-Gram-Schmidt orthogonalization of the scores and loadings. Optimized for
-speed. See Andrecut (2009) <doi:10.1089/cmb.2008.0221>.
+Imports Azure Application Insights for web pages into Shiny apps via
+Microsoft's JavaScript snippet. Allows app developers to submit page
+tracking and submit events.
 
 %prep
 %setup -q -c -n %{packname}

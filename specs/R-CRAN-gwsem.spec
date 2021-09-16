@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gwsem
-%global packver   2.1.1
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genome-Wide Structural Equation Modeling
 
@@ -15,14 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-OpenMx >= 2.0
+BuildRequires:    R-CRAN-OpenMx >= 2.19.8
 BuildRequires:    R-CRAN-BH >= 1.69.0.1
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-qqman 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-OpenMx >= 2.0
+Requires:         R-CRAN-OpenMx >= 2.19.8
 Requires:         R-CRAN-data.table 
 Requires:         R-methods 
 Requires:         R-CRAN-qqman 

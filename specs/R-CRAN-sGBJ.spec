@@ -1,27 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nipals
-%global packver   0.8
+%global packname  sGBJ
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Principal Components Analysis using NIPALS or Weighted EMPCA, with Gram-Schmidt Orthogonalization
+Summary:          Survival Extension of the Generalized Berk-Jones Test
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-GBJ 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-GBJ 
+Requires:         R-stats 
+Requires:         R-CRAN-survival 
 
 %description
-Principal Components Analysis of a matrix using Non-linear Iterative
-Partial Least Squares or weighted Expectation Maximization PCA with
-Gram-Schmidt orthogonalization of the scores and loadings. Optimized for
-speed. See Andrecut (2009) <doi:10.1089/cmb.2008.0221>.
+Implements an extension of the Generalized Berk-Jones (GBJ) statistic for
+survival data, sGBJ. It computes the sGBJ statistic and its p-value for
+testing the association between a gene set and a time-to-event outcome
+with possible adjustment on additional covariates. Detailed method is
+available at Villain L, Ferte T, Thiebaut R and Hejblum BP (2021)
+<doi:10.1101/2021.09.07.459329>.
 
 %prep
 %setup -q -c -n %{packname}

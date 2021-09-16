@@ -1,27 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nipals
-%global packver   0.8
+%global packname  FishPhyloMaker
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Principal Components Analysis using NIPALS or Weighted EMPCA, with Gram-Schmidt Orthogonalization
+Summary:          Phylogenies for a List of Finned-Ray Fishes
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-fishtree 
+BuildRequires:    R-CRAN-geiger 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-phytools 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-rfishbase 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-fishtree 
+Requires:         R-CRAN-geiger 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-phytools 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-rfishbase 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-utils 
 
 %description
-Principal Components Analysis of a matrix using Non-linear Iterative
-Partial Least Squares or weighted Expectation Maximization PCA with
-Gram-Schmidt orthogonalization of the scores and loadings. Optimized for
-speed. See Andrecut (2009) <doi:10.1089/cmb.2008.0221>.
+Provides an alternative to facilitate the construction of a phylogeny for
+fish species from a list of species or a community matrix using as a
+backbone the phylogenetic tree proposed by Rabosky et al. (2018)
+<doi:10.1038/s41586-018-0273-1>.
 
 %prep
 %setup -q -c -n %{packname}

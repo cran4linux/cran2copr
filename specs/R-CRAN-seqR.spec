@@ -1,27 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nipals
-%global packver   0.8
+%global packname  seqR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Principal Components Analysis using NIPALS or Weighted EMPCA, with Gram-Schmidt Orthogonalization
+Summary:          Fast and Comprehensive K-Mer Counting Package
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildRequires:    R-CRAN-RcppParallel >= 5.1.2
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-slam 
+Requires:         R-CRAN-RcppParallel >= 5.1.2
+Requires:         R-CRAN-Rcpp >= 1.0.4
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-slam 
 
 %description
-Principal Components Analysis of a matrix using Non-linear Iterative
-Partial Least Squares or weighted Expectation Maximization PCA with
-Gram-Schmidt orthogonalization of the scores and loadings. Optimized for
-speed. See Andrecut (2009) <doi:10.1089/cmb.2008.0221>.
+A fast implementation of k-mer (subsequences of length k) counting with
+the support for all types of biological sequences and k-mer variants.
 
 %prep
 %setup -q -c -n %{packname}

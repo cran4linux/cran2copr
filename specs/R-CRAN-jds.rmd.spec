@@ -1,27 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nipals
-%global packver   0.8
+%global packname  jds.rmd
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Principal Components Analysis using NIPALS or Weighted EMPCA, with Gram-Schmidt Orthogonalization
+Summary:          R Markdown Templates for Journal of Data Science
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.2.3
+Requires:         R-core >= 3.2.3
 BuildArch:        noarch
+BuildRequires:    R-CRAN-bookdown 
+BuildRequires:    R-CRAN-rmarkdown 
+Requires:         R-CRAN-bookdown 
+Requires:         R-CRAN-rmarkdown 
 
 %description
-Principal Components Analysis of a matrix using Non-linear Iterative
-Partial Least Squares or weighted Expectation Maximization PCA with
-Gram-Schmidt orthogonalization of the scores and loadings. Optimized for
-speed. See Andrecut (2009) <doi:10.1089/cmb.2008.0221>.
+Customized R Markdown templates for authoring articles for Journal of Data
+Science.
 
 %prep
 %setup -q -c -n %{packname}

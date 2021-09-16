@@ -1,27 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nipals
-%global packver   0.8
+%global packname  ucie
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Principal Components Analysis using NIPALS or Weighted EMPCA, with Gram-Schmidt Orthogonalization
+Summary:          Mapping 3D Data into CIELab Color Space
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-geometry 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-ptinpoly 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-remotes 
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-geometry 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-ptinpoly 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-remotes 
 
 %description
-Principal Components Analysis of a matrix using Non-linear Iterative
-Partial Least Squares or weighted Expectation Maximization PCA with
-Gram-Schmidt orthogonalization of the scores and loadings. Optimized for
-speed. See Andrecut (2009) <doi:10.1089/cmb.2008.0221>.
+Returns a data frame with the names of the input data points and hex
+colors (or CIELab coordinates). Data can be mapped to colors for use in
+data visualization. It optimally maps data points into a polygon that
+represents the CIELab colour space. Since Euclidean distance approximates
+relative perceptual differences in CIELab color space, the result is a
+color encoding that aims to capture much of the structure of the original
+data.
 
 %prep
 %setup -q -c -n %{packname}

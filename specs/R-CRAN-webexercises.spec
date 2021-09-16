@@ -1,27 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nipals
-%global packver   0.8
+%global packname  webexercises
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Principal Components Analysis using NIPALS or Weighted EMPCA, with Gram-Schmidt Orthogonalization
+Summary:          Create Interactive Web Exercises in 'R Markdown' (Formerly 'webex')
 
-License:          GPL-3
+License:          CC BY-SA 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.1.2
+Requires:         R-core >= 3.1.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rmarkdown >= 2.2
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-rmarkdown >= 2.2
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-yaml 
+Requires:         R-utils 
 
 %description
-Principal Components Analysis of a matrix using Non-linear Iterative
-Partial Least Squares or weighted Expectation Maximization PCA with
-Gram-Schmidt orthogonalization of the scores and loadings. Optimized for
-speed. See Andrecut (2009) <doi:10.1089/cmb.2008.0221>.
+Functions for easily creating interactive web pages using 'R Markdown'
+that students can use in self-guided learning.
 
 %prep
 %setup -q -c -n %{packname}

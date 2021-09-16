@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ISR
-%global packver   2021.09.15
+%global packname  rigr
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2021.09.15
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Iterated Score Regression-Based Estimation Algorithm
+Summary:          Regression, Inference, and General Data Analysis Tools in R
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,15 +16,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-stats 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-Exact 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-Exact 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-survival 
 
 %description
-Algorithms to handle with PCA-based missing data with high correlation.
-The philosophy of the package is described in Guo G. (2020)
-<doi:10.1080/02331888.2020.1823979>.
+A set of tools to streamline data analysis. Learning both R and
+introductory statistics at the same time can be challenging, and so we
+created 'rigr' to facilitate common data analysis tasks and enable
+learners to focus on statistical concepts. We provide easy-to-use
+interfaces for descriptive statistics, one- and two-sample inference, and
+regression analyses. 'rigr' output includes key information while omitting
+unnecessary details that can be confusing to beginners.
+Heteroscedasticity-robust ("sandwich") standard errors are returned by
+default, and multiple partial F-tests and tests for contrasts are easy to
+specify. A single regression function can fit both linear and generalized
+linear models, allowing students to more easily make connections between
+different classes of models.
 
 %prep
 %setup -q -c -n %{packname}

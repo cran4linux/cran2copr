@@ -1,27 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nipals
-%global packver   0.8
+%global packname  relliptical
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Principal Components Analysis using NIPALS or Weighted EMPCA, with Gram-Schmidt Orthogonalization
+Summary:          The Truncated Elliptical Family of Distributions
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-FuzzyNumbers.Ext.2 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppNumerical 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-Ryacas0 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-FuzzyNumbers.Ext.2 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppNumerical 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-Ryacas0 
+Requires:         R-stats 
 
 %description
-Principal Components Analysis of a matrix using Non-linear Iterative
-Partial Least Squares or weighted Expectation Maximization PCA with
-Gram-Schmidt orthogonalization of the scores and loadings. Optimized for
-speed. See Andrecut (2009) <doi:10.1089/cmb.2008.0221>.
+It generates random numbers from a truncated multivariate elliptical
+distribution such as Normal, Student-t, Pearson VII, Slash, Logistic, and
+others by specifying the density generating function. It also computes
+first and second moment for some particular distributions.
 
 %prep
 %setup -q -c -n %{packname}

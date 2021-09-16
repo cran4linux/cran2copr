@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  profoc
-%global packver   0.8.3
+%global packver   0.8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.3
+Version:          0.8.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Probabilistic Forecast Combination Using CRPS Learning
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
 BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-splines2 >= 0.3.0
+BuildRequires:    R-CRAN-splines2 >= 0.4.4
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppProgress 

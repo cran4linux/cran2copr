@@ -1,27 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nipals
-%global packver   0.8
+%global packname  JustifyAlpha
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Principal Components Analysis using NIPALS or Weighted EMPCA, with Gram-Schmidt Orthogonalization
+Summary:          Justifying Alpha Levels for Hypothesis Tests
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-BayesFactor 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-Superpower 
+BuildRequires:    R-CRAN-pwr 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-qpdf 
+Requires:         R-stats 
+Requires:         R-CRAN-BayesFactor 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-Superpower 
+Requires:         R-CRAN-pwr 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-qpdf 
 
 %description
-Principal Components Analysis of a matrix using Non-linear Iterative
-Partial Least Squares or weighted Expectation Maximization PCA with
-Gram-Schmidt orthogonalization of the scores and loadings. Optimized for
-speed. See Andrecut (2009) <doi:10.1089/cmb.2008.0221>.
+Functions to justify alpha levels for statistical hypothesis tests by
+avoiding Lindley's paradox, or by minimizing or balancing error rates. For
+more information about the package please read the following: Maier &
+Lakens (2021) <doi:10.31234/osf.io/ts4r6>).
 
 %prep
 %setup -q -c -n %{packname}
