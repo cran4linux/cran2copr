@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bayesnec
-%global packver   1.0.1
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Bayesian No-Effect- Concentration (NEC) Algorithm
 
@@ -17,25 +17,25 @@ BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-brms 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-formula.tools 
 BuildRequires:    R-CRAN-loo 
 BuildRequires:    R-CRAN-extraDistr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-evaluate 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-brms 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-formula.tools 
 Requires:         R-CRAN-loo 
 Requires:         R-CRAN-extraDistr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-evaluate 
 Requires:         R-CRAN-rlang 
 
@@ -57,6 +57,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

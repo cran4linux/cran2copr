@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  COINr
-%global packver   0.5.4
+%global packver   0.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Composite Indicator Construction and Analysis
 
@@ -13,12 +13,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-plotly >= 4.9.3
 BuildRequires:    R-CRAN-openxlsx >= 4.2.3
-BuildRequires:    R-stats >= 4.0.3
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.3
 BuildRequires:    R-CRAN-tibble >= 3.0.6
 BuildRequires:    R-CRAN-magrittr >= 2.0.1
@@ -34,11 +33,11 @@ BuildRequires:    R-CRAN-matrixStats >= 0.58.0
 BuildRequires:    R-CRAN-rlang >= 0.4.10
 BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-reactable >= 0.2.3
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Amelia 
 BuildRequires:    R-CRAN-rmarkdown 
 Requires:         R-CRAN-plotly >= 4.9.3
 Requires:         R-CRAN-openxlsx >= 4.2.3
-Requires:         R-stats >= 4.0.3
 Requires:         R-CRAN-ggplot2 >= 3.3.3
 Requires:         R-CRAN-tibble >= 3.0.6
 Requires:         R-CRAN-magrittr >= 2.0.1
@@ -54,6 +53,7 @@ Requires:         R-CRAN-matrixStats >= 0.58.0
 Requires:         R-CRAN-rlang >= 0.4.10
 Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-reactable >= 0.2.3
+Requires:         R-stats 
 Requires:         R-CRAN-Amelia 
 Requires:         R-CRAN-rmarkdown 
 
@@ -63,7 +63,7 @@ and analysis. It is a "development environment" for composite indicators
 and scoreboards, which includes utilities for construction (indicator
 selection, denomination, imputation, data treatment, normalisation,
 weighting and aggregation) and analysis (multivariate analysis,
-correlation plotting, short cuts for principle component analysis, global
+correlation plotting, short cuts for principal component analysis, global
 sensitivity analysis, and more). A composite indicator is completely
 encapsulated inside a single hierarchical list called a "COIN". This
 allows a fast and efficient work flow, as well as making quick copies,

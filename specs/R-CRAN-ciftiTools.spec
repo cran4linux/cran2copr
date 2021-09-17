@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ciftiTools
-%global packver   0.4.3
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Reading, Writing, Viewing and Manipulating CIFTI Files
 
@@ -41,7 +41,7 @@ the gray matter as cortical surface vertices (left and right) and
 subcortical voxels (cerebellum, basal ganglia, and other deep gray
 matter). 'ciftiTools' provides a unified environment for reading, writing,
 visualizing and manipulating CIFTI-format data. It supports the "dscalar,"
-"dlabel," and "dtseries" intents. Greyordinate data is read in as a
+"dlabel," and "dtseries" intents. Grayordinate data is read in as a
 "xifti" object, which is structured for convenient access to the data and
 metadata, and includes support for surface geometry files to enable
 spatially-dependent functionality such as static or interactive

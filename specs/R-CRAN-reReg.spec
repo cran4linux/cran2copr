@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  reReg
-%global packver   1.4.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Recurrent Event Regression
 
@@ -18,6 +18,8 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-reda >= 0.5.0
 BuildRequires:    R-CRAN-BB 
 BuildRequires:    R-CRAN-nleqslv 
+BuildRequires:    R-CRAN-dfoptim 
+BuildRequires:    R-CRAN-optimx 
 BuildRequires:    R-CRAN-SQUAREM 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-directlabels 
@@ -31,6 +33,8 @@ BuildRequires:    R-CRAN-RcppArmadillo
 Requires:         R-CRAN-reda >= 0.5.0
 Requires:         R-CRAN-BB 
 Requires:         R-CRAN-nleqslv 
+Requires:         R-CRAN-dfoptim 
+Requires:         R-CRAN-optimx 
 Requires:         R-CRAN-SQUAREM 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-directlabels 
@@ -62,6 +66,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,52 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nser
-%global packver   1.3.2
+%global packname  nominatimlite
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bhavcopy and Live Market Data from National Stock Exchange (NSE) India for Equities and Equity Derivatives (F&O)
+Summary:          Interface with 'Nominatim' API Service
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble >= 3.0.3
+BuildRequires:    R-CRAN-jsonlite >= 1.7.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-sf >= 0.9.0
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-RSelenium 
-BuildRequires:    R-CRAN-googleVis 
-BuildRequires:    R-CRAN-gt 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-stats 
+Requires:         R-CRAN-tibble >= 3.0.3
+Requires:         R-CRAN-jsonlite >= 1.7.0
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-sf >= 0.9.0
 Requires:         R-utils 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-RSelenium 
-Requires:         R-CRAN-googleVis 
-Requires:         R-CRAN-gt 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-dplyr 
 
 %description
-Download Historical Bhavcopy and get Live Market data from NSE India of
-Equities and Derivatives(F&O) segment. Data source
-<https://www.nseindia.com/>.
+Lite interface for getting data from 'OSM' service 'Nominatim'
+<https://nominatim.org/release-docs/latest/>. Extract coordinates from
+addresses, find places near a set of coordinates, search for amenities and
+return spatial objects on 'sf' format.
 
 %prep
 %setup -q -c -n %{packname}

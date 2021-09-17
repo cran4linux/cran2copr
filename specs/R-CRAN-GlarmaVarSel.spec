@@ -1,52 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nser
-%global packver   1.3.2
+%global packname  GlarmaVarSel
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bhavcopy and Live Market Data from National Stock Exchange (NSE) India for Equities and Equity Derivatives (F&O)
+Summary:          Variable Selection in Sparse GLARMA Models
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-RSelenium 
-BuildRequires:    R-CRAN-googleVis 
-BuildRequires:    R-CRAN-gt 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-glmnet 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-RSelenium 
-Requires:         R-CRAN-googleVis 
-Requires:         R-CRAN-gt 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Download Historical Bhavcopy and get Live Market data from NSE India of
-Equities and Derivatives(F&O) segment. Data source
-<https://www.nseindia.com/>.
+Performs variable selection in high-dimensional sparse GLARMA models. For
+further details we refer the reader to the paper Gomtsyan et al. (2020),
+<arXiv:2007.08623v1>.
 
 %prep
 %setup -q -c -n %{packname}
