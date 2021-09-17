@@ -1,4 +1,4 @@
-FROM fedora:33
+FROM fedora:34
 
 LABEL org.label-schema.license="GPL-2.0" \
       org.label-schema.vcs-url="https://github.com/Enchufa2/cran2copr" \
