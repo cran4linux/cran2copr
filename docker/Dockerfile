@@ -1,4 +1,5 @@
-FROM fedora:rawhide
+ARG VERSION=rawhide
+FROM fedora:$VERSION
 
 LABEL org.label-schema.license="GPL-2.0" \
       org.label-schema.vcs-url="https://github.com/Enchufa2/cran2copr" \
