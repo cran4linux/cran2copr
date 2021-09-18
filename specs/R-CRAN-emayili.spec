@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  emayili
-%global packver   0.4.18
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.18
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Send Email Messages
 
@@ -17,31 +17,45 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl >= 4.0
+BuildRequires:    R-CRAN-rlang >= 0.4.3
 BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-commonmark 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-logger 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-mime 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-urltools 
 BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-xfun 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-curl >= 4.0
+Requires:         R-CRAN-rlang >= 0.4.3
 Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-commonmark 
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-logger 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-mime 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-urltools 
 Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-xfun 
+Requires:         R-CRAN-xml2 
 
 %description
 A light, simple tool for sending emails with minimal dependencies.

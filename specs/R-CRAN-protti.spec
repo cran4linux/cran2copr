@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  protti
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bottom-Up Proteomics and LiP-MS Quality Control and Data Analysis Tools
 
@@ -33,6 +33,8 @@ BuildRequires:    R-CRAN-ggrepel
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
@@ -50,6 +52,8 @@ Requires:         R-CRAN-ggrepel
 Requires:         R-utils 
 Requires:         R-grDevices 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Useful functions and workflows for proteomics quality control and data
@@ -67,6 +71,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

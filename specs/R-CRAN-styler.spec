@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  styler
-%global packver   1.5.1
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Invasive Pretty Printing of R Code
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-purrr >= 0.2.3
 BuildRequires:    R-CRAN-R.cache >= 0.15.0
 BuildRequires:    R-CRAN-rlang >= 0.1.1
 BuildRequires:    R-CRAN-xfun >= 0.1
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-tools 
 Requires:         R-CRAN-rematch2 >= 2.0.1
 Requires:         R-CRAN-magrittr >= 2.0.0
@@ -39,6 +40,7 @@ Requires:         R-CRAN-purrr >= 0.2.3
 Requires:         R-CRAN-R.cache >= 0.15.0
 Requires:         R-CRAN-rlang >= 0.1.1
 Requires:         R-CRAN-xfun >= 0.1
+Requires:         R-CRAN-glue 
 Requires:         R-tools 
 
 %description

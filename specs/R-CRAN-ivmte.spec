@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ivmte
-%global packver   1.2.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
-Release:          3%{?dist}%{?buildtag}
-Summary:          Instrumental Variables: Extrapolation by Marginal TreatmentEffects
+Version:          1.4.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          Instrumental Variables: Extrapolation by Marginal Treatment Effects
 
 License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -38,19 +38,28 @@ and allows the user to maintain shape restrictions such as monotonicity.
 The package operates in the general framework developed by Mogstad, Santos
 and Torgovitsky (2018) <doi:10.3982/ECTA15463>, and accommodates either
 point identification or partial identification (bounds). In the partially
-identified case, bounds are computed using linear programming. Support for
-three linear programming solvers is provided. Gurobi and the Gurobi R API
-can be obtained from <http://www.gurobi.com/index>. CPLEX can be obtained
-from <https://www.ibm.com/analytics/cplex-optimizer>. CPLEX R APIs
-'Rcplex' and 'cplexAPI' are available from CRAN. The lp_solve library is
-freely available from <http://lpsolve.sourceforge.net/5.5/>, and is
-included when installing its API 'lpSolveAPI', which is available from
-CRAN.
+identified case, bounds are computed using either linear programming or
+quadratically constrained quadratic programming. Support for four solvers
+is provided. Gurobi and the Gurobi R API can be obtained from
+<http://www.gurobi.com/index>. CPLEX can be obtained from
+<https://www.ibm.com/analytics/cplex-optimizer>. CPLEX R APIs 'Rcplex' and
+'cplexAPI' are available from CRAN. MOSEK and the MOSEK R API can be
+obtained from <https://www.mosek.com/>. The lp_solve library is freely
+available from <http://lpsolve.sourceforge.net/5.5/>, and is included when
+installing its API 'lpSolveAPI', which is available from CRAN.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -58,19 +67,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/extdata
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

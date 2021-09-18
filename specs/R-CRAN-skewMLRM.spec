@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  skewMLRM
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation for Scale-Shape Mixtures of Skew-Normal Distributions
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-matrixcalc 
 Requires:         R-stats 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-moments 
@@ -32,6 +33,7 @@ Requires:         R-CRAN-doParallel
 Requires:         R-parallel 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-matrixcalc 
 
 %description
 Provide data generation and estimation tools for the multivariate scale

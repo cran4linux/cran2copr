@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  starvars
-%global packver   1.1.5
+%global packver   1.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Vector Logistic Smooth Transition Models / Realized Covariances Construction
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-matrixcalc
 BuildRequires:    R-CRAN-optimParallel 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-vars 
-BuildRequires:    R-CRAN-maxLik 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-lessR 
 BuildRequires:    R-CRAN-quantmod 
@@ -40,7 +39,6 @@ Requires:         R-CRAN-matrixcalc
 Requires:         R-CRAN-optimParallel 
 Requires:         R-parallel 
 Requires:         R-CRAN-vars 
-Requires:         R-CRAN-maxLik 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-lessR 
 Requires:         R-CRAN-quantmod 

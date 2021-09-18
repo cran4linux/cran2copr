@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tfautograph
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Autograph R for 'Tensorflow'
 
@@ -13,11 +13,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-backports 
 Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-backports 
 
 %description
 Translate R control flow expressions into 'Tensorflow' graphs.

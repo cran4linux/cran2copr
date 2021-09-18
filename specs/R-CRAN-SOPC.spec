@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  robustMVMR
-%global packver   0.3.1
+%global packname  SOPC
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Perform the Robust Multivariable Mendelian Randomization Analysis
+Summary:          The Sparse Online Principal Component Estimation Algorithm
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,25 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats >= 3.6.2
-BuildRequires:    R-CRAN-ggplot2 >= 3.2.1
-BuildRequires:    R-CRAN-robustbase >= 0.93.5
-BuildRequires:    R-CRAN-lmtest >= 0.9.37
-Requires:         R-stats >= 3.6.2
-Requires:         R-CRAN-ggplot2 >= 3.2.1
-Requires:         R-CRAN-robustbase >= 0.93.5
-Requires:         R-CRAN-lmtest >= 0.9.37
+BuildRequires:    R-CRAN-elasticnet 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-elasticnet 
+Requires:         R-stats 
 
 %description
-Perform the robust multivariable Mendelian randomization 'robustMVMR'
-analysis in the two-sample Mendelian randomization setting. An example
-paper using the 'robustMVMR' package can be found in Yang et al. (2021)
-<doi:10.1080/15412555.2021.1955848>. In details, the 'robustMVMR' package
-produces both the robust estimators and the robust standard errors via the
-MM-estimates, which has been demonstrated to protect against
-heteroskedasticity, autocorrelation, and the presence of outliers in Yohai
-(1987) <doi:10.1214/aos/1176350366> and Croux (2003)
-<https://EconPapers.repec.org/RePEc:ete:ceswps:ces0316>.
+The sparse online principal component can not only process the real-time
+updated data set and stream data set, but also obtain the sparse solution
+of the updated data set. The philosophy of the package is described in Guo
+G. (2018) <doi:10.1080/10485252.2018.1531130>.
 
 %prep
 %setup -q -c -n %{packname}

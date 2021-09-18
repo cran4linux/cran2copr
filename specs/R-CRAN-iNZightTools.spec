@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  iNZightTools
-%global packver   1.11.2
+%global packver   1.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.11.2
+Version:          1.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for 'iNZight'
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-readr >= 1.2.0
 BuildRequires:    R-CRAN-chron 

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ugatsdb
-%global packver   0.2.1
+%global packname  jScore
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Uganda Time Series Database API
+Summary:          Calculates the j-Score Between Two Clustering Assignments
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,25 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-RMySQL 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-collapse 
-BuildRequires:    R-CRAN-writexl 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-RMySQL 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-collapse 
-Requires:         R-CRAN-writexl 
 
 %description
-An R API providing easy access to a relational database with
-macroeconomic, financial and development related time series data for
-Uganda. Overall more than 5000 series at varying frequency (daily,
-monthly, quarterly, annual in fiscal or calendar years) can be accessed
-through the API. The data is provided by the Bank of Uganda, the Ugandan
-Ministry of Finance, Planning and Economic Development, the IMF and the
-World Bank. The database is being updated once a month.
+The jscore() function in the package calculates the J-Score metric between
+two clustering assignments. The score is designed to address some problems
+with existing common metrics such as problem of matching. The details of
+J-score is described in Ahmadinejad and Liu. (2021) <arXiv:2109.01306>.
 
 %prep
 %setup -q -c -n %{packname}

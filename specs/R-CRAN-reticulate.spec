@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  reticulate
-%global packver   1.21
+%global packver   1.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.21
+Version:          1.22
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'Python'
 
