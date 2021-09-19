@@ -14,6 +14,7 @@ jobs:
       contents: read
 
     strategy:
+      fail-fast: false
       matrix:
         release: [34, 35, rawhide]
 
