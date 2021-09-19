@@ -13,7 +13,7 @@ env:
   RELEASE: 34
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     permissions:
       packages: write
@@ -24,5 +24,15 @@ jobs:
       run: |
         ./build-push.sh $RELEASE $RELEASE
         ./build-push.sh $RELEASE release
+      working-directory: ./docker
+  rawhide:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build images
+      run: |
         ./build-push.sh rawhide rawhide
       working-directory: ./docker
