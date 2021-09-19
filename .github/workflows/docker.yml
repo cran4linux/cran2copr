@@ -7,7 +7,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  USER: ${{ github.repository_owner }}
+  USER: ${{ github.actor }}
   TOKEN: ${{ secrets.GITHUB_TOKEN }}
   IMAGE: ${{ github.repository }}
   RELEASE: 34
