@@ -8,15 +8,14 @@ on:
 jobs:
   docker:
     runs-on: ubuntu-latest
-    name: ${{ matrix.config.release }}
+    name: ${{ matrix.release }}
     permissions:
       packages: write
       contents: read
 
     strategy:
       matrix:
-        config:
-          release: [34, 35, rawhide]
+        release: [34, 35, rawhide]
 
     env:
       REGISTRY: ghcr.io
@@ -36,9 +35,9 @@ jobs:
       uses: actions/cache@v2
       with:
         path: /tmp/.buildx-cache
-        key: ${{ runner.os }}-buildx-${{ matrix.config.release }}-${{ github.sha }}
+        key: ${{ runner.os }}-buildx-${{ matrix.release }}-${{ github.sha }}
         restore-keys: |
-          ${{ runner.os }}-buildx-${{ matrix.config.release }}-
+          ${{ runner.os }}-buildx-${{ matrix.release }}-
 
     - name: Login to registry
       uses: docker/login-action@v1
@@ -52,8 +51,8 @@ jobs:
       with:
         context: docker
         push: true
-        build-args: VERSION=${{ matrix.config.release }}
-        tags: $REGISTRY/$IMAGE:${{ matrix.config.release }}
+        build-args: VERSION=${{ matrix.release }}
+        tags: $REGISTRY/$IMAGE:${{ matrix.release }}
         cache-from: type=local,src=/tmp/.buildx-cache
         cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
 
