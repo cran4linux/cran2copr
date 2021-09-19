@@ -42,7 +42,7 @@ jobs:
     - name: Login to registry
       uses: docker/login-action@v1
       with:
-        registry: $REGISTRY
+        registry: ${{ env.REGISTRY }}
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
@@ -52,7 +52,7 @@ jobs:
         context: docker
         push: true
         build-args: VERSION=${{ matrix.release }}
-        tags: $REGISTRY/$IMAGE:${{ matrix.release }}
+        tags: ${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ matrix.release }}
         cache-from: type=local,src=/tmp/.buildx-cache
         cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
 
