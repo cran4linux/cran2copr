@@ -1,4 +1,4 @@
-name: Create and push docker images
+name: Docker images
 
 on:
   workflow_dispatch:
