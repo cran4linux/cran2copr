@@ -1,0 +1,28 @@
+name: Create and push docker images
+
+on:
+  workflow_dispatch:
+  schedule:
+  - cron: '0 5 * * 1'
+
+env:
+  REGISTRY: ghcr.io
+  USER: ${{ github.repository_owner }}
+  TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  IMAGE: ${{ github.repository }}
+  RELEASE: 34
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build images
+      run: |
+        ./build-push.sh $RELEASE $RELEASE
+        ./build-push.sh $RELEASE release
+        ./build-push.sh rawhide rawhide
+      working-directory: ./docker
