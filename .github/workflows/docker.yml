@@ -51,6 +51,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: docker
+        pull: true
         push: true
         build-args: VERSION=${{ matrix.release }}
         tags: ${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ matrix.release }}
