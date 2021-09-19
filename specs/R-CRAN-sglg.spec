@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sglg
-%global packver   0.1.9
+%global packver   0.1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.1.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting Semi-Parametric Generalized log-Gamma Regression Models
 
@@ -26,6 +26,10 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-plot3D 
+BuildRequires:    R-CRAN-TeachingSampling 
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-survival 
 Requires:         R-methods 
@@ -36,6 +40,10 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-moments 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-plot3D 
+Requires:         R-CRAN-TeachingSampling 
 
 %description
 Set of tools to fit a linear multiple or semi-parametric regression models
@@ -57,6 +65,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sylcount
-%global packver   0.2-2
+%global packver   0.2-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
-Release:          3%{?dist}%{?buildtag}
+Version:          0.2.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          Syllable Counting and Readability Measurements
 
 License:          BSD 2-clause License + file LICENSE
@@ -22,7 +22,7 @@ For readability, we support 'Flesch' Reading Ease and 'Flesch-Kincaid'
 Grade Level ('Kincaid' 'et al'. 1975)
 <https://stars.library.ucf.edu/cgi/viewcontent.cgi?article=1055&context=istlibrary>,
 Automated Readability Index ('Senter' and Smith 1967)
-<http://www.dtic.mil/cgi-bin/GetTRDoc?AD=AD0667273>, Simple Measure of
+<https://apps.dtic.mil/sti/citations/AD0667273>, Simple Measure of
 Gobbledygook (McLaughlin 1969)
 <https://www.semanticscholar.org/paper/SMOG-Grading-A-New-Readability-Formula.-Laughlin/5fccb74c14769762b3de010c5e8a1a7ce700d17a>,
 and 'Coleman-Liau' (Coleman and 'Liau' 1975) <doi:10.1037/h0076540>. The
@@ -34,7 +34,15 @@ in parallel via 'OpenMP'.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -42,18 +50,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

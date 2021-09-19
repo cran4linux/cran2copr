@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  miRetrieve
-%global packver   1.3.2
+%global packver   1.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          miRNA Text Mining in Abstracts
 
@@ -21,8 +21,8 @@ BuildRequires:    R-CRAN-openxlsx >= 4.2.4
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
 BuildRequires:    R-CRAN-wordcloud >= 2.6
 BuildRequires:    R-CRAN-magrittr >= 2.0.1
+BuildRequires:    R-CRAN-readr >= 2.0.1
 BuildRequires:    R-CRAN-zoo >= 1.8.9
-BuildRequires:    R-CRAN-readr >= 1.4.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-xml2 >= 1.3.2
 BuildRequires:    R-CRAN-readxl >= 1.3.1
@@ -40,8 +40,8 @@ Requires:         R-CRAN-openxlsx >= 4.2.4
 Requires:         R-CRAN-ggplot2 >= 3.3.5
 Requires:         R-CRAN-wordcloud >= 2.6
 Requires:         R-CRAN-magrittr >= 2.0.1
+Requires:         R-CRAN-readr >= 2.0.1
 Requires:         R-CRAN-zoo >= 1.8.9
-Requires:         R-CRAN-readr >= 1.4.0
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-xml2 >= 1.3.2
 Requires:         R-CRAN-readxl >= 1.3.1
