@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  filearray
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          File-Backed Array for Out-of-Memory Computation
 
@@ -17,14 +17,15 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-BH 
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
 
 %description
 Stores large arrays in files to avoid occupying large memories.
 Implemented with super fast gigabyte-level multi-threaded reading/writing
-via 'OpenMP'. Supports multiple non-character data types (double, integer,
-logical and raw).
+via 'OpenMP'. Supports multiple non-character data types (double, float,
+complex, integer, logical, and raw).
 
 %prep
 %setup -q -c -n %{packname}

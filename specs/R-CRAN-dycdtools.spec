@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dycdtools
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for DYRESM-CAEDYM Model Development: Calibration Assistant and Post-Processing
 
@@ -36,9 +36,9 @@ Requires:         R-CRAN-R.utils
 Requires:         R-parallel 
 
 %description
-Tools for DYRESM-CAEDYM model development, including auto-calibrate
-selected model parameters and visualise model output through time series
-plot, profile plot, contour plot, and scatter plot.
+Tools for DYRESM-CAEDYM model development, including assisting with
+calibrating selected model parameters and visualising model output through
+time series plot, profile plot, contour plot, and scatter plot.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,6 +48,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
