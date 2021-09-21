@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sims
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate Data from R or 'JAGS' Code
 
@@ -32,8 +32,8 @@ Requires:         R-CRAN-yesno
 %description
 Generates data from R or 'JAGS' code for use in simulation studies.  The
 data are returned as an 'nlist::nlists' object and/or saved to file as
-individual '.rds' files. Parallelization is implemented using the 'future'
-package.  Progress is reported using the 'progressr' package.
+individual '.rds' files.  Parallelization is implemented using the
+'future' package.  Progress is reported using the 'progressr' package.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,6 +43,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

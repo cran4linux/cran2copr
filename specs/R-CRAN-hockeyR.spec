@@ -1,37 +1,53 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dataPreparation
-%global packver   1.0.2
+%global packname  hockeyR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automated Data Preparation
+Summary:          Collect and Clean Hockey Stats
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-polite 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-polite 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-zoo 
 
 %description
-Do most of the painful data preparation for a data science project with a
-minimum amount of code; Take advantages of 'data.table' efficiency and use
-some algorithmic trick in order to perform data preparation in a time and
-RAM efficient way.
+Various functions to scrape hockey play-by-play data from the
+<https://www.nhl.com/>. It also contains functions to scrape data from
+<https://www.hockey-reference.com/>, including standings, player stats,
+and jersey number history.
 
 %prep
 %setup -q -c -n %{packname}

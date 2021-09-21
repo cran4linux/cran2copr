@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  hockeystick
-%global packver   0.5.1
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Visualize Essential Climate Change Data
 
@@ -41,12 +41,13 @@ Requires:         R-CRAN-tibble
 Provides easy access to essential climate change datasets to non-climate
 experts. Users can download the latest raw data from authoritative sources
 and view it via pre-defined 'ggplot2' charts. Datasets include atmospheric
-CO2, instrumental and proxy temperature records, sea levels,
+CO2, emissions, instrumental and proxy temperature records, sea levels,
 Arctic/Antarctic sea-ice, Hurricanes, and Paleoclimate data. Sources
 include: NOAA Mauna Loa Laboratory
-<https://gml.noaa.gov/ccgg/trends/data.html>, NASA GISTEMP
-<https://data.giss.nasa.gov/gistemp/>, National Snow and Sea Ice Data
-Center <https://nsidc.org/data/seaice_index/archives>, CSIRO
+<https://gml.noaa.gov/ccgg/trends/data.html>, Global Carbon Project
+<https://www.globalcarbonproject.org/carbonbudget/20/data.htm>, NASA
+GISTEMP <https://data.giss.nasa.gov/gistemp/>, National Snow and Sea Ice
+Data Center <https://nsidc.org/data/seaice_index/archives>, CSIRO
 <https://research.csiro.au/slrwavescoast/sea-level/measurements-and-data/sea-level-data/>,
 NOAA Laboratory for Satellite Altimetry
 <https://www.star.nesdis.noaa.gov/socd/lsa/SeaLevelRise/> and HURDAT
@@ -63,6 +64,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

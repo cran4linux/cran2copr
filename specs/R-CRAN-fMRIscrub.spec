@@ -1,40 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BRISC
-%global packver   1.0.2
+%global packname  fMRIscrub
+%global packver   0.8.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.8.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Inference for Large Spatial Datasets using BRISC
+Summary:          Scrubbing and Other Data Cleaning Routines for fMRI
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-parallel 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-pesel 
+BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rdist 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-RANN 
-Requires:         R-parallel 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-pesel 
+Requires:         R-CRAN-robustbase 
 Requires:         R-stats 
-Requires:         R-CRAN-rdist 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-pbapply 
-Requires:         R-graphics 
+Requires:         R-utils 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Fits bootstrap with univariate spatial regression models using Bootstrap
-for Rapid Inference on Spatial Covariances (BRISC) for large datasets
-using nearest neighbor Gaussian processes detailed in Saha and Datta
-(2018) <doi:10.1002/sta4.184>.
+Data-driven fMRI denoising with projection scrubbing (Pham et al (2021)
+<arXiv:2108.00319>). Also includes routines for DVARS (Derivatives
+VARianceS) (Afyouni and Nichols (2018)
+<doi:10.1016/j.neuroimage.2017.12.098>), motion scrubbing (Power et al
+(2012) <doi:10.1016/j.neuroimage.2011.10.018>), aCompCor (anatomical
+Components Correction) (Muschelli et al (2014)
+<doi:10.1016/j.neuroimage.2014.03.028>), detrending, and nuisance
+regression. Projection scrubbing and DVARS are also applicable to other
+outlier detection tasks involving high-dimensional data.
 
 %prep
 %setup -q -c -n %{packname}

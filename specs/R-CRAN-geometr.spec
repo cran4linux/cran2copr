@@ -1,36 +1,55 @@
 %global __brp_check_rpaths %{nil}
-%global packname  lsr
-%global packver   0.5.1
+%global packname  geometr
+%global packver   0.2.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.2.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Companion to "Learning Statistics with R"
+Summary:          Generate and Modify Interoperable Geometric Shapes
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-deldir 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-checkmate 
 Requires:         R-grDevices 
+Requires:         R-grid 
+Requires:         R-CRAN-crayon 
 Requires:         R-methods 
-Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-deldir 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-raster 
 
 %description
-A collection of tools intended to make introductory statistics easier to
-teach, including wrappers for common hypothesis tests and basic data
-manipulation. It accompanies Navarro, D. J. (2015). Learning Statistics
-with R: A Tutorial for Psychology Students and Other Beginners, Version
-0.6.
+Provides tools that generate and process fully accessible and tidy
+geometric shapes. The package improves interoperability of spatial and
+other geometric classes by providing getters and setters that produce
+identical output from various classes.
 
 %prep
 %setup -q -c -n %{packname}

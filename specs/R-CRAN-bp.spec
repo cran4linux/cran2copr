@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bp
-%global packver   1.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Blood Pressure Analysis in R
 
@@ -17,6 +17,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-ggplot2 
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-gtable 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-ggplot2 
@@ -48,6 +50,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

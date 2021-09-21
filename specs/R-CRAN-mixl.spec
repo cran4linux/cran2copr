@@ -1,40 +1,44 @@
+%global debug_package %{nil}
 %global __brp_check_rpaths %{nil}
-%global packname  BRISC
-%global packver   1.0.2
+%global packname  mixl
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Inference for Large Spatial Datasets using BRISC
+Summary:          Simulated Maximum Likelihood Estimation of Mixed Logit Models for Large Datasets
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-parallel 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-stringr >= 1.3.1
+BuildRequires:    R-CRAN-Rcpp >= 0.12.19
+BuildRequires:    R-CRAN-maxLik 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-randtoolbox 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rdist 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-RANN 
-Requires:         R-parallel 
+Requires:         R-CRAN-stringr >= 1.3.1
+Requires:         R-CRAN-Rcpp >= 0.12.19
+Requires:         R-CRAN-maxLik 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-randtoolbox 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-sandwich 
 Requires:         R-stats 
-Requires:         R-CRAN-rdist 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-pbapply 
-Requires:         R-graphics 
 
 %description
-Fits bootstrap with univariate spatial regression models using Bootstrap
-for Rapid Inference on Spatial Covariances (BRISC) for large datasets
-using nearest neighbor Gaussian processes detailed in Saha and Datta
-(2018) <doi:10.1002/sta4.184>.
+Specification and estimation of multinomial logit models.  Large datasets
+and complex models are supported, with an intuitive syntax.  Multinomial
+Logit Models, Mixed models, random coefficients and Hybrid Choice are all
+supported.  For more information, see Molloy et al. (2019)
+<doi:10.3929/ethz-b-000334289>.
 
 %prep
 %setup -q -c -n %{packname}

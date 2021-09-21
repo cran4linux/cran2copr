@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gnn
-%global packver   0.0-3
+%global packname  qgcompint
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generative Neural Networks
+Summary:          Quantile G-Computation Extensions for Effect Measure Modification
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,25 +16,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-keras 
-BuildRequires:    R-CRAN-tensorflow 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-qrng 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-copula 
-Requires:         R-CRAN-keras 
-Requires:         R-CRAN-tensorflow 
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-qrng 
-Requires:         R-tools 
-Requires:         R-CRAN-copula 
+BuildRequires:    R-CRAN-qgcomp 
+BuildRequires:    R-CRAN-arm 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+Requires:         R-CRAN-qgcomp 
+Requires:         R-CRAN-arm 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
 
 %description
-Tools to set up, train, store, load, investigate and analyze generative
-neural networks. In particular, functionality for generative moment
-matching networks is provided.
+G-computation for a set of time-fixed exposures with quantile-based basis
+functions, possibly under linearity and homogeneity assumptions. Effect
+measure modification in this method is a way to assess how the effect of
+the mixture varies by a binary, categorical or continuous variable.
+Reference: Alexander P. Keil, Jessie P. Buckley, Katie M. OBrien, Kelly K.
+Ferguson, Shanshan Zhao, and Alexandra J. White (2019) A quantile-based
+g-computation approach to addressing the effects of exposure mixtures;
+<doi:10.1289/EHP5838>.
 
 %prep
 %setup -q -c -n %{packname}

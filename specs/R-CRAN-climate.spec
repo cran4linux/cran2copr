@@ -1,40 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BRISC
-%global packver   1.0.2
+%global packname  climate
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Inference for Large Spatial Datasets using BRISC
+Summary:          Interface to Download Meteorological (and Hydrological) Datasets
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-parallel 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rdist 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-RANN 
-Requires:         R-parallel 
-Requires:         R-stats 
-Requires:         R-CRAN-rdist 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-pbapply 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-data.table 
 
 %description
-Fits bootstrap with univariate spatial regression models using Bootstrap
-for Rapid Inference on Spatial Covariances (BRISC) for large datasets
-using nearest neighbor Gaussian processes detailed in Saha and Datta
-(2018) <doi:10.1002/sta4.184>.
+Automatize downloading of meteorological and hydrological data from
+publicly available repositories: OGIMET
+(<http://ogimet.com/index.phtml.en>), University of Wyoming - atmospheric
+vertical profiling data (<http://weather.uwyo.edu/upperair/>), Polish
+Institute of Meterology and Water Management - National Research Institute
+(<https://danepubliczne.imgw.pl>), and National Oceanic & Atmospheric
+Administration (NOAA). This package also allows for adding geographical
+coordinates for each observation.
 
 %prep
 %setup -q -c -n %{packname}

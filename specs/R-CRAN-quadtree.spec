@@ -1,40 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BRISC
-%global packver   1.0.2
+%global packname  quadtree
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Inference for Large Spatial Datasets using BRISC
+Summary:          Region Quadtrees for Spatial Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-parallel 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rdist 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
 BuildRequires:    R-graphics 
-Requires:         R-CRAN-RANN 
-Requires:         R-parallel 
-Requires:         R-stats 
-Requires:         R-CRAN-rdist 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-pbapply 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rcpp >= 1.0.5
 Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-methods 
+Requires:         R-CRAN-raster 
+Requires:         R-stats 
 
 %description
-Fits bootstrap with univariate spatial regression models using Bootstrap
-for Rapid Inference on Spatial Covariances (BRISC) for large datasets
-using nearest neighbor Gaussian processes detailed in Saha and Datta
-(2018) <doi:10.1002/sta4.184>.
+Provides functionality for working with raster-like quadtrees (also called
+“region quadtrees”), which allow for variable-sized cells. The package
+allows for flexibility in the quadtree creation process.  Several
+functions defining how to split and aggregate cells are provided, and
+custom functions can be written for both of these processes. In addition,
+quadtrees can be created using other quadtrees as “templates”, so that the
+new quadtree's structure is identical to the template quadtree. The
+package also includes functionality for modifying quadtrees, querying
+values, saving quadtrees to a file, and calculating least-cost paths using
+the quadtree as a resistance surface.
 
 %prep
 %setup -q -c -n %{packname}

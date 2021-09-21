@@ -1,40 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BRISC
-%global packver   1.0.2
+%global packname  jmvReadWrite
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Inference for Large Spatial Datasets using BRISC
+Summary:          Read and Write 'jamovi' Files ('.omv')
 
-License:          GPL (>= 2)
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-parallel 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rdist 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-RANN 
-Requires:         R-parallel 
-Requires:         R-stats 
-Requires:         R-CRAN-rdist 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-pbapply 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rjson 
+Requires:         R-CRAN-rjson 
 
 %description
-Fits bootstrap with univariate spatial regression models using Bootstrap
-for Rapid Inference on Spatial Covariances (BRISC) for large datasets
-using nearest neighbor Gaussian processes detailed in Saha and Datta
-(2018) <doi:10.1002/sta4.184>.
+The free and open a statistical spreadsheet 'jamovi' (www.jamovi.org) aims
+to make statistical analyses easy and intuitive. 'jamovi' produces syntax
+that can directly be used in R (in connection with the R-package 'jmv').
+Having import / export routines for the data files 'jamovi' produces
+('.omv') permits an easy transfer of analyses between 'jamovi' and R.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mailmerge
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mail Merge Using R Markdown Documents and 'gmailr'
 
@@ -50,11 +50,12 @@ Requires:         R-CRAN-shiny
 Requires:         R-CRAN-miniUI 
 
 %description
-Mail merge using markdown documents and gmail. With this package you can
-parse markdown documents as the body of email, and the 'yaml' header to
-specify the subject line of the email.  Any '{}' braces in the email will
-be encoded with 'glue::glue()'. You can preview the email in the RStudio
-viewer pane, and send (draft) email using 'gmailr'.
+Perform a mail merge (mass email) using the message defined in markdown,
+the recipients in a csv, and gmail as the mailing engine. With this
+package you can parse markdown documents as the body of email, and the
+'yaml' header to specify the subject line of the email.  Any '{}' braces
+in the email will be encoded with 'glue::glue()'. You can preview the
+email in the RStudio viewer pane, and send (draft) email using 'gmailr'.
 
 %prep
 %setup -q -c -n %{packname}
@@ -64,6 +65,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

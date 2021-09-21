@@ -1,40 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BRISC
-%global packver   1.0.2
+%global packname  MBAnalysis
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Inference for Large Spatial Datasets using BRISC
+Summary:          Multiblock Exploratory and Predictive Data Analysis
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-parallel 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rdist 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-RANN 
-Requires:         R-parallel 
-Requires:         R-stats 
-Requires:         R-CRAN-rdist 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-pbapply 
-Requires:         R-graphics 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
 
 %description
-Fits bootstrap with univariate spatial regression models using Bootstrap
-for Rapid Inference on Spatial Covariances (BRISC) for large datasets
-using nearest neighbor Gaussian processes detailed in Saha and Datta
-(2018) <doi:10.1002/sta4.184>.
+Exploratory and predictive methods for the analysis of several blocks of
+variables measured on the same individuals. The methods included are:
+Multiblock Principal Components Analysis (MB-PCA), Common Dimensions
+analysis (ComDim), Multiblock Partial Least Squares (MB-PLS) regression
+and Multiblock Weighted Covariate analysis (MB-WCov). E. Tchandao
+Mangamana, V. Cariou, E. Vigneau, R. Glèlè Kakaï, E.M. Qannari (2019)
+<doi:10.1016/j.chemolab.2019.103856>; E. Tchandao Mangamana, R. Glèlè
+Kakaï, E.M. Qannari (2021) <doi:10.1016/j.chemolab.2021.104388>.
 
 %prep
 %setup -q -c -n %{packname}

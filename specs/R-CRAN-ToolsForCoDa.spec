@@ -1,40 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BRISC
-%global packver   1.0.2
+%global packname  ToolsForCoDa
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Inference for Large Spatial Datasets using BRISC
+Summary:          Multivariate Tools for Compositional Data Analysis
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-parallel 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rdist 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-RANN 
-Requires:         R-parallel 
-Requires:         R-stats 
-Requires:         R-CRAN-rdist 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-pbapply 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 1.8.0
+Requires:         R-core >= 1.8.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-calibrate 
+BuildRequires:    R-CRAN-HardyWeinberg 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-calibrate 
+Requires:         R-CRAN-HardyWeinberg 
 
 %description
-Fits bootstrap with univariate spatial regression models using Bootstrap
-for Rapid Inference on Spatial Covariances (BRISC) for large datasets
-using nearest neighbor Gaussian processes detailed in Saha and Datta
-(2018) <doi:10.1002/sta4.184>.
+Provides functions for multivariate analysis with compositional data.
+Includes a function for doing compositional canonical correlation
+analysis.  This analysis requires two data matrices of compositions, which
+can be adequately transformed and used as entries in a specialized program
+for canonical correlation analysis, that is able to deal with singular
+covariance matrices. The methodology is described in Graffelman et al.
+(2017) <doi:10.1101/144584>. A function for log-ratio principal component
+analysis with condition number computations has been added to the package.
 
 %prep
 %setup -q -c -n %{packname}

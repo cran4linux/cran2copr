@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  texter
-%global packver   0.0.0.9
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.0.9
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Easy Text and Sentiment Analysis Library
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-stopwords 
 BuildRequires:    R-CRAN-textdata 
 BuildRequires:    R-CRAN-tidytext 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-ggplot2 
@@ -34,10 +35,11 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-stopwords 
 Requires:         R-CRAN-textdata 
 Requires:         R-CRAN-tidytext 
+Requires:         R-CRAN-tidyr 
 
 %description
 Implement text and sentiment analysis with 'texter'. Generate sentiment
-scores on text data and also visualize sentiments. 'texter' allows you
+scores on text data and also visualize sentiments. 'texter' allows you to
 quickly generate insights on your data. It includes support for lexicons
 such as 'NRC' and 'Bing'.
 

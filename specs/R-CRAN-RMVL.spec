@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RMVL
-%global packver   0.0.2.1
+%global packver   0.0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2.1
+Version:          0.0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mappable Vector Library for Handling Large Datasets
 
@@ -23,12 +23,13 @@ well as limited bandwidth of database interfaces. Memory mapped data can
 be shared between multiple R processes. Access speed depends on storage
 medium, so solid state drive is recommended, preferably with PCI Express
 (or M.2 nvme) interface. The data is memory mapped into R and then
-accessed using usual R list and array subscription operators. The layout
-of underlying MVL files is optimized for large datasets. The vectors are
-stored to guarantee alignment for vector intrinsics after memory map. The
-package is built on top of libMVL, which can be used as standalone C
-library. libMVL has simple C API making it easy to interchange of datasets
-with outside programs.
+accessed using usual R list and array subscription operators. Convenience
+functions are provided for merging, grouping and indexing large vectors
+and data.frames. The layout of underlying MVL files is optimized for large
+datasets. The vectors are stored to guarantee alignment for vector
+intrinsics after memory map. The package is built on top of libMVL, which
+can be used as standalone C library. libMVL has simple C API making it
+easy to interchange of datasets with outside programs.
 
 %prep
 %setup -q -c -n %{packname}

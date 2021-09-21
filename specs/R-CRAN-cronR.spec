@@ -1,43 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  flintyR
-%global packver   0.0.1
+%global packname  cronR
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Flexible and Interpretable Non-Parametric Tests of Exchangeability
+Summary:          Schedule R Scripts and Processes with the 'cron' Job Scheduler
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+Requires:         cronie
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.6
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.6
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-testthat 
-Requires:         R-stats 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-digest 
+Requires:         R-CRAN-digest 
 
 %description
-Given a multivariate dataset and some knowledge about the dependencies
-between its features, it is important to ensure the observations or
-individuals are exchangeable before fitting a model to the data in order
-to make inference from it, or assigning randomized treatments in order to
-estimate treatment effects. This package provides a flexible
-non-parametric test of exchangeability, allowing the user to specify the
-feature dependencies by hand. See Aw, Spence and Song (2021) for the
-accompanying paper.
+Create, edit, and remove 'cron' jobs on your unix-alike system. The
+package provides a set of easy-to-use wrappers to 'crontab'. It also
+provides an RStudio add-in to easily launch and schedule your scripts.
 
 %prep
 %setup -q -c -n %{packname}

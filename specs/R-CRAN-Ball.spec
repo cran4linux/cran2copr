@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Ball
-%global packver   1.3.11
+%global packver   1.3.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.11
+Version:          1.3.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Inference and Sure Independence Screening via Ball Statistics
 
@@ -36,7 +36,9 @@ difference and association in metric spaces <doi:10.18637/jss.v097.i06>.
 Furthermore, several generic non-parametric feature selection procedures
 based on ball correlation, BCor-SIS and all of its variants, are
 implemented to tackle the challenge in the context of ultra high
-dimensional data.
+dimensional data. A fast implementation for large-scale multiple K-sample
+testing with ball divergence <doi: 10.1002/gepi.22423> is supported, which
+is particularly helpful for genome-wide association study.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,6 +48,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

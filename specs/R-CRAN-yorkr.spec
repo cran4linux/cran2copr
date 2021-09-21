@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  yorkr
-%global packver   0.0.25
+%global packver   0.0.26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.25
+Version:          0.0.26
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze Cricket Performances Based on Data from Cricsheet
 

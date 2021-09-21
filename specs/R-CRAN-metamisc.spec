@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  metamisc
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Meta-Analysis of Diagnosis and Prognosis Research Studies
 
@@ -21,6 +21,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pROC 
@@ -30,6 +31,7 @@ Requires:         R-stats
 Requires:         R-graphics 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-plyr 
 Requires:         R-methods 
 Requires:         R-CRAN-pROC 

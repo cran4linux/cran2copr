@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  usethis2
-%global packver   0.2.0
+%global packname  robber
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automate Analytic Project Setup and Development
+Summary:          Using Block Model to Estimate the Robustness of Ecological Network
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,19 +16,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-microservices >= 0.1.2
+BuildRequires:    R-CRAN-blockmodels >= 1.1.2
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-GREMLINS 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-pammtools 
+BuildRequires:    R-CRAN-partitions 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-usethis 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-microservices >= 0.1.2
+BuildRequires:    R-stats 
+Requires:         R-CRAN-blockmodels >= 1.1.2
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-GREMLINS 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-pammtools 
+Requires:         R-CRAN-partitions 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-usethis 
-Requires:         R-CRAN-withr 
+Requires:         R-stats 
 
 %description
-Automate analytic project setup tasks that are otherwise performed
-manually. This includes setting up docker, spinning up a microservice, and
-more.
+Implementation of a variety of methods to compute the robustness of
+ecological interaction networks with binary interactions as described in
+<arXiv:1910.10512>. In particular, using the Stochastic Block Model and
+its bipartite counterpart, the Latent Block Model to put a parametric
+model on the network, allows the comparison of the robustness of networks
+differing in species richness and number of interactions. It also deals
+with networks that are partially sampled and/or with missing values.
 
 %prep
 %setup -q -c -n %{packname}

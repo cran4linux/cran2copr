@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  slackr
-%global packver   3.0.1
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Send Messages, Images, R Objects and Files to 'Slack' Channels/Users
 
@@ -16,7 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reprex >= 2.0.1
 BuildRequires:    R-CRAN-memoise >= 2.0.0
 BuildRequires:    R-CRAN-httr >= 1.4.2
 BuildRequires:    R-CRAN-cachem >= 1.0.4
@@ -31,7 +30,6 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-reprex >= 2.0.1
 Requires:         R-CRAN-memoise >= 2.0.0
 Requires:         R-CRAN-httr >= 1.4.2
 Requires:         R-CRAN-cachem >= 1.0.4
