@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RcppML
-%global packver   0.3.5
+%global packver   0.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.3.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rcpp Machine Learning Library
 
@@ -26,8 +26,8 @@ Requires:         R-methods
 Requires:         R-stats 
 
 %description
-High-performance machine learning algorithms, including matrix
-factorization and divisive clustering for large sparse and dense matrices.
+Fast machine learning algorithms including matrix factorization and
+divisive clustering for large sparse and dense matrices.
 
 %prep
 %setup -q -c -n %{packname}

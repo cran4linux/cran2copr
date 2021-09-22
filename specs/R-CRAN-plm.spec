@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  plm
-%global packver   2.4-1
+%global packver   2.4-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.1
+Version:          2.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Models for Panel Data
 
@@ -41,8 +41,8 @@ Requires:         R-stats
 
 %description
 A set of estimators and tests for panel data econometrics, as described in
-Baltagi (2013), Econometric Analysis of Panel Data,
-ISBN-13:978-1-118-67232-7, Hsiao (2014), Analysis of Panel Data
+Baltagi (2021), Econometric Analysis of Panel Data,
+ISBN-13:978-3-030-53952-8, Hsiao (2014), Analysis of Panel Data
 <doi:10.1017/CBO9781139839327>, and Croissant and Millo (2018), Panel Data
 Econometrics with R, ISBN-13:978-1-118-94918-4.
 
@@ -54,6 +54,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

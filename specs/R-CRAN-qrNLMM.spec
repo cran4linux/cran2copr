@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  qrNLMM
-%global packver   2.2
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantile Regression for Nonlinear Mixed-Effects Models
 
@@ -20,22 +20,22 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-CRAN-lqr 
 BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-tcltk 
 BuildRequires:    R-CRAN-ald 
+BuildRequires:    R-CRAN-progress 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-lqr 
 Requires:         R-CRAN-quantreg 
 Requires:         R-CRAN-psych 
-Requires:         R-tcltk 
 Requires:         R-CRAN-ald 
+Requires:         R-CRAN-progress 
 
 %description
 Quantile regression (QR) for Nonlinear Mixed-Effects Models via the
 asymmetric Laplace distribution (ALD). It uses the Stochastic
 Approximation of the EM (SAEM) algorithm for deriving exact maximum
 likelihood estimates and full inference results for the fixed-effects and
-variance components. It also provides graphical summaries for assessing
-the algorithm convergence and fitting results.
+variance components. It also provides prediction and graphical summaries
+for assessing the algorithm convergence and fitting results.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,6 +45,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

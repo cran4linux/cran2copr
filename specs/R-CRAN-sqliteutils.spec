@@ -1,28 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rasterKernelEstimates
-%global packver   1.0.2
+%global packname  sqliteutils
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kernel Based Estimates on in-Memory Raster Images
+Summary:          Utility Functions for 'SQLite'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-raster 
-Requires:         R-CRAN-raster 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-magrittr 
 
 %description
-Performs kernel based estimates on in-memory raster images from the raster
-package.  These kernel estimates include local means variances, modes, and
-quantiles.  All results are in the form of raster images, preserving
-original resolution and projection attributes.
+A tool for working with 'SQLite' databases. 'SQLite' has some
+idiosyncrasies and limitations that impose some hurdles to the R developer
+who is using this database as a repository. For instance, 'SQLite' doesn't
+have a date type and 'sqliteutils' has some functions to deal with that.
 
 %prep
 %setup -q -c -n %{packname}

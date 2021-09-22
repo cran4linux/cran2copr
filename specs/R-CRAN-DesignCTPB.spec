@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DesignCTPB
-%global packver   1.1.1
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Design Clinical Trials with Potential Biomarker Effect
 
@@ -19,13 +19,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-mnormt 
 BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-mnormt 
 Requires:         R-CRAN-fields 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-dplyr 
 
 %description
 Applying 'CUDA' 'GPUs' via 'Numba' for optimal clinical design. It allows
@@ -42,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
