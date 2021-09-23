@@ -1,38 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  adapt4pv
-%global packver   0.2-1
+%global packname  rsprite2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adaptive Approaches for Signal Detection in Pharmacovigilance
+Summary:          Identify Distributions that Match Reported Sample Parameters (SPRITE)
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glmnet >= 3.0.2
-BuildRequires:    R-CRAN-Matrix >= 1.0.6
-BuildRequires:    R-CRAN-speedglm 
-BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-glmnet >= 3.0.2
-Requires:         R-CRAN-Matrix >= 1.0.6
-Requires:         R-CRAN-speedglm 
-Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-Rdpack 
 
 %description
-A collection of several pharmacovigilance signal detection methods based
-on adaptive lasso. Additional lasso-based and propensity score-based
-signal detection approaches are also supplied.
+The SPRITE algorithm creates possible distributions of discrete responses
+based on reported sample parameters, such as mean, standard deviation and
+range (Heathers et al., 2018, <doi:10.7287/peerj.preprints.26968v1>). This
+package implements it, drawing heavily on the code for Nick Brown's
+'rSPRITE' Shiny app <http://shiny.ieis.tue.nl/sprite/>. In addition, it
+supports the modeling of distributions based on multi-item (Likert-type)
+scales and the use of restrictions on the frequency of particular
+responses.
 
 %prep
 %setup -q -c -n %{packname}

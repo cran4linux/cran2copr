@@ -1,38 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  adapt4pv
-%global packver   0.2-1
+%global packname  origin
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adaptive Approaches for Signal Detection in Pharmacovigilance
+Summary:          Explicitly Qualifying Namespaces by Automatically Adding 'pkg::' to Functions
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glmnet >= 3.0.2
-BuildRequires:    R-CRAN-Matrix >= 1.0.6
-BuildRequires:    R-CRAN-speedglm 
-BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-glmnet >= 3.0.2
-Requires:         R-CRAN-Matrix >= 1.0.6
-Requires:         R-CRAN-speedglm 
-Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-CRAN-rstudioapi 
+Requires:         R-CRAN-rstudioapi 
 
 %description
-A collection of several pharmacovigilance signal detection methods based
-on adaptive lasso. Additional lasso-based and propensity score-based
-signal detection approaches are also supplied.
+Automatically adding 'pkg::' to a function, i.e. mutate() becomes
+dplyr::mutate(). It is up to the user to determine which packages should
+be used explicitly, whether to include base R packages or use the
+functionality on selected text, a file, or a complete directory. User
+friendly logging is provided in the 'RStudio' Markers pane. Lives in the
+spirit of 'lintr' and 'styler'.
 
 %prep
 %setup -q -c -n %{packname}

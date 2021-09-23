@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ssdtools
-%global packver   0.3.5
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Species Sensitivity Distributions
 
@@ -24,6 +24,7 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-VGAM 
@@ -37,6 +38,7 @@ Requires:         R-graphics
 Requires:         R-grid 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-CRAN-VGAM 

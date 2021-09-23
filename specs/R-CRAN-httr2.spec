@@ -1,38 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  adapt4pv
-%global packver   0.2-1
+%global packname  httr2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adaptive Approaches for Signal Detection in Pharmacovigilance
+Summary:          Perform HTTP Requests and Process the Responses
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glmnet >= 3.0.2
-BuildRequires:    R-CRAN-Matrix >= 1.0.6
-BuildRequires:    R-CRAN-speedglm 
-BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-glmnet >= 3.0.2
-Requires:         R-CRAN-Matrix >= 1.0.6
-Requires:         R-CRAN-speedglm 
-Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-CRAN-cli >= 3.0.0
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-cli >= 3.0.0
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-withr 
 
 %description
-A collection of several pharmacovigilance signal detection methods based
-on adaptive lasso. Additional lasso-based and propensity score-based
-signal detection approaches are also supplied.
+Tools for creating and modifying HTTP requests, then performing them and
+processing the results. 'httr2' is a modern re-imagining of 'httr' that
+uses a pipe-based interface and solves more of the problems that API
+wrapping packages face.
 
 %prep
 %setup -q -c -n %{packname}

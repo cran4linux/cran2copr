@@ -1,38 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  adapt4pv
-%global packver   0.2-1
+%global packname  rethnicity
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adaptive Approaches for Signal Detection in Pharmacovigilance
+Summary:          Predicting Ethnic Group from Names
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-glmnet >= 3.0.2
-BuildRequires:    R-CRAN-Matrix >= 1.0.6
-BuildRequires:    R-CRAN-speedglm 
-BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-glmnet >= 3.0.2
-Requires:         R-CRAN-Matrix >= 1.0.6
-Requires:         R-CRAN-speedglm 
-Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-RcppThread 
+Requires:         R-CRAN-Rcpp 
 
 %description
-A collection of several pharmacovigilance signal detection methods based
-on adaptive lasso. Additional lasso-based and propensity score-based
-signal detection approaches are also supplied.
+Implementation of the ethnicity prediction method, described in
+"Rethnicity: Predicting Ethnicity from Names" by Fangzhou Xie (2021)
+<arXiv:2109.09228>.
 
 %prep
 %setup -q -c -n %{packname}

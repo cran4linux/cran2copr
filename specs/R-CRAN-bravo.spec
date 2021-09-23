@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bravo
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Screening and Variable Selection
 
@@ -23,9 +23,8 @@ Requires:         R-CRAN-Rcpp >= 1.0.2
 Requires:         R-methods 
 
 %description
-Performs Bayesian variable selection with embedded screening for
-ultra-high dimensional Gaussian linear regression models. The methodology
-is described in Li, Dutta and Roy (2020) <arXiv:2006.07561>.
+Performs Bayesian variable screening and selection for ultra-high
+dimensional linear regression models.
 
 %prep
 %setup -q -c -n %{packname}

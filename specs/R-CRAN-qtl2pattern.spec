@@ -1,55 +1,55 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RawHummus
-%global packver   0.1.8
+%global packname  qtl2pattern
+%global packver   1.0.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          1.0.17
 Release:          1%{?dist}%{?buildtag}
-Summary:          Raw Data Quality Control Tool for LC-MS System
+Summary:          Pattern Support for 'qtl2' Package
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinydashboard 
-BuildRequires:    R-CRAN-shinydashboardPlus 
-BuildRequires:    R-CRAN-shinyFiles 
-BuildRequires:    R-CRAN-shinyMatrix 
-BuildRequires:    R-CRAN-shinyvalidate 
-BuildRequires:    R-CRAN-shinycustomloader 
-BuildRequires:    R-CRAN-RaMS 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-kableExtra 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinydashboard 
-Requires:         R-CRAN-shinydashboardPlus 
-Requires:         R-CRAN-shinyFiles 
-Requires:         R-CRAN-shinyMatrix 
-Requires:         R-CRAN-shinyvalidate 
-Requires:         R-CRAN-shinycustomloader 
-Requires:         R-CRAN-RaMS 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-qtl2 
+BuildRequires:    R-CRAN-qtl2fst 
+BuildRequires:    R-CRAN-fst 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-qtl2 
+Requires:         R-CRAN-qtl2fst 
+Requires:         R-CRAN-fst 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Assess LC–MS system performance by visualizing instrument log files and
-monitoring raw quality control samples within a project.
+Routines in 'qtl2' to study allele patterns in quantitative trait loci
+(QTL) mapping over a chromosome. Useful in crosses with more than two
+alleles to identify how sets of alleles, genetically different strands at
+the same locus, have different response levels. Plots show profiles over a
+chromosome. Can handle multiple traits together. See
+<https://github.com/byandell/qtl2pattern>.
 
 %prep
 %setup -q -c -n %{packname}

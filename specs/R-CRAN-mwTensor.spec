@@ -1,38 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  adapt4pv
-%global packver   0.2-1
+%global packname  mwTensor
+%global packver   0.99.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.99.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adaptive Approaches for Signal Detection in Pharmacovigilance
+Summary:          Multi-Way Component Analysis
 
-License:          GPL-2
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glmnet >= 3.0.2
-BuildRequires:    R-CRAN-Matrix >= 1.0.6
-BuildRequires:    R-CRAN-speedglm 
-BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-glmnet >= 3.0.2
-Requires:         R-CRAN-Matrix >= 1.0.6
-Requires:         R-CRAN-speedglm 
-Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-rTensor 
+BuildRequires:    R-CRAN-nnTensor 
+BuildRequires:    R-CRAN-ccTensor 
+BuildRequires:    R-CRAN-ica 
+BuildRequires:    R-CRAN-igraph 
+Requires:         R-methods 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-rTensor 
+Requires:         R-CRAN-nnTensor 
+Requires:         R-CRAN-ccTensor 
+Requires:         R-CRAN-ica 
+Requires:         R-CRAN-igraph 
 
 %description
-A collection of several pharmacovigilance signal detection methods based
-on adaptive lasso. Additional lasso-based and propensity score-based
-signal detection approaches are also supplied.
+For single tensor data, any matrix factorization method can be specified
+the matricised tensor in each dimension by Multi-way Component Analysis
+(MWCA). An originally extended MWCA is also implemented to specify and
+decompose multiple matrices and tensors simultaneously (CoupledMWCA). See
+the reference section of GitHub README.md
+<https://github.com/rikenbit/mwTensor>, for details of the methods.
 
 %prep
 %setup -q -c -n %{packname}

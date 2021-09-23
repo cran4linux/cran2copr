@@ -1,43 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tvReg
-%global packver   0.5.6
+%global packname  scRNAstat
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.6
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time-Varying Coefficient for Single and Multi-Equation Regressions
+Summary:          A Pipeline to Process Single Cell RNAseq Data
 
-License:          GPL (>= 3)
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-stats >= 2.14.0
-BuildRequires:    R-CRAN-systemfit >= 1.1.20
+BuildRequires:    R-CRAN-Seurat 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-clustree 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-vars 
-BuildRequires:    R-CRAN-bvarsv 
-BuildRequires:    R-CRAN-plm 
-Requires:         R-stats >= 2.14.0
-Requires:         R-CRAN-systemfit >= 1.1.20
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-patchwork 
+Requires:         R-CRAN-Seurat 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-clustree 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-Matrix 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-vars 
-Requires:         R-CRAN-bvarsv 
-Requires:         R-CRAN-plm 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-patchwork 
 
 %description
-Fitting time-varying coefficient models for single and multi-equation
-regressions, using kernel smoothing techniques.
+A pipeline that can process single or multiple Single Cell RNAseq samples
+primarily specializes in Clustering and Dimensionality Reduction.
+Meanwhile we use common cell type marker genes for T cells, B cells,
+Myeloid cells, Epithelial cells, and stromal cells (Fiboblast, Endothelial
+cells, Pericyte, Smooth muscle cells) to visualize the Seurat clusters, to
+facilitate labeling them by biological names. Once users named each
+cluster, they can evaluate the quality of them again and find the de novo
+marker genes also.
 
 %prep
 %setup -q -c -n %{packname}

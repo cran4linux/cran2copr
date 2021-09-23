@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  smoots
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Estimation of the Trend and Its Derivatives in TS
 
@@ -15,17 +15,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-future.apply >= 1.8.1
+BuildRequires:    R-CRAN-future >= 1.22.1
+BuildRequires:    R-CRAN-progress >= 1.2.2
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-progressr >= 0.8.0
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-future.apply >= 1.8.1
+Requires:         R-CRAN-future >= 1.22.1
+Requires:         R-CRAN-progress >= 1.2.2
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-progressr >= 0.8.0
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-Rcpp 
 
 %description
 The nonparametric trend and its derivatives in equidistant time series
@@ -47,6 +55,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  jfa
-%global packver   0.5.7
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.7
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian and Classical Audit Sampling
 
@@ -16,8 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-extraDistr 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-extraDistr 
 Requires:         R-graphics 
 Requires:         R-stats 
 
