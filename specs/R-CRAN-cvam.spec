@@ -1,50 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tigris
-%global packver   1.5
+%global packname  cvam
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Load Census TIGER/Line Shapefiles
+Summary:          Coarsened Variable Modeling
 
-License:          MIT + file LICENSE
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-maptools 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-uuid 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-sp 
-Requires:         R-utils 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-maptools 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-uuid 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-dplyr 
-Requires:         R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-coda 
+Requires:         R-stats 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-coda 
 
 %description
-Download TIGER/Line shapefiles from the United States Census Bureau
-(<https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html>)
-and load into R as 'sf' objects.
+Extends R's implementation of categorical variables (factors) to handle
+coarsened observations; implements log-linear models for coarsened
+categorical data, including latent-class models. Detailed information and
+examples are provided in the package vignettes.
 
 %prep
 %setup -q -c -n %{packname}

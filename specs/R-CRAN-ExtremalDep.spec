@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ExtremalDep
-%global packver   0.0.3-3
+%global packver   0.0.3-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3.3
-Release:          2%{?dist}%{?buildtag}
+Version:          0.0.3.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          Extremal Dependence Models
 
 License:          GPL (>= 2)
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-copula
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-CRAN-fda 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-evd 
@@ -35,7 +34,6 @@ Requires:         R-CRAN-copula
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-rlist 
 Requires:         R-CRAN-fda 
 
 %description
@@ -49,7 +47,7 @@ Beranger et al. (2017) <doi:10.1111/sjos.12240>, Beranger and Padoan
 Marcon et al. (2017) <doi:10.1016/j.jspi.2016.10.004> and Marcon et al.
 (2016) <doi:10.1214/16-EJS1162>. It also refers to the works of Bortot
 (2010)
-<https://pdfs.semanticscholar.org/b0dc/1cb608d35bf515c76e39aacc14b4de82e281.pdf>,
+<https://www.semanticscholar.org/paper/Tail-dependence-in-bivariate-skew-Normal-and-skew-t-Bortot/b0dc1cb608d35bf515c76e39aacc14b4de82e281?p2df>,
 Padoan (2011) <doi:10.1016/j.jmva.2011.01.014>, Cooley et al. (2010)
 <doi:10.1016/j.jmva.2010.04.007>, Husler and Reiss (1989)
 <doi:10.1016/0167-7152(89)90106-5>, Engelke et al. (2015)
@@ -57,9 +55,8 @@ Padoan (2011) <doi:10.1016/j.jmva.2011.01.014>, Cooley et al. (2010)
 <doi:10.1111/j.2517-6161.1991.tb01830.x>, Nikoloulopoulos et al. (2011)
 <doi:10.1007/s10687-008-0072-4>, Opitz (2013)
 <doi:10.1016/j.jmva.2013.08.008>, Tawn (1990) <doi:10.2307/2336802>,
-Azzalini (1985) <https://www.jstor.org/stable/pdf/4615982.pdf>, Azzalini
-and Capitanio (2014) <doi:10.1017/CBO9781139248891>, Azzalini (2003)
-<doi:10.1111/1467-9469.00322>, Azzalini and Capitanio (1999)
+Azzalini and Capitanio (2014) <doi:10.1017/CBO9781139248891>, Azzalini
+(2003) <doi:10.1111/1467-9469.00322>, Azzalini and Capitanio (1999)
 <doi:10.1111/1467-9868.00194>, Azzalini and Dalla Valle (1996)
 <doi:10.1093/biomet/83.4.715>, Einmahl et al. (2013)
 <doi:10.1007/s10687-012-0156-z>, Naveau et al (2009)
@@ -69,9 +66,15 @@ and Capitanio (2014) <doi:10.1017/CBO9781139248891>, Azzalini (2003)
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -79,9 +82,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

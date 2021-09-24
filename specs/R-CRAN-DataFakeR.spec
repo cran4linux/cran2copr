@@ -1,30 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Guerry
-%global packver   1.7.1
+%global packname  DataFakeR
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Maps, Data and Methods Related to Guerry (1833) "Moral Statistics of France"
+Summary:          Generate Fake Data for Relational Databases
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sp 
-Requires:         R-CRAN-sp 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidygraph 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidygraph 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-R6 
 
 %description
-Maps of France in 1830, multivariate datasets from A.-M. Guerry and
-others, and statistical and graphic methods related to Guerry's "Moral
-Statistics of France". The goal is to facilitate the exploration and
-development of statistical and graphic methods for multivariate data in a
-geo-spatial context of historical interest.
+Based on provided database description and/or database connection generate
+data sample preserving source structure.
 
 %prep
 %setup -q -c -n %{packname}

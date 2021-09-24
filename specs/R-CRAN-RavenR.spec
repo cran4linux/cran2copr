@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RavenR
-%global packver   2.1.0
+%global packver   2.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Raven Hydrological Modelling Framework R Support and Analysis
 
@@ -15,41 +15,42 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-deldir 
+BuildRequires:    R-CRAN-DiagrammeR 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-dygraphs 
 BuildRequires:    R-CRAN-gdata 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-deldir 
+Requires:         R-CRAN-DiagrammeR 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-dygraphs 
 Requires:         R-CRAN-gdata 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 Requires:         R-CRAN-xts 
@@ -59,7 +60,10 @@ Requires:         R-CRAN-zoo
 Utilities for processing input and output files associated with the Raven
 Hydrological Modelling Framework. Includes various plotting functions,
 model diagnostics, reading output files into extensible time series
-format, and support for writing Raven input files.
+format, and support for writing Raven input files. The RavenR package is
+also archived at Chlumsky et al. (2020) <doi:10.5281/zenodo.4248183>. The
+Raven Hydrologic Modelling Framework method can be referenced with Craig
+et al. (2020) <doi:10.1016/j.envsoft.2020.104728>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -69,6 +73,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

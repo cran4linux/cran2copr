@@ -1,50 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tigris
-%global packver   1.5
+%global packname  hierSDR
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Load Census TIGER/Line Shapefiles
+Summary:          Hierarchical Sufficient Dimension Reduction
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-maptools 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-uuid 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-sp 
-Requires:         R-utils 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-maptools 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-uuid 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-dplyr 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-locfit 
+BuildRequires:    R-CRAN-lbfgs 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-optimx 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-locfit 
+Requires:         R-CRAN-lbfgs 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-optimx 
 
 %description
-Download TIGER/Line shapefiles from the United States Census Bureau
-(<https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html>)
-and load into R as 'sf' objects.
+Provides semiparametric sufficient dimension reduction for central mean
+subspaces for heterogeneous data defined by combinations of binary factors
+(such as chronic conditions). Subspaces are estimated to be hierarchically
+nested to respect the structure of subpopulations with overlapping
+characteristics. This package is an implementation of the proposed
+methodology of Huling and Yu (2021) <doi:10.1111/biom.13546>.
 
 %prep
 %setup -q -c -n %{packname}

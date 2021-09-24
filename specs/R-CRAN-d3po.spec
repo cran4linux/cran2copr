@@ -1,50 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tigris
-%global packver   1.5
+%global packname  d3po
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Load Census TIGER/Line Shapefiles
+Summary:          Fast and Beautiful Interactive Visualization for 'Markdown' and 'Shiny'
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-maptools 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-uuid 
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-sp 
-Requires:         R-utils 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-maptools 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-uuid 
-Requires:         R-CRAN-sf 
+Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-dplyr 
-Requires:         R-methods 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 
 %description
-Download TIGER/Line shapefiles from the United States Census Bureau
-(<https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html>)
-and load into R as 'sf' objects.
+Apache licensed alternative to 'Highcharter' which provides functions for
+both fast and beautiful interactive visualization for 'Markdown' and
+'Shiny'.
 
 %prep
 %setup -q -c -n %{packname}

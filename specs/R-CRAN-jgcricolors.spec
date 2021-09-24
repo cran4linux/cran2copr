@@ -1,50 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tigris
-%global packver   1.5
+%global packname  jgcricolors
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Load Census TIGER/Line Shapefiles
+Summary:          Manage 'JGCRI' Color Palettes
 
-License:          MIT + file LICENSE
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-maptools 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-uuid 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-markdown 
+Requires:         R-CRAN-knitr 
+Requires:         R-graphics 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-sp 
-Requires:         R-utils 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-maptools 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-uuid 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-dplyr 
-Requires:         R-methods 
+Requires:         R-CRAN-markdown 
 
 %description
-Download TIGER/Line shapefiles from the United States Census Bureau
-(<https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html>)
-and load into R as 'sf' objects.
+Color palettes used by the Pacific Northwest National Laboratory - Joint
+Global Change Research Institute for maps and charts.
 
 %prep
 %setup -q -c -n %{packname}

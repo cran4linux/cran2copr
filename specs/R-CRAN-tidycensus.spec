@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tidycensus
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Load US Census Boundary and Attribute Data as 'tidyverse' and 'sf'-Ready Data Frames
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-xml2
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-crayon 
 Requires:         R-CRAN-jsonlite >= 1.5.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
@@ -46,13 +47,14 @@ Requires:         R-CRAN-xml2
 Requires:         R-CRAN-units 
 Requires:         R-utils 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-crayon 
 
 %description
-An integrated R interface to the decennial US Census and American
-Community Survey APIs and the US Census Bureau's geographic boundary
-files. Allows R users to return Census and ACS data as tidyverse-ready
-data frames, and optionally returns a list-column with feature geometry
-for all Census geographies.
+An integrated R interface to several United States Census Bureau APIs
+(<https://www.census.gov/data/developers/data-sets.html>) and the US
+Census Bureau's geographic boundary files. Allows R users to return Census
+and ACS data as tidyverse-ready data frames, and optionally returns a
+list-column with feature geometry for mapping and spatial analysis.
 
 %prep
 %setup -q -c -n %{packname}
@@ -62,6 +64,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

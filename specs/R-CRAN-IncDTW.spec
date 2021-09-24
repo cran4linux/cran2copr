@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  IncDTW
-%global packver   1.1.4.2
+%global packver   1.1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4.2
+Version:          1.1.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Incremental Calculation of Dynamic Time Warping
 
@@ -45,7 +45,10 @@ the subsequence matching algorithm runDTW, that efficiently finds the k-NN
 to a query pattern in a long time series, and (4) C++ in the heart. For
 details about DTW see the original paper "Dynamic programming algorithm
 optimization for spoken word recognition" by Sakoe and Chiba (1978)
-<DOI:10.1109/TASSP.1978.1163055>.
+<DOI:10.1109/TASSP.1978.1163055>. For details about this package, Dynamic
+Time Warping and Incremental Dynamic Time Warping please see "IncDTW: An R
+Package for Incremental Calculation of Dynamic Time Warping" by Leodolter
+et al. (2021) <doi:10.18637/jss.v099.i09>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,6 +58,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  carat
-%global packver   1.5
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Covariate-Adaptive Randomization for Clinical Trials
 
@@ -13,18 +13,18 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-gridExtra >= 2.3
 BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4.6
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-ggplot2 >= 3.3.5
+Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-gridExtra >= 2.3
 Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-Rcpp >= 1.0.4.6
 Requires:         R-methods 
 
 %description

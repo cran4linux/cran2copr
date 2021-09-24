@@ -1,43 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mgcv
-%global packver   1.8-37
+%global packname  MazamaRollUtils
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.37
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mixed GAM Computation Vehicle with Automatic Smoothness Estimation
+Summary:          Efficient Rolling Functions
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-nlme >= 3.1.64
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-splines 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-nlme >= 3.1.64
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-Matrix 
-Requires:         R-splines 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.6
+Requires:         R-CRAN-Rcpp >= 1.0.6
 
 %description
-Generalized additive (mixed) models, some of their extensions and other
-generalized ridge regression with multiple smoothing parameter estimation
-by (Restricted) Marginal Likelihood, Generalized Cross Validation and
-similar, or using iterated nested Laplace approximation for fully Bayesian
-inference. See Wood (2017) <doi:10.1201/9781315370279> for an overview.
-Includes a gam() function, a wide variety of smoothers, 'JAGS' support and
-distributions beyond the exponential family.
+A suite of compiled functions calculating rolling mins, means, maxes and
+other statistics. This package is designed to meet the needs of data
+processing systems for environmental time series.
 
 %prep
 %setup -q -c -n %{packname}

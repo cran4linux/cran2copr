@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BWGS
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          BreedWheat Genomic Selection Pipeline
 
@@ -33,9 +33,10 @@ Requires:         R-CRAN-stringi
 
 %description
 Package for Breed Wheat Genomic Selection Pipeline. The R package 'BWGS'
-is developed by Gilles Charmet <gilles.charmet@inra.fr>. This repository
-is forked from original repository
-<https://forgemia.inra.fr/umr-gdec/bwgs> and modified as a R package.
+is developed by Louis Gautier Tran <louis.gautier.tran@gmail.com> and
+Gilles Charmet <gilles.charmet@inra.fr>. This repository is forked from
+original repository <https://forgemia.inra.fr/umr-gdec/bwgs> and modified
+as a R package.
 
 %prep
 %setup -q -c -n %{packname}
