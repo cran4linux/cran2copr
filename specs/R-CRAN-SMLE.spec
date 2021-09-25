@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SMLE
-%global packver   1.2.4
+%global packver   2.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Feature Screening via Sparse MLE
 
@@ -13,20 +13,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-parallel 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-mvnfast 
-Requires:         R-stats 
-Requires:         R-parallel 
-Requires:         R-graphics 
-Requires:         R-utils 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-mvnfast 

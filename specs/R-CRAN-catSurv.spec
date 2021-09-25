@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  catSurv
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computerized Adaptive Testing for Survey Research
 
@@ -35,7 +35,7 @@ Requires:         R-CRAN-RcppParallel
 
 %description
 Provides methods of computerized adaptive testing for survey researchers.
-See Montgomery and Rossiter (2019) <doi:10.1093/jssam/smz027>. Includes
+See Montgomery and Rossiter (2020) <doi:10.1093/jssam/smz027>. Includes
 functionality for data fit with the classic item response methods
 including the latent trait model, Birnbaum`s three parameter model, the
 graded response, and the generalized partial credit model.  Additionally,
@@ -50,6 +50,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

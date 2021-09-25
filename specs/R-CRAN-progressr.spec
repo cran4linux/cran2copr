@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  progressr
-%global packver   0.8.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Inclusive, Unifying API for Progress Updates
 
@@ -34,7 +34,7 @@ via the speakers using beep::beepr(), or on a file system via the size of
 a file. Anyone can add additional, customized, progression handlers. The
 'progressr' package uses R's condition framework for signaling progress
 updated. Because of this, progress can be reported from almost anywhere in
-R, e.g. from classical for and while loops, from map-reduce APIs like the
+R, e.g. from classical for and while loops, from map-reduce API:s like the
 lapply() family of functions, 'purrr', 'plyr', and 'foreach'. It will also
 work with parallel processing via the 'future' framework, e.g.
 future.apply::future_lapply(), furrr::future_map(), and 'foreach' with
@@ -48,6 +48,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

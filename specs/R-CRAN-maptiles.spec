@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  maptiles
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Display Map Tiles
 
@@ -19,6 +19,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-sf >= 0.9.5
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-tools 
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-slippymath
 Requires:         R-CRAN-sf >= 0.9.5
 Requires:         R-CRAN-curl 
 Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-terra 
 Requires:         R-tools 
@@ -44,6 +46,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

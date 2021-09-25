@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ISR
-%global packver   2021.09.15
+%global packver   2021.9.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2021.09.15
+Version:          2021.9.24
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Iterated Score Regression-Based Estimation Algorithm
 

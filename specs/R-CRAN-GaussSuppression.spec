@@ -1,29 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  lifecycle
-%global packver   1.0.1
+%global packname  GaussSuppression
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manage the Life Cycle of your Package Functions
+Summary:          Tabular Data Suppression using Gaussian Elimination
 
-License:          MIT + file LICENSE
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.4.10
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-rlang >= 0.4.10
-Requires:         R-CRAN-glue 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-SSBtools 
+BuildRequires:    R-CRAN-RegSDC 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-SSBtools 
+Requires:         R-CRAN-RegSDC 
+Requires:         R-stats 
+Requires:         R-methods 
 
 %description
-Manage the life cycle of your exported functions with shared conventions,
-documentation badges, and user-friendly deprecation warnings.
+A statistical disclosure control tool to protect tables by suppression
+using the Gaussian elimination secondary suppression algorithm. Primary
+suppression functions for the minimum frequency rule, the dominance rule
+and a directly-disclosive rule are included. General primary suppression
+functions can be supplied as input. Suppressed frequencies can be replaced
+by synthetic decimal numbers as described in Langsrud (2019)
+<doi:10.1007/s11222-018-9848-9>.
 
 %prep
 %setup -q -c -n %{packname}

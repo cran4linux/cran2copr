@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  uncorbets
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Uncorrelated Bets via Minimum Torsion Algorithm
 
@@ -16,7 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-NlcOptim >= 0.6
+BuildRequires:    R-CRAN-assertthat >= 0.2.1
 BuildRequires:    R-stats 
+Requires:         R-CRAN-NlcOptim >= 0.6
+Requires:         R-CRAN-assertthat >= 0.2.1
 Requires:         R-stats 
 
 %description
