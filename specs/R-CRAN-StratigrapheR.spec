@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  StratigrapheR
-%global packver   1.2.3
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integrated Stratigraphy
 
@@ -43,13 +43,10 @@ base graphics, interval management functions and svg importation functions
 among others. Also include stereographic projection functions, and other
 functions made to deal with large datasets while keeping options to get
 into the details of the data. When using for publication please cite
-Wouters, S., Da Silva, A.C. Crucifix, M., Sinnesael, M., Zivanovic, M.,
-Boulvain, F., Devleeschouwer, X., 2019, Litholog generation with the
-StratigrapheR package and signal decomposition for cyclostratigraphic
-purposes. Geophysical Research Abstracts Vol. 21, EGU2019-5520, 2019, EGU
-General Assembly 2019. <http://hdl.handle.net/2268/234402> The
-palaeomagnetism functions are based on: Tauxe, L., 2010. Essentials of
-Paleomagnetism. University of California Press.
+Wouters, S., Da Silva, A.-C., Boulvain, F., and Devleeschouwer, X.. In
+press. StratigrapheR: Concepts for Litholog Generation in R. The R
+Journal. The palaeomagnetism functions are based on: Tauxe, L., 2010.
+Essentials of Paleomagnetism. University of California Press.
 <https://earthref.org/MagIC/books/Tauxe/Essentials/>; Allmendinger, R. W.,
 Cardozo, N. C., and Fisher, D., 2013, Structural Geology Algorithms:
 Vectors & Tensors: Cambridge, England, Cambridge University Press, 289
@@ -65,6 +62,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

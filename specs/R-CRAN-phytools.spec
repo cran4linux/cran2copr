@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  phytools
-%global packver   0.7-80
+%global packver   0.7-90
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.80
+Version:          0.7.90
 Release:          1%{?dist}%{?buildtag}
 Summary:          Phylogenetic Tools for Comparative Biology (and Other Things)
 
@@ -57,21 +57,21 @@ Requires:         R-utils
 A wide range of functions for phylogenetic analysis. Functionality is
 concentrated in phylogenetic comparative biology, but also includes
 numerous methods for visualizing, manipulating, reading or writing, and
-even inferring phylogenetic trees and data. Included among the functions
-in phylogenetic comparative biology are various for ancestral state
+even inferring phylogenetic trees. Included among the functions in
+phylogenetic comparative biology are various for ancestral state
 reconstruction, model-fitting, simulation of phylogenies and data, and
 multivariate analysis. There are a broad range of plotting methods for
 phylogenies and comparative data which include, but are not restricted to,
 methods for mapping trait evolution on trees, for projecting trees into
 phenotypic space or a geographic map, and for visualizing correlated
-speciation between trees. Finally, there are a number of functions for
+speciation between trees. Finally, there are numerous functions for
 reading, writing, analyzing, inferring, simulating, and manipulating
 phylogenetic trees and comparative data not covered by other packages. For
 instance, there are functions for randomly or non-randomly attaching
-species or clades to a phylogeny, for estimating supertrees or consensus
-phylogenies from a set, for simulating trees and phylogenetic data under a
-range of models, and for a wide variety of other manipulations and
-analyses that phylogenetic biologists might find useful in their research.
+species or clades to a phylogeny, for computing consensus phylogenies from
+a set, for simulating trees and phylogenetic data under a range of models,
+and for a wide variety of other manipulations and analyses that
+phylogenetic biologists might find useful in their research.
 
 %prep
 %setup -q -c -n %{packname}
@@ -81,6 +81,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
