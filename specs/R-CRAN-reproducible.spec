@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  reproducible
-%global packver   1.2.7
+%global packver   1.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.7
+Version:          1.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Set of Tools that Enhance Reproducibility Beyond Package Management
 
@@ -13,14 +13,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sp >= 1.4.2
 BuildRequires:    R-CRAN-data.table >= 1.10.4
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-fpCompare 
+BuildRequires:    R-CRAN-gdalUtilities 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-data.table >= 1.10.4
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-fpCompare 
+Requires:         R-CRAN-gdalUtilities 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
@@ -64,6 +66,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
