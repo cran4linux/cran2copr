@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  starter
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Starter Kit for New Projects
 
@@ -16,28 +16,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.1.2
-BuildRequires:    R-CRAN-R.utils >= 2.10.1
+BuildRequires:    R-CRAN-tibble >= 3.1.4
+BuildRequires:    R-CRAN-R.utils >= 2.11.0
+BuildRequires:    R-CRAN-readr >= 2.0.1
 BuildRequires:    R-CRAN-usethis >= 2.0.1
 BuildRequires:    R-CRAN-fs >= 1.5.0
 BuildRequires:    R-CRAN-glue >= 1.4.2
-BuildRequires:    R-CRAN-readr >= 1.4.0
+BuildRequires:    R-CRAN-gert >= 1.4.1
 BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-gert >= 1.3.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.6
+BuildRequires:    R-CRAN-dplyr >= 1.0.7
 BuildRequires:    R-CRAN-here >= 1.0.1
 BuildRequires:    R-CRAN-rlang >= 0.4.11
 BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-renv >= 0.14.0
-Requires:         R-CRAN-tibble >= 3.1.2
-Requires:         R-CRAN-R.utils >= 2.10.1
+Requires:         R-CRAN-tibble >= 3.1.4
+Requires:         R-CRAN-R.utils >= 2.11.0
+Requires:         R-CRAN-readr >= 2.0.1
 Requires:         R-CRAN-usethis >= 2.0.1
 Requires:         R-CRAN-fs >= 1.5.0
 Requires:         R-CRAN-glue >= 1.4.2
-Requires:         R-CRAN-readr >= 1.4.0
+Requires:         R-CRAN-gert >= 1.4.1
 Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-gert >= 1.3.0
-Requires:         R-CRAN-dplyr >= 1.0.6
+Requires:         R-CRAN-dplyr >= 1.0.7
 Requires:         R-CRAN-here >= 1.0.1
 Requires:         R-CRAN-rlang >= 0.4.11
 Requires:         R-CRAN-purrr >= 0.3.4

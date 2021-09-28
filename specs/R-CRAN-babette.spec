@@ -1,48 +1,48 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Compind
+%global packname  babette
 %global packver   2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Composite Indicators Functions
+Summary:          Control 'BEAST2'
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Benchmarking 
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-lpSolve 
-BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-GPArotation 
-BuildRequires:    R-CRAN-nonparaeff 
-BuildRequires:    R-CRAN-smaa 
-BuildRequires:    R-CRAN-np 
-Requires:         R-CRAN-Benchmarking 
-Requires:         R-CRAN-psych 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-lpSolve 
-Requires:         R-CRAN-spdep 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-GPArotation 
-Requires:         R-CRAN-nonparaeff 
-Requires:         R-CRAN-smaa 
-Requires:         R-CRAN-np 
+BuildRequires:    R-CRAN-beautier >= 2.6.2
+BuildRequires:    R-CRAN-mauricer >= 2.5
+BuildRequires:    R-CRAN-beastier >= 2.4.8
+BuildRequires:    R-CRAN-tracerer 
+BuildRequires:    R-CRAN-phangorn 
+BuildRequires:    R-CRAN-remotes 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-testit 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-beautier >= 2.6.2
+Requires:         R-CRAN-mauricer >= 2.5
+Requires:         R-CRAN-beastier >= 2.4.8
+Requires:         R-CRAN-tracerer 
+Requires:         R-CRAN-phangorn 
+Requires:         R-CRAN-remotes 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-testit 
+Requires:         R-CRAN-xml2 
 
 %description
-Contains functions to enhance approaches to the Composite Indicators
-methods, focusing, in particular, on the normalisation and
-weighting-aggregation steps.
+'BEAST2' (<https://www.beast2.org>) is a widely used Bayesian phylogenetic
+tool, that uses DNA/RNA/protein data and many model priors to create a
+posterior of jointly estimated phylogenies and parameters. 'BEAST2' is
+commonly accompanied by 'BEAUti 2', 'Tracer' and 'DensiTree'. 'babette'
+provides for an alternative workflow of using all these tools separately.
+This allows doing complex Bayesian phylogenetics easily and reproducibly
+from 'R'.
 
 %prep
 %setup -q -c -n %{packname}

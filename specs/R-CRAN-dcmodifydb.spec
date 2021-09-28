@@ -1,34 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RMOA
-%global packver   1.0.2
+%global packname  dcmodifydb
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Connect R with MOA for Massive Online Analysis
+Summary:          Modifying Rules on a DataBase
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         java
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RMOAjars >= 1.0
-BuildRequires:    R-CRAN-rJava >= 0.6.3
+BuildRequires:    R-CRAN-dcmodify >= 0.1.9
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-RMOAjars >= 1.0
-Requires:         R-CRAN-rJava >= 0.6.3
+BuildRequires:    R-CRAN-validate 
+Requires:         R-CRAN-dcmodify >= 0.1.9
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-DBI 
 Requires:         R-methods 
+Requires:         R-CRAN-validate 
 
 %description
-Connect R with MOA (Massive Online Analysis -
-<https://moa.cms.waikato.ac.nz>) to build classification models and
-regression models on streaming data or out-of-RAM data. Also streaming
-recommendation models are made available.
+Apply modification rules from R package 'dcmodify' to the database,
+prescribing and documenting deterministic data cleaning steps on records
+in a database. The rules are translated into SQL statements using R
+package 'dbplyr'.
 
 %prep
 %setup -q -c -n %{packname}

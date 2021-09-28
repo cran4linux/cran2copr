@@ -1,34 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RMOA
-%global packver   1.0.2
+%global packname  datagovindia
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Connect R with MOA for Massive Online Analysis
+Summary:          Data.gov.in API Wrapper
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         java
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RMOAjars >= 1.0
-BuildRequires:    R-CRAN-rJava >= 0.6.3
-BuildRequires:    R-methods 
-Requires:         R-CRAN-RMOAjars >= 1.0
-Requires:         R-CRAN-rJava >= 0.6.3
-Requires:         R-methods 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
 
 %description
-Connect R with MOA (Massive Online Analysis -
-<https://moa.cms.waikato.ac.nz>) to build classification models and
-regression models on streaming data or out-of-RAM data. Also streaming
-recommendation models are made available.
+This wrapper allows the user to communicate with more than 80,000 API
+posted on data.gov.in - open data platform of the government of India
+<https:data.gov.in/ogpl_apis>. It also allows the user to search for the
+API required through the universe of the API with a better interface than
+the one the official website provides. Once a user has the ID by using the
+API discovery functionalities, it allows one to converse with the API
+using a consistent format across all available API.
 
 %prep
 %setup -q -c -n %{packname}

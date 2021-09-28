@@ -1,39 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  uFTIR
-%global packver   0.1.3
+%global packname  ANOVAreplication
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Process and Analyze Agilent Cary 620 FTIR Microscope Images
+Summary:          Test ANOVA Replications by Means of the Prior Predictive p-Value
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gdal-devel >= 1.11.4
-BuildRequires:    proj-devel >= 4.8.0
-BuildRequires:    sqlite-devel
-BuildRequires:    R-devel >= 4.0.4.0
-Requires:         R-core >= 4.0.4.0
-BuildRequires:    R-parallel >= 4.0.4
-BuildRequires:    R-methods >= 4.0.4
-BuildRequires:    R-CRAN-raster >= 3.4.13
-BuildRequires:    R-CRAN-sp >= 1.4.5
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-parallel >= 4.0.4
-Requires:         R-methods >= 4.0.4
-Requires:         R-CRAN-raster >= 3.4.13
-Requires:         R-CRAN-sp >= 1.4.5
-Requires:         R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-quadprog 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-shiny 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-A set of tools to read, process, and summarize Agilent Cary 620 uFTIR
-Microscope hyperspectral images primarily intended for microplastic
-analysis.
+Allows for the computation of a prior predictive p-value to test
+replication of relevant features of original ANOVA studies. Relevant
+features are captured in informative hypotheses. The package also allows
+for the computation of sample sizes for new studies, post-hoc power
+calculations, and comes with a Shiny application in which all calculations
+can be conducted as well. The statistical underpinnings are described in
+Zondervan-Zwijnenburg (2019) <doi:10.31234/osf.io/6myqh>.
 
 %prep
 %setup -q -c -n %{packname}

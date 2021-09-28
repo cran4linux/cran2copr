@@ -1,34 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RMOA
-%global packver   1.0.2
+%global packname  SleepCycles
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Connect R with MOA for Massive Online Analysis
+Summary:          Sleep Cycle Detection
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         java
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RMOAjars >= 1.0
-BuildRequires:    R-CRAN-rJava >= 0.6.3
-BuildRequires:    R-methods 
-Requires:         R-CRAN-RMOAjars >= 1.0
-Requires:         R-CRAN-rJava >= 0.6.3
-Requires:         R-methods 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-viridis 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-viridis 
 
 %description
-Connect R with MOA (Massive Online Analysis -
-<https://moa.cms.waikato.ac.nz>) to build classification models and
-regression models on streaming data or out-of-RAM data. Also streaming
-recommendation models are made available.
+Sleep cycles are largely detected according to the originally proposed
+criteria by Feinberg & Floyd (1979)
+<doi:10.1111/j.1469-8986.1979.tb02991.x> as described in Blume & Cajochen
+(2021) <doi:10.1016/j.mex.2021.101318>.
 
 %prep
 %setup -q -c -n %{packname}

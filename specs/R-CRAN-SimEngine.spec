@@ -1,34 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RMOA
-%global packver   1.0.2
+%global packname  SimEngine
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Connect R with MOA for Massive Online Analysis
+Summary:          An Open-Source Framework for Statistical Simulations in R
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         java
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RMOAjars >= 1.0
-BuildRequires:    R-CRAN-rJava >= 0.6.3
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-RMOAjars >= 1.0
-Requires:         R-CRAN-rJava >= 0.6.3
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-parallel 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-rlang 
 Requires:         R-methods 
 
 %description
-Connect R with MOA (Massive Online Analysis -
-<https://moa.cms.waikato.ac.nz>) to build classification models and
-regression models on streaming data or out-of-RAM data. Also streaming
-recommendation models are made available.
+An open-source R package for structuring, maintaining, running, and
+debugging statistical simulations on both local and cluster-based
+computing environments. Emphasis is placed on thorough documentation and
+scalability. See full documentation at
+<https://avi-kenny.github.io/SimEngine/>.
 
 %prep
 %setup -q -c -n %{packname}

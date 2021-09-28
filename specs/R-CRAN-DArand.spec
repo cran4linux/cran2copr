@@ -1,34 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RMOA
-%global packver   1.0.2
+%global packname  DArand
+%global packver   0.0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Connect R with MOA for Massive Online Analysis
+Summary:          Differential Analysis with Random Reference Genes
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         java
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RMOAjars >= 1.0
-BuildRequires:    R-CRAN-rJava >= 0.6.3
-BuildRequires:    R-methods 
-Requires:         R-CRAN-RMOAjars >= 1.0
-Requires:         R-CRAN-rJava >= 0.6.3
-Requires:         R-methods 
+BuildRequires:    R-parallel 
+Requires:         R-parallel 
 
 %description
-Connect R with MOA (Massive Online Analysis -
-<https://moa.cms.waikato.ac.nz>) to build classification models and
-regression models on streaming data or out-of-RAM data. Also streaming
-recommendation models are made available.
+Differential Analysis of short RNA transcripts that can be modeled by
+either Poisson or Negative binomial distribution.  The statistical
+methodology implemented in this package is based on the random selection
+of references genes (Desaulle et al. (2021) <arXiv:2103.09872>).
 
 %prep
 %setup -q -c -n %{packname}

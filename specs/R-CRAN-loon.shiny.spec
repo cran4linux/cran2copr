@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  loon.shiny
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatically Create a 'Shiny' App Based on Interactive 'Loon' Widgets
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-loon >= 1.3.0
+BuildRequires:    R-CRAN-loon >= 1.3.7
 BuildRequires:    R-CRAN-loon.ggplot >= 1.1.0
 BuildRequires:    R-tcltk 
 BuildRequires:    R-methods 
@@ -27,7 +27,7 @@ BuildRequires:    R-grid
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-colourpicker 
 BuildRequires:    R-CRAN-base64enc 
-Requires:         R-CRAN-loon >= 1.3.0
+Requires:         R-CRAN-loon >= 1.3.7
 Requires:         R-CRAN-loon.ggplot >= 1.1.0
 Requires:         R-tcltk 
 Requires:         R-methods 
@@ -53,6 +53,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,39 +1,48 @@
 %global __brp_check_rpaths %{nil}
-%global packname  equatiomatic
-%global packver   0.3.0
+%global packname  eyetrackingR
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Transform Models into 'LaTeX' Equations
+Summary:          Eye-Tracking Data Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broom >= 0.7.0
+BuildRequires:    R-CRAN-ggplot2 >= 2.0
+BuildRequires:    R-CRAN-zoo >= 1.7.12
+BuildRequires:    R-CRAN-dplyr >= 0.7.4
+BuildRequires:    R-CRAN-broom >= 0.3.7
+BuildRequires:    R-CRAN-tidyr >= 0.3.1
+BuildRequires:    R-CRAN-purrr >= 0.2.4
+BuildRequires:    R-CRAN-lazyeval >= 0.1.10
 BuildRequires:    R-CRAN-broom.mixed 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-broom >= 0.7.0
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 >= 2.0
+Requires:         R-CRAN-zoo >= 1.7.12
+Requires:         R-CRAN-dplyr >= 0.7.4
+Requires:         R-CRAN-broom >= 0.3.7
+Requires:         R-CRAN-tidyr >= 0.3.1
+Requires:         R-CRAN-purrr >= 0.2.4
+Requires:         R-CRAN-lazyeval >= 0.1.10
 Requires:         R-CRAN-broom.mixed 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-knitr 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-rlang 
 
 %description
-The goal of 'equatiomatic' is to reduce the pain associated with writing
-'LaTeX' formulas from fitted models. The primary function of the package,
-extract_eq(), takes a fitted model object as its input and returns the
-corresponding 'LaTeX' code for the model.
+Addresses tasks along the pipeline from raw data to analysis and
+visualization for eye-tracking data. Offers several popular types of
+analyses, including linear and growth curve time analyses,
+onset-contingent reaction time analyses, as well as several non-parametric
+bootstrapping approaches. For references to the approach see Mirman, Dixon
+& Magnuson (2008) <doi:10.1016/j.jml.2007.11.006>, and Barr (2008)
+<doi:10.1016/j.jml.2007.09.002>.
 
 %prep
 %setup -q -c -n %{packname}

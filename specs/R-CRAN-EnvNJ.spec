@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  EnvNJ
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Whole Genome Phylogenies Using Sequence Environments
 
@@ -19,10 +19,16 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-bio3d 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-phangorn 
+BuildRequires:    R-CRAN-philentropy 
+BuildRequires:    R-CRAN-seqinr 
 BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-bio3d 
 Requires:         R-graphics 
+Requires:         R-CRAN-phangorn 
+Requires:         R-CRAN-philentropy 
+Requires:         R-CRAN-seqinr 
 Requires:         R-CRAN-stringr 
 
 %description
@@ -45,6 +51,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

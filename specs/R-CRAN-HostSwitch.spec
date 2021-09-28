@@ -1,34 +1,48 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RMOA
-%global packver   1.0.2
+%global packname  HostSwitch
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Connect R with MOA for Massive Online Analysis
+Summary:          Simulate the Extent of Host Switching by Consumers
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         java
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RMOAjars >= 1.0
-BuildRequires:    R-CRAN-rJava >= 0.6.3
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-RMOAjars >= 1.0
-Requires:         R-CRAN-rJava >= 0.6.3
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tippy 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-checkmate 
 Requires:         R-methods 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tippy 
 
 %description
-Connect R with MOA (Massive Online Analysis -
-<https://moa.cms.waikato.ac.nz>) to build classification models and
-regression models on streaming data or out-of-RAM data. Also streaming
-recommendation models are made available.
+Using a simulation-based approach, the 'HostSwitch' package provides
+functions to investigate host switches by consumers. The individual-based
+model is based on the concept of ecological fitting. The mockup model is
+published by Araujo et al. 2015. Understanding Host-Switching by
+Ecological Fitting (<doi:10.1371/journal.pone.0139225>). The package
+provides an R-friendly and modified version of this model which can be
+applied to different consumer-resource scenarios.
 
 %prep
 %setup -q -c -n %{packname}

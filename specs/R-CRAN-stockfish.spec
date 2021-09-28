@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  stockfish
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze Chess Games with the 'Stockfish' Engine
 
@@ -22,7 +22,7 @@ Requires:         R-CRAN-R6
 
 %description
 An implementation of the UCI open communication protocol that ships with
-'Stockfish 11' <https://stockfishchess.org/>, a very popular, open source,
+'Stockfish' <https://stockfishchess.org/>, a very popular, open source,
 powerful chess engine written in C++.
 
 %prep
@@ -33,6 +33,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
