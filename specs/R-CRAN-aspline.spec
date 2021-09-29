@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  PPTcirc
-%global packver   0.2.1
+%global packname  aspline
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Projected Polya Tree for Circular Data
+Summary:          Spline Regression with Adaptive Knot Selection
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,20 +15,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-circular 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-progress 
-Requires:         R-CRAN-circular 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-progress 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-splines2 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-pspline 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-pryr 
+BuildRequires:    R-CRAN-fda 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-splines2 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-pspline 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-pryr 
+Requires:         R-CRAN-fda 
 
 %description
-Provides functionality for the prior and posterior projected Polya tree
-for the analysis of circular data (Nieto-Barajas and Nunez-Antonio (2019)
-<arXiv:1902.06020>).
+Perform one-dimensional spline regression with automatic knot selection.
+This package uses a penalized approach to select the most relevant knots.
+B-splines of any degree can be fitted. More details in Goepp et al.
+(2018), "Spline Regression with Automatic Knot Selection",
+<arXiv:1808.01770>.
 
 %prep
 %setup -q -c -n %{packname}

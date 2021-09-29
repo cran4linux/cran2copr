@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  inTextSummaryTable
-%global packver   3.0.1
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creation of in-Text Summary Table
 
@@ -18,9 +18,8 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-reshape2 >= 1.4
 BuildRequires:    R-CRAN-flextable >= 0.5.5
-BuildRequires:    R-CRAN-clinUtils 
+BuildRequires:    R-CRAN-clinUtils >= 0.1.0
 BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-magrittr 
@@ -32,9 +31,8 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 Requires:         R-CRAN-reshape2 >= 1.4
 Requires:         R-CRAN-flextable >= 0.5.5
-Requires:         R-CRAN-clinUtils 
+Requires:         R-CRAN-clinUtils >= 0.1.0
 Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-magrittr 

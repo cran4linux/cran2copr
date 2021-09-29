@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  patientProfilesVis
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization of Patient Profiles
 
@@ -24,7 +24,6 @@ BuildRequires:    R-tools
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-gridExtra 
@@ -37,7 +36,6 @@ Requires:         R-tools
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-knitr 
 Requires:         R-grid 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-parallel 
 Requires:         R-CRAN-gridExtra 

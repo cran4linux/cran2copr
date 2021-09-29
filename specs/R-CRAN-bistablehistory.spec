@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bayesdfa
-%global packver   1.2.0
+%global packname  bistablehistory
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Dynamic Factor Analysis (DFA) with 'Stan'
+Summary:          Cumulative History Analysis for Bistable Perception Time Series
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,43 +17,49 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
 BuildRequires:    R-CRAN-rstan >= 2.18.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.1
+BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
 BuildRequires:    R-CRAN-rstantools >= 2.1.1
-BuildRequires:    R-CRAN-loo >= 2.0.0
-BuildRequires:    R-CRAN-mgcv >= 1.8.13
 BuildRequires:    R-CRAN-BH >= 1.66.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-loo 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-viridisLite 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-rstan >= 2.18.1
 Requires:         R-CRAN-rstantools >= 2.1.1
-Requires:         R-CRAN-loo >= 2.0.0
-Requires:         R-CRAN-mgcv >= 1.8.13
 Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-loo 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-viridisLite 
+Requires:         R-methods 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-rstantools
 
 %description
-Implements Bayesian dynamic factor analysis with 'Stan'. Dynamic factor
-analysis is a dimension reduction tool for multivariate time series.
-'bayesdfa' extends conventional dynamic factor models in several ways.
-First, extreme events may be estimated in the latent trend by modeling
-process error with a student-t distribution. Second, alternative
-constraints (including proportions are allowed). Third, the estimated
-dynamic factors can be analyzed with hidden Markov models to evaluate
-support for latent regimes.
+Estimates cumulative history for time-series for continuously viewed
+bistable perceptual rivalry displays. Computes cumulative history via a
+homogeneous first order differential process. I.e., it assumes exponential
+growth/decay of the history as a function time and perceptually dominant
+state, Pastukhov & Braun (2011) <doi:10.1167/11.10.12>. Supports Gamma,
+log normal, and normal distribution families. Provides a method to compute
+history directly and example of using the computation on a custom Stan
+code.
 
 %prep
 %setup -q -c -n %{packname}

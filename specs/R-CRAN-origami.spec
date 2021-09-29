@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  origami
-%global packver   1.0.3
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
-Release:          3%{?dist}%{?buildtag}
+Version:          1.0.5
+Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Framework for Cross-Validation
 
 License:          GPL-3
@@ -34,11 +34,21 @@ Requires:         R-CRAN-listenv
 %description
 A general framework for the application of cross-validation schemes to
 particular functions. By allowing arbitrary lists of results, origami
-accommodates a range of cross-validation applications.
+accommodates a range of cross-validation applications. This implementation
+was first described by Coyle and Hejazi (2018) <doi:10.21105/joss.00512>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -46,20 +56,10 @@ accommodates a range of cross-validation applications.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/examples
-%doc %{rlibdir}/%{packname}/rebuild.R
-%doc %{rlibdir}/%{packname}/test
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

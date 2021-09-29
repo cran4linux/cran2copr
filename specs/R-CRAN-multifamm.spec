@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fitdistrplus
-%global packver   1.1-6
+%global packname  multifamm
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Help to Fit of a Parametric Distribution to Non-Censored or Censored Data
+Summary:          Multivariate Functional Additive Mixed Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,28 +16,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-MFPCA >= 1.3.2
+BuildRequires:    R-CRAN-sparseFLMM > 0.3.0
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-funData 
+BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-grDevices 
-Requires:         R-CRAN-survival 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-MFPCA >= 1.3.2
+Requires:         R-CRAN-sparseFLMM > 0.3.0
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-funData 
+Requires:         R-CRAN-mgcv 
 Requires:         R-stats 
+Requires:         R-CRAN-zoo 
 
 %description
-Extends the fitdistr() function (of the MASS package) with several
-functions to help the fit of a parametric distribution to non-censored or
-censored data. Censored data may contain left censored, right censored and
-interval censored values, with several lower and upper bounds. In addition
-to maximum likelihood estimation (MLE), the package provides moment
-matching (MME), quantile matching (QME), maximum goodness-of-fit
-estimation (MGE) and maximum spacing estimation (MSE) methods (available
-only for non-censored data). Weighted versions of MLE, MME, QME and MSE
-are available. See e.g. Casella & Berger (2002), Statistical inference,
-Pacific Grove, for a general introduction to parametric estimation.
+An implementation for multivariate functional additive mixed models
+(multiFAMM), see Volkmann et al. (2021, <arXiv:2103.06606>). It builds on
+developed methods for univariate sparse functional regression models and
+multivariate functional principal component analysis. This package
+contains the function to run a multiFAMM and some convenience functions
+useful when working with large models. An additional package on GitHub
+contains more convenience functions to reproduce the analyses of the
+corresponding paper (<https://github.com/alexvolkmann/multifammPaper>).
 
 %prep
 %setup -q -c -n %{packname}

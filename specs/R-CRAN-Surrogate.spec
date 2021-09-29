@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Surrogate
-%global packver   1.9
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evaluation of Surrogate Endpoints in Clinical Trials
 
@@ -31,6 +31,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-ks 
 BuildRequires:    R-CRAN-rootSolve 
 BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-CRAN-pbapply 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-latticeExtra 
@@ -46,6 +47,7 @@ Requires:         R-parallel
 Requires:         R-CRAN-ks 
 Requires:         R-CRAN-rootSolve 
 Requires:         R-CRAN-extraDistr 
+Requires:         R-CRAN-pbapply 
 
 %description
 In a clinical trial, it frequently occurs that the most credible outcome
@@ -69,6 +71,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

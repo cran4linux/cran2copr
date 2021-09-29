@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  loon.ggplot
-%global packver   1.2.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Making 'ggplot2' Plots Interactive with 'loon' and Vice Versa
+Summary:          A Grammar of Interactive Graphics
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,36 +21,35 @@ BuildRequires:    R-CRAN-loon >= 1.3.2
 BuildRequires:    R-tcltk 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ggmulti 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-GGally 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-loon >= 1.3.2
 Requires:         R-tcltk 
 Requires:         R-methods 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
 Requires:         R-CRAN-ggmulti 
+Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-grDevices 
 Requires:         R-grid 
-Requires:         R-CRAN-GGally 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-rlang 
 
 %description
-It provides a bridge between the 'loon' and 'ggplot2' packages. Data
-analysts who value the grammar pipeline provided by 'ggplot2' can turn
-these static plots into interactive 'loon' plots. Conversely, data
-analysts who explore data interactively with 'loon' can turn any 'loon'
-plot into a 'ggplot2' plot structure. The function 'loon.ggplot()' is
-applied to one plot structure will return the other.
+Provides a bridge between the 'loon' and 'ggplot2' packages.  Extends the
+grammar of ggplot to add clauses to create interactive 'loon' plots.
+Existing ggplot(s) can be turned into interactive 'loon' plots and 'loon'
+plots into static ggplot(s); the function 'loon.ggplot()' is the bridge
+from one plot structure to the other.
 
 %prep
 %setup -q -c -n %{packname}
@@ -60,6 +59,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

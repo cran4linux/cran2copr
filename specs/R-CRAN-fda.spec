@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fda
-%global packver   5.1.9
+%global packver   5.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.9
+Version:          5.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Data Analysis
 
@@ -19,9 +19,11 @@ BuildArch:        noarch
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-fds 
+BuildRequires:    R-CRAN-deSolve 
 Requires:         R-splines 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-fds 
+Requires:         R-CRAN-deSolve 
 
 %description
 These functions were developed to support functional data analysis as
@@ -31,7 +33,7 @@ Graves, Spencer (2009). Functional Data Analysis with R and Matlab
 (Springer). The package includes data sets and script files working many
 examples including all but one of the 76 figures in this latter book.
 Matlab versions are available by ftp from
-<http://www.psych.mcgill.ca/misc/fda/downloads/FDAfuns/>.
+<https://www.psych.mcgill.ca/misc/fda/downloads/FDAfuns/>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -41,6 +43,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

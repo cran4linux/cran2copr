@@ -1,44 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  lcc
-%global packver   1.1.3
+%global packname  wordpiece.data
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Longitudinal Concordance Correlation
+Summary:          Data for Wordpiece-Style Tokenization
 
-License:          GPL (>= 2)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nlme >= 3.1.124
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
-BuildRequires:    R-CRAN-hnp 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doSNOW 
-BuildRequires:    R-CRAN-doRNG 
-BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-nlme >= 3.1.124
-Requires:         R-CRAN-ggplot2 >= 2.2.1
-Requires:         R-CRAN-hnp 
-Requires:         R-parallel 
-Requires:         R-CRAN-doSNOW 
-Requires:         R-CRAN-doRNG 
-Requires:         R-CRAN-foreach 
 
 %description
-Estimates the longitudinal concordance correlation to access the
-longitudinal agreement profile. The estimation approach implemented is
-variance components approach based on polynomial mixed effects regression
-model, as proposed by Oliveira, Hinde and Zocchi (2018)
-<doi:10.1007/s13253-018-0321-1>.  In addition, non-parametric confidence
-intervals were implemented using percentile method or normal-approximation
-based on Fisher Z-transformation.
+Provides data to be used by the wordpiece algorithm in order to tokenize
+text into somewhat meaningful chunks. Included vocabularies were retrieved
+from <https://huggingface.co/bert-base-cased/resolve/main/vocab.txt> and
+<https://huggingface.co/bert-base-uncased/resolve/main/vocab.txt> and
+parsed into an R-friendly format.
 
 %prep
 %setup -q -c -n %{packname}

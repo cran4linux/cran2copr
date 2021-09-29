@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bqror
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Quantile Regression for Ordinal Models
 
@@ -36,14 +36,27 @@ Requires:         R-graphics
 Requires:         R-stats 
 
 %description
-Provides an estimation technique for Bayesian quantile regression in
-ordinal models. Two algorithms are considered - one for an ordinal model
-with three outcomes and the other for an ordinal model with more than 3
-outcomes. It further provides model performance criteria and trace plots
-for Markov chain Monte Carlo (MCMC) draws. Rahman, M. A. (2016)
-<doi:10.1214/15-BA939>. Greenberg, E. (2012)
-<doi:10.1017/CBO9781139058414>. Spiegelhalter, D. J., Best, N. G., Carlin
-B. P. and Linde A. (2002) <doi:10.1111/1467-9868.00353>.
+Provides functions for estimating Bayesian quantile regression for ordinal
+models, calculating covariate effects, and computing measures for model
+comparision. Specifically, the package offers two estimation functions -
+one for an ordinal model with more than three outcomes. For each ordinal
+model, the package provides functions to calculate the covariate effect
+using the MCMC outputs. The package also computes marginal likelihood
+(recommended) and the Deviance Information Criterion (DIC) for comparing
+alternative quantile regression models. Besides, the package also contains
+functions for making trace plots of MCMC draws and other functions that
+aids the estimation or inference of quantile ordinal models. Rahman, M. A.
+(2016).“Bayesian Quantile Regression for Ordinal Models.” Bayesian
+Analysis, II(I): 1-24 <doi:10.1214/15-BA939>. Yu, K., and Moyeed, R. A.
+(2001). “Bayesian Quantile Regression.” Statistics and Probability
+Letters, 54(4): 437–447 <doi:10.1016/S0167-7152(01)00124-9>. Koenker, R.,
+and Bassett, G. (1978).“Regression Quantiles.” Econometrica, 46(1): 33-50
+<doi:10.2307/1913643>. Chib, S. (1995). “Marginal likelihood from the
+Gibbs output.” Journal of the American Statistical Association,
+90(432):1313–1321, 1995. <doi: 10.1080/01621459.1995.10476635>. Chib, S.,
+and Jeliazkov, I. (2001). “Marginal likelihood from the
+Metropolis-Hastings output.” Journal of the American Statistical
+Association, 96(453):270–281, 2001. <doi: 10.1198/016214501750332848>.
 
 %prep
 %setup -q -c -n %{packname}

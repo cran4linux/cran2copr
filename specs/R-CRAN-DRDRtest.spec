@@ -1,44 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  lcc
-%global packver   1.1.3
+%global packname  DRDRtest
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Longitudinal Concordance Correlation
+Summary:          A Nonparametric Doubly Robust Test for Continuous Treatment Effect
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nlme >= 3.1.124
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
-BuildRequires:    R-CRAN-hnp 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doSNOW 
-BuildRequires:    R-CRAN-doRNG 
-BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-nlme >= 3.1.124
-Requires:         R-CRAN-ggplot2 >= 2.2.1
-Requires:         R-CRAN-hnp 
-Requires:         R-parallel 
-Requires:         R-CRAN-doSNOW 
-Requires:         R-CRAN-doRNG 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-CRAN-KernSmooth 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-SuperLearner 
+Requires:         R-CRAN-KernSmooth 
+Requires:         R-stats 
+Requires:         R-CRAN-SuperLearner 
 
 %description
-Estimates the longitudinal concordance correlation to access the
-longitudinal agreement profile. The estimation approach implemented is
-variance components approach based on polynomial mixed effects regression
-model, as proposed by Oliveira, Hinde and Zocchi (2018)
-<doi:10.1007/s13253-018-0321-1>.  In addition, non-parametric confidence
-intervals were implemented using percentile method or normal-approximation
-based on Fisher Z-transformation.
+Implement the statistical test proposed in Weng et al. (2021) to test
+whether the average treatment effect curve is constant and whether a
+discrete covariate is a significant effect modifier.
 
 %prep
 %setup -q -c -n %{packname}

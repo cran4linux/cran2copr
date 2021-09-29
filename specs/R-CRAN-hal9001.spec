@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  hal9001
-%global packver   0.2.7
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Scalable Highly Adaptive Lasso
 
@@ -24,6 +24,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-origami >= 1.0.3
 Requires:         R-CRAN-Rcpp 
@@ -34,6 +35,7 @@ Requires:         R-methods
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-stringr 
 
 %description
 A scalable implementation of the highly adaptive lasso algorithm,
@@ -45,7 +47,9 @@ flexibility, the Lasso fitting routines invoke code from the 'glmnet'
 package by default. The highly adaptive lasso was first formulated and
 described by MJ van der Laan (2017) <doi:10.1515/ijb-2015-0097>, with
 practical demonstrations of its performance given by Benkeser and van der
-Laan (2016) <doi:10.1109/DSAA.2016.93>.
+Laan (2016) <doi:10.1109/DSAA.2016.93>. This implementation of the highly
+adaptive lasso algorithm was described by Hejazi, Coyle, and van der Laan
+(2020) <doi:10.21105/joss.02526>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,6 +59,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DoE.MIParray
-%global packver   0.13
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13
-Release:          3%{?dist}%{?buildtag}
+Version:          1.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Creation of Arrays by Mixed Integer Programming
 
 License:          GPL (>= 2)
@@ -30,19 +30,31 @@ Requires:         R-CRAN-DoE.base
 are enhanced with functionality for the creation of optimized arrays for
 experimentation, where optimization is in terms of generalized minimum
 aberration. It is also possible to optimally extend existing arrays to
-larger run size. Optimization requires the availability of at least one of
-the commercial products 'Gurobi' or 'Mosek' (free academic licenses
-available for both). For installing 'Gurobi' and its R package 'gurobi',
-follow instructions at <http://www.gurobi.com/downloads/gurobi-optimizer>
-and <http://www.gurobi.com/documentation/7.5/refman/r_api_overview.html>
-(or higher version). For installing 'Mosek' and its R package 'Rmosek',
-follow instructions at <https://www.mosek.com/downloads/> and
-<http://docs.mosek.com/8.1/rmosek/install-interface.html>, or use the
+larger run size. The package writes 'MPS' (Mathematical Programming
+System) files for use with any mixed integer optimization software that
+can process such files. If at least one of the commercial products
+'Gurobi' or 'Mosek' (free academic licenses available for both) is
+available, the package also creates arrays by optimization. For installing
+'Gurobi' and its R package 'gurobi', follow instructions at
+<https://www.gurobi.com/products/gurobi-optimizer/> and
+<https://www.gurobi.com/documentation/7.5/refman/r_api_overview.html> (or
+higher version). For installing 'Mosek' and its R package 'Rmosek', follow
+instructions at <https://www.mosek.com/downloads/> and
+<https://docs.mosek.com/8.1/rmosek/install-interface.html>, or use the
 functionality in the stump CRAN R package 'Rmosek'.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -52,15 +64,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/NEWS
-%doc %{rlibdir}/%{packname}/testsWithGurobiAndMosek
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

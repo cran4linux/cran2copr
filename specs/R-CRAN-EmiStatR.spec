@@ -1,44 +1,50 @@
 %global __brp_check_rpaths %{nil}
-%global packname  lcc
-%global packver   1.1.3
+%global packname  EmiStatR
+%global packver   1.2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.2.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Longitudinal Concordance Correlation
+Summary:          Emissions and Statistics in R for Wastewater and Pollutants in Combined Sewer Systems
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nlme >= 3.1.124
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
-BuildRequires:    R-CRAN-hnp 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doSNOW 
-BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-nlme >= 3.1.124
-Requires:         R-CRAN-ggplot2 >= 2.2.1
-Requires:         R-CRAN-hnp 
-Requires:         R-parallel 
-Requires:         R-CRAN-doSNOW 
-Requires:         R-CRAN-doRNG 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-doParallel 
+Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-doParallel 
 
 %description
-Estimates the longitudinal concordance correlation to access the
-longitudinal agreement profile. The estimation approach implemented is
-variance components approach based on polynomial mixed effects regression
-model, as proposed by Oliveira, Hinde and Zocchi (2018)
-<doi:10.1007/s13253-018-0321-1>.  In addition, non-parametric confidence
-intervals were implemented using percentile method or normal-approximation
-based on Fisher Z-transformation.
+Provides a fast and parallelised calculator to estimate combined
+wastewater emissions. It supports the planning and design of urban
+drainage systems, without the requirement of extensive simulation tools.
+The 'EmiStatR' package implements modular R methods. This enables to add
+new functionalities through the R framework.
 
 %prep
 %setup -q -c -n %{packname}

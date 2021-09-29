@@ -1,56 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  caret
-%global packver   6.0-89
+%global packname  flintyR
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.89
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classification and Regression Training
+Summary:          Flexible and Interpretable Non-Parametric Tests of Exchangeability
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-withr >= 2.0.0
-BuildRequires:    R-CRAN-ModelMetrics >= 1.2.2.2
-BuildRequires:    R-CRAN-lattice >= 0.20
-BuildRequires:    R-CRAN-recipes >= 0.1.10
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.6
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-pROC 
-BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-stats 
-BuildRequires:    R-stats4 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-withr >= 2.0.0
-Requires:         R-CRAN-ModelMetrics >= 1.2.2.2
-Requires:         R-CRAN-lattice >= 0.20
-Requires:         R-CRAN-recipes >= 0.1.10
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-e1071 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.6
+Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
-Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-pROC 
-Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-testthat 
 Requires:         R-stats 
-Requires:         R-stats4 
-Requires:         R-utils 
 
 %description
-Misc functions for training and plotting classification and regression
-models.
+Given a multivariate dataset and some knowledge about the dependencies
+between its features, it is important to ensure the observations or
+individuals are exchangeable before fitting a model to the data in order
+to make inferences from it, or assigning randomized treatments in order to
+estimate treatment effects. This package provides a flexible
+non-parametric test of exchangeability, allowing the user to specify the
+feature dependencies by hand. It can be used directly to evaluate whether
+a sample is exchangeable, and can also be piped into larger procedures
+that require exchangeable samples as outputs (e.g., clustering or
+community detection). See Aw, Spence and Song (2021+) for the accompanying
+paper.
 
 %prep
 %setup -q -c -n %{packname}
