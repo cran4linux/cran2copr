@@ -1,43 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bayefdr
-%global packver   0.2.0
+%global packname  Guerry
+%global packver   1.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.7.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Estimation and Optimisation of Expected False Discovery Rate
+Summary:          Maps, Data and Methods Related to Guerry (1833) "Moral Statistics of France"
 
-License:          GPL-3
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-ggExtra 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-assertthat 
-Requires:         R-utils 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-ggExtra 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-sp 
+Requires:         R-CRAN-sp 
 
 %description
-Implements the Bayesian FDR control described by Newton et al. (2004),
-<doi:10.1093/biostatistics/5.2.155>. Allows optimisation and visualisation
-of expected error rates based on tail posterior probability tests. Based
-on code written by Catalina Vallejos for BASiCS, see Beyond comparisons of
-means: understanding changes in gene expression at the single-cell level
-Vallejos et al. (2016) <doi:10.1186/s13059-016-0930-3>.
+Maps of France in 1830, multivariate datasets from A.-M. Guerry and
+others, and statistical and graphic methods related to Guerry's "Moral
+Statistics of France". The goal is to facilitate the exploration and
+development of statistical and graphic methods for multivariate data in a
+geospatial context of historical interest.
 
 %prep
 %setup -q -c -n %{packname}

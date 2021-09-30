@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SpaDES.tools
-%global packver   0.3.8
+%global packver   0.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          0.3.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Additional Tools for Developing Spatially Explicit Discrete Event Simulation (SpaDES) Models
 
@@ -13,40 +13,38 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildRequires:    R-CRAN-raster >= 2.5.8
 BuildRequires:    R-CRAN-checkmate >= 1.8.2
+BuildRequires:    R-CRAN-reproducible >= 1.2.7
 BuildRequires:    R-CRAN-sp >= 1.2.4
 BuildRequires:    R-CRAN-data.table >= 1.10.4
 BuildRequires:    R-CRAN-fastmatch >= 1.1.0
 BuildRequires:    R-CRAN-CircStats >= 0.2.4
 BuildRequires:    R-CRAN-fpCompare >= 0.2.1
-BuildRequires:    R-CRAN-reproducible >= 0.2.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-quickPlot 
-BuildRequires:    R-CRAN-Require 
 BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-raster >= 2.5.8
 Requires:         R-CRAN-checkmate >= 1.8.2
+Requires:         R-CRAN-reproducible >= 1.2.7
 Requires:         R-CRAN-sp >= 1.2.4
 Requires:         R-CRAN-data.table >= 1.10.4
 Requires:         R-CRAN-fastmatch >= 1.1.0
 Requires:         R-CRAN-CircStats >= 0.2.4
 Requires:         R-CRAN-fpCompare >= 0.2.1
-Requires:         R-CRAN-reproducible >= 0.2.0
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-CRAN-backports 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-parallel 
 Requires:         R-CRAN-quickPlot 
-Requires:         R-CRAN-Require 
 Requires:         R-CRAN-rgeos 
 Requires:         R-stats 
 
@@ -65,6 +63,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,43 +1,50 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bayefdr
-%global packver   0.2.0
+%global packname  chantrics
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Estimation and Optimisation of Expected False Discovery Rate
+Summary:          Loglikelihood Adjustments for Econometric Models
 
-License:          GPL-3
+License:          EUPL (>= 1.2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-ggExtra 
+BuildRequires:    R-CRAN-AER 
+BuildRequires:    R-CRAN-chandwich 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-assertthat 
-Requires:         R-utils 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-ggExtra 
+BuildRequires:    R-utils 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-AER 
+Requires:         R-CRAN-chandwich 
+Requires:         R-graphics 
+Requires:         R-CRAN-sandwich 
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-methods 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-purrr 
 
 %description
-Implements the Bayesian FDR control described by Newton et al. (2004),
-<doi:10.1093/biostatistics/5.2.155>. Allows optimisation and visualisation
-of expected error rates based on tail posterior probability tests. Based
-on code written by Catalina Vallejos for BASiCS, see Beyond comparisons of
-means: understanding changes in gene expression at the single-cell level
-Vallejos et al. (2016) <doi:10.1186/s13059-016-0930-3>.
+Adjusts the loglikelihood of common econometric models for clustered data
+based on the estimation process suggested in Chandler and Bate (2007)
+<doi:10.1093/biomet/asm015>, using the 'chandwich' package
+<https://cran.r-project.org/package=chandwich>, and provides convenience
+functions for inference on the adjusted models.
 
 %prep
 %setup -q -c -n %{packname}

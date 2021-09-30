@@ -1,43 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bayefdr
-%global packver   0.2.0
+%global packname  netie
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Estimation and Optimisation of Expected False Discovery Rate
+Summary:          Antigen T Cell Interaction Estimation
 
-License:          GPL-3
+License:          Apache License
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-ggExtra 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-assertthat 
-Requires:         R-utils 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-ggExtra 
-Requires:         R-stats 
 
 %description
-Implements the Bayesian FDR control described by Newton et al. (2004),
-<doi:10.1093/biostatistics/5.2.155>. Allows optimisation and visualisation
-of expected error rates based on tail posterior probability tests. Based
-on code written by Catalina Vallejos for BASiCS, see Beyond comparisons of
-means: understanding changes in gene expression at the single-cell level
-Vallejos et al. (2016) <doi:10.1186/s13059-016-0930-3>.
+The Bayesian hierarchical model named antigen-T cell interaction
+estimation is to estimate the history of the immune pressure on the
+evolution of the tumor clones.The model is based on the estimation result
+from Andrew Roth (2014) <doi:10.1038/nmeth.2883>.
 
 %prep
 %setup -q -c -n %{packname}

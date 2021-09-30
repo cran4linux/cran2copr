@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bayefdr
-%global packver   0.2.0
+%global packname  isaeditor
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Estimation and Optimisation of Expected False Discovery Rate
+Summary:          Tools to Manipulate ISA-Tab Files
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,28 +16,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-ggExtra 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-assertthat 
-Requires:         R-utils 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-ggExtra 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-colorDF 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-colorDF 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-CRAN-rlang 
 
 %description
-Implements the Bayesian FDR control described by Newton et al. (2004),
-<doi:10.1093/biostatistics/5.2.155>. Allows optimisation and visualisation
-of expected error rates based on tail posterior probability tests. Based
-on code written by Catalina Vallejos for BASiCS, see Beyond comparisons of
-means: understanding changes in gene expression at the single-cell level
-Vallejos et al. (2016) <doi:10.1186/s13059-016-0930-3>.
+ISA-Tab (Investigation/Study/Assay (ISA) tab-delimited (TAB) format) is a
+general purpose framework for storing complex metadata in omics
+applications. It is notoriously hard to manipulate due to the fact that it
+is a graph rather than a tab-delimited data frame. The 'isaeditor' package
+is meant to facilitate reading, writing, displaying, manipulating,
+modifying and populating ISA-Tab files in R.
 
 %prep
 %setup -q -c -n %{packname}

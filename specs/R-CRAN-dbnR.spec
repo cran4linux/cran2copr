@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dbnR
-%global packver   0.5.3
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Bayesian Network Learning and Inference
 
@@ -16,11 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-bnlearn >= 4.5
+BuildRequires:    R-methods >= 3.6.0
 BuildRequires:    R-CRAN-R6 >= 2.4.1
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-data.table >= 1.12.4
 BuildRequires:    R-CRAN-Rcpp >= 1.0.2
 Requires:         R-CRAN-bnlearn >= 4.5
+Requires:         R-methods >= 3.6.0
 Requires:         R-CRAN-R6 >= 2.4.1
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-data.table >= 1.12.4
@@ -30,7 +32,7 @@ Requires:         R-CRAN-Rcpp >= 1.0.2
 Learning and inference over dynamic Bayesian networks of arbitrary
 Markovian order. Extends some of the functionality offered by the
 'bnlearn' package to learn the networks from data and perform exact
-inference. It offers two structure learning algorithms for dynamic
+inference. It offers three structure learning algorithms for dynamic
 Bayesian networks and the possibility to perform forecasts of arbitrary
 length. A tool for visualizing the structure of the net is also provided
 via the 'visNetwork' package.
@@ -43,6 +45,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

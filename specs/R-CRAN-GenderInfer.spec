@@ -1,43 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bayefdr
-%global packver   0.2.0
+%global packname  GenderInfer
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Estimation and Optimisation of Expected False Discovery Rate
+Summary:          This is a Collection of Functions to Analyse Gender Differences
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-ggExtra 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-binom 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-assertthat 
-Requires:         R-utils 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-ggExtra 
-Requires:         R-stats 
+Requires:         R-CRAN-binom 
 
 %description
-Implements the Bayesian FDR control described by Newton et al. (2004),
-<doi:10.1093/biostatistics/5.2.155>. Allows optimisation and visualisation
-of expected error rates based on tail posterior probability tests. Based
-on code written by Catalina Vallejos for BASiCS, see Beyond comparisons of
-means: understanding changes in gene expression at the single-cell level
-Vallejos et al. (2016) <doi:10.1186/s13059-016-0930-3>.
+Implementation of functions, which combines binomial calculation and data
+visualisation, to analyse the differences in publishing authorship by
+gender described in Day et al. (2020) <doi:10.1039/C9SC04090K>. It should
+only be used when self-reported gender is unavailable.
 
 %prep
 %setup -q -c -n %{packname}

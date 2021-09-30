@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  helsinki
-%global packver   1.0.3
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Tools for Helsinki Open Data
 
@@ -17,22 +17,20 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-httpcache 
 BuildRequires:    R-CRAN-curl 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-xml2 
 Requires:         R-methods 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-httpcache 
 Requires:         R-CRAN-curl 

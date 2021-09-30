@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  lmtp
-%global packver   0.9.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Parametric Causal Effects of Feasible Interventions Based on Modified Treatment Policies
 
@@ -41,14 +41,14 @@ Requires:         R-CRAN-SuperLearner
 
 %description
 Non-parametric estimators for casual effects based on longitudinal
-modified treatment policies as described in Diaz, Williams, and Hoffman
-(<arXiv:2006.01366>), traditional point treatment, and traditional
-longitudinal effects. Continuous, binary, and categorical treatments are
-allowed as well are censored outcomes. The treatment mechanism is
-estimated via a density ratio classification procedure irrespective of
-treatment variable type. For both continuous and binary outcomes, additive
-treatment effects can be calculated and relative risks and odds ratios may
-be calculated for binary outcomes.
+modified treatment policies as described in Diaz, Williams, Hoffman, and
+Schenck <doi:10.1080/01621459.2021.1955691>, traditional point treatment,
+and traditional longitudinal effects. Continuous, binary, and categorical
+treatments are allowed as well are censored outcomes. The treatment
+mechanism is estimated via a density ratio classification procedure
+irrespective of treatment variable type. For both continuous and binary
+outcomes, additive treatment effects can be calculated and relative risks
+and odds ratios may be calculated for binary outcomes.
 
 %prep
 %setup -q -c -n %{packname}
