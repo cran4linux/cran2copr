@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SingleCaseES
-%global packver   0.5.0
+%global packname  SCEnt
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Calculator for Single-Case Effect Sizes
+Summary:          Single Cell Entropy Analysis of Gene Heterogeneity in Cell Populations
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,32 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-entropy 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-entropy 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides R functions for calculating basic effect size indices for
-single-case designs, including several non-overlap measures and parametric
-effect size measures, and for estimating the gradual effects model
-developed by Swan and Pustejovsky (2018)
-<DOI:10.1080/00273171.2018.1466681>. Standard errors and confidence
-intervals (based on the assumption that the outcome measurements are
-mutually independent) are provided for the subset of effect sizes indices
-with known sampling distributions.
+Analyse single cell RNA sequencing data using entropy to calculate
+heterogeneity and homogeneity of genes amongst the cell population. From
+the work of Michael J. Casey, Ruben J. Sanchez-Garcia and Ben D.
+MacArthur.
 
 %prep
 %setup -q -c -n %{packname}

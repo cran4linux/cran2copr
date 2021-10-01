@@ -1,47 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SingleCaseES
-%global packver   0.5.0
+%global packname  hwig
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Calculator for Single-Case Effect Sizes
+Summary:          Half-Weight Index Gregariousness
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-asnipe 
+BuildRequires:    R-CRAN-spatsoc 
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-asnipe 
+Requires:         R-CRAN-spatsoc 
+Requires:         R-CRAN-data.table 
 
 %description
-Provides R functions for calculating basic effect size indices for
-single-case designs, including several non-overlap measures and parametric
-effect size measures, and for estimating the gradual effects model
-developed by Swan and Pustejovsky (2018)
-<DOI:10.1080/00273171.2018.1466681>. Standard errors and confidence
-intervals (based on the assumption that the outcome measurements are
-mutually independent) are provided for the subset of effect sizes indices
-with known sampling distributions.
+The half-weight index gregariousness (HWIG) is an association index used
+in social network analyses. It extends the half-weight association index
+(HWI), correcting for level of gregariousness in individuals. It is
+calculated using group by individual data according to methods described
+in Godde et al. (2013) <doi:10.1016/j.anbehav.2012.12.010>.
 
 %prep
 %setup -q -c -n %{packname}

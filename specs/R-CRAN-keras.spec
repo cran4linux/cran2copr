@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  keras
-%global packver   2.6.0
+%global packver   2.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.0
+Version:          2.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'Keras'
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tensorflow >= 2.6.0
 BuildRequires:    R-CRAN-reticulate >= 1.10

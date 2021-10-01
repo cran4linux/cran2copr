@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SingleCaseES
-%global packver   0.5.0
+%global packname  tremendousr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Calculator for Single-Case Effect Sizes
+Summary:          Easily Send Rewards and Incentives with 'Tremendous' from R
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,32 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-crul 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-crul 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Provides R functions for calculating basic effect size indices for
-single-case designs, including several non-overlap measures and parametric
-effect size measures, and for estimating the gradual effects model
-developed by Swan and Pustejovsky (2018)
-<DOI:10.1080/00273171.2018.1466681>. Standard errors and confidence
-intervals (based on the assumption that the outcome measurements are
-mutually independent) are provided for the subset of effect sizes indices
-with known sampling distributions.
+A slightly-opinionated R interface for the 'Tremendous' API
+(<https://www.tremendous.com/>). In addition to supporting GET and POST
+requests, 'tremendousr' has, dare I say, tremendously intuitive functions
+for sending digital rewards and incentives directly from R.
 
 %prep
 %setup -q -c -n %{packname}

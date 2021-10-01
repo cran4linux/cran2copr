@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MultNonParam
-%global packver   1.3.5
+%global packver   1.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.5
+Version:          1.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Nonparametric Methods
 
@@ -26,6 +26,7 @@ multivariate Mann-Whitney-Wilcoxon testing, inversion of these tests to
 produce a confidence region, some permutation tests for linear models, and
 some algorithms for calculating exact probabilities associated with one-
 and two- stage testing involving Mann-Whitney-Wilcoxon statistics.
+Supported by grant NSF DMS 1712839.
 
 %prep
 %setup -q -c -n %{packname}
@@ -35,6 +36,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

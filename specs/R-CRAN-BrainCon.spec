@@ -1,47 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SingleCaseES
-%global packver   0.5.0
+%global packname  BrainCon
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Calculator for Single-Case Effect Sizes
+Summary:          Inference the Partial Correlations Based on Time Series Data
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-MASS 
 
 %description
-Provides R functions for calculating basic effect size indices for
-single-case designs, including several non-overlap measures and parametric
-effect size measures, and for estimating the gradual effects model
-developed by Swan and Pustejovsky (2018)
-<DOI:10.1080/00273171.2018.1466681>. Standard errors and confidence
-intervals (based on the assumption that the outcome measurements are
-mutually independent) are provided for the subset of effect sizes indices
-with known sampling distributions.
+A statistical tool to inference the multi-level partial correlations based
+on multi-subject time series data. It combines both individual and
+population level inference by using the methods of Qiu and Zhou.
+(2021)<DOI: 10.1080/01621459.2021.1917417> and Genovese and Wasserman.
+(2006)<DOI: 10.1198/016214506000000339>. It can be used to identify
+nonzero individual- or population-level partial correlations, and find out
+unequal partial correlation coefficients between two populations.
 
 %prep
 %setup -q -c -n %{packname}

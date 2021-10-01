@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  PHInfiniteEstimates
-%global packver   2.0
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Inference in the Presence of a Monotone Likelihood
 
@@ -32,7 +32,7 @@ Proportional hazards estimation in the presence of a partially monotone
 likelihood has difficulties, in that finite estimators do not exist.
 These difficulties are related to those arising from logistic and
 multinomial regression.  References for methods are given in the separate
-function documents.
+function documents.  Supported by grant NSF DMS 1712839.
 
 %prep
 %setup -q -c -n %{packname}

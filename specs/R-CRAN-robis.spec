@@ -1,47 +1,58 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SingleCaseES
-%global packver   0.5.0
+%global packname  robis
+%global packver   2.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          2.8.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Calculator for Single-Case Effect Sizes
+Summary:          Ocean Biodiversity Information System (OBIS) Client
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.3
+Requires:         R-core >= 3.1.3
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-httpcache 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-mapedit 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-httpcache 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-mapedit 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-utils 
+Requires:         R-CRAN-xml2 
 
 %description
-Provides R functions for calculating basic effect size indices for
-single-case designs, including several non-overlap measures and parametric
-effect size measures, and for estimating the gradual effects model
-developed by Swan and Pustejovsky (2018)
-<DOI:10.1080/00273171.2018.1466681>. Standard errors and confidence
-intervals (based on the assumption that the outcome measurements are
-mutually independent) are provided for the subset of effect sizes indices
-with known sampling distributions.
+Client for the Ocean Biodiversity Information System (<https://obis.org>).
 
 %prep
 %setup -q -c -n %{packname}

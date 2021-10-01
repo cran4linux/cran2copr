@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mlr3shiny
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
-Release:          3%{?dist}%{?buildtag}
+Version:          0.2.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Machine Learning in 'shiny' with 'mlr3'
 
 License:          BSD_2_clause + file LICENSE
@@ -16,15 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
+BuildRequires:    R-CRAN-shinyjs >= 2.0.0
+BuildRequires:    R-CRAN-shiny >= 1.6.0
 BuildRequires:    R-CRAN-data.table >= 1.12.8
+BuildRequires:    R-CRAN-mlr3measures >= 0.3.1
+BuildRequires:    R-CRAN-mlr3 >= 0.12.0
 BuildRequires:    R-CRAN-DT >= 0.11
-BuildRequires:    R-CRAN-mlr3 >= 0.1.6
-BuildRequires:    R-CRAN-mlr3measures >= 0.1.1
 BuildRequires:    R-CRAN-mlr3learners 
-BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinythemes 
 BuildRequires:    R-CRAN-shinydashboard 
-BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-shinyalert 
 BuildRequires:    R-CRAN-readxl 
@@ -34,15 +34,15 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-shinyjs >= 2.0.0
+Requires:         R-CRAN-shiny >= 1.6.0
 Requires:         R-CRAN-data.table >= 1.12.8
+Requires:         R-CRAN-mlr3measures >= 0.3.1
+Requires:         R-CRAN-mlr3 >= 0.12.0
 Requires:         R-CRAN-DT >= 0.11
-Requires:         R-CRAN-mlr3 >= 0.1.6
-Requires:         R-CRAN-mlr3measures >= 0.1.1
 Requires:         R-CRAN-mlr3learners 
-Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinythemes 
 Requires:         R-CRAN-shinydashboard 
-Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-shinyalert 
 Requires:         R-CRAN-readxl 
@@ -61,7 +61,15 @@ framework.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -69,19 +77,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/mlr3shiny
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

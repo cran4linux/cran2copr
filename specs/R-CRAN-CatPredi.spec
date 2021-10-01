@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SingleCaseES
-%global packver   0.5.0
+%global packname  CatPredi
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Calculator for Single-Case Effect Sizes
+Summary:          Optimal Categorisation of Continuous Variables in Prediction Models
 
-License:          GPL-3
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,32 +16,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-rms 
+BuildRequires:    R-CRAN-CPE 
+BuildRequires:    R-CRAN-rgenoud 
+BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-rms 
+Requires:         R-CRAN-CPE 
+Requires:         R-CRAN-rgenoud 
+Requires:         R-CRAN-mgcv 
 Requires:         R-stats 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-utils 
+Requires:         R-graphics 
 
 %description
-Provides R functions for calculating basic effect size indices for
-single-case designs, including several non-overlap measures and parametric
-effect size measures, and for estimating the gradual effects model
-developed by Swan and Pustejovsky (2018)
-<DOI:10.1080/00273171.2018.1466681>. Standard errors and confidence
-intervals (based on the assumption that the outcome measurements are
-mutually independent) are provided for the subset of effect sizes indices
-with known sampling distributions.
+Allows the user to categorise a continuous predictor variable in a
+logistic or a Cox proportional hazards regression setting, by maximising
+the discriminative ability of the model. I Barrio, I Arostegui, MX
+Rodriguez-Alvarez, JM Quintana (2015) <doi:10.1177/0962280215601873>. I
+Barrio, MX Rodriguez-Alvarez, L Meira-Machado, C Esteban, I Arostegui
+(2017) <https://www.idescat.cat/sort/sort411/41.1.3.barrio-etal.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

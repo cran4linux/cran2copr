@@ -1,47 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SingleCaseES
-%global packver   0.5.0
+%global packname  AntibodyTiters
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Calculator for Single-Case Effect Sizes
+Summary:          Antibody Titer Analysis of Vaccinated Patients
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-openxlsx >= 4.2.4
+Requires:         R-CRAN-openxlsx >= 4.2.4
 
 %description
-Provides R functions for calculating basic effect size indices for
-single-case designs, including several non-overlap measures and parametric
-effect size measures, and for estimating the gradual effects model
-developed by Swan and Pustejovsky (2018)
-<DOI:10.1080/00273171.2018.1466681>. Standard errors and confidence
-intervals (based on the assumption that the outcome measurements are
-mutually independent) are provided for the subset of effect sizes indices
-with known sampling distributions.
+Visualization of antibody titer scores is valuable for examination of
+vaccination effects and usefulness of the antibody used for titer scoring.
+'AntibodyTiters' visualizes antibody titers of all or selected patients.
+This package also produces empty excel files in a specified format, in
+which users can fill in experimental data for visualization. Excel files
+with toy data can also be produced, so that users can see how it is
+visualized before obtaining real data. The data should contain titer
+scores at pre-vaccination, after- 1st shot, after-2nd shot, and at least
+one additional sampling point. Patients with missing values can be
+included. The first three sampling points will be plotted discretely,
+whereas those following the after-2nd shot will be plotted on a continuous
+time scale starting from the day of second shot.
 
 %prep
 %setup -q -c -n %{packname}

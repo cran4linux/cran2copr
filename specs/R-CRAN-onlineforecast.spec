@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  onlineforecast
-%global packver   0.10.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forecast Modelling for Online Applications
 
@@ -32,9 +32,9 @@ A framework for fitting adaptive forecasting models. Provides a way to use
 forecasts as input to models, e.g. weather forecasts for energy related
 forecasting. The models can be fitted recursively and can easily be setup
 for updating parameters when new data arrives. See the included vignettes,
-the website <https://onlineforecasting.org> and the paper "Short-term heat
-load forecasting for single family houses"
-<doi:10.1016/j.enbuild.2013.04.022>.
+the website <https://onlineforecasting.org> and the pre-print paper
+"onlineforecast: An R package for adaptive and recursive forecasting"
+<arXiv:2109.12915>.
 
 %prep
 %setup -q -c -n %{packname}
