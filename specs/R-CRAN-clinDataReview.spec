@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  clinDataReview
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clinical Data Review Tool
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-clinUtils >= 0.1.0
 BuildRequires:    R-CRAN-bookdown 
-BuildRequires:    R-CRAN-clinUtils 
 BuildRequires:    R-CRAN-crosstalk 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
@@ -36,8 +36,8 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-utils 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-clinUtils >= 0.1.0
 Requires:         R-CRAN-bookdown 
-Requires:         R-CRAN-clinUtils 
 Requires:         R-CRAN-crosstalk 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 

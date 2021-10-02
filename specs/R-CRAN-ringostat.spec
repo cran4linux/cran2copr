@@ -1,36 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  msae
-%global packver   0.1.4
+%global packname  ringostat
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Fay Herriot Models for Small Area Estimation
+Summary:          Load Data from 'Ringostat API'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magic 
-Requires:         R-CRAN-magic 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Implements multivariate Fay-Herriot models for small area estimation. It
-uses empirical best linear unbiased prediction (EBLUP) estimator.
-Multivariate models consider the correlation of several target variables
-and borrow strength from auxiliary variables to improve the effectiveness
-of a domain sample size. Models which accommodated by this package are
-univariate model with several target variables (model 0), multivariate
-model (model 1), autoregressive multivariate model (model 2), and
-heteroscedastic autoregressive multivariate model (model 3). Functions
-provide EBLUP estimators and mean squared error (MSE) estimator for each
-model. These models were developed by Roberto Benavent and Domingo Morales
-(2015) <doi:10.1016/j.csda.2015.07.013>.
+Loading calls data from 'Ringostat API'. See
+<https://help.ringostat.com/knowledge-base/article/integration-with-ringostat-via-api>.
 
 %prep
 %setup -q -c -n %{packname}

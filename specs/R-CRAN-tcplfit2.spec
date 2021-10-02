@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tcplfit2
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Concentration-Response Modeling of HTS or Transcriptomics Data
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-numDeriv
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-stringi 
 Requires:         R-stats 
 Requires:         R-CRAN-future 
 Requires:         R-methods 
@@ -31,7 +30,6 @@ Requires:         R-CRAN-numDeriv
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-stringi 
 
 %description
 Performs the basic concentration response curve fitting used in the 'tcpl'

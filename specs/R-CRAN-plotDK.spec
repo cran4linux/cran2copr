@@ -1,36 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  msae
-%global packver   0.1.4
+%global packname  plotDK
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Fay Herriot Models for Small Area Estimation
+Summary:          Plot Summary Statistics as Choropleth Maps of Danish Administrative Areas
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magic 
-Requires:         R-CRAN-magic 
+BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-mapproj 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 >= 3.1.0
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-mapproj 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 
 %description
-Implements multivariate Fay-Herriot models for small area estimation. It
-uses empirical best linear unbiased prediction (EBLUP) estimator.
-Multivariate models consider the correlation of several target variables
-and borrow strength from auxiliary variables to improve the effectiveness
-of a domain sample size. Models which accommodated by this package are
-univariate model with several target variables (model 0), multivariate
-model (model 1), autoregressive multivariate model (model 2), and
-heteroscedastic autoregressive multivariate model (model 3). Functions
-provide EBLUP estimators and mean squared error (MSE) estimator for each
-model. These models were developed by Roberto Benavent and Domingo Morales
-(2015) <doi:10.1016/j.csda.2015.07.013>.
+Provides a ggplot2 front end to plot summary statistics on danish
+provinces, regions, municipalities, and zipcodes. The needed geoms of each
+of the four levels are inherent in the package, thus making these types of
+plots easy for the user. This is essentially an updated port of the
+previously available 'mapDK' package by Sebastian Barfort.
 
 %prep
 %setup -q -c -n %{packname}

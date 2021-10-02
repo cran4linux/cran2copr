@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  banter
-%global packver   0.9.3
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
-Release:          3%{?dist}%{?buildtag}
+Version:          0.9.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          BioAcoustic EveNT ClassifiER
 
 License:          GNU General Public License
@@ -13,37 +13,35 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-randomForest >= 4.6
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.3
+BuildRequires:    R-CRAN-tibble >= 3.1.2
+BuildRequires:    R-CRAN-rfPermute >= 2.5
+BuildRequires:    R-CRAN-gridExtra >= 2.3
+BuildRequires:    R-CRAN-swfscMisc >= 1.5
+BuildRequires:    R-CRAN-tidyr >= 1.1.1
+BuildRequires:    R-CRAN-dplyr >= 1.0.6
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-CRAN-rfPermute 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-randomForest >= 4.6
+Requires:         R-CRAN-ggplot2 >= 3.3.3
+Requires:         R-CRAN-tibble >= 3.1.2
+Requires:         R-CRAN-rfPermute >= 2.5
+Requires:         R-CRAN-gridExtra >= 2.3
+Requires:         R-CRAN-swfscMisc >= 1.5
+Requires:         R-CRAN-tidyr >= 1.1.1
+Requires:         R-CRAN-dplyr >= 1.0.6
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
 Requires:         R-methods 
 Requires:         R-parallel 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-ranger 
-Requires:         R-CRAN-rfPermute 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 
 %description
 Create a hierarchical acoustic event species classifier out of multiple
@@ -53,6 +51,15 @@ call type detectors as described in Rankin et al (2017)
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -60,18 +67,10 @@ call type detectors as described in Rankin et al (2017)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

@@ -1,36 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  msae
-%global packver   0.1.4
+%global packname  ToxCrit
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Fay Herriot Models for Small Area Estimation
+Summary:          Calculates Safety Stopping Boundaries for a Single-Arm Trial using Bayes
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magic 
-Requires:         R-CRAN-magic 
 
 %description
-Implements multivariate Fay-Herriot models for small area estimation. It
-uses empirical best linear unbiased prediction (EBLUP) estimator.
-Multivariate models consider the correlation of several target variables
-and borrow strength from auxiliary variables to improve the effectiveness
-of a domain sample size. Models which accommodated by this package are
-univariate model with several target variables (model 0), multivariate
-model (model 1), autoregressive multivariate model (model 2), and
-heteroscedastic autoregressive multivariate model (model 3). Functions
-provide EBLUP estimators and mean squared error (MSE) estimator for each
-model. These models were developed by Roberto Benavent and Domingo Morales
-(2015) <doi:10.1016/j.csda.2015.07.013>.
+Computation of stopping boundaries for a single-arm trial using a Bayesian
+criterion; i.e., for each m<=n (n= total patient number of the trial) the
+smallest number of observed toxicities is calculated leading to the
+termination of the trial/accrual according to the specified criteria. The
+probabilities of stopping the trial/accrual at and up until (resp.) the
+m-th patient (m<=n) is also calculated. This design is more conservative
+than the frequentist approach (using Clopper Pearson CIs) which might be
+preferred as it concerns safety.See also Aamot et.al.(2010) "Continuous
+monitoring of toxicity in clinical trials - simulating the risk of
+stopping prematurely" <doi:10.5414/cpp48476>.
 
 %prep
 %setup -q -c -n %{packname}

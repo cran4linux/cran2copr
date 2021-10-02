@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SWMPrExtension
-%global packver   1.1.7
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.7
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Analyzing and Plotting Estuary Monitoring Data
 
@@ -17,51 +17,53 @@ BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-SWMPr 
+BuildRequires:    R-CRAN-EnvStats 
+BuildRequires:    R-CRAN-OpenStreetMap 
+BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-EnvStats 
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggthemes 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tmap 
+BuildRequires:    R-CRAN-tmaptools 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-SWMPr 
+Requires:         R-CRAN-EnvStats 
+Requires:         R-CRAN-OpenStreetMap 
+Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-EnvStats 
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggthemes 
 Requires:         R-grDevices 
-Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-maptools 
 Requires:         R-methods 
 Requires:         R-CRAN-officer 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-sf 
+Requires:         R-stats 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tmap 
+Requires:         R-CRAN-tmaptools 
+Requires:         R-utils 
 
 %description
 Tools for performing routine analysis and plotting tasks with

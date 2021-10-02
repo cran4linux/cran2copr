@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Arothron
-%global packver   2.0.2
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geometric Morphometric Methods and Virtual Anthropology Tools
 
@@ -56,8 +56,8 @@ Requires:         R-CRAN-Rvcg >= 0.17
 %description
 Tools for geometric morphometric analysis. The package includes tools of
 virtual anthropology to align two not articulated parts belonging to the
-same specimen, to build virtual cavities as endocast (Profico et al, 2018
-<doi:10.1002/ajpa.23493>).
+same specimen, to build virtual cavities as endocast (Profico et al, 2021
+<doi:10.1002/ajpa.24340>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -67,6 +67,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

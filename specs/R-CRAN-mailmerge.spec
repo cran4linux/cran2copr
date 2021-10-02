@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mailmerge
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mail Merge Using R Markdown Documents and 'gmailr'
 
@@ -51,7 +51,7 @@ Requires:         R-CRAN-miniUI
 
 %description
 Perform a mail merge (mass email) using the message defined in markdown,
-the recipients in a csv, and gmail as the mailing engine. With this
+the recipients in a 'csv' file, and gmail as the mailing engine. With this
 package you can parse markdown documents as the body of email, and the
 'yaml' header to specify the subject line of the email.  Any '{}' braces
 in the email will be encoded with 'glue::glue()'. You can preview the
