@@ -474,8 +474,12 @@ get_chroots <- function() {
 
 get_monitor <- function() {
   stopifnot(requireNamespace("XML", quietly=TRUE))
-  url <- paste(get_url_copr(), "monitor", "detailed", sep="/")
-  df <- XML::readHTMLTable(.read_urls(url)[[1]])[[1]]
+  url <- paste(get_url_copr(), "monitor", "detailed?page=", sep="/")
+  url <- paste0(url, seq_len(ceiling(length(list_pkgs()) / 50)))
+  content <- .read_urls(url)
+  while(length(empty <- which(sapply(content, length) == 0)))
+    content[empty] <- .read_urls(url[empty])
+  df <- do.call(rbind, lapply(content, function(i) XML::readHTMLTable(i)[[1]]))
   colnames(df) <- c("Package", get_chroots())
   na.omit(df)
 }
