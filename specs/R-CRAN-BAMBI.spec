@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BAMBI
-%global packver   2.3.2
+%global packver   2.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.2
+Version:          2.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bivariate Angular Mixture Models
 
@@ -59,8 +59,8 @@ Requires:         R-CRAN-numDeriv
 
 %description
 Fit (using Bayesian methods) and simulate mixtures of univariate and
-bivariate angular distributions. Chakraborty and Wong (2017)
-<arXiv:1708.07804>.
+bivariate angular distributions. Chakraborty and Wong (2021)
+<doi:10.18637/jss.v099.i11>.
 
 %prep
 %setup -q -c -n %{packname}

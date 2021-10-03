@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  matsbyname
-%global packver   0.4.23
+%global packver   0.4.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.23
+Version:          0.4.24
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Implementation of Matrix Mathematics
 
