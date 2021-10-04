@@ -1,32 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DoseFinding
-%global packver   1.0-2
+%global packname  ARTofR
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Planning and Analyzing Dose Finding Experiments
+Summary:          Who Ever Care About the [Art of R] Scripts?
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.0
-Requires:         R-core >= 2.15.0
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-bannerCommenter 
+BuildRequires:    R-CRAN-clipr 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-bannerCommenter 
+Requires:         R-CRAN-clipr 
+Requires:         R-methods 
 
 %description
-The DoseFinding package provides functions for the design and analysis of
-dose-finding experiments (with focus on pharmaceutical Phase II clinical
-trials). It provides functions for: multiple contrast tests, fitting
-non-linear dose-response models (using Bayesian and non-Bayesian
-estimation), calculating optimal designs and an implementation of the
-MCPMod methodology (Pinheiro et al. (2014) <doi:10.1002/sim.6052>).
+Decorate your comments and keep them neat! Please check
+<https://github.com/Hzhang-ouce/ARTofR> for instructions.
 
 %prep
 %setup -q -c -n %{packname}

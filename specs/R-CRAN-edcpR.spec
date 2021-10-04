@@ -1,32 +1,25 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DoseFinding
-%global packver   1.0-2
+%global packname  edcpR
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Planning and Analyzing Dose Finding Experiments
+Summary:          Ecological Data Collection and Processing Package
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.0
-Requires:         R-core >= 2.15.0
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 
 %description
-The DoseFinding package provides functions for the design and analysis of
-dose-finding experiments (with focus on pharmaceutical Phase II clinical
-trials). It provides functions for: multiple contrast tests, fitting
-non-linear dose-response models (using Bayesian and non-Bayesian
-estimation), calculating optimal designs and an implementation of the
-MCPMod methodology (Pinheiro et al. (2014) <doi:10.1002/sim.6052>).
+This is the course package for the exercise portion of the "Ecological
+Data Collection and Processing" course.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  LCCR
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Latent Class Capture Recapture Models
+Summary:          Latent Class Capture-Recapture Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,8 +20,9 @@ BuildRequires:    R-CRAN-MASS
 Requires:         R-CRAN-MASS 
 
 %description
-Estimation of latent class models with individual covariates for capture
-recapture data. See Forcina and Bartolucci (2021)<arxiv:2106.03811>.
+Estimation of latent class models with individual covariates for
+capture-recapture data. See Forcina and Bartolucci
+(2021)<arxiv:2106.03811>.
 
 %prep
 %setup -q -c -n %{packname}

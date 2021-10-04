@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  batchr
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Batch Process Files
 
@@ -36,7 +36,7 @@ Requires:         R-CRAN-yesno
 %description
 Processes multiple files with a user-supplied function. The key design
 principle is that only files which were last modified before the directory
-was configured are processed. A hidden file stores the configuration time
+was configured are processed.  A hidden file stores the configuration time
 and function etc while successfully processed files are automatically
 touched to update their modification date. As a result batch processing
 can be stopped and restarted and any files created (or modified or
@@ -50,6 +50,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

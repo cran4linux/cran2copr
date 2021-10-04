@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  UKFE
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          UK Flood Estimation
 
@@ -20,7 +20,7 @@ BuildArch:        noarch
 %description
 Functions to implement the methods of the Flood Estimation Handbook (FEH),
 associated updates and the revitalised flood hydrograph model (ReFH).
-Currently the package uses NRFA peak flow dataset version 9. Aside from
+Currently the package uses NRFA peak flow dataset version 10. Aside from
 FEH functionality, further hydrological functions are available. Most of
 the methods implemented in this package are described in one or more of
 the following: "Flood Estimation Handbook", Centre for Ecology & Hydrology
@@ -47,6 +47,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
