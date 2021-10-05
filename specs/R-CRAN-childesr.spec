@@ -1,37 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cuml
-%global packver   0.2.1
+%global packname  childesr
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface for the RAPIDS cuML Suite of Libraries
+Summary:          Accessing the 'CHILDES' Database
 
-License:          Apache License (>= 2.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.6
-BuildRequires:    R-CRAN-rlang >= 0.1.4
-BuildRequires:    R-CRAN-ellipsis 
-BuildRequires:    R-CRAN-hardhat 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-parsnip 
-Requires:         R-CRAN-Rcpp >= 1.0.6
-Requires:         R-CRAN-rlang >= 0.1.4
-Requires:         R-CRAN-ellipsis 
-Requires:         R-CRAN-hardhat 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-parsnip 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dbplyr >= 2.1
+BuildRequires:    R-CRAN-magrittr >= 2.0
+BuildRequires:    R-CRAN-jsonlite >= 1.7
+BuildRequires:    R-CRAN-DBI >= 1.1
+BuildRequires:    R-CRAN-dplyr >= 1.0
+BuildRequires:    R-CRAN-purrr >= 0.3
+BuildRequires:    R-CRAN-RMySQL >= 0.10.21
+Requires:         R-CRAN-dbplyr >= 2.1
+Requires:         R-CRAN-magrittr >= 2.0
+Requires:         R-CRAN-jsonlite >= 1.7
+Requires:         R-CRAN-DBI >= 1.1
+Requires:         R-CRAN-dplyr >= 1.0
+Requires:         R-CRAN-purrr >= 0.3
+Requires:         R-CRAN-RMySQL >= 0.10.21
 
 %description
-R interface for RAPIDS cuML (<https://github.com/rapidsai/cuml>), a suite
-of GPU-accelerated machine learning libraries powered by CUDA
-(<https://en.wikipedia.org/wiki/CUDA>).
+Tools for connecting to 'CHILDES', an open repository for transcripts of
+parent-child interaction. For more information on the underlying data, see
+<https://childes-db.stanford.edu>.
 
 %prep
 %setup -q -c -n %{packname}

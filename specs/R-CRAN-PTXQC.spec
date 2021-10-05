@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  PTXQC
-%global packver   1.0.10
+%global packver   1.0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          1.0.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quality Report Generation for MaxQuant and mzTab Results
 
@@ -28,6 +28,8 @@ BuildRequires:    R-CRAN-kableExtra
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ontologyIndex 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-R6P 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-rmarkdown 
@@ -35,6 +37,7 @@ BuildRequires:    R-CRAN-seqinr
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-UpSetR 
+BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-ggplot2 >= 2.2
 Requires:         R-CRAN-knitr >= 1.10
@@ -48,6 +51,8 @@ Requires:         R-CRAN-kableExtra
 Requires:         R-methods 
 Requires:         R-CRAN-ontologyIndex 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-R6P 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-rmarkdown 
@@ -55,6 +60,7 @@ Requires:         R-CRAN-seqinr
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-UpSetR 
+Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-yaml 
 
 %description
@@ -74,6 +80,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

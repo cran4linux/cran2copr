@@ -1,33 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  logr
-%global packver   1.2.6
+%global packname  insiderTrades
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creates Log Files
+Summary:          Tools to Download Insider Transactions and Holdings
 
 License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-this.path 
-Requires:         R-CRAN-withr 
-Requires:         R-utils 
-Requires:         R-CRAN-this.path 
+BuildRequires:    R-CRAN-magrittr >= 2.0.1
+BuildRequires:    R-CRAN-RCurl >= 1.98.1.3
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-magrittr >= 2.0.1
+Requires:         R-CRAN-RCurl >= 1.98.1.3
+Requires:         R-CRAN-stringr >= 1.4.0
 
 %description
-Contains functions to help create log files.  The package aims to overcome
-the difficulty of the base R sink() command.  The log_print() function
-will print to both the console and the file log, without interfering in
-other write operations.
+Download insider trading transactions and insider holdings from a public
+NoSQL SEC database (<https://www.sec.gov/Archives/edgar/full-index/>)
+using keyword criteria and generate a relational dataframe.
 
 %prep
 %setup -q -c -n %{packname}

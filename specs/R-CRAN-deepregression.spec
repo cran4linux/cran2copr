@@ -1,54 +1,56 @@
 %global __brp_check_rpaths %{nil}
-%global packname  sapfluxnetr
-%global packver   0.1.2
+%global packname  deepregression
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Working with 'Sapfluxnet' Project Data
+Summary:          Fitting Deep Distributional Regression
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-tensorflow >= 2.2.0
+BuildRequires:    R-CRAN-reticulate >= 1.14
+BuildRequires:    R-CRAN-tfprobability 
+BuildRequires:    R-CRAN-keras 
+BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-assertthat 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Metrics 
+BuildRequires:    R-CRAN-tfruns 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-tensorflow >= 2.2.0
+Requires:         R-CRAN-reticulate >= 1.14
+Requires:         R-CRAN-tfprobability 
+Requires:         R-CRAN-keras 
+Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Metrics 
+Requires:         R-CRAN-tfruns 
+Requires:         R-methods 
+Requires:         R-utils 
 
 %description
-Access, modify, aggregate and plot data from the 'Sapfluxnet' project
-(<http://sapfluxnet.creaf.cat>), the first global database of sap flow
-measurements.
+Allows for the specification of semi-structured deep distributional
+regression models which are fitted in a neural network as proposed by
+Ruegamer et al. (2021) <arXiv:2104.02705>. Predictors can be modeled using
+structured (penalized) linear effects, structured non-linear effects or
+using an unstructured deep network model.
 
 %prep
 %setup -q -c -n %{packname}

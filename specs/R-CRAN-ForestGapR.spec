@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  logr
-%global packver   1.2.6
+%global packname  ForestGapR
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creates Log Files
+Summary:          Tropical Forest Canopy Gaps Analysis
 
-License:          CC0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,18 +16,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-this.path 
-Requires:         R-CRAN-withr 
-Requires:         R-utils 
-Requires:         R-CRAN-this.path 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-CRAN-spatstat.core 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-poweRlaw 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-VGAM 
+Requires:         R-CRAN-sp 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-rgeos 
+Requires:         R-CRAN-spatstat.core 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-poweRlaw 
 
 %description
-Contains functions to help create log files.  The package aims to overcome
-the difficulty of the base R sink() command.  The log_print() function
-will print to both the console and the file log, without interfering in
-other write operations.
+Set of tools for detecting and analyzing Airborne Laser Scanning-derived
+Tropical Forest Canopy Gaps. Details were published in Silva et al. (2019)
+<doi:10.1111/2041-210X.13211>.
 
 %prep
 %setup -q -c -n %{packname}

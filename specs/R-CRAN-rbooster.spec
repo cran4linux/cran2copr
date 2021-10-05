@@ -1,33 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  logr
-%global packver   1.2.6
+%global packname  rbooster
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creates Log Files
+Summary:          AdaBoost Framework for Any Classifier
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel > 4.0.1
+Requires:         R-core > 4.0.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-this.path 
-Requires:         R-CRAN-withr 
-Requires:         R-utils 
-Requires:         R-CRAN-this.path 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-earth 
+BuildRequires:    R-CRAN-Hmisc 
+Requires:         R-stats 
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-earth 
+Requires:         R-CRAN-Hmisc 
 
 %description
-Contains functions to help create log files.  The package aims to overcome
-the difficulty of the base R sink() command.  The log_print() function
-will print to both the console and the file log, without interfering in
-other write operations.
+This is a simple package which provides a function that boosts pre-ready
+or custom-made classifiers. Package uses Discrete AdaBoost
+(<doi:10.1006/jcss.1997.1504>) for two class, SAMME
+(<doi:10.4310/SII.2009.v2.n3.a8>) for multiclass classification.
 
 %prep
 %setup -q -c -n %{packname}

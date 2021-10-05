@@ -1,33 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  logr
-%global packver   1.2.6
+%global packname  wig
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creates Log Files
+Summary:          Import WIG Data into R in Long Format
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-this.path 
-Requires:         R-CRAN-withr 
-Requires:         R-utils 
-Requires:         R-CRAN-this.path 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
-Contains functions to help create log files.  The package aims to overcome
-the difficulty of the base R sink() command.  The log_print() function
-will print to both the console and the file log, without interfering in
-other write operations.
+Import WIG data into R in long format.
 
 %prep
 %setup -q -c -n %{packname}

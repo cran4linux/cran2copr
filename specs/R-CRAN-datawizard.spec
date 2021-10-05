@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  datawizard
-%global packver   0.2.0.1
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Data Wrangling
 
@@ -16,10 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.14.2
+BuildRequires:    R-CRAN-insight >= 0.14.4
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 0.14.2
+Requires:         R-CRAN-insight >= 0.14.4
 Requires:         R-stats 
 Requires:         R-utils 
 

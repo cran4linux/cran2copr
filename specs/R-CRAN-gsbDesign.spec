@@ -1,33 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  logr
-%global packver   1.2.6
+%global packname  gsbDesign
+%global packver   1.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creates Log Files
+Summary:          Group Sequential Bayes Design
 
-License:          CC0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-gsDesign 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-grid 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-this.path 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-gsDesign 
+Requires:         R-CRAN-lattice 
+Requires:         R-grid 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-utils 
-Requires:         R-CRAN-this.path 
 
 %description
-Contains functions to help create log files.  The package aims to overcome
-the difficulty of the base R sink() command.  The log_print() function
-will print to both the console and the file log, without interfering in
-other write operations.
+Group Sequential Operating Characteristics for Clinical, Bayesian two-arm
+Trials with known Sigma and Normal Endpoints, as described in Gerber and
+Gsponer (2016) <doi: 10.18637/jss.v069.i11>.
 
 %prep
 %setup -q -c -n %{packname}

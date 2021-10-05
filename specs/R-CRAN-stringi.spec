@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  stringi
-%global packver   1.7.4
+%global packver   1.7.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.4
+Version:          1.7.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Character String Processing Facilities
 
@@ -24,8 +24,8 @@ Requires:         R-utils
 Requires:         R-stats 
 
 %description
-A multitude of character string/text/natural language processing tools:
-pattern searching (e.g., with 'Java'-like regular expressions or the
+A collection of character string/text/natural language processing tools
+for pattern searching (e.g., with 'Java'-like regular expressions or the
 'Unicode' collation algorithm), random string generation, case mapping,
 string transliteration, concatenation, sorting, padding, wrapping, Unicode
 normalisation, date-time formatting and parsing, and many more. They are

@@ -1,33 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  logr
-%global packver   1.2.6
+%global packname  rForest
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creates Log Files
+Summary:          Forest Inventory and Analysis
 
-License:          CC0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.1.2
+Requires:         R-core >= 3.1.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-this.path 
-Requires:         R-CRAN-withr 
-Requires:         R-utils 
-Requires:         R-CRAN-this.path 
+BuildRequires:    R-CRAN-alphashape3d 
+BuildRequires:    R-CRAN-geometry 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-sp 
+Requires:         R-CRAN-alphashape3d 
+Requires:         R-CRAN-geometry 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-sp 
 
 %description
-Contains functions to help create log files.  The package aims to overcome
-the difficulty of the base R sink() command.  The log_print() function
-will print to both the console and the file log, without interfering in
-other write operations.
+Set of tools designed for forest inventory analysis.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,41 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  glmtoolbox
-%global packver   0.1.2
+%global packname  iSFun
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Set of Tools to Data Analysis using Generalized Linear Models
+Summary:          Integrative Dimension Reduction Analysis for Multi-Source Data
 
-License:          GPL-2 | GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-splines 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-graphics 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-Rfast 
-Requires:         R-splines 
-Requires:         R-methods 
-Requires:         R-stats 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-caret 
 Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-irlba 
+Requires:         R-stats 
 
 %description
-Set of tools to the statistical analysis of data using: (1) normal linear
-models; (2) generalized linear models; (3) negative binomial regression
-models as alternative to the Poisson regression models under the presence
-of overdispersion; (4) beta-binomial regression models as alternative to
-the binomial regression models under the presence of overdispersion; (5)
-generalized estimating equations for cluster correlated data.
+An implementation of integrative dimension reduction analysis procedures
+for multi-source data, which provides integrative sparse partial least
+squares, integrative sparse principal component analysis, integrative
+sparse canonical correlation analysis and corresponding meta-analysis
+versions, etc. The work is built and improved upon the references: (1)
+Fang, K., Fan, X., Zhang, Q., and Ma, S. (2018). "Integrative sparse
+principal component analysis." Journal of Multivariate Analysis,
+<doi:10.1016/j.jmva.2018.02.002>. (2) Liang, W., Ma, S., Zhang, Q., and
+Zhu, T. (2021). "Integrative sparse partial least squares." Statistics in
+Medicine, <doi:10.1002/sim.8900>.
 
 %prep
 %setup -q -c -n %{packname}

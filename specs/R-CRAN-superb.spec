@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  superb
-%global packver   0.9.7.5
+%global packver   0.9.7.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7.5
+Version:          0.9.7.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Summary Plots with Adjusted Error Bars
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-foreign
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-referenceIntervals 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyBS 
@@ -38,7 +37,6 @@ Requires:         R-CRAN-foreign
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
-Requires:         R-CRAN-referenceIntervals 
 Requires:         R-stats 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyBS 
@@ -50,12 +48,14 @@ Computes standard error and confidence interval of various descriptive
 statistics under various designs and sampling schemes. The main function,
 superbPlot(), can either return a plot or a dataframe with the statistic
 and its precision interval so that other plotting package can be used. See
-Cousineau (2017) <doi:10.5709/acp-0214-z> for a review or Cousineau (2005)
-<doi:10.20982/tqmp.01.1.p042>, Morey (2008) <doi:10.20982/tqmp.04.2.p061>,
-Baguley (2012) <doi:10.3758/s13428-011-0123-7>, Cousineau & Laurencelle
-(2016) <doi:10.1037/met0000055>, Cousineau & O'Brien (2014)
+Cousineau and colleagues (2021) <doi:10.1177/25152459211035109> or
+Cousineau (2017) <doi:10.5709/acp-0214-z> for a review as well as
+Cousineau (2005) <doi:10.20982/tqmp.01.1.p042>, Morey (2008)
+<doi:10.20982/tqmp.04.2.p061>, Baguley (2012)
+<doi:10.3758/s13428-011-0123-7>, Cousineau & Laurencelle (2016)
+<doi:10.1037/met0000055>, Cousineau & O'Brien (2014)
 <doi:10.3758/s13428-013-0441-z>, Calderini & Harding
-<doi:10.20982/tqmp.15.1.p001>.
+<doi:10.20982/tqmp.15.1.p001> for specific references.
 
 %prep
 %setup -q -c -n %{packname}
@@ -65,6 +65,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
