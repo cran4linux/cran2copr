@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ISLR2
-%global packver   1.3
+%global packname  ECOTOXr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Introduction to Statistical Learning, Second Edition
+Summary:          Download and Extract Data from US EPA's ECOTOX Database
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,12 +16,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
+Requires:         R-utils 
 
 %description
-We provide the collection of data-sets used in the book 'An Introduction
-to Statistical Learning with Applications in R, Second Edition'. These
-include many data-sets that we used in the first edition (some with minor
-changes), and some new datasets.
+The US EPA ECOTOX database is a freely available database with a treasure
+of aquatic and terrestrial ecotoxicological data. As the online search
+interface doesn't come with an API, this package provides the means to
+easily access and search the database in R. To this end, all raw tables
+are downloaded from the EPA website and stored in a local SQLite database.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,34 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nCal
-%global packver   2021.9-12
+%global packname  tabularMLC
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2021.9.12
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonlinear Calibration
+Summary:          Tabular Maximum Likelihood Classifier
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-drc 
-BuildRequires:    R-CRAN-gdata 
-BuildRequires:    R-CRAN-kyotil 
-BuildRequires:    R-CRAN-gWidgets2 
-Requires:         R-CRAN-drc 
-Requires:         R-CRAN-gdata 
-Requires:         R-CRAN-kyotil 
-Requires:         R-CRAN-gWidgets2 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Performs nonlinear calibration and curve fitting for data from Luminex,
-RT-PCR, ELISA, RPPA etc. Its precursor is Ruminex. This package is
-described in Fong et al. (2013) <DOI:10.1093/bioinformatics/btt456>.
+The maximum likelihood classifier (MLC) is one of the most common
+classifiers used for remote sensing imagery. This package uses
+'RcppArmadillo' to provide a fast implementation of the MLC to train and
+predict over tabular data (data.frame). The algorithms were based on
+Mather (1985) <doi:10.1080/01431168508948456> method.
 
 %prep
 %setup -q -c -n %{packname}

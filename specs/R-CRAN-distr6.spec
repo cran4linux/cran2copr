@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  distr6
-%global packver   1.6.0
+%global packver   1.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Complete R6 Probability Distributions Interface
 
@@ -16,14 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-set6 >= 0.2.3
-BuildRequires:    R-CRAN-param6 >= 0.2.1
+BuildRequires:    R-CRAN-param6 >= 0.2.2
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-set6 >= 0.2.3
-Requires:         R-CRAN-param6 >= 0.2.1
+Requires:         R-CRAN-param6 >= 0.2.2
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-R6 

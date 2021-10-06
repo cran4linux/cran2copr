@@ -1,20 +1,20 @@
 %global __brp_check_rpaths %{nil}
-%global packname  TriDimRegression
-%global packver   1.0.1
+%global packname  BayesSenMC
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Statistics for 2D/3D Transformations
+Summary:          Different Models of Posterior Distributions of Adjusted Odds Ratio
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
 BuildRequires:    R-CRAN-rstan >= 2.18.1
 BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
@@ -22,39 +22,28 @@ BuildRequires:    R-CRAN-rstantools >= 2.1.1
 BuildRequires:    R-CRAN-BH >= 1.66.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-CRAN-loo 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-bayesplot 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-rstan >= 2.18.1
 Requires:         R-CRAN-rstantools >= 2.1.1
 Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-CRAN-loo 
 Requires:         R-methods 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-bayesplot 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-rstantools
 
 %description
-Fits 2D and 3D geometric transformations via 'Stan' probabilistic
-programming engine ( Stan Development Team (2021) <https://mc-stan.org>).
-Returns posterior distribution for individual parameters of the fitted
-distribution. Allows for computation of LOO and WAIC information criteria
-(Vehtari A, Gelman A, Gabry J (2017) <doi:10.1007/s11222-016-9696-4>) as
-well as Bayesian R-squared (Gelman A, Goodrich B, Gabry J, and Vehtari A
-(2018) <doi:10.1080/00031305.2018.1549100>).
+Generates different posterior distributions of adjusted odds ratio under
+different priors of sensitivity and specificity, and plots the models for
+comparison. It also provides estimations for the specifications of the
+models using diagnostics of exposure status with a non-linear mixed
+effects model. It implements the methods that are first proposed in
+<doi:10.1016/j.annepidem.2006.04.001> and <doi:10.1177/0272989X09353452>.
 
 %prep
 %setup -q -c -n %{packname}

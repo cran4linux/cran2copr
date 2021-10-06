@@ -1,27 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ISLR2
-%global packver   1.3
+%global packname  easylabel
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Introduction to Statistical Learning, Second Edition
+Summary:          Interactive Scatter Plot and Volcano Plot Labels
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-DT 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-DT 
 
 %description
-We provide the collection of data-sets used in the book 'An Introduction
-to Statistical Learning with Applications in R, Second Edition'. These
-include many data-sets that we used in the first edition (some with minor
-changes), and some new datasets.
+Interactive labelling of scatter plots and volcano plots using a 'shiny'
+and 'plotly' interface. Users can hover over points to see where specific
+points are located and click points on/off to easily label them. Labels
+can be dragged around the plot to place them optimally. Plots can be
+exported directly to pdf for publication.
 
 %prep
 %setup -q -c -n %{packname}

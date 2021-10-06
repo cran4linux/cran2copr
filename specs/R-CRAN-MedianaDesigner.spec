@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MedianaDesigner
-%global packver   0.3
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Simulation-Based Power and Sample Size Calculations for a Broad Class of Late-Stage Clinical Trials
 
@@ -40,8 +40,8 @@ The following modules are included in the package: Adaptive designs with
 data-driven sample size or event count re-estimation, Adaptive designs
 with data-driven treatment selection, Adaptive designs with data-driven
 population selection, Optimal selection of a futility stopping rule, Event
-prediction in event-driven trials. Adaptive trials with response-adaptive
-randomization (experimental module). Traditional trials with multiple
+prediction in event-driven trials, Adaptive trials with response-adaptive
+randomization (experimental module), Traditional trials with multiple
 objectives (experimental module).
 
 %prep

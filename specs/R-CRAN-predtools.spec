@@ -1,27 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ISLR2
-%global packver   1.3
+%global packname  predtools
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Introduction to Statistical Learning, Second Edition
+Summary:          Prediction Model Tools
 
-License:          GPL-2
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-RConics 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-pROC 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-RConics 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
 
 %description
-We provide the collection of data-sets used in the book 'An Introduction
-to Statistical Learning with Applications in R, Second Edition'. These
-include many data-sets that we used in the first edition (some with minor
-changes), and some new datasets.
+Provides additional functions for evaluating predictive models, including
+plotting calibration curves and model-based Receiver Operating
+Characteristic (mROC) based on Sadatsafavi et al (2021)
+<arXiv:2003.00316>.
 
 %prep
 %setup -q -c -n %{packname}

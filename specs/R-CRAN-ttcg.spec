@@ -1,27 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ISLR2
-%global packver   1.3
+%global packname  ttcg
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Introduction to Statistical Learning, Second Edition
+Summary:          Three-Term Conjugate Gradient for Unconstrained Optimization
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-numDeriv 
+Requires:         R-CRAN-numDeriv 
 
 %description
-We provide the collection of data-sets used in the book 'An Introduction
-to Statistical Learning with Applications in R, Second Edition'. These
-include many data-sets that we used in the first edition (some with minor
-changes), and some new datasets.
+Some accelerated three-term conjugate gradient algorithms implemented
+purely in R with the same user interface as optim(). The search directions
+and acceleration scheme are described in Andrei, N. (2013)
+<doi:10.1016/j.amc.2012.11.097>, Andrei, N. (2013)
+<doi:10.1016/j.cam.2012.10.002>, and Andrei, N (2015)
+<doi:10.1007/s11075-014-9845-9>. Line search is done by a hybrid algorithm
+incorporating the ideas in Oliveia and Takahashi (2020)
+<doi:10.1145/3423597> and More and Thuente (1994)
+<doi:10.1145/192115.192132>.
 
 %prep
 %setup -q -c -n %{packname}

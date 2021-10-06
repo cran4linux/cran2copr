@@ -1,27 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ISLR2
-%global packver   1.3
+%global packname  libproj
+%global packver   8.1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          8.1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Introduction to Statistical Learning, Second Edition
+Summary:          Generic Coordinate Transformation Library ('PROJ') C API
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-rappdirs 
 
 %description
-We provide the collection of data-sets used in the book 'An Introduction
-to Statistical Learning with Applications in R, Second Edition'. These
-include many data-sets that we used in the first edition (some with minor
-changes), and some new datasets.
+Provides a 'PROJ' <https://proj.org> C API that can be used to write
+high-performance C and C++ coordinate transformation operations using R as
+an interface. This package contains an internal version of the 'PROJ'
+library to guarantee the best possible consistency on multiple platforms,
+and to provide a means by which 'PROJ' can be used on platforms where it
+may be impractical or impossible to install a binary version of the
+library.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MazamaLocationUtils
-%global packver   0.1.13
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.13
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manage Spatial Metadata for Known Locations
 
@@ -22,12 +22,14 @@ BuildRequires:    R-CRAN-digest
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-MazamaCoreUtils 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-MazamaSpatialUtils >= 0.7
 Requires:         R-CRAN-geodist >= 0.0.7
@@ -35,17 +37,19 @@ Requires:         R-CRAN-digest
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-lubridate 
-Requires:         R-methods 
 Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
 Requires:         R-CRAN-MazamaCoreUtils 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sp 
 Requires:         R-CRAN-stringr 
 
 %description
 A suite of utility functions for discovering and managing metadata
-associated with sets of spatially unique "known locations".
+associated with spatially unique "known locations".
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,6 +59,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

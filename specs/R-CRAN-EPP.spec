@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  EPP
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evaluation of Proximity Programs
 
@@ -29,6 +29,10 @@ BuildRequires:    R-CRAN-rgdal
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-leaflet.extras 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-nngeo 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-maptools 
@@ -42,6 +46,10 @@ Requires:         R-CRAN-rgdal
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-leaflet.extras 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-nngeo 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-tibble 
 
 %description
 A toolbox for coverage evaluation of proximity programs.

@@ -1,34 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rdaemon
-%global packver   1.0.6
+%global packname  fflr
+%global packver   1.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.9.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Run an R Daemon Process in the Background
+Summary:          Retrieve ESPN Fantasy Football Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.6
-BuildRequires:    R-CRAN-futile.logger 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-Rcpp >= 1.0.6
-Requires:         R-CRAN-futile.logger 
-Requires:         R-CRAN-base64enc 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble >= 3.1.3
+BuildRequires:    R-CRAN-jsonlite >= 1.7.2
+BuildRequires:    R-CRAN-httr >= 1.4.2
+Requires:         R-CRAN-tibble >= 3.1.3
+Requires:         R-CRAN-jsonlite >= 1.7.2
+Requires:         R-CRAN-httr >= 1.4.2
 
 %description
-Run an independent R daemon process in the background. The process will
-keep running even after its terminal quits. The other R sessions can
-connect with the existing daemon using the same daemon name and send the
-task via daemonSetTask().
+Format the raw data from the ESPN fantasy football API
+<https://fantasy.espn.com/apis/v3/games/ffl/> as data frames. Retrieve
+data on public leagues, rosters, athletes, and matches.
 
 %prep
 %setup -q -c -n %{packname}

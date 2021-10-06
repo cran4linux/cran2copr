@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  terra
-%global packver   1.3-22
+%global packver   1.4-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.22
+Version:          1.4.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Data Analysis
 
@@ -19,10 +19,8 @@ BuildRequires:    proj-devel >= 6.3.1
 BuildRequires:    sqlite-devel
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-raster >= 3.3.7
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-raster >= 3.3.7
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
 

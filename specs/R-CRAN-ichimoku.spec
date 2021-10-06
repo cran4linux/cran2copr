@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ichimoku
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization and Tools for Ichimoku Kinko Hyo Strategies
 
@@ -15,21 +15,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
+BuildRequires:    R-grid 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gtable 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-cpp11 
+Requires:         R-grid 
+Requires:         R-stats 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
 Requires:         R-CRAN-gtable 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-stats 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-zoo 
 
@@ -38,8 +38,8 @@ An implementation of 'Ichimoku Kinko Hyo', also commonly known as 'cloud
 charts'. Static and interactive visualizations with tools for creating,
 backtesting and development of quantitative 'ichimoku' strategies. As
 described in Sasaki (1996, ISBN:4925152009), the technique is a refinement
-on candlestick charting originating from Japan, now in widespread use in
-technical analysis worldwide. Translating as 'one-glance equilibrium
+on candlestick charting, originating from Japan and now in widespread use
+in technical analysis worldwide. Translating as 'one-glance equilibrium
 chart', it allows the price action and market structure of financial
 securities to be determined 'at-a-glance'. Incorporates an interface with
 the OANDA fxTrade API <https://developer.oanda.com/> for retrieving

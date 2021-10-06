@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  astrochron
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Computational Tool for Astrochronology
 
@@ -15,24 +15,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-IDPmisc 
-BuildRequires:    R-CRAN-iterators 
 BuildRequires:    R-CRAN-multitaper 
 BuildRequires:    R-parallel 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-IDPmisc 
-Requires:         R-CRAN-iterators 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-CRAN-IDPmisc 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-viridisLite 
 Requires:         R-CRAN-multitaper 
 Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-iterators 
+Requires:         R-CRAN-IDPmisc 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-viridisLite 
 
 %description
 Routines for astrochronologic testing, astronomical time scale
-construction, and time series analysis. Also included are a range of
+construction, and time series analysis
+<doi:10.1016/j.earscirev.2018.11.015>. Also included are a range of
 statistical analysis and modeling routines that are relevant to time scale
 development and paleoclimate analysis.
 
@@ -44,6 +47,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

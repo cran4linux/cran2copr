@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ARTofR
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Who Ever Care About the [Art of R] Scripts?
 
@@ -16,16 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bannerCommenter 
-BuildRequires:    R-CRAN-clipr 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-bannerCommenter 
-Requires:         R-CRAN-clipr 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-bannerCommenter >= 1.0.0
+BuildRequires:    R-CRAN-clipr >= 0.4.0
+Requires:         R-CRAN-bannerCommenter >= 1.0.0
+Requires:         R-CRAN-clipr >= 0.4.0
 
 %description
-Decorate your comments and keep them neat! Please check
-<https://github.com/Hzhang-ouce/ARTofR> for instructions.
+For instructions, check <https://github.com/Hzhang-ouce/ARTofR>. This is a
+wrapper of 'bannerCommenter', for generating neat comments!
 
 %prep
 %setup -q -c -n %{packname}

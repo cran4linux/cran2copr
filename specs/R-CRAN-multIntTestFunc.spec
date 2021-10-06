@@ -1,46 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  batchr
-%global packver   0.0.2
+%global packname  multIntTestFunc
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Batch Process Files
+Summary:          Provides Test Functions for Multivariate Integration
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-chk 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-hmstimer 
-BuildRequires:    R-parallel 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-yesno 
-Requires:         R-CRAN-chk 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-hmstimer 
-Requires:         R-parallel 
-Requires:         R-stats 
-Requires:         R-CRAN-yesno 
+BuildRequires:    R-CRAN-gsl 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-gsl 
+Requires:         R-CRAN-pracma 
+Requires:         R-methods 
 
 %description
-Processes multiple files with a user-supplied function. The key design
-principle is that only files which were last modified before the directory
-was configured are processed.  A hidden file stores the configuration time
-and function etc while successfully processed files are automatically
-touched to update their modification date. As a result batch processing
-can be stopped and restarted and any files created (or modified or
-deleted) during processing are ignored.
+Provides implementations of functions that can be used to test
+multivariate integration routines. The package covers five different
+integration domains (unit hypercube, unit ball, unit sphere, standard
+simplex and R^n). For each domain several functions with different
+properties (smooth, non-differentiable, ...) are available. The functions
+are available in all dimensions n >= 1. For each function the exact value
+of the integral is known and implemented to allow testing the accuracy of
+multivariate integration routines. Details on the available test functions
+can be found at on the development website.
 
 %prep
 %setup -q -c -n %{packname}

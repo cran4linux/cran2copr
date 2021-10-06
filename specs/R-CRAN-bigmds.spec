@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bigmds
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multidimensional Scaling for Big Data
 
@@ -26,15 +26,16 @@ MDS is a statistic tool for reduction of dimensionality, using as input a
 distance matrix of dimensions n × n. When n is large, classical algorithms
 suffer from computational problems and MDS configuration can not be
 obtained. With this package, we address these problems by means of three
-algorithms: - Divide-and-conquer MDS developed by Delicado P. and C.
-Pachon-Garcia (2021) <arXiv:2007.11919>. - Fast MDS, which is an
-implementation of Yang, T., J. Liu, L. McMillan, and W. Wang (2006). -
-Interpolation MDS, which uses Gower's interpolation formula as described
-in Gower, J. C. and D. J. Hand (1995, ISBN: 978-0-412-71630-0). The main
+algorithms: - Divide-and-conquer MDS proposed by Delicado P. and C.
+Pachón-García (2021) <arXiv:2007.11919>. - Interpolation MDS, also
+proposed by Delicado P. and C. Pachón-García (2021) <arXiv:2007.11919>,
+which uses Gower's interpolation formula as described in Gower, J. C. and
+D. J. Hand (1995). - Fast MDS, which is an implementation of the algorithm
+proposed by Yang, T., J. Liu, L. McMillan, and W. Wang (2006). The main
 idea of these algorithms is based on partitioning the data set into small
 pieces, where classical methods can work. In order to align all the
-solutions, it is used Procrustes formula as described in Borg, I. and P.
-Groenen (2005, ISBN : 978-0-387-25150-9).
+solutions, Procrustes formula is used as described in Borg, I. and P.
+Groenen (2005).
 
 %prep
 %setup -q -c -n %{packname}

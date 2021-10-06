@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ISLR2
-%global packver   1.3
+%global packname  rnpn
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Introduction to Statistical Learning, Second Edition
+Summary:          Interface to the National 'Phenology' Network 'API'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,12 +16,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table >= 1.9.6
+BuildRequires:    R-CRAN-httr >= 1.1.0
+BuildRequires:    R-CRAN-sp >= 1.1.0
+BuildRequires:    R-CRAN-jsonlite >= 0.9.19
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-data.table >= 1.9.6
+Requires:         R-CRAN-httr >= 1.1.0
+Requires:         R-CRAN-sp >= 1.1.0
+Requires:         R-CRAN-jsonlite >= 0.9.19
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-magrittr 
 
 %description
-We provide the collection of data-sets used in the book 'An Introduction
-to Statistical Learning with Applications in R, Second Edition'. These
-include many data-sets that we used in the first edition (some with minor
-changes), and some new datasets.
+Programmatic interface to the Web Service methods provided by the National
+'Phenology' Network (<https://usanpn.org/>), which includes data on
+various life history events that occur at specific times.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mgcViz
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualisations for Generalized Additive Models
 
@@ -19,7 +19,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-mgcv >= 1.8.28
 BuildRequires:    R-CRAN-qgam >= 1.2.3
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-gamm4 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-viridis 
@@ -32,7 +31,6 @@ BuildRequires:    R-CRAN-miniUI
 Requires:         R-CRAN-mgcv >= 1.8.28
 Requires:         R-CRAN-qgam >= 1.2.3
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-gamm4 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-viridis 

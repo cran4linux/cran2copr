@@ -1,45 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ntwk
-%global packver   1.0.0
+%global packname  rLiDAR
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Inference for Network Time Series
+Summary:          LiDAR Data Processing and Visualization
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.2
+Requires:         R-core >= 3.3.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat >= 0.2.1
-BuildRequires:    R-CRAN-copCAR 
-BuildRequires:    R-CRAN-ghyp 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-assertthat >= 0.2.1
-Requires:         R-CRAN-copCAR 
-Requires:         R-CRAN-ghyp 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-pracma 
-Requires:         R-stats 
-Requires:         R-CRAN-zoo 
+BuildRequires:    R-CRAN-bitops 
+BuildRequires:    R-CRAN-deldir 
+BuildRequires:    R-CRAN-geometry 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-spatstat.geom 
+Requires:         R-CRAN-bitops 
+Requires:         R-CRAN-deldir 
+Requires:         R-CRAN-geometry 
+Requires:         R-methods 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-rgeos 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-spatstat.geom 
 
 %description
-Statistical inference tools for network time series, including
-implementation of the Graph Ornstein-Uhlenbeck ('GrOU') model and sparse
-AR-like regression on irregularly-spaced data (Courgeau and Veraart (2020)
-<arXiv:2005.12720>; Courgeau and Veraart <arXiv:2008.10930>). It also
-handles jumps and Levy-type driving noises through Wiener-Poisson mixtures
-and Generalised Hyperbolic distributions.
+Set of tools for reading, processing and visualizing small set of LiDAR
+(Light Detection and Ranging) data for forest inventory applications. More
+details were published in Silva et al. (2016)
+<doi:10.1080/07038992.2016.1196582>.
 
 %prep
 %setup -q -c -n %{packname}
