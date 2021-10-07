@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  heplots
-%global packver   1.3-8
+%global packver   1.3-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.8
+Version:          1.3.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizing Hypothesis Tests in Multivariate Linear Models
 
@@ -31,11 +31,12 @@ Requires:         R-utils
 
 %description
 Provides HE plot and other functions for visualizing hypothesis tests in
-multivariate linear models. HE plots represent sums-of-squares-and-
-products matrices for linear hypotheses and for error using ellipses (in
-two dimensions) and ellipsoids (in three dimensions). The related
-'candisc' package provides visualizations in a reduced-rank canonical
-discriminant space when there are more than a few response variables.
+multivariate linear models. HE plots represent
+sums-of-squares-and-products matrices for linear hypotheses and for error
+using ellipses (in two dimensions) and ellipsoids (in three dimensions).
+The related 'candisc' package provides visualizations in a reduced-rank
+canonical discriminant space when there are more than a few response
+variables.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,6 +46,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

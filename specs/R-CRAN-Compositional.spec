@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Compositional
-%global packver   4.9
+%global packver   5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.9
+Version:          5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 

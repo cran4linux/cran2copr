@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BGVAR
-%global packver   2.3.1
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Global Vector Autoregressions
 

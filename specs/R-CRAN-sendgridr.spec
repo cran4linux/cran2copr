@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sendgridr
-%global packver   0.2.4
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mail Sender Using 'Sendgrid' Service
 
@@ -51,7 +51,7 @@ Requires:         R-CRAN-stringr
 
 %description
 Send email using 'Sendgrid' <https://sendgrid.com/> mail API(v3)
-<https://sendgrid.com/docs/api-reference/>.
+<https://docs.sendgrid.com/api-reference/how-to-use-the-sendgrid-v3-api/authentication>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -61,6 +61,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rtables
-%global packver   0.3.8
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reporting Tables
 
@@ -20,10 +20,12 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-grid 
 Requires:         R-methods 
 Requires:         R-CRAN-magrittr 
 Requires:         R-stats 
 Requires:         R-CRAN-htmltools 
+Requires:         R-grid 
 
 %description
 Reporting tables often have structure that goes beyond simple rectangular

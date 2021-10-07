@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  wyz.code.testthat
-%global packver   1.1.17
+%global packver   1.1.20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.17
-Release:          3%{?dist}%{?buildtag}
+Version:          1.1.20
+Release:          1%{?dist}%{?buildtag}
 Summary:          Wizardry Code Offensive Programming Test Generation
 
 License:          GPL-3
@@ -13,19 +13,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 >= 2.4.0
-BuildRequires:    R-CRAN-lubridate >= 1.7.4
 BuildRequires:    R-CRAN-data.table >= 1.11.8
-BuildRequires:    R-CRAN-wyz.code.offensiveProgramming >= 1.1.17
+BuildRequires:    R-CRAN-wyz.code.offensiveProgramming >= 1.1.22
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-R6 >= 2.4.0
-Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-data.table >= 1.11.8
-Requires:         R-CRAN-wyz.code.offensiveProgramming >= 1.1.17
+Requires:         R-CRAN-wyz.code.offensiveProgramming >= 1.1.22
 Requires:         R-methods 
 Requires:         R-CRAN-tidyr 
 
@@ -43,7 +41,15 @@ to push testing further, but this need is nearly void when using
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -51,17 +57,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

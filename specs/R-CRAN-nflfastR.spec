@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  nflfastR
-%global packver   4.2.0
+%global packver   4.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.0
+Version:          4.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Efficiently Access NFL Play by Play Data
 
@@ -22,8 +22,10 @@ BuildRequires:    R-CRAN-stringr >= 1.3.0
 BuildRequires:    R-CRAN-tidyselect >= 1.1.0
 BuildRequires:    R-CRAN-xgboost >= 1.1
 BuildRequires:    R-CRAN-fastrmodels >= 1.0.1
+BuildRequires:    R-CRAN-nflreadr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-progressr >= 0.6.0
+BuildRequires:    R-CRAN-rlang >= 0.4.7
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
@@ -31,18 +33,17 @@ BuildRequires:    R-CRAN-furrr
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-tibble >= 3.0
 Requires:         R-CRAN-stringr >= 1.3.0
 Requires:         R-CRAN-tidyselect >= 1.1.0
 Requires:         R-CRAN-xgboost >= 1.1
 Requires:         R-CRAN-fastrmodels >= 1.0.1
+Requires:         R-CRAN-nflreadr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-progressr >= 0.6.0
+Requires:         R-CRAN-rlang >= 0.4.7
 Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
@@ -50,10 +51,7 @@ Requires:         R-CRAN-furrr
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-rlang 
 
 %description
 A set of functions to access National Football League play-by-play data

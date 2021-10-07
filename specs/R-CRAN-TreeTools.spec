@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  TreeTools
-%global packver   1.5.0
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create, Modify and Analyse Phylogenetic Trees
 
@@ -17,18 +17,18 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-ape >= 5.0
 BuildRequires:    R-CRAN-phangorn >= 2.2.1
+BuildRequires:    R-CRAN-fastmatch >= 1.1.3
 BuildRequires:    R-CRAN-Rdpack >= 0.7
 BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-fastmatch 
 BuildRequires:    R-CRAN-R.cache 
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-ape >= 5.0
 Requires:         R-CRAN-phangorn >= 2.2.1
+Requires:         R-CRAN-fastmatch >= 1.1.3
 Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-CRAN-bit64 
 Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-fastmatch 
 Requires:         R-CRAN-R.cache 
 
 %description

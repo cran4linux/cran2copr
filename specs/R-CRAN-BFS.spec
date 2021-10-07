@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BFS
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Search and Download Data from the Swiss Federal Statistical Office (BFS)
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,28 +16,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.1
 Requires:         R-core >= 3.0.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-pxweb 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-pxR 
-BuildRequires:    R-CRAN-pins 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyRSS 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-pxweb 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-pxR 
-Requires:         R-CRAN-pins 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyRSS 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Search and download data from the Swiss Federal Statistical Office
@@ -51,6 +47,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

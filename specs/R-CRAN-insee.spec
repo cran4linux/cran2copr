@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  insee
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Easily Download Data from INSEE BDM Database
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-xml2
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-purrr 
@@ -34,7 +33,6 @@ Requires:         R-CRAN-xml2
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-purrr 
