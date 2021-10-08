@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  wbacon
-%global packver   0.5-1
+%global packver   0.5-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighted BACON Algorithms
 
@@ -29,7 +29,8 @@ The BACON algorithms are methods for multivariate outlier nomination
 (detection) and robust linear regression by Billor, Hadi, and Velleman
 (2000) <doi:10.1016/S0167-9473(99)00101-2>. The extension to weighted
 problems is due to Beguin and Hulliger (2008)
-<https://www150.statcan.gc.ca/n1/en/catalogue/12-001-X200800110616>.
+<https://www150.statcan.gc.ca/n1/en/catalogue/12-001-X200800110616>; see
+also <doi:10.21105/joss.03238>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -39,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

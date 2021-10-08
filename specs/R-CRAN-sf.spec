@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sf
-%global packver   1.0-2
+%global packver   1.0-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Features for R
 
@@ -19,7 +19,7 @@ BuildRequires:    proj-devel >= 4.8.0
 BuildRequires:    sqlite-devel
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-s2 >= 1.0.5
+BuildRequires:    R-CRAN-s2 >= 1.0.7
 BuildRequires:    R-CRAN-DBI >= 0.8
 BuildRequires:    R-CRAN-units >= 0.6.0
 BuildRequires:    R-CRAN-classInt >= 0.4.1
@@ -32,7 +32,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-s2 >= 1.0.5
+Requires:         R-CRAN-s2 >= 1.0.7
 Requires:         R-CRAN-DBI >= 0.8
 Requires:         R-CRAN-units >= 0.6.0
 Requires:         R-CRAN-classInt >= 0.4.1

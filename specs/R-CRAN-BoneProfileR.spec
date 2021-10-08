@@ -1,31 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  L2DensityGoFtest
-%global packver   0.2.0
+%global packname  BoneProfileR
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Density Goodness-of-Fit Test
+Summary:          Tools to Study Bone Compactness
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fGarch 
-BuildRequires:    R-CRAN-kedd 
-BuildRequires:    R-CRAN-nor1mix 
-Requires:         R-CRAN-fGarch 
-Requires:         R-CRAN-kedd 
-Requires:         R-CRAN-nor1mix 
+BuildRequires:    R-CRAN-HelpersMG >= 4.7
+BuildRequires:    R-CRAN-imager 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-HelpersMG >= 4.7
+Requires:         R-CRAN-imager 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-shiny 
 
 %description
-Provides functions for the implementation of a density goodness-of-fit
-test, based on piecewise approximation of the L2 distance.
+Bone Profiler is a scientific method and a software used to model bone
+section for paleontological and ecological studies. See Girondot and
+Laurin 2003
+<https://www.researchgate.net/publication/280021178_Bone_profiler_A_tool_to_quantify_model_and_statistically_compare_bone-section_compactness_profiles>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  restatapi
-%global packver   0.11.3
+%global packver   0.12.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.3
+Version:          0.12.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Search and Retrieve Data from Eurostat Database
 
@@ -28,8 +28,8 @@ Eurostat is the statistical office of the European Union and provides high
 quality statistics for Europe. Large set of the data is disseminated
 through the Eurostat database
 (<https://ec.europa.eu/eurostat/data/database>). The tools are using the
-REST API with the Statistical Data and Metadata eXchange (SDMX
-<https://sdmx.org>) Web Services
+REST API with the Statistical Data and Metadata eXchange (SDMX) Web
+Services
 (<https://ec.europa.eu/eurostat/web/sdmx-web-services/about-this-service>)
 to search and download data from the Eurostat database using the SDMX
 standard.

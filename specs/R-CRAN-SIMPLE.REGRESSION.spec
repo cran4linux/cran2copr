@@ -1,30 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  biblio
-%global packver   0.0.2
+%global packname  SIMPLE.REGRESSION
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interacting with BibTeX Databases
+Summary:          Multiple Regression and Moderated Regression Made Simple
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-yamlme 
-Requires:         R-methods 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-yamlme 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-nlme 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-nlme 
 
 %description
-Reading and writing BibTeX files using data frames in R sessions.
+Provides SPSS- and SAS-like output for least squares multiple regression
+and moderated regression, as well as interaction plots and Johnson-Neyman
+regions of significance for interactions. The output includes standardized
+coefficients, partial and semi-partial correlations, collinearity
+diagnostics, plots of residuals, and detailed information about simple
+slopes for interactions. There are numerous options for designing
+interaction plots, including plots of interactions for both lm and lme
+models.
 
 %prep
 %setup -q -c -n %{packname}

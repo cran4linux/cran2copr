@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  L2DensityGoFtest
-%global packver   0.2.0
+%global packname  optimg
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Density Goodness-of-Fit Test
+Summary:          General-Purpose Gradient-Based Optimization
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,16 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fGarch 
-BuildRequires:    R-CRAN-kedd 
-BuildRequires:    R-CRAN-nor1mix 
-Requires:         R-CRAN-fGarch 
-Requires:         R-CRAN-kedd 
-Requires:         R-CRAN-nor1mix 
+BuildRequires:    R-CRAN-ucminf >= 1.1.4
+Requires:         R-CRAN-ucminf >= 1.1.4
 
 %description
-Provides functions for the implementation of a density goodness-of-fit
-test, based on piecewise approximation of the L2 distance.
+Provides general purpose tools for helping users to implement steepest
+gradient descent methods for function optimization; for details see Ruder
+(2016) <arXiv:1609.04747v2>. Currently, the Steepest 2-Groups Gradient
+Descent and the Adaptive Moment Estimation (Adam) are the methods
+implemented. Other methods will be implemented in the future.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  validate
-%global packver   1.0.4
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Validation Infrastructure
 
@@ -32,9 +32,10 @@ Requires:         R-CRAN-yaml
 Declare data validation rules and data quality indicators; confront data
 with them and analyze or visualize the results. The package supports rules
 that are per-field, in-record, cross-record or cross-dataset. Rules can be
-automatically analyzed for rule type and connectivity. See also Van der
-Loo and De Jonge (2018) <doi:10.1002/9781118897126>, Chapter 6 and the JSS
-paper (2021) <doi:10.18637/jss.v097.i10>.
+automatically analyzed for rule type and connectivity. Supports checks
+implied by an SDMS DSD file as well. See also Van der Loo and De Jonge
+(2018) <doi:10.1002/9781118897126>, Chapter 6 and the JSS paper (2021)
+<doi:10.18637/jss.v097.i10>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +45,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

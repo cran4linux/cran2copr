@@ -1,31 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  L2DensityGoFtest
-%global packver   0.2.0
+%global packname  gslnls
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Density Goodness-of-Fit Test
+Summary:          GSL Nonlinear Least-Squares Fitting
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-fGarch 
-BuildRequires:    R-CRAN-kedd 
-BuildRequires:    R-CRAN-nor1mix 
-Requires:         R-CRAN-fGarch 
-Requires:         R-CRAN-kedd 
-Requires:         R-CRAN-nor1mix 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 
 %description
-Provides functions for the implementation of a density goodness-of-fit
-test, based on piecewise approximation of the L2 distance.
+An R interface to nonlinear least-squares optimization with the GNU
+Scientific Library (GSL), see M. Galassi et al. (2009, ISBN:0954612078).
+The available trust region methods include the Levenberg-Marquadt
+algorithm with and without geodesic acceleration, and several variants of
+Powell's dogleg algorithm. Bindings are provided to tune a number of
+parameters affecting the low-level aspects of the trust region algorithms.
+The interface mimics R's nls() function and returns model objects
+inheriting from the same class.
 
 %prep
 %setup -q -c -n %{packname}

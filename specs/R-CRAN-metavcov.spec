@@ -1,29 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global packname  metavcov
-%global packver   2.1
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variance-Covariance Matrix for Multivariate Meta-Analysis
+Summary:          Computing Variances and Covariances, Visualization and Missing Data Solution for Multivariate Meta-Analysis
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-corpcor 
-Requires:         R-CRAN-corpcor 
+BuildRequires:    R-CRAN-mice 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-mice 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Compute variance-covariance matrix for multivariate meta-analysis. Effect
-sizes include correlation (r), mean difference (MD), standardized mean
-difference (SMD), log odds ratio (logOR), log risk ratio (logRR), and risk
-difference (RD).
+Collection of functions to compute covariances for different effect sizes,
+data visualization, and single and multiple imputation for missing data.
+Effect sizes include correlation (r), mean difference (MD), standardized
+mean difference (SMD), log odds ratio (logOR), log risk ratio (logRR), and
+risk difference (RD).
 
 %prep
 %setup -q -c -n %{packname}

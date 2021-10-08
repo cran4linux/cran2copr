@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rvinecopulib
-%global packver   0.5.5.1.1
+%global packver   0.6.1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5.1.1
+Version:          0.6.1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Performance Algorithms for Vine Copula Modeling
 
@@ -44,7 +44,7 @@ vine copula and bivariate copula models. Advantages over 'VineCopula' are
 a sleeker and more modern API, improved performances, especially in high
 dimensions, nonparametric and multi-parameter families, and the ability to
 model discrete variables. The 'rvinecopulib' package includes
-'vinecopulib' as header-only C++ library (currently version 0.5.5). Thus
+'vinecopulib' as header-only C++ library (currently version 0.6.1). Thus
 users do not need to install 'vinecopulib' itself in order to use
 'rvinecopulib'. Since their initial releases, 'vinecopulib' is licensed
 under the MIT License, and 'rvinecopulib' is licensed under the GNU GPL
@@ -58,6 +58,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

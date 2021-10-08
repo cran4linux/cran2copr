@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spherepc
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spherical Principal Curves
 
@@ -27,12 +27,12 @@ Requires:         R-stats
 
 %description
 Fitting dimension reduction methods to data lying on two-dimensional
-sphere. This package provides principal circle, principal geodesic
-analysis, Hauberg's principal curves, and spherical principal curves.
-Moreover, it offers the method of locally defined principal geodesics
-which is underway.The detailed procedures are described in Lee, J., Kim,
-J.-H. and Oh, H.-S. (2021) <doi:10.1109/TPAMI.2020.3025327>. Also see Kim,
-J.-H., Lee, J. and Oh, H.-S. (2020) <arXiv:2003.02578>.
+sphere. This package provides principal geodesic analysis, principal
+circle, principal curves proposed by Hauberg, and spherical principal
+curves. Moreover, it offers the method of locally defined principal
+geodesics which is underway. The detailed procedures are described in Lee,
+J., Kim, J.-H. and Oh, H.-S. (2021) <doi:10.1109/TPAMI.2020.3025327>. Also
+see Kim, J.-H., Lee, J. and Oh, H.-S. (2020) <arXiv:2003.02578>.
 
 %prep
 %setup -q -c -n %{packname}
