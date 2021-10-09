@@ -1,44 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Rnumerai
-%global packver   2.1.4
+%global packname  FADPclust
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the Numerai Machine Learning Tournament API
+Summary:          Functional Data Clustering Using Adaptive Density Peak Detection
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-arrow 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-arrow 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-MFPCA 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-fda 
+BuildRequires:    R-CRAN-fda.usc 
+BuildRequires:    R-CRAN-funData 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-MFPCA 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-fda 
+Requires:         R-CRAN-fda.usc 
+Requires:         R-CRAN-funData 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Routines to interact with the Numerai Machine Learning Tournament API
-<https://numer.ai>. The functionality includes the ability to
-automatically download the current tournament data, submit predictions,
-and to get information for your user. General 'GraphQL' queries can also
-be executed.
+An implementation of a clustering algorithm for functional data based on
+adaptive density peak detection technique, in which the density is
+estimated by functional k-nearest neighbor density estimation based on a
+proposed semi-metric between functions. The proposed functional data
+clustering algorithm is computationally fast since it does not need
+iterative process. (Alex Rodriguez and Alessandro Laio (2014)
+<doi:10.1126/science.1242072>; Xiao-Feng Wang and Yifan Xu (2016)
+<doi:10.1177/0962280215609948>).
 
 %prep
 %setup -q -c -n %{packname}

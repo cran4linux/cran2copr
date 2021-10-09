@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  emayili
-%global packver   0.6.1
+%global packname  expDB
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Send Email Messages
+Summary:          Database for Experiment Dataset
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,47 +16,47 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl >= 4.0
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-commonmark 
-BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-weaana >= 0.1.1
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-logger 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-mime 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-urltools 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-curl >= 4.0
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-commonmark 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-weaana >= 0.1.1
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-utils 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-png 
+Requires:         R-grid 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-logger 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-mime 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-stringr 
+Requires:         R-methods 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-urltools 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-magrittr 
+Requires:         R-stats 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
 
 %description
-A light, simple tool for sending emails with minimal dependencies.
+A SQLite database is designed to store all information of experiment-based
+data including metadata, experiment design, managements, phenotypic values
+and climate records. The dataset can be imported from an excel file.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,44 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Rnumerai
-%global packver   2.1.4
+%global packname  kdtools
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the Numerai Machine Learning Tournament API
+Summary:          Tools for Working with Multidimensional Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-arrow 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-arrow 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.12.14
+Requires:         R-CRAN-Rcpp >= 0.12.14
 
 %description
-Routines to interact with the Numerai Machine Learning Tournament API
-<https://numer.ai>. The functionality includes the ability to
-automatically download the current tournament data, submit predictions,
-and to get information for your user. General 'GraphQL' queries can also
-be executed.
+Provides various tools for working with multidimensional data in R and
+C++, including extremely fast nearest-neighbor- and range- queries without
+the overhead of linked tree nodes.
 
 %prep
 %setup -q -c -n %{packname}

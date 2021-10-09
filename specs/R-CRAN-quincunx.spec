@@ -1,52 +1,64 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dynutils
-%global packver   1.0.9
+%global packname  quincunx
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Common Functionality for the 'dynverse' Packages
+Summary:          REST API Client for the 'PGS' Catalog
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-desc 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-proxyC 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-remotes 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-vroom 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyjson 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-desc 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-CRAN-proxyC 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-remotes 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-writexl 
+BuildRequires:    R-CRAN-concatenate 
+BuildRequires:    R-CRAN-memoise 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-vroom 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyjson 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-httr 
+Requires:         R-utils 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-progress 
+Requires:         R-methods 
+Requires:         R-CRAN-writexl 
+Requires:         R-CRAN-concatenate 
+Requires:         R-CRAN-memoise 
 
 %description
-Provides common functionality for the 'dynverse' packages. 'dynverse' is
-created to support the development, execution, and benchmarking of
-trajectory inference methods. For more information, check out
-<https://dynverse.org>.
+Programmatic access to the 'PGS' Catalog. This package provides easy
+access to 'PGS' Catalog data by accessing the REST API
+<https://www.pgscatalog.org/rest/>.
 
 %prep
 %setup -q -c -n %{packname}

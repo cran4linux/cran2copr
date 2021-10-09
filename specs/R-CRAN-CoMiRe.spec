@@ -1,44 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Rnumerai
-%global packver   2.1.4
+%global packname  CoMiRe
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the Numerai Machine Learning Tournament API
+Summary:          Convex Mixture Regression
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-splines2 >= 0.3.1
+BuildRequires:    R-CRAN-KernSmooth 
+BuildRequires:    R-CRAN-NonpModelCheck 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-arrow 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-splines2 >= 0.3.1
+Requires:         R-CRAN-KernSmooth 
+Requires:         R-CRAN-NonpModelCheck 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-arrow 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-rlang 
 
 %description
-Routines to interact with the Numerai Machine Learning Tournament API
-<https://numer.ai>. The functionality includes the ability to
-automatically download the current tournament data, submit predictions,
-and to get information for your user. General 'GraphQL' queries can also
-be executed.
+Posterior inference under the convex mixture regression (CoMiRe) models
+introduced by Canale, Durante, and Dunson (2018) <doi:10.1111/biom.12917>.
 
 %prep
 %setup -q -c -n %{packname}

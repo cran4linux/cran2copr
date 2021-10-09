@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dataMaid
-%global packver   1.4.1
+%global packname  cotram
+%global packver   0.3-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Suite of Checks for Identification of Potential Errors in a Data Frame as Part of the Data Screening Process
+Summary:          Count Transformation Models
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,35 +16,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 1.10
-BuildRequires:    R-CRAN-robustbase >= 0.93.2
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-mlt >= 1.2.1
+BuildRequires:    R-CRAN-basefun >= 1.0.5
+BuildRequires:    R-CRAN-variables >= 1.0.2
+BuildRequires:    R-CRAN-tram >= 0.2.6
+BuildRequires:    R-CRAN-alabama 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pander 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-whoami 
-Requires:         R-CRAN-rmarkdown >= 1.10
-Requires:         R-CRAN-robustbase >= 0.93.2
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-mlt >= 1.2.1
+Requires:         R-CRAN-basefun >= 1.0.5
+Requires:         R-CRAN-variables >= 1.0.2
+Requires:         R-CRAN-tram >= 0.2.6
+Requires:         R-CRAN-alabama 
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-CRAN-pander 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-whoami 
 
 %description
-Data screening is an important first step of any statistical analysis.
-dataMaid auto generates a customizable data report with a thorough summary
-of the checks and the results that a human can use to identify possible
-errors. It provides an extendable suite of test for common potential
-errors in a dataset.
+Count transformation models featuring parameters interpretable as discrete
+hazard ratios, odds ratios, reverse-time discrete hazard ratios, or
+transformed expectations. An appropriate data transformation for a count
+outcome and regression coefficients are simultaneously estimated by
+maximising the exact discrete log-likelihood using the computational
+framework provided in package 'mlt', technical details are given in
+Siegfried & Hothorn (2020) <DOI:10.1111/2041-210X.13383>. The package also
+contains an experimental implementation of multivariate count
+transformation models with an application to multi-species distribution
+models.
 
 %prep
 %setup -q -c -n %{packname}

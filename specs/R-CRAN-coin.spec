@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  coin
-%global packver   1.4-1
+%global packver   1.4-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conditional Inference Procedures in a Permutation Test Framework
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-libcoin >= 1.0.5
+BuildRequires:    R-CRAN-libcoin >= 1.0.9
 BuildRequires:    R-CRAN-mvtnorm >= 1.0.5
 BuildRequires:    R-CRAN-matrixStats >= 0.54.0
 BuildRequires:    R-CRAN-modeltools >= 0.2.9
@@ -26,7 +26,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-stats4 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-multcomp 
-Requires:         R-CRAN-libcoin >= 1.0.5
+Requires:         R-CRAN-libcoin >= 1.0.9
 Requires:         R-CRAN-mvtnorm >= 1.0.5
 Requires:         R-CRAN-matrixStats >= 0.54.0
 Requires:         R-CRAN-modeltools >= 0.2.9
@@ -52,6 +52,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

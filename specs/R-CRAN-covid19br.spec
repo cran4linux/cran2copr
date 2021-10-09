@@ -1,62 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  emayili
-%global packver   0.6.1
+%global packname  covid19br
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Send Email Messages
+Summary:          Brazilian COVID-19 Pandemic Data
 
-License:          GPL-3
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl >= 4.0
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-commonmark 
-BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-logger 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-mime 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rio 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-urltools 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-curl >= 4.0
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-commonmark 
-Requires:         R-CRAN-digest 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-logger 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-mime 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rio 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-urltools 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-xml2 
 
 %description
-A light, simple tool for sending emails with minimal dependencies.
+Set of functions to import COVID-19 pandemic data into R. The Brazilian
+COVID-19 data, obtained from the official Brazilian repository at
+<https://covid.saude.gov.br/>, is available at country, region, state, and
+city-levels. The package also downloads the world-level COVID-19 data from
+the John Hopkins University's repository.
 
 %prep
 %setup -q -c -n %{packname}
