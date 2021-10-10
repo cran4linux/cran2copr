@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  CPNCoverageAnalysis
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conceptual Properties Norming Studies as Parameter Estimation
 
@@ -20,9 +20,8 @@ BuildArch:        noarch
 %description
 Implementation of conceptual properties norming studies, including
 estimates of CPNs parameters with their corresponding variances and
-estimates for the sampling process. See Canessa et al. (2021)
-<doi:10.3758/s13428-020-01439-8>. "How to Carry Out Conceptual Properties
-Norming Studies as Parameter Estimation Studies: Lessons from Ecology".
+estimates for the sampling process, and a sampling property function based
+on a modified empirical distribution from the original data.
 
 %prep
 %setup -q -c -n %{packname}

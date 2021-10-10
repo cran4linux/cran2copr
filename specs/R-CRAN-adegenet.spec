@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  adegenet
-%global packver   2.1.4
+%global packver   2.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          2.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploratory Analysis of Genetic and Genomic Data
 
@@ -28,7 +28,6 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-seqinr 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-vegan 
@@ -45,7 +44,6 @@ Requires:         R-CRAN-shiny
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-seqinr 
 Requires:         R-parallel 
-Requires:         R-CRAN-spdep 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-vegan 

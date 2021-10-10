@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ganGenerativeData
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate Generative Data for a Data Source
 
@@ -23,8 +23,10 @@ Requires:         R-CRAN-Rcpp >= 1.0.3
 %description
 Generative Adversarial Networks are applied to generate generative data
 for a data source. In iterative training steps the distribution of
-generated data converges to that of the data source. Reference: Goodfellow
-et al. (2014) <arXiv:1406.2661v1>.
+generated data converges to that of the data source. An application of
+generative data is the created density value function which is used to
+classify data records. Reference: Goodfellow et al. (2014)
+<arXiv:1406.2661v1>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -34,6 +36,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

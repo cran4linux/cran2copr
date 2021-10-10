@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  hierbase
-%global packver   0.0.4
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Enabling Hierarchical Multiple Testing
 
@@ -32,7 +32,7 @@ Requires:         R-CRAN-SIHR
 %description
 Implementation of hierarchical inference based on Renaux and Bühlmann
 (2021) 'Efficient Multiple Testing Adjustment for Hierarchical Inference'
-<arXiv:2104.15028>. The R-package hierbase offers tools to perform
+<arXiv:2104.15028>. The R-package 'hierbase' offers tools to perform
 hierarchical inference for one or multiple data sets based on ready-to-use
 (group) test functions or alternatively a user specified (group) test
 function. The procedure is based on an efficient hierarchical multiple

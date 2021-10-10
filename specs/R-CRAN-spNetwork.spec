@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spNetwork
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Analysis on Network
 
@@ -17,6 +17,7 @@ BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-raster >= 3.0.12
+BuildRequires:    R-CRAN-Rdpack >= 2.1.1
 BuildRequires:    R-CRAN-cubature >= 2.0.4.1
 BuildRequires:    R-methods >= 1.7.1
 BuildRequires:    R-CRAN-future.apply >= 1.4.0
@@ -26,14 +27,15 @@ BuildRequires:    R-CRAN-data.table >= 1.12.8
 BuildRequires:    R-CRAN-spdep >= 1.1.2
 BuildRequires:    R-CRAN-Rcpp >= 1.0.4.6
 BuildRequires:    R-CRAN-maptools >= 0.9.5
-BuildRequires:    R-CRAN-sf >= 0.9.0
 BuildRequires:    R-CRAN-rgeos >= 0.5.2
 BuildRequires:    R-CRAN-SearchTrees >= 0.5.2
 BuildRequires:    R-CRAN-progressr >= 0.4.0
 BuildRequires:    R-CRAN-RcppProgress 
 BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-raster >= 3.0.12
+Requires:         R-CRAN-Rdpack >= 2.1.1
 Requires:         R-CRAN-cubature >= 2.0.4.1
 Requires:         R-methods >= 1.7.1
 Requires:         R-CRAN-future.apply >= 1.4.0
@@ -43,19 +45,19 @@ Requires:         R-CRAN-data.table >= 1.12.8
 Requires:         R-CRAN-spdep >= 1.1.2
 Requires:         R-CRAN-Rcpp >= 1.0.4.6
 Requires:         R-CRAN-maptools >= 0.9.5
-Requires:         R-CRAN-sf >= 0.9.0
 Requires:         R-CRAN-rgeos >= 0.5.2
 Requires:         R-CRAN-SearchTrees >= 0.5.2
 Requires:         R-CRAN-progressr >= 0.4.0
 
 %description
-Perform spatial analysis on network. Allow to calculate Network Kernel
-Density Estimate, and to build spatial matrices ('listw' objects like in
-'spdep' package) to conduct any kind of traditional spatial analysis with
-spatial weights based on reticular distances. K functions on network are
-also available but still experimental. References: Okabe et al (2019)
-<doi:10.1080/13658810802475491>; Okabe et al (2012,
-ISBN:978-0470770818);Baddeley el al (2015, ISBN:9781482210200).
+Perform spatial analysis on network. Implement several methods for spatial
+analysis on network: Network Kernel Density estimation, building of
+spatial matrices based on network distance ('listw' objects from 'spdep'
+package), K functions estimation for point pattern analysis on network, k
+nearest neighbours on network, reachable area calculation, and graph
+generation References: Okabe et al (2019) <doi:10.1080/13658810802475491>;
+Okabe et al (2012, ISBN:978-0470770818);Baddeley el al (2015,
+ISBN:9781482210200).
 
 %prep
 %setup -q -c -n %{packname}
@@ -65,6 +67,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

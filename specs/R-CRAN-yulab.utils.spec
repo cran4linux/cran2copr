@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  yulab.utils
-%global packver   0.0.2
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Supporting Functions for Packages Maintained by 'YuLab-SMU'
 
@@ -20,9 +20,7 @@ BuildRequires:    R-utils
 Requires:         R-utils 
 
 %description
-Miscellaneous functions commonly used by 'YuLab-SMU', such as
-'install_zip_gh' to install R package from github zip file, 'o' to open
-selected directory and file.
+Miscellaneous functions commonly used by 'YuLab-SMU'.
 
 %prep
 %setup -q -c -n %{packname}

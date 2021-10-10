@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  covid19india
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pulling Clean Data from Covid19india.org
 
@@ -16,36 +16,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table >= 1.14.1
 BuildRequires:    R-CRAN-EpiEstim 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-gt 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-data.table >= 1.14.1
 Requires:         R-CRAN-EpiEstim 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gt 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-magrittr 
 
 %description
 Pull raw and pre-cleaned versions of national and state-level COVID-19
