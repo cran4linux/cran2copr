@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SUNGEO
-%global packver   0.2.24
+%global packver   0.2.27
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.24
+Version:          0.2.27
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sub-National Geospatial Data Archive: Geoprocessing Toolkit
 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-raster
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-udunits2 
+BuildRequires:    R-CRAN-measurements 
 BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-cartogram 
 BuildRequires:    R-CRAN-fasterize 
@@ -46,7 +46,7 @@ Requires:         R-CRAN-raster
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-udunits2 
+Requires:         R-CRAN-measurements 
 Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-cartogram 
 Requires:         R-CRAN-fasterize 
@@ -61,8 +61,7 @@ Requires:         R-CRAN-automap
 
 %description
 Tools for integrating spatially-misaligned GIS datasets. Part of the
-Sub-National Geospatial Data Archive System
-(<https://www.nsf.gov/awardsearch/showAward?AWD_ID=1925693&HistoricalAwards=false>).
+Sub-National Geospatial Data Archive System.
 
 %prep
 %setup -q -c -n %{packname}

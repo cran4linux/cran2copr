@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  yorkr
-%global packver   0.0.26
+%global packver   0.0.27
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.26
+Version:          0.0.27
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze Cricket Performances Based on Data from Cricsheet
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-yaml
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-rpart.plot 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
@@ -32,7 +31,6 @@ Requires:         R-CRAN-yaml
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-rpart.plot 
 Requires:         R-stats 
-Requires:         R-CRAN-lubridate 
 Requires:         R-utils 
 
 %description
