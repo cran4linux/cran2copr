@@ -1,47 +1,50 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tabnet
-%global packver   0.3.0
+%global packname  processanimateR
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit 'TabNet' Models for Classification and Regression
+Summary:          Process Map Token Replay Animation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-torch >= 0.4.0
-BuildRequires:    R-CRAN-hardhat 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-DiagrammeR >= 1.0.0
+BuildRequires:    R-CRAN-processmapR >= 0.3.1
+BuildRequires:    R-CRAN-bupaR 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-coro 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-torch >= 0.4.0
-Requires:         R-CRAN-hardhat 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-progress 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-htmltools 
+Requires:         R-CRAN-DiagrammeR >= 1.0.0
+Requires:         R-CRAN-processmapR >= 0.3.1
+Requires:         R-CRAN-bupaR 
 Requires:         R-CRAN-rlang 
-Requires:         R-methods 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-coro 
-Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-grDevices 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-htmltools 
 
 %description
-Implements the 'TabNet' model by Sercan O. Arik et al (2019)
-<arXiv:1908.07442> and provides a consistent interface for fitting and
-creating predictions. It's also fully compatible with the 'tidymodels'
-ecosystem.
+Provides animated process maps based on the 'procesmapR' package. Cases
+stored in event logs created with with 'bupaR' S3 class eventlog() are
+rendered as tokens (SVG shapes) and animated according to their occurrence
+times on top of the process map. For rendering SVG animations ('SMIL') and
+the 'htmlwidget' package are used.
 
 %prep
 %setup -q -c -n %{packname}

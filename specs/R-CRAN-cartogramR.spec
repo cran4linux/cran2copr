@@ -1,34 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  PxWebApiData
-%global packver   0.7.0
+%global packname  cartogramR
+%global packver   1.0-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          PX-Web Data by API
+Summary:          Continuous Cartogram
 
-License:          Apache License 2.0 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rjstat 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-pxweb 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rjstat 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-pxweb 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-data.table 
 
 %description
-Function to read PX-Web data into R via API. The example code reads data
-from the three national statistical institutes, Statistics Norway,
-Statistics Sweden and Statistics Finland.
+Procedures for making continuous cartogram. Procedures available are: flow
+based cartogram (Gastner & Newman (2004) <doi:10.1073/pnas.0400280101>),
+fast flow based cartogram (Gastner, Seguy & More (2018)
+<doi:10.1073/pnas.1712674115>), rubber band based cartogram (Dougenik et
+al. (1985) <doi:10.1111/j.0033-0124.1985.00075.x>).
 
 %prep
 %setup -q -c -n %{packname}

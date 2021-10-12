@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  trustOptim
-%global packver   0.8.7.2
+%global packver   0.8.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.7.2
+Version:          0.8.7.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Trust Region Optimization for Nonlinear Functions with Sparse Hessians
 
@@ -15,11 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-Matrix >= 1.3
+BuildRequires:    R-CRAN-Matrix >= 1.2.18
 BuildRequires:    R-CRAN-Rcpp >= 1.0.3
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.7.0
 BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix >= 1.3
+Requires:         R-CRAN-Matrix >= 1.2.18
 Requires:         R-CRAN-Rcpp >= 1.0.3
 Requires:         R-methods 
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  swdpwr
-%global packver   1.5
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Calculation for Stepped Wedge Cluster Randomized Trials
 
@@ -15,20 +15,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-spatstat.core 
+Requires:         R-CRAN-spatstat.core 
 
 %description
 To meet the needs of statistical power calculation for stepped wedge
 cluster randomized trials, we developed this software. Different
 parameters can be specified by users for different scenarios, including:
-cohort and cross-sectional settings, binary and continuous outcomes,
-marginal (GEE) and conditional (mixed effect model) methods, different
-link functions (identity, log, logit links), with and without time effect
-of treatment, etc. The methods included in this package: Zhou et al.
-(2020) <doi:10.1093/biostatistics/kxy031>, Li et al. (2018)
+cross-sectional and cohort designs, binary and continuous outcomes,
+marginal (GEE) and conditional models (mixed effects model), three link
+functions (identity, log, logit links), with and without time effects
+under exchangeable, nested exchangeable and block exchangeable correlation
+structures. Unequal numbers of clusters per sequence are also allowed. The
+methods included in this package: Zhou et al. (2020)
+<doi:10.1093/biostatistics/kxy031>, Li et al. (2018)
 <doi:10.1111/biom.12918>. Supplementary documents can be found at:
-<https://publichealth.yale.edu/cmips/research/software/swdpwr/>. The Shiny
-app for swdpwr can be accessed at:
-<https://jiachenchen322.shinyapps.io/swdpwr_shinyapp/>.
+<https://ysph.yale.edu/cmips/research/software/swdpwr/>. The Shiny app for
+swdpwr can be accessed at:
+<https://jiachenchen322.shinyapps.io/swdpwr_shinyapp/>. The package also
+includes functions that perform calculations for the intra-cluster
+correlation coefficients based on the random effects variances as input
+variables for continuous and binary outcomes, respectively.
 
 %prep
 %setup -q -c -n %{packname}
@@ -38,6 +45,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

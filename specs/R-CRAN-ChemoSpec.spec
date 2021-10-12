@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ChemoSpec
-%global packver   5.3.21
+%global packver   6.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.3.21
+Version:          6.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploratory Chemometrics for Spectroscopy
 
@@ -16,18 +16,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-readJDX >= 0.4
-BuildRequires:    R-CRAN-ChemoSpecUtils >= 0.3
+BuildRequires:    R-CRAN-ChemoSpecUtils >= 1.0
+BuildRequires:    R-CRAN-readJDX >= 0.6
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-readJDX >= 0.4
-Requires:         R-CRAN-ChemoSpecUtils >= 0.3
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-ChemoSpecUtils >= 1.0
+Requires:         R-CRAN-readJDX >= 0.6
 Requires:         R-CRAN-plyr 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-grDevices 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-magrittr 
 
 %description
 A collection of functions for top-down exploratory data analysis of
@@ -51,6 +61,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

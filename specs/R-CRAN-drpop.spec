@@ -1,50 +1,55 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rtmpt
-%global packver   0.2-2
+%global packname  drpop
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fitting RT-MPT Models
+Summary:          Efficient Doubly Robust Population Size Estimation
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gsl-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-loo 
-BuildRequires:    R-methods 
+BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-gam 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-truncnorm 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-loo 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-SuperLearner 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-nnls 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-ranger 
 Requires:         R-stats 
+Requires:         R-CRAN-gam 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-truncnorm 
-Requires:         R-utils 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-SuperLearner 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-nnls 
+Requires:         R-parallel 
+Requires:         R-CRAN-ranger 
 
 %description
-Fit response-time extended multinomial processing tree (RT-MPT) models by
-Klauer and Kellen (2018) <doi:10.1016/j.jmp.2017.12.003>. The RT-MPT class
-not only incorporate frequencies like traditional multinomial processing
-tree (MPT) models, but also latencies. This enables it to estimate process
-completion times and encoding plus motor execution times next to the
-process probabilities of traditional MPTs. 'rtmpt' is a Bayesian framework
-and posterior samples are sampled using a Metropolis-Gibbs sampler like
-the one described in the Klauer and Kellen (2018), but with some
-modifications. Other than in the original C++ program we use the free and
-open source GNU Scientific Library (GSL). There is also the possibility to
-suppress single process completion times.
+Estimation of the total population size from capture-recapture data
+efficiently and with low bias implementing the methods from Das M, Kennedy
+EH, and Jewell NP (2021) <arXiv:2104.14091>. The estimator is doubly
+robust against errors in the estimation of the intermediate nuisance
+parameters. Users can choose from the flexible estimation models provided
+in the package, or use any other preferred model.
 
 %prep
 %setup -q -c -n %{packname}

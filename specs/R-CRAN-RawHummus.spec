@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RawHummus
-%global packver   0.1.8
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Raw Data Quality Control Tool for LC-MS System
 

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  PxWebApiData
-%global packver   0.7.0
+%global packname  csodata
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          PX-Web Data by API
+Summary:          Download Data from the CSO 'PxStat' API
 
-License:          Apache License 2.0 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,19 +16,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rjstat 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-pxweb 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-rjstat 
+BuildRequires:    R-CRAN-R.cache 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rjstat 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-pxweb 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-rjstat 
+Requires:         R-CRAN-R.cache 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-lubridate 
 
 %description
-Function to read PX-Web data into R via API. The example code reads data
-from the three national statistical institutes, Statistics Norway,
-Statistics Sweden and Statistics Finland.
+Imports 'PxStat' data in JSON-stat format and (optionally) reshapes it
+into wide format. The Central Statistics Office (CSO) is the national
+statistical institute of Ireland and 'PxStat' is the CSOs online database
+of Official Statistics. This database contains current and historical data
+series compiled from CSO statistical releases and is accessed at
+<http://data.cso.ie>. The CSO 'PxStat' Application Programming Interface
+(API), which is accessed in this package, provides access to 'PxStat' data
+in JSON-stat format at <http://data.cso.ie>. This dissemination tool
+allows developers machine to machine access to CSO 'PxStat' data.
 
 %prep
 %setup -q -c -n %{packname}

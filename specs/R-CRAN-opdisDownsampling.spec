@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  opdisDownsampling
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Distribution Preserving Down-Sampling of Bio-Medical Data
 

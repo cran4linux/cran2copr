@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  AgroReg
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Analysis Linear and Nonlinear for Agriculture
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-minpack.lm
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rcompanion 
 BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-egg 
 Requires:         R-CRAN-drc 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-car 
@@ -34,19 +35,16 @@ Requires:         R-CRAN-minpack.lm
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rcompanion 
 Requires:         R-CRAN-broom 
+Requires:         R-CRAN-egg 
 
 %description
 Linear and nonlinear regression analysis common in agricultural science
-papers (Archontoulis & Miguez (2015). <doi:10.2134/agronj2012.0506>). The
-package includes linear, quadratic, cubic, inverse quadratic, exponential,
-negative exponential, biexponential, Gaussian, three- or four-parameter
-logistic, four- or five-parameter Brain-Cousens logistic, four- or
-five-parameter Cedergreen-Ritz-Streibig logistic models. five parameters,
-Gompertz logistic, Michaelis-Menten, logarithmic, linear-linear segmented,
-linear-plate segmented, quadratic-plate segmented, nonparametric loess.
-The functions return the model coefficients and their respective p values,
-coefficient of determination, root mean square error, AIC, BIC, as well as
-graphs with the equations automatically.
+articles (Archontoulis & Miguez (2015). <doi:10.2134/agronj2012.0506>).
+The package includes polynomial, exponential, gaussian, logistic,
+logarithmic, segmented, non-parametric models, among others. The functions
+return the model coefficients and their respective p values, coefficient
+of determination, root mean square error, AIC, BIC, as well as graphs with
+the equations automatically.
 
 %prep
 %setup -q -c -n %{packname}

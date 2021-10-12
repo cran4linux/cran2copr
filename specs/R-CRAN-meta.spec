@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  meta
-%global packver   4.19-2
+%global packver   5.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.19.2
+Version:          5.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          General Package for Meta-Analysis
 
@@ -13,15 +13,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-metafor >= 2.1.0
+BuildRequires:    R-CRAN-metafor >= 3.0.0
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-CompQuadForm 
 BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-metafor >= 2.1.0
+Requires:         R-CRAN-metafor >= 3.0.0
 Requires:         R-grid 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-CompQuadForm 

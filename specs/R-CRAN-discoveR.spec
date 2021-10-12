@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  discoveR
-%global packver   2.2.2
+%global packver   2.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          2.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploratory Data Analysis System
 
@@ -17,19 +17,15 @@ BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shinydashboardPlus >= 2.0.0
+BuildRequires:    R-CRAN-shiny >= 1.7.1
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-golem 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-config 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-shinyAce 
 BuildRequires:    R-CRAN-ggdendro 
 BuildRequires:    R-CRAN-echarts4r 
@@ -39,19 +35,15 @@ BuildRequires:    R-CRAN-colourpicker
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-shinycustomloader 
 Requires:         R-CRAN-shinydashboardPlus >= 2.0.0
+Requires:         R-CRAN-shiny >= 1.7.1
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-rlang 
-Requires:         R-stats 
 Requires:         R-CRAN-golem 
-Requires:         R-CRAN-shiny 
-Requires:         R-utils 
-Requires:         R-CRAN-scales 
 Requires:         R-CRAN-config 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-shinyjs 
-Requires:         R-graphics 
 Requires:         R-CRAN-shinyAce 
 Requires:         R-CRAN-ggdendro 
 Requires:         R-CRAN-echarts4r 
@@ -75,6 +67,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

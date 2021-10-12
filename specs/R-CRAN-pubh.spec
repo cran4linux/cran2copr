@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pubh
-%global packver   1.1.20
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.20
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Toolbox for Public Health and Epidemiology
 
@@ -18,6 +18,8 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-ggformula 
+BuildRequires:    R-CRAN-gtsummary 
+BuildRequires:    R-CRAN-huxtable 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-car 
@@ -27,7 +29,6 @@ BuildRequires:    R-CRAN-epiR
 BuildRequires:    R-CRAN-epitools 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-huxtable 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-moonBook 
 BuildRequires:    R-CRAN-sandwich 
@@ -39,6 +40,8 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-ggformula 
+Requires:         R-CRAN-gtsummary 
+Requires:         R-CRAN-huxtable 
 Requires:         R-CRAN-magrittr 
 Requires:         R-stats 
 Requires:         R-CRAN-car 
@@ -48,7 +51,6 @@ Requires:         R-CRAN-epiR
 Requires:         R-CRAN-epitools 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-huxtable 
 Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-moonBook 
 Requires:         R-CRAN-sandwich 
@@ -76,6 +78,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

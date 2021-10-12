@@ -1,32 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  semptools
-%global packver   0.2.9.3
+%global packname  stableGR
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9.3
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Customizing Structural Equation Modelling Plots
+Summary:          A Stable Gelman-Rubin Diagnostic for Markov Chain Monte Carlo
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lavaan 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-mcmcse >= 1.4.1
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-mcmcse >= 1.4.1
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Most function focus on specific ways to customize a graph. They use a
-'qgraph' output as the first argument, and return a modified 'qgraph'
-object. This allows the functions to be chained by a pipe operator.
+Practitioners of Bayesian statistics often use Markov chain Monte Carlo
+(MCMC) samplers to sample from a posterior distribution. This package
+determines whether the MCMC sample is large enough to yield reliable
+estimates of the target distribution. In particular, this calculates a
+Gelman-Rubin convergence diagnostic using stable and consistent estimators
+of Monte Carlo variance. Additionally, this uses the connection between an
+MCMC sample's effective sample size and the Gelman-Rubin diagnostic to
+produce a threshold for terminating MCMC simulation. Finally, this informs
+the user whether enough samples have been collected and (if necessary)
+estimates the number of samples needed for a desired level of accuracy.
+The theory underlying these methods can be found in "Revisiting the
+Gelman-Rubin Diagnostic" by Vats and Knudson (2018) <arXiv:1812:09384>.
 
 %prep
 %setup -q -c -n %{packname}

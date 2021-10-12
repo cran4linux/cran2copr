@@ -1,34 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  PxWebApiData
-%global packver   0.7.0
+%global packname  apache.sedona
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          PX-Web Data by API
+Summary:          R Interface for Apache Sedona
 
-License:          Apache License 2.0 | file LICENSE
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rjstat 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-pxweb 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rjstat 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-pxweb 
+BuildRequires:    R-CRAN-sparklyr >= 1.3
+BuildRequires:    R-CRAN-dbplyr >= 1.1.0
+BuildRequires:    R-CRAN-dplyr >= 0.7.2
+BuildRequires:    R-CRAN-DBI >= 0.6.1
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-sparklyr >= 1.3
+Requires:         R-CRAN-dbplyr >= 1.1.0
+Requires:         R-CRAN-dplyr >= 0.7.2
+Requires:         R-CRAN-DBI >= 0.6.1
+Requires:         R-CRAN-rlang 
 
 %description
-Function to read PX-Web data into R via API. The example code reads data
-from the three national statistical institutes, Statistics Norway,
-Statistics Sweden and Statistics Finland.
+R interface for 'Apache Sedona' based on 'sparklyr'
+(<https://sedona.apache.org>).
 
 %prep
 %setup -q -c -n %{packname}
