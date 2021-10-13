@@ -1,30 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BibPlots
-%global packver   0.0.8
+%global packname  text2sdg
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plot Functions for Use in Bibliometrics
+Summary:          Detecting UN Sustainable Development Goals in Text
 
-License:          EUPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-corpustools >= 0.4.2
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-corpustools >= 0.4.2
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Currently, the package provides several functions for plotting and
-analyzing bibliometric data (JIF, Journal Impact Factor, and paper
-percentile values), beamplots with citations and percentiles, and three
-plot functions to visualize the result of a reference publication year
-spectroscopy (RPYS) analysis performed in the free software 'CRExplorer'
-(see <http://crexplorer.net>). Further extension to more plot variants is
-planned.
+The United Nations’ Sustainable Development Goals (SDGs) have become an
+important guideline for organisations to monitor and plan their
+contributions to social, economic, and environmental transformations. The
+'text2sdg' package is an open-source analysis package that identifies SDGs
+in text using scientifically developed query systems, opening up the
+opportunity to monitor any type of text-based data, such as scientific
+output or corporate publications.
 
 %prep
 %setup -q -c -n %{packname}

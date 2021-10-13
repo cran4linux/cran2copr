@@ -1,30 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BibPlots
-%global packver   0.0.8
+%global packname  designsize
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plot Functions for Use in Bibliometrics
+Summary:          Sample Size Calculation of Various Study Designs
 
-License:          EUPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Currently, the package provides several functions for plotting and
-analyzing bibliometric data (JIF, Journal Impact Factor, and paper
-percentile values), beamplots with citations and percentiles, and three
-plot functions to visualize the result of a reference publication year
-spectroscopy (RPYS) analysis performed in the free software 'CRExplorer'
-(see <http://crexplorer.net>). Further extension to more plot variants is
-planned.
+Different sample size calculations with different study designs. These
+techniques are explained by Chow (2007) <doi:10.1201/9781584889830>.
 
 %prep
 %setup -q -c -n %{packname}

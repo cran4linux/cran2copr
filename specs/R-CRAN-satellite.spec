@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  satellite
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Handling and Manipulating Remote Sensing Data
 
@@ -23,6 +23,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-tools 
 BuildRequires:    R-stats4 
 Requires:         R-CRAN-Rcpp >= 0.10.3
@@ -33,6 +34,7 @@ Requires:         R-stats
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-terra 
 Requires:         R-tools 
 Requires:         R-stats4 
 

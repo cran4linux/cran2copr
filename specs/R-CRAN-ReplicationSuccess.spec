@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ReplicationSuccess
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Design and Analysis of Replication Studies
 
@@ -13,11 +13,9 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rootSolve 
-Requires:         R-CRAN-rootSolve 
 
 %description
 Provides utilities for the design and analysis of replication studies.

@@ -1,30 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BibPlots
-%global packver   0.0.8
+%global packname  PKLMtest
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plot Functions for Use in Bibliometrics
+Summary:          Classification Based MCAR Test
 
-License:          EUPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-parallel 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ranger 
+Requires:         R-parallel 
+Requires:         R-stats 
+Requires:         R-CRAN-ranger 
 
 %description
-Currently, the package provides several functions for plotting and
-analyzing bibliometric data (JIF, Journal Impact Factor, and paper
-percentile values), beamplots with citations and percentiles, and three
-plot functions to visualize the result of a reference publication year
-spectroscopy (RPYS) analysis performed in the free software 'CRExplorer'
-(see <http://crexplorer.net>). Further extension to more plot variants is
-planned.
+Implementation of a KL-based test for MCAR in the context of missing data
+as introduced in Michel et al. (2021) <arXiv:2109.10150>.
 
 %prep
 %setup -q -c -n %{packname}

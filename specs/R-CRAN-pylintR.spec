@@ -1,30 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BibPlots
-%global packver   0.0.8
+%global packname  pylintR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plot Functions for Use in Bibliometrics
+Summary:          Lint 'Python' Files with a R Command or a 'RStudio' Addin
 
-License:          EUPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-fansi 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-rstudioapi 
+Requires:         R-CRAN-fansi 
+Requires:         R-utils 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-rstudioapi 
 
 %description
-Currently, the package provides several functions for plotting and
-analyzing bibliometric data (JIF, Journal Impact Factor, and paper
-percentile values), beamplots with citations and percentiles, and three
-plot functions to visualize the result of a reference publication year
-spectroscopy (RPYS) analysis performed in the free software 'CRExplorer'
-(see <http://crexplorer.net>). Further extension to more plot variants is
-planned.
+Allow to run 'pylint' on Python files with a R command or a 'RStudio'
+addin. The report appears in the RStudio viewer pane as a formatted HTML
+file.
 
 %prep
 %setup -q -c -n %{packname}

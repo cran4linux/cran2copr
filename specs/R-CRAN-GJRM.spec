@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  GJRM
-%global packver   0.2-5
+%global packver   0.2-5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalised Joint Regression Modelling
 
@@ -18,7 +18,6 @@ Requires:         R-core >= 3.2.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-magic 
-BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-VGAM 
 BuildRequires:    R-CRAN-survey 
 BuildRequires:    R-CRAN-trust 
@@ -38,12 +37,10 @@ BuildRequires:    R-CRAN-psych
 BuildRequires:    R-CRAN-copula 
 BuildRequires:    R-CRAN-distrEx 
 BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-trustOptim 
 BuildRequires:    R-CRAN-evd 
 BuildRequires:    R-CRAN-ismev 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-magic 
-Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-VGAM 
 Requires:         R-CRAN-survey 
 Requires:         R-CRAN-trust 
@@ -63,7 +60,6 @@ Requires:         R-CRAN-psych
 Requires:         R-CRAN-copula 
 Requires:         R-CRAN-distrEx 
 Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-trustOptim 
 Requires:         R-CRAN-evd 
 Requires:         R-CRAN-ismev 
 

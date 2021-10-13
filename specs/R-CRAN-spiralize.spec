@@ -1,30 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BibPlots
-%global packver   0.0.8
+%global packname  spiralize
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plot Functions for Use in Bibliometrics
+Summary:          Visualize Data on Spirals
 
-License:          EUPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-GetoptLong >= 0.1.8
+BuildRequires:    R-CRAN-GlobalOptions >= 0.1.1
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-circlize 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-GetoptLong >= 0.1.8
+Requires:         R-CRAN-GlobalOptions >= 0.1.1
+Requires:         R-grid 
+Requires:         R-CRAN-circlize 
+Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-grDevices 
+Requires:         R-CRAN-lubridate 
+Requires:         R-utils 
 
 %description
-Currently, the package provides several functions for plotting and
-analyzing bibliometric data (JIF, Journal Impact Factor, and paper
-percentile values), beamplots with citations and percentiles, and three
-plot functions to visualize the result of a reference publication year
-spectroscopy (RPYS) analysis performed in the free software 'CRExplorer'
-(see <http://crexplorer.net>). Further extension to more plot variants is
-planned.
+It visualizes data along an Archimedean spiral
+<https://en.wikipedia.org/wiki/Archimedean_spiral>. It has two major
+advantages for visualization: 1. It is able to visualize data with very
+long axis with high resolution. 2. It is efficient for time series data to
+reveal periodic patterns.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,49 +1,55 @@
 %global __brp_check_rpaths %{nil}
-%global packname  sentimentr
-%global packver   2.9.0
+%global packname  GWPR.light
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Text Polarity Sentiment
+Summary:          Geographically Weighted Panel Regression
 
-License:          MIT + file LICENSE
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-textshape >= 1.3.0
-BuildRequires:    R-CRAN-lexicon >= 1.2.1
-BuildRequires:    R-CRAN-textclean >= 0.6.1
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-GWmodel 
+BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-plm 
+BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-syuzhet 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-textshape >= 1.3.0
-Requires:         R-CRAN-lexicon >= 1.2.1
-Requires:         R-CRAN-textclean >= 0.6.1
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-grid 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-GWmodel 
+Requires:         R-CRAN-iterators 
+Requires:         R-CRAN-lmtest 
 Requires:         R-methods 
+Requires:         R-parallel 
+Requires:         R-CRAN-plm 
+Requires:         R-CRAN-sp 
 Requires:         R-stats 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-syuzhet 
-Requires:         R-utils 
 
 %description
-Calculate text polarity sentiment at the sentence level and optionally
-aggregate by rows or grouping variable(s).
+Geographically weighted panel regression is grounded in a branch of
+spatial statistics. Using geographically weights, the geographically
+weighted panel regression is try to solve the residuals from panel
+regression clustering spatially. To investigate whether the residuals
+cluster spatially, the Moran's I test is also improved. Furthermore, three
+local statistic tests are contained to help the users select model. The
+major references are Fotheringham et al. (2003, ISBN:978-0-470-85525-6)
+and Beenstock and Felsenstein (2019, ISBN:978-3-030-03614-0).
 
 %prep
 %setup -q -c -n %{packname}
