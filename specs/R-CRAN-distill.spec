@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  distill
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          'R Markdown' Format for Scientific and Technical Writing
 
@@ -16,7 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 2.6
+BuildRequires:    R-CRAN-rmarkdown >= 2.11
+BuildRequires:    R-CRAN-lubridate >= 1.7.10
 BuildRequires:    R-CRAN-jsonlite >= 1.3
 BuildRequires:    R-CRAN-knitr >= 1.15
 BuildRequires:    R-CRAN-bookdown >= 0.8
@@ -26,7 +27,6 @@ BuildRequires:    R-utils
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-mime 
 BuildRequires:    R-CRAN-rstudioapi 
@@ -38,7 +38,8 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-openssl 
-Requires:         R-CRAN-rmarkdown >= 2.6
+Requires:         R-CRAN-rmarkdown >= 2.11
+Requires:         R-CRAN-lubridate >= 1.7.10
 Requires:         R-CRAN-jsonlite >= 1.3
 Requires:         R-CRAN-knitr >= 1.15
 Requires:         R-CRAN-bookdown >= 0.8
@@ -48,7 +49,6 @@ Requires:         R-utils
 Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-mime 
 Requires:         R-CRAN-rstudioapi 
@@ -74,6 +74,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  netmeta
-%global packver   1.5-0
+%global packver   2.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Network Meta-Analysis using Frequentist Methods
 
@@ -16,12 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-meta >= 4.15.1
+BuildRequires:    R-CRAN-meta >= 5.0.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-magic 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-metafor 
-Requires:         R-CRAN-meta >= 4.15.1
+Requires:         R-CRAN-meta >= 5.0.0
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-magic 
 Requires:         R-CRAN-MASS 
@@ -45,14 +45,15 @@ SUCRA) according to Rücker & Schwarzer (2015)
 consistency (Dias et al., 2010) <DOI:10.1002/sim.3767>, (Efthimiou et al.,
 2019) <DOI:10.1002/sim.8158>; - league table with network meta-analysis
 results; - additive network meta-analysis for combinations of treatments
-(Rücker et al., 2019) <DOI:10.1002/bimj.201800167>; - network
+(Rücker et al., 2020) <DOI:10.1002/bimj.201800167>; - network
 meta-analysis of binary data using the Mantel-Haenszel or non-central
 hypergeometric distribution method (Efthimiou et al., 2019)
 <DOI:10.1002/sim.8158>; - 'comparison-adjusted' funnel plot (Chaimani &
 Salanti, 2012) <DOI:10.1002/jrsm.57>; - automated drawing of network
 graphs described in Rücker & Schwarzer (2016) <DOI:10.1002/jrsm.1143>; -
-rankograms based on SUCRA; - contribution matrix as described in
-Papakonstantinou et al. (2018) <DOI:10.12688/f1000research.14770.3>.
+rankograms and ranking by SUCRA; - contribution matrix as described in
+Papakonstantinou et al. (2018) <DOI:10.12688/f1000research.14770.3> and
+Davies et al. (2021) <arXiv:2107.02886>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -62,6 +63,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

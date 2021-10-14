@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  IFC
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Imaging Flow Cytometry
 
@@ -47,15 +47,16 @@ Requires:         R-CRAN-visNetwork
 %description
 Contains several tools to treat imaging flow cytometry data from
 'ImageStream®' and 'FlowSight®' cytometers ('Amnis®', part of 'Luminex®').
-Provides an easy and simple way to read, write and subset .rif, .cif and
+Provides an easy and simple way to read and write .fcs, .rif, .cif and
 .daf files. Information such as masks, features, regions and populations
-set within these files can be retrieved. In addition, raw data such as
-images stored can also be accessed. Users, may hopefully increase their
-productivity thanks to dedicated functions to extract, visualize and
-export 'IFC' data. Toy data example can be installed through the 'IFCdata'
-package of approximately 32 MB, which is available in a 'drat' repository
-<https://gitdemont.github.io/IFCdata/>. See file 'COPYRIGHTS' and file
-'AUTHORS' for a list of copyright holders and authors.
+set within these files can be retrieved for each single cell. In addition,
+raw data such as images stored can also be accessed. Users, may hopefully
+increase their productivity thanks to dedicated functions to extract,
+visualize, manipulate and export 'IFC' data. Toy data example can be
+installed through the 'IFCdata' package of approximately 32 MB, which is
+available in a 'drat' repository <https://gitdemont.github.io/IFCdata/>.
+See file 'COPYRIGHTS' and file 'AUTHORS' for a list of copyright holders
+and authors.
 
 %prep
 %setup -q -c -n %{packname}
@@ -65,6 +66,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

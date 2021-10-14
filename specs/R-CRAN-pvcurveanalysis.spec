@@ -1,30 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  systemfonts
-%global packver   1.0.3
+%global packname  pvcurveanalysis
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          System Native Font Finding
+Summary:          Analysis of Pressure Volume Curves
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-cpp11 >= 0.2.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Provides system native access to the font catalogue. As font handling
-varies between systems it is difficult to correctly locate installed fonts
-across different operating systems. The 'systemfonts' package provides
-bindings to the native libraries on Windows, macOS and Linux for finding
-font files that can then be used further by e.g. graphic devices. The main
-use is intended to be from compiled code but 'systemfonts' also provides
-access from R.
+Enables the manufacturing, analysis and display of pressure volume curves.
+From the progression of the curves, turgor loss point, osmotic potential
+and apoplastic fraction can be derived. Methods adapted from Bartlett,
+Scoffoni and Sack (2012) <doi:10.1111/j.1461-0248.2012.01751.x>.
 
 %prep
 %setup -q -c -n %{packname}

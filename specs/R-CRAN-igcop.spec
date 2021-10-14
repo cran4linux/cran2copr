@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  aptg
-%global packver   0.1.1
+%global packname  igcop
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatic Phylogenetic Tree Generator
+Summary:          Computational Tools for the IG and IGL Copula Families
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,26 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-brranching 
-BuildRequires:    R-CRAN-phytools 
-BuildRequires:    R-CRAN-taxize 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-brranching 
-Requires:         R-CRAN-phytools 
-Requires:         R-CRAN-taxize 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rlang 
 
 %description
-Generates phylogenetic trees and distance matrices ('brranching',
-<https://CRAN.R-project.org/package=brranching>) from a list of species
-name or from a taxon down to whatever lower taxon ('taxize',
-<https://github.com/ropensci/taxize>). It can do so based on two reference
-super trees: mammals (Bininda-Emonds et al., 2007;
-<doi:10.1038/nature05634>) and angiosperms (Zanne et al., 2014;
-<doi:10.1038/nature12872>).
+Compute distributional quantities for an Integrated Gamma (IG) or
+Integrated Gamma Limit (IGL) copula, such as a cdf and density. Compute
+corresponding conditional quantities such as the cdf and quantiles.
+Generate data from an IG or IGL copula.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +38,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

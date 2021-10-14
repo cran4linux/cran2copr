@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  HelpersMG
-%global packver   4.7-0
+%global packver   4.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.7.0
+Version:          4.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Environmental Analyses, Ecotoxicology and Various R Functions
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-coda 
@@ -28,12 +28,12 @@ Requires:         R-CRAN-Matrix
 %description
 Contains miscellaneous functions useful for managing 'NetCDF' files (see
 <https://en.wikipedia.org/wiki/NetCDF>), get moon phase and time for sun
-rise and fall, analyse and reconstruct periodic time series of temperature
-with irregular sinusoidal pattern, show scales and wind rose in plot with
-change of color of text, Metropolis-Hastings algorithm for Bayesian MCMC
-analysis, plot graphs or boxplot with error bars, search files in disk by
-there names or their content, read the contents of all files from a folder
-at one time.
+rise and fall, tide level, analyse and reconstruct periodic time series of
+temperature with irregular sinusoidal pattern, show scales and wind rose
+in plot with change of color of text, Metropolis-Hastings algorithm for
+Bayesian MCMC analysis, plot graphs or boxplot with error bars, search
+files in disk by there names or their content, read the contents of all
+files from a folder at one time.
 
 %prep
 %setup -q -c -n %{packname}

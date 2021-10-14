@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  smacpod
-%global packver   2.2.2
+%global packver   2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for the Analysis of Case-Control Point Data
 
@@ -18,12 +18,14 @@ Requires:         R-core >= 3.1.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-spatstat.core 
+BuildRequires:    R-CRAN-smerc 
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-sp 
 Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-spatstat.core 
+Requires:         R-CRAN-smerc 
 Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-pbapply 

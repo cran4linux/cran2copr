@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SWMPrExtension
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Analyzing and Plotting Estuary Monitoring Data
 
@@ -18,7 +18,6 @@ Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-SWMPr 
 BuildRequires:    R-CRAN-EnvStats 
-BuildRequires:    R-CRAN-OpenStreetMap 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-dplyr 
@@ -37,12 +36,9 @@ BuildRequires:    R-CRAN-sf
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tmap 
-BuildRequires:    R-CRAN-tmaptools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-SWMPr 
 Requires:         R-CRAN-EnvStats 
-Requires:         R-CRAN-OpenStreetMap 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dplyr 
@@ -61,8 +57,6 @@ Requires:         R-CRAN-sf
 Requires:         R-stats 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tmap 
-Requires:         R-CRAN-tmaptools 
 Requires:         R-utils 
 
 %description

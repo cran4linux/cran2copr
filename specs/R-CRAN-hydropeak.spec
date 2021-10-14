@@ -1,33 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  permutes
-%global packver   2.2
+%global packname  hydropeak
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Permutation Tests for Time Series Data
+Summary:          Detect and Characterize Sub-Daily Flow Fluctuations
 
-License:          FreeBSD
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plyr 
-Requires:         R-CRAN-plyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-parallel 
+Requires:         R-utils 
+Requires:         R-parallel 
 
 %description
-Helps you determine the analysis window to use when analyzing
-densely-sampled time-series data, such as EEG data, using permutation
-testing (Maris & Oostenveld, 2007) <doi:10.1016/j.jneumeth.2007.03.024>.
-These permutation tests can help identify the timepoints where
-significance of an effect begins and ends, and the results can be plotted
-in various types of heatmap for reporting. Mixed-effects models are
-supported using an implementation of the approach by Lee & Braun (2012)
-<doi:10.1111/j.1541-0420.2011.01675.x>.
+An important environmental impact on running water ecosystems is caused by
+hydropeaking - the discontinuous release of turbine water because of peaks
+of energy demand. An event-based algorithm is implemented to detect flow
+fluctuations referring to increase events (IC) and decrease events (DC).
+For each event, a set of parameters related to the fluctuation intensity
+is calculated: maximum flow fluctuation rate mafr(), mean flow fluctuation
+rate mefr(), amplitude amp(), flow ratio fr(), and duration dur(). The
+framework is introduced in Greimel et al. (2016) "A method to detect and
+characterize sub-daily flow fluctuations" <doi:10.1002/hyp.10773> and can
+be used to identify different fluctuation types according to the potential
+source: e.g., sub-daily flow fluctuations caused by hydropeaking,
+rainfall, or snow and glacier melt.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,25 @@
 %global __brp_check_rpaths %{nil}
-%global packname  seedwater
-%global packver   2.0
+%global packname  KingCountyHouses
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Models for Drying and Soaking Kinetics of Seeds
+Summary:          Data on House Sales in King County WA
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rpanel 
-BuildRequires:    R-tcltk 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-rpanel 
-Requires:         R-tcltk 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
 
 %description
-Bringing together tools for modeling drying and soaking (rehydration)
-kinetics of seeds. This package contains several widely used predictive
-models (e.g.: da Silva et al., 2018). As these are nonlinear, the
-functions are interactive-based and easy-to-use. Least squares estimates
-are obtained with just a few visual adjustments of the initial parameter
-values. Reference: da Silva AR et al. (2018)
-<doi:10.2134/agronj2017.07.0373>.
+Data on houses in and around Seattle WA are included. Basic
+characteristics are given along with sale prices.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +29,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

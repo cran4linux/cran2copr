@@ -1,30 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  systemfonts
-%global packver   1.0.3
+%global packname  vegtable
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          System Native Font Finding
+Summary:          Handling Vegetation Data Sets
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-cpp11 >= 0.2.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-taxlist 
+BuildRequires:    R-CRAN-foreign 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-qdapRegex 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-vegdata 
+Requires:         R-CRAN-taxlist 
+Requires:         R-CRAN-foreign 
+Requires:         R-methods 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-qdapRegex 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-vegdata 
 
 %description
-Provides system native access to the font catalogue. As font handling
-varies between systems it is difficult to correctly locate installed fonts
-across different operating systems. The 'systemfonts' package provides
-bindings to the native libraries on Windows, macOS and Linux for finding
-font files that can then be used further by e.g. graphic devices. The main
-use is intended to be from compiled code but 'systemfonts' also provides
-access from R.
+Import and handling data from vegetation-plot databases, especially data
+stored in 'Turboveg 2' (<https://www.synbiosys.alterra.nl/turboveg/>).
+Also import/export routines for exchange of data with 'Juice'
+(<https://www.sci.muni.cz/botany/juice/>) are implemented.
 
 %prep
 %setup -q -c -n %{packname}

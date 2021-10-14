@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  regressoR
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Data Analysis System
 
@@ -22,9 +22,9 @@ BuildRequires:    R-CRAN-pls >= 2.7.1
 BuildRequires:    R-CRAN-gbm >= 2.1.5
 BuildRequires:    R-CRAN-glmnet >= 2.0.16
 BuildRequires:    R-CRAN-shinydashboardPlus >= 2.0.0
+BuildRequires:    R-CRAN-shiny >= 1.7.1
 BuildRequires:    R-CRAN-e1071 >= 1.7.0.1
 BuildRequires:    R-CRAN-neuralnet >= 1.44.2
-BuildRequires:    R-CRAN-shiny >= 1.2.0
 BuildRequires:    R-CRAN-shinyjs >= 1.0
 BuildRequires:    R-CRAN-shinycustomloader >= 0.9.0
 BuildRequires:    R-CRAN-shinydashboard >= 0.7.1
@@ -42,9 +42,9 @@ Requires:         R-CRAN-pls >= 2.7.1
 Requires:         R-CRAN-gbm >= 2.1.5
 Requires:         R-CRAN-glmnet >= 2.0.16
 Requires:         R-CRAN-shinydashboardPlus >= 2.0.0
+Requires:         R-CRAN-shiny >= 1.7.1
 Requires:         R-CRAN-e1071 >= 1.7.0.1
 Requires:         R-CRAN-neuralnet >= 1.44.2
-Requires:         R-CRAN-shiny >= 1.2.0
 Requires:         R-CRAN-shinyjs >= 1.0
 Requires:         R-CRAN-shinycustomloader >= 0.9.0
 Requires:         R-CRAN-shinydashboard >= 0.7.1

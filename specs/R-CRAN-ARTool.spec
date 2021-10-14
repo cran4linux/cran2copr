@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ARTool
-%global packver   0.11.0
+%global packver   0.11.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.0
+Version:          0.11.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Aligned Rank Transform
 
@@ -30,10 +30,11 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-emmeans 
 
 %description
-The Aligned Rank Transform for nonparametric factorial ANOVAs as described
-by J. O. Wobbrock, L. Findlater, D. Gergle, & J. J. Higgins, "The Aligned
-Rank Transform for nonparametric factorial analyses using only ANOVA
-procedures", CHI 2011 <DOI:10.1145/1978942.1978963>.
+The aligned rank transform for nonparametric factorial ANOVAs as described
+by Wobbrock, Findlater, Gergle, and Higgins (2011)
+<doi:10.1145/1978942.1978963>. Also supports aligned rank transform
+contrasts as described by Elkin, Kay, Higgins, and Wobbrock (2021)
+<doi:10.1145/3472749.3474784>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,6 +44,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

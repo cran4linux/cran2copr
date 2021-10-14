@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  survSNP
-%global packver   0.24
+%global packver   0.25
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.24
-Release:          3%{?dist}%{?buildtag}
+Version:          0.25
+Release:          1%{?dist}%{?buildtag}
 Summary:          Power Calculations for SNP Studies with Censored Outcomes
 
 License:          GPL-3
@@ -14,19 +14,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    gsl-devel >= 1.14
-Requires:         gsl
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
-BuildRequires:    R-survival >= 2.36.9
+BuildRequires:    R-CRAN-survival >= 2.36.9
 BuildRequires:    R-CRAN-xtable >= 1.7.0
 BuildRequires:    R-CRAN-foreach >= 1.3.2
 BuildRequires:    R-CRAN-Rcpp >= 0.9.10
-BuildRequires:    R-lattice >= 0.20.0
-Requires:         R-survival >= 2.36.9
+BuildRequires:    R-CRAN-lattice >= 0.20.0
+Requires:         R-CRAN-survival >= 2.36.9
 Requires:         R-CRAN-xtable >= 1.7.0
 Requires:         R-CRAN-foreach >= 1.3.2
 Requires:         R-CRAN-Rcpp >= 0.9.10
-Requires:         R-lattice >= 0.20.0
+Requires:         R-CRAN-lattice >= 0.20.0
 
 %description
 Conduct asymptotic and empirical power and sample size calculations for
@@ -36,6 +35,15 @@ censored time to event outcomes.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -45,17 +53,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}
