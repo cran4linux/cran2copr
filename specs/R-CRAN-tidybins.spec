@@ -1,62 +1,65 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cvCovEst
-%global packver   1.0.1
+%global packname  tidybins
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cross-Validated Covariance Matrix Estimation
+Summary:          Make Tidy Bins
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-origami 
-BuildRequires:    R-CRAN-coop 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-RColorBrewer 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-Matrix 
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-CRAN-origami 
-Requires:         R-CRAN-coop 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-rlist 
+BuildRequires:    R-CRAN-OneR 
+BuildRequires:    R-CRAN-strex 
+BuildRequires:    R-CRAN-ClusterR 
+BuildRequires:    R-CRAN-framecleaner 
+BuildRequires:    R-CRAN-xgboost 
+BuildRequires:    R-CRAN-badger 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-lubridate 
+Requires:         R-stats 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-rlist 
+Requires:         R-CRAN-OneR 
+Requires:         R-CRAN-strex 
+Requires:         R-CRAN-ClusterR 
+Requires:         R-CRAN-framecleaner 
+Requires:         R-CRAN-xgboost 
+Requires:         R-CRAN-badger 
 
 %description
-An efficient cross-validated approach for covariance matrix estimation,
-particularly useful in high-dimensional settings. This method relies upon
-the theory of loss-based estimator selection to identify the optimal
-estimator of the covariance matrix from among a prespecified set of
-candidates.
+Multiple ways to bin numeric columns with a tidy output. Wraps a variety
+of existing binning methods into one function, and includes a new method
+for binning by equal value, which is useful for sales data. Provides a
+function to automatically summarize the properties of the binned columns.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,48 @@
 %global __brp_check_rpaths %{nil}
-%global packname  hagis
-%global packver   3.1.3
+%global packname  BBcor
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.3
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Plant Pathogen Pathotype Complexities, Distributions and Diversity
+Summary:          Bayesian Bootstrapping Correlations
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-pander 
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.4
+BuildRequires:    R-CRAN-psych >= 1.9.12.31
+BuildRequires:    R-CRAN-pbapply >= 1.4.2
+BuildRequires:    R-CRAN-bayeslincom >= 1.2.0
+BuildRequires:    R-CRAN-wdm >= 0.2.1
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-pander 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-ggplot2 >= 3.3.4
+Requires:         R-CRAN-psych >= 1.9.12.31
+Requires:         R-CRAN-pbapply >= 1.4.2
+Requires:         R-CRAN-bayeslincom >= 1.2.0
+Requires:         R-CRAN-wdm >= 0.2.1
+Requires:         R-parallel 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-methods 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Analysis of plant pathogen pathotype survey data.  Functions provided
-calculate distribution of susceptibilities, distribution of complexities
-with statistics, pathotype frequency distribution, as well as diversity
-indices for pathotypes.  This package is meant to be a direct replacement
-for Herrmann, Löwer and Schachtel's (1999)
-<doi:10.1046/j.1365-3059.1999.00325.x> Habgood-Gilmour Spreadsheet,
-'HaGiS', previously used for pathotype analysis.
+Efficiently draw samples from the posterior distribution of various
+correlation coefficients with the Bayesian bootstrap described in Rubin
+(1981) <doi:10.1214/aos/1176345338>. There are six correlation
+coefficients, including Pearson, Kendall, Spearman, Gaussian Rank,
+Blomqvist, and polychoric.
 
 %prep
 %setup -q -c -n %{packname}

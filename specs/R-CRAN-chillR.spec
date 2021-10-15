@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  chillR
-%global packver   0.72.4
+%global packver   0.72.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.72.4
+Version:          0.72.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Phenology Analysis in Temperate Fruit Trees
 
@@ -39,7 +39,6 @@ BuildRequires:    R-CRAN-reshape2
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-GenSA 
-BuildRequires:    R-CRAN-lubridate 
 Requires:         R-CRAN-pls 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
@@ -64,7 +63,6 @@ Requires:         R-CRAN-reshape2
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-GenSA 
-Requires:         R-CRAN-lubridate 
 
 %description
 The phenology of plants (i.e. the timing of their annual life phases)
@@ -97,6 +95,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

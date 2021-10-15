@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pdynmc
-%global packver   0.9.5
+%global packver   0.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          0.9.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Moment Condition Based Estimation of Linear Dynamic Panel Data Models
 
@@ -42,14 +42,15 @@ relies on the Generalized Method of Moments (GMM), numerical optimization
 closed form solutions (when estimation is based on linear moment
 conditions). One-step, two-step and iterated estimation is available. of
 closed form solutions. For inference and specification testing, Windmeijer
-(2005) <doi:10.1016/j.jeconom.2004.02.005> corrected standard errors,
-serial correlation tests, tests for overidentification, and Wald tests are
-available. Functions for visualizing panel data structures and modeling
-results obtained from GMM estimation are also available. The plot methods
-include functions to plot unbalanced panel structure, coefficient ranges
-and coefficient paths across GMM iterations (the latter is implemented
-according to the plot shown in Hansen and Lee, 2021
-<doi:10.3982/ECTA16274>).
+(2005) <doi:10.1016/j.jeconom.2004.02.005> and doubly corrected standard
+errors (Hwang, Kang, Lee, 2021 <doi:10.1016/j.jeconom.2020.09.010>) are
+available. Additionally, serial correlation tests, tests for
+overidentification, and Wald tests are provided. Functions for visualizing
+panel data structures and modeling results obtained from GMM estimation
+are also available. The plot methods include functions to plot unbalanced
+panel structure, coefficient ranges and coefficient paths across GMM
+iterations (the latter is implemented according to the plot shown in
+Hansen and Lee, 2021 <doi:10.3982/ECTA16274>).
 
 %prep
 %setup -q -c -n %{packname}

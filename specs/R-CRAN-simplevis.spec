@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  simplevis
-%global packver   4.5.0
+%global packver   4.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.5.0
+Version:          4.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple 'ggplot2' Visualisation with Less Brainpower
 
@@ -24,10 +24,10 @@ BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-kimisc 
-BuildRequires:    R-CRAN-leafpop 
 BuildRequires:    R-CRAN-leaflet.extras 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-leafpop 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-plotly 
@@ -40,6 +40,7 @@ BuildRequires:    R-CRAN-shinycssloaders
 BuildRequires:    R-CRAN-snakecase 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-viridis 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-leaflet >= 2.0.0
@@ -49,10 +50,10 @@ Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-kimisc 
-Requires:         R-CRAN-leafpop 
 Requires:         R-CRAN-leaflet.extras 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-leafpop 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-plotly 
@@ -65,6 +66,7 @@ Requires:         R-CRAN-shinycssloaders
 Requires:         R-CRAN-snakecase 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-viridis 
 
 %description

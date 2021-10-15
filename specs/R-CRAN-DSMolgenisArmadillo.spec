@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DSMolgenisArmadillo
-%global packver   1.3.6
+%global packver   1.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.6
+Version:          1.3.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          'DataSHIELD' Client for 'MOLGENIS Armadillo'
 

@@ -1,40 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  hagis
-%global packver   3.1.3
+%global packname  transmdl
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Plant Pathogen Pathotype Complexities, Distributions and Diversity
+Summary:          Semiparametric Transformation Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-pander 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-pander 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-graphics 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-statmod 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-survival 
 
 %description
-Analysis of plant pathogen pathotype survey data.  Functions provided
-calculate distribution of susceptibilities, distribution of complexities
-with statistics, pathotype frequency distribution, as well as diversity
-indices for pathotypes.  This package is meant to be a direct replacement
-for Herrmann, Löwer and Schachtel's (1999)
-<doi:10.1046/j.1365-3059.1999.00325.x> Habgood-Gilmour Spreadsheet,
-'HaGiS', previously used for pathotype analysis.
+To make the semiparametric transformation models easier to apply in real
+studies, we introduce this R package, in which the MLE in transformation
+models via an EM algorithm proposed by Zeng D, Lin DY(2007)
+<doi:10.1111/j.1369-7412.2007.00606.x> and adaptive lasso method in
+transformation models proposed by Liu XX, Zeng D(2013)
+<doi:10.1093/biomet/ast029> are implemented. C++ functions are used to
+compute complex loops. The coefficient vector and cumulative baseline
+hazard function can be estimated, along with the corresponding standard
+errors and P values.
 
 %prep
 %setup -q -c -n %{packname}

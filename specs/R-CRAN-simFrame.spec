@@ -1,40 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  hagis
-%global packver   3.1.3
+%global packname  simFrame
+%global packver   0.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.3
+Version:          0.5.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Plant Pathogen Pathotype Complexities, Distributions and Diversity
+Summary:          Simulation Framework
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-pander 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-pander 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-Rcpp >= 0.8.6
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-parallel 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats4 
+Requires:         R-CRAN-Rcpp >= 0.8.6
+Requires:         R-CRAN-lattice 
+Requires:         R-parallel 
+Requires:         R-methods 
+Requires:         R-stats4 
 
 %description
-Analysis of plant pathogen pathotype survey data.  Functions provided
-calculate distribution of susceptibilities, distribution of complexities
-with statistics, pathotype frequency distribution, as well as diversity
-indices for pathotypes.  This package is meant to be a direct replacement
-for Herrmann, Löwer and Schachtel's (1999)
-<doi:10.1046/j.1365-3059.1999.00325.x> Habgood-Gilmour Spreadsheet,
-'HaGiS', previously used for pathotype analysis.
+A general framework for statistical simulation, which allows researchers
+to make use of a wide range of simulation designs with minimal programming
+effort.  The package provides functionality for drawing samples from a
+distribution or a finite population, for adding outliers and missing
+values, as well as for visualization of the simulation results.  It
+follows a clear object-oriented design and supports parallel computing to
+increase computational performance.
 
 %prep
 %setup -q -c -n %{packname}
