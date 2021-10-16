@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ghypernet
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit and Simulate Generalised Hypergeometric Ensembles of Graphs
 
@@ -49,10 +49,11 @@ based on the research developed at the Chair of Systems Design, ETH
 Zurich. Casiraghi, G., Nanumyan, V., Scholtes, I., Schweitzer, F. (2016)
 <arXiv:1607.02441>. Casiraghi, G., Nanumyan, V., Scholtes, I., Schweitzer,
 F. (2017) <doi:10.1007/978-3-319-67256-4_11>. Casiraghi, G., (2017)
-<arxiv:1702.02048> Casiraghi, G., Nanumyan, V. (2018) <arXiv:1810.06495>.
-Brandenberger, L., Casiraghi, G., Nanumyan, V., Schweitzer, F. (2019)
-<doi:10.1145/3341161.3342926> Casiraghi, G. (2019)
-<doi:10.1007/s41109-019-0241-1>.
+<arXiv:1702.02048> Brandenberger, L., Casiraghi, G., Nanumyan, V.,
+Schweitzer, F. (2019) <doi:10.1145/3341161.3342926> Casiraghi, G. (2019)
+<doi:10.1007/s41109-019-0241-1>. Casiraghi, G., Nanumyan, V. (2021)
+<doi:10.1038/s41598-021-92519-y>. Casiraghi, G. (2021)
+<doi:10.1088/2632-072X/ac0493>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -62,6 +63,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

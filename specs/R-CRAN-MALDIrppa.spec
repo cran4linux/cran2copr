@@ -1,34 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  shinybrms
-%global packver   1.5.2
+%global packname  MALDIrppa
+%global packver   1.0.5-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphical User Interface ('shiny' App) for 'brms'
+Summary:          MALDI Mass Spectrometry Data Robust Pre-Processing and Analysis
 
-License:          GPL-3 | file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rstan >= 2.19.3
-BuildRequires:    R-CRAN-brms >= 2.14.0
-BuildRequires:    R-CRAN-shiny >= 1.4.0
-BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-rstan >= 2.19.3
-Requires:         R-CRAN-brms >= 2.14.0
-Requires:         R-CRAN-shiny >= 1.4.0
-Requires:         R-CRAN-rstantools
+BuildRequires:    R-devel >= 3.2.5
+Requires:         R-core >= 3.2.5
+BuildRequires:    R-CRAN-MALDIquant 
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-CRAN-lattice 
+Requires:         R-CRAN-MALDIquant 
+Requires:         R-CRAN-signal 
+Requires:         R-CRAN-robustbase 
+Requires:         R-CRAN-lattice 
 
 %description
-A graphical user interface (GUI) for fitting Bayesian regression models
-using the package 'brms' which in turn relies on 'Stan'
-(<https://mc-stan.org/>). The 'shinybrms' GUI is a 'shiny' app.
+Provides methods for quality control and robust pre-processing and
+analysis of MALDI mass spectrometry data (Palarea-Albaladejo et al. (2018)
+<doi:10.1093/bioinformatics/btx628>).
 
 %prep
 %setup -q -c -n %{packname}

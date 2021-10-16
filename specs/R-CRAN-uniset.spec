@@ -1,34 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  shinybrms
-%global packver   1.5.2
+%global packname  uniset
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphical User Interface ('shiny' App) for 'brms'
+Summary:          Dynamic Settings File
 
-License:          GPL-3 | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.3.2
+Requires:         R-core >= 3.3.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rstan >= 2.19.3
-BuildRequires:    R-CRAN-brms >= 2.14.0
-BuildRequires:    R-CRAN-shiny >= 1.4.0
-BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-rstan >= 2.19.3
-Requires:         R-CRAN-brms >= 2.14.0
-Requires:         R-CRAN-shiny >= 1.4.0
-Requires:         R-CRAN-rstantools
+BuildRequires:    R-CRAN-easycsv 
+Requires:         R-CRAN-easycsv 
 
 %description
-A graphical user interface (GUI) for fitting Bayesian regression models
-using the package 'brms' which in turn relies on 'Stan'
-(<https://mc-stan.org/>). The 'shinybrms' GUI is a 'shiny' app.
+Any package (subsequently called 'target package') is enabled to provide
+its users an easily accessible, user-friendly and human readable text file
+where key=value pairs (used by functions defined in the target package)
+can be saved. This settings file lives in a location defined by the user
+of the target package, and its user-defined values remain unchanged even
+when the author of the target package is introducing or deleting keys, or
+when the target package is updated or re-installed.
 
 %prep
 %setup -q -c -n %{packname}

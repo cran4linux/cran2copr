@@ -1,34 +1,48 @@
 %global __brp_check_rpaths %{nil}
-%global packname  shinybrms
-%global packver   1.5.2
+%global packname  slasso
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphical User Interface ('shiny' App) for 'brms'
+Summary:          S-LASSO Estimator for the Function-on-Function Linear Regression
 
-License:          GPL-3 | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rstan >= 2.19.3
-BuildRequires:    R-CRAN-brms >= 2.14.0
-BuildRequires:    R-CRAN-shiny >= 1.4.0
-BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-rstan >= 2.19.3
-Requires:         R-CRAN-brms >= 2.14.0
-Requires:         R-CRAN-shiny >= 1.4.0
-Requires:         R-CRAN-rstantools
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-inline 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-fda 
+BuildRequires:    R-CRAN-fda.usc 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-plot3D 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-cxxfunplus 
+Requires:         R-CRAN-inline 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-fda 
+Requires:         R-CRAN-fda.usc 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-parallel 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-plot3D 
+Requires:         R-methods 
+Requires:         R-CRAN-cxxfunplus 
 
 %description
-A graphical user interface (GUI) for fitting Bayesian regression models
-using the package 'brms' which in turn relies on 'Stan'
-(<https://mc-stan.org/>). The 'shinybrms' GUI is a 'shiny' app.
+Implements the smooth LASSO estimator for the function-on-function linear
+regression model described in Centofanti et al. (2020) <arXiv:2007.00529>.
 
 %prep
 %setup -q -c -n %{packname}

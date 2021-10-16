@@ -1,50 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  POFIBGE
-%global packver   0.1.4
+%global packname  pharmr
+%global packver   0.33.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.33.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Downloading, Reading and Analysing POF Microdata
+Summary:          Interface to the 'Pharmpy' 'Pharmacometrics' Library
 
-License:          GPL-3
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survey 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-projmgr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-altair >= 4.0.0
+BuildRequires:    R-CRAN-reticulate >= 1.19
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-timeDate 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-survey 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-projmgr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-altair >= 4.0.0
+Requires:         R-CRAN-reticulate >= 1.19
 Requires:         R-utils 
-Requires:         R-CRAN-timeDate 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-tibble 
 
 %description
-Provides tools for downloading, reading and analysing the POF, a household
-survey from Brazilian Institute of Geography and Statistics - IBGE. The
-data must be downloaded from the official website
-<https://www.ibge.gov.br/>. Further analysis must be made using package
-'survey'.
+Interface to the 'Pharmpy' 'pharmacometrics' library. The 'Reticulate'
+package is used to interface Python from R.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,34 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  shinybrms
-%global packver   1.5.2
+%global packname  L1mstate
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphical User Interface ('shiny' App) for 'brms'
+Summary:          L1-Regularized Multi-State Models
 
-License:          GPL-3 | file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rstan >= 2.19.3
-BuildRequires:    R-CRAN-brms >= 2.14.0
-BuildRequires:    R-CRAN-shiny >= 1.4.0
-BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-rstan >= 2.19.3
-Requires:         R-CRAN-brms >= 2.14.0
-Requires:         R-CRAN-shiny >= 1.4.0
-Requires:         R-CRAN-rstantools
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Matrix >= 1.2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mstate 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Matrix >= 1.2.10
+Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mstate 
+Requires:         R-CRAN-colorspace 
 
 %description
-A graphical user interface (GUI) for fitting Bayesian regression models
-using the package 'brms' which in turn relies on 'Stan'
-(<https://mc-stan.org/>). The 'shinybrms' GUI is a 'shiny' app.
+Fitting the regularization path of the L1-regularized multi-state models
+since they can exploit sparsity structure of input. Different tuning
+regularization parameter methods are provided. The cumulative hazard rate
+estimation and the transition probability predictions can be made from the
+fitted models.
 
 %prep
 %setup -q -c -n %{packname}

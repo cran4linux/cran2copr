@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  hockeyR
-%global packver   0.1.1
+%global packname  owidR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collect and Clean Hockey Stats
+Summary:          A Package for Importing Data from Our World in Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,39 +17,45 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-polite 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-grDevices 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-polite 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-rlang 
+Requires:         R-grDevices 
 
 %description
-Various functions to scrape hockey play-by-play data from the
-<https://www.nhl.com/>. It also contains functions to scrape data from
-<https://www.hockey-reference.com/>, including standings, player stats,
-and jersey number history.
+Scrapes data from the Our World in Data website to offer easy to use
+functions for searching for datasets and downloading them into R.
 
 %prep
 %setup -q -c -n %{packname}

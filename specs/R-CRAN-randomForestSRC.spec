@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  randomForestSRC
-%global packver   2.12.1
+%global packver   2.13.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.12.1
+Version:          2.13.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Unified Random Forests for Survival, Regression, and Classification (RF-SRC)
 
@@ -25,12 +25,13 @@ Requires:         R-CRAN-DiagrammeR
 %description
 Fast OpenMP parallel computing of Breiman's random forests for univariate,
 multivariate, unsupervised, survival, competing risks, class imbalanced
-classification and quantile regression. Extreme random forests and
-randomized splitting.  Suite of imputation methods for missing data.  Fast
-random forests using subsampling. Confidence regions and standard errors
-for variable importance. New improved holdout importance. Case-specific
-importance. Visualize trees on your Safari or Google Chrome browser.
-Anonymous random forests for data privacy.
+classification and quantile regression. New Mahalanobis splitting for
+correlated outcomes.  Extreme random forests and randomized splitting.
+Suite of imputation methods for missing data.  Fast random forests using
+subsampling. Confidence regions and standard errors for variable
+importance. New improved holdout importance. Case-specific importance.
+Minimal depth variable importance. Visualize trees on your Safari or
+Google Chrome browser. Anonymous random forests for data privacy.
 
 %prep
 %setup -q -c -n %{packname}

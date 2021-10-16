@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  LDLcalc
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate and Predict the Low Density Lipoprotein Values
 
@@ -47,7 +47,7 @@ Requires:         R-CRAN-randomForest
 
 %description
 A wide variety of ways to calculate (through equations) or predict (using
-9 Machine Learning methods as well as a stack algorithm combination of
+9 Machine learning methods as well as a stack algorithm combination of
 them all) the Low Density Lipoprotein values of patients based on the
 values of three other metrics as Total Cholesterol , Triglyceride and High
 Density Lipoprotein.

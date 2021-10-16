@@ -1,34 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  shinybrms
-%global packver   1.5.2
+%global packname  paletteknife
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphical User Interface ('shiny' App) for 'brms'
+Summary:          Create Colour Scales and Legend from Continuous or Categorical Vectors
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rstan >= 2.19.3
-BuildRequires:    R-CRAN-brms >= 2.14.0
-BuildRequires:    R-CRAN-shiny >= 1.4.0
-BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-rstan >= 2.19.3
-Requires:         R-CRAN-brms >= 2.14.0
-Requires:         R-CRAN-shiny >= 1.4.0
-Requires:         R-CRAN-rstantools
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-A graphical user interface (GUI) for fitting Bayesian regression models
-using the package 'brms' which in turn relies on 'Stan'
-(<https://mc-stan.org/>). The 'shinybrms' GUI is a 'shiny' app.
+Streamlines the steps for adding colour scales and associated legends when
+working with base R graphics, especially for interactive use. Popular
+palettes are included and pretty legends produced when mapping a large
+variety of vector classes to a colour scale. An additional helper for
+adding axes and grid lines complements the base::plot() work flow.
 
 %prep
 %setup -q -c -n %{packname}

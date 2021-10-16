@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  migrate
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Credit State Migration (Transition) Matrices
 
@@ -17,18 +17,14 @@ BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.0.1
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-crayon >= 1.3.4
 BuildRequires:    R-CRAN-tidyr >= 1.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.2
+BuildRequires:    R-CRAN-dplyr >= 1.0.7
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-tibble >= 3.0.1
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-crayon >= 1.3.4
 Requires:         R-CRAN-tidyr >= 1.1.0
-Requires:         R-CRAN-dplyr >= 1.0.2
+Requires:         R-CRAN-dplyr >= 1.0.7
 Requires:         R-CRAN-rlang 
 Requires:         R-utils 
 Requires:         R-CRAN-magrittr 
@@ -50,6 +46,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
