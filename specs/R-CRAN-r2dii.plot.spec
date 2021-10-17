@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  r2dii.plot
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualize the Climate Scenario Alignment of a Financial Portfolio
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-forcats
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-r2dii.data 
 BuildRequires:    R-CRAN-rlang 
@@ -31,20 +30,19 @@ Requires:         R-CRAN-forcats
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-r2dii.data 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
 
 %description
-Create plots to visualize the alignment of a corporate lending portfolio
-to climate change scenarios based on climate indicators (production and
-emission intensities) across key climate relevant sectors of the 'PACTA'
-methodology (Paris Agreement Capital Transition Assessment;
-<https://www.transitionmonitor.com/pacta-for-banks-2020/methodology-and-supporting-materials/>).
-Financial institutions use 'PACTA' to study how their capital allocation
-decisions align with climate change mitigation goals.
+Create plots to visualize the alignment of a corporate lending financial
+portfolio to climate change scenarios based on climate indicators
+(production and emission intensities) across key climate relevant sectors
+of the 'PACTA' methodology (Paris Agreement Capital Transition Assessment;
+<https://2degrees-investing.org/>). Financial institutions use 'PACTA' to
+study how their capital allocation decisions align with climate change
+mitigation goals.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,6 +52,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

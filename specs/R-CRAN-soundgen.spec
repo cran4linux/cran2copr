@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  soundgen
-%global packver   2.3.0
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sound Synthesis and Acoustic Analysis
 
@@ -47,10 +47,11 @@ Requires:         R-CRAN-shinyjs
 
 %description
 Performs parametric synthesis of sounds with harmonic and noise components
-such as animal vocalizations or human voice. Also offers tools for pitch
-tracking, spectral analysis, audio segmentation, self-similarity matrices,
-modulation spectra, morphing, etc., as well as interactive web apps for
-manually corrected pitch tracking and formant measurement. Reference:
+such as animal vocalizations or human voice. Also offers tools for audio
+manipulation and acoustic analysis, including pitch tracking, spectral
+analysis, audio segmentation, pitch and formant shifting, etc. Includes
+four interactive web apps for synthesizing and annotating audio, manually
+correcting pitch contours, and measuring formant frequencies. Reference:
 Anikin (2019) <doi:10.3758/s13428-018-1095-7>.
 
 %prep

@@ -1,39 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rvest
-%global packver   1.0.2
+%global packname  logib
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Harvest (Scrape) Web Pages
+Summary:          Salary Analysis by the Swiss Federal Office for Gender Equality
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xml2 >= 1.3
-BuildRequires:    R-CRAN-lifecycle >= 1.0.0
-BuildRequires:    R-CRAN-httr >= 0.5
-BuildRequires:    R-CRAN-rlang >= 0.4.10
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-selectr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-xml2 >= 1.3
-Requires:         R-CRAN-lifecycle >= 1.0.0
-Requires:         R-CRAN-httr >= 0.5
-Requires:         R-CRAN-rlang >= 0.4.10
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-selectr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-lubridate >= 1.7.9
+BuildRequires:    R-CRAN-readxl >= 1.3.1
+Requires:         R-CRAN-lubridate >= 1.7.9
+Requires:         R-CRAN-readxl >= 1.3.1
 
 %description
-Wrappers around the 'xml2' and 'httr' packages to make it easy to
-download, then manipulate, HTML and XML.
+Implementation of the Swiss Confederation's standard analysis model for
+salary analyses
+<https://www.ebg.admin.ch/dam/ebg/en/dokumente/lohngleichheit/infos-zu-analysen/standard-analysemodellzurueberpruefungderlohngleichheitzwischenf.pdf.download.pdf/methodological_approachformonitoringcompliancewithwageequalitybe.pdf>
+in R. The analysis is run at company-level and the model is intended for
+companies with 50 or more employees (apprentices, trainees/interns and
+expats are not included in the analysis). Employees with at least 100
+employees are required by the Gender Equality Act to conduct an equal pay
+analysis. This package allows users to run the equal salary analysis in R,
+providing additional transparency with respect to the methodology and
+simple automation possibilities.
 
 %prep
 %setup -q -c -n %{packname}

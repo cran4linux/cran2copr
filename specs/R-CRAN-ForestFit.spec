@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ForestFit
-%global packver   0.7.1
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Modelling for Plant Size Distributions
 
@@ -42,8 +42,10 @@ from gamma shape mixture model introduced by Venturini et al. (2008)
 probability density function, cumulative distribution function, and
 generating realizations from four-parameter Johnson SB distribution, 9 )
 Robust multiple linear regression analysis when error term follows skewed
-t distribution, and 10 ) Estimating parameters of a given distribution
-fitted to grouped data using method of maximum likelihood.
+t distribution, 10 ) Estimating parameters of a given distribution fitted
+to grouped data using method of maximum likelihood, and 11 ) Estimating
+parameters of the Johnson SB distribution through the Bayesian, method of
+moment, conditional maximum likelihood, and two - percentile method.
 
 %prep
 %setup -q -c -n %{packname}
@@ -53,6 +55,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

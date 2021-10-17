@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  insight
-%global packver   0.14.4
+%global packver   0.14.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.4
+Version:          0.14.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Access to Model Information for Various Model Objects
 

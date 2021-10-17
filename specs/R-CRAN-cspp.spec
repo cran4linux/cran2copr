@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cspp
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Tool for the Correlates of State Policy Project Data
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-tidyselect 
@@ -26,7 +26,8 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-csppData 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggcorrplot 
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-tidyselect 
@@ -36,6 +37,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-csppData 
+Requires:         R-CRAN-ggcorrplot 
 
 %description
 A tool that imports, subsets, visualizes, and exports the Correlates of
@@ -56,6 +58,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RaSEn
-%global packver   2.2.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Random Subspace Ensemble Classification and Variable Screening
 
