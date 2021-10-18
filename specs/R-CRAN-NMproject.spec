@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  NMproject
-%global packver   0.6.5
+%global packver   0.6.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.6.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Script Based 'NONMEM' Model Development
 

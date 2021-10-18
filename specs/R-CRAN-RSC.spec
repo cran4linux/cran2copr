@@ -1,32 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  libproj
-%global packver   8.1.0-1
+%global packname  RSC
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.1.0.1
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generic Coordinate Transformation Library ('PROJ') C API
+Summary:          Robust and Sparse Correlation Matrix
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-rappdirs 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-utils 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-parallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
+Requires:         R-utils 
 
 %description
-Provides a 'PROJ' <https://proj.org> C API that can be used to write
-high-performance C and C++ coordinate transformation operations using R as
-an interface. This package contains an internal version of the 'PROJ'
-library to guarantee the best possible consistency on multiple platforms,
-and to provide a means by which 'PROJ' can be used on platforms where it
-may be impractical or impossible to install a binary version of the
-library.
+Performs robust and sparse correlation matrix estimation. Robustness is
+achieved based on a simple robust pairwise correlation estimator, while
+sparsity is obtained based on thresholding. The optimal thresholding is
+tuned via cross-validation. See Serra, Coretto, Fratello and Tagliaferri
+(2018) <doi:10.1093/bioinformatics/btx642>.
 
 %prep
 %setup -q -c -n %{packname}

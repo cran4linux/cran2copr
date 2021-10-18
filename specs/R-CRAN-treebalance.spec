@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  treebalance
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computation of Tree (Im)Balance Indices
 
@@ -26,10 +26,10 @@ The aim of the 'R' package 'treebalance' is to provide functions for the
 computation of a large variety of (im)balance indices for rooted trees.
 The package accompanies the manuscript ''Tree balance indices: a
 comprehensive survey'' by M. Fischer, L. Herbst, S. Kersting, L. Kuehn and
-K. Wicke, which gives a precise definition for the terms 'balance index'
-and 'imbalance index' (Section 3) and provides an overview of the
-terminology in this manual (Section 2). For further information on
-(im)balance indices, see also Fischer et al. (2021)
+K. Wicke (2021) <arXiv:2109.12281>, which gives a precise definition for
+the terms 'balance index' and 'imbalance index' (Section 3) and provides
+an overview of the terminology in this manual (Section 2). For further
+information on (im)balance indices, see also Fischer et al. (2021)
 <https://treebalance.wordpress.com>. Considering both established and new
 (im)balance indices, 'treebalance' provides (among others) functions for
 calculating the following 18 established indices: the average leaf depth,
