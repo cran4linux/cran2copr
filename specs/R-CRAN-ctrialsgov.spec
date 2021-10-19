@@ -1,44 +1,55 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dycdtools
-%global packver   0.3.1
+%global packname  ctrialsgov
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for DYRESM-CAEDYM Model Development: Calibration Assistant and Post-Processing
+Summary:          Query Data from U.S. National Library of Medicine's Clinical Trials Database
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ncdf4 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-hydroGOF 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-htmlwidgets 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ncdf4 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-hydroGOF 
+Requires:         R-utils 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-R.utils 
-Requires:         R-parallel 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-DBI 
+Requires:         R-methods 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
-Tools for DYRESM-CAEDYM model development, including assisting with
-calibrating selected model parameters and visualising model output through
-time series plot, profile plot, contour plot, and scatter plot.
+Tools to create and query database from the U.S. National Library of
+Medicine's Clinical Trials database <https://clinicaltrials.gov/>.
+Functions provide access a variety of techniques for searching the data
+using range queries, categorical filtering, and by searching for full-text
+keywords. Minimal graphical tools are also provided for interactively
+exploring the constructed data.
 
 %prep
 %setup -q -c -n %{packname}

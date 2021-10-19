@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  abstr
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to the A/B Street Transport System Simulation Software
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-magrittr >= 2.0.1
 BuildRequires:    R-CRAN-jsonlite >= 1.7.2
 BuildRequires:    R-CRAN-tidyr >= 1.1.3
 BuildRequires:    R-CRAN-sf >= 1.0.1
-BuildRequires:    R-CRAN-stplanr >= 0.8.1
 BuildRequires:    R-CRAN-od >= 0.3.1
 BuildRequires:    R-CRAN-lwgeom >= 0.2.5
 BuildRequires:    R-methods 
@@ -30,7 +29,6 @@ Requires:         R-CRAN-magrittr >= 2.0.1
 Requires:         R-CRAN-jsonlite >= 1.7.2
 Requires:         R-CRAN-tidyr >= 1.1.3
 Requires:         R-CRAN-sf >= 1.0.1
-Requires:         R-CRAN-stplanr >= 0.8.1
 Requires:         R-CRAN-od >= 0.3.1
 Requires:         R-CRAN-lwgeom >= 0.2.5
 Requires:         R-methods 

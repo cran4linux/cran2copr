@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gimme
-%global packver   0.7-6
+%global packver   0.7-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.6
+Version:          0.7.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Group Iterative Multiple Model Estimation
 
@@ -36,8 +36,12 @@ Requires:         R-graphics
 Requires:         R-stats 
 
 %description
-Automated identification and estimation of group- and individual-level
-relations in time series data.
+Data-driven approach for arriving at person-specific time series models.
+The method first identifies which relations replicate across the majority
+of individuals to detect signal from noise. These group-level relations
+are then used as a foundation for starting the search for person-specific
+(or individual-level) relations. See Gates & Molenaar (2012)
+<doi:10.1016/j.neuroimage.2012.06.026>.
 
 %prep
 %setup -q -c -n %{packname}

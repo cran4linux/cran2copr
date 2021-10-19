@@ -1,47 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  adoption
-%global packver   0.6.4
+%global packname  ggokabeito
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modelling Adoption Process in Marketing
+Summary:          'Okabe-Ito' Scales for 'ggplot2' and 'ggraph'
 
-License:          GPL (>= 3) | CC BY 4.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
-BuildRequires:    R-CRAN-RandomFieldsUtils >= 0.5.4
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-tcltk 
-BuildRequires:    R-CRAN-tkrplot 
-Requires:         R-CRAN-RandomFieldsUtils >= 0.5.4
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-methods 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
-Requires:         R-utils 
-Requires:         R-CRAN-quadprog 
-Requires:         R-tcltk 
-Requires:         R-CRAN-tkrplot 
 
 %description
-The classical Bass (1969) <doi:10.1287/mnsc.15.5.215> model and the agent
-based models, such as that by Goldenberg, Libai and Muller (2010)
-<doi:10.1016/j.ijresmar.2009.06.006> have been two different approaches to
-model adoption processes in marketing. These two approaches can be unified
-by explicitly modelling the utility functions. This package provides a GUI
-that allows, in a unified way, the modelling of these two processes and
-other processes.
+Discrete scales for the colorblind-friendly 'Okabe-Ito' palette, including
+'color', 'fill', and 'edge_colour'. 'ggokabeito' provides 'ggplot2' and
+'ggraph' scales to easily use the 'Okabe-Ito' palette in your data
+visualizations.
 
 %prep
 %setup -q -c -n %{packname}

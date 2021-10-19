@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  CLVTools
-%global packver   0.8.0
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Customer Lifetime Value Estimation
 
@@ -32,6 +32,7 @@ Requires:         R-CRAN-optimx >= 2019.12.02
 Requires:         R-CRAN-lubridate >= 1.7.8
 Requires:         R-CRAN-Matrix >= 1.2.17
 Requires:         R-CRAN-data.table >= 1.12.0
+Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-methods 
 Requires:         R-CRAN-MASS 
 Requires:         R-stats 
@@ -74,6 +75,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

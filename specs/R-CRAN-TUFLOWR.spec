@@ -1,38 +1,52 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rvkstat
-%global packver   3.2.0
+%global packname  TUFLOWR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to API 'vk.com'
+Summary:          Helper Functions for 'TUFLOW FV' Models
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-lgr 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gstat 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-lgr 
+Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gstat 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
 
 %description
-Load data from vk.com api about your communiti users and views, ads
-performance, post on user wall and etc. For more information see API
-Documentation <https://vk.com/dev/first_guide>.
+Helper functions for 'TUFLOW FV' models. Current functionality includes
+reading in and plotting output POINTS files and generating initial
+conditions based on point observations.
 
 %prep
 %setup -q -c -n %{packname}

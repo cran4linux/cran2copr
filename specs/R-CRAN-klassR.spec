@@ -1,28 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  xfun
-%global packver   0.27
+%global packname  klassR
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.27
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Supporting Functions for Packages Maintained by 'Yihui Xie'
+Summary:          Classifications and Codelists for Statistics Norway
 
-License:          MIT + file LICENSE
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-Requires:         R-stats 
-Requires:         R-tools 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tm 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-tm 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Miscellaneous functions commonly used in other packages maintained by
-'Yihui Xie'.
+Functions to search, retrieve and apply classifications and codelists
+using Statistics Norway's API <https://www.ssb.no/klass> from the system
+'KLASS'. Retrieves classifications by date with options to choose
+language, hierarchical level and formatting.
 
 %prep
 %setup -q -c -n %{packname}

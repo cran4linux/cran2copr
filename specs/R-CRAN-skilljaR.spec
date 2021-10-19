@@ -1,28 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  xfun
-%global packver   0.27
+%global packname  skilljaR
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.27
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Supporting Functions for Packages Maintained by 'Yihui Xie'
+Summary:          Connect to Your 'Skilljar' Data with R
 
-License:          MIT + file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-Requires:         R-stats 
-Requires:         R-tools 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr >= 2.0.1
+BuildRequires:    R-CRAN-jsonlite >= 1.7.2
+BuildRequires:    R-CRAN-httr >= 1.4.2
+BuildRequires:    R-CRAN-dplyr >= 1.0.7
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-magrittr >= 2.0.1
+Requires:         R-CRAN-jsonlite >= 1.7.2
+Requires:         R-CRAN-httr >= 1.4.2
+Requires:         R-CRAN-dplyr >= 1.0.7
+Requires:         R-CRAN-purrr >= 0.3.4
 
 %description
-Miscellaneous functions commonly used in other packages maintained by
-'Yihui Xie'.
+Functions that simplify calls to the 'Skilljar' API. See
+<https://api.skilljar.com/docs/> for documentation on the 'Skilljar' API.
+This package is not supported by 'Skilljar'.
 
 %prep
 %setup -q -c -n %{packname}

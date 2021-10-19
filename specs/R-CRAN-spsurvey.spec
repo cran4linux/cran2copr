@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spsurvey
-%global packver   4.1.4
+%global packver   5.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.4
+Version:          5.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Survey Design and Analysis
+Summary:          Spatial Sampling Design and Analysis
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,60 +16,59 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-survey >= 4.1.1
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-crossdes 
 BuildRequires:    R-CRAN-deldir 
-BuildRequires:    R-foreign 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-MASS 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-units 
+Requires:         R-CRAN-survey >= 4.1.1
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-boot 
 Requires:         R-CRAN-crossdes 
 Requires:         R-CRAN-deldir 
-Requires:         R-foreign 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-MASS 
-Requires:         R-parallel 
-Requires:         R-CRAN-rgeos 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-MASS 
 Requires:         R-stats 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-units 
 
 %description
-These functions provide procedures for selecting sites for spatial surveys
-using spatially balanced algorithms applied to discrete points, linear
-networks, or polygons. The probability survey designs available include
-independent random samples, stratified random samples, and unequal
-probability random samples (categorical or probability proportional to
-size).  Design-based estimation based on the results from surveys is
-available for estimating totals, means, quantiles, CDFs, and linear
-models. The analyses rely on package survey for most results.  Variance
-estimation options include a local neighborhood variance estimator that is
-appropriate for spatially-balanced survey designs.  A reference for the
-survey design portion of the package is: D. L. Stevens, Jr. and A. R.
-Olsen (2004), "Spatially-balanced sampling of natural resources.", Journal
-of the American Statistical Association 99(465): 262-278,
-<DOI:10.1198/016214504000000250>. Additional helpful references for this
-package are A. R. Olsen, T. M. Kincaid, and Q. Payton (2012) and T. M.
-Kincaid and A. R. Olsen (2012), both of which are chapters in the book
-"Design and Analysis of Long-Term Ecological Monitoring Studies" (R. A.
-Gitzen, J. J. Millspaugh, A. B. Cooper, and D. S. Licht (eds.), Cambridge
-University Press, New York, <Online ISBN:9781139022422>).
+A design-based approach to statistical inference, with a focus on spatial
+data. Spatially balanced samples are selected using the Generalized Random
+Tessellation Stratified (GRTS) algorithm. The GRTS algorithm can be
+applied to finite resources (point geometries) and infinite resources
+(linear / linestring and areal / polygon geometries) and flexibly
+accommodates a diverse set of sampling design features, including
+stratification, unequal inclusion probabilities, proportional (to size)
+inclusion probabilities, legacy (historical) sites, a minimum distance
+between sites, and two options for replacement sites (reverse hierarchical
+order and nearest neighbor). Data are analyzed using a wide range of
+analysis functions that perform categorical variable analysis, continuous
+variable analysis, attributable risk analysis, risk difference analysis,
+relative risk analysis, change analysis, and trend analysis. spsurvey can
+also be used to summarize objects, visualize objects, select samples that
+are not spatially balanced, select panel samples, measure the amount of
+spatial balance in a sample, adjust design weights, and more.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -79,6 +78,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

@@ -1,39 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  miraculix
-%global packver   0.9.23
+%global packname  vntrs
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.23
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Algebraic and Statistical Functions for Genetics
+Summary:          Variable Neighborhood Trust Region Search
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
-BuildRequires:    R-CRAN-RandomFieldsUtils >= 0.5.4
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-RandomFieldsUtils >= 0.5.4
-Requires:         R-methods 
-Requires:         R-graphics 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-trust 
+Requires:         R-CRAN-trust 
 
 %description
-This is a collection of fast tools for application in quantitative
-genetics. For instance, the SNP matrix can be stored in a minimum of
-memory and the calculation of the genomic relationship matrix is based on
-a rapid algorithm. It also contains the window scanning approach by
-Kabluchko and Spodarev (2009), <doi:10.1239/aap/1240319575> to detect
-anomalous genomic areas <doi:10.1186/s12864-018-5009-y>. Furthermore, the
-package is used in the Modular Breeding Program Simulator (MoBPS,
-<https://github.com/tpook92/MoBPS>, <https://www.mobps.de/>). The tools
-are based on SIMD (Single Instruction Multiple Data,
-<https://en.wikipedia.org/wiki/SIMD>) and OMP (Open Multi-Processing,
-<https://de.wikipedia.org/wiki/OpenMP>).
+An implementation of the variable neighborhood trust region algorithm
+Bierlaire et al. (2009) "A Heuristic for Nonlinear Global Optimization"
+<doi:10.1287/ijoc.1090.0343>.
 
 %prep
 %setup -q -c -n %{packname}

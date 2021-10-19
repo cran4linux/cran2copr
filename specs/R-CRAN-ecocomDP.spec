@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ecocomDP
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Work with Datasets in the Ecological Community Design Pattern
+Summary:          Tools to Create, Use, and Convert ecocomDP Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -58,12 +58,12 @@ Requires:         R-tools
 Requires:         R-utils 
 
 %description
-Tools to create, use, and convert 'ecocomDP' datasets. 'ecocomDP' is a
-dataset design pattern for harmonizing ecological community surveys in a
-research question agnostic format, from source datasets published across
-multiple repositories, and with methods that keep the derived datasets
-up-to-date as the underlying sources change. Described in O'Brien et al.
-(2021), <doi:10.1016/j.ecoinf.2021.101374>.
+Work with the Ecological Community Data Design Pattern. 'ecocomDP' is a
+flexible data model for harmonizing ecological community surveys, in a
+research question agnostic format, from source data published across
+repositories, and with methods that keep the derived data up-to-date as
+the underlying sources change. Described in O'Brien et al. (2021),
+<doi:10.1016/j.ecoinf.2021.101374>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  arkdb
-%global packver   0.0.13
+%global packver   0.0.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.13
+Version:          0.0.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Archive and Unarchive Databases Using Flat Files
 

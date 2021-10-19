@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  seacarb
-%global packver   3.2.16
+%global packver   3.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.16
+Version:          3.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Seawater Carbonate Chemistry
 
@@ -18,8 +18,10 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-oce 
 BuildRequires:    R-CRAN-gsw 
+BuildRequires:    R-CRAN-SolveSAPHE 
 Requires:         R-CRAN-oce 
 Requires:         R-CRAN-gsw 
+Requires:         R-CRAN-SolveSAPHE 
 
 %description
 Calculates parameters of the seawater carbonate system and assists the
@@ -33,6 +35,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  parameters
-%global packver   0.14.0
+%global packver   0.15.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.0
+Version:          0.15.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Processing of Model Parameters
 
@@ -16,13 +16,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bayestestR >= 0.9.0
-BuildRequires:    R-CRAN-insight >= 0.13.2
+BuildRequires:    R-CRAN-datawizard >= 0.2.1
+BuildRequires:    R-CRAN-insight >= 0.14.4
+BuildRequires:    R-CRAN-bayestestR >= 0.11.0
+BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-bayestestR >= 0.9.0
-Requires:         R-CRAN-insight >= 0.13.2
+Requires:         R-CRAN-datawizard >= 0.2.1
+Requires:         R-CRAN-insight >= 0.14.4
+Requires:         R-CRAN-bayestestR >= 0.11.0
+Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -30,8 +34,8 @@ Requires:         R-utils
 %description
 Utilities for processing the parameters of various statistical models.
 Beyond computing p values, CIs, and other indices for a wide variety of
-models (see support list of insight; Lüdecke, Waggoner & Makowski (2019)
-<doi:10.21105/joss.01412>), this package implements features like
+models (see list of supported models using the function
+'insight::supported_models()'), this package implements features like
 bootstrapping or simulating of parameters and models, feature reduction
 (feature extraction and variable selection) as well as functions to
 describe data and variable characteristics (e.g. skewness, kurtosis,
@@ -45,6 +49,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

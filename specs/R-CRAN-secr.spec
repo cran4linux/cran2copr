@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  secr
-%global packver   4.4.5
+%global packver   4.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.5
+Version:          4.4.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatially Explicit Capture-Recapture
 
@@ -33,6 +33,7 @@ BuildRequires:    R-tools
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-RcppNumerical 
 BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-RcppParallel >= 5.1.1
 Requires:         R-CRAN-Rcpp >= 0.12.14
 Requires:         R-methods 
