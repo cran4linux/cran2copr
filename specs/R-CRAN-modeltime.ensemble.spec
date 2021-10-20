@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  modeltime.ensemble
-%global packver   0.4.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ensemble Algorithms for Time Series Forecasting with Modeltime
 
@@ -17,8 +17,8 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-timetk >= 2.5.0
+BuildRequires:    R-CRAN-modeltime >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-modeltime >= 0.7.0
 BuildRequires:    R-CRAN-workflows >= 0.2.1
 BuildRequires:    R-CRAN-modeltime.resample >= 0.2.0
 BuildRequires:    R-CRAN-parsnip >= 0.1.6
@@ -36,9 +36,12 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tictoc 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
 Requires:         R-CRAN-timetk >= 2.5.0
+Requires:         R-CRAN-modeltime >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-modeltime >= 0.7.0
 Requires:         R-CRAN-workflows >= 0.2.1
 Requires:         R-CRAN-modeltime.resample >= 0.2.0
 Requires:         R-CRAN-parsnip >= 0.1.6
@@ -56,6 +59,9 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tictoc 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 
 %description
 A 'modeltime' extension that implements time series ensemble forecasting

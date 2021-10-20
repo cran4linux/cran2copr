@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  graphicalVAR
-%global packver   0.2.4
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphical VAR for Experience Sampling Data
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-qgraph >= 1.3.1
+BuildRequires:    R-CRAN-qgraph >= 1.3
 BuildRequires:    R-CRAN-Rcpp >= 0.11.3
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-glasso 
@@ -24,8 +24,9 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-qgraph >= 1.3.1
+Requires:         R-CRAN-qgraph >= 1.3
 Requires:         R-CRAN-Rcpp >= 0.11.3
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-glasso 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-CRAN-dplyr 
 Requires:         R-methods 
 Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-rlang 
 
 %description
 Estimates within and between time point interactions in experience
@@ -49,6 +51,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

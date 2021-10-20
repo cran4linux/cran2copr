@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  PMwR
-%global packver   0.16-1
+%global packver   0.17-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.1
+Version:          0.17.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Portfolio Management with R
 

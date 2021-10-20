@@ -1,38 +1,26 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ipmisc
-%global packver   6.0.2
+%global packname  BayesXsrc
+%global packver   3.0-1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.2
+Version:          3.0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Functions for Data Cleaning and Analysis
+Summary:          R Package Distribution of the BayesX C++ Sources
 
-License:          GPL-3 | file LICENSE
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-zeallot 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-zeallot 
+BuildRequires:    R-devel >= 2.8.0
+Requires:         R-core >= 2.8.0
 
 %description
-Provides functions needed for data cleaning and formatting and forms data
-cleaning and wrangling backend for the following packages: 'ggstatsplot',
-'pairwiseComparisons', and 'statsExpressions'.
+BayesX performs Bayesian inference in structured additive regression
+(STAR) models. The R package BayesXsrc provides the BayesX command line
+tool for easy installation. A convenient R interface is provided in
+package R2BayesX.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,6 +30,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

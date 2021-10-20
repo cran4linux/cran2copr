@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  statsExpressions
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Dataframes and Expressions with Statistical Details
 
@@ -13,35 +13,39 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-WRS2 >= 1.1.1
+BuildRequires:    R-CRAN-WRS2 >= 1.1.3
 BuildRequires:    R-CRAN-BayesFactor >= 0.9.12.4.2
-BuildRequires:    R-CRAN-performance >= 0.7.2
-BuildRequires:    R-CRAN-correlation >= 0.6.1
-BuildRequires:    R-CRAN-effectsize >= 0.4.5
-BuildRequires:    R-CRAN-insight >= 0.14.1
-BuildRequires:    R-CRAN-parameters >= 0.14.0
+BuildRequires:    R-CRAN-performance >= 0.8.0
+BuildRequires:    R-CRAN-correlation >= 0.7.0
+BuildRequires:    R-CRAN-effectsize >= 0.5
+BuildRequires:    R-CRAN-datawizard >= 0.2.1
+BuildRequires:    R-CRAN-parameters >= 0.15.0
+BuildRequires:    R-CRAN-insight >= 0.14.5
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ipmisc 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-WRS2 >= 1.1.1
+BuildRequires:    R-CRAN-zeallot 
+Requires:         R-CRAN-WRS2 >= 1.1.3
 Requires:         R-CRAN-BayesFactor >= 0.9.12.4.2
-Requires:         R-CRAN-performance >= 0.7.2
-Requires:         R-CRAN-correlation >= 0.6.1
-Requires:         R-CRAN-effectsize >= 0.4.5
-Requires:         R-CRAN-insight >= 0.14.1
-Requires:         R-CRAN-parameters >= 0.14.0
+Requires:         R-CRAN-performance >= 0.8.0
+Requires:         R-CRAN-correlation >= 0.7.0
+Requires:         R-CRAN-effectsize >= 0.5
+Requires:         R-CRAN-datawizard >= 0.2.1
+Requires:         R-CRAN-parameters >= 0.15.0
+Requires:         R-CRAN-insight >= 0.14.5
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ipmisc 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-zeallot 
 
 %description
 Utilities for producing dataframes with rich details for the most common
@@ -61,6 +65,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
