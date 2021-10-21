@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sensitivity
-%global packver   1.26.1
+%global packver   1.27.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.26.1
+Version:          1.27.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Global Sensitivity Analysis of Model Outputs
 

@@ -1,44 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  naijR
-%global packver   0.3.2
+%global packname  catSplit
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Operations to Ease Data Analyses Specific to Nigeria
+Summary:          Encode Categorical Variables with Split Information from CART
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-maps >= 3.3.0
-BuildRequires:    R-CRAN-mapdata >= 2.3.0
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-rgdal >= 1.4.4
-BuildRequires:    R-CRAN-RColorBrewer >= 1.1.2
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-maps >= 3.3.0
-Requires:         R-CRAN-mapdata >= 2.3.0
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-rgdal >= 1.4.4
-Requires:         R-CRAN-RColorBrewer >= 1.1.2
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-lifecycle >= 0.2.0
-Requires:         R-methods 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-OpenML 
+BuildRequires:    R-CRAN-farff 
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-dplyr 
+Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-OpenML 
+Requires:         R-CRAN-farff 
 
 %description
-A set of convenience functions as well as geographical/political data
-about Nigeria, aimed at simplifying work with data and information that
-are specific to the country.
+Use primary and surrogate split information from CART (Classification and
+Regression Trees - Breiman L (1984)) as the vector representation for a
+categorical variable. Outputs binary columns for each categorical variable
+making use of target information.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  viewshed3d
-%global packver   4.0.0
+%global packname  proxirr
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compute Viewshed in 3D Point Clouds of Ecosystems
+Summary:          Alpha and Beta Proximity to Irreplaceability
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,36 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-lidR 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-nabor 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-hyper.fit 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-pkgcond 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-lidR 
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-viridis 
-Requires:         R-utils 
-Requires:         R-CRAN-nabor 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-hyper.fit 
-Requires:         R-stats 
-Requires:         R-CRAN-pkgcond 
 
 %description
-A set of tools to compute viewshed in 3D from Terrestrial Laser Scanner
-data and prepare the data prior to visibility estimation.
+Functions to measure Alpha and Beta Proximity to Irreplaceability. The
+methods for Alpha and Beta irreplaceability were first described in:
+Baisero D., Schuster R. & Plumptre A.J. Redefining and Mapping Global
+Irreplaceability. Conservation Biology 2021;1-11.
+<doi:10.1111/cobi.13806>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,6 +32,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

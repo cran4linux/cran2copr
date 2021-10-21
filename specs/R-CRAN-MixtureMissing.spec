@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  stats19
-%global packver   1.4.3
+%global packname  MixtureMissing
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Work with Open Road Traffic Casualty Data from Great Britain
+Summary:          Robust Model-Based Clustering for Data Sets with Missing Values at Random
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,25 +16,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-readr 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
+BuildRequires:    R-CRAN-cluster >= 2.1.2
+BuildRequires:    R-CRAN-mnormt >= 2.0.2
+BuildRequires:    R-CRAN-GGally >= 2.0.0
+BuildRequires:    R-CRAN-rootSolve >= 1.8.2.2
+BuildRequires:    R-CRAN-ContaminatedMixt >= 1.3.4.1
+BuildRequires:    R-CRAN-mvtnorm >= 1.1.2
+Requires:         R-CRAN-ggplot2 >= 3.3.5
+Requires:         R-CRAN-cluster >= 2.1.2
+Requires:         R-CRAN-mnormt >= 2.0.2
+Requires:         R-CRAN-GGally >= 2.0.0
+Requires:         R-CRAN-rootSolve >= 1.8.2.2
+Requires:         R-CRAN-ContaminatedMixt >= 1.3.4.1
+Requires:         R-CRAN-mvtnorm >= 1.1.2
 
 %description
-Tools to help download, process and analyse the UK road collision data
-collected using the 'STATS19' form. The data are provided as 'CSV' files
-with detailed road safety data about the circumstances of car crashes and
-other incidents on the roads resulting in casualties in Great Britain from
-1979, the types (including make and model) of vehicles involved and the
-consequential casualties.  The statistics relate only to personal
-casualties on public roads that are reported to the police, and
-subsequently recorded, using the 'STATS19' accident reporting form. See
-the Department for Transport website
-<https://data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-safety-data>
-for more information on these data.
+Implementation of robust model based cluster analysis with missing data.
+The models used are: Multivariate Contaminated Normal Mixtures (MCNM),
+Multivariate Student's t Mixtures (MtM), and Multivariate Normal Mixtures
+(MNM) for data sets with missing values at random. "Cluster analysis and
+outlier detection with missing data" Hung Tong, Cristina Tortora (2020)
+<arXiv:2012.05394>.
 
 %prep
 %setup -q -c -n %{packname}

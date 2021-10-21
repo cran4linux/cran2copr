@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  l1spectral
-%global packver   0.99.2
+%global packver   0.99.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.2
+Version:          0.99.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          An L1-Version of the Spectral Clustering
 
@@ -17,22 +17,26 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 0.12.5
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-NMI 
+BuildRequires:    R-CRAN-aricode 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-cvTools 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.5
 Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
 Requires:         R-graphics 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-NMI 
+Requires:         R-CRAN-aricode 
 Requires:         R-grDevices 
 Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-cvTools 
 
 %description
@@ -51,6 +55,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

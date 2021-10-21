@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  CIMTx
-%global packver   0.3.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Inference for Multiple Treatments with a Binary Outcome
 
@@ -23,15 +23,18 @@ BuildRequires:    R-CRAN-arm
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-Matching 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-WeightIt 
-BuildRequires:    R-CRAN-SuperLearner 
 BuildRequires:    R-CRAN-tmle 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-class 
-BuildRequires:    R-CRAN-gam 
-BuildRequires:    R-CRAN-dbarts 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-metR 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-SuperLearner 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-BART 
 Requires:         R-CRAN-twang 
@@ -39,15 +42,18 @@ Requires:         R-CRAN-arm
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-Matching 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-car 
 Requires:         R-CRAN-WeightIt 
-Requires:         R-CRAN-SuperLearner 
 Requires:         R-CRAN-tmle 
 Requires:         R-CRAN-tidyr 
 Requires:         R-stats 
-Requires:         R-CRAN-class 
-Requires:         R-CRAN-gam 
-Requires:         R-CRAN-dbarts 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-metR 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-SuperLearner 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
 
 %description
 Different methods to conduct causal inference for multiple treatments with
@@ -56,7 +62,7 @@ Bayesian additive regression trees, targeted maximum likelihood and
 inverse probability of treatment weighting using different generalized
 propensity score models such as multinomial logistic regression,
 generalized boosted models and super learner. For more details, see the
-paper by Liangyuan Hu (2020) <doi:10.1177/0962280220921909>.
+paper by Hu et al. <doi:10.1177/0962280220921909>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  roclang
-%global packver   0.1.0
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Diffusing Function Documentations into 'Roxygen' Comments
 
@@ -18,6 +18,7 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-roxygen2 >= 7.1.1
 BuildRequires:    R-methods >= 4.0.0
+BuildRequires:    R-utils >= 4.0.0
 BuildRequires:    R-CRAN-tibble >= 3.0.4
 BuildRequires:    R-CRAN-magrittr >= 2.0.1
 BuildRequires:    R-CRAN-stringr >= 1.4.0
@@ -28,6 +29,7 @@ BuildRequires:    R-CRAN-rlang >= 0.4.10
 BuildRequires:    R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-roxygen2 >= 7.1.1
 Requires:         R-methods >= 4.0.0
+Requires:         R-utils >= 4.0.0
 Requires:         R-CRAN-tibble >= 3.0.4
 Requires:         R-CRAN-magrittr >= 2.0.1
 Requires:         R-CRAN-stringr >= 1.4.0

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  anomaly
-%global packver   4.0.1
+%global packver   4.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.1
+Version:          4.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detecting Anomalies in Data
 
@@ -25,6 +25,12 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-robust 
+BuildRequires:    R-CRAN-runner 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-caTools 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-Rcpp >= 0.12.18
 Requires:         R-CRAN-dplyr 
@@ -36,14 +42,20 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-robustbase 
 Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-robust 
+Requires:         R-CRAN-runner 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-caTools 
 
 %description
 Implements Collective And Point Anomaly (CAPA) <arXiv:1806.01947>,
 Multi-Variate Collective And Point Anomaly (MVCAPA) <arXiv:1909.01691>,
 Proportion Adaptive Segment Selection (PASS) <doi:10.1093/biomet/ass059>,
-and Bayesian Abnormal Region Detector (BARD) <doi:10.1214/16-BA998>
-methods for the detection of anomalies in time series data. Also includes
-sequential versions of CAPA and MVCAPA <arXiv:2009.06670>.
+and Bayesian Abnormal Region Detector (BARD) <arXiv:1412.5565> methods for
+the detection of anomalies in time series data. Also includes sequential
+versions of CAPA and MVCAPA <arXiv:2009.06670>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -53,6 +65,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

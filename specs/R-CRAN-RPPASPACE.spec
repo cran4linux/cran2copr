@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RPPASPACE
-%global packver   1.0.7
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reverse-Phase Protein Array Super Position and Concentration Evaluation
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.50
-Requires:         R-core >= 3.50
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-doParallel 
@@ -25,17 +25,20 @@ BuildRequires:    R-utils
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-cobs 
-BuildRequires:    R-CRAN-imager 
 BuildRequires:    R-CRAN-bmp 
 BuildRequires:    R-CRAN-jpeg 
 BuildRequires:    R-CRAN-tiff 
 BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-imager 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-cobs 
 BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-SparseM 
 BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-timeDate 
 Requires:         R-methods 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
@@ -45,17 +48,20 @@ Requires:         R-utils
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-cobs 
-Requires:         R-CRAN-imager 
 Requires:         R-CRAN-bmp 
 Requires:         R-CRAN-jpeg 
 Requires:         R-CRAN-tiff 
 Requires:         R-CRAN-png 
+Requires:         R-CRAN-imager 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-cobs 
 Requires:         R-splines 
+Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-robustbase 
 Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-SparseM 
 Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-timeDate 
 
 %description
 Provides tools for the analysis of reverse-phase protein arrays (RPPAs),
@@ -82,6 +88,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

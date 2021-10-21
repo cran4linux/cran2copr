@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DEEVD
-%global packver   1.2.2
+%global packname  SenTinMixt
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Density Estimation by Extreme Value Distributions
+Summary:          Parsimonious Mixtures of MSEN and MTIN Distributions
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,14 +16,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-evd 
-Requires:         R-CRAN-evd 
+BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-snow 
+BuildRequires:    R-CRAN-TSdist 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-expint 
+BuildRequires:    R-CRAN-zipfR 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-rlist 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-doSNOW 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-snow 
+Requires:         R-CRAN-TSdist 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-expint 
+Requires:         R-CRAN-zipfR 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-rlist 
+Requires:         R-CRAN-withr 
 
 %description
-Provides mean squared error (MSE) and plot the kernel densities related to
-extreme value distributions with their estimated values. By using Gumbel
-and Weibull Kernel. See Salha et al. (2014) <doi:10.4236/ojs.2014.48061>
-and Khan and Akbar (2021) <doi:10.4236/ojs.2021.112018 >.
+Implements parsimonious mixtures of MSEN and MTIN distributions via
+expectation- maximization based algorithms for model-based clustering. For
+each mixture component, parsimony is reached via the eigen-decomposition
+of the scale matrices and by imposing a constraint on the tailedness
+parameter. This produces a family of 28 parsimonious mixture models for
+each distribution.
 
 %prep
 %setup -q -c -n %{packname}

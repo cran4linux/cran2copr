@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rmytarget
-%global packver   2.3.1
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Load Data from 'MyTarget API v2 and v3'
 
@@ -30,8 +30,9 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-tidyr 
 
 %description
-Allows work with 'MyTarget API v2' <https://target.my.com/doc/api/> and
-'MyTarget API v3'
+Allows work with 'MyTarget Statistics API v2'
+<https://target.my.com/adv/api-marketing/doc/stat-v2> and 'MyTarget
+Statistics API v3'
 <https://target.my.com/adv/api-marketing/doc/stat-v2#statisticsv3> load
 data by ads, campaigns, agency clients and statistic from your ads
 account.

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  TRES
-%global packver   1.1.4
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tensor Regression with Envelope Structure
 
@@ -44,7 +44,8 @@ expensive. For details of TRR, see Li L, Zhang X (2017)
 (2017) <doi:10.1080/00401706.2016.1272495>. For details of 1D algorithm,
 see Cook RD, Zhang X (2016) <doi:10.1080/10618600.2015.1029577>. For
 details of ECD algorithm, see Cook RD, Zhang X (2018)
-<doi:10.5705/ss.202016.0037>.
+<doi:10.5705/ss.202016.0037>. For more details of the package, see Zeng J,
+Wang W, Zhang X (2021) <doi:10.18637/jss.v099.i12>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,6 +55,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SPOTMisc
-%global packver   1.2.11
+%global packver   1.2.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.11
+Version:          1.2.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Misc Extensions for the 'SPOT' Package
 

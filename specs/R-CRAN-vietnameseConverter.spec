@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  vietnameseConverter
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convert Vietnamese Encodings
 
@@ -17,8 +17,12 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-gsubfn 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-utf8 
 Requires:         R-CRAN-gsubfn 
+Requires:         R-methods 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-utf8 
 
 %description
