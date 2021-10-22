@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sociome
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Operationalizing Social Determinants of Health Data for Researchers
 
@@ -17,25 +17,25 @@ BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mice >= 3.10.0.1
-BuildRequires:    R-CRAN-psych >= 2.0.7
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-tidyr >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.1
+BuildRequires:    R-CRAN-tidycensus >= 1.0
 BuildRequires:    R-CRAN-rlang >= 0.4.7
 BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-CRAN-tidycensus >= 0.11.4
 BuildRequires:    R-CRAN-censusapi 
+BuildRequires:    R-CRAN-psych 
 Requires:         R-CRAN-mice >= 3.10.0.1
-Requires:         R-CRAN-psych >= 2.0.7
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-tidyr >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.1
+Requires:         R-CRAN-tidycensus >= 1.0
 Requires:         R-CRAN-rlang >= 0.4.7
 Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-tidycensus >= 0.11.4
 Requires:         R-CRAN-censusapi 
+Requires:         R-CRAN-psych 
 
 %description
 Accesses raw data via API and calculates social determinants of health
@@ -50,6 +50,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

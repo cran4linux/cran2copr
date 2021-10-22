@@ -1,43 +1,53 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RSC
-%global packver   2.0.1
+%global packname  fdaMocca
+%global packver   0.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Robust and Sparse Correlation Matrix
+Summary:          Model-Based Clustering for Functional Data with Covariates
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-fda 
+BuildRequires:    R-grDevices 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
 Requires:         R-parallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
-Requires:         R-utils 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-fda 
+Requires:         R-grDevices 
 
 %description
-Performs robust and sparse correlation matrix estimation. Robustness is
-achieved based on a simple robust pairwise correlation estimator, while
-sparsity is obtained based on thresholding. The optimal thresholding is
-tuned via cross-validation. See Serra, Coretto, Fratello and Tagliaferri
-(2018) <doi:10.1093/bioinformatics/btx642>.
+Routines for model-based functional cluster analysis for functional data
+with optional covariates. The idea is to cluster functional subjects
+(often called functional objects) into homogenous groups by using spline
+smoothers (for functional data) together with scalar covariates. The
+spline coefficients and the covariates are modelled as a multivariate
+Gaussian mixture model, where the number of mixtures corresponds to the
+number of clusters. The parameters of the model are estimated by
+maximizing the observed mixture likelihood via an EM algorithm (Arnqvist
+and Sjöstedt de Luna, 2019) <arXiv:1904.10265>. The clustering method is
+used to analyze annual lake sediment from lake Kassjön (Northern Sweden)
+which cover more than 6400 years and can be seen as historical records of
+weather and climate.
 
 %prep
 %setup -q -c -n %{packname}

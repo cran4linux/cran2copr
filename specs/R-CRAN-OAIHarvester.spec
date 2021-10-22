@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  OAIHarvester
-%global packver   0.3-2
+%global packver   0.3-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Harvest Metadata Using OAI-PMH Version 2.0
 
@@ -26,7 +26,7 @@ Requires:         R-CRAN-xml2
 %description
 Harvest metadata using the Open Archives Initiative Protocol for Metadata
 Harvesting (OAI-PMH) version 2.0 (for more information, see
-<http://www.openarchives.org/OAI/openarchivesprotocol.html>).
+<https://www.openarchives.org/OAI/openarchivesprotocol.html>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -36,6 +36,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

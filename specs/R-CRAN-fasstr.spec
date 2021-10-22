@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fasstr
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze, Summarize, and Visualize Daily Streamflow Data
 
@@ -19,7 +19,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-openxlsx >= 4.1.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
 BuildRequires:    R-CRAN-plyr >= 1.8.4
-BuildRequires:    R-CRAN-lubridate >= 1.7.4
 BuildRequires:    R-CRAN-e1071 >= 1.7.0.1
 BuildRequires:    R-CRAN-PearsonDS >= 1.1
 BuildRequires:    R-CRAN-fitdistrplus >= 1.0.14
@@ -34,7 +33,6 @@ BuildRequires:    R-grDevices
 Requires:         R-CRAN-openxlsx >= 4.1.0
 Requires:         R-CRAN-ggplot2 >= 3.1.0
 Requires:         R-CRAN-plyr >= 1.8.4
-Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-e1071 >= 1.7.0.1
 Requires:         R-CRAN-PearsonDS >= 1.1
 Requires:         R-CRAN-fitdistrplus >= 1.0.14
@@ -49,12 +47,9 @@ Requires:         R-grDevices
 
 %description
 The Flow Analysis Summary Statistics Tool for R, 'fasstr', provides
-various functions to tidy and screen daily stream discharge data;
-calculate and visualize various summary statistics and metrics; and
-compute annual trending (using 'zyp' package methods
-<https://CRAN.R-project.org/package=zyp>) and volume frequency analyses
-(using methods similar to HEC-SSP (2019)
-<https://www.hec.usace.army.mil/software/hec-ssp/>). It features useful
+various functions to tidy and screen daily stream discharge data,
+calculate and visualize various summary statistics and metrics, and
+compute annual trending and volume frequency analyses. It features useful
 function arguments for filtering of and handling dates, customizing data
 and metrics, and the ability to pull daily data directly from the Water
 Survey of Canada hydrometric database
@@ -68,6 +63,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

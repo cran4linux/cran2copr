@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RALSA
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Analyzer for Large-Scale Assessments
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-openxlsx
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-foreign 
-BuildRequires:    R-CRAN-gdata 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-shiny 
@@ -34,7 +33,6 @@ Requires:         R-CRAN-openxlsx
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-foreign 
-Requires:         R-CRAN-gdata 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-shiny 
@@ -55,7 +53,10 @@ respondents and/or countries, generate variable dictionaries, modify data,
 produce descriptive statistics (percentages, means, percentiles,
 benchmarks) and multivariate statistics (correlations, linear regression,
 binary logistic regression). The number of supported studies and analysis
-types will increase in future.
+types will increase in future. For a general presentation of the package,
+see 'Mirazchiyski', 2021a (<doi:10.1186/s40536-021-00114-4>). For detailed
+technical aspects of the package, see 'Mirazchiyski', 2021b
+(<doi:10.3390/psych3020018>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -65,6 +66,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

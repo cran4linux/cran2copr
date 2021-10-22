@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DCSmooth
-%global packver   1.1.2
+%global packname  shinyr
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonparametric Regression and Bandwidth Selection for Spatial Models
+Summary:          Data Insights Through Inbuilt R Shiny App
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,31 +15,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-fracdiff 
-BuildRequires:    R-parallel 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-tm 
+BuildRequires:    R-CRAN-wordcloud 
+BuildRequires:    R-CRAN-corrplot 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-fracdiff 
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-tm 
+Requires:         R-CRAN-wordcloud 
+Requires:         R-CRAN-corrplot 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-knitr 
 
 %description
-Nonparametric smoothing techniques for data on a lattice and functional
-time series. Smoothing is done via kernel regression or local polynomial
-regression, a bandwidth selection procedure based on an iterative plug-in
-algorithm is implemented. This package allows for modeling a dependency
-structure of the error terms of the nonparametric regression model.
-Methods used in this paper are described in Feng/Schaefer (2021)
-<https://ideas.repec.org/p/pdn/ciepap/144.html>, Schaefer/Feng (2021)
-<https://ideas.repec.org/p/pdn/ciepap/143.html>.
+It builds dynamic R shiny based dashboards to analyze any CSV files. It
+provides simple dashboard design to subset the data, perform exploratory
+data analysis and preliminary machine learning (supervised and
+unsupervised). It also provides filters based on columns of interest.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,43 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RSC
-%global packver   2.0.1
+%global packname  pixelclasser
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Robust and Sparse Correlation Matrix
+Summary:          Classifies Image Pixels by Colour
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-stats 
+BuildArch:        noarch
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-utils 
-Requires:         R-stats 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-jpeg 
+BuildRequires:    R-CRAN-tiff 
 Requires:         R-graphics 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
-Requires:         R-utils 
+Requires:         R-grDevices 
+Requires:         R-CRAN-jpeg 
+Requires:         R-CRAN-tiff 
 
 %description
-Performs robust and sparse correlation matrix estimation. Robustness is
-achieved based on a simple robust pairwise correlation estimator, while
-sparsity is obtained based on thresholding. The optimal thresholding is
-tuned via cross-validation. See Serra, Coretto, Fratello and Tagliaferri
-(2018) <doi:10.1093/bioinformatics/btx642>.
+Contains functions to classify the pixels of an image file by its colour.
+It implements a simple form of the techniques known as Support Vector
+Machine adapted to this particular problem.
 
 %prep
 %setup -q -c -n %{packname}

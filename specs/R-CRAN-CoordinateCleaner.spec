@@ -1,63 +1,66 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bRacatus
-%global packver   1.0.5
+%global packname  CoordinateCleaner
+%global packver   2.0-20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          2.0.20
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Method to Estimate the Accuracy and Biogeographical Status of Georeferenced Biological Data
+Summary:          Automated Cleaning of Occurrence Records from Biological Collections
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+BuildRequires:    gdal-devel >= 2.0.1
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-geojsonio 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-plotfunctions 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-rgbif 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-rworldmap 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-rnaturalearth 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-geojsonio 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-maptools 
 Requires:         R-methods 
-Requires:         R-CRAN-plotfunctions 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-rgbif 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-rworldmap 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-rnaturalearth 
 Requires:         R-stats 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
 
 %description
-Automated assessment of accuracy and geographical status of georeferenced
-biological data. The methods rely on reference regions, namely checklists
-and range maps. Includes functions to obtain data from the Global
-Biodiversity Information Facility <https://www.gbif.org/> and from the
-Global Inventory of Floras and Traits
-<https://gift.uni-goettingen.de/home>. Alternatively, the user can input
-their own data. Furthermore, provides easy visualisation of the data and
-the results through the plotting functions. Especially suited for large
-datasets. The reference for the methodology is: Arlé et al. (under
-review).
+Automated flagging of common spatial and temporal errors in biological and
+paleontological collection data, for the use in conservation, ecology and
+paleontology. Includes automated tests to easily flag (and exclude)
+records assigned to country or province centroid, the open ocean, the
+headquarters of the Global Biodiversity Information Facility, urban areas
+or the location of biodiversity institutions (museums, zoos, botanical
+gardens, universities). Furthermore identifies per species outlier
+coordinates, zero coordinates, identical latitude/longitude and invalid
+coordinates. Also implements an algorithm to identify data sets with a
+significant proportion of rounded coordinates. Especially suited for large
+data sets. The reference for the methodology is: Zizka et al. (2019)
+<doi:10.1111/2041-210X.13152>.
 
 %prep
 %setup -q -c -n %{packname}
