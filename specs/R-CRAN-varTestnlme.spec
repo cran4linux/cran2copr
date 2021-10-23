@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  varTestnlme
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variance Components Testing for Linear and Nonlinear Mixed Effects Models
 
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-CRAN-alabama 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-merDeriv 
-BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-anocva 
 BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-CRAN-quadprog 
@@ -37,7 +36,6 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-CRAN-alabama 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-merDeriv 
-Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-anocva 
 Requires:         R-CRAN-corpcor 
 Requires:         R-CRAN-quadprog 

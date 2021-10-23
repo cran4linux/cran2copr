@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  multid
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Difference Between Two Groups
 
@@ -18,15 +18,19 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-glmnet >= 4.1.2
 BuildRequires:    R-stats >= 4.0.2
+BuildRequires:    R-CRAN-pROC >= 1.18.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.7
 Requires:         R-CRAN-glmnet >= 4.1.2
 Requires:         R-stats >= 4.0.2
+Requires:         R-CRAN-pROC >= 1.18.0
 Requires:         R-CRAN-dplyr >= 1.0.7
 
 %description
 Estimation of multivariate differences between two groups (e.g.,
 multivariate sex differences) with regularized regression methods and
-predictive approach.
+predictive approach. See Lönnqvist & Ilmarinen (2021)
+<doi:10.1007/s11109-021-09681-2> and Ilmarinen et al. (2021)
+<doi:10.31234/osf.io/j59bs>.
 
 %prep
 %setup -q -c -n %{packname}

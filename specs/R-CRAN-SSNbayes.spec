@@ -1,42 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ndtv
-%global packver   0.13.1
+%global packname  SSNbayes
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Network Dynamic Temporal Visualizations
+Summary:          Bayesian Spatio-Temporal Analysis in Stream Networks
 
-License:          GPL-3 + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-animation >= 2.4
-BuildRequires:    R-CRAN-network >= 1.13
-BuildRequires:    R-CRAN-networkDynamic >= 0.9
-BuildRequires:    R-CRAN-sna 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-statnet.common 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-base64 
-Requires:         R-CRAN-animation >= 2.4
-Requires:         R-CRAN-network >= 1.13
-Requires:         R-CRAN-networkDynamic >= 0.9
-Requires:         R-CRAN-sna 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-statnet.common 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-base64 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-CRAN-SSN 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rstan 
+Requires:         R-CRAN-SSN 
+Requires:         R-CRAN-rstantools
 
 %description
-Renders dynamic network data from 'networkDynamic' objects as movies,
-interactive animations, or other representations of changing relational
-structures and attributes.
+Fits Bayesian spatio-temporal models and makes predictions on stream
+networks using the approach by Santos-Fernandez, Edgar, et al.
+(2021)."Bayesian spatio-temporal models for stream networks"
+<arXiv:2103.03538>. In these models, spatial dependence is captured using
+stream distance and flow connectivity, while temporal autocorrelation is
+modelled using vector autoregression methods.
 
 %prep
 %setup -q -c -n %{packname}

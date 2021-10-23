@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ARTofR
-%global packver   0.2.3
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Who Ever Care About the [Art of R] Scripts?
 

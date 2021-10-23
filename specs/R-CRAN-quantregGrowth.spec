@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  quantregGrowth
-%global packver   1.3-0
+%global packver   1.3-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Growth Charts via Smooth Regression Quantiles with Automatic Smoothness Estimation and Additive Terms
 
@@ -23,13 +23,13 @@ Requires:         R-splines
 
 %description
 Fits non-crossing regression quantiles as a function of linear covariates
-and multiple smooth terms via B-splines with L1-norm difference penalties.
-The smoothing parameters are estimated as part of the model fitting.
-Monotonicity and concavity constraints on the fitted curves are allowed.
-See Muggeo, Sciandra, Tomasello and Calvo (2013)
-<doi:10.1007/s10651-012-0232-1> and <doi:10.13140/RG.2.2.12924.85122> for
-some code examples. Smoothing parameter selection with additive terms is
-discussed in Muggeo and others (2020) <doi:10.1177/1471082X20929802>.
+and multiple smooth terms, including varying coefficients, via B-splines
+with L1-norm difference penalties. The smoothing parameters are estimated
+as part of the model fitting, see Muggeo and others (2021)
+<doi:10.1177/1471082X20929802>. Monotonicity and concavity constraints on
+the fitted curves are allowed, see Muggeo and others (2013)
+<doi:10.1007/s10651-012-0232-1> and also <doi:10.13140/RG.2.2.12924.85122>
+for some code examples.
 
 %prep
 %setup -q -c -n %{packname}
@@ -39,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

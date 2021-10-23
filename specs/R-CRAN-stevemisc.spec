@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  stevemisc
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Steve's Miscellaneous Functions
 
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-forcats
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-stats 
 Requires:         R-CRAN-magrittr 
@@ -50,6 +51,7 @@ Requires:         R-CRAN-forcats
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-tidyr 
 
 %description
 These are miscellaneous functions that I find useful for my research and

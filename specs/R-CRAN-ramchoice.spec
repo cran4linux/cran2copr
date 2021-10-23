@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ramchoice
-%global packver   1.1
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
-Release:          3%{?dist}%{?buildtag}
-Summary:          Estimation and Inference in Random Attention Models
+Version:          2.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          Revealed Preference and Attention Analysis in Random Limited Attention Models
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,22 +16,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-MASS 
-Requires:         R-MASS 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-MASS 
 
 %description
 It is widely documented in psychology, economics and other disciplines
 that socio-economic agent may not pay full attention to all available
 alternatives, rendering standard revealed preference theory invalid. This
 package implements the estimation and inference procedures of Cattaneo,
-Ma, Masatlioglu and Suleymanov (2019) <arXiv:1712.03448>, which utilizes
+Ma, Masatlioglu and Suleymanov (2020) <arXiv:1712.03448> and Cattaneo,
+Cheung, Ma, and Masatlioglu (2021) <arXiv:2110.10650>, which utilizes
 standard choice data to partially identify and estimate a decision maker's
-preference. For inference, several simulation-based critical values are
-provided.
+preference and attention. For inference, several simulation-based critical
+values are provided.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -39,17 +49,10 @@ provided.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

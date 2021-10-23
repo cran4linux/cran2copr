@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  text2map
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Tools for Text Matrices, Embeddings, and Networks
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-qgraph >= 1.6.9
+BuildRequires:    R-CRAN-qgraph >= 1.6
 BuildRequires:    R-CRAN-igraph >= 1.2.6
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-Matrix 
@@ -33,7 +33,7 @@ BuildRequires:    R-CRAN-mlpack
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-qgraph >= 1.6.9
+Requires:         R-CRAN-qgraph >= 1.6
 Requires:         R-CRAN-igraph >= 1.2.6
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-Matrix 
@@ -52,15 +52,14 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-rlang 
 
 %description
-This is a collection of libraries and utility functions for computational
-text analysis for the social sciences. The functions are optimized for
-working with various kinds of text matrices. Focusing on the text matrix
-as the primary object – which is represented either as a base R dense
-matrix or a 'Matrix' package sparse matrix – allows for a consistent and
-intuitive interface that stays close to the underlying mathematical
-foundation of computational text analysis. In particular, the package
-includes functions for working with word embeddings, text networks, and
-document-term matrices. Methods developed in Stoltz and Taylor (2019)
+This is a collection of functions optimized for working with for working
+with various kinds of text matrices. Focusing on the text matrix as the
+primary object – which is represented either as a base R dense matrix or a
+'Matrix' package sparse matrix – allows for a consistent and intuitive
+interface that stays close to the underlying mathematical foundation of
+computational text analysis. In particular, the package includes functions
+for working with word embeddings, text networks, and document-term
+matrices. Methods developed in Stoltz and Taylor (2019)
 <doi:10.1007/s42001-019-00048-6>, Taylor and Stoltz (2020)
 <doi:10.1007/s42001-020-00075-8>, Taylor and Stoltz (2020)
 <doi:10.15195/v7.a23>, and Stoltz and Taylor (2021)

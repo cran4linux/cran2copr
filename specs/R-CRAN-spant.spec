@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spant
-%global packver   1.14.0
+%global packver   1.15.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.14.0
+Version:          1.15.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          MR Spectroscopy Analysis Tools
 
@@ -22,25 +22,20 @@ BuildRequires:    R-CRAN-pracma
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-complexplus 
 BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-nnls 
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-smoother 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ptw 
 BuildRequires:    R-CRAN-mmand 
 BuildRequires:    R-CRAN-RNifti 
 BuildRequires:    R-CRAN-RNiftyReg 
 BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-irlba 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-plyr 
@@ -49,25 +44,20 @@ Requires:         R-CRAN-pracma
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-complexplus 
 Requires:         R-CRAN-signal 
-Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-nnls 
 Requires:         R-utils 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-smoother 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ptw 
 Requires:         R-CRAN-mmand 
 Requires:         R-CRAN-RNifti 
 Requires:         R-CRAN-RNiftyReg 
 Requires:         R-CRAN-fields 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-irlba 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-jsonlite 
 
 %description

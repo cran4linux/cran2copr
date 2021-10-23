@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RcppEnsmallen
-%global packver   0.2.17.0.1
+%global packver   0.2.18.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.17.0.1
+Version:          0.2.18.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Header-Only C++ Mathematical Optimization Library for 'Armadillo'
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.8.400.0.0
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.800.0.0
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-Rcpp 
 
@@ -34,7 +34,7 @@ from 7.800.0 is licensed under Apache License 2, 'RcppArmadillo' (the
 'Rcpp' bindings/bridge to 'Armadillo') is licensed under the GNU GPL
 version 2 or later. Thus, 'RcppEnsmallen' is also licensed under similar
 terms. Note that 'Ensmallen' requires a compiler that supports 'C++11' and
-'Armadillo' 8.400 or later.
+'Armadillo' 9.800 or later.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +44,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
