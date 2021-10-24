@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  samc
-%global packver   1.4.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Absorbing Markov Chains
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-RcppThread >= 1.0.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.9.1
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-gdistance 

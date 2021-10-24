@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RcppQuantuccia
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Bindings to the 'Quantuccia' Header-Only Essentials of 'QuantLib'
+Summary:          R Bindings to the Calendaring Functionality of 'QuantLib'
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,10 +20,11 @@ BuildRequires:    R-CRAN-BH
 Requires:         R-CRAN-Rcpp 
 
 %description
-'QuantLib' bindings are provided for R using 'Rcpp' and the header-only
-'Quantuccia' variant (put together by Peter Caspers) offering an essential
-subset of 'QuantLib'. See the included file 'AUTHORS' for a full list of
-contributors to both 'QuantLib' and 'Quantuccia'.
+'QuantLib' bindings are provided for R using 'Rcpp' via an updated variant
+of the header-only 'Quantuccia' project (put together initially by Peter
+Caspers) offering an essential subset of 'QuantLib' (and now maintained
+separately for the calendaring subset). See the included file 'AUTHORS'
+for a full list of contributors to both 'QuantLib' and 'Quantuccia'.
 
 %prep
 %setup -q -c -n %{packname}

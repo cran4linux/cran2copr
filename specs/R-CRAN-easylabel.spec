@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  easylabel
-%global packver   0.1.0
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Scatter Plot and Volcano Plot Labels
 
@@ -13,24 +13,32 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-plotly >= 4.10.0
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinycssloaders 
+BuildRequires:    R-CRAN-shinybusy 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-DT 
-Requires:         R-CRAN-plotly 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-splus2R 
+Requires:         R-CRAN-plotly >= 4.10.0
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinycssloaders 
+Requires:         R-CRAN-shinybusy 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-DT 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-splus2R 
 
 %description
-Interactive labelling of scatter plots and volcano plots using a 'shiny'
-and 'plotly' interface. Users can hover over points to see where specific
-points are located and click points on/off to easily label them. Labels
-can be dragged around the plot to place them optimally. Plots can be
-exported directly to pdf for publication.
+Interactive labelling of scatter plots, volcano plots and Manhattan plots
+using a 'shiny' and 'plotly' interface. Users can hover over points to see
+where specific points are located and click points on/off to easily label
+them. Labels can be dragged around the plot to place them optimally. Plots
+can be exported directly to PDF for publication.
 
 %prep
 %setup -q -c -n %{packname}

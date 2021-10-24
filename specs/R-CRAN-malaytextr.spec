@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  malaytextr
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Text Mining for Bahasa Malaysia
 
@@ -26,15 +26,15 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-stringr 
 
 %description
-It is built to handle Bahasa Malaysia text. We provide functions and data
-sets that will help handling Bahasa Malaysia to be much easier. For word
-stemming in particular, we will find the Malay words in a dictionary and
-then proceed to remove "extra suffix" as explained in Khan, Rehman Ullah,
-Fitri Suraya Mohamad, Muh Inam UlHaq, Shahren Ahmad Zadi Adruce, Philip
-Nuli Anding, Sajjad Nawaz Khan, and Abdulrazak Yahya Saleh Al-Hababi
-(2017) <https://ijrest.net/vol-4-issue-12.html> . A dictionary of Malay
-words provided in this package can be used as a dictionary to perform word
-stemming.
+It is designed to work with text written in Bahasa Malaysia. We provide
+functions and data sets that will make working with Bahasa Malaysia text
+much easier. For word stemming in particular, we will look up the Malay
+words in a dictionary and then proceed to remove "extra suffix" as
+explained in Khan, Rehman Ullah, Fitri Suraya Mohamad, Muh Inam UlHaq,
+Shahren Ahmad Zadi Adruce, Philip Nuli Anding, Sajjad Nawaz Khan, and
+Abdulrazak Yahya Saleh Al-Hababi (2017)
+<https://ijrest.net/vol-4-issue-12.html> . This package includes a
+dictionary of Malay words that may be used to perform word stemming.
 
 %prep
 %setup -q -c -n %{packname}
