@@ -1,27 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  generics
-%global packver   0.1.1
+%global packname  RepertoiR
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Common S3 Generics not Provided by Base R Methods Related to Model Fitting
+Summary:          Repertoire Graphical Visualization
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-circlize 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-circlize 
+Requires:         R-grDevices 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringr 
 
 %description
-In order to reduce potential package dependencies and conflicts, generics
-provides a number of commonly used S3 generics.
+Visualization platform for T cell receptor repertoire analysis output
+results. It includes comparison of sequence frequency among samples,
+network of similar sequences and convergent recombination source between
+species. Currently repertoire analysis is in early stage of development
+and requires new approaches for repertoire data examination and assessment
+as we intend to develop. No publication is available yet (will be
+available in the near future), Efroni (2021) <https:>.
 
 %prep
 %setup -q -c -n %{packname}

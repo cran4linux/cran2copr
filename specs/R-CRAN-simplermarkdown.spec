@@ -1,27 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  generics
-%global packver   0.1.1
+%global packname  simplermarkdown
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Common S3 Generics not Provided by Base R Methods Related to Model Fitting
+Summary:          Simple Engine for Generating Reports using R
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-rjson 
+Requires:         R-tools 
 
 %description
-In order to reduce potential package dependencies and conflicts, generics
-provides a number of commonly used S3 generics.
+Runs R-code present in a pandoc markdown file and includes the resulting
+output in the resulting markdown file. This file can then be converted
+into any of the output formats supported by pandoc. The package can also
+be used as an engine for writing package vignettes.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Matching
-%global packver   4.9-10
+%global packver   4.9-11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.9.10
+Version:          4.9.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate and Propensity Score Matching with Balance Optimization
 

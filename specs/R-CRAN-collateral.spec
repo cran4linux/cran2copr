@@ -1,27 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  generics
-%global packver   0.1.1
+%global packname  collateral
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Common S3 Generics not Provided by Base R Methods Related to Model Fitting
+Summary:          Quickly Evaluate Captured Side Effects
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-pillar 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-crayon 
 Requires:         R-methods 
+Requires:         R-CRAN-pillar 
 
 %description
-In order to reduce potential package dependencies and conflicts, generics
-provides a number of commonly used S3 generics.
+Map functions while capturing results, errors, warnings, messages and
+other output tidily, then filter and summarise data frames or lists on the
+basis of those side effects.
 
 %prep
 %setup -q -c -n %{packname}

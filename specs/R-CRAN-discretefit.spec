@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  maotai
-%global packver   0.2.2
+%global packname  discretefit
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Matrix Algebra, Optimization and Inference
+Summary:          Simulated Goodness-of-Fit Tests for Discrete Distributions
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,41 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-CRAN-Rtsne 
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-labdsv 
-BuildRequires:    R-CRAN-shapes 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-fastcluster 
-BuildRequires:    R-CRAN-dbscan 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppDist 
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-RSpectra 
-Requires:         R-CRAN-Rtsne 
-Requires:         R-CRAN-RANN 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-labdsv 
-Requires:         R-CRAN-shapes 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-fastcluster 
-Requires:         R-CRAN-dbscan 
 
 %description
-Matrix is an universal and sometimes primary object/unit in applied
-mathematics and statistics. We provide a number of algorithms for selected
-problems in optimization and statistical inference. For general exposition
-to the topic with focus on statistical context, see the book by Banerjee
-and Roy (2014, ISBN:9781420095388).
+Implements Monte Carlo simulations for goodness-of-fit (GOF) tests for
+discrete distributions. This includes tests based on the Chi-squared
+statistic, the log-likelihood-ratio (G^2) statistic, the Freeman-Tukey
+(Hellinger-distance) statistic, the Kolmogorov-Smirnov statistic, the
+Cramer-von Mises statistic as described in Choulakian, Lockhart and
+Stephens (1994) <doi:10.2307/3315828>, and the root-mean-square statistic,
+see Perkins, Tygert, and Ward (2011) <doi:10.1016/j.amc.2011.03.124>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,65 +1,57 @@
 %global __brp_check_rpaths %{nil}
-%global packname  migraph
-%global packver   0.8.2
+%global packname  meteospain
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multimodal and Multilevel Network Analysis
+Summary:          Access to Spanish Meteorological Stations Services
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggdendro 
-BuildRequires:    R-CRAN-ggraph 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-network 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sna 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidygraph 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-units 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggdendro 
-Requires:         R-CRAN-ggraph 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-network 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sna 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidygraph 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-units 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-vctrs 
 
 %description
-A set of tools that extend common social network analysis packages for
-analysing multimodal and multilevel networks. It includes functions for
-one- and two-mode (and sometimes three-mode) centrality, centralization,
-clustering, and constraint, as well as for one- and two-mode network
-regression and block-modelling. All functions operate with matrices, edge
-lists, and 'igraph', 'network'/'sna', and 'tidygraph' objects. The package
-is released as a complement to 'Multimodal Political Networks' (2021,
-ISBN:9781108985000), and includes various datasets used in the book.
+Access to different Spanish meteorological stations data services and APIs
+(AEMET, SMC, MG, Meteoclimatic...).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BuyseTest
-%global packver   2.3.0
+%global packver   2.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Pairwise Comparisons
 
@@ -52,10 +52,11 @@ than a random observation drawn from the other group (Mann-Whitney
 parameter). The net benefit and win ratio statistics, i.e. the difference
 and ratio between the probabilities relative to the intervention and
 control groups, can then also be estimated. Confidence intervals and
-p-values are obtained using permutations, a non-parametric bootstrap, or
-the asymptotic theory. The software enables the use of thresholds of
-minimal importance difference, stratification, non-prioritized endpoints
-(O'Brien test), and can handle right-censoring and competing-risks.
+p-values are obtained based on asymptotic results (Ozenne 2021
+<doi:10.1177/09622802211037067>), non-parametric bootstrap, or
+permutations. The software enables the use of thresholds of minimal
+importance difference, stratification, non-prioritized endpoints (O Brien
+test), and can handle right-censoring and competing-risks.
 
 %prep
 %setup -q -c -n %{packname}
@@ -65,6 +66,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

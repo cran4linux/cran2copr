@@ -1,27 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  generics
-%global packver   0.1.1
+%global packname  uFTIR
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Common S3 Generics not Provided by Base R Methods Related to Model Fitting
+Summary:          Process and Analyze Agilent Cary 620 FTIR Microscope Images
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
-BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    gdal-devel >= 1.11.4
+BuildRequires:    proj-devel >= 4.8.0
+BuildRequires:    sqlite-devel
+BuildRequires:    R-devel >= 4.0.4.0
+Requires:         R-core >= 4.0.4.0
+BuildRequires:    R-parallel >= 4.0.4
+BuildRequires:    R-methods >= 4.0.4
+BuildRequires:    R-CRAN-raster >= 3.5.2
+BuildRequires:    R-CRAN-sp >= 1.4.5
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-parallel >= 4.0.4
+Requires:         R-methods >= 4.0.4
+Requires:         R-CRAN-raster >= 3.5.2
+Requires:         R-CRAN-sp >= 1.4.5
+Requires:         R-CRAN-Rcpp >= 1.0.7
 
 %description
-In order to reduce potential package dependencies and conflicts, generics
-provides a number of commonly used S3 generics.
+A set of tools to read, process, and summarize Agilent Cary 620 uFTIR
+Microscope hyperspectral images primarily intended for microplastic
+analysis.
 
 %prep
 %setup -q -c -n %{packname}

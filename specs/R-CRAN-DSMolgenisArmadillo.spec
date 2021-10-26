@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DSMolgenisArmadillo
-%global packver   1.3.7
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.7
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'DataSHIELD' Client for 'MOLGENIS Armadillo'
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DSI >= 1.2.0
+BuildRequires:    R-CRAN-DSI >= 1.3.0
 BuildRequires:    R-CRAN-MolgenisAuth 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-httr 
@@ -24,7 +24,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-urltools 
-Requires:         R-CRAN-DSI >= 1.2.0
+Requires:         R-CRAN-DSI >= 1.3.0
 Requires:         R-CRAN-MolgenisAuth 
 Requires:         R-methods 
 Requires:         R-CRAN-httr 

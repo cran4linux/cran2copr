@@ -1,27 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  generics
-%global packver   0.1.1
+%global packname  conText
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Common S3 Generics not Provided by Base R Methods Related to Model Fitting
+Summary:          'a la Carte' on Text (ConText) Embedding Regression
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-quanteda >= 3.0.0
+BuildRequires:    R-CRAN-fastDummies >= 1.6.3
+BuildRequires:    R-CRAN-reshape2 >= 1.4.4
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-Matrix >= 1.3.2
+BuildRequires:    R-CRAN-text2vec >= 0.6
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
+Requires:         R-CRAN-quanteda >= 3.0.0
+Requires:         R-CRAN-fastDummies >= 1.6.3
+Requires:         R-CRAN-reshape2 >= 1.4.4
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-Matrix >= 1.3.2
+Requires:         R-CRAN-text2vec >= 0.6
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
 
 %description
-In order to reduce potential package dependencies and conflicts, generics
-provides a number of commonly used S3 generics.
+A fast, flexible and transparent framework to estimate context-specific
+word and short document embeddings using the 'a la carte' embeddings
+approach developed by Khodak et al. (2018) <arXiv:1805.05388> and evaluate
+hypotheses about covariate effects on embeddings using the regression
+framework developed by Rodriguez et al.
+(2021)<https://github.com/prodriguezsosa/EmbeddingRegression>.
 
 %prep
 %setup -q -c -n %{packname}

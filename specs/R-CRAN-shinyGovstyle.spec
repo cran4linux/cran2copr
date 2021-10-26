@@ -1,27 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  generics
-%global packver   0.1.1
+%global packname  shinyGovstyle
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Common S3 Generics not Provided by Base R Methods Related to Model Fitting
+Summary:          Custom Gov Style Inputs for Shiny
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-shiny >= 0.14
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-shiny >= 0.14
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-jsonlite 
 
 %description
-In order to reduce potential package dependencies and conflicts, generics
-provides a number of commonly used S3 generics.
+Collection of 'shiny' application styling that are the based on the GOV.UK
+Design System.  See <https://design-system.service.gov.uk/components/> for
+details.
 
 %prep
 %setup -q -c -n %{packname}

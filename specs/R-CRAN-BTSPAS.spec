@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BTSPAS
-%global packver   2021.11.1
+%global packver   2021.11.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2021.11.1
+Version:          2021.11.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Time-Stratified Population Analysis
 

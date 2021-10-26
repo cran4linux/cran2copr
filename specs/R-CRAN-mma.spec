@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mma
-%global packver   10.5-0
+%global packver   10.5-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          10.5.0
+Version:          10.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Mediation Analysis
 
@@ -21,14 +21,12 @@ BuildRequires:    R-splines
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-gplots 
-BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-lattice 
 Requires:         R-CRAN-gbm 
 Requires:         R-splines 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-gplots 
-Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-lattice 
 
 %description
@@ -49,6 +47,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

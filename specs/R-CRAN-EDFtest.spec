@@ -1,27 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  generics
-%global packver   0.1.1
+%global packname  EDFtest
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Common S3 Generics not Provided by Base R Methods Related to Model Fitting
+Summary:          Goodness of Fit Based on Empirical Distribution Function
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-CompQuadForm >= 1.4.3
+BuildRequires:    R-CRAN-rmutil >= 1.1.5
+BuildRequires:    R-stats 
+Requires:         R-CRAN-CompQuadForm >= 1.4.3
+Requires:         R-CRAN-rmutil >= 1.1.5
+Requires:         R-stats 
 
 %description
-In order to reduce potential package dependencies and conflicts, generics
-provides a number of commonly used S3 generics.
+This repository contains software for the calculation of goodness-of-fit
+test statistics and their P-values. The three statistics computed are the
+Empirical Distribution function statistics called Cramer-von Mises,
+Anderson-Darling, and Watson statistics. The statistics and their P-values
+can be used to assess an assumed distribution.The following distributions
+are available: Uniform, Normal, Gamma, Logistic, Laplace, Weibull, Extreme
+Value, and Exponential.
 
 %prep
 %setup -q -c -n %{packname}

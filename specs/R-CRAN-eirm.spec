@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  eirm
-%global packver   0.4
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explanatory Item Response Modeling for Dichotomous and Polytomous Items
 
@@ -17,6 +17,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-blme 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-optimx 
 BuildRequires:    R-CRAN-magrittr 
@@ -27,6 +28,7 @@ BuildRequires:    R-CRAN-readxl
 BuildRequires:    R-CRAN-ggeffects 
 BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-blme 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-optimx 
 Requires:         R-CRAN-magrittr 
@@ -39,8 +41,9 @@ Requires:         R-CRAN-ggplot2
 
 %description
 Analysis of dichotomous and polytomous response data using the explanatory
-item response modeling framework, as described in Stanke & Bulut (2019)
-<doi:10.21449/ijate.515085> and De Boeck & Wilson (2004)
+item response modeling framework, as described in Bulut, Gorgun, &
+Yildirim-Erbasli (2021) <doi:10.3390/psych3030023>, Stanke & Bulut (2019)
+<doi:10.21449/ijate.515085>, and De Boeck & Wilson (2004)
 <doi:10.1007/978-1-4757-3990-9>. Generalized linear mixed modeling is used
 for estimating the effects of item-related and person-related variables on
 dichotomous and polytomous item responses.
@@ -53,6 +56,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

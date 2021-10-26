@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  lessR
-%global packver   4.0.5
+%global packver   4.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.5
+Version:          4.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Less Code, More Results
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-ellipse
 BuildRequires:    R-CRAN-leaps 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-viridisLite 
 Requires:         R-graphics 
@@ -42,6 +43,7 @@ Requires:         R-CRAN-ellipse
 Requires:         R-CRAN-leaps 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-viridisLite 
 

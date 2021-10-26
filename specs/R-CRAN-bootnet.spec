@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bootnet
-%global packver   1.4.3
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
-Release:          2%{?dist}%{?buildtag}
+Version:          1.5
+Release:          1%{?dist}%{?buildtag}
 Summary:          Bootstrap Methods for Various Network Estimation Routines
 
 License:          GPL-2
@@ -30,17 +30,12 @@ BuildRequires:    R-CRAN-corpcor
 BuildRequires:    R-CRAN-IsingSampler 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-Matrix 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-huge 
-BuildRequires:    R-CRAN-relaimpo 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-snow 
 BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-graphicalVAR 
-BuildRequires:    R-CRAN-BDgraph 
-BuildRequires:    R-CRAN-psychTools 
 BuildRequires:    R-CRAN-networktools 
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-CRAN-glasso 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-mgm >= 1.2
 Requires:         R-CRAN-NetworkToolbox >= 1.1.0
 Requires:         R-CRAN-dplyr >= 0.3.0.2
@@ -55,17 +50,12 @@ Requires:         R-CRAN-corpcor
 Requires:         R-CRAN-IsingSampler 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-abind 
-Requires:         R-Matrix 
-Requires:         R-parallel 
-Requires:         R-CRAN-huge 
-Requires:         R-CRAN-relaimpo 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-snow 
 Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-graphicalVAR 
-Requires:         R-CRAN-BDgraph 
-Requires:         R-CRAN-psychTools 
 Requires:         R-CRAN-networktools 
-Requires:         R-CRAN-lavaan 
-Requires:         R-CRAN-glasso 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
 
 %description
 Bootstrap methods to assess accuracy and stability of estimated network
@@ -76,9 +66,15 @@ in R, and offers default sets for various estimation routines.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -86,9 +82,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

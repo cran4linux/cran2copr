@@ -1,27 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  generics
-%global packver   0.1.1
+%global packname  stepjglm
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Common S3 Generics not Provided by Base R Methods Related to Model Fitting
+Summary:          Variable Selection for Joint Modeling of Mean and Dispersion
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rsq 
+Requires:         R-stats 
+Requires:         R-CRAN-rsq 
 
 %description
-In order to reduce potential package dependencies and conflicts, generics
-provides a number of commonly used S3 generics.
+A Package for selecting variables for the joint modeling of mean and
+dispersion (including models for mixture experiments) based on hypothesis
+testing and the quality of model's fit. In each iteration of the selection
+process, a criterion for checking the goodness of fit is used as a filter
+for choosing the terms that will be evaluated by a hypothesis test. Pinto
+& Pereira (2021) <arXiv:2109.07978>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,27 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  generics
-%global packver   0.1.1
+%global packname  DominoPredictionLogging
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Common S3 Generics not Provided by Base R Methods Related to Model Fitting
+Summary:          Domino Prediction Logging
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rjson 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-lgr 
+Requires:         R-CRAN-rjson 
 Requires:         R-methods 
+Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-lgr 
 
 %description
-In order to reduce potential package dependencies and conflicts, generics
-provides a number of commonly used S3 generics.
+Instrument prediction code that lets you capture inputs to the model,
+predictions, prediction properties, and other metadata.
 
 %prep
 %setup -q -c -n %{packname}
