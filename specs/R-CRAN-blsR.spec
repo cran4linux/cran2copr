@@ -1,42 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  noctua
-%global packver   2.3.0
+%global packname  blsR
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Connect to 'AWS Athena' using R 'AWS SDK' 'paws' ('DBI' Interface)
+Summary:          Make Requests from the Bureau of Labor Statistics API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.12.4
-BuildRequires:    R-CRAN-DBI >= 0.7
-BuildRequires:    R-CRAN-paws >= 0.1.5
-BuildRequires:    R-CRAN-uuid >= 0.1.4
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table >= 1.12.4
-Requires:         R-CRAN-DBI >= 0.7
-Requires:         R-CRAN-paws >= 0.1.5
-Requires:         R-CRAN-uuid >= 0.1.4
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 
 %description
-Designed to be compatible with the 'R' package 'DBI' (Database Interface)
-when connecting to Amazon Web Service ('AWS') Athena
-<https://aws.amazon.com/athena/>. To do this the 'R' 'AWS' Software
-Development Kit ('SDK') 'paws' <https://github.com/paws-r/paws> is used as
-a driver.
+Implements v2 of the B.L.S. API for requests of survey information and
+time series data through 3-tiered API that allows users to interact with
+the raw API directly, create queries through a functional interface, and
+re-shape the data structures returned to fit common uses. The API
+definition is located at:
+<https://www.bls.gov/developers/api_signature_v2.htm>.
 
 %prep
 %setup -q -c -n %{packname}

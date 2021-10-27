@@ -1,42 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  noctua
-%global packver   2.3.0
+%global packname  DCEmgmt
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Connect to 'AWS Athena' using R 'AWS SDK' 'paws' ('DBI' Interface)
+Summary:          DCE Data Reshaping and Processing
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.12.4
-BuildRequires:    R-CRAN-DBI >= 0.7
-BuildRequires:    R-CRAN-paws >= 0.1.5
-BuildRequires:    R-CRAN-uuid >= 0.1.4
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table >= 1.12.4
-Requires:         R-CRAN-DBI >= 0.7
-Requires:         R-CRAN-paws >= 0.1.5
-Requires:         R-CRAN-uuid >= 0.1.4
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-mlogit >= 1.0.2
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-mlogit >= 1.0.2
+Requires:         R-CRAN-survival 
 
 %description
-Designed to be compatible with the 'R' package 'DBI' (Database Interface)
-when connecting to Amazon Web Service ('AWS') Athena
-<https://aws.amazon.com/athena/>. To do this the 'R' 'AWS' Software
-Development Kit ('SDK') 'paws' <https://github.com/paws-r/paws> is used as
-a driver.
+Prepare the results of a DCE to be analysed through choice
+models.'DCEmgmt' reshapes DCE data from wide to long format considering
+the special characteristics of a DCE. 'DCEmgmt' includes the function
+'DCEestm' which estimates choice models once the database has been
+reshaped with 'DCEmgmt'.
 
 %prep
 %setup -q -c -n %{packname}
