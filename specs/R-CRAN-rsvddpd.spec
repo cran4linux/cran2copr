@@ -1,39 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ecotox
-%global packver   1.4.4
+%global packname  rsvddpd
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Ecotoxicology
+Summary:          Robust Singular Value Decomposition using Density Power Divergence
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-MASS 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
+Requires:         R-utils 
+Requires:         R-CRAN-matrixStats 
 
 %description
-A simple approach to using a probit or logit analysis to calculate lethal
-concentration (LC) or time (LT) and the appropriate fiducial confidence
-limits desired for selected LC or LT for ecotoxicology studies (Finney
-1971; Wheeler et al. 2006; Robertson et al. 2007). The simplicity of
-'ecotox' comes from the syntax it implies within its functions which are
-similar to functions like glm() and lm(). In addition to the simplicity of
-the syntax, a comprehensive data frame is produced which gives the user a
-predicted LC or LT value for the desired level and a suite of important
-parameters such as fiducial confidence limits and slope. Finney, D.J.
-(1971, ISBN: 052108041X); Wheeler, M.W., Park, R.M., and Bailer, A.J.
-(2006) <doi:10.1897/05-320R.1>; Robertson, J.L., Savin, N.E., Russell,
-R.M., and Preisler, H.K. (2007, ISBN: 0849323312).
+Computing singular value decomposition with robustness is a challenging
+task. This package provides an implementation of computing robust SVD
+using density power divergence (<arXiv:2109.10680>). It combines the idea
+of robustness and efficiency in estimation based on a tuning parameter. It
+also provides utility functions to simulate various scenarios to compare
+performances of different algorithms.
 
 %prep
 %setup -q -c -n %{packname}

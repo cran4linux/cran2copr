@@ -1,44 +1,52 @@
 %global __brp_check_rpaths %{nil}
-%global packname  loon.tourr
-%global packver   0.1.3
+%global packname  gen3sis
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tour in 'Loon'
+Summary:          General Engine for Eco-Evolutionary Simulations
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-loon > 1.3.1
-BuildRequires:    R-tcltk 
-BuildRequires:    R-CRAN-tourr 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.16
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-gdistance 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-tools 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-loon.ggplot 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-loon > 1.3.1
-Requires:         R-tcltk 
-Requires:         R-CRAN-tourr 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 0.12.16
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-gdistance 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-stringr 
+Requires:         R-tools 
 Requires:         R-grDevices 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-loon.ggplot 
-Requires:         R-CRAN-tibble 
 
 %description
-Implement tour algorithms in interactive graphical system 'loon'.
+Contains an engine for spatially-explicit eco-evolutionary mechanistic
+models with a modular implementation and several support functions. It
+allows exploring the consequences of ecological and macroevolutionary
+processes across realistic or theoretical spatio-temporal landscapes on
+biodiversity patterns as a general term. Reference: Oskar Hagen, Benjamin
+Flueck, Fabian Fopp, Juliano S. Cabral, Florian Hartig, Mikael Pontarp,
+Thiago F. Rangel, Loic Pellissier (2021) "gen3sis: A general engine for
+eco-evolutionary simulations of the processes that shape Earth's
+biodiversity" <doi:10.1371/journal.pbio.3001340>.
 
 %prep
 %setup -q -c -n %{packname}

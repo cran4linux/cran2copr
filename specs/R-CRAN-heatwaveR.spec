@@ -1,39 +1,51 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ecotox
-%global packver   1.4.4
+%global packname  heatwaveR
+%global packver   0.4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.4
+Version:          0.4.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Ecotoxicology
+Summary:          Detect Heatwaves and Cold-Spells
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildRequires:    R-CRAN-Rcpp >= 0.12.16
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-RcppRoll 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grid 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-Rcpp >= 0.12.16
+Requires:         R-CRAN-RcppRoll 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
-A simple approach to using a probit or logit analysis to calculate lethal
-concentration (LC) or time (LT) and the appropriate fiducial confidence
-limits desired for selected LC or LT for ecotoxicology studies (Finney
-1971; Wheeler et al. 2006; Robertson et al. 2007). The simplicity of
-'ecotox' comes from the syntax it implies within its functions which are
-similar to functions like glm() and lm(). In addition to the simplicity of
-the syntax, a comprehensive data frame is produced which gives the user a
-predicted LC or LT value for the desired level and a suite of important
-parameters such as fiducial confidence limits and slope. Finney, D.J.
-(1971, ISBN: 052108041X); Wheeler, M.W., Park, R.M., and Bailer, A.J.
-(2006) <doi:10.1897/05-320R.1>; Robertson, J.L., Savin, N.E., Russell,
-R.M., and Preisler, H.K. (2007, ISBN: 0849323312).
+The different methods for defining, detecting, and categorising the
+extreme events known as heatwaves or cold-spells, as first proposed in
+Hobday et al. (2016) <doi: 10.1016/j.pocean.2015.12.014> and Hobday et al.
+(2018) <https://www.jstor.org/stable/26542662>. The functions in this
+package work on both air and water temperature data. These detection
+algorithms may be used on non-temperature data as well.
 
 %prep
 %setup -q -c -n %{packname}

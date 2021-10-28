@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  morphemepiece
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Morpheme Tokenization
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-piecemaker >= 1.0.0
 BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-morphemepiece.data 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-dlr >= 1.0.0
@@ -29,6 +30,7 @@ Requires:         R-CRAN-piecemaker >= 1.0.0
 Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-morphemepiece.data 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
 
 %description

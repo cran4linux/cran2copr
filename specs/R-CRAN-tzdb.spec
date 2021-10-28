@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tzdb
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Zone Database Information
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
-BuildRequires:    R-CRAN-cpp11 >= 0.2.7
+BuildRequires:    R-CRAN-cpp11 >= 0.4.0
 
 %description
 Provides an up-to-date copy of the Internet Assigned Numbers Authority

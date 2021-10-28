@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  arrow
-%global packver   5.0.0.2
+%global packver   6.0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.0.2
+Version:          6.0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integration to 'Apache' 'Arrow'
 

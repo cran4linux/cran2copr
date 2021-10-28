@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  osmextract
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Import Open Stree tMap Data Extracts
+Summary:          Download and Import Open Street Map Data Extracts
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,9 +19,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-sf >= 0.8.1
 BuildRequires:    R-utils 
 BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-sf >= 0.8.1
 Requires:         R-utils 
 Requires:         R-tools 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
 Match, download, convert and import Open Street Map data extracts obtained

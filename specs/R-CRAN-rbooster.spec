@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rbooster
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          AdaBoost Framework for Any Classifier
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel > 4.0.1
-Requires:         R-core > 4.0.1
+BuildRequires:    R-devel > 4.0.4
+Requires:         R-core > 4.0.4
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rpart 
@@ -28,7 +28,9 @@ Requires:         R-CRAN-Hmisc
 %description
 This is a simple package which provides a function that boosts pre-ready
 or custom-made classifiers. Package uses Discrete AdaBoost
-(<doi:10.1006/jcss.1997.1504>) for two class, SAMME
+(<doi:10.1006/jcss.1997.1504>) and Real AdaBoost
+(<doi:10.1214/aos/1016218223>) for two class, SAMME
+(<doi:10.4310/SII.2009.v2.n3.a8>) and SAMME.R
 (<doi:10.4310/SII.2009.v2.n3.a8>) for multiclass classification.
 
 %prep

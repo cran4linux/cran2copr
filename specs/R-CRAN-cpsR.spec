@@ -1,39 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ecotox
-%global packver   1.4.4
+%global packname  cpsR
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.4
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Ecotoxicology
+Summary:          Load CPS Microdata into R Using the 'Census Bureau Data' API
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-stats 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-tibble 
 
 %description
-A simple approach to using a probit or logit analysis to calculate lethal
-concentration (LC) or time (LT) and the appropriate fiducial confidence
-limits desired for selected LC or LT for ecotoxicology studies (Finney
-1971; Wheeler et al. 2006; Robertson et al. 2007). The simplicity of
-'ecotox' comes from the syntax it implies within its functions which are
-similar to functions like glm() and lm(). In addition to the simplicity of
-the syntax, a comprehensive data frame is produced which gives the user a
-predicted LC or LT value for the desired level and a suite of important
-parameters such as fiducial confidence limits and slope. Finney, D.J.
-(1971, ISBN: 052108041X); Wheeler, M.W., Park, R.M., and Bailer, A.J.
-(2006) <doi:10.1897/05-320R.1>; Robertson, J.L., Savin, N.E., Russell,
-R.M., and Preisler, H.K. (2007, ISBN: 0849323312).
+Load Current Population Survey (CPS) microdata into R using the 'Census
+Bureau Data' API
+(<https://www.census.gov/data/developers/data-sets.html>), including basic
+monthly CPS and CPS ASEC microdata.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,44 +1,61 @@
 %global __brp_check_rpaths %{nil}
-%global packname  broomExtra
-%global packver   4.3.0
+%global packname  rStrava
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.0
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Enhancements for 'broom' and 'easystats' Package Families
+Summary:          Access the 'Strava' API
 
-License:          GPL-3 | file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-performance >= 0.8.0
-BuildRequires:    R-CRAN-parameters >= 0.15.0
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-broom.mixed 
+BuildRequires:    R-CRAN-bitops 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-googleway 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-httpuv 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-performance >= 0.8.0
-Requires:         R-CRAN-parameters >= 0.15.0
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-broom.mixed 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-V8 
+Requires:         R-CRAN-bitops 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-googleway 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-httpuv 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-V8 
 
 %description
-Provides helper functions that assist in data analysis workflows involving
-regression analyses. The goal is to combine the functionality offered by
-different set of packages ('broom', 'broom.mixed', 'parameters', and
-'performance') through a common syntax to return tidy dataframes
-containing model parameters and performance measure summaries. The
-'grouped_' variants of the generics provides a convenient way to execute
-functions across a combination of grouping variable(s) in a dataframe.
+Functions to access data from the 'Strava v3 API'
+<https://developers.strava.com/>.
 
 %prep
 %setup -q -c -n %{packname}

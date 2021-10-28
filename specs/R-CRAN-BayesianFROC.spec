@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BayesianFROC
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          FROC Analysis by Bayesian Approaches
 
@@ -19,8 +19,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-rstan >= 2.18.2
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-xlsx 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-tcltk 
@@ -35,12 +33,12 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-CRAN-fastDummies 
+BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rstan >= 2.18.2
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-xlsx 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-tcltk 
@@ -55,6 +53,8 @@ Requires:         R-CRAN-shiny
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-fastDummies 
+Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-rstantools
 
 %description
@@ -112,6 +112,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

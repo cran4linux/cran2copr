@@ -1,48 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  XPolaris
-%global packver   1.0.2
+%global packname  geoFourierFDA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieving Soil Data from POLARIS
+Summary:          Ordinary Functional Kriging Using Fourier Smoothing and Gaussian Quadrature
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-orthopolynom 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
+Requires:         R-CRAN-orthopolynom 
 
 %description
-The POLARIS database <http://hydrology.cee.duke.edu/POLARIS/> is a
-30-meter probabilistic soil series map of the contiguous United States
-(US). It represents an optimization of the Soil Survey Geographic
-database. This R package facilitates the access to large amounts of soil
-data within the US, currently stored online as raster images (TIFF).
+Implementation of the ordinary functional kriging method proposed by
+Giraldo (2011) <doi:10.1007/s10651-010-0143-y>. This implements an
+alternative method to estimate the trace-variogram using Fourier Smoothing
+and Gaussian Quadrature.
 
 %prep
 %setup -q -c -n %{packname}

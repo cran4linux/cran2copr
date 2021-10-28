@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  auk
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          eBird Data Extraction and Processing in R
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.2
 Requires:         R-core >= 3.1.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-readr >= 2.0.0
 BuildRequires:    R-CRAN-countrycode >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 0.8.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.8
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-readr >= 2.0.0
 Requires:         R-CRAN-countrycode >= 1.0.0
 Requires:         R-CRAN-tidyr >= 0.8.0
 Requires:         R-CRAN-dplyr >= 0.7.8
