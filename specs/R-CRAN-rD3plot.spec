@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rD3plot
-%global packver   1.0.22
+%global packver   1.0.25
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.22
+Version:          1.0.25
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Networks, Timelines, Barplots, Galleries with 'D3.js'
 

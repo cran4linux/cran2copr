@@ -1,28 +1,26 @@
 %global __brp_check_rpaths %{nil}
-%global packname  libgeos
-%global packver   3.10.0-1
+%global packname  TDbook
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.10.0.1
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Source Geometry Engine ('GEOS') C API
+Summary:          Companion Package for the Book "Data Integration, Manipulation and Visualization of Phylogenetic Trees"
 
-License:          LGPL (>= 2.1)
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
 
 %description
-Provides the Open Source Geometry Engine ('GEOS') as a C API that can be
-used to write high-performance C and C++ geometry operations using R as an
-interface. Headers are provided to make linking to and using these
-functions from C++ code as easy and as safe as possible. This package
-contains an internal copy of the 'GEOS' library to guarantee the best
-possible consistency on multiple platforms.
+The companion package provides all data sets that are used in the book
+"Data Integration, Manipulation and Visualization of Phylogenetic Trees"
+by Guangchuang Yu (2021) <https://yulab-smu.top/treedata-book/>.
 
 %prep
 %setup -q -c -n %{packname}

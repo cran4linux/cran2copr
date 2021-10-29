@@ -1,28 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  libgeos
-%global packver   3.10.0-1
+%global packname  sgo
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.10.0.1
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Source Geometry Engine ('GEOS') C API
+Summary:          Simple Geographical Operations (with OSGB36)
 
-License:          LGPL (>= 2.1)
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildArch:        noarch
 
 %description
-Provides the Open Source Geometry Engine ('GEOS') as a C API that can be
-used to write high-performance C and C++ geometry operations using R as an
-interface. Headers are provided to make linking to and using these
-functions from C++ code as easy and as safe as possible. This package
-contains an internal copy of the 'GEOS' library to guarantee the best
-possible consistency on multiple platforms.
+Methods focused in performing the OSGB36/ETRS89 transformation (Great
+Britain and the Isle of Man only) by using the Ordnance Survey's
+OSTN15/OSGM15 transformation model. Calculation of distances and areas
+from sets of points defined in any of the supported Coordinated Systems is
+also available.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,28 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  libgeos
-%global packver   3.10.0-1
+%global packname  esemifar
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.10.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Source Geometry Engine ('GEOS') C API
+Summary:          Smoothing Long-Memory Time Series
 
-License:          LGPL (>= 2.1)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-fracdiff 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-smoots 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-fracdiff 
+Requires:         R-stats 
+Requires:         R-CRAN-smoots 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-Provides the Open Source Geometry Engine ('GEOS') as a C API that can be
-used to write high-performance C and C++ geometry operations using R as an
-interface. Headers are provided to make linking to and using these
-functions from C++ code as easy and as safe as possible. This package
-contains an internal copy of the 'GEOS' library to guarantee the best
-possible consistency on multiple platforms.
+The nonparametric trend and its derivatives in equidistant time series
+(TS) with long-memory errors can be estimated. The estimation is conducted
+via local polynomial regression using an automatically selected bandwidth
+obtained by a built-in iterative plug-in algorithm or a bandwidth fixed by
+the user. The smoothing methods of the package are described in Letmathe,
+S., Beran, J. and Feng, Y., (2021)
+<https://ideas.repec.org/p/pdn/ciepap/145.html>.
 
 %prep
 %setup -q -c -n %{packname}

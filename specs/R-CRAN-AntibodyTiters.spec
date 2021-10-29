@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  AntibodyTiters
-%global packver   0.1.4
+%global packver   0.1.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Antibody Titer Analysis of Vaccinated Patients
 
@@ -17,21 +17,24 @@ BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-openxlsx >= 4.2.4
+BuildRequires:    R-CRAN-DescTools >= 0.99.43
 Requires:         R-CRAN-openxlsx >= 4.2.4
+Requires:         R-CRAN-DescTools >= 0.99.43
 
 %description
 Visualization of antibody titer scores is valuable for examination of
-vaccination effects and usefulness of the antibody used for titer scoring.
-'AntibodyTiters' visualizes antibody titers of all or selected patients.
-This package also produces empty excel files in a specified format, in
-which users can fill in experimental data for visualization. Excel files
-with toy data can also be produced, so that users can see how it is
-visualized before obtaining real data. The data should contain titer
-scores at pre-vaccination, after- 1st shot, after-2nd shot, and at least
-one additional sampling point. Patients with missing values can be
-included. The first three sampling points will be plotted discretely,
-whereas those following the after-2nd shot will be plotted on a continuous
-time scale starting from the day of second shot.
+vaccination effects. 'AntibodyTiters' visualizes antibody titers of all or
+selected patients. This package also produces empty excel files in a
+specified format, in which users can fill in experimental data for
+visualization. Excel files with toy data can also be produced, so that
+users can see how it is visualized before obtaining real data. The data
+should contain titer scores at pre-vaccination, after-1st shot, after-2nd
+shot, and at least one additional sampling points. Patients with missing
+values can be included. The first two sampling points (pre-vaccination and
+after-1st shot) will be plotted discretely, whereas those following will
+be plotted on a continuous time scale that starts from the day of second
+shot. Half-life of titer can also be calculated for each pair of sampling
+points.
 
 %prep
 %setup -q -c -n %{packname}

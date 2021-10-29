@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dedupewider
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Deduplication Across Multiple Columns
 
@@ -25,9 +25,9 @@ Requires:         R-methods
 Duplicated data can exist in different rows and columns and user may need
 to treat observations (rows) connected by duplicated data as one
 observation, e.g. companies can belong to one family (and thus: be one
-company) by sharing some telephone numbers. This package provides a
-function to find connected rows based on data on chosen columns and
-collapse it into one row.
+company) by sharing some telephone numbers. This package allows to find
+connected rows based on data on chosen columns and collapse it into one
+row.
 
 %prep
 %setup -q -c -n %{packname}

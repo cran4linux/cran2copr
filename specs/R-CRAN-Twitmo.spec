@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BCEA
-%global packver   2.4.1
+%global packname  Twitmo
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Cost Effectiveness Analysis
+Summary:          Twitter Topic Modeling and Visualization for R
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,31 +16,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-stopwords 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-GrassmannOptim 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rtweet 
+BuildRequires:    R-CRAN-quanteda 
+BuildRequires:    R-CRAN-quanteda.textstats 
+BuildRequires:    R-CRAN-topicmodels 
+BuildRequires:    R-CRAN-stm 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-maps 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-stats 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-stopwords 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-GrassmannOptim 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-graphics 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rtweet 
+Requires:         R-CRAN-quanteda 
+Requires:         R-CRAN-quanteda.textstats 
+Requires:         R-CRAN-topicmodels 
+Requires:         R-CRAN-stm 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-maps 
 
 %description
-Produces an economic evaluation of a sample of suitable variables of cost
-and effectiveness / utility for two or more interventions, e.g. from a
-Bayesian model in the form of MCMC simulations. This package computes the
-most cost-effective alternative and produces graphical summaries and
-probabilistic sensitivity analysis.
+Tailored for topic modeling with tweets and fit for visualization tasks in
+R. Collect, pre-process and analyze the contents of tweets using LDA and
+STM models. Comes with visualizing capabilities like tweet and hashtag
+maps and built-in support for 'LDAvis'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,28 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  libgeos
-%global packver   3.10.0-1
+%global packname  jinjar
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.10.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Source Geometry Engine ('GEOS') C API
+Summary:          Template Engine Inspired by 'Jinja'
 
-License:          LGPL (>= 2.1)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rlang 
 
 %description
-Provides the Open Source Geometry Engine ('GEOS') as a C API that can be
-used to write high-performance C and C++ geometry operations using R as an
-interface. Headers are provided to make linking to and using these
-functions from C++ code as easy and as safe as possible. This package
-contains an internal copy of the 'GEOS' library to guarantee the best
-possible consistency on multiple platforms.
+Template engine powered by the 'inja' C++ library. Users write a template
+document, using syntax inspired by the 'Jinja' Python package, and then
+render the final document by passing data from R. The template syntax
+supports features such as variables, loops, conditions and inheritance.
 
 %prep
 %setup -q -c -n %{packname}

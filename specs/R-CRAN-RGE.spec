@@ -1,28 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  libgeos
-%global packver   3.10.0-1
+%global packname  RGE
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.10.0.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Source Geometry Engine ('GEOS') C API
+Summary:          Response from Genotype to Environment
 
-License:          LGPL (>= 2.1)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-MatrixModels 
+BuildRequires:    R-CRAN-coda 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MatrixModels 
+Requires:         R-CRAN-coda 
 
 %description
-Provides the Open Source Geometry Engine ('GEOS') as a C API that can be
-used to write high-performance C and C++ geometry operations using R as an
-interface. Headers are provided to make linking to and using these
-functions from C++ code as easy and as safe as possible. This package
-contains an internal copy of the 'GEOS' library to guarantee the best
-possible consistency on multiple platforms.
+Compute yield-stability index based on Bayesian methodology, which is
+useful for analyze multi-environment trials in plant breeding programs.
+References: Cotes Torres JM, Gonzalez Jaimes EP, and Cotes Torres A (2016)
+<https://revistas.unimilitar.edu.co/index.php/rfcb/article/view/2037>
+Seleccion de Genotipos con Alta Respuesta y Estabilidad Fenotipica en
+Pruebas Regionales: Recuperando el Concepto Biologico.
 
 %prep
 %setup -q -c -n %{packname}

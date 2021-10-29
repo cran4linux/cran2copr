@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  shiny.reglog
-%global packver   0.2.0.2
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0.2
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optional Login and Registration Module System for ShinyApps
 
@@ -18,7 +18,6 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-scrypt 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-DBI 
@@ -27,7 +26,6 @@ BuildRequires:    R-CRAN-RSQLite
 BuildRequires:    R-CRAN-lubridate 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-scrypt 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-DBI 

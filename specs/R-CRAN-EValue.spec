@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  EValue
-%global packver   4.1.2
+%global packver   4.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.2
+Version:          4.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sensitivity Analyses for Unmeasured Confounding and Other Biases in Observational Studies and Meta-Analyses
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-metafor 
+BuildRequires:    R-CRAN-metadat 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-MetaUtility 
@@ -28,6 +29,7 @@ Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-metafor 
+Requires:         R-CRAN-metadat 
 Requires:         R-methods 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-MetaUtility 
@@ -53,6 +55,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
