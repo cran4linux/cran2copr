@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  immunarch
-%global packver   0.6.6
+%global packver   0.6.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.6
+Version:          0.6.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bioinformatics Analysis of T-Cell and B-Cell Immune Repertoires
 
@@ -13,17 +13,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-MASS >= 7.3
 BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
-BuildRequires:    R-CRAN-tibble >= 2.0
 BuildRequires:    R-CRAN-reshape2 >= 1.4.2
 BuildRequires:    R-CRAN-UpSetR >= 1.4.0
 BuildRequires:    R-CRAN-shiny >= 1.4.0
-BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-dbplyr >= 1.4.0
-BuildRequires:    R-CRAN-readr >= 1.3.1
 BuildRequires:    R-CRAN-readxl >= 1.3.1
 BuildRequires:    R-CRAN-data.table >= 1.12.6
 BuildRequires:    R-CRAN-factoextra >= 1.0.4
@@ -46,15 +43,18 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-MASS >= 7.3
 Requires:         R-CRAN-ggplot2 >= 3.1.0
-Requires:         R-CRAN-tibble >= 2.0
 Requires:         R-CRAN-reshape2 >= 1.4.2
 Requires:         R-CRAN-UpSetR >= 1.4.0
 Requires:         R-CRAN-shiny >= 1.4.0
-Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-dbplyr >= 1.4.0
-Requires:         R-CRAN-readr >= 1.3.1
 Requires:         R-CRAN-readxl >= 1.3.1
 Requires:         R-CRAN-data.table >= 1.12.6
 Requires:         R-CRAN-factoextra >= 1.0.4
@@ -77,6 +77,12 @@ Requires:         R-CRAN-magrittr
 Requires:         R-methods 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-purrr 
 
 %description
 A comprehensive framework for bioinformatics exploratory analysis of bulk
@@ -99,6 +105,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

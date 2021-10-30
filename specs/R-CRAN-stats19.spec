@@ -1,41 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidyBdE
-%global packver   0.2.2
+%global packname  stats19
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Data from Bank of Spain
+Summary:          Work with Open Road Traffic Casualty Data from Great Britain
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-tibble >= 3.0.0
-BuildRequires:    R-CRAN-scales >= 1.1.0
-BuildRequires:    R-CRAN-readr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.7.0
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-tibble >= 3.0.0
-Requires:         R-CRAN-scales >= 1.1.0
-Requires:         R-CRAN-readr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.7.0
-Requires:         R-utils 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-readr 
+Requires:         R-tools 
 
 %description
-Tools to download data series from 'Banco de España' ('BdE') on 'tibble'
-format. 'Banco de España' is the national central bank and, within the
-framework of the Single Supervisory Mechanism ('SSM'), the supervisor of
-the Spanish banking system along with the European Central Bank. This
-package is in no way sponsored endorsed or administered by 'Banco de
-España'.
+Tools to help download, process and analyse the UK road collision data
+collected using the 'STATS19' form. The data are provided as 'CSV' files
+with detailed road safety data about the circumstances of car crashes and
+other incidents on the roads resulting in casualties in Great Britain from
+1979, the types (including make and model) of vehicles involved and the
+consequential casualties.  The statistics relate only to personal
+casualties on public roads that are reported to the police, and
+subsequently recorded, using the 'STATS19' accident reporting form. See
+the Department for Transport website
+<https://data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-safety-data>
+for more information on these data.
 
 %prep
 %setup -q -c -n %{packname}

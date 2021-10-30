@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spsUtil
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'systemPipeShiny' Utility Functions
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-stringr 
@@ -32,6 +33,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-crayon 
 Requires:         R-utils 
 Requires:         R-CRAN-R6 
+Requires:         R-stats 
 
 %description
 The systemPipeShiny (SPS) framework comes with many useful utility

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  conquer
-%global packver   1.0.2
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convolution-Type Smoothed Quantile Regression
 
@@ -17,26 +17,38 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.3
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.850.1.0
-BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-caret 
 Requires:         R-CRAN-Rcpp >= 1.0.3
-Requires:         R-Matrix 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-stats 
+Requires:         R-CRAN-caret 
 
 %description
-Fast and accurate convolution-type smoothed quantile regression.
-Implemented using Barzilai-Borwein gradient descent with a Huber
-regression warm start. Construct confidence intervals for regression
-coefficients using multiplier bootstrap.
+Estimation and inference for conditional linear quantile regression models
+using a convolution smoothed approach. In the low-dimensional setting,
+efficient gradient-based methods are employed for fitting both a single
+model and a regression process over a quantile range. Normal-based and
+(multiplier) bootstrap confidence intervals for all slope coefficients are
+constructed. In high dimensions, the conquer methods complemented with
+l_1-penalization and iteratively reweighted l_1-penalization are used to
+fit sparse models.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -46,6 +58,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

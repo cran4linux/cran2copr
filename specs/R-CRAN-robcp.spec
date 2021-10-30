@@ -1,41 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidyBdE
-%global packver   0.2.2
+%global packname  robcp
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Data from Bank of Spain
+Summary:          Robust Change-Point Tests
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-tibble >= 3.0.0
-BuildRequires:    R-CRAN-scales >= 1.1.0
-BuildRequires:    R-CRAN-readr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.7.0
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-tibble >= 3.0.0
-Requires:         R-CRAN-scales >= 1.1.0
-Requires:         R-CRAN-readr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.7.0
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.3.1
+Requires:         R-core >= 3.3.1
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Tools to download data series from 'Banco de España' ('BdE') on 'tibble'
-format. 'Banco de España' is the national central bank and, within the
-framework of the Single Supervisory Mechanism ('SSM'), the supervisor of
-the Spanish banking system along with the European Central Bank. This
-package is in no way sponsored endorsed or administered by 'Banco de
-España'.
+Provides robust methods to detect change-points in uni- or multivariate
+time series. They can cope with corrupted data and heavy tails. Focus is
+on the detection of abrupt changes in location, but changes scale or
+dependence structure can be detected as well. This package provides tests
+for change detection in uni- and multivariate time series based on
+Huberized versions of CUSUM tests proposed in Duerre and Fried (2019)
+<arXiv:1905.06201>. Furthermore, robcp provides tests for change detection
+in univariate time series based on 2-sample U-statistics or 2-sample
+U-quantiles as proposed by Dehling et al. (2015)
+<DOI:10.1007/978-1-4939-3076-0_12> and Dehling, Fried and Wendler (2020)
+<DOI:10.1093/biomet/asaa004>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  scTenifoldNet
-%global packver   1.2.4
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Construct and Compare scGRN from Single-Cell Transcriptomic Data
 
@@ -23,6 +23,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-RhpcBLASctl 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-RSpectra 
 Requires:         R-CRAN-Matrix 
@@ -30,6 +31,7 @@ Requires:         R-methods
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-RhpcBLASctl 
 
 %description
 A workflow based on machine learning methods to construct and compare
@@ -47,6 +49,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

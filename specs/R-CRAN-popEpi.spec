@@ -1,41 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidyBdE
-%global packver   0.2.2
+%global packname  popEpi
+%global packver   0.4.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.4.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Data from Bank of Spain
+Summary:          Functions for Epidemiological Analysis using Population Data
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-tibble >= 3.0.0
-BuildRequires:    R-CRAN-scales >= 1.1.0
-BuildRequires:    R-CRAN-readr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.7.0
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-tibble >= 3.0.0
-Requires:         R-CRAN-scales >= 1.1.0
-Requires:         R-CRAN-readr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.7.0
-Requires:         R-utils 
+BuildRequires:    R-CRAN-Epi >= 2.0
+BuildRequires:    R-CRAN-data.table >= 1.10.4
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-Epi >= 2.0
+Requires:         R-CRAN-data.table >= 1.10.4
+Requires:         R-CRAN-survival 
 
 %description
-Tools to download data series from 'Banco de España' ('BdE') on 'tibble'
-format. 'Banco de España' is the national central bank and, within the
-framework of the Single Supervisory Mechanism ('SSM'), the supervisor of
-the Spanish banking system along with the European Central Bank. This
-package is in no way sponsored endorsed or administered by 'Banco de
-España'.
+Enables computation of epidemiological statistics, including those where
+counts or mortality rates of the reference population are used. Currently
+supported: excess hazard models (Dickman, Sloggett, Hills, and Hakulinen
+(2012) <doi:10.1002/sim.1597>), rates, mean survival times, relative/net
+survival (in particular the Ederer II (Ederer and Heise (1959)) and Pohar
+Perme (Pohar Perme, Stare, and Esteve (2012)
+<doi:10.1111/j.1541-0420.2011.01640.x>) estimators), and standardized
+incidence and mortality ratios, all of which can be easily adjusted for by
+covariates such as age. Fast splitting and aggregation of 'Lexis' objects
+(from package 'Epi') and other computations achieved using 'data.table'.
 
 %prep
 %setup -q -c -n %{packname}

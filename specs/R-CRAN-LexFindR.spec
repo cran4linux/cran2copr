@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  LexFindR
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Find Related Items and Lexical Dimensions in a Lexicon
 
@@ -28,7 +28,10 @@ Importantly, the code makes use of multiple CPU cores and vectorization
 when possible, making it extremely fast and able to handle large lexicons.
 Additionally, the package contains documentation for users to easily write
 new functions, allowing researchers to examine other relationships within
-a lexicon. <https://psyarxiv.com/8dyru/>.
+a lexicon. Preprint: <https://psyarxiv.com/8dyru/>. Open access:
+<https://link.springer.com/epdf/10.3758/s13428-021-01667-6?sharing_token=9WlO9soCc9y0uSuwWSUYfJAH0g46feNdnc402WrhzyrdKcK8uzZx_hDEtgbYzn3gvxdG5Cuj0j0cC4lVMFBqYCGTQmE2blN2Gwo74LJ8ro1pEOAYDRFy6Lhf1nc719vD-zU7GDvKOQxDAwPbrisvPBeXSIu0NkqXF7Jx3IuUwIs%%3D>.
+Citation: Li, Z., Crinnion, A.M. & Magnuson, J.S. (2021).
+<doi:10.3758/s13428-021-01667-6>.
 
 %prep
 %setup -q -c -n %{packname}

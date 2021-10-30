@@ -1,41 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidyBdE
-%global packver   0.2.2
+%global packname  cmpsR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Data from Bank of Spain
+Summary:          R Implementation of Congruent Matching Profile Segments Method
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-tibble >= 3.0.0
-BuildRequires:    R-CRAN-scales >= 1.1.0
-BuildRequires:    R-CRAN-readr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.7.0
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-dplyr >= 1.0.5
+BuildRequires:    R-CRAN-rlang >= 0.4.5
+BuildRequires:    R-CRAN-assertthat >= 0.2.0
 Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-tibble >= 3.0.0
-Requires:         R-CRAN-scales >= 1.1.0
-Requires:         R-CRAN-readr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.7.0
-Requires:         R-utils 
+Requires:         R-CRAN-dplyr >= 1.0.5
+Requires:         R-CRAN-rlang >= 0.4.5
+Requires:         R-CRAN-assertthat >= 0.2.0
 
 %description
-Tools to download data series from 'Banco de España' ('BdE') on 'tibble'
-format. 'Banco de España' is the national central bank and, within the
-framework of the Single Supervisory Mechanism ('SSM'), the supervisor of
-the Spanish banking system along with the European Central Bank. This
-package is in no way sponsored endorsed or administered by 'Banco de
-España'.
+This is an open-source implementation of the Congruent Matching Profile
+Segments (CMPS) method (Chen et al.
+2019)<doi:10.1016/j.forsciint.2019.109964>. In general, it can be used for
+objective comparison of striated tool marks, and in our examples, we
+specifically use it for bullet signatures comparisons. The CMPS score is
+expected to be large if two signatures are similar. So it can also be
+considered as a feature that measures the similarity of two bullet
+signatures.
 
 %prep
 %setup -q -c -n %{packname}

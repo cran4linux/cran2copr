@@ -1,41 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidyBdE
-%global packver   0.2.2
+%global packname  makepipe
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Data from Bank of Spain
+Summary:          Pipeline Tools Inspired by 'GNU Make'
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-tibble >= 3.0.0
-BuildRequires:    R-CRAN-scales >= 1.1.0
-BuildRequires:    R-CRAN-readr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.7.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-tibble >= 3.0.0
-Requires:         R-CRAN-scales >= 1.1.0
-Requires:         R-CRAN-readr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.7.0
+BuildRequires:    R-CRAN-visNetwork 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-R6 
 Requires:         R-utils 
+Requires:         R-CRAN-visNetwork 
 
 %description
-Tools to download data series from 'Banco de España' ('BdE') on 'tibble'
-format. 'Banco de España' is the national central bank and, within the
-framework of the Single Supervisory Mechanism ('SSM'), the supervisor of
-the Spanish banking system along with the European Central Bank. This
-package is in no way sponsored endorsed or administered by 'Banco de
-España'.
+A suite of tools for transforming an existing workflow into a
+self-documenting pipeline with very minimal upfront costs. Segments of the
+pipeline are specified in much the same way a 'Make' rule is, by declaring
+an executable recipe (which might be an R script), along with the
+corresponding targets and dependencies. When the entire pipeline is run
+through, only those recipes that need to be executed will be. Meanwhile,
+execution metadata is captured behind the scenes for later inspection.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  qra
-%global packver   0.2.6
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantal Response Analysis for Dose-Mortality Data
 
@@ -34,7 +34,7 @@ Requires:         R-CRAN-ggplot2
 %description
 Functions are provided that implement the use of the Fieller's formula
 methodology, for calculating a confidence interval for a ratio of
-(possibly, correlated) means.  See Fieller (1954)
+(commonly, correlated) means.  See Fieller (1954)
 <doi:10.1111/j.2517-6161.1954.tb00159.x>.  Here, the application of
 primary interest is to studies of insect mortality response to increasing
 doses of a fumigant, or, e.g., to time in coolstorage. The formula is used

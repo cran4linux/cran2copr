@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MatrixExtra
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extra Methods for Sparse Matrices
 
@@ -40,7 +40,8 @@ functions; (d) Utility functions for sparse matrices such as sorting the
 indices or removing zero-valued entries; (e) Fast transposes that work by
 outputting in the opposite storage format; (f) Faster replacements for
 many 'Matrix' methods for all sparse types, such as slicing and
-elementwise multiplication.
+elementwise multiplication. (g) Convenience functions for sparse objects,
+such as 'mapSparse' or a shorter 'show' method.
 
 %prep
 %setup -q -c -n %{packname}
