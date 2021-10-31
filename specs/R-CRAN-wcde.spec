@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  wcde
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Data from the Wittgenstein Human Capital Data Explorer
+Summary:          Download Data from the Wittgenstein Centre Human Capital Data Explorer
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -26,8 +26,7 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-lemon 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tidyr 
@@ -38,12 +37,11 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-lemon 
+Requires:         R-utils 
 
 %description
 Download and plot education specific demographic data from the
-Wittgenstein Human Capital Data Explorer
+Wittgenstein Centre for Demography and Human Capital Data Explorer
 <http://dataexplorer.wittgensteincentre.org/>.
 
 %prep

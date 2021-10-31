@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  migest
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for the Indirect Estimation of Bilateral Migration
 
@@ -24,10 +24,12 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-migration.indices 
+BuildRequires:    R-CRAN-circlize 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
@@ -36,16 +38,15 @@ Requires:         R-CRAN-magrittr
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-utils 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-migration.indices 
+Requires:         R-CRAN-circlize 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-Indirect methods for estimating bilateral migration flows in the presence
-of partial or missing data, including the estimation of bilateral
-migration flows from changes in bilateral migrant stock tables (e.g. Abel
-(2013) <doi:10.4054/DemRes.2013.28.18>).
+Tools for estimating, measuring and working with migration data.
 
 %prep
 %setup -q -c -n %{packname}

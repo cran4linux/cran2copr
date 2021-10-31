@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  migraph
-%global packver   0.8.2
+%global packver   0.8.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.8.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multimodal and Multilevel Network Analysis
 
@@ -33,6 +33,8 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidygraph 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-concaveman 
+BuildRequires:    R-CRAN-ggforce 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggdendro 
 Requires:         R-CRAN-ggraph 
@@ -50,6 +52,8 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidygraph 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-concaveman 
+Requires:         R-CRAN-ggforce 
 
 %description
 A set of tools that extend common social network analysis packages for

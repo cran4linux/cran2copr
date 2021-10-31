@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  randtoolbox
-%global packver   1.31.0
+%global packver   1.31.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.31.0
+Version:          1.31.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Toolbox for Pseudo and Quasi Random Number Generation and Random Generator Tests
 

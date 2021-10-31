@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BET
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Binary Expansion Testing
 
@@ -22,9 +22,10 @@ Requires:         R-CRAN-Rcpp >= 0.12.3
 Nonparametric detection of nonuniformity and dependence with Binary
 Expansion Testing (BET). See Kai Zhang (2019) BET on Independence, Journal
 of the American Statistical Association, 114:528, 1620-1637,
-<DOI:10.1080/01621459.2018.1537921> and Zhigen Zhao, Michael Baiocchi, Kai
-Zhang. SorBET: A Fast and Powerful Algorithm to Test Dependence of
-Variables.
+<DOI:10.1080/01621459.2018.1537921>, Kai Zhang, Zhigen Zhai, and Wen Zhou.
+(2021). BEAUTY Powered BEAST, <arXiv:2103.00674> and Zhigen Zhao, Michael
+Baiocchi, Kai Zhang. SorBET: A Fast and Powerful Algorithm to Test
+Dependence of Variables.
 
 %prep
 %setup -q -c -n %{packname}

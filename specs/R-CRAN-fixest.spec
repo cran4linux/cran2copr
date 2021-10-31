@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fixest
-%global packver   0.10.0
+%global packver   0.10.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.10.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Fixed-Effects Estimations
 
@@ -19,6 +19,7 @@ BuildRequires:    R-CRAN-dreamerr >= 1.2.3
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-numDeriv 
@@ -29,6 +30,7 @@ Requires:         R-CRAN-dreamerr >= 1.2.3
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-methods 
 Requires:         R-CRAN-numDeriv 

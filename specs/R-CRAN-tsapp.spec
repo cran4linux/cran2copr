@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tsapp
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series, Analysis and Application
 
@@ -19,9 +19,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-vars 
 BuildRequires:    R-CRAN-fftwtools 
+BuildRequires:    R-CRAN-hdm 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-vars 
 Requires:         R-CRAN-fftwtools 
+Requires:         R-CRAN-hdm 
 
 %description
 Accompanies the book Rainer Schlittgen and Cristina Sattarhoff (2020)
@@ -38,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

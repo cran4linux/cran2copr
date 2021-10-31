@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  AzureStor
-%global packver   3.5.1
+%global packver   3.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.1
+Version:          3.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Storage Management in 'Azure'
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-R6
 BuildRequires:    R-CRAN-mime 
 BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-AzureRMR >= 2.3.0
 Requires:         R-CRAN-httr >= 1.4.0
 Requires:         R-utils 
@@ -30,17 +31,18 @@ Requires:         R-CRAN-R6
 Requires:         R-CRAN-mime 
 Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-vctrs 
 
 %description
 Manage storage in Microsoft's 'Azure' cloud:
-<https://azure.microsoft.com/services/storage/>. On the admin side,
-'AzureStor' includes features to create, modify and delete storage
-accounts. On the client side, it includes an interface to blob storage,
-file storage, and 'Azure Data Lake Storage Gen2': upload and download
-files and blobs; list containers and files/blobs; create containers; and
-so on. Authenticated access to storage is supported, via either a shared
-access key or a shared access signature (SAS). Part of the 'AzureR' family
-of packages.
+<https://azure.microsoft.com/en-us/product-categories/storage/>. On the
+admin side, 'AzureStor' includes features to create, modify and delete
+storage accounts. On the client side, it includes an interface to blob
+storage, file storage, and 'Azure Data Lake Storage Gen2': upload and
+download files and blobs; list containers and files/blobs; create
+containers; and so on. Authenticated access to storage is supported, via
+either a shared access key or a shared access signature (SAS). Part of the
+'AzureR' family of packages.
 
 %prep
 %setup -q -c -n %{packname}
