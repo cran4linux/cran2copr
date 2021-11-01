@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  latentcor
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Computation of Latent Correlations for Mixed Data
 
@@ -17,43 +17,27 @@ BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-pcaPP 
 BuildRequires:    R-CRAN-fMultivar 
 BuildRequires:    R-CRAN-mnormt 
 BuildRequires:    R-CRAN-chebpol 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-heatmaply 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doFuture 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-microbenchmark 
-BuildRequires:    R-CRAN-doRNG 
 Requires:         R-stats 
-Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-pcaPP 
 Requires:         R-CRAN-fMultivar 
 Requires:         R-CRAN-mnormt 
 Requires:         R-CRAN-chebpol 
 Requires:         R-CRAN-Matrix 
-Requires:         R-utils 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-heatmaply 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-plotly 
 Requires:         R-graphics 
-Requires:         R-CRAN-foreach 
-Requires:         R-parallel 
-Requires:         R-CRAN-doFuture 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-microbenchmark 
-Requires:         R-CRAN-doRNG 
 
 %description
 The first stand-alone R package for computation of latent correlation that
