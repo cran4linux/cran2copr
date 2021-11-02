@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bittermelon
-%global packver   0.1.3
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Monochrome Bitmap Font Tools
 
@@ -20,12 +20,14 @@ BuildRequires:    R-CRAN-findpython
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-Unicode 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-findpython 
 Requires:         R-grDevices 
 Requires:         R-grid 
 Requires:         R-CRAN-png 
+Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-Unicode 
 Requires:         R-utils 
 

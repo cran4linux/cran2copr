@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rscc
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Source Code Similarity Evaluation by Similarity Coefficients
 
@@ -20,10 +20,12 @@ BuildRequires:    R-CRAN-crayon
 BuildRequires:    R-CRAN-formatR 
 BuildRequires:    R-CRAN-highlight 
 BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-tm 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-formatR 
 Requires:         R-CRAN-highlight 
 Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-tm 
 
 %description
 Evaluates R source codes by variable and/or functions names. Similar

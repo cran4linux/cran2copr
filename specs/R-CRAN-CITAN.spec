@@ -1,50 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  chicane
-%global packver   0.1.7
+%global packname  CITAN
+%global packver   2021.11-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          2021.11.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Capture Hi-C Analysis Engine
+Summary:          CITation ANalysis Toolpack
 
-License:          GPL-2
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gamlss.tr 
-BuildRequires:    R-CRAN-gamlss 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-agop 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-hash 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-bedr 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rmarkdown 
-Requires:         R-CRAN-gamlss.tr 
-Requires:         R-CRAN-gamlss 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-agop 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-hash 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-DBI 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-iterators 
-Requires:         R-CRAN-bedr 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rmarkdown 
+Requires:         R-utils 
 
 %description
-Toolkit for processing and calling interactions in capture Hi-C data.
-Converts BAM files into counts of reads linking restriction fragments, and
-identifies pairs of fragments that interact more than expected by chance.
-Significant interactions are identified by comparing the observed read
-count to the expected background rate from a count regression model.
+Supports quantitative research in scientometrics and bibliometrics.
+Provides various tools for preprocessing bibliographic data retrieved,
+e.g., from Elsevier's SciVerse Scopus, computing bibliometric impact of
+individuals, or modelling phenomena encountered in the social sciences.
+This package is deprecated, see 'agop' instead.
 
 %prep
 %setup -q -c -n %{packname}

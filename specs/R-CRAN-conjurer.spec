@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  conjurer
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Parametric Method for Generating Synthetic Data
 

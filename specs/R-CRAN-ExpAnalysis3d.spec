@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ExpAnalysis3d
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pacote Para Analise De Experimentos Com Graficos De Superficie Resposta
 
@@ -16,14 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-fields 
-Requires:         R-CRAN-plotly 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-plotly 
 Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-fields 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-plotly 
 
 %description
 Pacote para a analise de experimentos havendo duas variaveis explicativas
