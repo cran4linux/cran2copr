@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  shiny.semantic
-%global packver   0.4.2
+%global packname  cliff
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Semantic UI Support for Shiny
+Summary:          Execute Command Line Programs Interactively
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,33 +16,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmlwidgets >= 0.8
-BuildRequires:    R-CRAN-htmltools >= 0.2.6
-BuildRequires:    R-CRAN-purrr >= 0.2.2
-BuildRequires:    R-CRAN-shiny >= 0.12.1
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-htmlwidgets >= 0.8
-Requires:         R-CRAN-htmltools >= 0.2.6
-Requires:         R-CRAN-purrr >= 0.2.2
-Requires:         R-CRAN-shiny >= 0.12.1
-Requires:         R-stats 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-grDevices 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-ellipsis 
+BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-processx 
+Requires:         R-CRAN-rlang 
 
 %description
-Creating a great user interface for your Shiny apps can be a hassle,
-especially if you want to work purely in R and don't want to use, for
-instance HTML templates. This package adds support for a powerful UI
-library Semantic UI - <https://fomantic-ui.com/>. It also supports
-universal UI input binding that works with various DOM elements.
+Execute command line programs and format results for interactive use. It
+is based on the package 'processx' so it does not use shell to start up
+the process like system() and system2(). It also provides a simpler and
+cleaner interface than processx::run().
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,6 +37,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

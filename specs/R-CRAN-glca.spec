@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  glca
-%global packver   1.3.1
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          An R Package for Multiple-Group Latent Class Analysis
 
@@ -28,9 +28,9 @@ Requires:         R-grDevices
 Fits multiple-group latent class analysis (LCA) for exploring differences
 between populations in the data with a multilevel structure. There are two
 approaches to reflect group differences in glca: fixed-effect LCA
-(Bandeen-Roche et al, 1997 <doi:10.1080/01621459.1997.10473658>; Clogg and
-Goodman, 1985 <doi:10.2307/270847>) and nonparametric random-effect LCA
-(Vermunt, 2003 <doi:10.1111/j.0081-1750.2003.t01-1-00131.x>).
+(Bandeen-Roche et al (1997) <doi:10.1080/01621459.1997.10473658>; Clogg
+and Goodman (1985) <doi:10.2307/270847>) and nonparametric random-effect
+LCA (Vermunt (2003) <doi:10.1111/j.0081-1750.2003.t01-1-00131.x>).
 
 %prep
 %setup -q -c -n %{packname}

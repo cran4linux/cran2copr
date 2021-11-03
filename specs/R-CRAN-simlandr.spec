@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  simlandr
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation-Based Landscape Construction for Dynamical Systems
 
@@ -50,9 +50,12 @@ Requires:         R-CRAN-forcats
 Requires:         R-CRAN-rlang 
 
 %description
-A set of tools for constructing potential landscapes for dynamical systems
-using Monte-Carlo simulation. Especially suitable for psychological formal
-models.
+A toolbox for constructing potential landscapes for dynamical systems
+using Monte-Carlo simulation. The method is based on the generalized
+potential landscape function by Wang et al. (2008)
+<doi:10.1073/pnas.0800579105> (also see Zhou & Li, 2016
+<doi:10.1063/1.4943096> for further mathematical discussions). Especially
+suitable for psychological formal models.
 
 %prep
 %setup -q -c -n %{packname}

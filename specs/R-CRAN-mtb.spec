@@ -1,28 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gmp
-%global packver   0.6-2.1
+%global packname  mtb
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiple Precision Arithmetic
+Summary:          Toolkit for Time Related Data Presentation and Adding Colors to Markdown or Shiny
 
-License:          GPL (>= 2)
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel >= 4.2.3
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-scales >= 1.0.0
+BuildRequires:    R-CRAN-htmltools >= 0.4.0
+BuildRequires:    R-CRAN-labeling >= 0.3
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-scales >= 1.0.0
+Requires:         R-CRAN-htmltools >= 0.4.0
+Requires:         R-CRAN-labeling >= 0.3
 
 %description
-Multiple Precision Arithmetic (big integers and rationals, prime number
-tests, matrix computation), "arithmetic without limitations" using the C
-library GMP (GNU Multiple Precision Arithmetic).
+The purpose of this package is to provide a collection of functions for
+(1) aiding summarizing time related data; (2) generating axis
+transformation from data; and (3) aiding Markdown (with html output) and
+Shiny file editing.
 
 %prep
 %setup -q -c -n %{packname}

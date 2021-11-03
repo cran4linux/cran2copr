@@ -1,28 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gmp
-%global packver   0.6-2.1
+%global packname  LMMsolver
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiple Precision Arithmetic
+Summary:          Linear Mixed Model Solver
 
-License:          GPL (>= 2)
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel >= 4.2.3
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildRequires:    R-CRAN-Rcpp >= 0.10.4
+BuildRequires:    R-CRAN-agridat 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-spam 
+BuildRequires:    R-splines 
+Requires:         R-CRAN-Rcpp >= 0.10.4
+Requires:         R-CRAN-agridat 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-maps 
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-spam 
+Requires:         R-splines 
 
 %description
-Multiple Precision Arithmetic (big integers and rationals, prime number
-tests, matrix computation), "arithmetic without limitations" using the C
-library GMP (GNU Multiple Precision Arithmetic).
+An efficient and flexible system to solve sparse mixed model equations,
+for models that are often used in statistical genetics. Important
+applications are the use of splines to model spatial or temporal trends.
+Another application area is mixed model QTL analysis for multiparental
+populations, allowing for heterogeneous residual variance and random
+design matrices with Identity-By-Descent (IBD) probabilities.
 
 %prep
 %setup -q -c -n %{packname}

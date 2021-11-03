@@ -1,28 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gmp
-%global packver   0.6-2.1
+%global packname  datardis
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiple Precision Arithmetic
+Summary:          Data from the Doctor Who Series
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel >= 4.2.3
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
 
 %description
-Multiple Precision Arithmetic (big integers and rationals, prime number
-tests, matrix computation), "arithmetic without limitations" using the C
-library GMP (GNU Multiple Precision Arithmetic).
+Explore data related to the Doctor Who TV series.
 
 %prep
 %setup -q -c -n %{packname}

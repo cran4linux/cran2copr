@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spatstat.core
-%global packver   2.3-0
+%global packver   2.3-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Core Functionality of the 'spatstat' Family
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-spatstat.geom >= 2.2.0.003
+BuildRequires:    R-CRAN-spatstat.geom >= 2.3.0
 BuildRequires:    R-CRAN-spatstat.utils >= 2.2.0
 BuildRequires:    R-CRAN-spatstat.data >= 2.1.0
 BuildRequires:    R-CRAN-spatstat.sparse >= 2.0.0
@@ -31,7 +31,7 @@ BuildRequires:    R-CRAN-mgcv
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-tensor 
-Requires:         R-CRAN-spatstat.geom >= 2.2.0.003
+Requires:         R-CRAN-spatstat.geom >= 2.3.0
 Requires:         R-CRAN-spatstat.utils >= 2.2.0
 Requires:         R-CRAN-spatstat.data >= 2.1.0
 Requires:         R-CRAN-spatstat.sparse >= 2.0.0

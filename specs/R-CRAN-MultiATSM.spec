@@ -1,28 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gmp
-%global packver   0.6-2.1
+%global packname  MultiATSM
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiple Precision Arithmetic
+Summary:          Multicountry Term Structure of Interest Rates Models
 
-License:          GPL (>= 2)
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel >= 4.2.3
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-wrapr 
+BuildRequires:    R-CRAN-hablar 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-wrapr 
+Requires:         R-CRAN-hablar 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Multiple Precision Arithmetic (big integers and rationals, prime number
-tests, matrix computation), "arithmetic without limitations" using the C
-library GMP (GNU Multiple Precision Arithmetic).
+Estimation routines for several classes of affine term structure of
+interest rates models. All the models are based on the single-country
+unspanned macroeconomic risk framework from Joslin, Priebisch, and
+Singleton (2014) <doi:10.1111/jofi.12131>. Multicountry extensions such as
+the ones of Jotikasthira, Le, and Lundblad (2015)
+<doi:10.1016/j.jfineco.2014.09.004> and Candelon and Moura (2021)
+<http://hdl.handle.net/2078.1/249985> are also available.
 
 %prep
 %setup -q -c -n %{packname}

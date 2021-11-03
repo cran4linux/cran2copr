@@ -1,28 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gmp
-%global packver   0.6-2.1
+%global packname  pct
+%global packver   0.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2.1
+Version:          0.9.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiple Precision Arithmetic
+Summary:          Propensity to Cycle Tool
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel >= 4.2.3
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-stplanr >= 0.2.8
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-stplanr >= 0.2.8
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-sf 
 
 %description
-Multiple Precision Arithmetic (big integers and rationals, prime number
-tests, matrix computation), "arithmetic without limitations" using the C
-library GMP (GNU Multiple Precision Arithmetic).
+Functions and example data to teach and increase the reproducibility of
+the methods and code underlying the Propensity to Cycle Tool (PCT), a
+research project and web application hosted at <https://www.pct.bike/>.
+For an academic paper on the methods, see Lovelace et al (2017)
+<doi:10.5198/jtlu.2016.862>.
 
 %prep
 %setup -q -c -n %{packname}

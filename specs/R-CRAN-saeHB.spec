@@ -1,28 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gmp
-%global packver   0.6-2.1
+%global packname  saeHB
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiple Precision Arithmetic
+Summary:          Small Area Estimation using Hierarchical Bayesian Method
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel >= 4.2.3
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-rjags 
+Requires:         R-stats 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 
 %description
-Multiple Precision Arithmetic (big integers and rationals, prime number
-tests, matrix computation), "arithmetic without limitations" using the C
-library GMP (GNU Multiple Precision Arithmetic).
+Provides several functions for area level of small area estimation using
+hierarchical Bayesian (HB) method with Univariate Normal distribution and
+Univariate Beta distribution for variables of interest. Some dataset
+produced by a data generation are also provided. The 'rjags' package is
+employed to obtain parameter estimates. Model-based estimators involves
+the HB estimators which include the mean and the variation of mean. For
+the reference, see Rao and Molina (2015) <doi:10.1002/9781118735855>.
 
 %prep
 %setup -q -c -n %{packname}

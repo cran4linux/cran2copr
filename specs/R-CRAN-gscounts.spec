@@ -1,28 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gmp
-%global packver   0.6-2.1
+%global packname  gscounts
+%global packver   0.1-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2.1
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiple Precision Arithmetic
+Summary:          Group Sequential Designs with Negative Binomial Outcomes
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel >= 4.2.3
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.9
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rcpp >= 0.12.9
+Requires:         R-stats 
 
 %description
-Multiple Precision Arithmetic (big integers and rationals, prime number
-tests, matrix computation), "arithmetic without limitations" using the C
-library GMP (GNU Multiple Precision Arithmetic).
+Design and analysis of group sequential designs for negative binomial
+outcomes, as described by T Mütze, E Glimm, H Schmidli, T Friede (2018)
+<doi:10.1177/0962280218773115>.
 
 %prep
 %setup -q -c -n %{packname}

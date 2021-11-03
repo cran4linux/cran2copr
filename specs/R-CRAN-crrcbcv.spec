@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  sitree
-%global packver   0.1-10
+%global packname  crrcbcv
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Single Tree Simulator
+Summary:          Bias-Corrected Variance for Competing Risks Regression with Clustered Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,15 +16,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-data.table 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-crrSC 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-crrSC 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-survival 
+Requires:         R-stats 
 
 %description
-Framework to build an individual tree simulator.
+A user friendly function 'crrcbcv' to compute bias-corrected variances for
+competing risks regression models using proportional subdistribution
+hazards with small-sample clustered data. Four types of bias correction
+are included: the MD-type bias correction by Mancl and DeRouen (2001)
+<doi:10.1111/j.0006-341X.2001.00126.x>, the KC-type bias correction by
+Kauermann and Carroll (2001) <doi:10.1198/016214501753382309>, the FG-type
+bias correction by Fay and Graubard (2001)
+<doi:10.1111/j.0006-341X.2001.01198.x>, and the MBN-type bias correction
+by Morel, Bokossa, and Neerchal (2003) <doi:10.1002/bimj.200390021>.
 
 %prep
 %setup -q -c -n %{packname}

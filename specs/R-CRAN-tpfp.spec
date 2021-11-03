@@ -1,30 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mosaic.find
-%global packver   0.1.2
+%global packname  tpfp
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Finding Rhythmic and Non-Rhythmic Trends in Multi-Omics Data (MOSAIC)
+Summary:          Counts the Number of True Positives and False Positives
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-minpack.lm >= 1.2.1
-Requires:         R-CRAN-minpack.lm >= 1.2.1
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-xlsx 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-tcltk 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-xlsx 
+Requires:         R-CRAN-readxl 
+Requires:         R-tcltk 
 
 %description
-Provides a function (mosaic_find()) designed to find rhythmic and
-non-rhythmic trends in multi-omics time course data using model selection
-and joint modeling, a method called MOSAIC (Multi-Omics Selection with
-Amplitude Independent Criteria). For more information, see H. De los
-Santos et al. (2020) <doi:10.1093/bioinformatics/btaa877>.
+Calculates the number of true positives and false positives from a dataset
+formatted for Jackknife alternative free-response receiver operating
+characteristic which is used for statistical analysis which is explained
+in the book 'Chakraborty' 'DP' (2017), "Observer Performance Methods for
+Diagnostic Imaging - Foundations, Modeling, and Applications with R-Based
+Examples", Taylor-Francis <https://www.crcpress.com/9781482214840>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -34,6 +41,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

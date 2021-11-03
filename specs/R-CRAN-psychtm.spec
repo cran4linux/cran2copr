@@ -1,28 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gmp
-%global packver   0.6-2.1
+%global packname  psychtm
+%global packver   2021.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2.1
+Version:          2021.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiple Precision Arithmetic
+Summary:          Text Mining Methods for Psychological Research
 
-License:          GPL (>= 2)
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel >= 4.2.3
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-tibble >= 2.1.3
+BuildRequires:    R-CRAN-RcppProgress >= 0.4.2
+BuildRequires:    R-CRAN-rlang >= 0.4.10
+BuildRequires:    R-CRAN-coda >= 0.4
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-CRAN-label.switching 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-tibble >= 2.1.3
+Requires:         R-CRAN-rlang >= 0.4.10
+Requires:         R-CRAN-coda >= 0.4
+Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-CRAN-label.switching 
 Requires:         R-methods 
 
 %description
-Multiple Precision Arithmetic (big integers and rationals, prime number
-tests, matrix computation), "arithmetic without limitations" using the C
-library GMP (GNU Multiple Precision Arithmetic).
+Provides text mining methods for social science research. The package
+implements estimation, inference, summarization, and goodness-of-fit
+methods for topic models including Latent Dirichlet Allocation (LDA),
+supervised LDA, and supervised LDA with covariates using Bayesian Markov
+Chain Monte Carlo. A description of the key models and estimation methods
+is available in Wilcox, Jacobucci, Zhang, & Ammerman (2021).
+<doi:10.31234/osf.io/62tc3>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,28 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gmp
-%global packver   0.6-2.1
+%global packname  DominoDataCapture
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiple Precision Arithmetic
+Summary:          Domino Data Capture
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel >= 4.2.3
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rjson 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-lgr 
+Requires:         R-CRAN-rjson 
 Requires:         R-methods 
+Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-lgr 
 
 %description
-Multiple Precision Arithmetic (big integers and rationals, prime number
-tests, matrix computation), "arithmetic without limitations" using the C
-library GMP (GNU Multiple Precision Arithmetic).
+Instrument prediction code that lets you capture inputs to the model,
+predictions, prediction properties, and other metadata.
 
 %prep
 %setup -q -c -n %{packname}

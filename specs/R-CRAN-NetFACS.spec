@@ -1,48 +1,49 @@
 %global __brp_check_rpaths %{nil}
-%global packname  reliabilitydiag
+%global packname  NetFACS
 %global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reliability Diagrams Using Isotonic Regression
+Summary:          Network Applications to Facial Communication Data
 
-License:          GPL-3
+License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggExtra 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-CRAN-picante 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-bde 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-arrangements 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggExtra 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-ggraph 
+Requires:         R-CRAN-picante 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-bde 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-arrangements 
 
 %description
-Checking the reliability of predictions via the CORP approach, which
-generates provably statistically 'C'onsistent, 'O'ptimally binned, and
-'R'eproducible reliability diagrams using the 'P'ool-adjacent-violators
-algorithm. See Dimitriadis, Gneiting, Jordan (2021)
-<doi:10.1073/pnas.2016191118>.
+Functions to analyze and visualize communication data, based on network
+theory and resampling methods. Farine, D. R. (2017)
+<doi:10.1111/2041-210X.12772>; Carsey, T., & Harden, J. (2014)
+<doi:10.4135/9781483319605>. Primarily targeted at datasets of facial
+expressions coded with the Facial Action Coding System. Ekman, P.,
+Friesen, W. V., & Hager, J. C. (2002). "Facial action coding system -
+investigator's guide"
+<https://www.paulekman.com/facial-action-coding-system/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  text2sdg
+%global packname  estadistica
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Detecting UN Sustainable Development Goals in Text
+Summary:          Fundamentos De Estadistica Descriptiva e Inferencial
 
-License:          GPL-3
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,29 +16,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-corpustools >= 0.4.2
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-corpustools >= 0.4.2
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rio 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboard 
+Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rio 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-magrittr 
+Requires:         R-grid 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboard 
 
 %description
-The United Nations’ Sustainable Development Goals (SDGs) have become an
-important guideline for organisations to monitor and plan their
-contributions to social, economic, and environmental transformations. The
-'text2sdg' package is an open-source analysis package that identifies SDGs
-in text using scientifically developed query systems, opening up the
-opportunity to monitor any type of text-based data, such as scientific
-output or corporate publications.
+Este paquete pretende apoyar el proceso enseñanza-aprendizaje de
+estadística descriptiva e inferencial. Las funciones contenidas en el
+paquete 'estadistica' cubren los conceptos básicos estudiados en un curso
+introductorio. Muchos conceptos son ilustrados con gráficos dinámicos o
+web apps para facilitar su comprensión. This package aims to help the
+teaching-learning process of descriptive and inferential statistics. The
+functions contained in the package 'estadistica' cover the basic concepts
+studied in a statistics introductory course. Many concepts are illustrated
+with dynamic graphs or web apps to make the understanding easier. See:
+Esteban et al. (2005, ISBN: 9788497323741), Newbold et al.(2019,
+ISBN:9781292315034 ), Murgui et al. (2002, ISBN:9788484424673) .
 
 %prep
 %setup -q -c -n %{packname}

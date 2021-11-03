@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SplitKnockoff
-%global packver   0.8
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Split Knockoffs for Structural Sparsity
 
@@ -38,8 +38,9 @@ A novel method for controlling the false discovery rate (FDR) in
 structural sparsity setting. This proposed scheme relaxes the linear
 subspace constraint to its neighborhood, often known as variable splitting
 in optimization. Simulation experiments can be reproduced following the
-Vignette. 'Split Knockoffs' is defined in Cao et al. (2021)
-<arXiv:2103.16159>.
+Vignette. We include data (both .mat and .csv format) and application with
+our method of Alzheimer’s Disease study in this package. 'Split Knockoffs'
+is defined in Cao et al. (2021) <arXiv:2103.16159>.
 
 %prep
 %setup -q -c -n %{packname}

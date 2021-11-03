@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ftsa
-%global packver   6.0
+%global packver   6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0
+Version:          6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Time Series Analysis
 
@@ -27,6 +27,16 @@ BuildRequires:    R-CRAN-pdfCluster
 BuildRequires:    R-CRAN-ecp 
 BuildRequires:    R-CRAN-strucchange 
 BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-fGarch 
+BuildRequires:    R-CRAN-KernSmooth 
+BuildRequires:    R-CRAN-vars 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-fdapace 
+BuildRequires:    R-CRAN-LaplacesDemon 
+BuildRequires:    R-CRAN-evgam 
+BuildRequires:    R-CRAN-ROOPSD 
+BuildRequires:    R-CRAN-glue 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-rainbow 
 Requires:         R-CRAN-sde 
@@ -38,6 +48,16 @@ Requires:         R-CRAN-pdfCluster
 Requires:         R-CRAN-ecp 
 Requires:         R-CRAN-strucchange 
 Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-fGarch 
+Requires:         R-CRAN-KernSmooth 
+Requires:         R-CRAN-vars 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-fdapace 
+Requires:         R-CRAN-LaplacesDemon 
+Requires:         R-CRAN-evgam 
+Requires:         R-CRAN-ROOPSD 
+Requires:         R-CRAN-glue 
 
 %description
 Functions for visualizing, modeling, forecasting and hypothesis testing of
@@ -51,6 +71,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

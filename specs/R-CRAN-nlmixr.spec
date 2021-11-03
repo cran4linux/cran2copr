@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  nlmixr
-%global packver   2.0.5
+%global packver   2.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          2.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonlinear Mixed Effects Models in Population PK/PD
 
