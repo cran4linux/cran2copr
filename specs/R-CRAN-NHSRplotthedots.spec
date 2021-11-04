@@ -1,28 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  pgmm
-%global packver   1.2.5
+%global packname  NHSRplotthedots
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parsimonious Gaussian Mixture Models
+Summary:          Draw XmR Charts for NHSE/I 'Making Data Count' Programme
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-NHSRdatasets 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-grid 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-crayon 
+Requires:         R-utils 
+Requires:         R-CRAN-NHSRdatasets 
+Requires:         R-CRAN-assertthat 
+Requires:         R-grid 
 
 %description
-Carries out model-based clustering or classification using parsimonious
-Gaussian mixture models. McNicholas and Murphy (2008)
-<doi:10.1007/s11222-008-9056-0>, McNicholas (2010)
-<doi:10.1016/j.jspi.2009.11.006>, McNicholas and Murphy (2010)
-<doi:10.1093/bioinformatics/btq498>, McNicholas et al. (2010)
-<doi:10.1016/j.csda.2009.02.011>.
+Provides tools for drawing Statistical Process Control (SPC) charts. This
+package supports the NHSE/I programme 'Making Data Count', and allows
+users to draw XmR charts, use change points and apply rules with summary
+indicators for when rules are breached.
 
 %prep
 %setup -q -c -n %{packname}

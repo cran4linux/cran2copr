@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mombf
-%global packver   3.0.6
+%global packver   3.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.6
+Version:          3.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Model Selection and Averaging for Non-Local and Local Priors
 

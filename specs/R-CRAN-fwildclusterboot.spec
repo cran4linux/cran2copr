@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fwildclusterboot
-%global packver   0.4
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Wild Cluster Bootstrap Inference for Linear Regression Models
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-Matrix.utils 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-dqrng 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-collapse 
 Requires:         R-CRAN-Formula 
@@ -32,6 +33,7 @@ Requires:         R-CRAN-Matrix
 Requires:         R-CRAN-Matrix.utils 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-dqrng 
 
 %description
 Implementation of the fast algorithm for wild cluster bootstrap inference

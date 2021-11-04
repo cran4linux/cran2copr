@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  PKI
-%global packver   0.1-8
+%global packver   0.1-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Public Key Infrastucture for R Based on the X.509 Standard
 
@@ -20,9 +20,9 @@ BuildRequires:    R-CRAN-base64enc
 Requires:         R-CRAN-base64enc 
 
 %description
-PKI functions such as verifying certificates, RSA encription and signing
-which can be used to build PKI infrastructure and perform cryptographic
-tasks.
+Public Key Infrastucture functions such as verifying certificates, RSA
+encription and signing which can be used to build PKI infrastructure and
+perform cryptographic tasks.
 
 %prep
 %setup -q -c -n %{packname}
@@ -32,6 +32,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

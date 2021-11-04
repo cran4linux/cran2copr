@@ -1,28 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  pgmm
-%global packver   1.2.5
+%global packname  NormalityAssessment
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parsimonious Gaussian Mixture Models
+Summary:          A Graphical User Interface for Testing Normality Visually
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
+BuildRequires:    R-CRAN-shinyalert >= 2.0.0
+BuildRequires:    R-CRAN-stringi >= 1.7.4
+BuildRequires:    R-CRAN-shiny >= 1.7.1
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.7
+BuildRequires:    R-CRAN-shinyBS >= 0.61
+BuildRequires:    R-CRAN-rio >= 0.5.27
+BuildRequires:    R-CRAN-DT >= 0.19
+Requires:         R-CRAN-ggplot2 >= 3.3.5
+Requires:         R-CRAN-shinyalert >= 2.0.0
+Requires:         R-CRAN-stringi >= 1.7.4
+Requires:         R-CRAN-shiny >= 1.7.1
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-dplyr >= 1.0.7
+Requires:         R-CRAN-shinyBS >= 0.61
+Requires:         R-CRAN-rio >= 0.5.27
+Requires:         R-CRAN-DT >= 0.19
 
 %description
-Carries out model-based clustering or classification using parsimonious
-Gaussian mixture models. McNicholas and Murphy (2008)
-<doi:10.1007/s11222-008-9056-0>, McNicholas (2010)
-<doi:10.1016/j.jspi.2009.11.006>, McNicholas and Murphy (2010)
-<doi:10.1093/bioinformatics/btq498>, McNicholas et al. (2010)
-<doi:10.1016/j.csda.2009.02.011>.
+Package including an interactive Shiny application for testing normality
+visually.
 
 %prep
 %setup -q -c -n %{packname}

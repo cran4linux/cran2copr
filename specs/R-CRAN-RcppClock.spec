@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  pgmm
-%global packver   1.2.5
+%global packname  RcppClock
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parsimonious Gaussian Mixture Models
+Summary:          Seamless 'Rcpp' Benchmarking
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,14 +15,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-ggplot2 
 
 %description
-Carries out model-based clustering or classification using parsimonious
-Gaussian mixture models. McNicholas and Murphy (2008)
-<doi:10.1007/s11222-008-9056-0>, McNicholas (2010)
-<doi:10.1016/j.jspi.2009.11.006>, McNicholas and Murphy (2010)
-<doi:10.1093/bioinformatics/btq498>, McNicholas et al. (2010)
-<doi:10.1016/j.csda.2009.02.011>.
+Time the execution of overlapping or unique 'Rcpp' code chunks using
+convenient methods, seamlessly write timing results to an 'RcppClock'
+object in the R global environment, and summarize and/or plot the results
+in R.
 
 %prep
 %setup -q -c -n %{packname}

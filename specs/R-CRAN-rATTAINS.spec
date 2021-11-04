@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rATTAINS
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access EPA 'ATTAINS' Data
 
@@ -18,6 +18,7 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-crul 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fauxpas 
 BuildRequires:    R-CRAN-fs 
@@ -32,6 +33,7 @@ BuildRequires:    R-CRAN-tidyjson
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-crul 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fauxpas 
 Requires:         R-CRAN-fs 

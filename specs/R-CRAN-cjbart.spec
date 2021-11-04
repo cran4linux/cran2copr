@@ -1,41 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  discourseGT
-%global packver   1.1.7
+%global packname  cjbart
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.7
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyze Group Patterns using Graph Theory in Educational Settings
+Summary:          Heterogeneous Effects Analysis of Conjoint Experiments
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-GGally 
-BuildRequires:    R-CRAN-network 
+BuildRequires:    R-CRAN-BART 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggrepel 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-GGally 
-Requires:         R-CRAN-network 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-randomForestSRC 
+Requires:         R-CRAN-BART 
+Requires:         R-stats 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-randomForestSRC 
 
 %description
-Analyzes group patterns using discourse analysis data with graph theory
-mathematics. Takes the order of which individuals talk and converts it to
-a network edge and weight list. Returns the density, centrality,
-centralization, and subgroup information for each group. Based on the
-analytical framework laid out in Chai et al. (2019)
-<doi:10.1187/cbe.18-11-0222>.
+A tool for analyzing conjoint experiments using Bayesian Additive
+Regression Trees ('BART'), a machine learning method developed by Chipman,
+George and McCulloch (2010) <doi:10.1214/09-AOAS285>. This tool focuses
+specifically on estimating, identifying, and visualizing the heterogeneity
+within marginal component effects, at the observation- and
+individual-level. It uses a variable importance measure ('VIMP') with
+delete-d jackknife variance estimation, following Ishwaran and Lu (2019)
+<doi:10.1002/sim.7803>, to obtain bias-corrected estimates of which
+variables drive heterogeneity in the predicted individual-level effects.
 
 %prep
 %setup -q -c -n %{packname}

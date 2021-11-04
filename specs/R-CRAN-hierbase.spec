@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  hierbase
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Enabling Hierarchical Multiple Testing
 
@@ -30,18 +30,21 @@ Requires:         R-stats
 Requires:         R-CRAN-SIHR 
 
 %description
-Implementation of hierarchical inference based on Renaux and Bühlmann
-(2021) 'Efficient Multiple Testing Adjustment for Hierarchical Inference'
-<arXiv:2104.15028>. The R-package 'hierbase' offers tools to perform
-hierarchical inference for one or multiple data sets based on ready-to-use
-(group) test functions or alternatively a user specified (group) test
-function. The procedure is based on an efficient hierarchical multiple
-testing correction and controls the family-wise error rate (FWER). The
-functions can easily be run in parallel. Hierarchical inference can be
-applied to (low- or) high-dimensional data sets to find significant groups
-or single variables (depending on the signal strength and correlation
-structure) in a data-driven and automated procedure. Possible applications
-can for example be found in statistical genetics and statistical genomics.
+Implementation of hierarchical inference based on Meinshausen (2008).
+Hierarchical testing of variable importance. Biometrika, 95(2), 265-278
+and Renaux, Buzdugan, Kalisch, and Bühlmann, (2020). Hierarchical
+inference for genome-wide association studies: a view on methodology with
+software. Computational Statistics, 35(1), 1-40. The R-package 'hierbase'
+offers tools to perform hierarchical inference for one or multiple data
+sets based on ready-to-use (group) test functions or alternatively a user
+specified (group) test function. The procedure is based on a hierarchical
+multiple testing correction and controls the family-wise error rate
+(FWER). The functions can easily be run in parallel. Hierarchical
+inference can be applied to (low- or) high-dimensional data sets to find
+significant groups or single variables (depending on the signal strength
+and correlation structure) in a data-driven and automated procedure.
+Possible applications can for example be found in statistical genetics and
+statistical genomics.
 
 %prep
 %setup -q -c -n %{packname}

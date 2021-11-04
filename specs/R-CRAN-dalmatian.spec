@@ -1,28 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  pgmm
-%global packver   1.2.5
+%global packname  dalmatian
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          0.6.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parsimonious Gaussian Mixture Models
+Summary:          Automating the Fitting of Double Linear Mixed Models in 'JAGS' and 'nimble'
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-ggmcmc 
+BuildRequires:    R-CRAN-dglm 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-ggmcmc 
+Requires:         R-CRAN-dglm 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
 
 %description
-Carries out model-based clustering or classification using parsimonious
-Gaussian mixture models. McNicholas and Murphy (2008)
-<doi:10.1007/s11222-008-9056-0>, McNicholas (2010)
-<doi:10.1016/j.jspi.2009.11.006>, McNicholas and Murphy (2010)
-<doi:10.1093/bioinformatics/btq498>, McNicholas et al. (2010)
-<doi:10.1016/j.csda.2009.02.011>.
+Automates fitting of double GLM in 'JAGS'. Includes automatic generation
+of 'JAGS' scripts, running 'JAGS' or 'nimble' via the 'rjags' and 'nimble'
+package, and summarizing the resulting output.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,28 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  pgmm
-%global packver   1.2.5
+%global packname  IP
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parsimonious Gaussian Mixture Models
+Summary:          Classes and Methods for IP Addresses
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-methods 
+Requires:         R-CRAN-stringi 
 
 %description
-Carries out model-based clustering or classification using parsimonious
-Gaussian mixture models. McNicholas and Murphy (2008)
-<doi:10.1007/s11222-008-9056-0>, McNicholas (2010)
-<doi:10.1016/j.jspi.2009.11.006>, McNicholas and Murphy (2010)
-<doi:10.1093/bioinformatics/btq498>, McNicholas et al. (2010)
-<doi:10.1016/j.csda.2009.02.011>.
+Provides IPv4 and IPv6 support for IP operations such as comparison,
+arithmetic, bit manipulation and lookup. Both IPv4 and IPv6 arbitrary
+ranges are also supported as well as domain lookup and whois query.
 
 %prep
 %setup -q -c -n %{packname}
