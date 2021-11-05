@@ -1,43 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  simstudy
-%global packver   0.3.0
+%global packname  VEwaningVariant
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulation of Study Data
+Summary:          Vaccine Efficacy Over Time - Variant Aware
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mvnfast 
-BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-backports 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-glue 
-Requires:         R-methods 
-Requires:         R-CRAN-mvnfast 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-survival 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-backports 
+Requires:         R-methods 
 
 %description
-Simulates data sets in order to explore modeling techniques or better
-understand data generating processes. The user specifies a set of
-relationships between covariates, and generates data based on these
-specifications. The final data sets can represent data from randomized
-control trials, repeated measure (longitudinal) designs, and cluster
-randomized trials. Missingness can be generated using various mechanisms
-(MCAR, MAR, NMAR).
+Implements methods for inference on potential waning of vaccine efficacy
+and for estimation of vaccine efficacy at a user-specified time after
+vaccination based on data from a randomized, double-blind,
+placebo-controlled vaccine trial in which participants may be unblinded
+and placebo subjects may be crossed over to the study vaccine.  The
+methods also for variant stratification and allow adjustment for possible
+confounding via inverse probability weighting through specification of
+models for the trial entry process, unblinding mechanisms, and the
+probability an unblinded placebo participant accepts study vaccine.
 
 %prep
 %setup -q -c -n %{packname}

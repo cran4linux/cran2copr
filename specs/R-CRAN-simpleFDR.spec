@@ -1,44 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rasciidoc
-%global packver   3.2.0
+%global packname  simpleFDR
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Reports Using R and 'asciidoc'
+Summary:          Simple False Discovery Rate Calculation
 
-License:          BSD_2_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         asciidoc
-Requires:         source-highlight
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-document >= 3.3.0
-BuildRequires:    R-CRAN-fritools >= 1.3.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-gert 
-BuildRequires:    R-CRAN-highr 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-document >= 3.3.0
-Requires:         R-CRAN-fritools >= 1.3.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-gert 
-Requires:         R-CRAN-highr 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-reticulate 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Inspired by Karl Broman`s reader on using 'knitr' with 'asciidoc'
-(<https://kbroman.org/knitr_knutshell/pages/asciidoc.html>), this is
-merely a wrapper to 'knitr' and 'asciidoc'.
+Using the adjustment method from Benjamini & Hochberg (1995)
+<doi:10.1111/j.2517-6161.1995.tb02031.x>, this package determines which
+variables are significant under repeated testing with a given dataframe of
+p values and an user defined "q" threshold.  It then returns the original
+dataframe along with a significance column where an asterisk denotes a
+significant p value after FDR calculation, and NA denotes all other p
+values. This package uses the Benjamini & Hochberg method specifically as
+described in Lee, S., & Lee, D. K. (2018) <doi:10.4097/kja.d.18.00242>.
 
 %prep
 %setup -q -c -n %{packname}

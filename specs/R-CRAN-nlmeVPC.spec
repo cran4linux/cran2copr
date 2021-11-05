@@ -1,44 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rasciidoc
-%global packver   3.2.0
+%global packname  nlmeVPC
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Reports Using R and 'asciidoc'
+Summary:          Visual Model Checking for Nonlinear Mixed Effect Model
 
-License:          BSD_2_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         asciidoc
-Requires:         source-highlight
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-document >= 3.3.0
-BuildRequires:    R-CRAN-fritools >= 1.3.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-gert 
-BuildRequires:    R-CRAN-highr 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-document >= 3.3.0
-Requires:         R-CRAN-fritools >= 1.3.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-gert 
-Requires:         R-CRAN-highr 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-reticulate 
-Requires:         R-tools 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-optimx 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-timeDate 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-optimx 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-timeDate 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Inspired by Karl Broman`s reader on using 'knitr' with 'asciidoc'
-(<https://kbroman.org/knitr_knutshell/pages/asciidoc.html>), this is
-merely a wrapper to 'knitr' and 'asciidoc'.
+Various visual and numerical diagnosis methods for the nonlinear mixed
+effect model, including visual predictive checks, numerical predictive
+checks, and coverage plot (Karlsson and Holford, 2008,
+<https://www.page-meeting.org/?abstract=1434>).
 
 %prep
 %setup -q -c -n %{packname}

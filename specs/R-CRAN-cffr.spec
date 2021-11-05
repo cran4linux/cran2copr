@@ -1,44 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rasciidoc
-%global packver   3.2.0
+%global packname  cffr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Reports Using R and 'asciidoc'
+Summary:          Generate Citation File Format ('cff') Metadata for R Packages
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         asciidoc
-Requires:         source-highlight
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-document >= 3.3.0
-BuildRequires:    R-CRAN-fritools >= 1.3.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-gert 
-BuildRequires:    R-CRAN-highr 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-document >= 3.3.0
-Requires:         R-CRAN-fritools >= 1.3.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-gert 
-Requires:         R-CRAN-highr 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-reticulate 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-yaml >= 2.2.1
+BuildRequires:    R-CRAN-jsonlite >= 1.7.2
+BuildRequires:    R-CRAN-crayon >= 1.4.1
+BuildRequires:    R-CRAN-desc >= 1.3.0
+BuildRequires:    R-CRAN-jsonvalidate >= 1.1.0
+Requires:         R-CRAN-yaml >= 2.2.1
+Requires:         R-CRAN-jsonlite >= 1.7.2
+Requires:         R-CRAN-crayon >= 1.4.1
+Requires:         R-CRAN-desc >= 1.3.0
+Requires:         R-CRAN-jsonvalidate >= 1.1.0
 
 %description
-Inspired by Karl Broman`s reader on using 'knitr' with 'asciidoc'
-(<https://kbroman.org/knitr_knutshell/pages/asciidoc.html>), this is
-merely a wrapper to 'knitr' and 'asciidoc'.
+The Citation File Format version 1.2.0 <doi:10.5281/zenodo.5171937> is a
+human and machine readable file format which provides citation metadata
+for software. This package provides core utilities to generate and
+validate this metadata.
 
 %prep
 %setup -q -c -n %{packname}

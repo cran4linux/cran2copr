@@ -1,44 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rasciidoc
-%global packver   3.2.0
+%global packname  cuda.ml
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Reports Using R and 'asciidoc'
+Summary:          R Interface for the RAPIDS cuML Suite of Libraries
 
-License:          BSD_2_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         asciidoc
-Requires:         source-highlight
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-document >= 3.3.0
-BuildRequires:    R-CRAN-fritools >= 1.3.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-gert 
-BuildRequires:    R-CRAN-highr 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-document >= 3.3.0
-Requires:         R-CRAN-fritools >= 1.3.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-gert 
-Requires:         R-CRAN-highr 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-reticulate 
-Requires:         R-tools 
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
+BuildRequires:    R-CRAN-Rcpp >= 1.0.6
+BuildRequires:    R-CRAN-rlang >= 0.1.4
+BuildRequires:    R-CRAN-ellipsis 
+BuildRequires:    R-CRAN-hardhat 
+BuildRequires:    R-CRAN-parsnip 
+Requires:         R-CRAN-Rcpp >= 1.0.6
+Requires:         R-CRAN-rlang >= 0.1.4
+Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-hardhat 
+Requires:         R-CRAN-parsnip 
 
 %description
-Inspired by Karl Broman`s reader on using 'knitr' with 'asciidoc'
-(<https://kbroman.org/knitr_knutshell/pages/asciidoc.html>), this is
-merely a wrapper to 'knitr' and 'asciidoc'.
+R interface for RAPIDS cuML (<https://github.com/rapidsai/cuml>), a suite
+of GPU-accelerated machine learning libraries powered by CUDA
+(<https://en.wikipedia.org/wiki/CUDA>).
 
 %prep
 %setup -q -c -n %{packname}

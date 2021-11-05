@@ -1,43 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  simstudy
-%global packver   0.3.0
+%global packname  tci
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulation of Study Data
+Summary:          Target Controlled Infusion (TCI)
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mvnfast 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-backports 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-glue 
-Requires:         R-methods 
-Requires:         R-CRAN-mvnfast 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-truncnorm 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-reshape 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-backports 
 
 %description
-Simulates data sets in order to explore modeling techniques or better
-understand data generating processes. The user specifies a set of
-relationships between covariates, and generates data based on these
-specifications. The final data sets can represent data from randomized
-control trials, repeated measure (longitudinal) designs, and cluster
-randomized trials. Missingness can be generated using various mechanisms
-(MCAR, MAR, NMAR).
+Implementation of target-controlled infusion algorithms for compartmental
+pharmacokinetic and pharmacokinetic-pharmacodynamic models. Jacobs (1990)
+<doi:10.1109/10.43622>; Marsh et al. (1991) <doi:10.1093/bja/67.1.41>;
+Shafer and Gregg (1993) <doi:10.1007/BF01070999>; Schnider et al. (1998)
+<doi:10.1097/00000542-199805000-00006>; Abuhelwa, Foster, and Upton (2015)
+<doi:10.1016/j.vascn.2015.03.004>; Eleveld et al. (2018)
+<doi:10.1016/j.bja.2018.01.018>.
 
 %prep
 %setup -q -c -n %{packname}

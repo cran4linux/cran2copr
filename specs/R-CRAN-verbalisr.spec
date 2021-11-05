@@ -1,44 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rasciidoc
-%global packver   3.2.0
+%global packname  verbalisr
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Reports Using R and 'asciidoc'
+Summary:          Describe Pedigree Relationships in Words
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         asciidoc
-Requires:         source-highlight
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-document >= 3.3.0
-BuildRequires:    R-CRAN-fritools >= 1.3.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-gert 
-BuildRequires:    R-CRAN-highr 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-document >= 3.3.0
-Requires:         R-CRAN-fritools >= 1.3.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-gert 
-Requires:         R-CRAN-highr 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-reticulate 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-pedtools >= 0.9.7
+BuildRequires:    R-CRAN-ribd 
+Requires:         R-CRAN-pedtools >= 0.9.7
+Requires:         R-CRAN-ribd 
 
 %description
-Inspired by Karl Broman`s reader on using 'knitr' with 'asciidoc'
-(<https://kbroman.org/knitr_knutshell/pages/asciidoc.html>), this is
-merely a wrapper to 'knitr' and 'asciidoc'.
+Describe in words the genealogical relationship between two members of a
+given pedigree. 'verbalisr' is part of the 'ped suite' collection of
+packages for pedigree analysis. For a demonstration of 'verbalisr', see
+the online app 'QuickPed' at <https://magnusdv.shinyapps.io/quickped>.
 
 %prep
 %setup -q -c -n %{packname}

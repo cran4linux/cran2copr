@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  pmml
-%global packver   2.5.0
+%global packname  NAP
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate PMML for Various Models
+Summary:          Non-Local Alternative Priors in Psychology
 
-License:          GPL-3 | file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,27 +16,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-XML 
-Requires:         R-methods 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-foreach 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-stringr 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-graphics 
 
 %description
-The Predictive Model Markup Language (PMML) is an XML-based language which
-provides a way for applications to define machine learning, statistical
-and data mining models and to share models between PMML compliant
-applications. More information about the PMML industry standard and the
-Data Mining Group can be found at <http://dmg.org/>. The generated PMML
-can be imported into any PMML consuming application, such as Zementis
-Predictive Analytics products. The package isofor (used for anomaly
-detection) can be installed with
-devtools::install_github("gravesee/isofor").
+Conducts Bayesian Hypothesis tests of a point null hypothesis against a
+two-sided alternative using Non-local Alternative Prior (NAP) for one- and
+two-sample z- and t-tests (Johnson, V. and Rossell, R. (2010)
+<doi:10.1111/j.1467-9868.2009.00730.x>). Under the alternative, the NAP is
+assumed on the standardized effects size in one-sample tests and on their
+differences in two-sample tests. The package considers two types of NAP
+densities: (1) the normal moment prior, and (2) the composite alternative.
+In fixed design tests, the functions calculate the Bayes factors and the
+expected weight of evidence for varied effect size and sample size. The
+package also provides a sequential testing framework using the Sequential
+Bayes Factor (SBF) design. The functions calculate the operating
+characteristics (OC) and the average sample number (ASN), and also
+conducts sequential tests for a sequentially observed data.
 
 %prep
 %setup -q -c -n %{packname}

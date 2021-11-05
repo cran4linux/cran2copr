@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  LMMstar
-%global packver   0.3.3
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Repeated Measurement Models for Discrete Times
 
@@ -16,18 +16,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-emmeans 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lava 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-multcomp 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-sandwich 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-emmeans 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lava 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-multcomp 
@@ -38,10 +38,15 @@ Requires:         R-CRAN-sandwich
 %description
 Companion R package for the course "Statistical analysis of correlated and
 repeated measurements for health science researchers" taught by the
-section of Biostatistics of the University of Copenhagen. It provides
-functions for computing summary statistics and obtaining graphical
-displays of longitudinal data, as well as for statistical modeling and
-statistical inference using linear mixed model.
+section of Biostatistics of the University of Copenhagen. It implements
+linear mixed models where the model for the variance-covariance of the
+residuals is specified via patterns (compound symmetry, unstructured).
+Statistical inference for mean, variance, and correlation parameters is
+performed based on the observed information and a Satterthwaite degrees of
+freedom. Normalized residuals are provided to assess model
+misspecification. Statistical inference can be performed for arbitrary
+linear combination(s) of model coefficients. Predictions can be computed
+conditional to covariates only or also to outcome values.
 
 %prep
 %setup -q -c -n %{packname}

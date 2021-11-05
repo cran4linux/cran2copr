@@ -1,44 +1,49 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rasciidoc
-%global packver   3.2.0
+%global packname  crops
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Reports Using R and 'asciidoc'
+Summary:          Changepoints for a Range of Penalties (CROPS)
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         asciidoc
-Requires:         source-highlight
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-document >= 3.3.0
-BuildRequires:    R-CRAN-fritools >= 1.3.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-gert 
-BuildRequires:    R-CRAN-highr 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-document >= 3.3.0
-Requires:         R-CRAN-fritools >= 1.3.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-gert 
-Requires:         R-CRAN-highr 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-reticulate 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-sets 
+BuildRequires:    R-CRAN-reshape 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-pacman 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-sets 
+Requires:         R-CRAN-reshape 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-pacman 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-methods 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-tibble 
 
 %description
-Inspired by Karl Broman`s reader on using 'knitr' with 'asciidoc'
-(<https://kbroman.org/knitr_knutshell/pages/asciidoc.html>), this is
-merely a wrapper to 'knitr' and 'asciidoc'.
+Implements the Changepoints for a Range of Penalties (CROPS) algorithm of
+Haynes et al. (2014) <doi:10.1007/s11222-016-9687-5> for finding all of
+the optimal segmentations for multiple penalty values over a continuous
+range.
 
 %prep
 %setup -q -c -n %{packname}
