@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  abstr
-%global packver   0.4.0
+%global packname  datefixR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to the A/B Street Transport System Simulation Software
+Summary:          Fix Really Messy Dates
 
-License:          Apache License (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,30 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.0.6
-BuildRequires:    R-CRAN-magrittr >= 2.0.1
-BuildRequires:    R-CRAN-jsonlite >= 1.7.2
-BuildRequires:    R-CRAN-tidyr >= 1.1.3
-BuildRequires:    R-CRAN-sf >= 1.0.1
-BuildRequires:    R-CRAN-od >= 0.3.1
-BuildRequires:    R-CRAN-lwgeom >= 0.2.5
-BuildRequires:    R-methods 
-Requires:         R-CRAN-tibble >= 3.0.6
-Requires:         R-CRAN-magrittr >= 2.0.1
-Requires:         R-CRAN-jsonlite >= 1.7.2
-Requires:         R-CRAN-tidyr >= 1.1.3
-Requires:         R-CRAN-sf >= 1.0.1
-Requires:         R-CRAN-od >= 0.3.1
-Requires:         R-CRAN-lwgeom >= 0.2.5
-Requires:         R-methods 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-stringr 
 
 %description
-Provides functions to convert origin-destination data, represented as
-straight 'desire lines' in the 'sf' Simple Features class system, into
-JSON files that can be directly imported into A/B Street
-<https://www.abstreet.org>, a free and open source tool for simulating
-urban transport systems and scenarios of change
-<doi:10.1007/s10109-020-00342-2>.
+Fixes messy dates in data frames such as those entered via text boxes.
+Standardizes / - and whitespace separation, month abbreviations, and year
+first or day first by converting to R's built-in Date class. Imputes
+missing date or month using user-provided values.
 
 %prep
 %setup -q -c -n %{packname}

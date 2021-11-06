@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  PKLMtest
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classification Based MCAR Test
 
@@ -24,8 +24,9 @@ Requires:         R-stats
 Requires:         R-CRAN-ranger 
 
 %description
-Implementation of a KL-based test for MCAR in the context of missing data
-as introduced in Michel et al. (2021) <arXiv:2109.10150>.
+Implementation of a KL-based (Kullback-Leibler) test for MCAR (Missing
+Completely At Random) in the context of missing data as introduced in
+Michel et al. (2021) <arXiv:2109.10150>.
 
 %prep
 %setup -q -c -n %{packname}

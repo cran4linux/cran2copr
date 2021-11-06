@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  meteospain
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access to Spanish Meteorological Stations Services
 
@@ -32,6 +32,8 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-cachem 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-dplyr 
@@ -48,6 +50,8 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-units 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-cachem 
 
 %description
 Access to different Spanish meteorological stations data services and APIs

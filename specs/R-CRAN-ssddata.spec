@@ -1,45 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  JMcmprsk
-%global packver   0.9.10
+%global packname  ssddata
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.10
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Joint Models for Longitudinal and Competing Risks Data
+Summary:          Species Sensitivity Distribution Data
 
-License:          GPL (>= 2)
+License:          Apache License (== 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gsl-devel
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-chk 
 BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-statmod 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-reshape2 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-chk 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-utils 
 
 %description
-Fit joint models of continuous or ordinal longitudinal data and
-time-to-event data with competing risks. For a detailed information, see
-Robert Elashoff, Gang Li and Ning Li (2016, ISBN:9781439807828); Robert M.
-Elashoff,Gang Li and Ning Li (2008) <doi:10.1111/j.1541-0420.2007.00952.x>
-; Ning Li, Robert Elashoff, Gang Li and Jeffrey Saver (2010)
-<doi:10.1002/sim.3798> .
+Reference data sets of species sensitivities to compare the results of
+fitting species sensitivity distributions using software such as
+'ssdtools' and 'Burrlioz'. It consists of 17 primary data sets from four
+different Australian and Canadian organizations as well as five datasets
+from anonymous sources. It also includes a data set of the results of
+fitting various distributions using different software.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,6 +41,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

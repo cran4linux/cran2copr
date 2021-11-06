@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  starvz
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R-Based Visualization Techniques for Task-Based Applications
 
@@ -37,8 +37,6 @@ BuildRequires:    R-CRAN-gtools
 BuildRequires:    R-CRAN-data.tree 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-flexmix 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-arrow >= 3.0.0
 Requires:         R-CRAN-readr >= 1.4.0
@@ -61,8 +59,7 @@ Requires:         R-CRAN-gtools
 Requires:         R-CRAN-data.tree 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-flexmix 
+Requires:         R-CRAN-Rcpp >= 1.0.6
 
 %description
 Performance analysis workflow that combines the power of the R language

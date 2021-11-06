@@ -1,51 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mvSLOUCH
-%global packver   2.7
+%global packname  popbayes
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Stochastic Linear Ornstein-Uhlenbeck Models for Phylogenetic Comparative Hypotheses
+Summary:          Bayesian Model to Estimate Population Trends from Counts Series
 
-License:          GPL (>= 2) | file LICENCE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ape >= 5.3
-BuildRequires:    R-CRAN-PCMBase >= 1.2.10
-BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-ouch 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-R2jags 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-TreeSim 
-BuildRequires:    R-CRAN-matrixcalc 
-Requires:         R-CRAN-ape >= 5.3
-Requires:         R-CRAN-PCMBase >= 1.2.10
-Requires:         R-CRAN-abind 
+BuildRequires:    R-CRAN-usethis 
 Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-ouch 
+Requires:         R-grDevices 
+Requires:         R-CRAN-R2jags 
 Requires:         R-stats 
-Requires:         R-CRAN-TreeSim 
-Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-usethis 
 
 %description
-Fits multivariate Ornstein-Uhlenbeck types of models to continues trait
-data from species related by a common evolutionary history. See K.
-Bartoszek, J, Pienaar, P. Mostad, S. Andersson, T. F.Hansen (2012)
-<doi:10.1016/j.jtbi.2012.08.005>. The suggested PCMBaseCpp package (which
-significantly speeds up the likelihood calculations) can be obtained from
-<https://github.com/venelin/PCMBaseCpp/>.
+Infers the trends of one or several animal populations over time from
+series of counts. It does so by accounting for count precision (provided
+or inferred based on expert knowledge, e.g. guesstimates), smoothing the
+population rate of increase over time, and accounting for the maximum
+demographic potential of species. Inference is carried out in a Bayesian
+framework. This work is part of the FRB-CESAB working group AfroBioDrivers
+<https://www.fondationbiodiversite.fr/en/the-frb-in-action/programs-and-projects/le-cesab/afrobiodrivers/>.
 
 %prep
 %setup -q -c -n %{packname}

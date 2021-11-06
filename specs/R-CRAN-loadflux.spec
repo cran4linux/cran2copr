@@ -1,30 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  qs
-%global packver   0.25.1.1
+%global packname  loadflux
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.25.1.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quick Serialization of R Objects
+Summary:          Explore Intra-Event Suspended Sediment Dynamics
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-stringfish >= 0.15.1
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RApiSerialize 
-Requires:         R-CRAN-stringfish >= 0.15.1
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RApiSerialize 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-tsibble >= 0.9.0
+BuildRequires:    R-CRAN-rlang >= 0.2.0
+BuildRequires:    R-CRAN-dygraphs 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-tsibble >= 0.9.0
+Requires:         R-CRAN-rlang >= 0.2.0
+Requires:         R-CRAN-dygraphs 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
 
 %description
-Provides functions for quickly writing and reading any R object to and
-from disk.
+A collection of functions created to study water discharge (Q) and
+suspended sediment concentration (SSC) relationship.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RVIpkg
-%global packver   0.2.6
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regional Vulnerability Index
 
@@ -22,8 +22,8 @@ Requires:         R-stats
 %description
 The Regional Vulnerability Index (RVI), a statistical measure of brain
 structural abnormality, quantifies an individual's similarity to the
-expected pattern of deficits in schizophrenia (Kochunov P, Fan F, Ryan MC,
-et al. (2020) <doi:10.1002/hbm.25045>).
+expected pattern (effect size) of deficits in schizophrenia (Kochunov P,
+Fan F, Ryan MC, et al. (2020) <doi:10.1002/hbm.25045>).
 
 %prep
 %setup -q -c -n %{packname}

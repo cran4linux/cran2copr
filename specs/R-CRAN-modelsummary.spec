@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  modelsummary
-%global packver   0.9.3
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.9.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Summary Tables and Plots for Statistical Models and Data: Beautiful, Customizable, and Publication-Ready
 

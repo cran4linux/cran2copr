@@ -1,30 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  qs
-%global packver   0.25.1.1
+%global packname  mctq
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.25.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quick Serialization of R Objects
+Summary:          Tools to Process the Munich ChronoType Questionnaire (MCTQ)
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-stringfish >= 0.15.1
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RApiSerialize 
-Requires:         R-CRAN-stringfish >= 0.15.1
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RApiSerialize 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.1.0
+BuildRequires:    R-CRAN-checkmate >= 2.0.0
+BuildRequires:    R-CRAN-lubridate >= 1.8.0
+BuildRequires:    R-CRAN-hms >= 1.1.1
+BuildRequires:    R-CRAN-dplyr >= 1.0.7
+BuildRequires:    R-CRAN-lifecycle >= 1.0.1
+Requires:         R-CRAN-cli >= 3.1.0
+Requires:         R-CRAN-checkmate >= 2.0.0
+Requires:         R-CRAN-lubridate >= 1.8.0
+Requires:         R-CRAN-hms >= 1.1.1
+Requires:         R-CRAN-dplyr >= 1.0.7
+Requires:         R-CRAN-lifecycle >= 1.0.1
 
 %description
-Provides functions for quickly writing and reading any R object to and
-from disk.
+A complete and consistent toolkit to process the Munich ChronoType
+Questionnaire (MCTQ) for its three versions (standard, micro, and shift).
+MCTQ is a quantitative and validated tool to assess chronotypes using
+peoples' sleep behavior, originally presented by Till Roenneberg, Anna
+Wirz-Justice, and Martha Merrow (2003, <doi:10.1177/0748730402239679>).
 
 %prep
 %setup -q -c -n %{packname}

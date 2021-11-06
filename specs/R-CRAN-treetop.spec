@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  treetop
-%global packver   0.0.1
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Shiny-Based Application for Extracting Forest Information from LiDAR Data
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-RColorBrewer 
@@ -24,14 +24,13 @@ BuildRequires:    R-CRAN-raster
 BuildRequires:    R-CRAN-rasterVis 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-geometry 
-BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-lidR 
 BuildRequires:    R-CRAN-pryr 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stars 
-BuildRequires:    R-CRAN-rglwidget 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-spatstat.geom 
@@ -40,14 +39,13 @@ Requires:         R-CRAN-raster
 Requires:         R-CRAN-rasterVis 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-geometry 
-Requires:         R-CRAN-maptools 
 Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-lidR 
 Requires:         R-CRAN-pryr 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stars 
-Requires:         R-CRAN-rglwidget 
 
 %description
 Set of tools implemented into a shiny-based application for extracting and
@@ -62,6 +60,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

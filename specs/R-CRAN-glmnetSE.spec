@@ -1,44 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cyclestreets
-%global packver   0.5.0
+%global packname  glmnetSE
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cycle Routing and Data for Cycling Advocacy
+Summary:          Add Nonparametric Bootstrap SE to 'glmnet' for Selected Coefficients (No Shrinkage)
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-geodist 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-geodist 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-graphics 
+BuildRequires:    R-parallel 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-glmnet 
+Requires:         R-graphics 
+Requires:         R-parallel 
+Requires:         R-stats 
 
 %description
-An interface to the cycle routing/data services provided by
-'CycleStreets', a not-for-profit social enterprise and advocacy
-organisation.  The application programming interfaces (APIs) provided by
-'CycleStreets' are documented at (<https://www.cyclestreets.net/api/>).
-The focus of this package is the journey planning API, which aims to
-emulate the routes taken by a knowledgeable cyclist.  An innovative
-feature of the routing service of its provision of fastest, quietest and
-balanced profiles.  These represent routes taken to minimise time, avoid
-traffic and compromise between the two, respectively.
+Builds a LASSO, Ridge, or Elastic Net model with 'glmnet' or 'cv.glmnet'
+with bootstrap inference statistics (SE, CI, and p-value) for selected
+coefficients with no shrinkage applied for them. Model performance can be
+evaluated on test data and an automated alpha selection is implemented for
+Elastic Net. Parallelized computation is used to speed up the process. The
+methods are described in Friedman et al. (2010)
+<doi:10.18637/jss.v033.i01> and Simon et al. (2011)
+<doi:10.18637/jss.v039.i05>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,30 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  qs
-%global packver   0.25.1.1
+%global packname  rocnp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.25.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quick Serialization of R Objects
+Summary:          Work with Romanian Personal Numeric Codes PNC / CNP
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-stringfish >= 0.15.1
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RApiSerialize 
-Requires:         R-CRAN-stringfish >= 0.15.1
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RApiSerialize 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides functions for quickly writing and reading any R object to and
-from disk.
+A set of tools for working with Romanian personal numeric codes. The core
+is a validation function which applies several verification criteria to
+assess the validity of numeric codes. This is accompanied by functionality
+for extracting the different components of a personal numeric code. A
+personal numeric code is issued to all Romanian residents either at birth
+or when they obtain a residence permit.
 
 %prep
 %setup -q -c -n %{packname}

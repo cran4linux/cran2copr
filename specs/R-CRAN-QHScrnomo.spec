@@ -1,30 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  qs
-%global packver   0.25.1.1
+%global packname  QHScrnomo
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.25.1.1
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quick Serialization of R Objects
+Summary:          Construct Nomogram for Competing Risk Models
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-stringfish >= 0.15.1
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RApiSerialize 
-Requires:         R-CRAN-stringfish >= 0.15.1
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RApiSerialize 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-rms 
+BuildRequires:    R-CRAN-cmprsk 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-rms 
+Requires:         R-CRAN-cmprsk 
 
 %description
-Provides functions for quickly writing and reading any R object to and
-from disk.
+Nomogram is constructed to predict cumulative incidence rate, which is
+calculated by adjusting for competing causes other than that of interest.
+K-fold cross-validation function is implemented to validate the
+performance. Competing risk version of concordance index is calculated.
+Methods are as described in: Kattan MW, Heller G, Brennan MF (2003)
+<doi:10.1002/sim.1574>.
 
 %prep
 %setup -q -c -n %{packname}
