@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  jcp
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Change Point Detection
 
@@ -21,8 +21,9 @@ BuildArch:        noarch
 Procedures for joint detection of changes in both expectation and variance
 in univariate sequences. Performs a statistical test of the null
 hypothesis of the absence of change points. In case of rejection performs
-an algorithm for change point detection. References - Bivariate change
-point detection (2019+), Michael Messer.
+an algorithm for change point detection. Reference - Bivariate change
+point detection - joint detection of changes in expectation and variance,
+Scandinavian Journal of Statistics, DOI 10.1111/sjos.12547.
 
 %prep
 %setup -q -c -n %{packname}
@@ -32,6 +33,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

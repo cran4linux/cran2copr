@@ -1,42 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  exiftoolr
-%global packver   0.1.6
+%global packname  biblio
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          ExifTool Functionality from R
+Summary:          Interacting with BibTeX Databases
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    perl(Image::ExifTool)
-Requires:         perl(Image::ExifTool)
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-zip 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-zip 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-yamlme 
+Requires:         R-methods 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-yamlme 
 
 %description
-Reads, writes, and edits EXIF and other file metadata using ExifTool
-<https://exiftool.org/>, returning read results as a data frame. ExifTool
-supports many different metadata formats including EXIF, GPS, IPTC, XMP,
-JFIF, GeoTIFF, ICC Profile, Photoshop IRB, FlashPix, AFCP and ID3,
-Lyrics3, as well as the maker notes of many digital cameras by Canon,
-Casio, DJI, FLIR, FujiFilm, GE, GoPro, HP, JVC/Victor, Kodak, Leaf,
-Minolta/Konica-Minolta, Motorola, Nikon, Nintendo, Olympus/Epson,
-Panasonic/Leica, Pentax/Asahi, Phase One, Reconyx, Ricoh, Samsung, Sanyo,
-Sigma/Foveon and Sony.
+Reading and writing BibTeX files using data frames in R sessions.
 
 %prep
 %setup -q -c -n %{packname}

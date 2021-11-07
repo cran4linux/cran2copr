@@ -1,42 +1,50 @@
 %global __brp_check_rpaths %{nil}
-%global packname  exiftoolr
-%global packver   0.1.6
+%global packname  chicane
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          ExifTool Functionality from R
+Summary:          Capture Hi-C Analysis Engine
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    perl(Image::ExifTool)
-Requires:         perl(Image::ExifTool)
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-zip 
+BuildRequires:    R-CRAN-gamlss.tr 
+BuildRequires:    R-CRAN-gamlss 
 BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-zip 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-CRAN-bedr 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rmarkdown 
+Requires:         R-CRAN-gamlss.tr 
+Requires:         R-CRAN-gamlss 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-iterators 
+Requires:         R-CRAN-bedr 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rmarkdown 
 
 %description
-Reads, writes, and edits EXIF and other file metadata using ExifTool
-<https://exiftool.org/>, returning read results as a data frame. ExifTool
-supports many different metadata formats including EXIF, GPS, IPTC, XMP,
-JFIF, GeoTIFF, ICC Profile, Photoshop IRB, FlashPix, AFCP and ID3,
-Lyrics3, as well as the maker notes of many digital cameras by Canon,
-Casio, DJI, FLIR, FujiFilm, GE, GoPro, HP, JVC/Victor, Kodak, Leaf,
-Minolta/Konica-Minolta, Motorola, Nikon, Nintendo, Olympus/Epson,
-Panasonic/Leica, Pentax/Asahi, Phase One, Reconyx, Ricoh, Samsung, Sanyo,
-Sigma/Foveon and Sony.
+Toolkit for processing and calling interactions in capture Hi-C data.
+Converts BAM files into counts of reads linking restriction fragments, and
+identifies pairs of fragments that interact more than expected by chance.
+Significant interactions are identified by comparing the observed read
+count to the expected background rate from a count regression model.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bootUR
-%global packver   0.3.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bootstrap Unit Root Tests
 
@@ -18,11 +18,15 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-urca 
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppProgress 
+BuildRequires:    R-CRAN-RcppThread 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-CRAN-urca 
+Requires:         R-CRAN-RcppParallel 
+Requires:         R-CRAN-parallelly 
 
 %description
 Set of functions to perform various bootstrap unit root tests for both
