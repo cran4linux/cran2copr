@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Directional
-%global packver   5.1
+%global packver   5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1
+Version:          5.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Collection of R Functions for Directional Data Analysis
+Summary:          A Collection of Functions for Directional Data Analysis
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -28,7 +28,6 @@ BuildRequires:    R-CRAN-Rfast
 BuildRequires:    R-CRAN-Rfast2 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-rnaturalearth 
-BuildRequires:    R-CRAN-rnaturalearthdata 
 BuildRequires:    R-CRAN-sf 
 Requires:         R-CRAN-bigstatsr 
 Requires:         R-parallel 
@@ -42,7 +41,6 @@ Requires:         R-CRAN-Rfast
 Requires:         R-CRAN-Rfast2 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-rnaturalearth 
-Requires:         R-CRAN-rnaturalearthdata 
 Requires:         R-CRAN-sf 
 
 %description

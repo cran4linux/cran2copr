@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  HDBRR
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Dimensional Bayesian Ridge Regression without MCMC
 
@@ -28,9 +28,10 @@ Requires:         R-CRAN-MASS
 Requires:         R-graphics 
 
 %description
-The svd(singular value decomposition) or qr decomposition was using for
-the implementation, this avoid the recursion optimizing the time in the
-compute.
+Ridge regression provide biased estimators of the regression parameters
+with lower variance. The HDBRR ("High Dimensional Bayesian Ridge
+Regression") function fits Bayesian Ridge regression without MCMC, this
+one uses the SVD or QR decomposition for the posterior computation.
 
 %prep
 %setup -q -c -n %{packname}

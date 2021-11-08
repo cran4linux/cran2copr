@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  serp
-%global packver   0.2.1
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Smooth Effects on Response Penalty for 'CLM'
 
@@ -17,8 +17,10 @@ BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ordinal >= 2016.12.12
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ordinal >= 2016.12.12
+Requires:         R-CRAN-crayon 
 Requires:         R-stats 
 
 %description
@@ -35,8 +37,9 @@ non-penalized log-likelihood, this and other numerical problems common
 with the general model are to a large extent eliminated. Fitting is via a
 modified Newton's method. Several standard model performance and
 descriptive methods are also available. For more details on the penalty
-implemented here, see, 'Ugba et al. (2021)' <doi:10.3390/stats4030037> and
-Tutz and Gertheiss (2016) <doi:10.1177/1471082X16642560>.
+implemented here, see, 'Ugba (2021)' <doi:10.21105/joss.03705>, 'Ugba et
+al. (2021)' <doi:10.3390/stats4030037> and 'Tutz and Gertheiss (2016)'
+<doi:10.1177/1471082X16642560>.
 
 %prep
 %setup -q -c -n %{packname}

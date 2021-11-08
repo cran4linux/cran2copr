@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  whitening
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Whitening and High-Dimensional Canonical Correlation Analysis
 
@@ -16,9 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-corpcor >= 1.6.9
+BuildRequires:    R-CRAN-corpcor >= 1.6.10
 BuildRequires:    R-stats 
-Requires:         R-CRAN-corpcor >= 1.6.9
+Requires:         R-CRAN-corpcor >= 1.6.10
 Requires:         R-stats 
 
 %description
@@ -28,7 +28,8 @@ and decorrelation", <doi:10.1080/00031305.2016.1277159>, as well as the
 whitening approach to canonical correlation analysis allowing negative
 canonical correlations described in Jendoubi and Strimmer (2019) "A
 whitening approach to probabilistic canonical correlation analysis for
-omics data integration", <doi:10.1186/s12859-018-2572-9>.
+omics data integration", <doi:10.1186/s12859-018-2572-9>. The package also
+offers a function to simulate random orthogonal matrices.
 
 %prep
 %setup -q -c -n %{packname}
@@ -38,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

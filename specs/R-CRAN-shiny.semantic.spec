@@ -1,44 +1,49 @@
 %global __brp_check_rpaths %{nil}
-%global packname  igraph
-%global packver   1.2.8
+%global packname  shiny.semantic
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.8
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Network Analysis and Visualization
+Summary:          Semantic UI Support for Shiny
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel
-BuildRequires:    libxml2-devel
-BuildRequires:    glpk-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-pkgconfig >= 2.0.0
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Matrix 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-htmlwidgets >= 0.8
+BuildRequires:    R-CRAN-htmltools >= 0.2.6
+BuildRequires:    R-CRAN-purrr >= 0.2.2
+BuildRequires:    R-CRAN-shiny >= 0.12.1
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-pkgconfig >= 2.0.0
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-htmlwidgets >= 0.8
+Requires:         R-CRAN-htmltools >= 0.2.6
+Requires:         R-CRAN-purrr >= 0.2.2
+Requires:         R-CRAN-shiny >= 0.12.1
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-grDevices 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-R6 
 
 %description
-Routines for simple graphs and network analysis. It can handle large
-graphs very well and provides functions for generating random and regular
-graphs, graph visualization, centrality methods and much more.
+Creating a great user interface for your Shiny apps can be a hassle,
+especially if you want to work purely in R and don't want to use, for
+instance HTML templates. This package adds support for a powerful UI
+library Fomantic UI - <https://fomantic-ui.com/> (before Semantic). It
+also supports universal UI input binding that works with various DOM
+elements.
 
 %prep
 %setup -q -c -n %{packname}

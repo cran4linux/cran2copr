@@ -1,44 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  igraph
-%global packver   1.2.8
+%global packname  MixfMRI
+%global packver   0.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.8
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Network Analysis and Visualization
+Summary:          Mixture fMRI Clustering Analysis
 
-License:          GPL (>= 2)
+License:          Mozilla Public License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel
-BuildRequires:    libxml2-devel
-BuildRequires:    glpk-devel
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-pkgconfig >= 2.0.0
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-pkgconfig >= 2.0.0
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-fftw 
+BuildRequires:    R-CRAN-MixSim 
+BuildRequires:    R-CRAN-EMCluster 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-fftw 
+Requires:         R-CRAN-MixSim 
+Requires:         R-CRAN-EMCluster 
 
 %description
-Routines for simple graphs and network analysis. It can handle large
-graphs very well and provides functions for generating random and regular
-graphs, graph visualization, centrality methods and much more.
+Utilizing model-based clustering (unsupervised) for functional magnetic
+resonance imaging (fMRI) data. The developed methods (Chen and Maitra
+(2021) <arXiv:2102.03639>) include 2D and 3D clustering analyses (for
+p-values with voxel locations) and segmentation analyses (for p-values
+alone) for fMRI data where p-values indicate significant level of
+activation responding to stimulate of interesting. The analyses are mainly
+identifying active voxel/signal associated with normal brain behaviors.
+Analysis pipelines (R scripts) utilizing this package (see examples in
+'inst/workflow/') is also implemented with high performance techniques.
 
 %prep
 %setup -q -c -n %{packname}

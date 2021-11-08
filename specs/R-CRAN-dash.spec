@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dash
-%global packver   0.9.2
+%global packver   0.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.9.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Interface to the Dash Ecosystem for Authoring Reactive Web Applications
 
@@ -34,7 +34,6 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-httpuv 
 Requires:         R-CRAN-reqres >= 0.2.3
 Requires:         R-CRAN-fiery > 1.0.0
 Requires:         R-CRAN-routr > 0.2.0
@@ -53,7 +52,6 @@ Requires:         R-CRAN-magrittr
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
 Requires:         R-utils 
-Requires:         R-CRAN-httpuv 
 
 %description
 A framework for building analytical web applications, Dash offers a

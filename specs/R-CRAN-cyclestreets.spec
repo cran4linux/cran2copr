@@ -1,44 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  igraph
-%global packver   1.2.8
+%global packname  cyclestreets
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.8
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Network Analysis and Visualization
+Summary:          Cycle Routing and Data for Cycling Advocacy
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel
-BuildRequires:    libxml2-devel
-BuildRequires:    glpk-devel
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-pkgconfig >= 2.0.0
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-geodist 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-pkgconfig >= 2.0.0
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-geodist 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stringr 
 
 %description
-Routines for simple graphs and network analysis. It can handle large
-graphs very well and provides functions for generating random and regular
-graphs, graph visualization, centrality methods and much more.
+An interface to the cycle routing/data services provided by
+'CycleStreets', a not-for-profit social enterprise and advocacy
+organisation.  The application programming interfaces (APIs) provided by
+'CycleStreets' are documented at (<https://www.cyclestreets.net/api/>).
+The focus of this package is the journey planning API, which aims to
+emulate the routes taken by a knowledgeable cyclist.  An innovative
+feature of the routing service of its provision of fastest, quietest and
+balanced profiles.  These represent routes taken to minimise time, avoid
+traffic and compromise between the two, respectively.
 
 %prep
 %setup -q -c -n %{packname}
