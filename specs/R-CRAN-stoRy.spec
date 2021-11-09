@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  stoRy
-%global packver   0.1.5
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
-Release:          3%{?dist}%{?buildtag}
-Summary:          Functions for the Analysis of Star Trek Thematic Data
+Version:          0.2.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          Download, Explore, and Analyze Literary Theme Ontology Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,24 +16,57 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fansi 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-data.tree 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyjson 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fansi 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-data.tree 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyjson 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-An implementation of 1) the hypergeometric test for over-representation of
-literary themes in a storyset (a list of stories) relative to a background
-list of stories, and 2) a recommendation system that takes a user-selected
-story as input and returns a ranked list of similar stories on the basis
-of shared themes. The package is currently implemented for the episodes of
-the Star Trek television franchise series The Original Series (TOS), The
-Animated Series (TAS), The Next Generation (TNG), and Voyager (VOY).
+Download, explore, and analyze Literary Theme Ontology themes and
+thematically annotated story data. To learn more about the project visit
+<https://github.com/theme-ontology/theming> and
+<https://themeontology.org>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -41,21 +74,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/datasets
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/storysets
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

@@ -1,40 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  xgboost
-%global packver   1.5.0.1
+%global packname  MaximinInfer
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extreme Gradient Boosting
+Summary:          Inference for Maximin Effect in High-Dimensional Settings
 
-License:          Apache License (== 2.0) | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-data.table >= 1.9.6
-BuildRequires:    R-CRAN-Matrix >= 1.1.0
-BuildRequires:    R-CRAN-jsonlite >= 1.0
-BuildRequires:    R-methods 
-Requires:         R-CRAN-data.table >= 1.9.6
-Requires:         R-CRAN-Matrix >= 1.1.0
-Requires:         R-CRAN-jsonlite >= 1.0
-Requires:         R-methods 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-CVXR 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-intervals 
+BuildRequires:    R-CRAN-SIHR 
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-CRAN-CVXR 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-intervals 
+Requires:         R-CRAN-SIHR 
 
 %description
-Extreme Gradient Boosting, which is an efficient implementation of the
-gradient boosting framework from Chen & Guestrin (2016)
-<doi:10.1145/2939672.2939785>. This package is its R interface. The
-package includes efficient linear model solver and tree learning
-algorithms. The package can automatically do parallel computation on a
-single machine which could be more than 10 times faster than existing
-gradient boosting packages. It supports various objective functions,
-including regression, classification and ranking. The package is made to
-be extensible, so that users are also allowed to define their own
-objectives easily.
+Implementation of the sampling and aggregation method for the covariate
+shift maximin effect, which was proposed in <arXiv:2011.07568>. It
+constructs the confidence interval for any linear combination of the
+high-dimensional maximin effect.
 
 %prep
 %setup -q -c -n %{packname}

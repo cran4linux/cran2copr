@@ -1,40 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  xgboost
-%global packver   1.5.0.1
+%global packname  sawnuti
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extreme Gradient Boosting
+Summary:          Comparing Sequences with Non-Uniform Time Intervals
 
-License:          Apache License (== 2.0) | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-data.table >= 1.9.6
-BuildRequires:    R-CRAN-Matrix >= 1.1.0
-BuildRequires:    R-CRAN-jsonlite >= 1.0
-BuildRequires:    R-methods 
-Requires:         R-CRAN-data.table >= 1.9.6
-Requires:         R-CRAN-Matrix >= 1.1.0
-Requires:         R-CRAN-jsonlite >= 1.0
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Extreme Gradient Boosting, which is an efficient implementation of the
-gradient boosting framework from Chen & Guestrin (2016)
-<doi:10.1145/2939672.2939785>. This package is its R interface. The
-package includes efficient linear model solver and tree learning
-algorithms. The package can automatically do parallel computation on a
-single machine which could be more than 10 times faster than existing
-gradient boosting packages. It supports various objective functions,
-including regression, classification and ranking. The package is made to
-be extensible, so that users are also allowed to define their own
-objectives easily.
+The SAWNUTI algorithm performs sequence comparison for finite sequences of
+discrete events with non-uniform time intervals. Further description of
+the algorithm can be found in the paper: A. Murph, A. Flynt, B. R. King
+(2021). Comparing finite sequences of discrete events with non-uniform
+time intervals, Sequential Analysis, 40(3), 291-313.
+<doi:10.1080/07474946.2021.1940491>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  xgboost
-%global packver   1.5.0.1
+%global packname  openeo
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extreme Gradient Boosting
+Summary:          Client Interface for 'openEO' Servers
 
-License:          Apache License (== 2.0) | file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-data.table >= 1.9.6
-BuildRequires:    R-CRAN-Matrix >= 1.1.0
-BuildRequires:    R-CRAN-jsonlite >= 1.0
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
+BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-data.table >= 1.9.6
-Requires:         R-CRAN-Matrix >= 1.1.0
-Requires:         R-CRAN-jsonlite >= 1.0
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-base64enc 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
 Requires:         R-methods 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-base64enc 
 
 %description
-Extreme Gradient Boosting, which is an efficient implementation of the
-gradient boosting framework from Chen & Guestrin (2016)
-<doi:10.1145/2939672.2939785>. This package is its R interface. The
-package includes efficient linear model solver and tree learning
-algorithms. The package can automatically do parallel computation on a
-single machine which could be more than 10 times faster than existing
-gradient boosting packages. It supports various objective functions,
-including regression, classification and ranking. The package is made to
-be extensible, so that users are also allowed to define their own
-objectives easily.
+Access data and processing functionalities of 'openEO' compliant back-ends
+in R.
 
 %prep
 %setup -q -c -n %{packname}

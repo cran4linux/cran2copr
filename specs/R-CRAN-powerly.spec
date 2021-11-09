@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  powerly
-%global packver   1.5.2
+%global packver   1.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sample Size Analysis for Psychological Networks and More
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-osqp
 BuildRequires:    R-CRAN-bootnet 
 BuildRequires:    R-CRAN-qgraph 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-patchwork 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-progress 
@@ -35,11 +36,12 @@ Requires:         R-CRAN-osqp
 Requires:         R-CRAN-bootnet 
 Requires:         R-CRAN-qgraph 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-patchwork 
 
 %description
 An implementation of the sample size computation method for network models
-proposed by Constantin et al. (2021) <doi:10.31234/osf.io/j5v7u> The
+proposed by Constantin et al. (2021) <doi:10.31234/osf.io/j5v7u>. The
 implementation takes the form of a three-step recursive algorithm designed
 to find an optimal sample size given a model specification and a
 performance measure of interest. It starts with a Monte Carlo simulation

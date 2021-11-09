@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  datasailr
-%global packver   0.8.9
+%global packver   0.8.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.9
+Version:          0.8.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Row by Row Data Processing Tool, Using 'DataSailr' Script
 

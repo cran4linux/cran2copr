@@ -1,40 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  xgboost
-%global packver   1.5.0.1
+%global packname  bigQF
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0.1
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extreme Gradient Boosting
+Summary:          Quadratic Forms in Large Matrices
 
-License:          Apache License (== 2.0) | file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-data.table >= 1.9.6
-BuildRequires:    R-CRAN-Matrix >= 1.1.0
-BuildRequires:    R-CRAN-jsonlite >= 1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildRequires:    R-methods 
-Requires:         R-CRAN-data.table >= 1.9.6
-Requires:         R-CRAN-Matrix >= 1.1.0
-Requires:         R-CRAN-jsonlite >= 1.0
+BuildRequires:    R-CRAN-svd 
+BuildRequires:    R-CRAN-CompQuadForm 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-coxme 
 Requires:         R-methods 
+Requires:         R-CRAN-svd 
+Requires:         R-CRAN-CompQuadForm 
+Requires:         R-CRAN-Matrix 
+Requires:         R-stats 
+Requires:         R-CRAN-coxme 
 
 %description
-Extreme Gradient Boosting, which is an efficient implementation of the
-gradient boosting framework from Chen & Guestrin (2016)
-<doi:10.1145/2939672.2939785>. This package is its R interface. The
-package includes efficient linear model solver and tree learning
-algorithms. The package can automatically do parallel computation on a
-single machine which could be more than 10 times faster than existing
-gradient boosting packages. It supports various objective functions,
-including regression, classification and ranking. The package is made to
-be extensible, so that users are also allowed to define their own
-objectives easily.
+A computationally-efficient leading-eigenvalue approximation to tail
+probabilities and quantiles of large quadratic forms, in particular for
+the Sequence Kernel Association Test (SKAT) used in genomics
+<doi:10.1002/gepi.22136>. Also provides stochastic singular value
+decomposition for dense or sparse matrices.
 
 %prep
 %setup -q -c -n %{packname}

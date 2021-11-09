@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  antaresEditObject
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Edit an 'Antares' Simulation
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-assertthat
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-whisker 
-BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-parallel 
@@ -30,7 +29,6 @@ Requires:         R-CRAN-assertthat
 Requires:         R-grDevices 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-whisker 
-Requires:         R-CRAN-fs 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-pbapply 
 Requires:         R-parallel 
@@ -50,6 +48,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

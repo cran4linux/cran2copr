@@ -1,40 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  xgboost
-%global packver   1.5.0.1
+%global packname  steprf
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extreme Gradient Boosting
+Summary:          Stepwise Predictive Variable Selection for Random Forest
 
-License:          Apache License (== 2.0) | file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-data.table >= 1.9.6
-BuildRequires:    R-CRAN-Matrix >= 1.1.0
-BuildRequires:    R-CRAN-jsonlite >= 1.0
-BuildRequires:    R-methods 
-Requires:         R-CRAN-data.table >= 1.9.6
-Requires:         R-CRAN-Matrix >= 1.1.0
-Requires:         R-CRAN-jsonlite >= 1.0
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-spm 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-spm2 
+BuildRequires:    R-CRAN-psy 
+Requires:         R-CRAN-spm 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-spm2 
+Requires:         R-CRAN-psy 
 
 %description
-Extreme Gradient Boosting, which is an efficient implementation of the
-gradient boosting framework from Chen & Guestrin (2016)
-<doi:10.1145/2939672.2939785>. This package is its R interface. The
-package includes efficient linear model solver and tree learning
-algorithms. The package can automatically do parallel computation on a
-single machine which could be more than 10 times faster than existing
-gradient boosting packages. It supports various objective functions,
-including regression, classification and ranking. The package is made to
-be extensible, so that users are also allowed to define their own
-objectives easily.
+An introduction to several novel predictive variable selection methods for
+random forest. They are based on various variable importance methods
+(i.e., averaged variable importance (AVI), and knowledge informed AVI
+(i.e., KIAVI, and KIAVI2)) and predictive accuracy in stepwise algorithms.
+For details of the variable selection methods, please see: Li, J.,
+Siwabessy, J., Huang, Z. and Nichol, S. (2019)
+<doi:10.3390/geosciences9040180>. Li, J., Alvarez, B., Siwabessy, J.,
+Tran, M., Huang, Z., Przeslawski, R., Radke, L., Howard, F., Nichol, S.
+(2017). <DOI: 10.13140/RG.2.2.27686.22085>.
 
 %prep
 %setup -q -c -n %{packname}

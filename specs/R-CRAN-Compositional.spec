@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Compositional
-%global packver   5.0
+%global packver   5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0
+Version:          5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 
@@ -23,6 +23,8 @@ BuildRequires:    R-CRAN-emplik
 BuildRequires:    R-CRAN-FlexDir 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mda 
 BuildRequires:    R-CRAN-mixture 
@@ -42,6 +44,8 @@ Requires:         R-CRAN-emplik
 Requires:         R-CRAN-FlexDir 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-glmnet 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mda 
 Requires:         R-CRAN-mixture 

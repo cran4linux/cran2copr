@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  IFAA
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Robust Analysis for Absolute Abundance in Microbiome
+Summary:          Robust Inference for Absolute Abundance in Microbiome Analysis
 
 License:          GNU General Public License version 2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -28,6 +28,8 @@ BuildRequires:    R-CRAN-mathjaxr >= 1.0.1
 BuildRequires:    R-CRAN-expm >= 0.999.3
 BuildRequires:    R-CRAN-qlcMatrix >= 0.9.7
 BuildRequires:    R-CRAN-rlecuyer >= 0.3.3
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-stats 
 Requires:         R-methods >= 3.3.0
 Requires:         R-parallel >= 3.3.0
 Requires:         R-CRAN-foreach >= 1.4.3
@@ -40,6 +42,8 @@ Requires:         R-CRAN-mathjaxr >= 1.0.1
 Requires:         R-CRAN-expm >= 0.999.3
 Requires:         R-CRAN-qlcMatrix >= 0.9.7
 Requires:         R-CRAN-rlecuyer >= 0.3.3
+Requires:         R-CRAN-glmnet 
+Requires:         R-stats 
 
 %description
 A novel approach to make inference on the association of covariates with

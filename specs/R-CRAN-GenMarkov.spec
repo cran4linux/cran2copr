@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mstate
-%global packver   0.3.2
+%global packname  GenMarkov
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Preparation, Estimation and Prediction in Multi-State Models
+Summary:          Multivariate Markov Chains
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,24 +15,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-survival >= 3.1
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-viridisLite 
-Requires:         R-CRAN-survival >= 3.1
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-viridisLite 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-nnet >= 7.3.16
+BuildRequires:    R-CRAN-Hmisc >= 4.5.0
+BuildRequires:    R-stats >= 4.1.0
+BuildRequires:    R-CRAN-alabama >= 2015.3.1
+BuildRequires:    R-CRAN-fastDummies >= 1.6.3
+BuildRequires:    R-CRAN-maxLik >= 1.4.8
+BuildRequires:    R-CRAN-matrixcalc >= 1.0.3
+Requires:         R-CRAN-nnet >= 7.3.16
+Requires:         R-CRAN-Hmisc >= 4.5.0
+Requires:         R-stats >= 4.1.0
+Requires:         R-CRAN-alabama >= 2015.3.1
+Requires:         R-CRAN-fastDummies >= 1.6.3
+Requires:         R-CRAN-maxLik >= 1.4.8
+Requires:         R-CRAN-matrixcalc >= 1.0.3
 
 %description
-Contains functions for data preparation, descriptives, hazard estimation
-and prediction with Aalen-Johansen or simulation in competing risks and
-multi-state models, see Putter, Fiocco, Geskus (2007)
-<doi:10.1002/sim.2712>.
+Provides routines to estimate the Mixture Transition Distribution Model
+based on Raftery (1985) <http://www.jstor.org/stable/2345788> and Nicolau
+(2014) <doi:10.1111/sjos.12087> specifications, for multivariate data.
+Additionally, provides a function for the estimation of a new model for
+multivariate non-homogeneous Markov chains. This new specification,
+Generalized Multivariate Markov Chains (GMMC) was proposed by Carolina
+Vasconcelos and Bruno Damasio and considers (continuous or discrete)
+covariates exogenous to the Markov chain.
 
 %prep
 %setup -q -c -n %{packname}

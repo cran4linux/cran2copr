@@ -1,51 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rsample
-%global packver   0.1.1
+%global packname  tidylab
+%global packver   4.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          4.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          General Resampling Infrastructure
+Summary:          Shared Infrastructure of 'Tidylab' Package Collection
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 0.4.10
-BuildRequires:    R-CRAN-vctrs >= 0.3.0
-BuildRequires:    R-CRAN-slider >= 0.1.5
-BuildRequires:    R-CRAN-ellipsis 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-rlang >= 0.4.10
-Requires:         R-CRAN-vctrs >= 0.3.0
-Requires:         R-CRAN-slider >= 0.1.5
-Requires:         R-CRAN-ellipsis 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-methods 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-tibble >= 3.1.0
+BuildRequires:    R-CRAN-cli >= 2.4.0
+BuildRequires:    R-CRAN-crayon >= 1.4.1
+BuildRequires:    R-CRAN-dplyr >= 1.0.5
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+BuildRequires:    R-CRAN-rstudioapi >= 0.13
+BuildRequires:    R-CRAN-decorators 
+BuildRequires:    R-CRAN-microservices 
+BuildRequires:    R-CRAN-usethat 
+Requires:         R-CRAN-tibble >= 3.1.0
+Requires:         R-CRAN-cli >= 2.4.0
+Requires:         R-CRAN-crayon >= 1.4.1
+Requires:         R-CRAN-dplyr >= 1.0.5
+Requires:         R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-rstudioapi >= 0.13
+Requires:         R-CRAN-decorators 
+Requires:         R-CRAN-microservices 
+Requires:         R-CRAN-usethat 
 
 %description
-Classes and functions to create and summarize different types of
-resampling objects (e.g. bootstrap, cross-validation).
+Selection of packages designed to be loaded in concert. The 'tidylab'
+package collection revolves around project development and deployment. The
+purpose of this is to make it easy to install and subsequently load those
+packages.
 
 %prep
 %setup -q -c -n %{packname}

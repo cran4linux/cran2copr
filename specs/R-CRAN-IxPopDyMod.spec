@@ -1,51 +1,48 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rsample
-%global packver   0.1.1
+%global packname  IxPopDyMod
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          General Resampling Infrastructure
+Summary:          Framework for Tick Population and Infection Modeling
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.2.4
+Requires:         R-core >= 3.2.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 0.4.10
-BuildRequires:    R-CRAN-vctrs >= 0.3.0
-BuildRequires:    R-CRAN-slider >= 0.1.5
-BuildRequires:    R-CRAN-ellipsis 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-rlang >= 0.4.10
-Requires:         R-CRAN-vctrs >= 0.3.0
-Requires:         R-CRAN-slider >= 0.1.5
-Requires:         R-CRAN-ellipsis 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-methods 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-tibble 
 
 %description
-Classes and functions to create and summarize different types of
-resampling objects (e.g. bootstrap, cross-validation).
+Code to specify, run, and then visualize and analyze the results of
+Ixodidae (hard-bodied ticks) population and infection dynamics models.
+Such models exist in the literature, but the source code to run them is
+not always available. 'IxPopDyMod' provides an easy way for these models
+to be written and shared.
 
 %prep
 %setup -q -c -n %{packname}
