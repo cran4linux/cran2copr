@@ -1,30 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  biblio
-%global packver   0.0.4
+%global packname  GLIDE
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interacting with BibTeX Databases
+Summary:          Global and Individual Tests for Direct Effects
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-yamlme 
-Requires:         R-methods 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-yamlme 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
 
 %description
-Reading and writing BibTeX files using data frames in R sessions.
+Functions evaluate global and individual tests for direct effects in
+Mendelian randomization studies. Methods used in the package refer to J.
+Y. Dai, U. Peters, X. Wang, J. Kocarnik et al. (2018)
+<doi:10.1093/aje/kwy177>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  EpiModel
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mathematical Modeling of Infectious Disease Dynamics
 
@@ -18,7 +18,6 @@ Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-statnet.common >= 4.4.0
 BuildRequires:    R-CRAN-tergm >= 4.0
 BuildRequires:    R-CRAN-ergm >= 4.0
-BuildRequires:    R-CRAN-tergmLite >= 2.5.0
 BuildRequires:    R-CRAN-deSolve >= 1.21
 BuildRequires:    R-CRAN-network >= 1.17
 BuildRequires:    R-CRAN-networkDynamic >= 0.10
@@ -32,10 +31,13 @@ BuildRequires:    R-CRAN-RColorBrewer
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-lazyeval 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-statnet.common >= 4.4.0
 Requires:         R-CRAN-tergm >= 4.0
 Requires:         R-CRAN-ergm >= 4.0
-Requires:         R-CRAN-tergmLite >= 2.5.0
 Requires:         R-CRAN-deSolve >= 1.21
 Requires:         R-CRAN-network >= 1.17
 Requires:         R-CRAN-networkDynamic >= 0.10
@@ -49,6 +51,9 @@ Requires:         R-CRAN-RColorBrewer
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-lazyeval 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tibble 
+Requires:         R-methods 
+Requires:         R-CRAN-dplyr 
 
 %description
 Tools for simulating mathematical models of infectious disease dynamics.
@@ -69,6 +74,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

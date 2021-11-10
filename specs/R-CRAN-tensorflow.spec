@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tensorflow
-%global packver   2.6.0
+%global packver   2.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.0
+Version:          2.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'TensorFlow'
 
@@ -19,7 +19,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-reticulate >= 1.10
 BuildRequires:    R-CRAN-tfruns >= 1.0
 BuildRequires:    R-CRAN-rstudioapi >= 0.7
-BuildRequires:    R-CRAN-tfautograph >= 0.3
+BuildRequires:    R-CRAN-tfautograph >= 0.3.1
 BuildRequires:    R-CRAN-config 
 BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-utils 
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-yaml
 Requires:         R-CRAN-reticulate >= 1.10
 Requires:         R-CRAN-tfruns >= 1.0
 Requires:         R-CRAN-rstudioapi >= 0.7
-Requires:         R-CRAN-tfautograph >= 0.3
+Requires:         R-CRAN-tfautograph >= 0.3.1
 Requires:         R-CRAN-config 
 Requires:         R-CRAN-processx 
 Requires:         R-utils 

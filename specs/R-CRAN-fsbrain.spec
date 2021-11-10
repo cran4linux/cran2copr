@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fsbrain
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Managing and Visualizing Brain Surface Data
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-freesurferformats >= 0.1.14
+BuildRequires:    R-CRAN-freesurferformats >= 0.1.16
 BuildRequires:    R-CRAN-pkgfilecache >= 0.1.1
 BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-CRAN-rgl 
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-viridis
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-freesurferformats >= 0.1.14
+Requires:         R-CRAN-freesurferformats >= 0.1.16
 Requires:         R-CRAN-pkgfilecache >= 0.1.1
 Requires:         R-CRAN-reshape 
 Requires:         R-CRAN-rgl 

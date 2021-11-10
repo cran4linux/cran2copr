@@ -1,30 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  biblio
-%global packver   0.0.4
+%global packname  pliman
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interacting with BibTeX Databases
+Summary:          Tools for Plant Image Analysis
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-yamlme 
-Requires:         R-methods 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-yamlme 
+BuildRequires:    R-CRAN-lattice 
+Requires:         R-CRAN-lattice 
 
 %description
-Reading and writing BibTeX files using data frames in R sessions.
+Provides tools for image manipulation that will help you to quantify plant
+leaf area, disease severity, number of disease lesions, and obtain
+statistics of image objects such as grains, pods, pollen, leaves, and
+more. Tools for segment images and create binary images using the method
+of automatic threshold selection method proposed by Otsu (1979)
+<doi:10.1109/tsmc.1979.4310076> are also provided.
 
 %prep
 %setup -q -c -n %{packname}

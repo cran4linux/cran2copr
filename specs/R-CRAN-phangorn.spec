@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  phangorn
-%global packver   2.7.1
+%global packver   2.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.1
+Version:          2.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Phylogenetic Reconstruction and Analysis
 
@@ -13,32 +13,30 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-ape >= 5.5
-BuildRequires:    R-CRAN-Rcpp >= 1.0.4
 BuildRequires:    R-CRAN-igraph >= 1.0
 BuildRequires:    R-CRAN-fastmatch 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ape >= 5.5
-Requires:         R-CRAN-Rcpp >= 1.0.4
 Requires:         R-CRAN-igraph >= 1.0
 Requires:         R-CRAN-fastmatch 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-parallel 
 Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-utils 
 

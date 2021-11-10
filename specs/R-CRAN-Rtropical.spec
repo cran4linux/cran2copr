@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  biblio
-%global packver   0.0.4
+%global packname  Rtropical
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interacting with BibTeX Databases
+Summary:          Data Analysis Tools over Space of Phylogenetic Trees Using Tropical Geometry
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,15 +16,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-yamlme 
-Requires:         R-methods 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-yamlme 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-lpSolve 
+BuildRequires:    R-CRAN-lpSolveAPI 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-RcppAlgos 
+BuildRequires:    R-CRAN-caret 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-lpSolve 
+Requires:         R-CRAN-lpSolveAPI 
+Requires:         R-parallel 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-RcppAlgos 
+Requires:         R-CRAN-caret 
 
 %description
-Reading and writing BibTeX files using data frames in R sessions.
+Process phylogenetic trees with tropical support vector machine and
+principal component analysis defined with tropical geometry. Details about
+tropical support vector machine are available in : Tang, X., Wang, H. &
+Yoshida, R. (2020) <arXiv:2003.00677>. Details about tropical principle
+component analysis are available in : Page, R., Yoshida, R. & Zhang L.
+(2020) <doi:10.1093/bioinformatics/btaa564> and Yoshida, R., Zhang, L. &
+Zhang, X. (2019) <doi:10.1007/s11538-018-0493-4>.
 
 %prep
 %setup -q -c -n %{packname}

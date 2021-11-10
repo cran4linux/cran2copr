@@ -1,30 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  biblio
-%global packver   0.0.4
+%global packname  HierPortfolios
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interacting with BibTeX Databases
+Summary:          Hierarchical Clustering-Based Portfolio Allocation Strategies
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-yamlme 
-Requires:         R-methods 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-yamlme 
+BuildRequires:    R-CRAN-fastcluster 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-RiskPortfolios 
+Requires:         R-CRAN-fastcluster 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-RiskPortfolios 
 
 %description
-Reading and writing BibTeX files using data frames in R sessions.
+Machine learning portfolio allocation strategies based on hierarchical
+clustering methods. The implemented methods are: Hierarchical risk parity
+(De Prado, 2016) <DOI: 10.3905/jpm.2016.42.4.059> and Hierarchical
+clustering-based asset allocation (Raffinot, 2017) <DOI:
+10.3905/jpm.2018.44.2.089>.
 
 %prep
 %setup -q -c -n %{packname}

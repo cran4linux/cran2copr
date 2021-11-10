@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  wehoop
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Access Women's Basketball Play by Play Data
 
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-RcppParallel >= 5.1.4
 BuildRequires:    R-CRAN-usethis >= 1.6.0
 BuildRequires:    R-CRAN-stringr >= 1.3.0
 BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-cli >= 1.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-rvest >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
@@ -37,7 +36,6 @@ Requires:         R-CRAN-RcppParallel >= 5.1.4
 Requires:         R-CRAN-usethis >= 1.6.0
 Requires:         R-CRAN-stringr >= 1.3.0
 Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-cli >= 1.1.0
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-rvest >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ClimMobTools
-%global packver   0.3.9
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.9
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          API Client for the 'ClimMob' Platform
 
@@ -23,6 +23,8 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-climatrends 
 Requires:         R-CRAN-PlackettLuce 
 Requires:         R-CRAN-httr 
@@ -30,6 +32,8 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-sf 
+Requires:         R-utils 
 
 %description
 API client for 'ClimMob', an open source software for experimental
@@ -51,6 +55,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,30 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  biblio
+%global packname  drugprepr
 %global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interacting with BibTeX Databases
+Summary:          Prepare Electronic Prescription Record Data to Estimate Drug Exposure
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-doseminer 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-sqldf 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-yamlme 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-DescTools 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-doseminer 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-sqldf 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-yamlme 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-DescTools 
 
 %description
-Reading and writing BibTeX files using data frames in R sessions.
+Prepare prescription data (such as from the Clinical Practice Research
+Datalink) into an analysis-ready format, with start and stop dates for
+each patient's prescriptions. Based on Pye et al (2018)
+<doi:10.1002/pds.4440>.
 
 %prep
 %setup -q -c -n %{packname}

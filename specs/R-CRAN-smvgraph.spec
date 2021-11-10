@@ -1,30 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  biblio
-%global packver   0.0.4
+%global packname  smvgraph
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interacting with BibTeX Databases
+Summary:          Various Multivariate Graphics with Variable Choice in Shiny Apps
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-yamlme 
-Requires:         R-methods 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-yamlme 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-fmsb 
+BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-sortable 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-fmsb 
+Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-sortable 
 
 %description
-Reading and writing BibTeX files using data frames in R sessions.
+Mosaic diagram, scatterplot matrix, Andrews curves, parallel coordinate
+diagram, radar diagram, and Chernoff plots as a Shiny app, which allow the
+order of variables to be changed interactively. The apps are intended as
+teaching examples.
 
 %prep
 %setup -q -c -n %{packname}

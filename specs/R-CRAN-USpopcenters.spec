@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  USpopcenters
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          United States Centers of Population (Centroids)
 
@@ -18,7 +18,7 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 
 %description
-Center of population (centroid) data for census areas in the United
+Centers of population (centroid) data for census areas in the United
 States.
 
 %prep

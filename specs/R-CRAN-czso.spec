@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  czso
-%global packver   0.3.5
+%global packver   0.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.3.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Use Open Data from the Czech Statistical Office in R
 
@@ -22,7 +22,6 @@ BuildRequires:    R-utils >= 3.6.0
 BuildRequires:    R-CRAN-tibble >= 2.1.3
 BuildRequires:    R-CRAN-jsonlite >= 1.6
 BuildRequires:    R-CRAN-usethis >= 1.5.1
-BuildRequires:    R-CRAN-stringi >= 1.4.4
 BuildRequires:    R-CRAN-httr >= 1.4.1
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-readr >= 1.3.1
@@ -36,7 +35,6 @@ Requires:         R-utils >= 3.6.0
 Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-jsonlite >= 1.6
 Requires:         R-CRAN-usethis >= 1.5.1
-Requires:         R-CRAN-stringi >= 1.4.4
 Requires:         R-CRAN-httr >= 1.4.1
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-readr >= 1.3.1
