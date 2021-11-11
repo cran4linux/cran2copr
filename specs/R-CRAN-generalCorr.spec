@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  generalCorr
-%global packver   1.1.9
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.9
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Correlations and Various Causal Paths
+Summary:          Generalized Correlations, Causal Paths and Portfolio Selection
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -44,11 +44,13 @@ outlier detection, bigfp() for numerical integration by the trapezoidal
 rule, stochdom2() for stochastic dominance, pillar3D() for 3D charts,
 canonRho() for generalized canonical correlations, depMeas() measures
 nonlinear dependence, and causeSummary(mtx) reports summary of causal
-paths among matrix columns is easiest to use. Several functions whose
-names begin with 'boot' provide bootstrap statistical inference including
-a new bootGcRsq() test for "Granger-causality" allowing nonlinear
-relations. See five vignettes of the package for theory and usage tips.
-See Vinod (2019) doi{10.1080/03610918.2015.1122048}.
+paths among matrix columns is easiest to use. Portfolio selection:
+decileVote(), momentVote(), dif4mtx(), exactSdMtx() can rank several
+stocks. Several functions whose names begin with 'boot' provide bootstrap
+statistical inference including a new bootGcRsq() test for
+"Granger-causality" allowing nonlinear relations. See five vignettes of
+the package for theory and usage tips. See Vinod (2019)
+doi{10.1080/03610918.2015.1122048}.
 
 %prep
 %setup -q -c -n %{packname}

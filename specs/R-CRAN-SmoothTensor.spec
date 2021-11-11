@@ -1,26 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  corrplot
-%global packver   0.91
+%global packname  SmoothTensor
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.91
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualization of a Correlation Matrix
+Summary:          A Collection of Smooth Tensor Estimation Methods
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-rTensor 
+Requires:         R-methods 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-rTensor 
 
 %description
-Provides a visual exploratory tool on correlation matrix that supports
-automatic variable reordering to help detect hidden patterns among
-variables.
+A list of methods for estimating a smooth tensor with an unknown
+permutation. It also contains several multi-variate functions for
+generating permuted signal tensors and corresponding observed tensors. For
+a detailed introduction for the model and estimation techniques, see the
+paper by Chanwoo Lee and Miaoyan Wang (2021) "Smooth tensor estimation
+with unknown permutations" <arXiv:2105.01783>.
 
 %prep
 %setup -q -c -n %{packname}

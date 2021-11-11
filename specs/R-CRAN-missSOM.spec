@@ -1,26 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  corrplot
-%global packver   0.91
+%global packname  missSOM
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.91
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualization of a Correlation Matrix
+Summary:          Self-Organizing Maps with Built-in Missing Data Imputation
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-CRAN-kpodclustr 
+Requires:         R-CRAN-Rcpp >= 0.12.12
+Requires:         R-CRAN-kpodclustr 
 
 %description
-Provides a visual exploratory tool on correlation matrix that supports
-automatic variable reordering to help detect hidden patterns among
-variables.
+The Self-Organizing Maps with Built-in Missing Data Imputation. Missing
+values are imputed and regularly updated during the online Kohonen
+algorithm. Our method can be used for data visualisation, clustering or
+imputation of missing data. It is an extension of the online algorithm of
+the 'kohonen' package.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,26 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  corrplot
-%global packver   0.91
+%global packname  hetsurr
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.91
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualization of a Correlation Matrix
+Summary:          Assessing Heterogeneity in the Utility of a Surrogate Marker
 
-License:          MIT + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rsurrogate 
+BuildRequires:    R-graphics 
+Requires:         R-stats 
+Requires:         R-CRAN-Rsurrogate 
+Requires:         R-graphics 
 
 %description
-Provides a visual exploratory tool on correlation matrix that supports
-automatic variable reordering to help detect hidden patterns among
-variables.
+Provides a function to assess and test for heterogeneity in the utility of
+a surrogate marker with respect to a baseline covariate. The main function
+can be used for either a continuous or discrete baseline covariate. More
+details will be available in the future in: Parast, L., Cai, T., Tian L
+(2021). "Testing for Heterogeneity in the Utility of a Surrogate Marker."
+Biometrics, In press.
 
 %prep
 %setup -q -c -n %{packname}

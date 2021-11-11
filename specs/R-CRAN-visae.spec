@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  visae
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization of Adverse Events
 
@@ -38,10 +38,10 @@ Requires:         R-CRAN-rlang >= 0.4.6
 Requires:         R-CRAN-DT >= 0.13
 
 %description
-Implementation of Shiny app to visualize adverse events based on the
-Common Terminology Criteria for Adverse Events using stacked
-correspondence analysis as described in Diniz et. al (2021)
-<arXiv:2101.03454>.
+Implementation of 'shiny' app to visualize adverse events based on the
+Common Terminology Criteria for Adverse Events (CTCAE) using stacked
+correspondence analysis as described in Diniz et. al
+(2021)<doi:10.1186/s12874-021-01368-w>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,6 +51,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

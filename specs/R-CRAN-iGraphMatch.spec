@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  iGraphMatch
-%global packver   1.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools Graph Matching
+Summary:          Tools for Graph Matching
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -29,12 +29,9 @@ Requires:         R-methods
 Requires:         R-CRAN-Rcpp 
 
 %description
-Graph matching methods and analysis. The package works for both 'igraph'
-objects and matrix objects. You provide the adjacency matrices of two
-graphs and some other information you might know, choose the graph
-matching method, and it returns the graph matching results. 'iGraphMatch'
-also provides a bunch of useful functions you might need related to graph
-matching.
+Versatile tools and data for graph matching analysis with various forms of
+prior information that supports working with 'igraph' objects, matrix
+objects, or lists of either.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +41,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

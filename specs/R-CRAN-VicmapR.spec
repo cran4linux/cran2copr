@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  VicmapR
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Victorian Spatial Data Through Web File Services (WFS)
 
@@ -29,6 +29,8 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-lubridate 
 Requires:         R-CRAN-sf >= 0.7
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-httr 
@@ -42,6 +44,8 @@ Requires:         R-CRAN-glue
 Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-lubridate 
 
 %description
 Easily interfaces R to spatial datasets available through the Victorian

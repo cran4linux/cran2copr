@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rfishbase
-%global packver   3.1.9
+%global packver   3.1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.9
+Version:          3.1.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'FishBase'
 
@@ -16,13 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-readr >= 2.0.0
 BuildRequires:    R-CRAN-arkdb >= 0.0.12
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-stringr 
@@ -33,13 +33,14 @@ BuildRequires:    R-CRAN-curl
 BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-openssl 
+Requires:         R-CRAN-readr >= 2.0.0
 Requires:         R-CRAN-arkdb >= 0.0.12
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-stringr 
@@ -50,6 +51,7 @@ Requires:         R-CRAN-curl
 Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-openssl 
 
 %description
 A programmatic interface to 'FishBase', re-written based on an

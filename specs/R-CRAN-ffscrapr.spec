@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ffscrapr
-%global packver   1.4.6
+%global packver   1.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.6
+Version:          1.4.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          API Client for Fantasy Football League Platforms
 
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
 BuildRequires:    R-CRAN-memoise >= 2.0.0
 BuildRequires:    R-CRAN-jsonlite >= 1.6.0
-BuildRequires:    R-CRAN-lubridate >= 1.5.0
 BuildRequires:    R-CRAN-magrittr >= 1.5.0
 BuildRequires:    R-CRAN-httr >= 1.4.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
@@ -38,7 +37,6 @@ Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-checkmate >= 2.0.0
 Requires:         R-CRAN-memoise >= 2.0.0
 Requires:         R-CRAN-jsonlite >= 1.6.0
-Requires:         R-CRAN-lubridate >= 1.5.0
 Requires:         R-CRAN-magrittr >= 1.5.0
 Requires:         R-CRAN-httr >= 1.4.0
 Requires:         R-CRAN-stringr >= 1.4.0

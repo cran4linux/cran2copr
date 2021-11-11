@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  corrplot
-%global packver   0.91
+%global packname  ggpolar
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.91
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualization of a Correlation Matrix
+Summary:          Dots and Their Connections in Polar Coordinate System
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,11 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Provides a visual exploratory tool on correlation matrix that supports
-automatic variable reordering to help detect hidden patterns among
-variables.
+Provides basic graphing functions to fully demonstrate point-to-point
+connections in a polar coordinate space.
 
 %prep
 %setup -q -c -n %{packname}

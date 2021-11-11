@@ -1,26 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  corrplot
-%global packver   0.91
+%global packname  litRiddle
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.91
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualization of a Correlation Matrix
+Summary:          Dataset and Tools to Research the Riddle of Literary Quality
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Provides a visual exploratory tool on correlation matrix that supports
-automatic variable reordering to help detect hidden patterns among
-variables.
+Dataset and functions to explore quality of literary novels. The package
+is a part of the Riddle of Literary Quality project, and it contains the
+data of a reader survey about fiction in Dutch, a description of the
+novels the readers rated, and the results of stylistic measurements of the
+novels. The package also contains functions to combine, analyze, and
+visualize these data.
 
 %prep
 %setup -q -c -n %{packname}

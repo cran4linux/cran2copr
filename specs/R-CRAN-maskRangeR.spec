@@ -1,46 +1,55 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mlrCPO
-%global packver   0.3.7-3
+%global packname  maskRangeR
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Composable Preprocessing Operators and Pipelines for Machine Learning
+Summary:          Mask Species Geographic Ranges
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mlr >= 2.12
-BuildRequires:    R-CRAN-checkmate >= 1.8.3
-BuildRequires:    R-CRAN-BBmisc >= 1.11
-BuildRequires:    R-CRAN-ParamHelpers >= 1.10
-BuildRequires:    R-CRAN-backports >= 1.1.0
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-gdalUtils 
+BuildRequires:    R-CRAN-dismo 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-maptools 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-mlr >= 2.12
-Requires:         R-CRAN-checkmate >= 1.8.3
-Requires:         R-CRAN-BBmisc >= 1.11
-Requires:         R-CRAN-ParamHelpers >= 1.10
-Requires:         R-CRAN-backports >= 1.1.0
-Requires:         R-CRAN-stringi 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-virtualspecies 
+Requires:         R-CRAN-gdalUtils 
+Requires:         R-CRAN-dismo 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-maptools 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-sp 
 Requires:         R-stats 
+Requires:         R-CRAN-tidyverse 
 Requires:         R-utils 
+Requires:         R-CRAN-virtualspecies 
 
 %description
-Toolset that enriches 'mlr' with a diverse set of preprocessing operators.
-Composable Preprocessing Operators ("CPO"s) are first-class R objects that
-can be applied to data.frames and 'mlr' "Task"s to modify data, can be
-attached to 'mlr' "Learner"s to add preprocessing to machine learning
-algorithms, and can be composed to form preprocessing pipelines.
+Mask ranges based on expert knowledge or remote sensing layers. These
+tools can be combined to quantitatively and reproducibly generate a new
+map or to update an existing map. Methods include expert opinion and
+data-driven tools to generate thresholds for binary masks.
 
 %prep
 %setup -q -c -n %{packname}

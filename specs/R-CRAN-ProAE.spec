@@ -1,20 +1,20 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ProAE
-%global packver   0.1.2
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          PRO-CTCAE Data Management, Analysis, and Graphical Tools
+Summary:          PRO-CTCAE Scoring, Analysis, and Graphical Tools
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggnewscale 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-Hmisc
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ExactCIdiff 
 BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-gridExtra 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggnewscale 
 Requires:         R-CRAN-ggtext 
@@ -32,12 +33,17 @@ Requires:         R-CRAN-Hmisc
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ExactCIdiff 
 Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-gridExtra 
 
 %description
 A collection of tools to facilitate standardized analysis and graphical
 procedures when using the National Cancer Institute’s Patient-Reported
 Outcomes version of the Common Terminology Criteria for Adverse Events
-(PRO-CTCAE).
+(PRO-CTCAE). NOTE: Some tools here require additional packages be
+installed which are not available on CRAN at the time of this version
+update ('ProAE' v0.2.8). These packages and their respective repositories
+are listed here: 'ggpattern'
+<https://github.com/coolbutuseless/ggpattern>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +53,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
