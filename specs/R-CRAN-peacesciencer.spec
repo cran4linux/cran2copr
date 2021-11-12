@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  peacesciencer
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Various Tools and Data for Quantitative Peace Science
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stevemisc >= 1.1.0
+BuildRequires:    R-CRAN-stevemisc >= 1.3.0
 BuildRequires:    R-CRAN-bib2df 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
@@ -24,7 +24,8 @@ BuildRequires:    R-CRAN-geosphere
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-stevemisc >= 1.1.0
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-stevemisc >= 1.3.0
 Requires:         R-CRAN-bib2df 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
@@ -32,6 +33,7 @@ Requires:         R-CRAN-geosphere
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-lifecycle 
 
 %description
 These are useful tools and data sets for the study of quantitative peace

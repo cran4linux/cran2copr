@@ -1,42 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RJDemetra
-%global packver   0.1.9
+%global packname  sitree
+%global packver   0.1-11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.1.11
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'JDemetra+' Seasonal Adjustment Software
+Summary:          Single Tree Simulator
 
-License:          EUPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         java
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rJava >= 0.9.8
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-rJava >= 0.9.8
-Requires:         R-graphics 
-Requires:         R-grDevices 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-data.table 
 Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Interface around 'JDemetra+' (<https://github.com/jdemetra/jdemetra-app>),
-the seasonal adjustment software officially recommended to the members of
-the European Statistical System (ESS) and the European System of Central
-Banks. It offers full access to all options and outputs of 'JDemetra+',
-including the two leading seasonal adjustment methods TRAMO/SEATS+ and
-X-12ARIMA/X-13ARIMA-SEATS.
+Framework to build an individual tree simulator.
 
 %prep
 %setup -q -c -n %{packname}

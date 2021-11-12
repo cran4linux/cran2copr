@@ -1,58 +1,53 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fdapaceShiny
-%global packver   1.0.5
+%global packname  dataReporter
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Shiny App for the 'fdapace' Package
+Summary:          Reproducible Data Screening Checks and Report of Possible Errors
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.6.0
-BuildRequires:    R-CRAN-config >= 0.3.1
-BuildRequires:    R-CRAN-golem >= 0.3.1
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-fdapace 
+BuildRequires:    R-CRAN-rmarkdown >= 1.10
+BuildRequires:    R-CRAN-robustbase >= 0.93.2
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-bs4Dash 
-BuildRequires:    R-CRAN-shinyWidgets 
-BuildRequires:    R-CRAN-shinyjs 
-Requires:         R-CRAN-shiny >= 1.6.0
-Requires:         R-CRAN-config >= 0.3.1
-Requires:         R-CRAN-golem >= 0.3.1
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-fdapace 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-pander 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-whoami 
+Requires:         R-CRAN-rmarkdown >= 1.10
+Requires:         R-CRAN-robustbase >= 0.93.2
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-haven 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-bs4Dash 
-Requires:         R-CRAN-shinyWidgets 
-Requires:         R-CRAN-shinyjs 
+Requires:         R-methods 
+Requires:         R-CRAN-pander 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-whoami 
 
 %description
-Shiny app for the 'fdapace' package.
+Data screening is an important first step of any statistical analysis.
+'dataReporter' auto generates a customizable data report with a thorough
+summary of the checks and the results that a human can use to identify
+possible errors. It provides an extendable suite of test for common
+potential errors in a dataset. See Petersen AH, Ekstrøm CT (2019).
+"dataMaid: Your Assistant for Documenting Supervised Data Quality
+Screening in R." _Journal of Statistical Software_, *90*(6), 1-38
+<doi:10.18637/jss.v090.i06> for more information.
 
 %prep
 %setup -q -c -n %{packname}

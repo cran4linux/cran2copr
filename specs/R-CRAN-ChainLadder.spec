@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ChainLadder
-%global packver   0.2.13
+%global packver   0.2.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.13
+Version:          0.2.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods and Models for Claims Reserving in General Insurance
 
@@ -29,7 +29,6 @@ BuildRequires:    R-CRAN-systemfit
 BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
 Requires:         R-CRAN-cplm >= 0.7.3
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-actuar 
@@ -43,7 +42,6 @@ Requires:         R-CRAN-systemfit
 Requires:         R-CRAN-statmod 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
 
 %description
 Various statistical methods and models which are typically used for the

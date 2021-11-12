@@ -1,42 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RJDemetra
-%global packver   0.1.9
+%global packname  retrocombinator
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'JDemetra+' Seasonal Adjustment Software
+Summary:          Simulating the Molecular Evolutionary Process of Retrotransposon Recombination
 
-License:          EUPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         java
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rJava >= 0.9.8
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-rJava >= 0.9.8
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.17
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-Rcpp >= 0.12.17
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
 
 %description
-Interface around 'JDemetra+' (<https://github.com/jdemetra/jdemetra-app>),
-the seasonal adjustment software officially recommended to the members of
-the European Statistical System (ESS) and the European System of Central
-Banks. It offers full access to all options and outputs of 'JDemetra+',
-including the two leading seasonal adjustment methods TRAMO/SEATS+ and
-X-12ARIMA/X-13ARIMA-SEATS.
+An optimized framework to simulate the molecular evolutionary processes of
+retrotransposon evolution including extrachromosomal recombination.
 
 %prep
 %setup -q -c -n %{packname}

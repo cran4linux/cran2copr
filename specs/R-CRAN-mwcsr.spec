@@ -1,42 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RJDemetra
-%global packver   0.1.9
+%global packname  mwcsr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'JDemetra+' Seasonal Adjustment Software
+Summary:          Solvers for the Maximum Weight Connected Subgraph Problem and Its Variants
 
-License:          EUPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         java
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rJava >= 0.9.8
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-rJava >= 0.9.8
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Interface around 'JDemetra+' (<https://github.com/jdemetra/jdemetra-app>),
-the seasonal adjustment software officially recommended to the members of
-the European Statistical System (ESS) and the European System of Central
-Banks. It offers full access to all options and outputs of 'JDemetra+',
-including the two leading seasonal adjustment methods TRAMO/SEATS+ and
-X-12ARIMA/X-13ARIMA-SEATS.
+Algorithms for solving various Maximum Weight Connected Subgraph Problems,
+including variants with budget constraints, cardinality constraints,
+weighted edges and signals. The package represents an R interface to
+high-efficient solvers based on relax-and-cut approach (Álvarez-Miranda
+E., Sinnl M. (2017) <doi:10.1016/j.cor.2017.05.015>) mixed-integer
+programming (Loboda A., Artyomov M., and Sergushichev A. (2016)
+<doi:10.1007/978-3-319-43681-4_17>) and simulated annealing.
 
 %prep
 %setup -q -c -n %{packname}

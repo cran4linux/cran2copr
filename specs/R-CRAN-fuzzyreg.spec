@@ -1,42 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RJDemetra
-%global packver   0.1.9
+%global packname  fuzzyreg
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'JDemetra+' Seasonal Adjustment Software
+Summary:          Fuzzy Linear Regression
 
-License:          EUPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         java
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rJava >= 0.9.8
+BuildRequires:    R-CRAN-limSolve 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-rJava >= 0.9.8
+Requires:         R-CRAN-limSolve 
+Requires:         R-CRAN-quadprog 
+Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Interface around 'JDemetra+' (<https://github.com/jdemetra/jdemetra-app>),
-the seasonal adjustment software officially recommended to the members of
-the European Statistical System (ESS) and the European System of Central
-Banks. It offers full access to all options and outputs of 'JDemetra+',
-including the two leading seasonal adjustment methods TRAMO/SEATS+ and
-X-12ARIMA/X-13ARIMA-SEATS.
+Estimators for fuzzy linear regression. The functions estimate parameters
+of fuzzy linear regression models with crisp or fuzzy independent
+variables (triangular fuzzy numbers are supported). Implements multiple
+methods for parameter estimation and algebraic operations with triangular
+fuzzy numbers. Includes functions for summarising, printing and plotting
+the model fit. Calculates predictions from the model and total error of
+fit. Diamond (1988) <doi:10.1016/0020-0255(88)90047-3>, Hung & Yang (2006)
+<doi:10.1016/j.fss.2006.08.004>, Lee & Tanaka (1999)
+<doi:10.15807/jorsj.42.98>, Nasrabadi, Nasrabadi & Nasrabady (2005)
+<doi:10.1016/j.amc.2004.02.008>, Tanaka, Hayashi & Watada (1989)
+<doi:10.1016/0377-2217(89)90431-1>, Zeng, Feng & Li (2017)
+<doi:10.1016/j.asoc.2016.09.029>.
 
 %prep
 %setup -q -c -n %{packname}

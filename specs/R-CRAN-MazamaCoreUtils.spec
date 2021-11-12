@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MazamaCoreUtils
-%global packver   0.4.9
+%global packver   0.4.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.9
+Version:          0.4.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utility Functions for Production R Code
 
@@ -22,24 +22,24 @@ BuildRequires:    R-CRAN-digest
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-futile.logger 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-rvest 
 Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-futile.logger 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-rvest 
 
 %description
 A suite of utility functions providing functionality commonly needed for

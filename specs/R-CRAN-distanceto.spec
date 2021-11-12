@@ -1,42 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RJDemetra
-%global packver   0.1.9
+%global packname  distanceto
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'JDemetra+' Seasonal Adjustment Software
+Summary:          Calculate Distance to Features
 
-License:          EUPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         java
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rJava >= 0.9.8
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-rJava >= 0.9.8
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-nabor 
+BuildRequires:    R-CRAN-geodist 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-nabor 
+Requires:         R-CRAN-geodist 
 
 %description
-Interface around 'JDemetra+' (<https://github.com/jdemetra/jdemetra-app>),
-the seasonal adjustment software officially recommended to the members of
-the European Statistical System (ESS) and the European System of Central
-Banks. It offers full access to all options and outputs of 'JDemetra+',
-including the two leading seasonal adjustment methods TRAMO/SEATS+ and
-X-12ARIMA/X-13ARIMA-SEATS.
+Calculates distances from point locations to features. The usual approach
+for eg. resource selection function analyses is to generate a complete
+distance to features surface then sample it with your observed and random
+points. Since these raster based approaches can be pretty costly with
+large areas, and often lead to memory issues in R, the distanceto package
+opts to compute these distances using efficient, vector based approaches.
+As a helper, there's a decidedly low-res raster based approach for
+visually inspecting your region's distance surface. But the workhorse is
+distance_to.
 
 %prep
 %setup -q -c -n %{packname}

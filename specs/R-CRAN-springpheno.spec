@@ -1,42 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RJDemetra
-%global packver   0.1.9
+%global packname  springpheno
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'JDemetra+' Seasonal Adjustment Software
+Summary:          Spring Phenological Indices
 
-License:          EUPL
+License:          Unlimited
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         java
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rJava >= 0.9.8
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-rJava >= 0.9.8
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Interface around 'JDemetra+' (<https://github.com/jdemetra/jdemetra-app>),
-the seasonal adjustment software officially recommended to the members of
-the European Statistical System (ESS) and the European System of Central
-Banks. It offers full access to all options and outputs of 'JDemetra+',
-including the two leading seasonal adjustment methods TRAMO/SEATS+ and
-X-12ARIMA/X-13ARIMA-SEATS.
+Computes the extended spring indices (SI-x) and false spring exposure
+indices (FSEI). The SI-x indices are standard indices used for analysis in
+spring phenology studies. In addition, the FSEI is also from research on
+the climatology of false springs and adjusted to include an early and late
+false spring exposure index. The indices include the first leaf index,
+first bloom index, and false spring exposure indices, along with all
+calculations for all functions needed to calculate each index. The main
+function returns all indices, but each function can also be run
+separately. Allstadt et al. (2015) <doi: 10.1088/1748-9326/10/10/104008>
+Ault et al. (2015) <doi: 10.1016/j.cageo.2015.06.015> Peterson and
+Abatzoglou (2014) <doi: 10.1002/2014GL059266> Schwarz et al. (2006) <doi:
+10.1111/j.1365-2486.2005.01097.x> Schwarz et al. (2013) <doi:
+10.1002/joc.3625>.
 
 %prep
 %setup -q -c -n %{packname}
