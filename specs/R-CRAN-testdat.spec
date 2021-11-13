@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rgho
-%global packver   2.0.1
+%global packname  testdat
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access WHO Global Health Observatory Data from R
+Summary:          Data Unit Testing for R
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,35 +16,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.2
 Requires:         R-core >= 3.2.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-testthat >= 2.0.0
+BuildRequires:    R-CRAN-dplyr >= 0.8.0
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-testthat >= 2.0.0
+Requires:         R-CRAN-dplyr >= 0.8.0
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Access WHO Global Health Observatory (<https://www.who.int/data/gho/>)
-data from R via the Athena web service
-(<https://apps.who.int/gho/data/node.resources.api>), an application
-program interface providing a simple query interface to the World Health
-Organization's data and statistics content.
+Test your data! An extension of the 'testthat' unit testing framework with
+a family of functions and reporting tools for checking and validating data
+frames.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,6 +44,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

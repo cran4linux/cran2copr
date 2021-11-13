@@ -1,34 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  sdm
-%global packver   1.1-8
+%global packname  googlePubsubR
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.8
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Species Distribution Modelling
+Summary:          R Interface for Google 'Cloud Pub/Sub' REST API
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-raster 
-Requires:         R-methods 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-raster 
+BuildRequires:    R-CRAN-googleAuthR >= 0.3
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-googleAuthR >= 0.3
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-magrittr 
 
 %description
-An extensible framework for developing species distribution models using
-individual and community-based approaches, generate ensembles of models,
-evaluate the models, and predict species potential distributions in space
-and time. For more information, please check the following paper: Naimi,
-B., Araujo, M.B. (2016) <doi:10.1111/ecog.01881>.
+Provides an easy to use interface to the 'Google Pub/Sub' REST API
+<https://cloud.google.com/pubsub/docs/reference/rest>.
 
 %prep
 %setup -q -c -n %{packname}

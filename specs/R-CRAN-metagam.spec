@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  FKF.SP
-%global packver   0.1.3
+%global packname  metagam
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Kalman Filtering Through Sequential Processing
+Summary:          Meta-Analysis of Generalized Additive Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,23 +15,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-mathjaxr 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-mathjaxr 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-curl 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-metafor 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-metafor 
+Requires:         R-CRAN-rlang 
 
 %description
-Fast and flexible Kalman filtering implementation utilizing sequential
-processing, designed for efficient parameter estimation through maximum
-likelihood estimation. Sequential processing is a univariate treatment of
-a multivariate series of observations and can benefit from computational
-efficiency over traditional Kalman filtering when independence is assumed
-in the variance of the disturbances of the measurement equation.
-Sequential processing is described in the textbook of Durbin and Koopman
-(2001, ISBN:978-0-19-964117-8). 'FKF.SP' was built upon the existing 'FKF'
-package and is, in general, a faster Kalman filter.
+Meta-analysis of generalized additive models and generalized additive
+mixed models. A typical use case is when data cannot be shared across
+locations, and an overall meta-analytic fit is sought. 'metagam' provides
+functionality for removing individual participant data from models
+computed using the 'mgcv' and 'gamm4' packages such that the model objects
+can be shared without exposing individual data. Furthermore, methods for
+meta-analysing these fits are provided. The implemented methods are
+described in Sorensen et al. (2020),
+<doi:10.1016/j.neuroimage.2020.117416>, extending previous works by
+Schwartz and Zanobetti (2000) and Crippa et al. (2018)
+<doi:10.6000/1929-6029.2018.07.02.1>.
 
 %prep
 %setup -q -c -n %{packname}

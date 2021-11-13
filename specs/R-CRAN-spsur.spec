@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spsur
-%global packver   1.0.1.9
+%global packver   1.0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1.9
+Version:          1.0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Seemingly Unrelated Regression Models
 
@@ -19,41 +19,41 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3.54
 BuildRequires:    R-methods >= 4.1
 BuildRequires:    R-stats >= 4.1
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.4
-BuildRequires:    R-CRAN-car >= 3.0.10
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
+BuildRequires:    R-CRAN-car >= 3.0.12
 BuildRequires:    R-CRAN-numDeriv >= 2016.8.1.1
-BuildRequires:    R-CRAN-rmarkdown >= 2.9
 BuildRequires:    R-CRAN-gridExtra >= 2.3
 BuildRequires:    R-CRAN-gmodels >= 2.18.1
+BuildRequires:    R-CRAN-rmarkdown >= 2.11
 BuildRequires:    R-CRAN-Rdpack >= 2.1.2
-BuildRequires:    R-CRAN-knitr >= 1.33
+BuildRequires:    R-CRAN-knitr >= 1.36
 BuildRequires:    R-CRAN-Matrix >= 1.3.4
 BuildRequires:    R-CRAN-Formula >= 1.2.4
 BuildRequires:    R-CRAN-minqa >= 1.2.4
-BuildRequires:    R-CRAN-spatialreg >= 1.1.8
-BuildRequires:    R-CRAN-spdep >= 1.1.8
-BuildRequires:    R-CRAN-lmtest >= 0.9.38
-BuildRequires:    R-CRAN-rlang >= 0.4.11
-BuildRequires:    R-CRAN-sparseMVN >= 0.2.1.1
+BuildRequires:    R-CRAN-spatialreg >= 1.2.1
+BuildRequires:    R-CRAN-spdep >= 1.1.12
+BuildRequires:    R-CRAN-lmtest >= 0.9.39
+BuildRequires:    R-CRAN-rlang >= 0.4.12
+BuildRequires:    R-CRAN-sparseMVN >= 0.2.2
 Requires:         R-CRAN-MASS >= 7.3.54
 Requires:         R-methods >= 4.1
 Requires:         R-stats >= 4.1
-Requires:         R-CRAN-ggplot2 >= 3.3.4
-Requires:         R-CRAN-car >= 3.0.10
+Requires:         R-CRAN-ggplot2 >= 3.3.5
+Requires:         R-CRAN-car >= 3.0.12
 Requires:         R-CRAN-numDeriv >= 2016.8.1.1
-Requires:         R-CRAN-rmarkdown >= 2.9
 Requires:         R-CRAN-gridExtra >= 2.3
 Requires:         R-CRAN-gmodels >= 2.18.1
+Requires:         R-CRAN-rmarkdown >= 2.11
 Requires:         R-CRAN-Rdpack >= 2.1.2
-Requires:         R-CRAN-knitr >= 1.33
+Requires:         R-CRAN-knitr >= 1.36
 Requires:         R-CRAN-Matrix >= 1.3.4
 Requires:         R-CRAN-Formula >= 1.2.4
 Requires:         R-CRAN-minqa >= 1.2.4
-Requires:         R-CRAN-spatialreg >= 1.1.8
-Requires:         R-CRAN-spdep >= 1.1.8
-Requires:         R-CRAN-lmtest >= 0.9.38
-Requires:         R-CRAN-rlang >= 0.4.11
-Requires:         R-CRAN-sparseMVN >= 0.2.1.1
+Requires:         R-CRAN-spatialreg >= 1.2.1
+Requires:         R-CRAN-spdep >= 1.1.12
+Requires:         R-CRAN-lmtest >= 0.9.39
+Requires:         R-CRAN-rlang >= 0.4.12
+Requires:         R-CRAN-sparseMVN >= 0.2.2
 
 %description
 A collection of functions to test and estimate Seemingly Unrelated
@@ -79,6 +79,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ractivecampaign
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Loading Data from 'ActiveCampaign API v3'
 
@@ -22,12 +22,14 @@ BuildRequires:    R-CRAN-pbapply
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-retry 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-retry 
 
 %description
 Interface for loading data from 'ActiveCampaign API v3'

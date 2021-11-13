@@ -1,29 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  spfilteR
-%global packver   1.1.1
+%global packname  OneSampleMR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Semiparametric Spatial Filtering with Eigenvectors in (Generalized) Linear Models
+Summary:          One Sample Mendelian Randomization and Instrumental Variable Analyses
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-gmm 
+BuildRequires:    R-CRAN-ivreg 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-msm 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-gmm 
+Requires:         R-CRAN-ivreg 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-msm 
 
 %description
-Tools to decompose (transformed) spatial connectivity matrices and perform
-supervised or unsupervised semiparametric spatial filtering in a
-regression framework. The package supports unsupervised spatial filtering
-in standard linear as well as some generalized linear regression models.
+Useful functions for one-sample (individual level data) Mendelian
+randomization and instrumental variable analyses. The package includes
+implementations of; the Sanderson and Windmeijer (2016)
+<doi:10.1016/j.jeconom.2015.06.004> conditional F-statistic, the
+multiplicative structural mean model Hernán and Robins (2006)
+<doi:10.1097/01.ede.0000222409.00878.37>, and two-stage predictor
+substitution and two-stage residual inclusion estimators explained by
+Terza et al. (2008) <doi:10.1016/j.jhealeco.2007.09.009>.
 
 %prep
 %setup -q -c -n %{packname}

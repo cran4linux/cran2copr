@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  susieR
-%global packver   0.11.84
+%global packver   0.11.92
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.84
+Version:          0.11.92
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sum of Single Effects Linear Regression
 
@@ -40,7 +40,8 @@ Requires:         R-CRAN-ggplot2
 %description
 Implements methods for variable selection in linear regression based on
 the "Sum of Single Effects" (SuSiE) model, as described in Wang et al
-(2020) <DOI:10.1101/501114>. These methods provide simple summaries,
+(2020) <DOI:10.1101/501114> and Zou et al (2021)
+<DOI:10.1101/2021.11.03.467167>. These methods provide simple summaries,
 called "Credible Sets", for accurately quantifying uncertainty in which
 variables should be selected. The methods are motivated by genetic
 fine-mapping applications, and are particularly well-suited to settings
