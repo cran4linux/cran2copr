@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  metagam
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Meta-Analysis of Generalized Additive Models
 
@@ -18,12 +18,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-metafor 
 Requires:         R-CRAN-rlang 
 
