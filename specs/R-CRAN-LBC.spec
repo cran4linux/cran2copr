@@ -1,32 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dineR
-%global packver   1.0.1
+%global packname  LBC
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Differential Network Estimation in R
+Summary:          Logistic Box Cox
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-An efficient and convenient set of functions to perform differential
-network estimation through the use of alternating direction method of
-multipliers optimization with a variety of loss functions.
+The logistic Box-Cox model is a formal method, which can accommodate the
+non-linear relationship between the log-odds and exposure via a shape
+parameter. Thus, it is superior to the common two-step approach, which
+adds a data transformation step before fitting a logistic regression model
+to accommodate any non-linearity in the disease-exposure relationship.
+This package includes key functions in our model and dataset for
+simulation. Simulation experiments can be reproduced following the
+Vignette.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dineR
-%global packver   1.0.1
+%global packname  MultipleRegression
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Differential Network Estimation in R
+Summary:          Multiple Regression Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,17 +16,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-crayon 
+Requires:         R-CRAN-crayon 
 
 %description
-An efficient and convenient set of functions to perform differential
-network estimation through the use of alternating direction method of
-multipliers optimization with a variety of loss functions.
+Tools to analysis of experiments having two or more quantitative
+explanatory variables and one quantitative dependent variable. Experiments
+can be without repetitions or with a statistical design (Hair JF, 2016)
+<ISBN: 13: 978-0138132637>. Pacote para uma analise de experimentos
+havendo duas ou mais variaveis explicativas quantitativas e uma variavel
+dependente quantitativa. Os experimentos podem ser sem repeticoes ou com
+delineamento estatistico (Hair JF, 2016) <ISBN: 13: 978-0138132637>.
 
 %prep
 %setup -q -c -n %{packname}

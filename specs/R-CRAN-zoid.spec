@@ -1,39 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fritools
-%global packver   2.4.0
+%global packname  zoid
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for the Forest Research Institute of the State Baden-Wuerttemberg
+Summary:          Bayesian Zero-and-One Inflated Dirichlet Regression Modelling
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
+BuildRequires:    R-CRAN-rstan >= 2.18.1
+BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
+BuildRequires:    R-CRAN-rstantools >= 2.1.1
+BuildRequires:    R-CRAN-BH >= 1.66.0
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-compositions 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-RcppParallel >= 5.0.1
+Requires:         R-CRAN-rstan >= 2.18.1
+Requires:         R-CRAN-rstantools >= 2.1.1
+Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-compositions 
+Requires:         R-CRAN-rstantools
 
 %description
-Miscellaneous utilities, tools and helper functions for finding and
-searching files on disk, searching for and removing R objects from the
-workspace. These are utilities for packages
-<https://CRAN.R-project.org/package=cleanr>,
-<https://CRAN.R-project.org/package=document>,
-<https://CRAN.R-project.org/package=fakemake>,
-<https://CRAN.R-project.org/package=packager> and
-<https://CRAN.R-project.org/package=rasciidoc>. Does not import or depend
-on any third party package, but on core R only (i.e. it may depend on
-packages with priority 'base').
+Fits Dirichlet regression and zero-and-one inflated Dirichlet regression
+with Bayesian methods implemented in Stan. These models are sometimes
+referred to as trinomial mixture models; covariates and overdispersion can
+optionally be included.
 
 %prep
 %setup -q -c -n %{packname}

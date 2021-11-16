@@ -1,32 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dineR
-%global packver   1.0.1
+%global packname  mt
+%global packver   2.0-1.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.1.18
 Release:          1%{?dist}%{?buildtag}
-Summary:          Differential Network Estimation in R
+Summary:          Metabolomics Data Analysis Toolbox
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-class 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-pls 
+BuildRequires:    R-CRAN-ellipse 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-latticeExtra 
+Requires:         R-methods 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-class 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-pls 
+Requires:         R-CRAN-ellipse 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-latticeExtra 
 
 %description
-An efficient and convenient set of functions to perform differential
-network estimation through the use of alternating direction method of
-multipliers optimization with a variety of loss functions.
+Functions for metabolomics data analysis: data preprocessing, orthogonal
+signal correction, PCA analysis, PCA-DA analysis, PLS-DA analysis,
+classification, feature selection, correlation analysis, data
+visualisation and re-sampling strategies.
 
 %prep
 %setup -q -c -n %{packname}

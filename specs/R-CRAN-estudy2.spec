@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  estudy2
-%global packver   0.9.3
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Implementation of Parametric and Nonparametric Event Study
 
@@ -13,16 +13,18 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-zoo >= 1.8.7
-BuildRequires:    R-CRAN-Rcpp >= 1.0.4.6
-BuildRequires:    R-CRAN-matrixStats >= 0.56.0
-BuildRequires:    R-CRAN-quantmod >= 0.4.17
-Requires:         R-CRAN-zoo >= 1.8.7
-Requires:         R-CRAN-Rcpp >= 1.0.4.6
-Requires:         R-CRAN-matrixStats >= 0.56.0
-Requires:         R-CRAN-quantmod >= 0.4.17
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildRequires:    R-CRAN-curl >= 4.3.2
+BuildRequires:    R-CRAN-zoo >= 1.8.9
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-matrixStats >= 0.60.0
+BuildRequires:    R-CRAN-quantmod >= 0.4.18
+Requires:         R-CRAN-curl >= 4.3.2
+Requires:         R-CRAN-zoo >= 1.8.9
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-matrixStats >= 0.60.0
+Requires:         R-CRAN-quantmod >= 0.4.18
 
 %description
 An implementation of a most commonly used event study methodology,

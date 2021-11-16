@@ -1,32 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dineR
-%global packver   1.0.1
+%global packname  RBestMatch
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Differential Network Estimation in R
+Summary:          Graded Matching for Large Observational Studies
 
-License:          MIT + file LICENSE
+License:          MIT+file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-mvnfast 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-DiPs 
+Requires:         R-stats 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-mvnfast 
+Requires:         R-methods 
+Requires:         R-CRAN-DiPs 
 
 %description
-An efficient and convenient set of functions to perform differential
-network estimation through the use of alternating direction method of
-multipliers optimization with a variety of loss functions.
+R-best matching is a new graded matching strategy in which potential
+pairings are graded, with a preference for higher grade pairings. An
+r-best match tries to match with pairs of the best grade, incorporating
+progressively lower grade pairs only to the degree they are needed, and
+only needs to use edges in the r best grades. In effect, only sparse
+networks are built, stored and optimized.
 
 %prep
 %setup -q -c -n %{packname}

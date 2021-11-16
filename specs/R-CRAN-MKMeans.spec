@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dineR
-%global packver   1.0.1
+%global packname  MKMeans
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Differential Network Estimation in R
+Summary:          A Modern K-Means (MKMeans) Clustering Algorithm
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,17 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-An efficient and convenient set of functions to perform differential
-network estimation through the use of alternating direction method of
-multipliers optimization with a variety of loss functions.
+It's a modern K-Means clustering method with no limitation on the
+selection of initial centers but only the number of clusters is needed.
 
 %prep
 %setup -q -c -n %{packname}

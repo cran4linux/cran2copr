@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dineR
-%global packver   1.0.1
+%global packname  rpymat
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Differential Network Estimation in R
+Summary:          Easy to Configure an Isolated 'Python' Environment
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,17 +16,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-reticulate >= 1.21
+BuildRequires:    R-CRAN-fastmap >= 1.1.0
+BuildRequires:    R-CRAN-rappdirs >= 0.3.3
+Requires:         R-CRAN-reticulate >= 1.21
+Requires:         R-CRAN-fastmap >= 1.1.0
+Requires:         R-CRAN-rappdirs >= 0.3.3
 
 %description
-An efficient and convenient set of functions to perform differential
-network estimation through the use of alternating direction method of
-multipliers optimization with a variety of loss functions.
+Aims to create a single isolated 'Miniconda' and 'Python' environment for
+reproducible pipeline scripts. The package is a shell of 'reticulate'
+package, but provides more stable behaviors, especially on 'ARM' machines.
 
 %prep
 %setup -q -c -n %{packname}
