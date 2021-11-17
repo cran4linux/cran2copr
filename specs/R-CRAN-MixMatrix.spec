@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MixMatrix
-%global packver   0.2.4
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
-Release:          3%{?dist}%{?buildtag}
+Version:          0.2.6
+Release:          1%{?dist}%{?buildtag}
 Summary:          Classification with Matrix Variate Normal and t Distributions
 
 License:          GPL-3
@@ -29,12 +29,21 @@ inverted t distributions; ML estimation for matrix variate normal and t
 distributions using the EM algorithm, including some restrictions on the
 parameters; and classification by linear and quadratic discriminant
 analysis for matrix variate normal and t distributions described in
-Thompson et al. (2019) <arXiv:1907.09565>. Performs clustering with matrix
-variate normal and t mixture models.
+Thompson et al. (2019) <doi:10.1080/10618600.2019.1696208>. Performs
+clustering with matrix variate normal and t mixture models.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -42,19 +51,10 @@ variate normal and t mixture models.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spray
-%global packver   1.0-11
+%global packver   1.0-16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.11
+Version:          1.0.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse Arrays and Multivariate Polynomials
 
@@ -16,11 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 0.12.3
+BuildRequires:    R-CRAN-disordR >= 0.0.8
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-partitions 
 BuildRequires:    R-CRAN-magic 
 BuildRequires:    R-CRAN-mathjaxr 
 Requires:         R-CRAN-Rcpp >= 0.12.3
+Requires:         R-CRAN-disordR >= 0.0.8
 Requires:         R-methods 
 Requires:         R-CRAN-partitions 
 Requires:         R-CRAN-magic 
@@ -37,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

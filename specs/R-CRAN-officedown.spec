@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  officedown
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Enhanced 'R Markdown' Format for 'Word' and 'PowerPoint'
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-officer >= 0.3.18
+BuildRequires:    R-CRAN-officer >= 0.4.1
 BuildRequires:    R-CRAN-rvg >= 0.2.2
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-rmarkdown 
@@ -27,7 +27,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-memoise 
-Requires:         R-CRAN-officer >= 0.3.18
+Requires:         R-CRAN-officer >= 0.4.1
 Requires:         R-CRAN-rvg >= 0.2.2
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-rmarkdown 
@@ -60,6 +60,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

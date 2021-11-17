@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  WikidataR
-%global packver   2.3.1
+%global packver   2.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          2.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read-Write API Client Library for 'Wikidata'
+Summary:          Read-Write API Client Library for Wikidata
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -46,8 +46,14 @@ Requires:         R-CRAN-crayon
 Requires:         R-utils 
 
 %description
-An API client for the Wikidata
-<https://www.wikidata.org/wiki/Wikidata:Main_Page> store of semantic data.
+Read from, interogate, and write to Wikidata <https://www.wikidata.org> -
+the multilingual, interdisciplinary, semantic knowledgebase. Includes
+functions to: read from wikidata (single items, properties, or
+properties); query wikidata (retrieving all items that match a set of
+criterial via Wikidata SPARQL query service); write to Wikidata (adding
+new items or statements via QuickStatements); and handle and manipulate
+Wikidata objects (as lists and tibbles). Uses the Wikidata and
+Quickstatements APIs.
 
 %prep
 %setup -q -c -n %{packname}

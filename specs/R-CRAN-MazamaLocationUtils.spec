@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MazamaLocationUtils
-%global packver   0.2.0
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manage Spatial Metadata for Known Locations
 
@@ -17,6 +17,7 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MazamaSpatialUtils >= 0.7
+BuildRequires:    R-CRAN-MazamaCoreUtils >= 0.4.10
 BuildRequires:    R-CRAN-geodist >= 0.0.7
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-dplyr 
@@ -26,12 +27,11 @@ BuildRequires:    R-CRAN-leaflet
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-MazamaCoreUtils 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-MazamaSpatialUtils >= 0.7
+Requires:         R-CRAN-MazamaCoreUtils >= 0.4.10
 Requires:         R-CRAN-geodist >= 0.0.7
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-dplyr 
@@ -41,15 +41,15 @@ Requires:         R-CRAN-leaflet
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
-Requires:         R-CRAN-MazamaCoreUtils 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-stringr 
 
 %description
-A suite of utility functions for discovering and managing metadata
-associated with spatially unique "known locations".
+Utility functions for discovering and managing metadata associated with
+spatially unique "known locations". Applications include all fields of
+environmental monitoring (e.g. air and water quality) where data are
+collected at stationary sites.
 
 %prep
 %setup -q -c -n %{packname}

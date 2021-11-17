@@ -1,36 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gdm
-%global packver   1.4.2.2
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2.2
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Dissimilarity Modeling
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.2
-Requires:         R-core >= 2.15.2
-BuildRequires:    R-CRAN-Rcpp >= 0.10.4
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-parallel 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 0.10.4
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
 Requires:         R-parallel 
+Requires:         R-methods 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-vegan 
-Requires:         R-methods 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 
 %description
 A toolkit with functions to fit, plot, summarize, and apply Generalized
@@ -44,6 +44,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

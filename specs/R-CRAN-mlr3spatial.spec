@@ -1,33 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DominoPredictionLogging
+%global packname  mlr3spatial
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Domino Prediction Logging
+Summary:          Support for Spatial Objects Within the 'mlr3' Ecosystem
 
-License:          MIT + file LICENSE
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-CRAN-R6 >= 2.5.0
+BuildRequires:    R-CRAN-checkmate >= 2.0.0
+BuildRequires:    R-CRAN-terra >= 1.3.22
+BuildRequires:    R-CRAN-data.table >= 1.14.0
+BuildRequires:    R-CRAN-lgr >= 0.4.2
+BuildRequires:    R-CRAN-mlr3 >= 0.12.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-uuid 
-BuildRequires:    R-CRAN-lgr 
-Requires:         R-CRAN-rjson 
+BuildRequires:    R-CRAN-mlr3misc 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-R6 >= 2.5.0
+Requires:         R-CRAN-checkmate >= 2.0.0
+Requires:         R-CRAN-terra >= 1.3.22
+Requires:         R-CRAN-data.table >= 1.14.0
+Requires:         R-CRAN-lgr >= 0.4.2
+Requires:         R-CRAN-mlr3 >= 0.12.0
 Requires:         R-methods 
-Requires:         R-CRAN-uuid 
-Requires:         R-CRAN-lgr 
+Requires:         R-CRAN-mlr3misc 
+Requires:         R-utils 
 
 %description
-Instrument prediction code that lets you capture inputs to the model,
-predictions, prediction properties, and other metadata.
+Extends the mlr3 ML framework with methods for spatial objects. Data
+storage and prediction are supported for packages 'terra', 'raster' and
+'stars'.
 
 %prep
 %setup -q -c -n %{packname}

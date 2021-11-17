@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tidySEM
-%global packver   0.1.10
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Structural Equation Modeling
 
@@ -13,27 +13,29 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-OpenMx 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-MplusAutomation 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-gtable 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-OpenMx 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-MplusAutomation 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-psych 
 Requires:         R-methods 
+Requires:         R-CRAN-gtable 
 
 %description
 A tidy workflow for generating, estimating, reporting, and plotting

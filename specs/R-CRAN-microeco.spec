@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  microeco
-%global packver   0.5.1
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Microbial Community Ecology Data Analysis
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-reshape2 
 Requires:         R-CRAN-R6 
 Requires:         R-stats 
 Requires:         R-CRAN-ape 
@@ -42,6 +43,7 @@ Requires:         R-CRAN-scales
 Requires:         R-grid 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-reshape2 
 
 %description
 A series of statistical and plotting approaches in microbial community

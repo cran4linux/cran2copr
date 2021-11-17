@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  stokes
-%global packver   1.0-8
+%global packver   1.0-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Exterior Calculus
 
@@ -17,13 +17,15 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-permutations >= 1.0.4
-BuildRequires:    R-CRAN-spray >= 1.0.11
+BuildRequires:    R-CRAN-disordR >= 0.0.8
+BuildRequires:    R-CRAN-spray 
 BuildRequires:    R-CRAN-partitions 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mathjaxr 
 Requires:         R-CRAN-permutations >= 1.0.4
-Requires:         R-CRAN-spray >= 1.0.11
+Requires:         R-CRAN-disordR >= 0.0.8
+Requires:         R-CRAN-spray 
 Requires:         R-CRAN-partitions 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
@@ -34,7 +36,8 @@ Provides functionality for working with tensors, alternating tensors,
 wedge products, Stokes's theorem, and related concepts from the exterior
 calculus.  Functionality for Grassman algebra is provided.  The canonical
 reference would be: M. Spivak (1965, ISBN:0-8053-9021-9) "Calculus on
-Manifolds".
+Manifolds".  Version stokes_1.0-8 is a reduced functionality placeholder
+pending upload of spray version 1.0-16 to CRAN.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +47,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

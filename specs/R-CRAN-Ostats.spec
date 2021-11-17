@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Ostats
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          O-Stats, or Pairwise Community-Level Niche Overlap Statistics
 
@@ -47,7 +47,7 @@ overlap). The Ostats() function calculates separate univariate overlap
 statistics for each trait, while the Ostats_multivariate() function
 calculates a single multivariate overlap statistic for all traits.
 O-statistics can be evaluated against null models to obtain standardized
-effect sizes. Ostats is part of the collaborative Macrosystems
+effect sizes. 'Ostats' is part of the collaborative Macrosystems
 Biodiversity Project "Local- to continental-scale drivers of biodiversity
 across the National Ecological Observatory Network (NEON)." For more
 information on this project, see the Macrosystems Biodiversity Website

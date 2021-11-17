@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bayesDP
-%global packver   1.3.4
+%global packver   1.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.3.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for the Bayesian Discount Prior Function
+Summary:          Implementation of the Bayesian Discount Prior Approach for Clinical Trials
 
 License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,16 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-survival 
 Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-survival 
 Requires:         R-CRAN-MCMCpack 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Functions for data augmentation using the Bayesian discount prior method
@@ -42,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

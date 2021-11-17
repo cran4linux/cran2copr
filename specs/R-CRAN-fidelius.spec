@@ -1,39 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  uFTIR
-%global packver   0.1.4
+%global packname  fidelius
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Process and Analyze Agilent Cary 620 FTIR Microscope Images
+Summary:          Browser-Side Password-Protected HTML Documents
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gdal-devel >= 1.11.4
-BuildRequires:    proj-devel >= 4.8.0
-BuildRequires:    sqlite-devel
-BuildRequires:    R-devel >= 4.0.4.0
-Requires:         R-core >= 4.0.4.0
-BuildRequires:    R-parallel >= 4.0.4
-BuildRequires:    R-methods >= 4.0.4
-BuildRequires:    R-CRAN-raster >= 3.5.2
-BuildRequires:    R-CRAN-sp >= 1.4.5
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-parallel >= 4.0.4
-Requires:         R-methods >= 4.0.4
-Requires:         R-CRAN-raster >= 3.5.2
-Requires:         R-CRAN-sp >= 1.4.5
-Requires:         R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-askpass 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-sodium 
+BuildRequires:    R-CRAN-whisker 
+Requires:         R-CRAN-askpass 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-sodium 
+Requires:         R-CRAN-whisker 
 
 %description
-A set of tools to read, process, and summarize Agilent Cary 620 uFTIR
-Microscope hyperspectral images primarily intended for microplastic
-analysis.
+Create secure, encrypted, and password-protected static HTML documents
+that include the machinery for secure in-browser authentication and
+decryption.
 
 %prep
 %setup -q -c -n %{packname}

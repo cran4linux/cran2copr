@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pushoverr
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
-Release:          3%{?dist}%{?buildtag}
-Summary:          Send Push Notifications using Pushover
+Version:          1.1.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          Send Push Notifications using 'Pushover'
 
 License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,19 +16,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-assertthat 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-rlang 
 
 %description
-Send push notifications to mobile devices or the desktop using Pushover.
-These notifications can display job status, results, scraped web data, or
-any other text or numeric data.
+Send push notifications to mobile devices or the desktop using 'Pushover'
+<https://pushover.net>. These notifications can display things such as
+results, job status, plots, or any other text or numeric data.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -36,18 +51,10 @@ any other text or numeric data.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

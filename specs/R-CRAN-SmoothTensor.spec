@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SmoothTensor
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Smooth Tensor Estimation Methods
 
@@ -29,7 +29,7 @@ permutation. It also contains several multi-variate functions for
 generating permuted signal tensors and corresponding observed tensors. For
 a detailed introduction for the model and estimation techniques, see the
 paper by Chanwoo Lee and Miaoyan Wang (2021) "Smooth tensor estimation
-with unknown permutations" <arXiv:2105.01783>.
+with unknown permutations" <arXiv:2111.04681>.
 
 %prep
 %setup -q -c -n %{packname}
