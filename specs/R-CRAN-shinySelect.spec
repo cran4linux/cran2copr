@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  accucor
-%global packver   0.3.0
+%global packname  shinySelect
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Natural Abundance Correction of Mass Spectrometer Data
+Summary:          A Wrapper of the 'react-select' Library
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,30 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nnls 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-writexl 
-BuildRequires:    R-CRAN-CHNOSZ 
-Requires:         R-CRAN-nnls 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-writexl 
-Requires:         R-CRAN-CHNOSZ 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-reactR 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-fontawesome 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-reactR 
+Requires:         R-CRAN-shiny 
+Requires:         R-utils 
+Requires:         R-CRAN-fontawesome 
+Requires:         R-stats 
 
 %description
-An isotope natural abundance correction algorithm that is needed
-especially for high resolution mass spectrometers. Supports correction for
-13C, 2H and 15N. Su X, Lu W and Rabinowitz J (2017)
-<doi:10.1021/acs.analchem.7b00396>.
+Provides a select control widget for 'Shiny'. It is easily customizable,
+and one can easily use HTML in the items and KaTeX to type mathematics.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  framecleaner
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clean Data Frames
 
@@ -18,7 +18,6 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-janitor 
@@ -27,19 +26,16 @@ BuildRequires:    R-CRAN-lubridate
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-rio 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-vroom 
-BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-rlist 
-BuildRequires:    R-CRAN-printr 
+BuildRequires:    R-CRAN-fastDummies 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-janitor 
@@ -48,16 +44,14 @@ Requires:         R-CRAN-lubridate
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-bit64 
 Requires:         R-CRAN-rio 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-vroom 
-Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-rlist 
-Requires:         R-CRAN-printr 
+Requires:         R-CRAN-fastDummies 
 
 %description
 Provides a friendly interface for modifying data frames with a sequence of

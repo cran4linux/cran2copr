@@ -1,29 +1,26 @@
 %global __brp_check_rpaths %{nil}
-%global packname  IP
-%global packver   0.1
+%global packname  WA
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classes and Methods for IP Addresses
+Summary:          While-Alive Loss Rate for Recurrent Event in the Presence of Death
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-stringi 
-Requires:         R-methods 
-Requires:         R-CRAN-stringi 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 
 %description
-Provides IPv4 and IPv6 support for IP operations such as comparison,
-arithmetic, bit manipulation and lookup. Both IPv4 and IPv6 arbitrary
-ranges are also supported as well as domain lookup and whois query.
+Contains inferential and graphical routines for multi-group analysis of
+while-alive loss (or event) rate for possibly recurrent nonfatal event in
+the presence of death.
 
 %prep
 %setup -q -c -n %{packname}

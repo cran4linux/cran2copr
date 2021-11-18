@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  HardyWeinberg
-%global packver   1.7.2
+%global packver   1.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.2
+Version:          1.7.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Tests and Graphics for Hardy-Weinberg Equilibrium
 
@@ -38,7 +38,9 @@ sexes are supplied, for the bi and multi-allelic case. Functions for
 testing equilibrium in the presence of missing data by using multiple
 imputation are also provided. Implements several graphics for exploring
 the equilibrium status of a large set of bi-allelic markers: ternary plots
-with acceptance regions, log-ratio plots and Q-Q plots.
+with acceptance regions, log-ratio plots and Q-Q plots. The functionality
+of the package is explained in detail in a related JSS paper
+<doi:10.18637/jss.v064.i03>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,6 +50,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

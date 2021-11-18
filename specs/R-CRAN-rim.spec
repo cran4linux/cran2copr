@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rim
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R's Interface to Maxima, Bringing Symbolic Computation into R
 
@@ -19,19 +19,21 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-GlobalOptions 
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-digest 
+Requires:         R-CRAN-GlobalOptions 
 
 %description
 Provides an interface to the powerful and fairly complete computer algebra
-system maxima. It can be used to start and control maxima from within R by
-entering 'Maxima' commands. It facilitates outputting results from
+system maxima. It can be used to start and control 'Maxima' from within R
+by entering 'Maxima' commands. It facilitates outputting results from
 'Maxima' in 'LaTeX' and 'MathML'. 2D and 3D plots can be displayed
 directly. This package also registers a 'knitr'-engine enabling 'Maxima'
 code chunks to be written in 'RMarkdown' documents.
@@ -44,6 +46,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

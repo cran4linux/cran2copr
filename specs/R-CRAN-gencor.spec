@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  accucor
-%global packver   0.3.0
+%global packname  gencor
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Natural Abundance Correction of Mass Spectrometer Data
+Summary:          Generate Customized Correlation Matrices
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,30 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nnls 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-writexl 
-BuildRequires:    R-CRAN-CHNOSZ 
-Requires:         R-CRAN-nnls 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-writexl 
-Requires:         R-CRAN-CHNOSZ 
+BuildRequires:    R-base 
+Requires:         R-base 
 
 %description
-An isotope natural abundance correction algorithm that is needed
-especially for high resolution mass spectrometers. Supports correction for
-13C, 2H and 15N. Su X, Lu W and Rabinowitz J (2017)
-<doi:10.1021/acs.analchem.7b00396>.
+Provides a function that generates customized correlation matrix based on
+limit values and proportions for intervals composed by its limits. Can
+also generate random correlation matrices, matrices with low, medium and
+high correlations, which low, medium and high thresholds are user-defined.
 
 %prep
 %setup -q -c -n %{packname}

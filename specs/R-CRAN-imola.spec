@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  accucor
-%global packver   0.3.0
+%global packname  imola
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Natural Abundance Correction of Mass Spectrometer Data
+Summary:          CSS Layouts (Grid and Flexbox) Implementation for R/Shiny
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,30 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nnls 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-writexl 
-BuildRequires:    R-CRAN-CHNOSZ 
-Requires:         R-CRAN-nnls 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-writexl 
-Requires:         R-CRAN-CHNOSZ 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-yaml 
 
 %description
-An isotope natural abundance correction algorithm that is needed
-especially for high resolution mass spectrometers. Supports correction for
-13C, 2H and 15N. Su X, Lu W and Rabinowitz J (2017)
-<doi:10.1021/acs.analchem.7b00396>.
+Allows easy creation of CSS layouts (grid and flexbox) directly from R
+without added CSS.
 
 %prep
 %setup -q -c -n %{packname}

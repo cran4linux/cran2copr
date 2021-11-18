@@ -1,45 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  accucor
-%global packver   0.3.0
+%global packname  FAO56
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Natural Abundance Correction of Mass Spectrometer Data
+Summary:          Evapotranspiration Based on FAO Penman-Monteith Equation
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nnls 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-writexl 
-BuildRequires:    R-CRAN-CHNOSZ 
-Requires:         R-CRAN-nnls 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-writexl 
-Requires:         R-CRAN-CHNOSZ 
 
 %description
-An isotope natural abundance correction algorithm that is needed
-especially for high resolution mass spectrometers. Supports correction for
-13C, 2H and 15N. Su X, Lu W and Rabinowitz J (2017)
-<doi:10.1021/acs.analchem.7b00396>.
+Calculation of Evapotranspiration by FAO Penman-Monteith equation based on
+Allen, R. G., Pereira, L. S., Raes, D., Smith, M. (1998,
+ISBN:92-5-104219-5) "Crop evapotranspiration - Guidelines for computing
+crop water requirements - FAO Irrigation and drainage paper 56".
 
 %prep
 %setup -q -c -n %{packname}

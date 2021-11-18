@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  prettifyAddins
-%global packver   2.2.0
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'RStudio' Addins to Prettify 'JavaScript', 'C++', 'Python', and More
 
@@ -37,10 +37,10 @@ Requires:         R-utils
 Provides 'RStudio' addins to prettify 'HTML', 'CSS', 'SCSS', 'JavaScript',
 'JSX', 'Markdown', 'C(++)', 'LaTeX', 'Python', 'Julia', 'XML', 'Java',
 'JSON', 'Ruby', and to reindent 'C(++)', 'Fortran', 'Java', 'Julia',
-'Python', 'SAS', 'Scala', 'Shell' and 'SQL'. Two kinds of addins are
-provided: 'Prettify' and 'Indent'. The 'Indent' addins only reindent the
-code, while the 'Prettify' addins also modify the code, e.g. trailing
-semi-colons are added to 'JavaScript' code when they are missing.
+'Python', 'SAS', 'Scala', 'Shell', 'SQL' and "TypeScript". Two kinds of
+addins are provided: 'Prettify' and 'Indent'. The 'Indent' addins only
+reindent the code, while the 'Prettify' addins also modify the code, e.g.
+trailing semi-colons are added to 'JavaScript' code when they are missing.
 
 %prep
 %setup -q -c -n %{packname}

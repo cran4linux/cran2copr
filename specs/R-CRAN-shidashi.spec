@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  accucor
-%global packver   0.3.0
+%global packname  shidashi
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Natural Abundance Correction of Mass Spectrometer Data
+Summary:          A Shiny Dashboard Template System
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,30 +16,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nnls 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-writexl 
-BuildRequires:    R-CRAN-CHNOSZ 
-Requires:         R-CRAN-nnls 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-writexl 
-Requires:         R-CRAN-CHNOSZ 
+BuildRequires:    R-CRAN-yaml >= 2.2.1
+BuildRequires:    R-CRAN-jsonlite >= 1.7.2
+BuildRequires:    R-CRAN-shiny >= 1.7.0
+BuildRequires:    R-CRAN-httr >= 1.4.2
+BuildRequires:    R-CRAN-formatR >= 1.11
+BuildRequires:    R-CRAN-fastmap >= 1.1.0
+BuildRequires:    R-CRAN-digest >= 0.6.27
+Requires:         R-CRAN-yaml >= 2.2.1
+Requires:         R-CRAN-jsonlite >= 1.7.2
+Requires:         R-CRAN-shiny >= 1.7.0
+Requires:         R-CRAN-httr >= 1.4.2
+Requires:         R-CRAN-formatR >= 1.11
+Requires:         R-CRAN-fastmap >= 1.1.0
+Requires:         R-CRAN-digest >= 0.6.27
 
 %description
-An isotope natural abundance correction algorithm that is needed
-especially for high resolution mass spectrometers. Supports correction for
-13C, 2H and 15N. Su X, Lu W and Rabinowitz J (2017)
-<doi:10.1021/acs.analchem.7b00396>.
+A template system based on 'AdminLTE3' (<https://adminlte.io/themes/v3/>)
+theme. Comes with default theme that can be easily customized. Developers
+can upload modified templates on 'Github', and users can easily download
+templates with 'RStudio' project wizard. The key features of the default
+template include light and dark theme switcher, resizing graphs,
+synchronizing inputs across sessions, new notification system, fancy
+progress bars, and card-like flip panels with back sides, as well as
+various of 'HTML' tool widgets.
 
 %prep
 %setup -q -c -n %{packname}
