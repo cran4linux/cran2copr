@@ -1,54 +1,59 @@
 %global __brp_check_rpaths %{nil}
-%global packname  impactr
-%global packver   0.3.0
+%global packname  mapscanner
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mechanical Loading Prediction Through Accelerometer Data
+Summary:          Print Maps, Draw on Them, Scan Them Back in
 
-License:          MIT + file LICENSE
+License:          GPL-3 | BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-rlang >= 0.4.6
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-lvmisc 
-BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-pdftools 
+BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-reproj 
+BuildRequires:    R-CRAN-RNiftyReg 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-slippymath 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-toOrdinal 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vroom 
-Requires:         R-CRAN-rlang >= 0.4.6
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-fs 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-lvmisc 
-Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-pdftools 
+Requires:         R-CRAN-png 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-raster 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-signal 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-reproj 
+Requires:         R-CRAN-RNiftyReg 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-slippymath 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-toOrdinal 
-Requires:         R-utils 
-Requires:         R-CRAN-vroom 
 
 %description
-Functions to read, process and analyse accelerometer data related to
-mechanical loading variables. This package is developed and tested for use
-with raw accelerometer data from triaxial 'ActiGraph'
-<https://actigraphcorp.com> accelerometers.
+Enables preparation of maps to be printed and drawn on. Modified maps can
+then be scanned back in, and hand-drawn marks converted to spatial
+objects.
 
 %prep
 %setup -q -c -n %{packname}

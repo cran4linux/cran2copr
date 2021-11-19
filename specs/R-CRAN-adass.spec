@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  jfa
-%global packver   0.6.1
+%global packname  adass
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian and Classical Audit Sampling
+Summary:          Adaptive Smoothing Spline (AdaSS) Estimator for the Function-on-Function Linear Regression
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,23 +16,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-extraDistr 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-extraDistr 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-fda 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-SparseM 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-plot3D 
+Requires:         R-CRAN-fda 
+Requires:         R-parallel 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-SparseM 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-plot3D 
 
 %description
-Implements the audit sampling workflow as discussed in Derks et al. (2019)
-<doi:10.31234/osf.io/9f6ub>. The package makes it easy for an auditor to
-plan a statistical sample, select the sample from the population, and
-evaluate the misstatement in the sample compliant with the International
-Standards on Auditing. Next to classical audit sampling methodology, the
-package implements Bayesian equivalents of these methods whose statistical
-underpinnings are described in Derks et al. (2021)
-<doi:10.1111/ijau.12240> and Derks et al. (2021)
-<doi:10.31234/osf.io/kzqp5>.
+Implements the adaptive smoothing spline estimator for the
+function-on-function linear regression model described in Centofanti et
+al. (2020) <arXiv:2011.12036>.
 
 %prep
 %setup -q -c -n %{packname}

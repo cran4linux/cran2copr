@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  anthro
-%global packver   0.9.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computation of the WHO Child Growth Standards
 
@@ -23,7 +23,7 @@ Requires:         R-CRAN-survey
 Provides WHO Child Growth Standards (z-scores) with confidence intervals
 and standard errors around the prevalence estimates, taking into account
 complex sample designs. More information on the methods is available
-online: <https://www.who.int/childgrowth/standards/en/>.
+online: <https://www.who.int/tools/child-growth-standards>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -33,6 +33,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

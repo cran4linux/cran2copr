@@ -1,38 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  jfa
-%global packver   0.6.1
+%global packname  filterNHP
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian and Classical Audit Sampling
+Summary:          Non-Human Primate Search Filters
 
-License:          GPL-3
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-extraDistr 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-extraDistr 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-data.tree >= 1.0.0
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyWidgets 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-shinyBS 
+BuildRequires:    R-CRAN-rclipboard 
+Requires:         R-CRAN-data.tree >= 1.0.0
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyWidgets 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-shinyBS 
+Requires:         R-CRAN-rclipboard 
 
 %description
-Implements the audit sampling workflow as discussed in Derks et al. (2019)
-<doi:10.31234/osf.io/9f6ub>. The package makes it easy for an auditor to
-plan a statistical sample, select the sample from the population, and
-evaluate the misstatement in the sample compliant with the International
-Standards on Auditing. Next to classical audit sampling methodology, the
-package implements Bayesian equivalents of these methods whose statistical
-underpinnings are described in Derks et al. (2021)
-<doi:10.1111/ijau.12240> and Derks et al. (2021)
-<doi:10.31234/osf.io/kzqp5>.
+Generate search filters to query scientific bibliographic sources, such as
+PubMed and Web of Science, for non-human primate related publications.
 
 %prep
 %setup -q -c -n %{packname}

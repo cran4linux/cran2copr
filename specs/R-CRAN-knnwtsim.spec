@@ -1,38 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  jfa
-%global packver   0.6.1
+%global packname  knnwtsim
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian and Classical Audit Sampling
+Summary:          K Nearest Neighbor Forecasting with a Tailored Similarity Metric
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-extraDistr 
-BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-extraDistr 
-Requires:         R-graphics 
 Requires:         R-stats 
 
 %description
-Implements the audit sampling workflow as discussed in Derks et al. (2019)
-<doi:10.31234/osf.io/9f6ub>. The package makes it easy for an auditor to
-plan a statistical sample, select the sample from the population, and
-evaluate the misstatement in the sample compliant with the International
-Standards on Auditing. Next to classical audit sampling methodology, the
-package implements Bayesian equivalents of these methods whose statistical
-underpinnings are described in Derks et al. (2021)
-<doi:10.1111/ijau.12240> and Derks et al. (2021)
-<doi:10.31234/osf.io/kzqp5>.
+Functions to implement K Nearest Neighbor forecasting using a weighted
+similarity metric tailored to the problem of forecasting univariate time
+series where recent observations, seasonal patterns, and exogenous
+predictors are all relevant in predicting future observations of the
+series in question. For more information on the formulation of this
+similarity metric please see Trupiano (2021)
+<https://github.com/mtrupiano1/knnwtsim/blob/main/README.md>.
 
 %prep
 %setup -q -c -n %{packname}

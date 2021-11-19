@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  PL94171
-%global packver   0.3.2
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tabulate P.L. 94-171 Redistricting Data Summary Files
 

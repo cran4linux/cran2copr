@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  safedata
-%global packver   1.0.9
+%global packname  fastCorrDiff
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to Data from the SAFE Project
+Summary:          Fast Differential Correlation Matrix Screening
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,26 +16,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-chron 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-igraph 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-chron 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-igraph 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RSpectra 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-irlba 
+Requires:         R-CRAN-plyr 
+Requires:         R-stats 
+Requires:         R-CRAN-RSpectra 
 
 %description
-The SAFE Project (<https://www.safeproject.net/>) is a large scale
-ecological experiment in Malaysian Borneo that explores the impact of
-habitat fragmentation and conversion on ecosystem function and services.
-Data collected at the SAFE Project is made available under a common format
-through the Zenodo data repository and this package makes it easy to
-discover and load that data into R.
+Fast spectral algorithms for differential analysis on large-scale
+correlation matrices of Li et. al. (2021) <arXiv:2111.03721> are
+implemented. The methods can identify a group of genes exhibiting
+differential correlation patterns between two groups. For high-dimensional
+matrices, compressed spectral screening methods are also provided based on
+random subsampling. The work to build this package is partially supported
+by the NSF grant DMS-2015298.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,6 +44,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

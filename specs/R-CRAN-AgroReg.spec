@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  AgroReg
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Analysis Linear and Nonlinear for Agriculture
 
@@ -18,8 +18,6 @@ Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-drc 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-CRAN-dplyr 
@@ -28,8 +26,6 @@ BuildRequires:    R-CRAN-broom
 BuildRequires:    R-CRAN-egg 
 Requires:         R-CRAN-drc 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-minpack.lm 
 Requires:         R-CRAN-dplyr 

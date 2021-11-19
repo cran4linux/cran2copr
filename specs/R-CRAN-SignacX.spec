@@ -1,38 +1,49 @@
 %global __brp_check_rpaths %{nil}
-%global packname  jfa
-%global packver   0.6.1
+%global packname  SignacX
+%global packver   2.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          2.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian and Classical Audit Sampling
+Summary:          Cell Type Identification and Discovery from Single Cell Gene Expression Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-extraDistr 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Seurat >= 3.2.0
+BuildRequires:    R-CRAN-jsonlite >= 1.5
+BuildRequires:    R-CRAN-igraph >= 1.2.1
+BuildRequires:    R-CRAN-RColorBrewer >= 1.1.2
+BuildRequires:    R-CRAN-neuralnet 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-pbmcapply 
+BuildRequires:    R-CRAN-RJSONIO 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-extraDistr 
-Requires:         R-graphics 
+Requires:         R-CRAN-Seurat >= 3.2.0
+Requires:         R-CRAN-jsonlite >= 1.5
+Requires:         R-CRAN-igraph >= 1.2.1
+Requires:         R-CRAN-RColorBrewer >= 1.1.2
+Requires:         R-CRAN-neuralnet 
+Requires:         R-CRAN-lme4 
+Requires:         R-methods 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-pbmcapply 
+Requires:         R-CRAN-RJSONIO 
 Requires:         R-stats 
 
 %description
-Implements the audit sampling workflow as discussed in Derks et al. (2019)
-<doi:10.31234/osf.io/9f6ub>. The package makes it easy for an auditor to
-plan a statistical sample, select the sample from the population, and
-evaluate the misstatement in the sample compliant with the International
-Standards on Auditing. Next to classical audit sampling methodology, the
-package implements Bayesian equivalents of these methods whose statistical
-underpinnings are described in Derks et al. (2021)
-<doi:10.1111/ijau.12240> and Derks et al. (2021)
-<doi:10.31234/osf.io/kzqp5>.
+An implementation of neural networks trained with flow-sorted gene
+expression data to classify cellular phenotypes in single cell
+RNA-sequencing data. See Chamberlain M et al. (2021)
+<doi:10.1101/2021.02.01.429207> for more details.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spant
-%global packver   1.15.0
+%global packver   1.16.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.15.0
+Version:          1.16.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          MR Spectroscopy Analysis Tools
 
@@ -20,7 +20,7 @@ BuildRequires:    R-CRAN-plyr
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-complexplus 
+BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-CRAN-signal 
 BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-utils 
@@ -42,7 +42,7 @@ Requires:         R-CRAN-plyr
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-complexplus 
+Requires:         R-CRAN-expm 
 Requires:         R-CRAN-signal 
 Requires:         R-CRAN-minpack.lm 
 Requires:         R-utils 

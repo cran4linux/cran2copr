@@ -1,54 +1,51 @@
 %global __brp_check_rpaths %{nil}
-%global packname  impactr
-%global packver   0.3.0
+%global packname  excluder
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mechanical Loading Prediction Through Accelerometer Data
+Summary:          Checks for Exclusion Criteria in Online Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-rlang >= 0.4.6
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-iptools 
+BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-lvmisc 
-BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-toOrdinal 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vroom 
-Requires:         R-CRAN-rlang >= 0.4.6
-Requires:         R-CRAN-glue 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-iptools 
+Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-lvmisc 
-Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-signal 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-maps 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-toOrdinal 
-Requires:         R-utils 
-Requires:         R-CRAN-vroom 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Functions to read, process and analyse accelerometer data related to
-mechanical loading variables. This package is developed and tested for use
-with raw accelerometer data from triaxial 'ActiGraph'
-<https://actigraphcorp.com> accelerometers.
+Data that are collected through online sources such as Mechanical Turk may
+require excluding rows because of IP address duplication, geolocation, or
+completion duration. This package facilitates exclusion of these data for
+Qualtrics datasets.
 
 %prep
 %setup -q -c -n %{packname}

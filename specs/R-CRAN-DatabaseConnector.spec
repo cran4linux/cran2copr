@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DatabaseConnector
-%global packver   4.0.2
+%global packver   5.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.2
+Version:          5.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Connecting to Various Database Platforms
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-DBI >= 1.0.0
 BuildRequires:    R-CRAN-rJava 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-urltools 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-DBI >= 1.0.0
 Requires:         R-CRAN-rJava 
 Requires:         R-methods 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
 Requires:         R-utils 
 Requires:         R-CRAN-urltools 
@@ -39,9 +41,9 @@ Requires:         R-CRAN-bit64
 An R 'DataBase Interface' ('DBI') compatible interface to various database
 platforms ('PostgreSQL', 'Oracle', 'Microsoft SQL Server', 'Amazon
 Redshift', 'Microsoft Parallel Database Warehouse', 'IBM Netezza', 'Apache
-Impala', 'Google BigQuery', and 'SQLite'). Also includes support for
-fetching data as 'Andromeda' objects. Uses 'Java Database Connectivity'
-('JDBC') to connect to databases (except SQLite).
+Impala', 'Google BigQuery', 'Spark', and 'SQLite'). Also includes support
+for fetching data as 'Andromeda' objects. Uses 'Java Database
+Connectivity' ('JDBC') to connect to databases (except SQLite).
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,6 +53,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
