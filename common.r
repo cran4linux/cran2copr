@@ -484,6 +484,17 @@ get_monitor <- function() {
   na.omit(df)
 }
 
+get_monitor_new <- function() {
+  out <- copr_call("monitor", "--output-format=text-row", getOption("copr.repo"))
+  out <- read.delim(textConnection(out), col.names=c("Package", "chroot", "id", "status"))
+  out$status <- paste(out$id, out$status)
+  out$id <- NULL
+  out <- reshape(out, idvar="Package", timevar="chroot", direction="wide")
+  out <- out[, sort(colnames(out))]
+  colnames(out) <- sub("status.", "", colnames(out))
+  out
+}
+
 get_builds <- function() {
   stopifnot(requireNamespace("XML", quietly=TRUE))
   url <- paste(get_url_copr(), "builds", sep="/")
