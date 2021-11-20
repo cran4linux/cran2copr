@@ -1,37 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dataPreparation
-%global packver   1.0.3
+%global packname  logicDT
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automated Data Preparation
+Summary:          Identifying Interactions Between Binary Predictors
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Do most of the painful data preparation for a data science project with a
-minimum amount of code; Take advantages of 'data.table' efficiency and use
-some algorithmic trick in order to perform data preparation in a time and
-RAM efficient way.
+A global statistical learning method which tries to find the best set of
+predictors and interactions between predictors for modeling binary or
+quantitative response data. Several search algorithms and ensembling
+techniques are implemented allowing for finetuning the method to the
+specific problem. Interactions with single quantitative covariables can be
+properly taken into account by also splitting after those or by fitting
+local four parameter logistic models.
 
 %prep
 %setup -q -c -n %{packname}

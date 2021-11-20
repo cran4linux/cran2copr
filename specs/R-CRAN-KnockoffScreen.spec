@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  KnockoffScreen
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Whole-Genome Sequencing Data Analysis via Knockoff Statistics
 
@@ -18,14 +18,18 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-seqminer 
+BuildRequires:    R-CRAN-bigmemory 
 BuildRequires:    R-CRAN-CompQuadForm 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-SPAtest 
+BuildRequires:    R-CRAN-irlba 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-seqminer 
+Requires:         R-CRAN-bigmemory 
 Requires:         R-CRAN-CompQuadForm 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-SPAtest 
+Requires:         R-CRAN-irlba 
 
 %description
 Functions for identification of putative causal loci in whole-genome
@@ -40,6 +44,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,53 +1,59 @@
 %global __brp_check_rpaths %{nil}
-%global packname  leidenAlg
-%global packver   1.0.0
+%global packname  DR.SC
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Implements the Leiden Algorithm via an R Interface
+Summary:          Joint Dimension Reduction and Spatial Clustering
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-Matrix.utils 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-sccore 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-CompQuadForm 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-GiRaF 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-Seurat 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.0.5
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-igraph 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-Matrix.utils 
 Requires:         R-parallel 
-Requires:         R-CRAN-sccore 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-CompQuadForm 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-GiRaF 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mclust 
+Requires:         R-methods 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-Seurat 
 Requires:         R-stats 
 
 %description
-An R interface to the Leiden algorithm, an iterative community detection
-algorithm on networks. The algorithm is designed to converge to a
-partition in which all subsets of all communities are locally optimally
-assigned, yielding communities guaranteed to be connected. The
-implementation proves to be fast, scales well, and can be run on graphs of
-millions of nodes (as long as they can fit in memory). The original
-implementation was constructed as a python interface "leidenalg" found
-here: <https://github.com/vtraag/leidenalg>. The algorithm was originally
-described in Traag, V.A., Waltman, L. & van Eck, N.J. "From Louvain to
-Leiden: guaranteeing well-connected communities". Sci Rep 9, 5233 (2019)
-<doi:10.1038/s41598-019-41695-z>.
+Joint dimension reduction and spatial clustering is conducted for
+Single-cell RNA sequencing and spatial transcriptomics data, and more
+details can be referred to Yi Yang, Xingjie Shi, Wei Liu et al. (2021)
+<doi:10.1101/2021.06.05.447181>. It is not only computationally efficient
+and scalable to the sample size increment, but also is capable of choosing
+the smoothness parameter and the number of clusters as well.
 
 %prep
 %setup -q -c -n %{packname}

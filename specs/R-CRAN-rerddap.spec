@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rerddap
-%global packver   0.7.6
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.6
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          General Purpose Client for 'ERDDAP' Servers
 

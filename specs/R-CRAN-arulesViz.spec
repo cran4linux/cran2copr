@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  arulesViz
-%global packver   1.5-0
+%global packver   1.5-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizing Association Rules and Frequent Itemsets
 
@@ -23,13 +23,12 @@ BuildRequires:    R-utils
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-seriation 
-BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-vcd 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-scatterplot3d 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggnetwork 
+BuildRequires:    R-CRAN-ggraph 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
@@ -43,13 +42,12 @@ Requires:         R-utils
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-CRAN-seriation 
-Requires:         R-CRAN-colorspace 
 Requires:         R-grid 
 Requires:         R-CRAN-vcd 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-scatterplot3d 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggnetwork 
+Requires:         R-CRAN-ggraph 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
@@ -71,6 +69,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,37 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dataPreparation
-%global packver   1.0.3
+%global packname  sweater
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automated Data Preparation
+Summary:          Speedy Word Embedding Association Test and Extras Using R
 
-License:          GPL-3 | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-quanteda 
+BuildRequires:    R-CRAN-LiblineaR 
+BuildRequires:    R-CRAN-text2vec 
 BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-progress 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-quanteda 
+Requires:         R-CRAN-LiblineaR 
+Requires:         R-CRAN-text2vec 
 Requires:         R-CRAN-data.table 
 
 %description
-Do most of the painful data preparation for a data science project with a
-minimum amount of code; Take advantages of 'data.table' efficiency and use
-some algorithmic trick in order to perform data preparation in a time and
-RAM efficient way.
+Conduct various tests for evaluating implicit biases in word embeddings:
+Word Embedding Association Test (Caliskan et al., 2017),
+<doi:10.1126/science.aal4230>, Relative Norm Distance (Garg et al., 2018),
+<doi:10.1073/pnas.1720347115>, Mean Average Cosine Similarity (Mazini et
+al., 2019) <arXiv:1904.04047>, SemAxis (An et al., 2018)
+<arXiv:1806.05521>, and Relative Negative Sentiment Bias (Sweeney &
+Najafian, 2019) <doi:10.18653/v1/P19-1162>.
 
 %prep
 %setup -q -c -n %{packname}

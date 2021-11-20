@@ -1,37 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dataPreparation
-%global packver   1.0.3
+%global packname  OSTE
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automated Data Preparation
+Summary:          Optimal Survival Trees Ensemble
 
-License:          GPL-3 | file LICENSE
+License:          GPL (>= 3.5.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-pec 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-prodlim 
+Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-pec 
+Requires:         R-stats 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-prodlim 
 
 %description
-Do most of the painful data preparation for a data science project with a
-minimum amount of code; Take advantages of 'data.table' efficiency and use
-some algorithmic trick in order to perform data preparation in a time and
-RAM efficient way.
+Function for growing survival trees ensemble ('Naz Gul', 'Nosheen Faiz',
+'Dan Brawn', 'Rafal Kulakowski', 'Zardad Khan', and 'Berthold Lausen'
+(2020) <arXiv:2005.09043>) is given. The trees are grown by the method of
+random survival forest ('Marvin Wright', 'Andreas Ziegler' (2017)
+<doi:10.18637/jss.v077.i01>). The survival trees grown are assessed for
+both individual and collective performances. The ensemble can give
+promising results on fewer survival trees selected in the final ensemble.
 
 %prep
 %setup -q -c -n %{packname}

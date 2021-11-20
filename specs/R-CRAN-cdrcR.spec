@@ -1,37 +1,52 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dataPreparation
-%global packver   1.0.3
+%global packname  cdrcR
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automated Data Preparation
+Summary:          Load 'CDRC' Data
 
-License:          GPL-3 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-urltools 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlist 
+BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-urltools 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlist 
+Requires:         R-CRAN-rjson 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
 
 %description
-Do most of the painful data preparation for a data science project with a
-minimum amount of code; Take advantages of 'data.table' efficiency and use
-some algorithmic trick in order to perform data preparation in a time and
-RAM efficient way.
+A wrapper for the 'CDRC' 'API' that returns data frames or 'sf' of 'CDRC'
+data. The 'API' web reference
+is:<https://api.cdrc.ac.uk/swagger/index.html>.
 
 %prep
 %setup -q -c -n %{packname}

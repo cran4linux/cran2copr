@@ -1,37 +1,48 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dataPreparation
-%global packver   1.0.3
+%global packname  ypssc
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automated Data Preparation
+Summary:          Yeast-Proteome Secondary-Structure Calculator
 
-License:          GPL-3 | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-spelling 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-lubridate 
+BuildRequires:    R-CRAN-eulerr 
+BuildRequires:    R-CRAN-Peptides 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-svDialogs 
+BuildRequires:    R-tcltk 
+Requires:         R-CRAN-spelling 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-eulerr 
+Requires:         R-CRAN-Peptides 
+Requires:         R-utils 
+Requires:         R-CRAN-svDialogs 
+Requires:         R-tcltk 
 
 %description
-Do most of the painful data preparation for a data science project with a
-minimum amount of code; Take advantages of 'data.table' efficiency and use
-some algorithmic trick in order to perform data preparation in a time and
-RAM efficient way.
+An extension for 'NetSurfP-2.0' (Klausen et al. (2019)
+<doi:10.1002/prot.25674>) which is specifically designed to analyze the
+results of bottom-up-proteomics that is primarily analyzed with 'MaxQuant'
+(Cox, J., Mann, M. (2008) <doi:10.1038/nbt.1511>). This tool is designed
+to process a large number of yeast peptides that produced as a results of
+whole yeast cell-proteome digestion and provide a coherent picture of
+secondary structure of proteins.
 
 %prep
 %setup -q -c -n %{packname}

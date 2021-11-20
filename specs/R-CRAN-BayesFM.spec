@@ -1,37 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dataPreparation
-%global packver   1.0.3
+%global packname  BayesFM
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automated Data Preparation
+Summary:          Bayesian Inference for Factor Modeling
 
-License:          GPL-3 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-ggplot2 >= 2.1.0
+BuildRequires:    R-CRAN-checkmate >= 1.8.0
+BuildRequires:    R-CRAN-plyr >= 1.8.0
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-gridExtra 
+Requires:         R-CRAN-ggplot2 >= 2.1.0
+Requires:         R-CRAN-checkmate >= 1.8.0
+Requires:         R-CRAN-plyr >= 1.8.0
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-gridExtra 
 
 %description
-Do most of the painful data preparation for a data science project with a
-minimum amount of code; Take advantages of 'data.table' efficiency and use
-some algorithmic trick in order to perform data preparation in a time and
-RAM efficient way.
+Collection of procedures to perform Bayesian analysis on a variety of
+factor models. Currently, it includes: "Bayesian Exploratory Factor
+Analysis" (befa) from G. Conti, S. Frühwirth-Schnatter, J.J. Heckman, R.
+Piatek (2014) <doi:10.1016/j.jeconom.2014.06.008>, an approach to
+dedicated factor analysis with stochastic search on the structure of the
+factor loading matrix. The number of latent factors, as well as the
+allocation of the manifest variables to the factors, are not fixed a
+priori but determined during MCMC sampling.
 
 %prep
 %setup -q -c -n %{packname}

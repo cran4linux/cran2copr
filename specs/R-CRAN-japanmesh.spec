@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  LA
-%global packver   0.1.3
+%global packname  japanmesh
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lioness Algorithm (LA)
+Summary:          Functions for Mesh Codes in Japan
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,20 +16,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-LHD >= 1.3.3
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-LHD >= 1.3.3
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-utils >= 4.2.0
+BuildRequires:    R-CRAN-tibble >= 3.1.6
+BuildRequires:    R-CRAN-magrittr >= 2.0.1
+BuildRequires:    R-CRAN-geosphere >= 1.5.14
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-tidyr >= 1.1.4
+BuildRequires:    R-CRAN-dplyr >= 1.0.7
+BuildRequires:    R-CRAN-sf >= 1.0.3
+BuildRequires:    R-CRAN-units >= 0.7.2
+BuildRequires:    R-CRAN-rlang >= 0.4.12
+BuildRequires:    R-CRAN-vctrs >= 0.3.8
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+Requires:         R-utils >= 4.2.0
+Requires:         R-CRAN-tibble >= 3.1.6
+Requires:         R-CRAN-magrittr >= 2.0.1
+Requires:         R-CRAN-geosphere >= 1.5.14
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-tidyr >= 1.1.4
+Requires:         R-CRAN-dplyr >= 1.0.7
+Requires:         R-CRAN-sf >= 1.0.3
+Requires:         R-CRAN-units >= 0.7.2
+Requires:         R-CRAN-rlang >= 0.4.12
+Requires:         R-CRAN-vctrs >= 0.3.8
+Requires:         R-CRAN-purrr >= 0.3.4
 
 %description
-Contains Lioness Algorithm (LA) for finding optimal designs over
-continuous design space, optimal Latin hypercube designs, and optimal
-order-of-addition designs. LA is a brand new nature-inspired
-meta-heuristic optimization algorithm. Detailed methodologies of LA and
-its implementation on numerical simulations can be found at Hongzhi Wang,
-Qian Xiao and Abhyuday Mandal (2021) <arXiv:2010.09154>.
+Functions for mesh codes in Japan. Conversion between mesh and
+longitude/latitude, and between mesh codes of different scales.
 
 %prep
 %setup -q -c -n %{packname}

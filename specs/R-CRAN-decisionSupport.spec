@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  decisionSupport
-%global packver   1.108
+%global packver   1.109
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.108
+Version:          1.109
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantitative Support of Decision Making under Uncertainty
 

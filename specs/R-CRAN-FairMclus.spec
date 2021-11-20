@@ -1,37 +1,49 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dataPreparation
-%global packver   1.0.3
+%global packname  FairMclus
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          2.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automated Data Preparation
+Summary:          Clustering for Data with Sensitive Attribute
 
-License:          GPL-3 | file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-irr 
+BuildRequires:    R-CRAN-rlist 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-base 
 BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-progress 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-irr 
+Requires:         R-CRAN-rlist 
+Requires:         R-CRAN-tidyr 
+Requires:         R-parallel 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-cluster 
+Requires:         R-base 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
 
 %description
-Do most of the painful data preparation for a data science project with a
-minimum amount of code; Take advantages of 'data.table' efficiency and use
-some algorithmic trick in order to perform data preparation in a time and
-RAM efficient way.
+Clustering for categorical and mixed-type of data, to preventing
+classification biases due to race, gender or others sensitive attributes.
+This algorithm is an extension of the methodology proposed by "Santos &
+Heras (2020) <doi:10.28945/4643>".
 
 %prep
 %setup -q -c -n %{packname}
