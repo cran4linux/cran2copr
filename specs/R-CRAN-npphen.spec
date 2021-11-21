@@ -1,29 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  startup
-%global packver   0.16.0
+%global packname  npphen
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Friendly R Startup Configuration
+Summary:          Vegetation Phenological Cycle and Anomaly Detection using Remote Sensing Data
 
-License:          LGPL (>= 2.1)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-ks 
+BuildRequires:    R-methods 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-snow 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-ks 
+Requires:         R-methods 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-snow 
 
 %description
-Adds support for R startup configuration via '.Renviron.d' and
-'.Rprofile.d' directories in addition to '.Renviron' and '.Rprofile'
-files.  This makes it possible to keep private / secret environment
-variables separate from other environment variables.  It also makes it
-easier to share specific startup settings by simply copying a file to a
-directory.
+Calculates phenological cycle and anomalies using a non-parametric
+approach applied to time series of vegetation indices derived from remote
+sensing data or field measurements. The package implements basic and
+high-level functions for manipulating vector data (numerical series) and
+raster data (satellite derived products). Processing of very large raster
+files is supported.
 
 %prep
 %setup -q -c -n %{packname}

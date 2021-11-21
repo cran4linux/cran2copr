@@ -1,29 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  startup
-%global packver   0.16.0
+%global packname  refund.shiny
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Friendly R Startup Configuration
+Summary:          Interactive Plotting for Functional Data Analyses
 
-License:          LGPL (>= 2.1)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel >= 3.0.1
+Requires:         R-core >= 3.0.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny >= 0.11
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-refund 
+BuildRequires:    R-CRAN-registr 
+Requires:         R-CRAN-shiny >= 0.11
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-refund 
+Requires:         R-CRAN-registr 
 
 %description
-Adds support for R startup configuration via '.Renviron.d' and
-'.Rprofile.d' directories in addition to '.Renviron' and '.Rprofile'
-files.  This makes it possible to keep private / secret environment
-variables separate from other environment variables.  It also makes it
-easier to share specific startup settings by simply copying a file to a
-directory.
+Shiny applications are produced for different types of popular functional
+data analyses. The functional data analyses are implemented in the refund
+package, then refund.shiny reads in the refund object and implements an
+object-specific set of plots based on the object class using S3.
 
 %prep
 %setup -q -c -n %{packname}

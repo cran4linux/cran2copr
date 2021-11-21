@@ -1,29 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  startup
-%global packver   0.16.0
+%global packname  disprose
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Friendly R Startup Configuration
+Summary:          Discriminating Probes Selection
 
-License:          LGPL (>= 2.1)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
-Adds support for R startup configuration via '.Renviron.d' and
-'.Rprofile.d' directories in addition to '.Renviron' and '.Rprofile'
-files.  This makes it possible to keep private / secret environment
-variables separate from other environment variables.  It also makes it
-easier to share specific startup settings by simply copying a file to a
-directory.
+Set of tools for molecular probes selection and design of a microarray,
+e.g. the assessment of physical and chemical properties, blast
+performance, selection according to sensitivity and selectivity. Methods
+used in package are described in: Lorenz R., Stephan H.B., Höner zu
+Siederdissen C. et al. (2011) <doi:10.1186/1748-7188-6-26>; Camacho C.,
+Coulouris G., Avagyan V. et al. (2009) <doi:10.1186/1471-2105-10-421>.
 
 %prep
 %setup -q -c -n %{packname}
