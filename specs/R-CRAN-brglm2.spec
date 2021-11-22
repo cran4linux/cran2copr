@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  brglm2
-%global packver   0.8.1
+%global packver   0.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bias Reduction in Generalized Linear Models
 
@@ -13,15 +13,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-enrichwith 
-BuildRequires:    R-CRAN-lpSolveAPI 
 BuildRequires:    R-CRAN-numDeriv 
 Requires:         R-CRAN-MASS 
 Requires:         R-stats 
@@ -29,7 +28,6 @@ Requires:         R-CRAN-Matrix
 Requires:         R-graphics 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-enrichwith 
-Requires:         R-CRAN-lpSolveAPI 
 Requires:         R-CRAN-numDeriv 
 
 %description

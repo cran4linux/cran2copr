@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bqror
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Quantile Regression for Ordinal Models
 
@@ -47,11 +47,11 @@ alternative quantile regression models. Besides, the package also contains
 functions for making trace plots of MCMC draws and other functions that
 aids the estimation or inference of quantile ordinal models. Rahman, M. A.
 (2016).“Bayesian Quantile Regression for Ordinal Models.” Bayesian
-Analysis, II(I): 1-24 <doi:10.1214/15-BA939>. Yu, K., and Moyeed, R. A.
+Analysis, II(I): 1-24 <doi: 10.1214/15-BA939>. Yu, K., and Moyeed, R. A.
 (2001). “Bayesian Quantile Regression.” Statistics and Probability
-Letters, 54(4): 437–447 <doi:10.1016/S0167-7152(01)00124-9>. Koenker, R.,
+Letters, 54(4): 437–447 <doi: 10.1016/S0167-7152(01)00124-9>. Koenker, R.,
 and Bassett, G. (1978).“Regression Quantiles.” Econometrica, 46(1): 33-50
-<doi:10.2307/1913643>. Chib, S. (1995). “Marginal likelihood from the
+<doi: 10.2307/1913643>. Chib, S. (1995). “Marginal likelihood from the
 Gibbs output.” Journal of the American Statistical Association,
 90(432):1313–1321, 1995. <doi: 10.1080/01621459.1995.10476635>. Chib, S.,
 and Jeliazkov, I. (2001). “Marginal likelihood from the

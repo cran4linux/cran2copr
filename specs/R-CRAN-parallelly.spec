@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  parallelly
-%global packver   1.28.1
+%global packver   1.29.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.28.1
+Version:          1.29.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Enhancing the 'parallel' Package
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pexm
-%global packver   1.0.1
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Loading a JAGS Module for the Piecewise Exponential Distribution
 
@@ -28,8 +28,8 @@ Load the Just Another Gibbs Sampling (JAGS) module 'pexm'. The module
 provides the tools to work with the Piecewise Exponential (PE)
 distribution in a Bayesian model with the corresponding Markov Chain Monte
 Carlo algorithm (Gibbs Sampling) implemented via JAGS. Details about the
-module implementation can be found in Mayrink et al. (2020)
-<arXiv:2004.12359>.
+module implementation can be found in Mayrink et al. (2021)
+<doi:10.18637/jss.v100.i08>.
 
 %prep
 %setup -q -c -n %{packname}
