@@ -1,33 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MethodCompare
-%global packver   0.1.1
+%global packname  groupTesting
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bias and Precision Plots
+Summary:          Simulating and Modeling Group (Pooled) Testing Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-nlme 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-pracma 
 
 %description
-Implementation of the methodology from the paper entitled "Effective plots
-to assess bias and precision in method comparison studies" published in
-Statistical Methods in Medical Research, P. Taffé (2018)
-<doi:10.1177/0962280218759693>.
+Provides an expectation-maximization (EM) algorithm using the approach
+introduced in Xie (2001) <doi:10.1002/sim.817>. The EM algorithm can be
+used to estimate the prevalence (overall proportion) of a disease and to
+estimate a binary regression model from among the class of generalized
+linear models based on group testing data. The estimation framework we
+consider offers a flexible and general approach; i.e., its application is
+not limited to any specific group testing protocol. Consequently, the EM
+algorithm can model data arising from simple pooling as well as advanced
+pooling such as hierarchical testing, array testing, and quality control
+pooling. Also, provided are functions that can be used to conduct the Wald
+tests described in Buse (1982) <doi:10.1080/00031305.1982.10482817> and to
+simulate the group testing data described in Kim et al. (2007)
+<doi:10.1111/j.1541-0420.2007.00817.x>.
 
 %prep
 %setup -q -c -n %{packname}

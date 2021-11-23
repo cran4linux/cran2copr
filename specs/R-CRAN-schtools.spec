@@ -1,33 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MethodCompare
-%global packver   0.1.1
+%global packname  schtools
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bias and Precision Plots
+Summary:          Schloss Lab Tools for Reproducible Microbiome Research
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-nlme 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-formatR 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-formatR 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
 
 %description
-Implementation of the methodology from the paper entitled "Effective plots
-to assess bias and precision in method comparison studies" published in
-Statistical Methods in Medical Research, P. Taffé (2018)
-<doi:10.1177/0962280218759693>.
+A collection of useful functions and example code created and used by the
+Schloss Lab for reproducible microbiome research. Perform common tasks
+like read files created by mothur <https://mothur.org/>, tidy up your
+microbiome data, and format R Markdown documents for publication. See the
+website <http://www.schlosslab.org/schtools/> for more information,
+documentation, and examples.
 
 %prep
 %setup -q -c -n %{packname}

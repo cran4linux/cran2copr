@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  abtest
-%global packver   0.2.2
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian A/B Testing
 
@@ -39,7 +39,8 @@ Requires:         R-parallel
 %description
 Provides functions for Bayesian A/B testing including prior elicitation
 options based on Kass and Vaidyanathan (1992)
-<doi:10.1111/j.2517-6161.1992.tb01868.x>.
+<doi:10.1111/j.2517-6161.1992.tb01868.x>. Gronau, Raj K. N., & Wagenmakers
+(2021) <doi:10.18637/jss.v100.i17>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,6 +50,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

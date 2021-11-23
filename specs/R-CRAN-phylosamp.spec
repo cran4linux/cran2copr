@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MethodCompare
-%global packver   0.1.1
+%global packname  phylosamp
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bias and Precision Plots
+Summary:          The Probability of Transmission Given Phylogenetic Linkage
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,18 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-nlme 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-RColorBrewer 
 Requires:         R-stats 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
-Implementation of the methodology from the paper entitled "Effective plots
-to assess bias and precision in method comparison studies" published in
-Statistical Methods in Medical Research, P. Taffé (2018)
-<doi:10.1177/0962280218759693>.
+Implements novel tools that estimate the probability of true transmission
+between two cases given phylogenetic linkage and the expected number of
+true transmission links in a sample. Methods described in Wohl, Giles, and
+Lessler (2021) <doi:10.1371/journal.pcbi.1009182>.
 
 %prep
 %setup -q -c -n %{packname}

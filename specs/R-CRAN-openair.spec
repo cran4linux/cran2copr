@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  openair
-%global packver   2.8-5
+%global packver   2.8-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.5
+Version:          2.8.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for the Analysis of Air Pollution Data
 

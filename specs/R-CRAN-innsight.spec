@@ -1,33 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MethodCompare
-%global packver   0.1.1
+%global packname  innsight
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bias and Precision Plots
+Summary:          Get the Insights of your Neural Network
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-nlme 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-torch 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-torch 
 
 %description
-Implementation of the methodology from the paper entitled "Effective plots
-to assess bias and precision in method comparison studies" published in
-Statistical Methods in Medical Research, P. Taffé (2018)
-<doi:10.1177/0962280218759693>.
+Interpretability methods to analyze the behavior and individual
+predictions of modern neural networks. Implemented methods are:
+'Connection Weights' described by Olden et al. (2004)
+<doi:10.1016/j.ecolmodel.2004.03.013>, Layer-wise Relevance Propagation
+('LRP') described by Bach et al. (2015)
+<doi:10.1371/journal.pone.0130140>, Deep Learning Important Features
+('DeepLIFT') described by Shrikumar et al.  (2017) <arXiv:1704.02685> and
+gradient-based methods like 'SmoothGrad' described by Smilkov et al.
+(2017) <arXiv:1706.03825>, 'Gradient x Input' described by Baehrens et al.
+(2009) <arXiv:0912.1128> or 'Vanilla Gradient'.
 
 %prep
 %setup -q -c -n %{packname}

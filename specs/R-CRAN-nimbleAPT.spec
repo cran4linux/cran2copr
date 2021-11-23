@@ -1,33 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MethodCompare
-%global packver   0.1.1
+%global packname  nimbleAPT
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bias and Precision Plots
+Summary:          Adaptive Parallel Tempering for 'NIMBLE'
 
-License:          GPL-3
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.1.2
+Requires:         R-core >= 3.1.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-nlme 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-nimble 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-nimble 
+Requires:         R-methods 
 
 %description
-Implementation of the methodology from the paper entitled "Effective plots
-to assess bias and precision in method comparison studies" published in
-Statistical Methods in Medical Research, P. Taffé (2018)
-<doi:10.1177/0962280218759693>.
+Functions for adaptive parallel tempering (APT) with NIMBLE models.
+Adapted from 'Lacki' & 'Miasojedow' (2016) <DOI:10.1007/s11222-015-9579-0>
+and 'Miasojedow, Moulines and Vihola' (2013)
+<DOI:10.1080/10618600.2013.778779>.
 
 %prep
 %setup -q -c -n %{packname}

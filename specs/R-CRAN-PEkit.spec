@@ -1,33 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MethodCompare
-%global packver   0.1.1
+%global packname  PEkit
+%global packver   1.0.0.1000
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0.1000
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bias and Precision Plots
+Summary:          Partition Exchangeability Toolkit
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-nlme 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-stats >= 4.1.0
+Requires:         R-stats >= 4.1.0
 
 %description
-Implementation of the methodology from the paper entitled "Effective plots
-to assess bias and precision in method comparison studies" published in
-Statistical Methods in Medical Research, P. Taffé (2018)
-<doi:10.1177/0962280218759693>.
+Bayesian supervised predictive classifiers, hypothesis testing, and
+parametric estimation under Partition Exchangeability are implemented. The
+two classifiers presented are the marginal classifier (that assumes test
+data is i.i.d.) next to a more computationally costly but accurate
+simultaneous classifier (that finds a labelling for the entire test
+dataset at once based on simultanous use of all the test data to predict
+each label). We also provide the Maximum Likelihood Estimation (MLE) of
+the only underlying parameter of the partition exchangeability generative
+model as well as hypothesis testing statistics for equality of this
+parameter with a single value, alternative, or multiple samples. We
+present functions to simulate the sequences from Ewens Sampling Formula as
+the realisation of the Poisson-Dirichlet distribution and their respective
+probabilities.
 
 %prep
 %setup -q -c -n %{packname}

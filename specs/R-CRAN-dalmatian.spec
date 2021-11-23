@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dalmatian
-%global packver   0.6.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automating the Fitting of Double Linear Mixed Models in 'JAGS' and 'nimble'
 
@@ -32,7 +32,9 @@ Requires:         R-CRAN-rlang
 %description
 Automates fitting of double GLM in 'JAGS'. Includes automatic generation
 of 'JAGS' scripts, running 'JAGS' or 'nimble' via the 'rjags' and 'nimble'
-package, and summarizing the resulting output.
+package, and summarizing the resulting output. For further information see
+Bonner, Kim, Westneat, Mutzel, Wright, and Schofield
+<doi:10.18637/jss.v100.i10>.
 
 %prep
 %setup -q -c -n %{packname}

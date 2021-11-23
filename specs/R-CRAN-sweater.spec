@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sweater
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Speedy Word Embedding Association Test and Extras Using R
 
@@ -19,13 +19,13 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-quanteda 
 BuildRequires:    R-CRAN-LiblineaR 
-BuildRequires:    R-CRAN-text2vec 
+BuildRequires:    R-CRAN-proxy 
 BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-quanteda 
 Requires:         R-CRAN-LiblineaR 
-Requires:         R-CRAN-text2vec 
+Requires:         R-CRAN-proxy 
 Requires:         R-CRAN-data.table 
 
 %description
