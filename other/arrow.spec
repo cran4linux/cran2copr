@@ -42,7 +42,7 @@
 %define have_zstd 1
 
 Name:		arrow
-Version:	6.0.0
+Version:	6.0.1
 Release:	1%{?dist}%{?buildtag}
 Summary:	Apache Arrow is a data processing library for analysis
 
@@ -783,6 +783,9 @@ Documentation for Apache Parquet GLib.
 %{_datadir}/gtk-doc/html/parquet-glib/
 
 %changelog
+* Tue Nov 23 2021 Iñaki Úcar <iucar@fedoraproject.org> - 6.0.1-1
+- New upstream release.
+
 * Wed Nov 17 2021 Iñaki Úcar <iucar@fedoraproject.org> - 6.0.0-1
 - New upstream release.
 
