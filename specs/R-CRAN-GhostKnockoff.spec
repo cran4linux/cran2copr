@@ -1,38 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  makepipe
+%global packname  GhostKnockoff
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pipeline Tools Inspired by 'GNU Make'
+Summary:          The Knockoff Inference Using Summary Statistics
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-visNetwork 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-R6 
-Requires:         R-utils 
-Requires:         R-CRAN-visNetwork 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-CVXR 
+BuildRequires:    R-CRAN-Rdsdp 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-seqminer 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-corpcor 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-CVXR 
+Requires:         R-CRAN-Rdsdp 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-seqminer 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-corpcor 
 
 %description
-A suite of tools for transforming an existing workflow into a
-self-documenting pipeline with very minimal upfront costs. Segments of the
-pipeline are specified in much the same way a 'Make' rule is, by declaring
-an executable recipe (which might be an R script), along with the
-corresponding targets and dependencies. When the entire pipeline is run
-through, only those recipes that need to be executed will be. Meanwhile,
-execution metadata is captured behind the scenes for later inspection.
+Functions for multiple knockoff inference using summary statistics, e.g.
+Z-scores. The knockoff inference is a general procedure for controlling
+the false discovery rate (FDR) when performing variable selection. This
+package provides a procedure which performs knockoff inference without
+ever constructing individual knockoffs (GhostKnockoff). It additionally
+supports multiple knockoff inference for improved stability and
+reproducibility. Moreover, it supports meta-analysis of multiple
+overlapping studies.
 
 %prep
 %setup -q -c -n %{packname}

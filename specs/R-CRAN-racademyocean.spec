@@ -1,34 +1,49 @@
 %global __brp_check_rpaths %{nil}
-%global packname  symengine
-%global packver   0.1.6
+%global packname  racademyocean
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'SymEngine' Library
+Summary:          Client for 'AcademyOcean API'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cmake
-BuildRequires:    gmp-devel
-BuildRequires:    mpfr-devel
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-retry 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-retry 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-withr 
 
 %description
-Provides an R interface to 'SymEngine' <https://github.com/symengine/>, a
-standalone 'C++' library for fast symbolic manipulation. The package has
-functionalities for symbolic computation like calculating exact
-mathematical expressions, solving systems of linear equations and code
-generation.
+Provide function for work with 'AcademyOcean API'
+<https://academyocean.com/api>.
 
 %prep
 %setup -q -c -n %{packname}

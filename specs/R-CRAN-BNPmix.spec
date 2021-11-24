@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BNPmix
-%global packver   0.2.9
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Nonparametric Mixture Models
 
@@ -33,7 +33,8 @@ Requires:         R-CRAN-ggpubr
 %description
 Functions to perform Bayesian nonparametric univariate and multivariate
 density estimation and clustering, by means of Pitman-Yor mixtures, and
-dependent Dirichlet process mixtures for partially exchangeable data.
+dependent Dirichlet process mixtures for partially exchangeable data. See
+Corradin et al. (2021) <doi:10.18637/jss.v100.i15> for more details.
 
 %prep
 %setup -q -c -n %{packname}

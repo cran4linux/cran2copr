@@ -1,34 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  symengine
-%global packver   0.1.6
+%global packname  NetExplorer
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'SymEngine' Library
+Summary:          Network Explorer
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cmake
-BuildRequires:    gmp-devel
-BuildRequires:    mpfr-devel
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
 
 %description
-Provides an R interface to 'SymEngine' <https://github.com/symengine/>, a
-standalone 'C++' library for fast symbolic manipulation. The package has
-functionalities for symbolic computation like calculating exact
-mathematical expressions, solving systems of linear equations and code
-generation.
+Social network analysis has become an essential tool in the study of
+complex systems. 'NetExplorer' allows to visualize and explore complex
+systems. It is based on 'd3js' library that brings 1) Graphical user
+interface; 2) Circular, linear, multilayer and force Layout; 3) Network
+live exploration and 4) SVG exportation.
 
 %prep
 %setup -q -c -n %{packname}

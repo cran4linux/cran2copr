@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DescTools
-%global packver   0.99.43
+%global packver   0.99.44
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.43
+Version:          0.99.44
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Descriptive Statistics
 

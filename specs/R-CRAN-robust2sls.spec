@@ -1,38 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  makepipe
+%global packname  robust2sls
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pipeline Tools Inspired by 'GNU Make'
+Summary:          Outlier Robust Two-Stage Least Squares Inference and Testing
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-visNetwork 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-R6 
-Requires:         R-utils 
-Requires:         R-CRAN-visNetwork 
+BuildRequires:    R-CRAN-AER 
+BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-AER 
+Requires:         R-CRAN-doRNG 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-pracma 
+Requires:         R-stats 
 
 %description
-A suite of tools for transforming an existing workflow into a
-self-documenting pipeline with very minimal upfront costs. Segments of the
-pipeline are specified in much the same way a 'Make' rule is, by declaring
-an executable recipe (which might be an R script), along with the
-corresponding targets and dependencies. When the entire pipeline is run
-through, only those recipes that need to be executed will be. Meanwhile,
-execution metadata is captured behind the scenes for later inspection.
+An implementation of easy tools for outlier robust inference in two-stage
+least squares (2SLS) models. The user specifies a reference distribution
+against which observations are classified as outliers or not. After
+removing the outliers, adjusted standard errors are automatically
+provided. Furthermore, several statistical tests for the false outlier
+detection rate can be calculated. The outlier removing algorithm can be
+iterated a fixed number of times or until the procedure converges. The
+algorithms and robust inference are described in more detail in Jiao
+(2019)
+<https://drive.google.com/file/d/1qPxDJnLlzLqdk94X9wwVASptf1MPpI2w/view>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,34 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  symengine
-%global packver   0.1.6
+%global packname  SIRmcmc
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'SymEngine' Library
+Summary:          Compartmental Susceptible-Infectious-Recovered (SIR) Model of Community and Household Infection
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cmake
-BuildRequires:    gmp-devel
-BuildRequires:    mpfr-devel
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.15
+Requires:         R-CRAN-Rcpp >= 0.12.15
 
 %description
-Provides an R interface to 'SymEngine' <https://github.com/symengine/>, a
-standalone 'C++' library for fast symbolic manipulation. The package has
-functionalities for symbolic computation like calculating exact
-mathematical expressions, solving systems of linear equations and code
-generation.
+We build an Susceptible-Infectious-Recovered (SIR) model where the rate of
+infection is the sum of the household rate and the community rate. We
+estimate the posterior distribution of the parameters using the Metropolis
+algorithm. Further details may be found in: F Scott Dahlgren, Ivo M Foppa,
+Melissa S Stockwell, Celibell Y Vargas, Philip LaRussa, Carrie Reed (2021)
+"Household transmission of influenza A and B within a prospective cohort
+during the 2013-2014 and 2014-2015 seasons" <doi:10.1002/sim.9181>.
 
 %prep
 %setup -q -c -n %{packname}

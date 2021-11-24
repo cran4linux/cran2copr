@@ -1,34 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  symengine
-%global packver   0.1.6
+%global packname  cesR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'SymEngine' Library
+Summary:          Access the Canadian Election Study Datasets
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cmake
-BuildRequires:    gmp-devel
-BuildRequires:    mpfr-devel
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-labelled 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-labelled 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-Provides an R interface to 'SymEngine' <https://github.com/symengine/>, a
-standalone 'C++' library for fast symbolic manipulation. The package has
-functionalities for symbolic computation like calculating exact
-mathematical expressions, solving systems of linear equations and code
-generation.
+Makes accessing and loading the Canadian Election Study
+(<http://www.ces-eec.ca/>, <https://ces-eec.arts.ubc.ca/>,
+<https://search1.odesi.ca/#/>) surveys into the R workspace more efficient
+by downloading a requested survey and loading it as a data object. This
+removes the need to locate, download, load, and change working directories
+when working with the Canadian Election Study surveys.
 
 %prep
 %setup -q -c -n %{packname}

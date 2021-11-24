@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rayrender
-%global packver   0.21.2
+%global packver   0.23.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.21.2
+Version:          0.23.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Build and Raytrace 3D Scenes
 
@@ -16,29 +16,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-rayimage >= 0.6.2
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-decido 
-BuildRequires:    R-CRAN-rayimage 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-RcppThread 
 BuildRequires:    R-CRAN-spacefillr 
 Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-rayimage >= 0.6.2
 Requires:         R-parallel 
-Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-decido 
-Requires:         R-CRAN-rayimage 
 Requires:         R-stats 
 Requires:         R-CRAN-progress 
 
@@ -58,6 +56,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

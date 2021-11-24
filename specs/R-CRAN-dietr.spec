@@ -1,34 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  symengine
-%global packver   0.1.6
+%global packname  dietr
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'SymEngine' Library
+Summary:          Diet Estimated Trophic Levels
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cmake
-BuildRequires:    gmp-devel
-BuildRequires:    mpfr-devel
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rfishbase >= 3.1.10
+Requires:         R-CRAN-rfishbase >= 3.1.10
 
 %description
-Provides an R interface to 'SymEngine' <https://github.com/symengine/>, a
-standalone 'C++' library for fast symbolic manipulation. The package has
-functionalities for symbolic computation like calculating exact
-mathematical expressions, solving systems of linear equations and code
-generation.
+Estimates fractional trophic level from quantitative and qualitative diet
+data and calculates electivity indices in R. Borstein (2020)
+<doi:10.1007/s10750-020-04417-5>.
 
 %prep
 %setup -q -c -n %{packname}

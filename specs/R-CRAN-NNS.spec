@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  NNS
-%global packver   0.8.2
+%global packver   0.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.8.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonlinear Nonparametric Statistics
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-Rfast
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tdigest 
+BuildRequires:    R-CRAN-tseries 
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-caret 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-Rfast
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tdigest 
+Requires:         R-CRAN-tseries 
 Requires:         R-CRAN-zoo 
 
 %description

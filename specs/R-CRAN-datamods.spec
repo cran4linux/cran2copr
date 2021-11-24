@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  datamods
-%global packver   1.1.5
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modules to Import and Manipulate Data in 'Shiny'
 
@@ -18,9 +18,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.5.0
 BuildRequires:    R-CRAN-shinyWidgets >= 0.5.3
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-phosphoricons 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rio 
 BuildRequires:    R-CRAN-rlang 
@@ -28,9 +29,10 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-tools 
 Requires:         R-CRAN-shiny >= 1.5.0
 Requires:         R-CRAN-shinyWidgets >= 0.5.3
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-DT 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-phosphoricons 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rio 
 Requires:         R-CRAN-rlang 
@@ -49,6 +51,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

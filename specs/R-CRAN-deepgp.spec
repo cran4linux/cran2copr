@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  deepgp
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sequential Design for Deep Gaussian Processes using MCMC
 
@@ -21,23 +21,29 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-BH 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-parallel 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-mvtnorm 
 
 %description
 Performs model fitting and sequential design for deep Gaussian processes
 following Sauer, Gramacy, and Higdon (2020) <arXiv:2012.08015>. Models
 extend up to three layers deep; a one layer model is equivalent to typical
-Gaussian process regression.  Sequential design criteria include
+Gaussian process regression.  Covariance kernel options are Matern
+(default) and squared exponential.  Sequential design criteria include
 integrated mean-squared error (IMSE), active learning Cohn (ALC), and
-expected improvement (EI).  Covariance structure is based on inverse
-exponentiated squared euclidean distance.  Applicable to noisy and
-deterministic functions.  Incorporates SNOW parallelization and utilizes C
-under the hood.
+expected improvement (EI).  Applicable to both noisy and deterministic
+functions.  Incorporates SNOW parallelization and utilizes C and C++ under
+the hood.
 
 %prep
 %setup -q -c -n %{packname}

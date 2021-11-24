@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  PROsetta
-%global packver   0.3.2
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linking Patient-Reported Outcomes Measures
 

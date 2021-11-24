@@ -1,48 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidytransit
-%global packver   1.2.0
+%global packname  tabbycat
+%global packver   0.17.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.17.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read, Validate, Analyze, and Map GTFS Feeds
+Summary:          Tabulate and Summarise Categorical Data
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.12.8
-BuildRequires:    R-CRAN-gtfsio >= 0.1.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-geodist 
-Requires:         R-CRAN-data.table >= 1.12.8
-Requires:         R-CRAN-gtfsio >= 0.1.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-geodist 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Read General Transit Feed Specification (GTFS) zipfiles into a list of R
-dataframes. Perform validation of the data structure against the
-specification. Analyze the headways and frequencies at routes and stops.
-Create maps and perform spatial analysis on the routes and stops. Please
-see the GTFS documentation here for more detail: <https://gtfs.org/>.
+Functions for tabulating and summarising categorical variables. Most
+functions are designed to work with dataframes, and use the 'tidyverse'
+idiom of taking the dataframe as the first argument so they work within
+pipelines. Equivalent functions that operate directly on vectors are also
+provided where it makes sense. This package aims to make exploratory data
+analysis involving categorical variables quicker, simpler and more robust.
 
 %prep
 %setup -q -c -n %{packname}

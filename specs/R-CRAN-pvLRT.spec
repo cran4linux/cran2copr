@@ -1,34 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  symengine
-%global packver   0.1.6
+%global packname  pvLRT
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'SymEngine' Library
+Summary:          Likelihood Ratio Test-Based Approaches to Pharmacovigilance
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cmake
-BuildRequires:    gmp-devel
-BuildRequires:    mpfr-devel
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr >= 2.0.0
+BuildRequires:    R-stats 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-utils 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-bit64 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr >= 2.0.0
+Requires:         R-stats 
 Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-utils 
+Requires:         R-grDevices 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-bit64 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Provides an R interface to 'SymEngine' <https://github.com/symengine/>, a
-standalone 'C++' library for fast symbolic manipulation. The package has
-functionalities for symbolic computation like calculating exact
-mathematical expressions, solving systems of linear equations and code
-generation.
+A suite of likelihood ratio test based methods to use in
+pharmacovigilance. Contains various testing and post-processing functions.
 
 %prep
 %setup -q -c -n %{packname}
