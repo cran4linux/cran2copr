@@ -1,41 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SpATS
-%global packver   1.0-16
+%global packname  r2spss
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.16
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Analysis of Field Trials with Splines
+Summary:          Format R Output to Look Like SPSS
 
-License:          GPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-plot3Drgl 
-BuildRequires:    R-CRAN-spam 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
-Requires:         R-stats 
-Requires:         R-grDevices 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-car 
 Requires:         R-graphics 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-plot3Drgl 
-Requires:         R-CRAN-spam 
-Requires:         R-CRAN-data.table 
-Requires:         R-methods 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-CRAN-car 
 
 %description
-Analysis of field trial experiments by modelling spatial trends using
-two-dimensional Penalised spline (P-spline) models.
+Create plots and LaTeX tables that look like SPSS output for use in
+teaching materials.  Rather than copying-and-pasting SPSS output into
+documents, R code that mocks up SPSS output can be integrated directly
+into dynamic LaTeX documents with tools such as knitr.  Functionality
+includes methods that are typically covered in introductory statistics
+classes: descriptive statistics, common hypothesis tests, ANOVA, and
+linear regression, as well as boxplots, histograms, scatterplots, and line
+plots (including profile plots).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  podcleaner
-%global packver   0.1.1
+%global packname  rmangal
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Legacy Scottish Post Office Directories Cleaner
+Summary:          'Mangal' Client
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,33 +16,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.1.5
-BuildRequires:    R-CRAN-readr >= 2.0.2
-BuildRequires:    R-CRAN-magrittr >= 2.0.1
-BuildRequires:    R-CRAN-stringi >= 1.7.5
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-progress >= 1.2.2
-BuildRequires:    R-CRAN-tidyr >= 1.1.4
-BuildRequires:    R-CRAN-dplyr >= 1.0.7
-BuildRequires:    R-CRAN-rlang >= 0.4.12
-BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-CRAN-fuzzyjoin >= 0.1.6
-Requires:         R-CRAN-tibble >= 3.1.5
-Requires:         R-CRAN-readr >= 2.0.2
-Requires:         R-CRAN-magrittr >= 2.0.1
-Requires:         R-CRAN-stringi >= 1.7.5
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-progress >= 1.2.2
-Requires:         R-CRAN-tidyr >= 1.1.4
-Requires:         R-CRAN-dplyr >= 1.0.7
-Requires:         R-CRAN-rlang >= 0.4.12
-Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-fuzzyjoin >= 0.1.6
+BuildRequires:    R-CRAN-jsonlite >= 1.5
+BuildRequires:    R-CRAN-httr >= 1.3.1
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-jsonlite >= 1.5
+Requires:         R-CRAN-httr >= 1.3.1
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-memoise 
+Requires:         R-methods 
+Requires:         R-CRAN-purrr 
 
 %description
-Attempts to clean optical character recognition (OCR) errors in legacy
-Scottish Post Office Directories. Further attempts to match records from
-trades and general directories.
+An interface to the 'Mangal' database - a collection of ecological
+networks. This package includes functions to work with the 'Mangal RESTful
+API' methods (<https://mangal-interactions.github.io/mangal-api/>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,41 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SpATS
-%global packver   1.0-16
+%global packname  survival666
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.16
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Analysis of Field Trials with Splines
+Summary:          Eliminate the Influence of Co-Expression Genes on Target Genes
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-survminer 
+BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-plot3Drgl 
-BuildRequires:    R-CRAN-spam 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-survminer 
+Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-plot3Drgl 
-Requires:         R-CRAN-spam 
-Requires:         R-CRAN-data.table 
-Requires:         R-methods 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Analysis of field trial experiments by modelling spatial trends using
-two-dimensional Penalised spline (P-spline) models.
+Functions can be used for batch survival analysis, but not only for it.
+Most importantly, it can verify any P-value calculated according to the
+gene expression level and eliminate the influence of co-expression genes.
 
 %prep
 %setup -q -c -n %{packname}

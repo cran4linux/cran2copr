@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SpATS
-%global packver   1.0-16
+%global packname  rflsgen
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.16
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Analysis of Field Trials with Splines
+Summary:          R Interface to the 'Flsgen' Neutral Landscape Generator with Targets on Landscape Indices
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,26 +16,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-plot3Drgl 
-BuildRequires:    R-CRAN-spam 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
-Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-plot3Drgl 
-Requires:         R-CRAN-spam 
-Requires:         R-CRAN-data.table 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-rJava 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-rJava 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-checkmate 
+Requires:         R-utils 
 
 %description
-Analysis of field trial experiments by modelling spatial trends using
-two-dimensional Penalised spline (P-spline) models.
+Interface to the 'flsgen' neutral landscape generator
+<https://github.com/dimitri-justeau/flsgen>. It allows to - Generate
+fractal terrain; - Generate landscape structures satisfying user targets
+over landscape indices; - Generate landscape raster from landscape
+structures.
 
 %prep
 %setup -q -c -n %{packname}

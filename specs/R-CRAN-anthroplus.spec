@@ -1,40 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  subtee
-%global packver   1.0.0
+%global packname  anthroplus
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Subgroup Treatment Effect Estimation in Clinical Trials
+Summary:          Computation of the WHO 2007 References for School-Age Children and Adolescents (5 to 19 Years)
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-matrixStats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-anthro >= 1.0.0
+Requires:         R-CRAN-anthro >= 1.0.0
 
 %description
-Naive and adjusted treatment effect estimation for subgroups. Model
-averaging (Bornkamp et.al, 2016 <doi:10.1002/pst.1796>) and bagging
-(Rosenkranz, 2016 <doi:10.1002/bimj.201500147>) are proposed to address
-the problem of selection bias in treatment effect estimates for subgroups.
-The package can be used for all commonly encountered type of outcomes in
-clinical trials (continuous, binary, survival, count). Additional
-functions are provided to build the subgroup variables to be used and to
-plot the results using forest plots. For details, see Ballarini et.al.
-(2021) <doi:10.18637/jss.v099.i14>.
+Provides WHO 2007 References for School-age Children and Adolescents (5 to
+19 years) (z-scores) with confidence intervals and standard errors around
+the prevalence estimates, taking into account complex sample designs. More
+information on the methods is available online:
+<https://www.who.int/tools/growth-reference-data-for-5to19-years>.
 
 %prep
 %setup -q -c -n %{packname}

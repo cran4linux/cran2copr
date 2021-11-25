@@ -1,41 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SpATS
-%global packver   1.0-16
+%global packname  downscale
+%global packver   4.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.16
+Version:          4.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Analysis of Field Trials with Splines
+Summary:          Downscaling Species Occupancy
 
-License:          GPL
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-raster >= 2.4.20
+BuildRequires:    R-CRAN-sp >= 1.2.0
+BuildRequires:    R-CRAN-minpack.lm >= 1.1.9
+BuildRequires:    R-CRAN-cubature >= 1.1.2
+BuildRequires:    R-CRAN-Rmpfr >= 0.5.7
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-plot3Drgl 
-BuildRequires:    R-CRAN-spam 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
-Requires:         R-stats 
-Requires:         R-grDevices 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-raster >= 2.4.20
+Requires:         R-CRAN-sp >= 1.2.0
+Requires:         R-CRAN-minpack.lm >= 1.1.9
+Requires:         R-CRAN-cubature >= 1.1.2
+Requires:         R-CRAN-Rmpfr >= 0.5.7
 Requires:         R-graphics 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-plot3Drgl 
-Requires:         R-CRAN-spam 
-Requires:         R-CRAN-data.table 
+Requires:         R-grDevices 
 Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Analysis of field trial experiments by modelling spatial trends using
-two-dimensional Penalised spline (P-spline) models.
+Uses species occupancy at coarse grain sizes to predict species occupancy
+at fine grain sizes. Ten models are provided to fit and extrapolate the
+occupancy-area relationship, as well as methods for preparing atlas data
+for modelling. See Marsh et. al. (2018) <doi:10.18637/jss.v086.c03>.
 
 %prep
 %setup -q -c -n %{packname}

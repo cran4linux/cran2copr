@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bamlss
-%global packver   1.1-5
+%global packver   1.1-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Additive Models for Location, Scale, and Shape (and Beyond)
 
@@ -46,7 +46,7 @@ additive terms (fixed, random, smooth, spatial, etc.) similar to a
 generalized additive model. The conceptual and computational framework is
 introduced in Umlauf, Klein, Zeileis (2019)
 <doi:10.1080/10618600.2017.1407325> and the R package in Umlauf, Klein,
-Simon, Zeileis (2019) <arXiv:1909.11784>.
+Simon, Zeileis (2021) <doi:10.18637/jss.v100.i04>.
 
 %prep
 %setup -q -c -n %{packname}

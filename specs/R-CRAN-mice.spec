@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mice
-%global packver   3.13.0
+%global packver   3.14.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.13.0
+Version:          3.14.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Imputation by Chained Equations
 
@@ -19,6 +19,7 @@ BuildRequires:    R-CRAN-broom
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
@@ -26,11 +27,13 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-cpp11 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-generics 
 Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-CRAN-lattice 
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
@@ -38,6 +41,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
+Requires:         R-CRAN-withr 
 
 %description
 Multiple imputation using Fully Conditional Specification (FCS)
@@ -60,6 +64,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

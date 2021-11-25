@@ -1,48 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rKolada
-%global packver   0.2.0
+%global packname  synr
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Data from the 'Kolada' Database
+Summary:          Explore and Process Synesthesia Consistency Test Data
 
-License:          AGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-urltools 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-urltools 
+BuildRequires:    R-methods >= 3.6
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-data.table >= 1.12
+BuildRequires:    R-CRAN-dbscan >= 1.1
+Requires:         R-methods >= 3.6
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-data.table >= 1.12
+Requires:         R-CRAN-dbscan >= 1.1
 
 %description
-Methods for downloading and processing data and metadata from 'Kolada',
-the official Swedish regions and municipalities database
-<https://kolada.se/>.
+Explore synesthesia consistency test data, calculate consistency scores,
+and classify participant data as valid or invalid.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,6 +37,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

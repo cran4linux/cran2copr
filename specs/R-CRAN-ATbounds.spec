@@ -1,41 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SpATS
-%global packver   1.0-16
+%global packname  ATbounds
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.16
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Analysis of Field Trials with Splines
+Summary:          Bounding Treatment Effects by Limited Information Pooling
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-plot3Drgl 
-BuildRequires:    R-CRAN-spam 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mgcv 
 Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-plot3Drgl 
-Requires:         R-CRAN-spam 
-Requires:         R-CRAN-data.table 
-Requires:         R-methods 
+Requires:         R-CRAN-mgcv 
 
 %description
-Analysis of field trial experiments by modelling spatial trends using
-two-dimensional Penalised spline (P-spline) models.
+Estimation and inference methods for bounding average treatment effects
+(on the treated) that are valid under an unconfoundedness assumption. The
+bounds are designed to be robust in challenging situations, for example,
+when the conditioning variables take on a large number of different values
+in the observed sample, or when the overlap condition is violated. This
+robustness is achieved by only using limited "pooling" of information
+across observations. For more details, see the paper by Lee and Weidner
+(2021), "Bounding Treatment Effects by Pooling Limited Information across
+Observations," <arXiv:2111.05243>.
 
 %prep
 %setup -q -c -n %{packname}

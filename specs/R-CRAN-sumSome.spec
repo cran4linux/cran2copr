@@ -1,41 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SpATS
-%global packver   1.0-16
+%global packname  sumSome
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.16
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Analysis of Field Trials with Splines
+Summary:          Permutation True Discovery Guarantee by Sum-Based Tests
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-plot3Drgl 
-BuildRequires:    R-CRAN-spam 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
-Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-plot3Drgl 
-Requires:         R-CRAN-spam 
-Requires:         R-CRAN-data.table 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-pARI 
+BuildRequires:    R-CRAN-ARIbrain 
+BuildRequires:    R-CRAN-RNifti 
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-pARI 
+Requires:         R-CRAN-ARIbrain 
+Requires:         R-CRAN-RNifti 
 
 %description
-Analysis of field trial experiments by modelling spatial trends using
-two-dimensional Penalised spline (P-spline) models.
+It allows to quickly perform permutation-based closed testing by sum-based
+global tests, and construct lower confidence bounds for the TDP,
+simultaneously over all subsets of hypotheses. As a main feature, it
+produces simultaneous lower confidence bounds for the proportion of active
+voxels in different clusters for fMRI cluster analysis. Details may be
+found in Vesely, Finos, and Goeman (2020) <arXiv:2102.11759>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RBesT
-%global packver   1.6-2
+%global packver   1.6-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          1.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Bayesian Evidence Synthesis Tools
 
@@ -52,9 +52,11 @@ Requires:         R-CRAN-rstantools
 %description
 Tool-set to support Bayesian evidence synthesis.  This includes
 meta-analysis, (robust) prior derivation from historical data, operating
-characteristics and analysis (1 and 2 sample cases). Please refer to
-Neuenschwander et al. (2010) <doi:10.1177/1740774509356002> and Schmidli
-et al. (2014) <doi:10.1111/biom.12242> for details on the methodology.
+characteristics and analysis (1 and 2 sample cases). Please refer to Weber
+et al. (2021) <doi:10.18637/jss.v100.i19> for details on applying this
+package while Neuenschwander et al. (2010) <doi:10.1177/1740774509356002>
+and Schmidli et al. (2014) <doi:10.1111/biom.12242> explain details on the
+methodology.
 
 %prep
 %setup -q -c -n %{packname}
