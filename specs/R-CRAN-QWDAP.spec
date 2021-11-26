@@ -1,42 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bootUR
-%global packver   0.4.2
+%global packname  QWDAP
+%global packver   1.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          1.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bootstrap Unit Root Tests
+Summary:          Quantum Walk-Based Data Analysis and Prediction
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-urca 
-BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-parallelly 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppThread 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-CRAN-urca 
-Requires:         R-CRAN-RcppParallel 
-Requires:         R-CRAN-parallelly 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-StepReg 
+BuildRequires:    R-CRAN-MTS 
+BuildRequires:    R-CRAN-pls 
+BuildRequires:    R-CRAN-CORElearn 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-StepReg 
+Requires:         R-CRAN-MTS 
+Requires:         R-CRAN-pls 
+Requires:         R-CRAN-CORElearn 
 
 %description
-Set of functions to perform various bootstrap unit root tests for both
-individual time series (including augmented Dickey-Fuller test and union
-tests), multiple time series and panel data; see Palm, Smeekes and Urbain
-(2008) <doi:10.1111/j.1467-9892.2007.00565.x>, Palm, Smeekes and Urbain
-(2011) <doi:10.1016/j.jeconom.2010.11.010>, Moon and Perron (2012)
-<doi:10.1016/j.jeconom.2012.01.008>, Smeekes and Taylor (2012)
-<doi:10.1017/S0266466611000387> and Smeekes (2015)
-<doi:10.1111/jtsa.12110> for key references.
+Modeling and predicting time series based on continuous time quantum.This
+package can be divided into three parts: Basis Generation, Data Modeling
+and Prediction, and Model Evaluation according to the analysis process of
+time series. 'Basis Generation' has realized the continuous time quantum
+walk simulation for generating modes as the basis. Some regression methods
+are used to model the observed time series and predict in 'Data Modeling
+and Prediction', and 'Model Evaluation' can be used to evaluate the data
+correspondence between two series.
 
 %prep
 %setup -q -c -n %{packname}

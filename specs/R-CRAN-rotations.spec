@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rotations
-%global packver   1.6.2
+%global packver   1.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          1.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Working with Rotation Data
 
@@ -34,18 +34,17 @@ estimators and a novel visualization technique for rotation data.  Most
 recently, functions to identify potentially discordant (outlying) values
 have been added.  References: Bingham, Melissa A. and Nordman, Dan J. and
 Vardeman, Steve B. (2009) <doi:10.1198/jasa.2009.ap08741>, Bingham,
-Melissa A and Vardeman, Stephen B and Nordman, Daniel J (2009)
-<doi:10.1214/09-BA423>, Bingham, Melissa A and Nordman, Daniel J and
-Vardeman, Stephen B (2010) <doi:10.1016/j.csda.2009.11.020>, Leon, C.A.
-and Masse, J.C. and Rivest, L.P. (2006) <doi:10.1016/j.jmva.2005.03.009>,
-Hartley, R and Aftab, K and Trumpf, J. (2011)
-<doi:10.1109/CVPR.2011.5995745>, Stanfill, Bryan and Genschel, Ulrike and
-Hofmann, Heike (2013) <doi:10.1080/00401706.2013.826145>, Maonton,
-Jonathan (2004) <doi:10.1109/ICARCV.2004.1469774>, Mardia, KV and Jupp, PE
-(2000, ISBN:9780471953333), Rancourt, D. and Rivest, L.P. and Asselin, J.
-(2000) <doi:10.1111/1467-9876.00180>, Chang, Ted and Rivest, Louis-Paul
-(2001) <doi:10.1214/aos/1009210690>, Fisher, Nicholas I. (1996,
-ISBN:0521568900).
+Melissa A and Vardeman, Stephen B and Nordman, Daniel J (2009), Bingham,
+Melissa A and Nordman, Daniel J and Vardeman, Stephen B (2010)
+<doi:10.1016/j.csda.2009.11.020>, Leon, C.A. and Masse, J.C. and Rivest,
+L.P. (2006) <doi:10.1016/j.jmva.2005.03.009>, Hartley, R and Aftab, K and
+Trumpf, J. (2011) <doi:10.1109/CVPR.2011.5995745>, Stanfill, Bryan and
+Genschel, Ulrike and Hofmann, Heike (2013)
+<doi:10.1080/00401706.2013.826145>, Maonton, Jonathan (2004)
+<doi:10.1109/ICARCV.2004.1469774>, Mardia, KV and Jupp, PE (2000,
+ISBN:9780471953333), Rancourt, D. and Rivest, L.P. and Asselin, J. (2000)
+<doi:10.1111/1467-9876.00180>, Chang, Ted and Rivest, Louis-Paul (2001),
+Fisher, Nicholas I. (1996, ISBN:0521568900).
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,6 +54,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

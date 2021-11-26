@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  oceanis
-%global packver   1.7.5.2
+%global packver   1.8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.5.2
+Version:          1.8.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cartography for Statistical Analysis
 
@@ -13,14 +13,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-utils >= 3.3.3
-BuildRequires:    R-grDevices >= 3.3.3
-BuildRequires:    R-graphics >= 3.3.3
 BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
 BuildRequires:    R-CRAN-mapview >= 2.7.0
+BuildRequires:    R-CRAN-zip >= 2.1.1
 BuildRequires:    R-CRAN-leaflet >= 2.0.3
 BuildRequires:    R-CRAN-shiny >= 1.4.0.2
 BuildRequires:    R-CRAN-stringr >= 1.4.0
@@ -30,15 +28,12 @@ BuildRequires:    R-CRAN-leaflet.extras >= 1.0.0
 BuildRequires:    R-CRAN-sf >= 0.9.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.4
 BuildRequires:    R-CRAN-shinyBS >= 0.61
-BuildRequires:    R-CRAN-units >= 0.6.5
 BuildRequires:    R-CRAN-classInt >= 0.4.2
 BuildRequires:    R-CRAN-lwgeom >= 0.2.1
 BuildRequires:    R-CRAN-DT >= 0.12
-Requires:         R-utils >= 3.3.3
-Requires:         R-grDevices >= 3.3.3
-Requires:         R-graphics >= 3.3.3
 Requires:         R-CRAN-ggplot2 >= 3.2.0
 Requires:         R-CRAN-mapview >= 2.7.0
+Requires:         R-CRAN-zip >= 2.1.1
 Requires:         R-CRAN-leaflet >= 2.0.3
 Requires:         R-CRAN-shiny >= 1.4.0.2
 Requires:         R-CRAN-stringr >= 1.4.0
@@ -48,7 +43,6 @@ Requires:         R-CRAN-leaflet.extras >= 1.0.0
 Requires:         R-CRAN-sf >= 0.9.0
 Requires:         R-CRAN-dplyr >= 0.8.4
 Requires:         R-CRAN-shinyBS >= 0.61
-Requires:         R-CRAN-units >= 0.6.5
 Requires:         R-CRAN-classInt >= 0.4.2
 Requires:         R-CRAN-lwgeom >= 0.2.1
 Requires:         R-CRAN-DT >= 0.12
@@ -70,6 +64,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

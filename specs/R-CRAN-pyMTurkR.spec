@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mwcsr
-%global packver   0.1.0
+%global packname  pyMTurkR
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Solvers for the Maximum Weight Connected Subgraph Problem and Its Variants
+Summary:          A Client for the 'MTurk' Requester API
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-XML 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-curl 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-XML 
 
 %description
-Algorithms for solving various Maximum Weight Connected Subgraph Problems,
-including variants with budget constraints, cardinality constraints,
-weighted edges and signals. The package represents an R interface to
-high-efficient solvers based on relax-and-cut approach (Álvarez-Miranda
-E., Sinnl M. (2017) <doi:10.1016/j.cor.2017.05.015>) mixed-integer
-programming (Loboda A., Artyomov M., and Sergushichev A. (2016)
-<doi:10.1007/978-3-319-43681-4_17>) and simulated annealing.
+Provides access to the latest 'Amazon Mechanical Turk' ('MTurk')
+<https://www.mturk.com> Requester API (version '2017–01–17'), replacing
+the now deprecated 'MTurkR' package.
 
 %prep
 %setup -q -c -n %{packname}

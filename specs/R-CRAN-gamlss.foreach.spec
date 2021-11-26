@@ -1,42 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bootUR
-%global packver   0.4.2
+%global packname  gamlss.foreach
+%global packver   1.1-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bootstrap Unit Root Tests
+Summary:          Parallel Computations for Distributional Regression
 
-License:          GPL (>= 2)
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-urca 
-BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-parallelly 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppThread 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-CRAN-urca 
-Requires:         R-CRAN-RcppParallel 
-Requires:         R-CRAN-parallelly 
+BuildRequires:    R-devel >= 2.2.1
+Requires:         R-core >= 2.2.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-gamlss 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-gamlss.data 
+BuildRequires:    R-CRAN-gamlss.dist 
+BuildRequires:    R-CRAN-glmnet 
+Requires:         R-CRAN-gamlss 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
+Requires:         R-methods 
+Requires:         R-CRAN-gamlss.data 
+Requires:         R-CRAN-gamlss.dist 
+Requires:         R-CRAN-glmnet 
 
 %description
-Set of functions to perform various bootstrap unit root tests for both
-individual time series (including augmented Dickey-Fuller test and union
-tests), multiple time series and panel data; see Palm, Smeekes and Urbain
-(2008) <doi:10.1111/j.1467-9892.2007.00565.x>, Palm, Smeekes and Urbain
-(2011) <doi:10.1016/j.jeconom.2010.11.010>, Moon and Perron (2012)
-<doi:10.1016/j.jeconom.2012.01.008>, Smeekes and Taylor (2012)
-<doi:10.1017/S0266466611000387> and Smeekes (2015)
-<doi:10.1111/jtsa.12110> for key references.
+Computational intensive calculations for Generalized Additive Models for
+Location Scale and Shape, <doi:10.1111/j.1467-9876.2005.00510.x>.
 
 %prep
 %setup -q -c -n %{packname}
