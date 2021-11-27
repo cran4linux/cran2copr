@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gpindex
-%global packver   0.3.6
+%global packver   0.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          0.3.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Price and Quantity Indexes
 
@@ -28,8 +28,8 @@ of bilateral generalized-mean index (of which most price indexes are),
 along with a few important indexes that don't belong to the
 generalized-mean family (e.g., superlative quadratic-mean indexes, GEKS).
 Implements and extends many of the methods in Balk (2008,
-ISBN:978-1-107-40496-0) and the CPI manual (2020, ISBN:978-1-51354-298-0)
-for bilateral price indexes.
+ISBN:978-1-107-40496-0), von der Lippe (2001, ISBN:3-8246-0638-0), and the
+CPI manual (2020, ISBN:978-1-51354-298-0) for bilateral price indexes.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  HardyWeinberg
-%global packver   1.7.3
+%global packver   1.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.3
+Version:          1.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Tests and Graphics for Hardy-Weinberg Equilibrium
 
@@ -17,9 +17,11 @@ BuildRequires:    R-devel >= 1.8.0
 Requires:         R-core >= 1.8.0
 BuildRequires:    R-CRAN-mice 
 BuildRequires:    R-CRAN-Rsolnp 
+BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-mice 
 Requires:         R-CRAN-Rsolnp 
+Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-Rcpp 
 
 %description

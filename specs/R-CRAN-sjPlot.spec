@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sjPlot
-%global packver   2.8.9
+%global packver   2.8.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.9
+Version:          2.8.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Visualization for Statistics in Social Science
 

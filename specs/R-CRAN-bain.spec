@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bain
-%global packver   0.2.6
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayes Factors for Informative Hypotheses
 
@@ -22,13 +22,15 @@ Requires:         R-CRAN-lavaan
 
 %description
 Computes approximated adjusted fractional Bayes factors for equality,
-inequality, and about equality constrained hypotheses. S3 methods are
-available for specific types of lm() models, namely ANOVA, ANCOVA, and
-multiple regression, and for the t_test(). The statistical underpinnings
-are described in Gu, Mulder, and Hoijtink, (2018)
-<DOI:10.1111/bmsp.12110>, Hoijtink, Gu, and Mulder, (2018)
-<DOI:10.1111/bmsp.12145>, and Hoijtink, Gu, Mulder, and Rosseel, (2018)
-<DOI:10.1037/met0000187>.
+inequality, and about equality constrained hypotheses. For a tutorial on
+this method, see Hoijtink, Mulder, van Lissa, & Gu, (2019)
+<doi:10.31234/osf.io/v3shc>. For applications in structural equation
+modeling, see: Van Lissa, Gu, Mulder, Rosseel, Van Zundert, & Hoijtink,
+(2021) <doi:10.1080/10705511.2020.1745644>. For the statistical
+underpinnings, see Gu, Mulder, and Hoijtink (2018)
+<doi:10.1111/bmsp.12110>; Hoijtink, Gu, & Mulder, J. (2019)
+<doi:10.1111/bmsp.12145>; Hoijtink, Gu, Mulder, & Rosseel, (2019)
+<doi:10.31234/osf.io/q6h5w>.
 
 %prep
 %setup -q -c -n %{packname}

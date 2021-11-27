@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  stplanr
-%global packver   0.8.5
+%global packver   0.8.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.5
+Version:          0.8.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sustainable Transport Planning
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-jsonlite >= 1.5
 BuildRequires:    R-CRAN-sp >= 1.3.1
 BuildRequires:    R-CRAN-httr >= 1.3.1
 BuildRequires:    R-CRAN-stringr >= 1.3.1
-BuildRequires:    R-CRAN-igraph >= 1.2.2
 BuildRequires:    R-CRAN-maptools >= 0.9.3
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.100.5.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.6
@@ -44,7 +43,6 @@ Requires:         R-CRAN-jsonlite >= 1.5
 Requires:         R-CRAN-sp >= 1.3.1
 Requires:         R-CRAN-httr >= 1.3.1
 Requires:         R-CRAN-stringr >= 1.3.1
-Requires:         R-CRAN-igraph >= 1.2.2
 Requires:         R-CRAN-maptools >= 0.9.3
 Requires:         R-CRAN-dplyr >= 0.7.6
 Requires:         R-CRAN-sf >= 0.6.3

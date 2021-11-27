@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  stochvol
-%global packver   3.1.0
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Bayesian Inference for Stochastic Volatility (SV) Models
 
@@ -35,8 +35,9 @@ volatility (SV) models with and without asymmetry (leverage) via Markov
 chain Monte Carlo (MCMC) methods. Methodological details are given in
 Kastner and Frühwirth-Schnatter (2014) <doi:10.1016/j.csda.2013.01.002>
 and Hosszejni and Kastner (2019) <doi:10.1007/978-3-030-30611-3_8>; the
-most common use cases are described in Kastner (2016)
-<doi:10.18637/jss.v069.i05> and the package vignette.
+most common use cases are described in Hosszejni and Kastner (2021)
+<doi:10.18637/jss.v100.i12> and Kastner (2016) <doi:10.18637/jss.v069.i05>
+and the package examples.
 
 %prep
 %setup -q -c -n %{packname}

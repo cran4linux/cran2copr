@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bssm
-%global packver   1.1.7-1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.7.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Inference of Non-Linear and Non-Gaussian State Space Models
 
@@ -17,15 +17,25 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-coda >= 0.18.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.3
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-diagis 
-BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-posterior 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ramcmc 
+BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-sitmo 
 Requires:         R-CRAN-coda >= 0.18.1
 Requires:         R-CRAN-Rcpp >= 0.12.3
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-diagis 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-posterior 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
 
 %description
 Efficient methods for Bayesian inference of state space models via

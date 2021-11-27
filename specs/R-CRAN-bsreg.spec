@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  retrocombinator
-%global packver   1.0.0
+%global packname  bsreg
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulating the Molecular Evolutionary Process of Retrotransposon Recombination
+Summary:          Bayesian Spatial Regression Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,20 +15,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.17
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-Rcpp >= 0.12.17
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-Matrix 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-utils 
+Requires:         R-grDevices 
 
 %description
-An optimized framework to simulate the molecular evolutionary processes of
-retrotransposon evolution including extrachromosomal recombination.
+Fit Bayesian models with a focus on spillover effects. Implements linear
+specifications (with or without shrinkage), allows for spatial lags of the
+dependent, explanatories, and error term, parameterised connectivity, and
+stochastic volatility.
 
 %prep
 %setup -q -c -n %{packname}

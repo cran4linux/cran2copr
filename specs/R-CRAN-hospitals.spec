@@ -1,41 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  resemble
-%global packver   2.0.0
+%global packname  hospitals
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Memory-Based Learning in Spectral Chemometrics
+Summary:          Portuguese 'NHS' Hospitals
 
-License:          MIT + file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-data.table >= 1.9.8
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-CRAN-mathjaxr >= 1.0
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-data.table >= 1.9.8
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-Rcpp >= 1.0.3
-Requires:         R-CRAN-mathjaxr >= 1.0
-Requires:         R-CRAN-lifecycle >= 0.2.0
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-iterators 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
-Functions for dissimilarity analysis and memory-based learning (MBL, a.k.a
-local modeling) in complex spectral data sets. Most of these functions are
-based the methods presented in Ramirez-Lopez et al. (2013)
-<doi:10.1016/j.geoderma.2012.12.014>.
+A data set of the Portuguese 'NHS' hospitals.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,6 +34,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

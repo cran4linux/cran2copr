@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BFpack
-%global packver   0.3.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Bayes Factor Testing of Scientific Expectations
 
@@ -47,11 +47,12 @@ The statistical underpinnings are described in Mulder, Hoijtink, and Xin
 Mulder (2016) <DOI:10.1016/j.jmp.2014.09.004>, Mulder and Fox (2019)
 <DOI:10.1214/18-BA1115>, Mulder and Fox (2013)
 <DOI:10.1007/s11222-011-9295-3>, Boeing-Messing, van Assen, Hofman,
-Hoijtink, and Mulder <DOI:10.1037/met0000116>, Hoijtink, Mulder, van
-Lissa, and Gu, (2018) <DOI:10.31234/osf.io/v3shc>, Gu, Mulder, and
+Hoijtink, and Mulder (2017) <DOI:10.1037/met0000116>, Hoijtink, Mulder,
+van Lissa, and Gu, (2018) <DOI:10.31234/osf.io/v3shc>, Gu, Mulder, and
 Hoijtink, (2018) <DOI:10.1111/bmsp.12110>, Hoijtink, Gu, and Mulder,
 (2018) <DOI:10.1111/bmsp.12145>, and Hoijtink, Gu, Mulder, and Rosseel,
-(2018) <DOI:10.1037/met0000187>.
+(2018) <DOI:10.1037/met0000187>. When using the packages, please refer to
+Mulder et al. (2021) <DOI:10.18637/jss.v100.i18>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -61,6 +62,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

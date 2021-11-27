@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  nominatimlite
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface with 'Nominatim' API Service
 
@@ -20,11 +20,13 @@ BuildRequires:    R-CRAN-tibble >= 3.0.3
 BuildRequires:    R-CRAN-jsonlite >= 1.7.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-sf >= 0.9.0
+BuildRequires:    R-CRAN-rlang >= 0.4.9
 BuildRequires:    R-utils 
 Requires:         R-CRAN-tibble >= 3.0.3
 Requires:         R-CRAN-jsonlite >= 1.7.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-sf >= 0.9.0
+Requires:         R-CRAN-rlang >= 0.4.9
 Requires:         R-utils 
 
 %description

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pubmed.mineR
-%global packver   1.0.18
+%global packver   1.0.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.18
+Version:          1.0.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Text Mining of PubMed Abstracts
 
@@ -21,11 +21,13 @@ BuildRequires:    R-CRAN-RCurl
 BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-R2HTML 
+BuildRequires:    R-CRAN-RJSONIO 
 Requires:         R-methods 
 Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-XML 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-R2HTML 
+Requires:         R-CRAN-RJSONIO 
 
 %description
 Text mining of PubMed Abstracts (text and XML) from

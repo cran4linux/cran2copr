@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Exact
-%global packver   3.0
+%global packver   3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0
+Version:          3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unconditional Exact Test
 
@@ -35,12 +35,13 @@ referred to as Boschloo's test (1970)
 and Shuster, 1985, <doi:10.2307/2981892>). For comparing two binary
 proportions, performs unconditional exact test using McNemar's Z-statistic
 (Berger and Sidik, 2003, <doi:10.1191/0962280203sm312ra>), using McNemar's
-Z-statistic with continuity correction, or using CSM test. Calculates
-confidence intervals for the difference in proportion. This package
-interacts with pre-computed data available through the ExactData R
-package, which is available in a 'drat' repository. Install the ExactData
-R package from GitHub at <https://pcalhoun1.github.io/drat/>. The
-ExactData R package is approximately 25 MB.
+conditional p-value, using McNemar's Z-statistic with continuity
+correction, or using CSM test.  Calculates confidence intervals for the
+difference in proportion. This package interacts with pre-computed data
+available through the ExactData R package, which is available in a 'drat'
+repository. Install the ExactData R package from GitHub at
+<https://pcalhoun1.github.io/drat/>. The ExactData R package is
+approximately 25 MB.
 
 %prep
 %setup -q -c -n %{packname}

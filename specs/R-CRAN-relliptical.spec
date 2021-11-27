@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  relliptical
-%global packver   0.1.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Truncated Elliptical Family of Distributions
 
@@ -33,10 +33,12 @@ Requires:         R-CRAN-Ryacas0
 Requires:         R-stats 
 
 %description
-It generates random numbers from a truncated multivariate elliptical
-distribution such as Normal, Student-t, Pearson VII, Slash, Logistic, and
-others by specifying the density generating function. It also computes
-first and second moment for some particular distributions.
+It offers random numbers generation from members of the truncated
+multivariate elliptical family of distribution such as the truncated
+versions of the Normal, Student-t, Pearson VII, Slash, Logistic, among
+others. Particular distributions can be provided by specifying the density
+generating function. It also computes the first two moments (covariance
+matrix as well) for some particular distributions.
 
 %prep
 %setup -q -c -n %{packname}

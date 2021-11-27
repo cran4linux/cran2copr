@@ -1,34 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global packname  WR
-%global packver   0.1.1
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
-Release:          3%{?dist}%{?buildtag}
-Summary:          Win Ratio Analysis
+Version:          1.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          Win Ratio Analysis of Composite Time-to-Event Outcomes
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-survival 
-Requires:         R-survival 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-CRAN-gumbel 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-cubature 
+Requires:         R-CRAN-gumbel 
 
 %description
-Contains win-ratio analysis routines for prioritized composite
-time-to-event outcomes, e.g., death and non-fatal events. These routines
-include functions to fit the proportional win-fractions (PW) model and to
-compute and plot the standardized score process to assess the
-proportionality assumption.
+Implements various win ratio methodologies for composite endpoints of
+death and non-fatal events, including the (stratified) proportional
+win-fractions (PW) regression models (Mao and Wang, 2020
+<doi:10.1111/biom.13382>), (stratified) two-sample tests with possibly
+recurrent nonfatal event, and sample size calculation for standard win
+ratio test (Mao et al., 2021 <doi:10.1111/biom.13501>).
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -36,18 +50,10 @@ proportionality assumption.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

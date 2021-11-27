@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  shrinkTVP
-%global packver   2.0.3
+%global packver   2.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Bayesian Inference for Time-Varying Parameter Models with Shrinkage
 
@@ -37,7 +37,8 @@ Efficient Markov chain Monte Carlo (MCMC) algorithms for fully Bayesian
 estimation of time-varying parameter models with shrinkage priors. Details
 on the algorithms used are provided in Bitto and Frühwirth-Schnatter
 (2019) <doi:10.1016/j.jeconom.2018.11.006> and Cadonna et al. (2020)
-<doi:10.3390/econometrics8020020>.
+<doi:10.3390/econometrics8020020>. For details on the package, please see
+Knaus et al. (2021) <doi:10.18637/jss.v100.i13>.
 
 %prep
 %setup -q -c -n %{packname}
