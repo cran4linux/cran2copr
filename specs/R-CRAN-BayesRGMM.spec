@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BayesRGMM
-%global packver   1.1
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Robust Generalized Mixed Models for Longitudinal Data
 
@@ -38,9 +38,9 @@ Requires:         R-CRAN-Rdpack
 
 %description
 To perform model estimation using MCMC algorithms with Bayesian methods
-for incomplete longitudinal studies on binary outcomes that are measured
-repeatedly on subjects over time with drop-outs. Details about the method
-can be found in the vignette or
+for incomplete longitudinal studies on binary and ordinal outcomes that
+are measured repeatedly on subjects over time with drop-outs. Details
+about the method can be found in the vignette or
 <https://sites.google.com/view/kuojunglee/r-packages/bayesrgmm>.
 
 %prep
@@ -51,6 +51,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

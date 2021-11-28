@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  blavaan
-%global packver   0.3-17
+%global packver   0.3-18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.17
+Version:          0.3.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Latent Variable Analysis
 
@@ -58,7 +58,8 @@ Requires:         R-CRAN-rstantools
 %description
 Fit a variety of Bayesian latent variable models, including confirmatory
 factor analysis, structural equation models, and latent growth curve
-models.
+models. References: Merkle & Rosseel (2018) <doi:10.18637/jss.v085.i04>;
+Merkle et al. (2021) <doi:10.18637/jss.v100.i06>.
 
 %prep
 %setup -q -c -n %{packname}

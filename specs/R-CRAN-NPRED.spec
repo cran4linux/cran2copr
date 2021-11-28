@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  NPRED
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Predictor Identifier: Nonparametric Prediction
 
@@ -21,8 +21,8 @@ Requires:         R-stats
 %description
 Partial informational correlation (PIC) is used to identify the meaningful
 predictors to the response from a large set of potential predictors.
-Details of Methodoligies used in the package can be found in Sharma, A.,
-Mehrotra, R. (2014) <doi:10.1002/2013WR013845>, Sharma, A., Mehrotra, R.,
+Details of methodologies used in the package can be found in Sharma, A.,
+Mehrotra, R. (2014). <doi:10.1002/2013WR013845>, Sharma, A., Mehrotra, R.,
 Li, J., & Jha, S. (2016). <doi:10.1016/j.envsoft.2016.05.021>, and
 Mehrotra, R., & Sharma, A. (2006). <doi:10.1016/j.advwatres.2005.08.007>.
 
