@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  JointAI
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Analysis and Imputation of Incomplete Data
 
@@ -38,11 +38,13 @@ Requires:         R-CRAN-MASS
 %description
 Joint analysis and imputation of incomplete data in the Bayesian
 framework, using (generalized) linear (mixed) models and extensions there
-of, survival models, or joint models for longitudinal and survival data.
-Incomplete covariates, if present, are automatically imputed. The package
-performs some preprocessing of the data and creates a 'JAGS' model, which
-will then automatically be passed to 'JAGS'
-<http://mcmc-jags.sourceforge.net/> with the help of the package 'rjags'.
+of, survival models, or joint models for longitudinal and survival data,
+as described in Erler, Rizopoulos and Lesaffre (2021)
+<doi:10.18637/jss.v100.i20>. Incomplete covariates, if present, are
+automatically imputed. The package performs some preprocessing of the data
+and creates a 'JAGS' model, which will then automatically be passed to
+'JAGS' <https://mcmc-jags.sourceforge.io/> with the help of the package
+'rjags'.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,6 +54,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
