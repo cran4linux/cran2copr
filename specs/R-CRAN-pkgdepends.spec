@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pkgdepends
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Package Dependency Resolution and Downloads
 
@@ -21,8 +21,8 @@ BuildRequires:    R-CRAN-callr >= 3.3.1
 BuildRequires:    R-CRAN-withr >= 2.1.1
 BuildRequires:    R-CRAN-cli >= 2.1.0
 BuildRequires:    R-CRAN-zip >= 2.1.0
+BuildRequires:    R-CRAN-pkgcache >= 1.3.0
 BuildRequires:    R-CRAN-desc >= 1.2.0
-BuildRequires:    R-CRAN-pkgcache >= 1.2.0
 BuildRequires:    R-CRAN-prettyunits >= 1.1.1
 BuildRequires:    R-CRAN-filelock >= 1.0.2
 BuildRequires:    R-CRAN-pkgbuild >= 1.0.2
@@ -43,8 +43,8 @@ Requires:         R-CRAN-callr >= 3.3.1
 Requires:         R-CRAN-withr >= 2.1.1
 Requires:         R-CRAN-cli >= 2.1.0
 Requires:         R-CRAN-zip >= 2.1.0
+Requires:         R-CRAN-pkgcache >= 1.3.0
 Requires:         R-CRAN-desc >= 1.2.0
-Requires:         R-CRAN-pkgcache >= 1.2.0
 Requires:         R-CRAN-prettyunits >= 1.1.1
 Requires:         R-CRAN-filelock >= 1.0.2
 Requires:         R-CRAN-pkgbuild >= 1.0.2
@@ -79,6 +79,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

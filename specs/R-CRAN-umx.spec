@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  umx
-%global packver   4.9.0
+%global packver   4.10.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.9.0
+Version:          4.10.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Structural Equation and Twin Modeling in R
+Summary:          Structural Equation Modeling and Twin Modeling in R
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -60,11 +60,11 @@ Requires:         R-CRAN-kableExtra
 Requires:         R-CRAN-knitr 
 
 %description
-Quickly create, run, and report structural equation and twin models. See
-'?umx' for help, and umx_open_CRAN_page("umx") for NEWS. Timothy C. Bates,
-Michael C. Neale, Hermine H. Maes, (2019). umx: A library for Structural
-Equation and Twin Modelling in R. Twin Research and Human Genetics, 22,
-27-41. <doi:10.1017/thg.2019.2>.
+Quickly create, run, and report structural equation models, and twin
+models. See '?umx' for help, and umx_open_CRAN_page("umx") for NEWS.
+Timothy C. Bates, Michael C. Neale, Hermine H. Maes, (2019). umx: A
+library for Structural Equation and Twin Modelling in R. Twin Research and
+Human Genetics, 22, 27-41. <doi:10.1017/thg.2019.2>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -74,6 +74,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

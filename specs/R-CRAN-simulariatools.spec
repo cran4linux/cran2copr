@@ -1,36 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ChineseNames
-%global packver   1.1.1
+%global packname  simulariatools
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Chinese Name Database 1930-2008
+Summary:          Simularia Tools for the Analysis of Air Pollution Data
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bruceR 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-bruceR 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 >= 3.3
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-openair 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-ggplot2 >= 3.3
+Requires:         R-CRAN-dplyr 
+Requires:         R-grid 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-openair 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-scales 
 
 %description
-A database of Chinese surnames and Chinese given names (1930-2008). This
-database contains nationwide frequency statistics of 1,806 Chinese
-surnames and 2,614 Chinese characters used in given names, covering about
-1.2 billion Han Chinese population (96.8%% of the Han Chinese
-household-registered population born from 1930 to 2008 and still alive in
-2008). This package also contains a function for computing multiple
-features of Chinese surnames and Chinese given names for scientific
-research (e.g., name uniqueness, name gender, name valence, and name
-warmth/competence).
+A set of tools developed at Simularia for Simularia, to help preprocessing
+and post-processing of meteorological and air quality data.
 
 %prep
 %setup -q -c -n %{packname}

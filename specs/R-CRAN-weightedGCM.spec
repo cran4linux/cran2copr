@@ -1,46 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  emmeans
-%global packver   1.7.1-1
+%global packname  weightedGCM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimated Marginal Means, aka Least-Squares Means
+Summary:          Weighted Generalised Covariance Measure Conditional Independence Test
 
-License:          GPL-2 | GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xtable >= 1.8.2
-BuildRequires:    R-CRAN-estimability >= 1.3
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-GeneralisedCovarianceMeasure 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-xtable >= 1.8.2
-Requires:         R-CRAN-estimability >= 1.3
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-xgboost 
+Requires:         R-CRAN-GeneralisedCovarianceMeasure 
 Requires:         R-methods 
-Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-mgcv 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-xgboost 
 
 %description
-Obtain estimated marginal means (EMMs) for many linear, generalized
-linear, and mixed models. Compute contrasts or linear functions of EMMs,
-trends, and comparisons of slopes. Plots and other displays. Least-squares
-means are discussed, and the term "estimated marginal means" is suggested,
-in Searle, Speed, and Milliken (1980) Population marginal means in the
-linear model: An alternative to least squares means, The American
-Statistician 34(4), 216-221 <doi:10.1080/00031305.1980.10483031>.
+A conditional independence test that can be applied both to univariate and
+multivariate random variables. The test is based on a weighted form of the
+sample covariance of the residuals after a nonlinear regression on the
+conditioning variables. Details are described in Scheidegger, Hoerrmann
+and Buehlmann (2021) "The Weighted Generalised Covariance Measure"
+<arXiv:2111.04361>. The test is a generalisation of the Generalised
+Covariance Measure (GCM) implemented in the R package
+'GeneralisedCovarianceMeasure' by Jonas Peters and Rajen D. Shah based on
+Shah and Peters (2020) "The Hardness of Conditional Independence Testing
+and the Generalised Covariance Measure" <arXiv:1804.07203>.
 
 %prep
 %setup -q -c -n %{packname}

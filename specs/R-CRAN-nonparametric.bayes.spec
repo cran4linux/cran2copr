@@ -1,36 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ChineseNames
-%global packver   1.1.1
+%global packname  nonparametric.bayes
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Chinese Name Database 1930-2008
+Summary:          Project Code - Nonparametric Bayes
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bruceR 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-bruceR 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-progress 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-progress 
 
 %description
-A database of Chinese surnames and Chinese given names (1930-2008). This
-database contains nationwide frequency statistics of 1,806 Chinese
-surnames and 2,614 Chinese characters used in given names, covering about
-1.2 billion Han Chinese population (96.8%% of the Han Chinese
-household-registered population born from 1930 to 2008 and still alive in
-2008). This package also contains a function for computing multiple
-features of Chinese surnames and Chinese given names for scientific
-research (e.g., name uniqueness, name gender, name valence, and name
-warmth/competence).
+Basic implementation of a Gibbs sampler for a Chinese Restaurant Process
+along with some visual aids to help understand how the sampling works.
+This is developed as part of a postgraduate school project for an Advanced
+Bayesian Nonparametric course. It is inspired by Tamara Broderick's
+presentation on Nonparametric Bayesian statistics given at the Simons
+institute.
 
 %prep
 %setup -q -c -n %{packname}

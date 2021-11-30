@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  multilinguer
-%global packver   0.0.7
+%global packname  rtgstat
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gentle Language Installer for R User
+Summary:          Client for 'TGstat API'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,24 +16,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sys 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-usethis 
-BuildRequires:    R-CRAN-askpass 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-rstudioapi 
-Requires:         R-CRAN-sys 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-usethis 
-Requires:         R-CRAN-askpass 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-retry 
+BuildRequires:    R-CRAN-snakecase 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-retry 
+Requires:         R-CRAN-snakecase 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-Provides install functions of other languages such as 'java', 'python' for
-windows and macos.
+Allow function for using 'TGstat Stat API' and 'TGstat Search API', for
+more details see <https://api.tgstat.ru/docs/ru/start/intro.html>.
+'TGstat' provide telegram channel analytics data.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ChineseNames
-%global packver   1.1.1
+%global packname  rankdifferencetest
+%global packver   2021-11-25
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          2021.11.25
 Release:          1%{?dist}%{?buildtag}
-Summary:          Chinese Name Database 1930-2008
+Summary:          Kornbrot's Rank Difference Test
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,21 +16,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bruceR 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-bruceR 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-coin 
+BuildRequires:    R-CRAN-modeltools 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-coin 
+Requires:         R-CRAN-modeltools 
 
 %description
-A database of Chinese surnames and Chinese given names (1930-2008). This
-database contains nationwide frequency statistics of 1,806 Chinese
-surnames and 2,614 Chinese characters used in given names, covering about
-1.2 billion Han Chinese population (96.8%% of the Han Chinese
-household-registered population born from 1930 to 2008 and still alive in
-2008). This package also contains a function for computing multiple
-features of Chinese surnames and Chinese given names for scientific
-research (e.g., name uniqueness, name gender, name valence, and name
-warmth/competence).
+Implements Kornbrot's rank difference test as described in
+<doi:10.1111/j.2044-8317.1990.tb00939.x>. This method is a modified
+Wilcoxon signed-rank test which produces consistent and meaningful results
+for ordinal or monotonically-transformed data.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fabletools
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Core Tools for Packages in the 'fable' Framework
 
@@ -23,12 +23,12 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tsibble >= 0.9.0
 BuildRequires:    R-CRAN-rlang >= 0.4.5
 BuildRequires:    R-CRAN-vctrs >= 0.2.2
+BuildRequires:    R-CRAN-distributional >= 0.2.2
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-distributional 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
@@ -38,12 +38,12 @@ Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tsibble >= 0.9.0
 Requires:         R-CRAN-rlang >= 0.4.5
 Requires:         R-CRAN-vctrs >= 0.2.2
+Requires:         R-CRAN-distributional >= 0.2.2
 Requires:         R-CRAN-tidyselect 
 Requires:         R-stats 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-R6 
 Requires:         R-utils 
-Requires:         R-CRAN-distributional 
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-lifecycle 
 
@@ -60,6 +60,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

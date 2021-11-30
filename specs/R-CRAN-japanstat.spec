@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  finreportr
-%global packver   1.0.3
+%global packname  japanstat
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Financial Data from U.S. Securities and Exchange Commission
+Summary:          Tools for Easy Use of 'e-Stat' API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,26 +16,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-XBRL 
-BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-XBRL 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-tibble >= 3.1.6
+BuildRequires:    R-CRAN-cli >= 3.1.0
+BuildRequires:    R-CRAN-stringi >= 1.7.5
+BuildRequires:    R-CRAN-pillar >= 1.6.4
+BuildRequires:    R-CRAN-httr >= 1.4.2
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-progress >= 1.2.2
+BuildRequires:    R-CRAN-tidyr >= 1.1.4
+BuildRequires:    R-CRAN-dplyr >= 1.0.7
+BuildRequires:    R-CRAN-rlang >= 0.4.12
+BuildRequires:    R-CRAN-vctrs >= 0.3.8
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-tibble >= 3.1.6
+Requires:         R-CRAN-cli >= 3.1.0
+Requires:         R-CRAN-stringi >= 1.7.5
+Requires:         R-CRAN-pillar >= 1.6.4
+Requires:         R-CRAN-httr >= 1.4.2
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-progress >= 1.2.2
+Requires:         R-CRAN-tidyr >= 1.1.4
+Requires:         R-CRAN-dplyr >= 1.0.7
+Requires:         R-CRAN-rlang >= 0.4.12
+Requires:         R-CRAN-vctrs >= 0.3.8
+Requires:         R-CRAN-purrr >= 0.3.4
 
 %description
-Download and display company financial data from the U.S. Securities and
-Exchange Commission's EDGAR database. It contains a suite of functions
-with web scraping and XBRL parsing capabilities that allows users to
-extract data from EDGAR in an automated and scalable manner. See
-<https://www.sec.gov/edgar/searchedgar/companysearch.html> for more
-information.
+Provides tools for using the API of 'e-Stat'
+(<https://www.e-stat.go.jp/>), a portal site for Japanese government
+statistics. Includes functions for automatic query generation, data
+collection and formatting.
 
 %prep
 %setup -q -c -n %{packname}

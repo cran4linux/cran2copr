@@ -1,34 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RCzechia
-%global packver   1.8.3
+%global packname  canadamaps
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.3
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Objects of the Czech Republic
+Summary:          Maps of the Political and Administrative Divisions of Canada
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rmapshaper 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rmapshaper 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
 
 %description
-Administrative regions and other spatial objects of the Czech Republic.
+Terrestrial maps with simplified topologies for Census Divisions,
+Agricultural Regions, Economic Regions, Federal Electoral Divisions and
+Provinces.
 
 %prep
 %setup -q -c -n %{packname}

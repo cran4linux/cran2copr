@@ -1,36 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ChineseNames
-%global packver   1.1.1
+%global packname  vueR
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Chinese Name Database 1930-2008
+Summary:          'Vuejs' Helpers and 'Htmlwidget'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bruceR 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-bruceR 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-htmlwidgets >= 0.6.0
+BuildRequires:    R-CRAN-htmltools 
+Requires:         R-CRAN-htmlwidgets >= 0.6.0
+Requires:         R-CRAN-htmltools 
 
 %description
-A database of Chinese surnames and Chinese given names (1930-2008). This
-database contains nationwide frequency statistics of 1,806 Chinese
-surnames and 2,614 Chinese characters used in given names, covering about
-1.2 billion Han Chinese population (96.8%% of the Han Chinese
-household-registered population born from 1930 to 2008 and still alive in
-2008). This package also contains a function for computing multiple
-features of Chinese surnames and Chinese given names for scientific
-research (e.g., name uniqueness, name gender, name valence, and name
-warmth/competence).
+Make it easy to use 'vue' in R with helper dependency functions and
+examples.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  CIMTx
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Inference for Multiple Treatments with a Binary Outcome
 
@@ -16,44 +16,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-BART 
-BuildRequires:    R-CRAN-twang 
-BuildRequires:    R-CRAN-arm 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-Matching 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-WeightIt 
-BuildRequires:    R-CRAN-tmle 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-nnet >= 7.3.16
+BuildRequires:    R-CRAN-Matching >= 4.9.11
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
+BuildRequires:    R-CRAN-BART >= 2.9
+BuildRequires:    R-CRAN-twang >= 2.5
+BuildRequires:    R-CRAN-SuperLearner >= 2.0.28
+BuildRequires:    R-CRAN-magrittr >= 2.0.1
+BuildRequires:    R-CRAN-mgcv >= 1.8.38
+BuildRequires:    R-CRAN-foreach >= 1.5.1
+BuildRequires:    R-CRAN-tmle >= 1.5.0.2
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-arm >= 1.2.12
+BuildRequires:    R-CRAN-tidyr >= 1.1.4
+BuildRequires:    R-CRAN-cowplot >= 1.1.1
+BuildRequires:    R-CRAN-dplyr >= 1.0.7
+BuildRequires:    R-CRAN-doParallel >= 1.0.16
+BuildRequires:    R-CRAN-WeightIt >= 0.12.0
+BuildRequires:    R-CRAN-metR >= 0.11.0
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-metR 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-SuperLearner 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-BART 
-Requires:         R-CRAN-twang 
-Requires:         R-CRAN-arm 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-Matching 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-WeightIt 
-Requires:         R-CRAN-tmle 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-nnet >= 7.3.16
+Requires:         R-CRAN-Matching >= 4.9.11
+Requires:         R-CRAN-ggplot2 >= 3.3.5
+Requires:         R-CRAN-BART >= 2.9
+Requires:         R-CRAN-twang >= 2.5
+Requires:         R-CRAN-SuperLearner >= 2.0.28
+Requires:         R-CRAN-magrittr >= 2.0.1
+Requires:         R-CRAN-mgcv >= 1.8.38
+Requires:         R-CRAN-foreach >= 1.5.1
+Requires:         R-CRAN-tmle >= 1.5.0.2
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-arm >= 1.2.12
+Requires:         R-CRAN-tidyr >= 1.1.4
+Requires:         R-CRAN-cowplot >= 1.1.1
+Requires:         R-CRAN-dplyr >= 1.0.7
+Requires:         R-CRAN-doParallel >= 1.0.16
+Requires:         R-CRAN-WeightIt >= 0.12.0
+Requires:         R-CRAN-metR >= 0.11.0
 Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-metR 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-SuperLearner 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
 
 %description
 Different methods to conduct causal inference for multiple treatments with
