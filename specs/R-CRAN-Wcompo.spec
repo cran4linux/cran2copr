@@ -1,30 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  biblio
-%global packver   0.0.5
+%global packname  Wcompo
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interacting with BibTeX Databases
+Summary:          Semiparametric Proportional Means Regression of Weighted Composite Endpoint
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-yamlme 
-Requires:         R-methods 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-yamlme 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-survival 
 
 %description
-Reading and writing BibTeX files using data frames in R sessions.
+Implements inferential and graphic procedures for the semiparametric
+proportional means regression of weighted composite endpoint of recurrent
+event and death (Mao and Lin, 2016, <doi:10.1093/biostatistics/kxv050>).
 
 %prep
 %setup -q -c -n %{packname}

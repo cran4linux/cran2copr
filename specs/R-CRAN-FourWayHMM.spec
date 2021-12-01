@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bpp
-%global packver   1.0.3
+%global packname  FourWayHMM
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Computations Around Bayesian Predictive Power
+Summary:          Parsimonious Hidden Markov Models for Four-Way Data
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,15 +16,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-snow 
+BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-tensor 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-LaplacesDemon 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-snow 
+Requires:         R-CRAN-doSNOW 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-tensor 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-LaplacesDemon 
 
 %description
-Implements functions to update Bayesian Predictive Power Computations
-after not stopping a clinical trial at an interim analysis. Such an
-interim analysis can either be blinded or unblinded. Code is provided for
-Normally distributed endpoints with known variance, with a prominent
-example being the hazard ratio.
+Implements parsimonious hidden Markov models for four-way data via
+expectation- conditional maximization algorithm, as described in Tomarchio
+et al. (2020) <arXiv:2107.04330>. The matrix-variate normal distribution
+is used as emission distribution. For each hidden state, parsimony is
+reached via the eigen-decomposition of the covariance matrices of the
+emission distribution. This produces a family of 98 parsimonious hidden
+Markov models.
 
 %prep
 %setup -q -c -n %{packname}

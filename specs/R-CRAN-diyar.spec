@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  diyar
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Record Linkage and Epidemiological Case Definitions in R
 
@@ -17,15 +17,11 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-graphics 
 Requires:         R-utils 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-ggplot2 

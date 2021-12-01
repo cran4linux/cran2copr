@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BayesSUR
-%global packver   2.0-0
+%global packver   2.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Seemingly Unrelated Regression
 
@@ -38,8 +38,8 @@ Requires:         R-graphics
 %description
 Bayesian seemingly unrelated regression with general variable selection
 and dense/sparse covariance matrix. The sparse seemingly unrelated
-regression is described in Bottolo et al. (2020) <doi:10.1101/467019>, and
-the software paper is in Zhao et al. (2021) <arXiv:2104.14008>.
+regression is described in Bottolo et al. (2021) <doi:10.1111/rssc.12490>,
+and the software paper is in Zhao et al. (2021) <arXiv:2104.14008>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,6 +49,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

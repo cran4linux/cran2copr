@@ -1,27 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  clpAPI
-%global packver   1.3.1
+%global packname  AustralianPoliticians
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to C API of COIN-or Clp
+Summary:          Provides Datasets About Australian Politicians
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    coin-or-Clp-devel >= 1.12.0
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-purrr 
+Requires:         R-utils 
+Requires:         R-CRAN-tibble 
 
 %description
-R Interface to C API of COIN-OR Clp, depends on COIN-OR Clp Version >=
-1.12.0.
+Provides access to biographical and political data about Australian
+federal politicians who served between 1901 and 2021. This enhances how
+reproducible research is that uses this data.
 
 %prep
 %setup -q -c -n %{packname}

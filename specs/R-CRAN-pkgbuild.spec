@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pkgbuild
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Find Tools Needed to Build R Packages
 
@@ -17,7 +17,7 @@ BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-callr >= 3.2.0
-BuildRequires:    R-CRAN-withr >= 2.1.2
+BuildRequires:    R-CRAN-withr >= 2.3.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-desc 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-prettyunits
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rprojroot 
 Requires:         R-CRAN-callr >= 3.2.0
-Requires:         R-CRAN-withr >= 2.1.2
+Requires:         R-CRAN-withr >= 2.3.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-desc 
@@ -46,6 +46,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

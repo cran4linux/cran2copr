@@ -1,29 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rethnicity
-%global packver   0.1.2
+%global packname  soilphysics
+%global packver   4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Predicting Ethnic Group from Names
+Summary:          Soil Physical Analysis
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-RcppThread 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-datasets 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-fields 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-boot 
+Requires:         R-grDevices 
+Requires:         R-datasets 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-fields 
 
 %description
-Implementation of the ethnicity prediction method, described in
-"Rethnicity: Predicting Ethnicity from Names" by Fangzhou Xie (2021)
-<arXiv:2109.09228>.
+Basic and model-based soil physical analyses.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gmailr
-%global packver   1.0.1
+%global packname  sigora
+%global packver   3.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          3.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access the 'Gmail' 'RESTful' API
+Summary:          Signature Overrepresentation Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,28 +16,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-gargle 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-mime 
-BuildRequires:    R-CRAN-rematch2 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-gargle 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-mime 
-Requires:         R-CRAN-rematch2 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-slam 
+Requires:         R-stats 
+Requires:         R-CRAN-slam 
 
 %description
-An interface to the 'Gmail' 'RESTful' API.  Allows access to your 'Gmail'
-messages, threads, drafts and labels.
+Pathway Analysis is statistically linking observations on the molecular
+level to biological processes or pathways on the systems(i.e., organism,
+organ, tissue, cell) level. Traditionally, pathway analysis methods regard
+pathways as collections of single genes and treat all genes in a pathway
+as equally informative. However, this can lead to identifying spurious
+pathways as statistically significant since components are often shared
+amongst pathways. SIGORA seeks to avoid this pitfall by focusing on genes
+or gene pairs that are (as a combination) specific to a single pathway. In
+relying on such pathway gene-pair signatures (Pathway-GPS), SIGORA
+inherently uses the status of other genes in the experimental context to
+identify the most relevant pathways. The current version allows for
+pathway analysis of human and mouse datasets. In addition, it contains
+pre-computed Pathway-GPS data for pathways in the KEGG and Reactome
+pathway repositories and mechanisms for extracting GPS for user-supplied
+repositories.
 
 %prep
 %setup -q -c -n %{packname}

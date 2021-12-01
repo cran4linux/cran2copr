@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SIPDIBGE
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collection of Household Survey Packages Conducted by IBGE
 
@@ -17,33 +17,33 @@ BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-PNADcIBGE >= 0.6.0
-BuildRequires:    R-CRAN-POFIBGE >= 0.1.0
-BuildRequires:    R-CRAN-PNSIBGE >= 0.1.0
 BuildRequires:    R-CRAN-COVIDIBGE >= 0.1.0
+BuildRequires:    R-CRAN-PNSIBGE >= 0.1.0
+BuildRequires:    R-CRAN-POFIBGE >= 0.1.0
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-png 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-PNADcIBGE >= 0.6.0
-Requires:         R-CRAN-POFIBGE >= 0.1.0
-Requires:         R-CRAN-PNSIBGE >= 0.1.0
 Requires:         R-CRAN-COVIDIBGE >= 0.1.0
+Requires:         R-CRAN-PNSIBGE >= 0.1.0
+Requires:         R-CRAN-POFIBGE >= 0.1.0
 Requires:         R-CRAN-cli 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-png 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-png 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-utils 
 Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
 Provides access to packages developed for downloading, reading and
-analysing microdata from household surveys conducted by Brazilian
+analyzing microdata from household surveys conducted by Brazilian
 Institute of Geography and Statistics - IBGE. More information can be
 obtained from the official website <https://www.ibge.gov.br/>.
 

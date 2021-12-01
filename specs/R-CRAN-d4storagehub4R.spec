@@ -1,29 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  PostcodesioR
-%global packver   0.3.1
+%global packname  d4storagehub4R
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          API Wrapper Around 'Postcodes.io'
+Summary:          Interface to 'D4Science' 'StorageHub' API
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-keyring 
+BuildRequires:    R-tools 
+Requires:         R-methods 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-keyring 
+Requires:         R-tools 
 
 %description
-Free UK geocoding using data from Office for National Statistics. It is
-using several functions to get information about post codes, outward
-codes, reverse geocoding, nearest post codes/outward codes, validation, or
-randomly generate a post code. API wrapper around <https://postcodes.io>.
+Provides an interface to 'D4Science' 'StorageHub' API
+(<https://dev.d4science.org/>). Allows to get user profile, and perform
+actions over the 'StorageHub' (workspace) including creation of folders,
+files management (upload/update/deletion/sharing), and listing of stored
+resources.
 
 %prep
 %setup -q -c -n %{packname}

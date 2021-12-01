@@ -1,29 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  PostcodesioR
-%global packver   0.3.1
+%global packname  PhaseTypeR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          API Wrapper Around 'Postcodes.io'
+Summary:          General-Purpose Phase-Type Functions
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-expm 
+Requires:         R-CRAN-igraph 
+Requires:         R-methods 
 
 %description
-Free UK geocoding using data from Office for National Statistics. It is
-using several functions to get information about post codes, outward
-codes, reverse geocoding, nearest post codes/outward codes, validation, or
-randomly generate a post code. API wrapper around <https://postcodes.io>.
+General implementation of core function from phase-type theory.
+'PhaseTypeR' can be used to model continuous and discrete phase-type
+distributions, both univariate and multivariate. The package includes
+functions for outputting the mean and (co)variance of phase-type
+distributions; their density, probability and quantile functions;
+functions for random draws; functions for reward-transformation; and
+functions for plotting the distributions as networks. For more information
+on these functions please refer to Bladt and Nielsen (2017, ISBN:
+978-1-4939-8377-3) and Campillo Navarro (2019)
+<https://orbit.dtu.dk/en/publications/order-statistics-and-multivariate-discrete-phase-type-distributio>.
 
 %prep
 %setup -q -c -n %{packname}
