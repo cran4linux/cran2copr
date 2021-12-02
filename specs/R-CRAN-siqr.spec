@@ -1,33 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  litRiddle
-%global packver   0.4.0
+%global packname  siqr
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dataset and Tools to Research the Riddle of Literary Quality
+Summary:          An R Package for Single-Index Quantile Regression
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-KernSmooth 
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-KernSmooth 
 
 %description
-Dataset and functions to explore quality of literary novels. The package
-is a part of the Riddle of Literary Quality project, and it contains the
-data of a reader survey about fiction in Dutch, a description of the
-novels the readers rated, and the results of stylistic measurements of the
-novels. The package also contains functions to combine, analyze, and
-visualize these data.
+Single-Index Quantile Regression is effective in some scenarios. We
+provides functions that allow users to fit Single-Index Quantile
+Regression model. It also provides functions to do prediction, estimate
+standard errors of the single-index coefficients via bootstrap, and
+visualize the estimated univariate function. Please see W., Y., Y. (2010)
+<doi:10.1016/j.jmva.2010.02.003> for details.
 
 %prep
 %setup -q -c -n %{packname}

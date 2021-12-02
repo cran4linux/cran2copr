@@ -1,37 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dfphase1
-%global packver   1.1.4
+%global packname  regweight
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Phase I Control Charts (with Emphasis on Distribution-Free Methods)
+Summary:          Convenience Functions for Implicit Regression Weights
 
-License:          LGPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.1
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-robustbase 
-Requires:         R-CRAN-Rcpp >= 0.11.1
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-robustbase 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-lpdensity 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-lpdensity 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Statistical methods for retrospectively detecting changes in location
-and/or dispersion of univariate and multivariate variables. Data values
-are assumed to be independent, can be individual (one observation at each
-instant of time) or subgrouped (more than one observation at each instant
-of time). Control limits are computed, often using a permutation approach,
-so that a prescribed false alarm probability is guaranteed without making
-any parametric assumptions on the stable (in-control) distribution. See G.
-Capizzi and G. Masarotto (2018) <doi:10.1007/978-3-319-75295-2_1> for an
-introduction to the package.
+A simple wrapper for calculating regression weights as defined by Aronow
+and Samii (2015) <doi:10.1111/ajps.12185>. Given a model object and a term
+of interest, 'regweight' will calculate implicit regression weights and
+provide a variety of useful visualizations and summary statistics.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pak
-%global packver   0.1.2.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Another Approach to Package Installation
 
@@ -16,49 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-processx >= 3.2.1
-BuildRequires:    R-CRAN-curl >= 3.2
-BuildRequires:    R-CRAN-callr >= 3.0.0.9002
-BuildRequires:    R-CRAN-crayon >= 1.3.4
-BuildRequires:    R-CRAN-rprojroot >= 1.3.2
-BuildRequires:    R-CRAN-glue >= 1.3.0
-BuildRequires:    R-CRAN-ps >= 1.3.0
-BuildRequires:    R-CRAN-desc >= 1.2.0
-BuildRequires:    R-CRAN-pkgcache >= 1.0.3
-BuildRequires:    R-CRAN-filelock >= 1.0.2
-BuildRequires:    R-CRAN-pkgbuild >= 1.0.2
-BuildRequires:    R-CRAN-cli >= 1.0.0
-BuildRequires:    R-CRAN-cliapp >= 0.0.0.9002
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lpSolve 
-BuildRequires:    R-CRAN-prettyunits 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rematch2 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-processx >= 3.2.1
-Requires:         R-CRAN-curl >= 3.2
-Requires:         R-CRAN-callr >= 3.0.0.9002
-Requires:         R-CRAN-crayon >= 1.3.4
-Requires:         R-CRAN-rprojroot >= 1.3.2
-Requires:         R-CRAN-glue >= 1.3.0
-Requires:         R-CRAN-ps >= 1.3.0
-Requires:         R-CRAN-desc >= 1.2.0
-Requires:         R-CRAN-pkgcache >= 1.0.3
-Requires:         R-CRAN-filelock >= 1.0.2
-Requires:         R-CRAN-pkgbuild >= 1.0.2
-Requires:         R-CRAN-cli >= 1.0.0
-Requires:         R-CRAN-cliapp >= 0.0.0.9002
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lpSolve 
-Requires:         R-CRAN-prettyunits 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rematch2 
-Requires:         R-CRAN-tibble 
+Requires:         R-tools 
 Requires:         R-utils 
 
 %description
@@ -78,6 +38,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

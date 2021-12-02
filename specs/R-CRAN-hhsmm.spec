@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  hhsmm
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hidden Hybrid Markov/Semi-Markov Model Fitting
 
@@ -31,7 +31,10 @@ Requires:         R-CRAN-mice
 %description
 Develops algorithms for fitting, prediction, simulation and initialization
 of the hidden hybrid Markov/semi-Markov model, introduced by Guedon (2005)
-<doi:10.1016/j.csda.2004.05.033>.
+<doi:10.1016/j.csda.2004.05.033>, which also includes several tools for
+handling missing data, fitting regime sweaching regression and
+auto-regressive hidden hybrid Markov/semi-Markov model, and many other
+useful tools.
 
 %prep
 %setup -q -c -n %{packname}

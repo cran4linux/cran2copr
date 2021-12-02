@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  anticlust
-%global packver   0.5.6
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.6
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Subset Partitioning via Anticlustering
 
@@ -22,26 +22,29 @@ Requires:         R-CRAN-Matrix
 
 %description
 The method of anticlustering partitions a pool of elements into groups
-(i.e., anticlusters) in such a way that the between-group similarity is
-maximized and -- at the same time -- the within-group heterogeneity is
-maximized. This reverses the logic of cluster analysis that strives for
-high within-group homogeneity and low similarity of the different groups.
-Computationally, anticlustering is accomplished by maximizing instead of
-minimizing a clustering objective function, such as the intra-cluster
-variance (used in k-means clustering) or the sum of pairwise distances
-within clusters.  The function anticlustering() implements exact and
-heuristic anticlustering algorithms as described in Papenberg and Klau
-(2020; <doi:10.1037/met0000301>). The exact approach requires that the GNU
+(i.e., anticlusters) with the goal of maximizing between-group similarity
+or within-group heterogeneity. The anticlustering approach thereby
+reverses the logic of cluster analysis that strives for high within-group
+homogeneity and low similarity of the different groups. Computationally,
+anticlustering is accomplished by maximizing instead of minimizing a
+clustering objective function, such as the intra-cluster variance (used in
+k-means clustering) or the sum of pairwise distances within clusters.  The
+function anticlustering() implements exact and heuristic anticlustering
+algorithms as described in Papenberg and Klau (2021;
+<doi:10.1037/met0000301>). The exact algorithms require that the GNU
 linear programming kit (<https://www.gnu.org/software/glpk/glpk.html>) is
 available and the R package 'Rglpk'
-(<https://cran.R-project.org/package=Rglpk>) is installed. Some other
-functions are available to solve classical clustering problems. The
-function balanced_clustering() applies a cluster analysis under size
-constraints, i.e., creates equal-sized clusters. The function matching()
-can be used for (unrestricted, bipartite, or K-partite) matching. The
-function wce() can be used optimally solve the (weighted) cluster editing
-problem, also known as correlation clustering, clique partitioning problem
-or transitivity clustering.
+(<https://cran.R-project.org/package=Rglpk>) is installed. A bicriterion
+anticlustering method proposed by Brusco et al. (2020;
+<doi:10.1111/bmsp.12186>) is available through the function
+bicriterion_anticlustering(). Some other functions are available to solve
+classical clustering problems. The function balanced_clustering() applies
+a cluster analysis under size constraints, i.e., creates equal-sized
+clusters. The function matching() can be used for (unrestricted,
+bipartite, or K-partite) matching. The function wce() can be used
+optimally solve the (weighted) cluster editing problem, also known as
+correlation clustering, clique partitioning problem or transitivity
+clustering.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,6 +54,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,37 +1,50 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dfphase1
-%global packver   1.1.4
+%global packname  huito
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Phase I Control Charts (with Emphasis on Distribution-Free Methods)
+Summary:          Flexible and Reproducible Label Designs
 
-License:          LGPL (>= 2)
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.1
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-robustbase 
-Requires:         R-CRAN-Rcpp >= 0.11.1
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-robustbase 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-sysfonts 
+BuildRequires:    R-CRAN-showtext 
+BuildRequires:    R-CRAN-qrcode 
+BuildRequires:    R-CRAN-pdftools 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-sysfonts 
+Requires:         R-CRAN-showtext 
+Requires:         R-CRAN-qrcode 
+Requires:         R-CRAN-pdftools 
 
 %description
-Statistical methods for retrospectively detecting changes in location
-and/or dispersion of univariate and multivariate variables. Data values
-are assumed to be independent, can be individual (one observation at each
-instant of time) or subgrouped (more than one observation at each instant
-of time). Control limits are computed, often using a permutation approach,
-so that a prescribed false alarm probability is guaranteed without making
-any parametric assumptions on the stable (in-control) distribution. See G.
-Capizzi and G. Masarotto (2018) <doi:10.1007/978-3-319-75295-2_1> for an
-introduction to the package.
+An open-source R package to deploys flexible and reproducible labels using
+layers. The 'huito' package is part of the 'inkaverse' project for
+developing different procedures and tools used in plant science and
+experimental designs. Learn more about the 'inkaverse' project at
+<https://inkaverse.com/>.
 
 %prep
 %setup -q -c -n %{packname}

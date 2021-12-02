@@ -1,37 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dfphase1
-%global packver   1.1.4
+%global packname  pedalfast.data
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Phase I Control Charts (with Emphasis on Distribution-Free Methods)
+Summary:          PEDALFAST Data
 
-License:          LGPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.1
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-robustbase 
-Requires:         R-CRAN-Rcpp >= 0.11.1
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-robustbase 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 
 %description
-Statistical methods for retrospectively detecting changes in location
-and/or dispersion of univariate and multivariate variables. Data values
-are assumed to be independent, can be individual (one observation at each
-instant of time) or subgrouped (more than one observation at each instant
-of time). Control limits are computed, often using a permutation approach,
-so that a prescribed false alarm probability is guaranteed without making
-any parametric assumptions on the stable (in-control) distribution. See G.
-Capizzi and G. Masarotto (2018) <doi:10.1007/978-3-319-75295-2_1> for an
-introduction to the package.
+Data files and documentation for PEDiatric vALidation oF vAriableS in TBI
+(PEDALFAST).  The data was used in "Functional Status Scale in Children
+With Traumatic Brain Injury: A Prospective Cohort Study" by Bennett,
+Dixon, et al (2016) <doi:10.1097/PCC.0000000000000934>.
 
 %prep
 %setup -q -c -n %{packname}

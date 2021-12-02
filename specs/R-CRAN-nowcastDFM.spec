@@ -1,37 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dfphase1
-%global packver   1.1.4
+%global packname  nowcastDFM
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Phase I Control Charts (with Emphasis on Distribution-Free Methods)
+Summary:          DFMs for Nowcasting
 
-License:          LGPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.1
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-robustbase 
-Requires:         R-CRAN-Rcpp >= 0.11.1
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-robustbase 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-pracma >= 2.3.3
+BuildRequires:    R-CRAN-matlab >= 1.0.2
+BuildRequires:    R-CRAN-dplyr >= 0.8.0.1
+BuildRequires:    R-CRAN-signal >= 0.7.7
+Requires:         R-CRAN-pracma >= 2.3.3
+Requires:         R-CRAN-matlab >= 1.0.2
+Requires:         R-CRAN-dplyr >= 0.8.0.1
+Requires:         R-CRAN-signal >= 0.7.7
 
 %description
-Statistical methods for retrospectively detecting changes in location
-and/or dispersion of univariate and multivariate variables. Data values
-are assumed to be independent, can be individual (one observation at each
-instant of time) or subgrouped (more than one observation at each instant
-of time). Control limits are computed, often using a permutation approach,
-so that a prescribed false alarm probability is guaranteed without making
-any parametric assumptions on the stable (in-control) distribution. See G.
-Capizzi and G. Masarotto (2018) <doi:10.1007/978-3-319-75295-2_1> for an
-introduction to the package.
+Run dynamic factor models (DFM) in R. Adapted from Bok et al. (2017)
+<https://www.newyorkfed.org/medialibrary/media/research/staff_reports/sr830.pdf>.
+The package provides the ability to estimate a DFM model, obtain
+predictions from estimated models, and obtain the impact of new data
+releases on model predictions.
 
 %prep
 %setup -q -c -n %{packname}
