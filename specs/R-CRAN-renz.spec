@@ -1,52 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  migest
-%global packver   2.0.2
+%global packname  renz
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods for the Indirect Estimation of Bilateral Migration
+Summary:          R-Enzymology
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-migration.indices 
-BuildRequires:    R-CRAN-circlize 
 BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-forcats 
-Requires:         R-utils 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-migration.indices 
-Requires:         R-CRAN-circlize 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-VGAM 
 Requires:         R-graphics 
-Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-CRAN-VGAM 
 
 %description
-Tools for estimating, measuring and working with migration data.
+Contains utilities for the analysis of Michaelian kinetic data. Beside the
+classical linearization methods (Lineweaver-Burk, Eadie-Hofstee,
+Hanes-Woolf and Eisenthal-Cornish-Bowden), features include the ability to
+carry out weighted regression analysis that, in most cases, substantially
+improves the estimation of kinetic parameters (Aledo (2021)
+<doi:10.1002/bmb.21522>). To avoid data transformation and the potential
+biases introduced by them, the package also offers functions to directly
+fitting data to the Michaelis-Menten equation, either using ([S], v) or
+(time, [S]) data. Utilities to simulate substrate progress-curves (making
+use of the Lambert W function) are also provided. The package is
+accompanied of vignettes that aim to orientate the user in the choice of
+the most suitable method to estimate the kinetic parameter of an
+Michaelian enzyme.
 
 %prep
 %setup -q -c -n %{packname}

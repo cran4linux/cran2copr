@@ -1,30 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  VennDiagram
-%global packver   1.7.1
+%global packname  quiltr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate High-Resolution Venn and Euler Plots
+Summary:          Qualtrics for Labelling Text using R
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-grid >= 2.14.1
-BuildRequires:    R-CRAN-futile.logger 
-Requires:         R-grid >= 2.14.1
-Requires:         R-CRAN-futile.logger 
 
 %description
-A set of functions to generate high-resolution Venn and Euler plots.
-Includes handling for several special cases, including two-case scaling,
-and extensive customization of plot shape and structure.
+Functions to convert text data for labelling into format appropriate for
+importing into Qualtrics. Supports multiple language, including
+right-to-left scripts as well as different response types. Outputs an
+Advance Format .txt file that read into Qualtrics.
 
 %prep
 %setup -q -c -n %{packname}

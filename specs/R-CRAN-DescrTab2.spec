@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DescrTab2
-%global packver   2.0.7
+%global packver   2.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.7
+Version:          2.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Publication Quality Descriptive Statistics Tables
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-flextable >= 0.6.6
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-nlme 
@@ -31,8 +32,12 @@ BuildRequires:    R-CRAN-tidyselect
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-Hmisc 
+Requires:         R-CRAN-flextable >= 0.6.6
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-nlme 
@@ -48,8 +53,11 @@ Requires:         R-CRAN-tidyselect
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-kableExtra 
-Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-officer 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-Hmisc 
 
 %description
 Provides functions to create descriptive statistics tables for continuous
@@ -72,6 +80,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

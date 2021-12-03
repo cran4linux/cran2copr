@@ -1,49 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global packname  japanmesh
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Mesh Codes in Japan
+Summary:          Functions for the Japanese Regional Mesh Codes ('JIS X 0410')
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-utils >= 4.2.0
-BuildRequires:    R-CRAN-tibble >= 3.1.6
-BuildRequires:    R-CRAN-magrittr >= 2.0.1
-BuildRequires:    R-CRAN-geosphere >= 1.5.14
 BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-tidyr >= 1.1.4
-BuildRequires:    R-CRAN-dplyr >= 1.0.7
-BuildRequires:    R-CRAN-sf >= 1.0.3
-BuildRequires:    R-CRAN-units >= 0.7.2
-BuildRequires:    R-CRAN-rlang >= 0.4.12
-BuildRequires:    R-CRAN-vctrs >= 0.3.8
-BuildRequires:    R-CRAN-purrr >= 0.3.4
-Requires:         R-utils >= 4.2.0
-Requires:         R-CRAN-tibble >= 3.1.6
-Requires:         R-CRAN-magrittr >= 2.0.1
-Requires:         R-CRAN-geosphere >= 1.5.14
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 0.8.0
+BuildRequires:    R-CRAN-purrr >= 0.3.0
+BuildRequires:    R-CRAN-rlang >= 0.3.0
+BuildRequires:    R-CRAN-lifecycle >= 0.1.0
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-units 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-tidyr >= 1.1.4
-Requires:         R-CRAN-dplyr >= 1.0.7
-Requires:         R-CRAN-sf >= 1.0.3
-Requires:         R-CRAN-units >= 0.7.2
-Requires:         R-CRAN-rlang >= 0.4.12
-Requires:         R-CRAN-vctrs >= 0.3.8
-Requires:         R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-dplyr >= 0.8.0
+Requires:         R-CRAN-purrr >= 0.3.0
+Requires:         R-CRAN-rlang >= 0.3.0
+Requires:         R-CRAN-lifecycle >= 0.1.0
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-units 
+Requires:         R-utils 
+Requires:         R-CRAN-vctrs 
 
 %description
-Functions for mesh codes in Japan. Conversion between mesh and
-longitude/latitude, and between mesh codes of different scales.
+Functions for the Japanese regional mesh codes defined in 'JIS X 0410'
+(<https://www.jisc.go.jp/app/jis/general/GnrJISNumberNameSearchList?show&jisStdNo=X0410>).
+Conversion between regional mesh codes and longitude/latitude, and between
+mesh codes of different scales.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RawHummus
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Raw Data Quality Control Tool for LC-MS System
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-CRAN-kableExtra 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinydashboard 
@@ -45,6 +46,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-markdown 
 Requires:         R-CRAN-kableExtra 
 
 %description

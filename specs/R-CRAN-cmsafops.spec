@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cmsafops
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for CM SAF NetCDF Data
 
@@ -46,7 +46,7 @@ Meteorological Satellites (EUMETSAT) and one of EUMETSATs Satellite
 Application Facilities. The CM SAF contributes to the sustainable
 monitoring of the climate system by providing essential climate variables
 related to the energy and water cycle of the atmosphere
-(<http://www.cmsaf.eu>). It is a joint cooperation of eight National
+(<https://www.cmsaf.eu>). It is a joint cooperation of eight National
 Meteorological and Hydrological Services. The 'cmsafops' R-package
 provides a collection of R-operators for the analysis and manipulation of
 CM SAF NetCDF formatted data. Other CF conform NetCDF data with time,

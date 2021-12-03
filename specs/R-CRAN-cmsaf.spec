@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cmsaf
-%global packver   3.3.0
+%global packver   3.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.0
+Version:          3.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Toolbox for CM SAF NetCDF Data
 
@@ -68,7 +68,7 @@ Meteorological Satellites (EUMETSAT) and one of EUMETSATs Satellite
 Application Facilities. The CM SAF contributes to the sustainable
 monitoring of the climate system by providing essential climate variables
 related to the energy and water cycle of the atmosphere
-(<http://www.cmsaf.eu>). It is a joint cooperation of eight National
+(<https://www.cmsaf.eu>). It is a joint cooperation of eight National
 Meteorological and Hydrological Services. The 'cmsaf' R-package includes a
 'shiny' based interface for an easy application of the 'cmsafops' and
 'cmsafvis' packages - the CM SAF R Toolbox. The Toolbox offers an easy way

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  VennDiagram
-%global packver   1.7.1
+%global packname  RAT
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate High-Resolution Venn and Euler Plots
+Summary:          Research Assessment Tools
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,15 +16,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-grid >= 2.14.1
-BuildRequires:    R-CRAN-futile.logger 
-Requires:         R-grid >= 2.14.1
-Requires:         R-CRAN-futile.logger 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-mapproj 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-wosr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
+Requires:         R-CRAN-mapproj 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-wosr 
 
 %description
-A set of functions to generate high-resolution Venn and Euler plots.
-Includes handling for several special cases, including two-case scaling,
-and extensive customization of plot shape and structure.
+Includes algorithms to assess research productivity and patterns, such as
+the h-index and i-index. Cardoso et al. (subm.) Quantifying the
+international collaboration of researchers and research institutions.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gridpattern
-%global packver   0.2.1
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'grid' Pattern Grobs
 
@@ -19,7 +19,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-rlang 
@@ -28,7 +27,6 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-glue 
 Requires:         R-grDevices 
 Requires:         R-grid 
-Requires:         R-CRAN-magick 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-rlang 
