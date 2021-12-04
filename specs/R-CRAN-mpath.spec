@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mpath
-%global packver   0.4-2.19
+%global packver   0.4-2.20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2.19
+Version:          0.4.2.20
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regularized Linear Models
 
@@ -44,8 +44,8 @@ also contains penalized Poisson, negative binomial, zero-inflated Poisson,
 zero-inflated negative binomial regression models and robust models with
 non-convex loss functions. Wang et al. (2014) <doi:10.1002/sim.6314>, Wang
 et al. (2015) <doi:10.1002/bimj.201400143>, Wang et al. (2016)
-<doi:10.1177/0962280214530608>, Wang (2019) <arXiv:1912.11119>, Wang
-(2020) <arXiv:2010.02848>.
+<doi:10.1177/0962280214530608>, Wang (2021)
+<doi:10.1007/s11749-021-00770-2>, Wang (2020) <arXiv:2010.02848>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,6 +55,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

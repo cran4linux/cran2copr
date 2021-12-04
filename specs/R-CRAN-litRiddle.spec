@@ -1,34 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gplsim
-%global packver   0.9.1
+%global packname  litRiddle
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Spline Estimation for GPLSIM
+Summary:          Dataset and Tools to Research the Riddle of Literary Quality
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-minpack.lm 
-Requires:         R-CRAN-mgcv 
-Requires:         R-stats 
-Requires:         R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-We provides functions that employ penalized spline (P-spline) to estimate
-generalized partially linear single index models (GPLSIM), which extend
-the generalized linear models to include nonlinear effect for some
-predictors. Please see Y. (2017) at <doi:10.1007/s11222-016-9639-0> and
-Y., and R. (2002) at <doi:10.1198/016214502388618861> for more details.
+Dataset and functions to explore quality of literary novels. The package
+is a part of the Riddle of Literary Quality project, and it contains the
+data of a reader survey about fiction in Dutch, a description of the
+novels the readers rated, and the results of stylistic measurements of the
+novels. The package also contains functions to combine, analyze, and
+visualize these data.
 
 %prep
 %setup -q -c -n %{packname}

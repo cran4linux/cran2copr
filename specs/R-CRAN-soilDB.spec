@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  soilDB
-%global packver   2.6.5
+%global packver   2.6.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.5
+Version:          2.6.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Soil Database Interface
 
@@ -21,10 +21,8 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-methods 
@@ -35,10 +33,8 @@ Requires:         R-grDevices
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-curl 
 Requires:         R-methods 

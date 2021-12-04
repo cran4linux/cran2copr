@@ -1,34 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gplsim
-%global packver   0.9.1
+%global packname  mispitools
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Spline Estimation for GPLSIM
+Summary:          Missing Person Identification Tools
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-minpack.lm 
-Requires:         R-CRAN-mgcv 
-Requires:         R-stats 
-Requires:         R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-forrel 
+BuildRequires:    R-CRAN-pedtools 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-highcharter 
+Requires:         R-CRAN-forrel 
+Requires:         R-CRAN-pedtools 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-highcharter 
 
 %description
-We provides functions that employ penalized spline (P-spline) to estimate
-generalized partially linear single index models (GPLSIM), which extend
-the generalized linear models to include nonlinear effect for some
-predictors. Please see Y. (2017) at <doi:10.1007/s11222-016-9639-0> and
-Y., and R. (2002) at <doi:10.1198/016214502388618861> for more details.
+Open-source software for computing Likelihood ratios thresholds and error
+rates in DNA kinship testingi. Marsico FL. et al (2021)
+<doi:10.1016/j.fsigen.2021.102519>.
 
 %prep
 %setup -q -c -n %{packname}

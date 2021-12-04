@@ -1,34 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gplsim
-%global packver   0.9.1
+%global packname  RCzechia
+%global packver   1.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          1.9.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Spline Estimation for GPLSIM
+Summary:          Spatial Objects of the Czech Republic
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-minpack.lm 
-Requires:         R-CRAN-mgcv 
-Requires:         R-stats 
-Requires:         R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
 
 %description
-We provides functions that employ penalized spline (P-spline) to estimate
-generalized partially linear single index models (GPLSIM), which extend
-the generalized linear models to include nonlinear effect for some
-predictors. Please see Y. (2017) at <doi:10.1007/s11222-016-9639-0> and
-Y., and R. (2002) at <doi:10.1198/016214502388618861> for more details.
+Administrative regions and other spatial objects of the Czech Republic.
 
 %prep
 %setup -q -c -n %{packname}

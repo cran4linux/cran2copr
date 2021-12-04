@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  conleyreg
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimations using Conley Standard Errors
 
@@ -19,9 +19,7 @@ BuildRequires:    R-base
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lfe 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-parallel 
@@ -30,13 +28,14 @@ BuildRequires:    R-CRAN-Rdpack
 BuildRequires:    R-CRAN-fixest 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-lwgeom 
+BuildRequires:    R-CRAN-s2 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-base 
 Requires:         R-stats 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lfe 
 Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-foreach 
 Requires:         R-parallel 
@@ -45,12 +44,15 @@ Requires:         R-CRAN-Rdpack
 Requires:         R-CRAN-fixest 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-lwgeom 
+Requires:         R-CRAN-s2 
+Requires:         R-methods 
 
 %description
-Merges and extends multiple packages and other published scripts
-calculating Conley (1999) <doi:10.1016/S0304-4076(98)00084-0> standard
-errors. Details are available in the function documentation and in the
-vignette.
+Functions calculating Conley (1999) <doi:10.1016/S0304-4076(98)00084-0>
+standard errors. The package started by merging and extending multiple
+packages and other published scripts on this econometric technique. It
+strongly emphasizes computational optimization. Details are available in
+the function documentation and in the vignette.
 
 %prep
 %setup -q -c -n %{packname}
@@ -60,6 +62,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,34 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gplsim
-%global packver   0.9.1
+%global packname  DeductiveR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Spline Estimation for GPLSIM
+Summary:          Deductive Rational Method
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-minpack.lm 
-Requires:         R-CRAN-mgcv 
-Requires:         R-stats 
-Requires:         R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-moments 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-moments 
 
 %description
-We provides functions that employ penalized spline (P-spline) to estimate
-generalized partially linear single index models (GPLSIM), which extend
-the generalized linear models to include nonlinear effect for some
-predictors. Please see Y. (2017) at <doi:10.1007/s11222-016-9639-0> and
-Y., and R. (2002) at <doi:10.1198/016214502388618861> for more details.
+Apply the Deductive Rational Method to a monthly series of flow or
+precipitation data to fill in missing data. The method is as described in:
+Campos, D.F., (1984, ISBN:9686194444).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tLagPropOdds
-%global packver   1.5
+%global packname  FPLdata
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Proportional Odds Model with Censored, Time-Lagged Categorical Outcome
+Summary:          Read in Fantasy Premier League Data
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,22 +16,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-R.utils 
-Requires:         R-methods 
-Requires:         R-CRAN-survival 
-Requires:         R-stats 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-R.utils 
 
 %description
-Implements a semiparametric estimator for the odds ratio model with
-censored, time-lagged, ordered categorical outcome in a randomized
-clinical trial that incorporates baseline and time-dependent information.
-Tsiatis, A. A. and Davidian, M. (2021) <arXiv:2106.15559>.
+This data contains a large variety of information on players and their
+current attributes on Fantasy Premier League
+<https://fantasy.premierleague.com/>. In particular, it contains a
+`next_gw_points` (next gameweek points) value for each player given their
+attributes in the current week. Rows represent player-gameweeks, i.e. for
+each player there is a row for each gameweek. This makes the data suitable
+for modelling a player's next gameweek points, given attributes such as
+form, total points, and cost at the current gameweek. This data can
+therefore be used to create Fantasy Premier League bots that may use a
+machine learning algorithm and a linear programming solver (for example)
+to return the best possible transfers and team to pick for each gameweek,
+thereby fully automating the decision making process in Fantasy Premier
+League. This function simply supplies the required data for such a task.
 
 %prep
 %setup -q -c -n %{packname}

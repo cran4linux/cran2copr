@@ -1,34 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gplsim
-%global packver   0.9.1
+%global packname  fastshap
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Spline Estimation for GPLSIM
+Summary:          Fast Approximate Shapley Values
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-minpack.lm 
-Requires:         R-CRAN-mgcv 
-Requires:         R-stats 
-Requires:         R-CRAN-minpack.lm 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.4
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-ggplot2 >= 3.3.4
+Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-tibble 
 
 %description
-We provides functions that employ penalized spline (P-spline) to estimate
-generalized partially linear single index models (GPLSIM), which extend
-the generalized linear models to include nonlinear effect for some
-predictors. Please see Y. (2017) at <doi:10.1007/s11222-016-9639-0> and
-Y., and R. (2002) at <doi:10.1198/016214502388618861> for more details.
+Computes fast (relative to other implementations) approximate Shapley
+values for any supervised learning model. Shapley values help to explain
+the predictions from any black box model using ideas from game theory; see
+Strumbel and Kononenko (2014) <doi:10.1007/s10115-013-0679-x> for details.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  AgroR
-%global packver   1.2.4
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Experimental Statistics and Graphics for Agricultural Sciences
 
@@ -18,17 +18,12 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-nortest 
-BuildRequires:    R-CRAN-ScottKnott 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-lmtest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-emmeans 
-BuildRequires:    R-CRAN-ARTool 
 BuildRequires:    R-CRAN-multcomp 
 BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-multcompView 
@@ -37,17 +32,12 @@ BuildRequires:    R-CRAN-drc
 BuildRequires:    R-CRAN-dunn.test 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-nortest 
-Requires:         R-CRAN-ScottKnott 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-lmtest 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-emmeans 
-Requires:         R-CRAN-ARTool 
 Requires:         R-CRAN-multcomp 
 Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-multcompView 

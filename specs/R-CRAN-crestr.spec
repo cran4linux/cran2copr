@@ -1,37 +1,52 @@
 %global __brp_check_rpaths %{nil}
-%global packname  sdmpredictors
-%global packver   0.2.11
+%global packname  crestr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.11
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Species Distribution Modelling Predictor Datasets
+Summary:          A Probabilistic Approach to Reconstruct Past Climates Using Biological Climate Proxies
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.5
-Requires:         R-core >= 3.2.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R.utils >= 2.4.0
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-clipr 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-rgdal 
-Requires:         R-CRAN-R.utils >= 2.4.0
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-CRAN-RPostgres 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-viridis 
+Requires:         R-CRAN-clipr 
+Requires:         R-CRAN-DBI 
+Requires:         R-methods 
+Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-rgeos 
+Requires:         R-CRAN-RPostgres 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-viridis 
 
 %description
-Terrestrial and marine predictors for species distribution modelling from
-multiple sources, including WorldClim <https://www.worldclim.org/>,,
-ENVIREM <https://envirem.github.io/>, Bio-ORACLE <https://bio-oracle.org/>
-and MARSPEC <http://www.marspec.org/>.
+Applies the CREST climate reconstruction method. It can be used using the
+calibration data that can be obtained through the package or by importing
+private data. An ensemble of graphical outputs were designed to facilitate
+the use of the package and the interpretation of the results. More
+information can be found form Chevalier (2021) <doi:10.5194/cp-2021-153>.
 
 %prep
 %setup -q -c -n %{packname}

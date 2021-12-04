@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mapsPERU
-%global packver   0.1.3
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Maps of Peru
 
@@ -20,8 +20,8 @@ BuildRequires:    R-CRAN-tibble
 Requires:         R-CRAN-tibble 
 
 %description
-Geographic information of the departmental and regional boundaries of
-Peru.
+Information of the centroids and geographical limits of the regions,
+departments, provinces and districts of Peru.
 
 %prep
 %setup -q -c -n %{packname}

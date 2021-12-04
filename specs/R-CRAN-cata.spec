@@ -1,34 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gplsim
-%global packver   0.9.1
+%global packname  cata
+%global packver   0.0.10.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.0.10.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Spline Estimation for GPLSIM
+Summary:          Analysis of Check-All-that-Apply (CATA) Data
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-minpack.lm 
-Requires:         R-CRAN-mgcv 
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+Requires:         R-grDevices 
 Requires:         R-stats 
-Requires:         R-CRAN-minpack.lm 
+Requires:         R-utils 
+Requires:         R-graphics 
 
 %description
-We provides functions that employ penalized spline (P-spline) to estimate
-generalized partially linear single index models (GPLSIM), which extend
-the generalized linear models to include nonlinear effect for some
-predictors. Please see Y. (2017) at <doi:10.1007/s11222-016-9639-0> and
-Y., and R. (2002) at <doi:10.1198/016214502388618861> for more details.
+Functions for analyzing check-all-that-apply (CATA) data from consumer and
+sensory tests. Cochran's Q test, McNemar's test, and Penalty-Lift analysis
+provided, as described in for CATA data analysis by Meyners, Castura &
+Carr (2013) <doi:10.1016/j.foodqual.2013.06.010>. Cluster analysis can be
+performed using b-cluster analysis. The quality of cluster analysis
+solutions can be evaluated using various measures. The methods related to
+b-cluster analysis are described in a pre-print manuscript by Castura,
+Meyners, Varela & Naes (2021)
+<https://secure.compusense.com/research/wp-content/uploads/2021/12/Castura_bcluster_submitted_20211130.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,48 +1,51 @@
 %global __brp_check_rpaths %{nil}
-%global packname  sjmisc
-%global packver   2.8.9
+%global packname  skater
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data and Variable Transformation Functions
+Summary:          Utilities for SNP-Based Kinship Analysis
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sjlabelled >= 1.1.1
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-insight 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-kinship2 
+BuildRequires:    R-CRAN-corrr 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-sjlabelled >= 1.1.1
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-insight 
 Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-kinship2 
+Requires:         R-CRAN-corrr 
+Requires:         R-grDevices 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-utils 
 
 %description
-Collection of miscellaneous utility functions, supporting data
-transformation tasks like recoding, dichotomizing or grouping variables,
-setting and replacing missing values. The data transformation functions
-also support labelled data, and all integrate seamlessly into a
-'tidyverse'-workflow.
+Utilities for single nucleotide polymorphism (SNP) based kinship analysis
+testing and evaluation. The 'skater' package contains functions for
+importing, parsing, and analyzing pedigree data, performing relationship
+degree inference, benchmarking relationship degree classification, and
+summarizing identity by descent (IBD) segment data. Package functions and
+methods are described in Turner et al. (2021) "skater: An R package for
+SNP-based Kinship Analysis, Testing, and Evaluation"
+<doi:10.1101/2021.07.21.453083>.
 
 %prep
 %setup -q -c -n %{packname}
