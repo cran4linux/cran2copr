@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SSDforR
-%global packver   1.5.22
+%global packver   1.5.23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.22
+Version:          1.5.23
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Analyze Single System Data
 
