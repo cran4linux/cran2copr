@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  wdpar
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the World Database on Protected Areas
 
@@ -17,7 +17,6 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl >= 3.2
-BuildRequires:    R-CRAN-withr >= 2.4.1
 BuildRequires:    R-CRAN-tibble >= 2.1.3
 BuildRequires:    R-CRAN-RSelenium >= 1.7.4
 BuildRequires:    R-CRAN-httr >= 1.3.1
@@ -33,7 +32,6 @@ BuildRequires:    R-CRAN-assertthat >= 0.2.0
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-sp 
 Requires:         R-CRAN-curl >= 3.2
-Requires:         R-CRAN-withr >= 2.4.1
 Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-RSelenium >= 1.7.4
 Requires:         R-CRAN-httr >= 1.3.1
@@ -50,9 +48,12 @@ Requires:         R-utils
 Requires:         R-CRAN-sp 
 
 %description
-Fetch and clean data from the World Database on Protected Areas (WDPA).
-Data is obtained from Protected Planet
-<https://www.protectedplanet.net/en>.
+Fetch and clean data from the World Database on Protected Areas (WDPA) and
+the World Database on Other Effective Area-Based Conservation Measures
+(WDOECM). Data is obtained from Protected Planet
+<https://www.protectedplanet.net/en>. To augment data cleaning procedures,
+users can install the 'prepr' R package (available at
+<https://github.com/dickoa/prepr>).
 
 %prep
 %setup -q -c -n %{packname}

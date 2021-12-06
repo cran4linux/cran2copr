@@ -1,27 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RcppSpdlog
-%global packver   0.0.7
+%global packname  ivdoctr
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'spdlog' C++ Header Library for Logging
+Summary:          Ensures Mutually Consistent Beliefs When Using IVs
 
-License:          GPL (>= 2)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 0.11.6
+BuildRequires:    R-CRAN-AER 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.11.6
+Requires:         R-CRAN-AER 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-data.table 
+Requires:         R-graphics 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-sandwich 
+Requires:         R-stats 
 
 %description
-The mature and widely-used C++ logging library 'spdlog' by Gabi Melman
-provides many desirable features. This package bundles these header files
-for easy use by R packages via a simple 'LinkingTo:' inclusion.
+Uses data and researcher's beliefs on measurement error and instrumental
+variable (IV) endogeneity to generate the space of consistent beliefs
+across measurement error, instrument endogeneity, and instrumental
+relevance for IV regressions. Package based on DiTraglia and Garcia-Jimeno
+(2020) <doi:10.1080/07350015.2020.1753528>.
 
 %prep
 %setup -q -c -n %{packname}

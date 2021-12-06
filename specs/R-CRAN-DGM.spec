@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DGM
-%global packver   1.7.3
+%global packver   1.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.3
+Version:          1.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Graphical Models
 
@@ -30,7 +30,7 @@ Requires:         R-CRAN-Rcpp >= 0.11.0
 %description
 Dynamic graphical models for multivariate time series data to estimate
 directed dynamic networks in functional magnetic resonance imaging (fMRI),
-see Schwab et al. (2017) <doi:10.1101/198887>.
+see Schwab et al. (2017) <doi:10.1016/j.neuroimage.2018.03.074>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -40,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dendroTools
-%global packver   1.2.0
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear and Nonlinear Methods for Analyzing Daily and Monthly Dendroclimatological Data
 
@@ -18,10 +18,10 @@ Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-plotly >= 4.7.1
 BuildRequires:    R-CRAN-randomForest >= 4.6.14
-BuildRequires:    R-CRAN-gridExtra >= 2.2
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
 BuildRequires:    R-CRAN-psych >= 1.8.3.3
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
+BuildRequires:    R-CRAN-dplR >= 1.7.2
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-reshape2 >= 1.4.2
 BuildRequires:    R-CRAN-boot >= 1.3.22
@@ -36,10 +36,10 @@ BuildRequires:    R-CRAN-Cubist >= 0.2.2
 BuildRequires:    R-stats 
 Requires:         R-CRAN-plotly >= 4.7.1
 Requires:         R-CRAN-randomForest >= 4.6.14
-Requires:         R-CRAN-gridExtra >= 2.2
 Requires:         R-CRAN-ggplot2 >= 2.2.0
 Requires:         R-CRAN-psych >= 1.8.3.3
 Requires:         R-CRAN-lubridate >= 1.7.4
+Requires:         R-CRAN-dplR >= 1.7.2
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-reshape2 >= 1.4.2
 Requires:         R-CRAN-boot >= 1.3.22

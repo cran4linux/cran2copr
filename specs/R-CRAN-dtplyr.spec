@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dtplyr
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Table Back-End for 'dplyr'
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.12.4
+BuildRequires:    R-CRAN-data.table >= 1.13.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.3
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-ellipsis 
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-data.table >= 1.12.4
+Requires:         R-CRAN-data.table >= 1.13.0
 Requires:         R-CRAN-dplyr >= 1.0.3
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-ellipsis 
@@ -50,6 +50,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

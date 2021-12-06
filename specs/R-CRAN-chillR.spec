@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  chillR
-%global packver   0.72.5
+%global packver   0.72.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.72.5
+Version:          0.72.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Phenology Analysis in Temperate Fruit Trees
 
@@ -15,54 +15,64 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-pls 
+BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-Kendall 
 BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-GenSA 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RMAWGEN 
-BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-Kendall 
+BuildRequires:    R-CRAN-metR 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-pls 
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-GenSA 
-Requires:         R-CRAN-pls 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-RMAWGEN 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-XML 
+Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-Kendall 
 Requires:         R-CRAN-fields 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-httr 
-Requires:         R-grDevices 
+Requires:         R-CRAN-GenSA 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-RMAWGEN 
-Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-Kendall 
+Requires:         R-CRAN-metR 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-pls 
+Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-GenSA 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-RMAWGEN 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-sp 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-XML 
 
 %description
 The phenology of plants (i.e. the timing of their annual life phases)
