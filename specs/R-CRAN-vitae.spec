@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  vitae
-%global packver   0.4.2
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Curriculum Vitae for R Markdown
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-xfun
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-rmarkdown >= 2.2
 Requires:         R-CRAN-vctrs >= 0.3.3
 Requires:         R-CRAN-rlang 
@@ -36,6 +37,7 @@ Requires:         R-CRAN-xfun
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-jsonlite 
 
 %description
 Provides templates and functions to simplify the production and
@@ -49,6 +51,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

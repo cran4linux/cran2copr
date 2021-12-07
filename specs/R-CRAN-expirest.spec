@@ -1,31 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  irlba
-%global packver   2.3.5
+%global packname  expirest
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.5
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Truncated Singular Value Decomposition and Principal Components Analysis for Large Dense and Sparse Matrices
+Summary:          Expiry Estimation Procedures
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.2
-Requires:         R-core >= 3.6.2
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-stats 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Fast and memory efficient methods for truncated singular value
-decomposition and principal components analysis of large sparse and dense
-matrices.
+The Australian Regulatory Guidelines for Prescription Medicines (ARGPM),
+guidance on "Stability testing for prescription medicines"
+<https://www.tga.gov.au/stability-testing-prescription-medicines>,
+recommends to predict the shelf life of chemically derived medicines from
+stability data by taking the worst case situation at batch release into
+account. Consequently, if a change over time is observed, a release limit
+needs to be specified. Finding a release limit and the associated shelf
+life is supported, as well as the standard approach that is recommended by
+guidance Q1E "Evaluation of stability data" from the International Council
+for Harmonisation (ICH)
+<https://database.ich.org/sites/default/files/Q1E%%20Guideline.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

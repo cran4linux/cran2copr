@@ -1,31 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  irlba
-%global packver   2.3.5
+%global packname  PracticalEquiDesign
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.5
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Truncated Singular Value Decomposition and Principal Components Analysis for Large Dense and Sparse Matrices
+Summary:          Design of Practical Equivalence Trials
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.2
-Requires:         R-core >= 3.6.2
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Temporal 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-stats 
+Requires:         R-CRAN-Temporal 
+Requires:         R-CRAN-tidyr 
 
 %description
-Fast and memory efficient methods for truncated singular value
-decomposition and principal components analysis of large sparse and dense
-matrices.
+Sample size calculations for practical equivalence trial design with a
+time to event endpoint.
 
 %prep
 %setup -q -c -n %{packname}

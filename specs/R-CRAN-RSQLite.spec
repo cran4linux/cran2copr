@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RSQLite
-%global packver   2.2.8
+%global packver   2.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.8
+Version:          2.2.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          'SQLite' Interface for R
+Summary:          SQLite Interface for R
 
 License:          LGPL (>= 2.1)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -32,9 +32,8 @@ Requires:         R-methods
 Requires:         R-CRAN-pkgconfig 
 
 %description
-Embeds the 'SQLite' database engine in R and provides an interface
-compliant with the 'DBI' package. The source for the 'SQLite' engine is
-included.
+Embeds the SQLite database engine in R and provides an interface compliant
+with the DBI package. The source for the SQLite engine is included.
 
 %prep
 %setup -q -c -n %{packname}

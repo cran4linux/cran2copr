@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MachineShop
-%global packver   3.1.0
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Machine Learning Models and Tools
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-recipes >= 0.1.4
 BuildRequires:    R-CRAN-rsample >= 0.1.0
 BuildRequires:    R-CRAN-dials >= 0.0.4
 BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-kernlab 
 BuildRequires:    R-CRAN-magrittr 
@@ -28,18 +29,19 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-party 
 BuildRequires:    R-CRAN-polspline 
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-Rsolnp 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-recipes >= 0.1.4
 Requires:         R-CRAN-rsample >= 0.1.0
 Requires:         R-CRAN-dials >= 0.0.4
 Requires:         R-CRAN-abind 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-kernlab 
 Requires:         R-CRAN-magrittr 
@@ -48,7 +50,6 @@ Requires:         R-methods
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-party 
 Requires:         R-CRAN-polspline 
-Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-Rsolnp 

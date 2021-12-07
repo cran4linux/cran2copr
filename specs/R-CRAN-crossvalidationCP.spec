@@ -1,31 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  irlba
-%global packver   2.3.5
+%global packname  crossvalidationCP
+%global packver   1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Truncated Singular Value Decomposition and Principal Components Analysis for Large Dense and Sparse Matrices
+Summary:          Cross-Validation for Change-Point Regression
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.2
-Requires:         R-core >= 3.6.2
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-changepoint >= 2.0
+BuildRequires:    R-CRAN-stepR >= 2.0
+BuildRequires:    R-CRAN-wbs >= 1.4
+BuildRequires:    R-CRAN-FDRSeg >= 1.0.3
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-changepoint >= 2.0
+Requires:         R-CRAN-stepR >= 2.0
+Requires:         R-CRAN-wbs >= 1.4
+Requires:         R-CRAN-FDRSeg >= 1.0.3
 Requires:         R-stats 
-Requires:         R-methods 
 
 %description
-Fast and memory efficient methods for truncated singular value
-decomposition and principal components analysis of large sparse and dense
-matrices.
+Can be customised by providing different cross-validation criteria,
+estimators for the change-point locations and local parameters, and freely
+chosen folds. Pre-implemented estimators and criteria are available. It
+also includes our own implementation of the COPPS procedure
+<doi:10.1214/19-AOS1814>.
 
 %prep
 %setup -q -c -n %{packname}

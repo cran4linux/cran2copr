@@ -1,31 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  irlba
-%global packver   2.3.5
+%global packname  SAEval
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Truncated Singular Value Decomposition and Principal Components Analysis for Large Dense and Sparse Matrices
+Summary:          Small Area Estimation Evaluation
 
-License:          GPL-3
+License:          EUPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.2
-Requires:         R-core >= 3.6.2
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-car 
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggspatial 
+BuildRequires:    R-grid 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-car 
 Requires:         R-stats 
-Requires:         R-methods 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggspatial 
+Requires:         R-grid 
 
 %description
-Fast and memory efficient methods for truncated singular value
-decomposition and principal components analysis of large sparse and dense
-matrices.
+Allows users to produce diagnostic procedures and graphic tools for the
+evaluation of Small Area estimators.
 
 %prep
 %setup -q -c -n %{packname}

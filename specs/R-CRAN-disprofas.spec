@@ -1,49 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  vannstats
-%global packver   1.0.12.5
+%global packname  disprofas
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.12.5
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simplified Statistics for PA 606
+Summary:          Non-Parametric Dissolution Profile Analysis
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-formula.tools 
-BuildRequires:    R-CRAN-gplots 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-boot 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-purrr 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-formula.tools 
-Requires:         R-CRAN-gplots 
 
 %description
-Simplifies functions assess normality for bivariate and multivariate
-statistical techniques, including hst(), box(), and qq(). Plots designed
-to replicate those that would result from similar calls in 'SPSS'. Also
-includes simplified formulae, such as mode(), scatter(), and ow.anova().
+Similarity of dissolution profiles is assessed using the similarity factor
+f2 according to the EMA guideline (European Medicines Agency 2010) "On the
+investigation of bioequivalence". Dissolution profiles are regarded as
+similar if the f2 value is between 50 and 100. For the applicability of
+the similarity factor f2, the variability between profiles needs to be
+within certain limits. Often, this constraint is violated. One possibility
+in this situation is to resample the measured profiles in order to obtain
+a bootstrap estimate of f2 (Shah et al. (1998)
+<doi:10.1023/A:1011976615750>). Other alternatives are the
+model-independent non-parametric multivariate confidence region (MCR)
+procedure (Tsong et al. (1996) <doi:10.1177/009286159603000427>) or the
+T2-test for equivalence procedure (Hoffelder (2016)
+<https://www.ecv.de/suse_item.php?suseId=Z|pi|8430>). Functions for
+estimation of f1, f2, bootstrap f2, MCR / T2-test for equivalence
+procedure are implemented.
 
 %prep
 %setup -q -c -n %{packname}

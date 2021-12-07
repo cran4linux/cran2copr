@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  iai
-%global packver   1.6.0
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'Interpretable AI' Modules
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-lifecycle
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-rjson 
 Requires:         R-CRAN-JuliaCall >= 0.17.4
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rlang 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-lifecycle
 Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-rjson 
 
 %description
 An interface to the algorithms of 'Interpretable AI'
@@ -50,6 +52,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

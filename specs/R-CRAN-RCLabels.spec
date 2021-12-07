@@ -1,31 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  irlba
-%global packver   2.3.5
+%global packname  RCLabels
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.5
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Truncated Singular Value Decomposition and Principal Components Analysis for Large Dense and Sparse Matrices
+Summary:          Manipulate Matrix Row and Column Labels with Ease
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.2
-Requires:         R-core >= 3.6.2
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-stats 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
 
 %description
-Fast and memory efficient methods for truncated singular value
-decomposition and principal components analysis of large sparse and dense
-matrices.
+Functions to assist manipulation of matrix row and column labels for all
+types of matrix mathematics where row and column labels are to be
+respected.
 
 %prep
 %setup -q -c -n %{packname}

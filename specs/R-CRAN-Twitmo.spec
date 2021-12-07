@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Twitmo
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Twitter Topic Modeling and Visualization for R
 
@@ -32,6 +32,11 @@ BuildRequires:    R-CRAN-stm
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-LDAvis 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-ldatuning 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-tm 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-stats 
 Requires:         R-CRAN-plyr 
@@ -48,12 +53,17 @@ Requires:         R-CRAN-stm
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-maps 
+Requires:         R-CRAN-LDAvis 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-ldatuning 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-tm 
 
 %description
 Tailored for topic modeling with tweets and fit for visualization tasks in
 R. Collect, pre-process and analyze the contents of tweets using LDA and
-STM models. Comes with visualizing capabilities like tweet and hashtag
-maps and built-in support for 'LDAvis'.
+structural topic models (STM). Comes with visualizing capabilities like
+tweet and hashtag maps and built-in support for 'LDAvis'.
 
 %prep
 %setup -q -c -n %{packname}

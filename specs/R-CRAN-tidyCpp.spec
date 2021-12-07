@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tidyCpp
-%global packver   0.0.5
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy C++ Header-Only Definitions for Parts of the C API of R
 

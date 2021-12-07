@@ -1,31 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  irlba
-%global packver   2.3.5
+%global packname  fca
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Truncated Singular Value Decomposition and Principal Components Analysis for Large Dense and Sparse Matrices
+Summary:          Floating Catchment Area (FCA) Methods to Calculate Spatial Accessibility
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.2
-Requires:         R-core >= 3.6.2
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-stats 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Fast and memory efficient methods for truncated singular value
-decomposition and principal components analysis of large sparse and dense
-matrices.
+Perform various floating catchment area methods to calculate a spatial
+accessibility index (SPAI) for demand point data. The distance matrix used
+for weighting is normalized in a preprocessing step using common functions
+(gaussian, gravity, exponential or logistic).
 
 %prep
 %setup -q -c -n %{packname}
