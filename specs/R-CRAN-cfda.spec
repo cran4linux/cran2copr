@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cfda
-%global packver   0.9.10
+%global packver   0.9.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.10
+Version:          0.9.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Categorical Functional Data Analysis
 
@@ -34,8 +34,8 @@ Requires:         R-CRAN-pbapply
 %description
 Package for the analysis of categorical functional data. The main purpose
 is to compute an encoding (real functional variable) for each state
-<doi:10.1080/00031305.2017.1375990>. It also provides functions to perform
-basic statistical analysis on categorical functional data.
+<doi:10.3390/math9233074>. It also provides functions to perform basic
+statistical analysis on categorical functional data.
 
 %prep
 %setup -q -c -n %{packname}

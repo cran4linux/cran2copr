@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spamtree
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Multivariate Trees
 
@@ -32,7 +32,8 @@ Requires:         R-CRAN-tibble
 %description
 Fits multivariate Bayesian spatial regression models for large datasets
 using Spatial Multivariate Trees (SpamTrees). The methods in this package
-are detailed in Peruzzi and Dunson (2020) <arXiv:2012.00943>.
+are detailed in Peruzzi and Dunson (2020) <arXiv:2012.00943>. Funded by
+ERC grant 856506 and NIH grant R01ES028804.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,6 +43,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

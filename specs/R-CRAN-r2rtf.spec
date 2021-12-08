@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  r2rtf
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Create Production-Ready Rich Text Format (RTF) Table and Figure
 
@@ -17,7 +17,9 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-grDevices 
+BuildRequires:    R-tools 
 Requires:         R-grDevices 
+Requires:         R-tools 
 
 %description
 Create production-ready Rich Text Format (RTF) table and figure with

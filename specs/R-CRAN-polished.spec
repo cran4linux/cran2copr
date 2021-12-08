@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  polished
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Authentication, User Administration, and Hosting for 'shiny' Apps
 
@@ -38,7 +38,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-uuid 
 BuildRequires:    R-CRAN-yaml 
@@ -64,7 +63,6 @@ Requires:         R-stats
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-uuid 
 Requires:         R-CRAN-yaml 

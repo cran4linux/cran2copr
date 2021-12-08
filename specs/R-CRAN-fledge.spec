@@ -1,34 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RMVL
-%global packver   0.0.4.1
+%global packname  fledge
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mappable Vector Library for Handling Large Datasets
+Summary:          Smoother Change Tracking and Versioning for R Packages
 
-License:          LGPL-2.1
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-usethis >= 1.5.0
+BuildRequires:    R-CRAN-gert >= 1.4.0
+BuildRequires:    R-CRAN-desc >= 1.2.0
+BuildRequires:    R-CRAN-rlang >= 0.4.12
+BuildRequires:    R-CRAN-purrr >= 0.3.2
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-enc 
+BuildRequires:    R-CRAN-rematch2 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-whoami 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-usethis >= 1.5.0
+Requires:         R-CRAN-gert >= 1.4.0
+Requires:         R-CRAN-desc >= 1.2.0
+Requires:         R-CRAN-rlang >= 0.4.12
+Requires:         R-CRAN-purrr >= 0.3.2
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-enc 
+Requires:         R-CRAN-rematch2 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-whoami 
+Requires:         R-CRAN-withr 
 
 %description
-Mappable vector library provides convenient way to access large datasets.
-Use all of your data at once, with few limits. Memory mapped data can be
-shared between multiple R processes. Access speed depends on storage
-medium, so solid state drive is recommended, preferably with PCI Express
-(or M.2 nvme) interface or a fast network file system. The data is memory
-mapped into R and then accessed using usual R list and array subscription
-operators. Convenience functions are provided for merging, grouping and
-indexing large vectors and data.frames. The layout of underlying MVL files
-is optimized for large datasets. The vectors are stored to guarantee
-alignment for vector intrinsics after memory map. The package is built on
-top of libMVL, which can be used as a standalone C library. libMVL has
-simple C API making it easy to interchange datasets with outside programs.
+Streamlines the process of updating changelogs (NEWS.md) and versioning R
+packages developed in git repositories.
 
 %prep
 %setup -q -c -n %{packname}
