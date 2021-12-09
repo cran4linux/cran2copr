@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  nflreadr
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download 'nflverse' Data
 
@@ -13,12 +13,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-RcppParallel >= 5.1.4
 BuildRequires:    R-CRAN-curl >= 4.3.0
+BuildRequires:    R-CRAN-cli >= 3.0.0
 BuildRequires:    R-CRAN-memoise >= 2.0.0
+BuildRequires:    R-CRAN-glue >= 1.4.0
 BuildRequires:    R-CRAN-data.table >= 1.14.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-cachem >= 1.0.0
@@ -27,7 +29,9 @@ BuildRequires:    R-CRAN-rappdirs >= 0.3.0
 BuildRequires:    R-CRAN-qs >= 0.24.0
 Requires:         R-CRAN-RcppParallel >= 5.1.4
 Requires:         R-CRAN-curl >= 4.3.0
+Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-memoise >= 2.0.0
+Requires:         R-CRAN-glue >= 1.4.0
 Requires:         R-CRAN-data.table >= 1.14.0
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-cachem >= 1.0.0
@@ -36,7 +40,7 @@ Requires:         R-CRAN-rappdirs >= 0.3.0
 Requires:         R-CRAN-qs >= 0.24.0
 
 %description
-A low-level package for downloading data from 'GitHub' repositories of the
+A minimal package for downloading data from 'GitHub' repositories of the
 'nflverse' project.
 
 %prep

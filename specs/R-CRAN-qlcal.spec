@@ -1,29 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  pedSimulate
-%global packver   1.3.0
+%global packname  qlcal
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pedigree, Genetic Merit, Phenotype, and Genotype Simulation
+Summary:          R Bindings to the Calendaring Functionality of 'QuantLib'
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Simulate pedigree, genetic merits and phenotypes with random/non-random
-matings followed by random/non-random selection with different intensities
-and patterns in males and females. Genotypes can be simulated for a given
-pedigree, or an appended pedigree to an existing pedigree with genotypes.
-Bijma, P. & Rutten, M. (2002)
-<https://www.wur.nl/en/Research-Results/Chair-groups/Animal-Sciences/Animal-Breeding-and-Genomics-Group/Research/Software.htm>.
+'QuantLib' bindings are provided for R using 'Rcpp' via an evolved version
+of the initial header-only 'Quantuccia' project offering an subset of
+'QuantLib' (now maintained separately just for the calendaring subset).
+See the included file 'AUTHORS' for a full list of contributors to
+'QuantLib' (and hence also 'Quantuccia').
 
 %prep
 %setup -q -c -n %{packname}

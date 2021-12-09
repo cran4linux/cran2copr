@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  midasml
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation and Prediction Methods for High-Dimensional Mixed Frequency Time Series Data
 
@@ -16,6 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-mcGlobaloptim 
@@ -23,6 +25,8 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-doRNG 
+Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-graphics 
 Requires:         R-CRAN-mcGlobaloptim 

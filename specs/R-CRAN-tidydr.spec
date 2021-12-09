@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  pedSimulate
-%global packver   1.3.0
+%global packname  tidydr
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pedigree, Genetic Merit, Phenotype, and Genotype Simulation
+Summary:          Unify Dimensionality Reduction Results
 
-License:          GPL-3
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,14 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grid 
+Requires:         R-CRAN-rlang 
+Requires:         R-utils 
 
 %description
-Simulate pedigree, genetic merits and phenotypes with random/non-random
-matings followed by random/non-random selection with different intensities
-and patterns in males and females. Genotypes can be simulated for a given
-pedigree, or an appended pedigree to an existing pedigree with genotypes.
-Bijma, P. & Rutten, M. (2002)
-<https://www.wur.nl/en/Research-Results/Chair-groups/Animal-Sciences/Animal-Breeding-and-Genomics-Group/Research/Software.htm>.
+Dimensionality reduction (DR) is widely used in many domain for analyzing
+and visualizing high-dimensional data. 'tidydr' provides uniform output
+and is compatible with multiple methods, including 'prcomp', 'mds',
+'Rtsne'. etc.
 
 %prep
 %setup -q -c -n %{packname}

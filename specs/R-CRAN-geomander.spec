@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  geomander
-%global packver   1.0.8
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geographic Tools for Studying Gerrymandering
 
@@ -15,31 +15,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-tigris >= 1.5
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-nngeo 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidycensus 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tigris 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-dataverse 
+BuildRequires:    R-CRAN-censable 
+BuildRequires:    R-CRAN-geos 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-tigris >= 1.5
+Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-nngeo 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidycensus 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tigris 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-dataverse 
+Requires:         R-CRAN-censable 
+Requires:         R-CRAN-geos 
+Requires:         R-CRAN-cli 
 
 %description
 A compilation of tools to complete common tasks for studying
@@ -56,6 +59,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

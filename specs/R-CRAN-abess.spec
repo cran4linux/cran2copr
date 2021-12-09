@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  abess
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adaptive Best Subset Selection in Polynomial Time
+Summary:          Fast Best Subset Selection
 
 License:          GPL (>= 3) | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,13 +27,18 @@ Requires:         R-CRAN-Matrix
 
 %description
 Extremely efficient toolkit for solving the best subset selection problem
-in linear regression, logistic regression, Poisson regression, Cox
-proportional hazard model, multiple-response regression, multinomial
-logistic regression, and (sequential) principal component analysis. It
+<arXiv:2110.09697>. This package is its R interface. The package
 implements and generalizes algorithms designed in
 <doi:10.1073/pnas.2014241117> that exploits a novel
 sequencing-and-splicing technique to guarantee exact support recovery and
-globally optimal solution in polynomial times.
+globally optimal solution in polynomial times for linear model. It also
+supports best subset selection for logistic regression, Poisson
+regression, Cox proportional hazard model, Gamma regression,
+multiple-response regression, multinomial logistic regression,
+(sequential) principal component analysis, and robust principal component
+analysis. The other valuable features such as the best subset of group
+selection <arXiv:2104.12576> and sure independence screening
+<doi:10.1111/j.1467-9868.2008.00674.x> are also provided.
 
 %prep
 %setup -q -c -n %{packname}

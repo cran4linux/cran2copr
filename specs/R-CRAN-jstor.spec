@@ -1,26 +1,51 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fs
-%global packver   1.5.2
+%global packname  jstor
+%global packver   0.3.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          0.3.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cross-Platform File System Operations Based on 'libuv'
+Summary:          Read Data from JSTOR/DfR
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble >= 3.0.0
+BuildRequires:    R-CRAN-readr >= 2.0.0
+BuildRequires:    R-CRAN-stringr >= 1.3.0
+BuildRequires:    R-CRAN-xml2 >= 1.2.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-tidyr >= 0.7.2
+BuildRequires:    R-CRAN-purrr >= 0.2.4
+BuildRequires:    R-CRAN-rlang >= 0.2.0
+BuildRequires:    R-CRAN-furrr >= 0.1.0
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-pryr 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-tibble >= 3.0.0
+Requires:         R-CRAN-readr >= 2.0.0
+Requires:         R-CRAN-stringr >= 1.3.0
+Requires:         R-CRAN-xml2 >= 1.2.0
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-tidyr >= 0.7.2
+Requires:         R-CRAN-purrr >= 0.2.4
+Requires:         R-CRAN-rlang >= 0.2.0
+Requires:         R-CRAN-furrr >= 0.1.0
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-pryr 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-cli 
 
 %description
-A cross-platform interface to file system operations, built on top of the
-'libuv' C library.
+Functions and helpers to import metadata, ngrams and full-texts delivered
+by Data for Research by JSTOR.
 
 %prep
 %setup -q -c -n %{packname}

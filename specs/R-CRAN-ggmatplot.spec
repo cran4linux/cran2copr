@@ -1,29 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  pedSimulate
-%global packver   1.3.0
+%global packname  ggmatplot
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pedigree, Genetic Merit, Phenotype, and Genotype Simulation
+Summary:          Plot Columns of Two Matrices Against Each Other Using 'ggplot2'
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
 
 %description
-Simulate pedigree, genetic merits and phenotypes with random/non-random
-matings followed by random/non-random selection with different intensities
-and patterns in males and females. Genotypes can be simulated for a given
-pedigree, or an appended pedigree to an existing pedigree with genotypes.
-Bijma, P. & Rutten, M. (2002)
-<https://www.wur.nl/en/Research-Results/Chair-groups/Animal-Sciences/Animal-Breeding-and-Genomics-Group/Research/Software.htm>.
+A quick and easy way of plotting the columns of two matrices or data
+frames against each other using 'ggplot2'. Although 'ggmatplot' doesn't
+provide the same flexibility as 'ggplot2', it can be used as a workaround
+for having to wrangle wide format data into long format for plotting with
+'ggplot2'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,29 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  pedSimulate
-%global packver   1.3.0
+%global packname  atom4R
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pedigree, Genetic Merit, Phenotype, and Genotype Simulation
+Summary:          Tools to Handle and Publish Metadata as 'Atom' XML Format
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-zip 
+BuildRequires:    R-CRAN-rdflib 
+BuildRequires:    R-CRAN-keyring 
+Requires:         R-methods 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-zip 
+Requires:         R-CRAN-rdflib 
+Requires:         R-CRAN-keyring 
 
 %description
-Simulate pedigree, genetic merits and phenotypes with random/non-random
-matings followed by random/non-random selection with different intensities
-and patterns in males and females. Genotypes can be simulated for a given
-pedigree, or an appended pedigree to an existing pedigree with genotypes.
-Bijma, P. & Rutten, M. (2002)
-<https://www.wur.nl/en/Research-Results/Chair-groups/Animal-Sciences/Animal-Breeding-and-Genomics-Group/Research/Software.htm>.
+Provides tools to read/write/publish metadata based on the 'Atom' XML
+syndication format. This includes support of 'Dublin Core' XML
+implementation, and a client to API(s) implementing the 'AtomPub' 'SWORD'
+API specification.
 
 %prep
 %setup -q -c -n %{packname}

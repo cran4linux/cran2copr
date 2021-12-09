@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  verbalisr
-%global packver   0.2.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Describe Pedigree Relationships in Words
 
@@ -13,13 +13,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pedtools >= 0.9.7
-BuildRequires:    R-CRAN-ribd 
-Requires:         R-CRAN-pedtools >= 0.9.7
-Requires:         R-CRAN-ribd 
+BuildRequires:    R-CRAN-ribd >= 1.3.1
+BuildRequires:    R-CRAN-pedtools >= 1.1.0
+Requires:         R-CRAN-ribd >= 1.3.1
+Requires:         R-CRAN-pedtools >= 1.1.0
 
 %description
 Describe in words the genealogical relationship between two members of a

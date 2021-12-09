@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Clustering
-%global packver   1.7.3
+%global packver   1.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.3
+Version:          1.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Techniques for Evaluating Clustering
 
@@ -36,6 +36,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xtable 
+BuildRequires:    R-CRAN-toOrdinal 
 Requires:         R-CRAN-advclust 
 Requires:         R-CRAN-amap 
 Requires:         R-CRAN-apcluster 
@@ -56,6 +57,7 @@ Requires:         R-stats
 Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-toOrdinal 
 
 %description
 The design of this package allows us to run different clustering packages
