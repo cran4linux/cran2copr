@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  CoTiMA
-%global packver   0.4.4
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous Time Meta-Analysis ('CoTiMA')
 

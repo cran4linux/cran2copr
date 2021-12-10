@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tempR
-%global packver   0.9.9.18
+%global packver   0.9.9.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.9.18
+Version:          0.9.9.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Temporal Sensory Data Analysis
 

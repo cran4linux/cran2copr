@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rassta
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Raster-Based Spatial Stratification Algorithms
 
@@ -17,9 +17,6 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-plotly >= 4.9.4.1
-BuildRequires:    R-grDevices >= 4.1.0
-BuildRequires:    R-stats >= 4.1.0
-BuildRequires:    R-utils >= 4.1.0
 BuildRequires:    R-CRAN-raster >= 3.4.13
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
 BuildRequires:    R-CRAN-kohonen >= 3.0.10
@@ -37,10 +34,10 @@ BuildRequires:    R-CRAN-stringdist >= 0.9.6.3
 BuildRequires:    R-CRAN-rlang >= 0.4.11
 BuildRequires:    R-CRAN-DT >= 0.18
 BuildRequires:    R-CRAN-histogram >= 0.0.25
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-plotly >= 4.9.4.1
-Requires:         R-grDevices >= 4.1.0
-Requires:         R-stats >= 4.1.0
-Requires:         R-utils >= 4.1.0
 Requires:         R-CRAN-raster >= 3.4.13
 Requires:         R-CRAN-ggplot2 >= 3.3.5
 Requires:         R-CRAN-kohonen >= 3.0.10
@@ -58,6 +55,9 @@ Requires:         R-CRAN-stringdist >= 0.9.6.3
 Requires:         R-CRAN-rlang >= 0.4.11
 Requires:         R-CRAN-DT >= 0.18
 Requires:         R-CRAN-histogram >= 0.0.25
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Algorithms for the spatial stratification of landscapes, sampling and
@@ -70,7 +70,9 @@ first level units (i.e., classification units) and second-level units
 the correspondence between the geographic space and the landscape
 configuration represented by the units. These correspondence metrics are
 useful to define sampling schemes and to model the spatial variability of
-environmental phenomena.
+environmental phenomena. The theoretical background of the algorithms and
+code examples are presented in Fuentes, Dorantes, and Tipton (2021).
+<doi:10.31223/X50S57>.
 
 %prep
 %setup -q -c -n %{packname}

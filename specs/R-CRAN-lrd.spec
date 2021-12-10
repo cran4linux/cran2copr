@@ -1,41 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mleap
-%global packver   1.1.0
+%global packname  lrd
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'MLeap'
+Summary:          A Package for Processing Lexical Response Data
 
-License:          Apache License (>= 2.0)
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         java
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rJava 
-BuildRequires:    R-CRAN-sparklyr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rJava 
-Requires:         R-CRAN-sparklyr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-knitr 
 
 %description
-A 'sparklyr' <https://spark.rstudio.com> extension that provides an
-interface to 'MLeap' <https://github.com/combust/mleap>, an open source
-library that enables exporting and serving of 'Apache Spark' pipelines.
+Lexical response data is a package that can be used for processing
+cued-recall, free-recall, and sentence responses from memory experiments.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,6 +35,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

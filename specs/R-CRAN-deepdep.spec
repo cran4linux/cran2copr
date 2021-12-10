@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  deepdep
-%global packver   0.2.5.4
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5.4
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualise and Explore the Deep Dependencies of R Packages
 

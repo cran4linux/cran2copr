@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sensobol
-%global packver   1.0.3
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computation of Variance-Based Sensitivity Indices
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
+BuildRequires:    R-CRAN-Rdpack >= 2.1.2
 BuildRequires:    R-CRAN-Rfast >= 2.0.1
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-stringr >= 1.4.0
@@ -25,7 +26,6 @@ BuildRequires:    R-CRAN-randtoolbox >= 1.17.1
 BuildRequires:    R-CRAN-data.table >= 1.12.0
 BuildRequires:    R-CRAN-lhs >= 1.0.2
 BuildRequires:    R-CRAN-scales >= 1.0.0
-BuildRequires:    R-CRAN-Rdpack >= 0.7
 BuildRequires:    R-CRAN-matrixStats >= 0.54.0
 BuildRequires:    R-CRAN-rlang >= 0.3.1
 BuildRequires:    R-stats 
@@ -33,6 +33,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-ggplot2 >= 3.1.0
+Requires:         R-CRAN-Rdpack >= 2.1.2
 Requires:         R-CRAN-Rfast >= 2.0.1
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringr >= 1.4.0
@@ -42,7 +43,6 @@ Requires:         R-CRAN-randtoolbox >= 1.17.1
 Requires:         R-CRAN-data.table >= 1.12.0
 Requires:         R-CRAN-lhs >= 1.0.2
 Requires:         R-CRAN-scales >= 1.0.0
-Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-CRAN-matrixStats >= 0.54.0
 Requires:         R-CRAN-rlang >= 0.3.1
 Requires:         R-stats 
@@ -50,7 +50,7 @@ Requires:         R-utils
 Requires:         R-CRAN-Rcpp 
 
 %description
-It allows to rapidly compute, bootstrap and plot up to third-order
+It allows to rapidly compute, bootstrap and plot up to fourth-order
 Sobol'-based sensitivity indices using several state-of-the-art first and
 total-order estimators. Sobol' indices can be computed either for models
 that yield a scalar as a model output or for systems of differential

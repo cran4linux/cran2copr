@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sirt
-%global packver   3.10-118
+%global packver   3.11-21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.10.118
+Version:          3.11.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Supplementary Item Response Theory Models
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-CDM 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
