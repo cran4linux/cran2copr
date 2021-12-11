@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  onemap
-%global packver   2.8.0
+%global packver   2.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.0
+Version:          2.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Construction of Genetic Maps in Experimental Crosses
 
@@ -35,6 +35,7 @@ BuildRequires:    R-CRAN-ggpubr
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-dendextend 
 BuildRequires:    R-CRAN-rebus 
+BuildRequires:    R-CRAN-stringi 
 Requires:         R-CRAN-plotly >= 4.7.1
 Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-CRAN-vcfR >= 1.6.0
@@ -55,6 +56,7 @@ Requires:         R-CRAN-ggpubr
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-dendextend 
 Requires:         R-CRAN-rebus 
+Requires:         R-CRAN-stringi 
 
 %description
 Analysis of molecular marker data from model (backcrosses, F2 and

@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  backbone
-%global packver   1.5.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extracts the Backbone from Weighted Graphs
+Summary:          Extracts the Backbone from Graphs
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,35 +15,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-network 
 BuildRequires:    R-CRAN-PoissonBinomial 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-network 
 Requires:         R-CRAN-PoissonBinomial 
+Requires:         R-stats 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-utils 
 
 %description
-Provides methods for extracting from a weighted graph a binary or signed
-backbone that retains only the significant edges. The user may input a
-weighted graph, or a bipartite graph from which a weighted graph is first
-constructed via projection. Backbone extraction methods include the
-stochastic degree sequence model (SDSM; Neal, Z. P. (2014).
-<doi:10.1016/j.socnet.2014.06.001>), the fixed degree sequence model
-(FDSM; Zweig, K. A., and Kaufmann, M. (2011).
-<doi:10.1007/s13278-011-0021-0>), the fixed row model (FRM; Neal, Z. P.
-(2013). <doi:10.1007/s13278-013-0107-y>), the fixed column model (FCM;
-Neal, Domagalski, and Sagan (2021). <arXiv:2105.13396>), the fixed fill
-model (FFM; Neal, Domagalski, and Sagan (2021). <arXiv:2105.13396>), and a
-universal threshold method.
+An implementation of methods for extracting an unweighted unipartite graph
+(i.e. a backbone) from an unweighted unipartite graph (Hamann et al., 2016
+<doi:10.1007/s13278-016-0332-2>), a weighted unipartite graph (Serrano et
+al., 2009 <doi:10.1073/pnas.0808904106>), the projection of an unweighted
+bipartite graph (Neal et al., <doi:10.1038/s41598-021-03238-3>, or the
+projection of a weighted bipartite graph (Neal, 2017
+<doi:10.1177/0308518X16631339>). It also provides utility functions to
+generate random binary matrices with (a) given density, (b) given row and
+column marginals, and (c) given row and column marginal distributions.
 
 %prep
 %setup -q -c -n %{packname}

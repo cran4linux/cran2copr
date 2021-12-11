@@ -1,34 +1,53 @@
 %global __brp_check_rpaths %{nil}
-%global packname  raster
-%global packver   3.5-9
+%global packname  icardaFIGSr
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.9
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geographic Data Analysis and Modeling
+Summary:          Subsetting using Focused Identification of the Germplasm Strategy (FIGS)
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-sp >= 1.4.5
-BuildRequires:    R-CRAN-terra >= 1.4.11
-BuildRequires:    R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-sp >= 1.4.5
-Requires:         R-CRAN-terra >= 1.4.11
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-plotROC 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-leaflet 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
+Requires:         R-CRAN-plotROC 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-leaflet 
 
 %description
-Reading, writing, manipulating, analyzing and modeling of spatial data.
-The package implements basic and high-level functions for raster data and
-for vector data operations such as intersections. See the manual and
-tutorials on <https://rspatial.org/> to get started.
+Running Focused Identification of the Germplasm Strategy (FIGS) to make
+best subsets from Genebank Collection.
 
 %prep
 %setup -q -c -n %{packname}

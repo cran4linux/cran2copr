@@ -1,33 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  LBC
-%global packver   1.0
+%global packname  trampoline
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Logistic Box Cox
+Summary:          Make Functions that Can Recurse Infinitely
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-rlang >= 0.1.2
+BuildRequires:    R-CRAN-coro 
+BuildRequires:    R-CRAN-fastmap 
+Requires:         R-CRAN-rlang >= 0.1.2
+Requires:         R-CRAN-coro 
+Requires:         R-CRAN-fastmap 
 
 %description
-The logistic Box-Cox model is a formal method, which can accommodate the
-non-linear relationship between the log-odds and exposure via a shape
-parameter. Thus, it is superior to the common two-step approach, which
-adds a data transformation step before fitting a logistic regression model
-to accommodate any non-linearity in the disease-exposure relationship.
-This package includes key functions in our model and dataset for
-simulation. Simulation experiments can be reproduced following the
-Vignette.
+Implements a trampoline algorithm for R that let's users write recursive
+functions that get around R's stack call limitations, enabling
+theoretically infinite recursion. The algorithm is based around generator
+function as implemented in the 'coro' package, and is based almost
+completely on the 'trampoline' module from Python
+<https://gitlab.com/ferreum/trampoline>.
 
 %prep
 %setup -q -c -n %{packname}

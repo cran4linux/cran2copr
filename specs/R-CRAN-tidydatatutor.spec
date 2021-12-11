@@ -1,34 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  raster
-%global packver   3.5-9
+%global packname  tidydatatutor
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geographic Data Analysis and Modeling
+Summary:          Send Your R Code to 'Tidy Data Tutor'
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-sp >= 1.4.5
-BuildRequires:    R-CRAN-terra >= 1.4.11
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-sp >= 1.4.5
-Requires:         R-CRAN-terra >= 1.4.11
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-clipr 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rstudioapi 
+Requires:         R-CRAN-clipr 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rstudioapi 
 
 %description
-Reading, writing, manipulating, analyzing and modeling of spatial data.
-The package implements basic and high-level functions for raster data and
-for vector data operations such as intersections. See the manual and
-tutorials on <https://rspatial.org/> to get started.
+Visualize your 'Tidyverse' data analysis pipelines via the 'Tidy Data
+Tutor'(<https://tidydatatutor.com/>) web application.
 
 %prep
 %setup -q -c -n %{packname}

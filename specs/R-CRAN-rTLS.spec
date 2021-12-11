@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rTLS
-%global packver   0.2.5.1
+%global packver   0.2.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5.1
+Version:          0.2.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Process Point Clouds Derived from Terrestrial Laser Scanning
 

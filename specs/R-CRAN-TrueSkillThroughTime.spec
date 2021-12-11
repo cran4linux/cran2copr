@@ -1,34 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  raster
-%global packver   3.5-9
+%global packname  TrueSkillThroughTime
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geographic Data Analysis and Modeling
+Summary:          Skill Estimation Based on a Single Bayesian Network
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-sp >= 1.4.5
-BuildRequires:    R-CRAN-terra >= 1.4.11
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-hash 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-sp >= 1.4.5
-Requires:         R-CRAN-terra >= 1.4.11
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-hash 
 Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Reading, writing, manipulating, analyzing and modeling of spatial data.
-The package implements basic and high-level functions for raster data and
-for vector data operations such as intersections. See the manual and
-tutorials on <https://rspatial.org/> to get started.
+Most estimators implemented by the video game industry cannot obtain
+reliable initial estimates nor guarantee comparability between distant
+estimates. TrueSkill Through Time solves all these problems by modeling
+the entire history of activities using a single Bayesian network allowing
+the information to propagate correctly throughout the system. This
+algorithm requires only a few iterations to converge, allowing millions of
+observations to be analyzed using any low-end computer. The core ideas
+implemented in this project were developed by Dangauthier P, Herbrich R,
+Minka T, Graepel T (2007). "Trueskill through time: Revisiting the history
+of chess." <https://dl.acm.org/doi/10.5555/2981562.2981605>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pliman
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Plant Image Analysis
 
@@ -23,8 +23,8 @@ Requires:         R-CRAN-lattice
 Provides tools for image manipulation that will help you to quantify plant
 leaf area, disease severity, number of disease lesions, and obtain
 statistics of image objects such as grains, pods, pollen, leaves, and
-more. Tools for segment images and create binary images using the method
-of automatic threshold selection method proposed by Otsu (1979)
+more. Tools to segment images and create binary images using the method of
+automatic threshold selection proposed by Otsu (1979)
 <doi:10.1109/tsmc.1979.4310076> are also provided.
 
 %prep

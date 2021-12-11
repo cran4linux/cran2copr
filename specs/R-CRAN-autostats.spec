@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  autostats
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Auto Stats
 
@@ -28,11 +28,11 @@ BuildRequires:    R-CRAN-rlist
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-broom.mixed 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-ggeasy 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-jtools 
+BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-ggthemes 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-tidyr 
@@ -42,8 +42,10 @@ BuildRequires:    R-CRAN-nnet
 BuildRequires:    R-CRAN-parsnip 
 BuildRequires:    R-CRAN-recipes 
 BuildRequires:    R-CRAN-rsample 
+BuildRequires:    R-CRAN-hardhat 
 BuildRequires:    R-CRAN-tune 
 BuildRequires:    R-CRAN-workflows 
+BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggstance 
 BuildRequires:    R-CRAN-Ckmeans.1d.dp 
 BuildRequires:    R-CRAN-glmnet 
@@ -55,6 +57,7 @@ BuildRequires:    R-CRAN-dials
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-party 
+BuildRequires:    R-CRAN-agtboost 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyselect 
@@ -67,11 +70,11 @@ Requires:         R-CRAN-rlist
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-broom.mixed 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-ggeasy 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-jtools 
+Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-ggthemes 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-tidyr 
@@ -81,8 +84,10 @@ Requires:         R-CRAN-nnet
 Requires:         R-CRAN-parsnip 
 Requires:         R-CRAN-recipes 
 Requires:         R-CRAN-rsample 
+Requires:         R-CRAN-hardhat 
 Requires:         R-CRAN-tune 
 Requires:         R-CRAN-workflows 
+Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggstance 
 Requires:         R-CRAN-Ckmeans.1d.dp 
 Requires:         R-CRAN-glmnet 
@@ -94,6 +99,7 @@ Requires:         R-CRAN-dials
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-party 
+Requires:         R-CRAN-agtboost 
 
 %description
 Automatically do statistical exploration. Create formulas using

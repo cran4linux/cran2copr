@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mispitools
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Missing Person Identification Tools
 
@@ -21,15 +21,17 @@ BuildRequires:    R-CRAN-pedtools
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-highcharter 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-forrel 
 Requires:         R-CRAN-pedtools 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-highcharter 
+Requires:         R-CRAN-tidyr 
 
 %description
 Open-source software for computing Likelihood ratios thresholds and error
-rates in DNA kinship testingi. Marsico FL. et al (2021)
+rates in DNA kinship testing. Marsico FL. et al (2021)
 <doi:10.1016/j.fsigen.2021.102519>.
 
 %prep

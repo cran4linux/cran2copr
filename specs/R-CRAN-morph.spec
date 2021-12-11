@@ -1,34 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  raster
-%global packver   3.5-9
+%global packname  morph
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geographic Data Analysis and Modeling
+Summary:          3D Segmentation of Voxels into Morphologic Classes
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-sp >= 1.4.5
-BuildRequires:    R-CRAN-terra >= 1.4.11
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-sp >= 1.4.5
-Requires:         R-CRAN-terra >= 1.4.11
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-stringr 
 
 %description
-Reading, writing, manipulating, analyzing and modeling of spatial data.
-The package implements basic and high-level functions for raster data and
-for vector data operations such as intersections. See the manual and
-tutorials on <https://rspatial.org/> to get started.
+Automatically segments a 3D array of voxels into mutually exclusive
+morphological elements. This package extends existing work for segmenting
+2D binary raster data. A paper documenting this approach has been accepted
+for publication in the journal Landscape Ecology. Detailed references will
+be updated here once those are known.
 
 %prep
 %setup -q -c -n %{packname}

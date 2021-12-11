@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spatstat.geom
-%global packver   2.3-0
+%global packver   2.3-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geometrical Functionality of the 'spatstat' Family
 
@@ -35,11 +35,20 @@ Requires:         R-utils
 Requires:         R-methods 
 
 %description
-Defines types of spatial data such as point patterns, mainly in two
-dimensions, but also in higher dimensions. Provides class support, and
-functions for geometrical operations on spatial data, used in the
-'spatstat' family of packages. Excludes spatial data on a linear network,
-which are covered by the separate package 'spatstat.linnet'.
+Defines spatial data types and supports geometrical operations on them.
+Data types include point patterns, windows (domains), pixel images, line
+segment patterns, tessellations and hyperframes. Capabilities include
+creation and manipulation of data (using command line or graphical
+interaction), plotting, geometrical operations (rotation, shift, rescale,
+affine transformation), convex hull, discretisation and pixellation,
+Dirichlet tessellation, Delaunay triangulation, pairwise distances,
+nearest-neighbour distances, distance transform, morphological operations
+(erosion, dilation, closing, opening), quadrat counting, geometrical
+measurement, geometrical covariance, colour maps, calculus on spatial
+domains, Gaussian blur, level sets of images, transects of images,
+intersections between objects, minimum distance matching. (Excludes
+spatial data on a network, which are supported by the package
+'spatstat.linnet'.)
 
 %prep
 %setup -q -c -n %{packname}

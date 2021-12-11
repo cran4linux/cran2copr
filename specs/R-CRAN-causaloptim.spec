@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  causaloptim
-%global packver   0.8.2
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Interface to Specify Causal Graphs and Compute Bounds on Causal Effects
 
@@ -43,7 +43,7 @@ defined DAG, query, and constraints, and returns tight bounds. The bounds
 can be converted to R functions to evaluate them for specific datasets,
 and to latex code for publication. The methods and proofs of tightness and
 validity of the bounds are described in a preprint by Sachs, Gabriel, and
-Sjölander (2020)
+Sjölander (2021)
 <https://sachsmc.github.io/causaloptim/articles/CausalBoundsMethods.pdf>.
 
 %prep
@@ -54,6 +54,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

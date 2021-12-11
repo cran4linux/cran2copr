@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DataEditR
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Interactive Editor for Viewing, Entering, Filtering & Editing Data
 
@@ -17,19 +17,19 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.5.0
+BuildRequires:    R-CRAN-rhandsontable >= 0.3.8
 BuildRequires:    R-CRAN-shinyBS 
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-shinythemes 
-BuildRequires:    R-CRAN-rhandsontable 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-miniUI 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-shiny >= 1.5.0
+Requires:         R-CRAN-rhandsontable >= 0.3.8
 Requires:         R-CRAN-shinyBS 
 Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-shinythemes 
-Requires:         R-CRAN-rhandsontable 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-miniUI 
