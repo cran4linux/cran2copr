@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BOJ
-%global packver   0.2.4
+%global packname  ExpImage
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to Bank of Japan Statistics
+Summary:          Tool For Analysis of Images in Experiments
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,21 +16,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-foreach 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-raster 
+Requires:         R-parallel 
+Requires:         R-CRAN-foreach 
 
 %description
-Provides an interface to Bank of Japan <https://www.boj.or.jp> statistics.
+Tools created for image analysis in researches. There are functions
+associated with image editing, segmentation, and obtaining biometric
+measurements (Este pacote foi idealizado para para a analise de imagens em
+pesquisas. Ha funcoes associadas a edicao de imagens, segmentacao, e
+obtencao de medidas biometricas).
 
 %prep
 %setup -q -c -n %{packname}

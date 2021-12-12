@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Compositional
-%global packver   5.2
+%global packver   5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.2
+Version:          5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-codalm
 BuildRequires:    R-CRAN-Directional 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-emplik 
+BuildRequires:    R-CRAN-energy 
 BuildRequires:    R-CRAN-FlexDir 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-glmnet 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-codalm
 Requires:         R-CRAN-Directional 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-emplik 
+Requires:         R-CRAN-energy 
 Requires:         R-CRAN-FlexDir 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-glmnet 
@@ -81,7 +83,7 @@ alpha-transformation. Journal of Classification, 33(2):243--261.
 simplex. Journal of Statistical Computation and Simulation, 87(2):
 406--422. <doi:10.1080/00949655.2016.1216554>. g) Tsagris M. and Stewart
 C. (2018). A Dirichlet regression model for compositional data with zeros.
-Lobachevskii Journal of Mathematics,39(3): 398--412.
+Lobachevskii Journal of Mathematics, 39(3): 398--412.
 <doi:10.1134/S1995080218030198>. h) Alenazi A. (2019). Regression for
 compositional data with compositional data as predictor variables with or
 without zero values. Journal of Data Science, 17(1): 219--238.

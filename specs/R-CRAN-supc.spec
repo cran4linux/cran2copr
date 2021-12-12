@@ -1,36 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BOJ
-%global packver   0.2.4
+%global packname  supc
+%global packver   0.2.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.6.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to Bank of Japan Statistics
+Summary:          The Self-Updating Process Clustering Algorithms
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-BH >= 1.62
+BuildRequires:    R-CRAN-Rcpp >= 0.12
+BuildRequires:    R-stats 
+Requires:         R-stats 
+Requires:         R-CRAN-Rcpp >= 0.12
 
 %description
-Provides an interface to Bank of Japan <https://www.boj.or.jp> statistics.
+Implements the self-updating process clustering algorithms proposed in
+Shiu and Chen (2016) <doi:10.1080/00949655.2015.1049605>.
 
 %prep
 %setup -q -c -n %{packname}

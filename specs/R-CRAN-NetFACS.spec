@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  NetFACS
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Network Applications to Facial Communication Data
 
@@ -16,24 +16,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-arrangements 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-picante 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-arrangements 
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidygraph 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-arrangements 
 Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggraph 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-patchwork 
+Requires:         R-parallel 
 Requires:         R-CRAN-picante 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-arrangements 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidygraph 
+Requires:         R-CRAN-tidyr 
 
 %description
 Functions to analyze and visualize communication data, based on network

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  qgcompint
-%global packver   0.6.2
+%global packver   0.6.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.6.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantile G-Computation Extensions for Effect Measure Modification
 
