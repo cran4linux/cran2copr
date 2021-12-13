@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bruceR
-%global packver   0.8.0
+%global packver   0.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Broadly Useful Convenient and Efficient R Functions
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
@@ -25,6 +25,12 @@ BuildRequires:    R-CRAN-psych
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-effectsize 
 BuildRequires:    R-CRAN-performance 
+BuildRequires:    R-CRAN-lmerTest 
+BuildRequires:    R-CRAN-mediation 
+BuildRequires:    R-CRAN-interactions 
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-CRAN-cowplot 
@@ -38,6 +44,12 @@ Requires:         R-CRAN-psych
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-effectsize 
 Requires:         R-CRAN-performance 
+Requires:         R-CRAN-lmerTest 
+Requires:         R-CRAN-mediation 
+Requires:         R-CRAN-interactions 
+Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggtext 
 Requires:         R-CRAN-cowplot 

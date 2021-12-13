@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RcppCWB
-%global packver   0.4.3
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Rcpp' Bindings for the 'Corpus Workbench' ('CWB')
 
@@ -20,13 +20,13 @@ BuildRequires:    glib2-devel
 BuildRequires:    ncurses-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.6
-Requires:         R-CRAN-Rcpp >= 0.12.6
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-Rcpp >= 1.0.7
 
 %description
 'Rcpp' Bindings for the C code of the 'Corpus Workbench' ('CWB'), an
 indexing and query engine to efficiently analyze large corpora
-(<http://cwb.sourceforge.net>). 'RcppCWB' is licensed under the GNU GPL-3,
+(<https://cwb.sourceforge.io>). 'RcppCWB' is licensed under the GNU GPL-3,
 in line with the GPL-3 license of the 'CWB'
 (<https://www.r-project.org/Licenses/GPL-3>). The 'CWB' relies on 'pcre'
 (BSD license, see <http://www.pcre.org/licence.txt>) and 'GLib' (LGPL

@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RMariaDB
-%global packver   1.1.2
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Database Interface and 'MariaDB' Driver
+Summary:          Database Interface and MariaDB Driver
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,19 +20,23 @@ BuildRequires:    R-CRAN-DBI >= 1.1.0
 BuildRequires:    R-CRAN-hms >= 0.5.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.4
 BuildRequires:    R-CRAN-bit64 
+BuildRequires:    R-CRAN-blob 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-plogr 
 Requires:         R-CRAN-DBI >= 1.1.0
 Requires:         R-CRAN-hms >= 0.5.0
 Requires:         R-CRAN-Rcpp >= 0.12.4
 Requires:         R-CRAN-bit64 
+Requires:         R-CRAN-blob 
 Requires:         R-CRAN-lubridate 
 Requires:         R-methods 
+Requires:         R-CRAN-rlang 
 
 %description
-Implements a 'DBI'-compliant interface to 'MariaDB'
-(<https://mariadb.org/>) and 'MySQL' (<https://www.mysql.com/>) databases.
+Implements a DBI-compliant interface to MariaDB (<https://mariadb.org/>)
+and MySQL (<https://www.mysql.com/>) databases.
 
 %prep
 %setup -q -c -n %{packname}
