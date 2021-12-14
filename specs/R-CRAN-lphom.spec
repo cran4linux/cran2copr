@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  lphom
-%global packver   0.3.0-7
+%global packver   0.3.0-11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0.7
+Version:          0.3.0.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ecological Inference by Linear Programming under Homogeneity
 
@@ -16,20 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lpSolve 
-BuildRequires:    R-CRAN-Rsymphony 
+BuildRequires:    R-CRAN-Rsymphony >= 0.1.30
 BuildRequires:    R-stats 
-Requires:         R-CRAN-lpSolve 
-Requires:         R-CRAN-Rsymphony 
+BuildRequires:    R-CRAN-lpSolve 
+Requires:         R-CRAN-Rsymphony >= 0.1.30
 Requires:         R-stats 
+Requires:         R-CRAN-lpSolve 
 
 %description
-Provides a bunch of algorithms based on linear programming for estimating
-RxC ecological contingency tables (or vote transition matrices) using
-exclusively aggregate results from voting units under the homogeneity
-hypothesis. References: Romero, Pavia, Martin and Romero (2020)
-<doi:10.1080/02664763.2020.1804842>. Pavia and Romero (2021a)
-<doi:10.31124/advance.14716638.v1>. Pavia and Romero (2021b) Symmetry
+Provides a bunch of algorithms based on linear programming for estimating,
+under the homogeneity hypothesis, RxC ecological contingency tables (or
+vote transition matrices) using exclusively aggregate data (from voting
+units). References: Romero, Pavía, Martín and Romero (2020)
+<doi:10.1080/02664763.2020.1804842>. Pavía and Romero (2021a)
+<doi:10.31124/advance.14716638.v1>. Pavía and Romero (2021b) Symmetry
 estimating R×C vote transfer matrices from aggregate data.
 
 %prep

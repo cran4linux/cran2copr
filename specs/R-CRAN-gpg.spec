@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gpg
-%global packver   1.2.5
+%global packver   1.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          1.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          GNU Privacy Guard for R
 
@@ -25,10 +25,10 @@ Requires:         R-CRAN-askpass
 %description
 Bindings to GnuPG for working with OpenGPG (RFC4880) cryptographic
 methods. Includes utilities for public key encryption, creating and
-verifying digital signatures, and managing your local keyring. Note that
-some functionality depends on the version of GnuPG that is installed on
-the system. On Windows this package can be used together with 'GPG4Win'
-which provides a GUI for managing keys and entering passphrases.
+verifying digital signatures, and managing your local keyring. Some
+functionality depends on the version of GnuPG that is installed on the
+system. On Windows this package can be used together with 'GPG4Win' which
+provides a GUI for managing keys and entering passphrases.
 
 %prep
 %setup -q -c -n %{packname}

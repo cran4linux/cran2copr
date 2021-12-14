@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  CALANGO
-%global packver   1.0.5
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comparative Analysis with Annotation-Based Genomic Components
 
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-pkgdown >= 1.5.1
 BuildRequires:    R-CRAN-pbmcapply >= 1.5.0
 BuildRequires:    R-CRAN-BiocManager >= 1.30.10
 BuildRequires:    R-CRAN-knitr >= 1.28
-BuildRequires:    R-CRAN-dendextend >= 1.13.4
+BuildRequires:    R-CRAN-dendextend >= 1.15.2
 BuildRequires:    R-CRAN-heatmaply >= 1.1.0
 BuildRequires:    R-CRAN-taxize >= 0.9.92
 BuildRequires:    R-CRAN-htmltools >= 0.5.0
@@ -42,7 +42,7 @@ Requires:         R-CRAN-pkgdown >= 1.5.1
 Requires:         R-CRAN-pbmcapply >= 1.5.0
 Requires:         R-CRAN-BiocManager >= 1.30.10
 Requires:         R-CRAN-knitr >= 1.28
-Requires:         R-CRAN-dendextend >= 1.13.4
+Requires:         R-CRAN-dendextend >= 1.15.2
 Requires:         R-CRAN-heatmaply >= 1.1.0
 Requires:         R-CRAN-taxize >= 0.9.92
 Requires:         R-CRAN-htmltools >= 0.5.0

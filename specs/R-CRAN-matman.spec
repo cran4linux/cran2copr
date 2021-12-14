@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  matman
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Material Management
 
@@ -24,13 +24,14 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-ISOweek 
+BuildRequires:    R-CRAN-parsedate 
+BuildRequires:    R-CRAN-lubridate 
 Requires:         R-CRAN-shiny 
 Requires:         R-methods 
 Requires:         R-graphics 
@@ -39,13 +40,14 @@ Requires:         R-utils
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-ISOweek 
+Requires:         R-CRAN-parsedate 
+Requires:         R-CRAN-lubridate 
 
 %description
 A set of functions, classes and methods for performing ABC and ABC/XYZ
@@ -61,6 +63,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
