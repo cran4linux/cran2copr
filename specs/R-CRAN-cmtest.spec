@@ -1,30 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RMySQL
-%global packver   0.10.23
+%global packname  cmtest
+%global packver   0.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.23
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Database Interface and 'MySQL' Driver for R
+Summary:          Conditional Moments Test
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    mariadb-devel
-BuildRequires:    R-devel >= 2.8.0
-Requires:         R-core >= 2.8.0
-BuildRequires:    R-CRAN-DBI >= 0.4
-BuildRequires:    R-methods 
-Requires:         R-CRAN-DBI >= 0.4
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Legacy 'DBI' interface to 'MySQL' / 'MariaDB' based on old code ported
-from S-PLUS. A modern 'MySQL' client based on 'Rcpp' is available from the
-'RMariaDB' package.
+Conditional moments test, as proposed by Newey (1985) <doi:10.2307/1911011
+> and Tauchen (1985) <doi:10.1016/0304-4076(85)90149-6>, useful to detect
+specification violations for models estimated by maximum likelihood.
+Methods for probit and tobit models are provided.
 
 %prep
 %setup -q -c -n %{packname}

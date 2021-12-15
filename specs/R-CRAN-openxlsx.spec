@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  openxlsx
-%global packver   4.2.4
+%global packver   4.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.4
+Version:          4.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read, Write and Edit xlsx Files
 
@@ -19,16 +19,16 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-zip 
-BuildRequires:    R-CRAN-stringi 
 Requires:         R-grDevices 
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
+Requires:         R-CRAN-stringi 
 Requires:         R-utils 
 Requires:         R-CRAN-zip 
-Requires:         R-CRAN-stringi 
 
 %description
 Simplifies the creation of Excel .xlsx files by providing a high level
@@ -44,6 +44,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

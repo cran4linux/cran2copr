@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  taylor
-%global packver   0.2.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lyrics and Song Data for Taylor Swift's Discography
 
@@ -19,6 +19,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
@@ -27,6 +28,7 @@ BuildRequires:    R-CRAN-vctrs
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 

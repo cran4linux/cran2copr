@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spdep
-%global packver   1.1-12
+%global packver   1.1-13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.12
+Version:          1.1.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Dependence: Weighting Schemes, Statistics
 
@@ -69,7 +69,7 @@ product statistic, Empirical Bayes estimates and 'Assunção/Reis' (1999)
 Index, 'Getis/Ord' G ('Getis' and 'Ord' 1992)
 <doi:10.1111/j.1538-4632.1992.tb00261.x> and multicoloured join count
 statistics, 'APLE' ('Li 'et al.' ) <doi:10.1111/j.1538-4632.2007.00708.x>,
-local 'Moran's I' ('Anselin' 1995)
+local 'Moran's I', 'Gearys C' ('Anselin' 1995)
 <doi:10.1111/j.1538-4632.1995.tb00338.x> and 'Getis/Ord' G ('Ord' and
 'Getis' 1995) <doi:10.1111/j.1538-4632.1995.tb00912.x>, 'saddlepoint'
 approximations ('Tiefelsdorf' 2002)

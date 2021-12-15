@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MSCsimtester
-%global packver   0.0.9
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tests of Multispecies Coalescent Gene Tree Simulator Output
 

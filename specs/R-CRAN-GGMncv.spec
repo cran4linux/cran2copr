@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  GGMncv
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gaussian Graphical Models with Nonconvex Regularization
 
@@ -18,24 +18,34 @@ Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-MASS >= 7.3.51.5
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-numDeriv >= 2016.8.1.1
+BuildRequires:    R-CRAN-sna >= 2.5
+BuildRequires:    R-CRAN-GGally >= 1.4.0
+BuildRequires:    R-CRAN-network >= 1.15
 BuildRequires:    R-CRAN-Rcpp >= 1.0.4.6
 BuildRequires:    R-CRAN-mathjaxr >= 1.0.1
 BuildRequires:    R-CRAN-glassoFast >= 1.0
-BuildRequires:    R-CRAN-Rdpack >= 0.11
+BuildRequires:    R-CRAN-Rdpack >= 0.11.1
 BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-MASS >= 7.3.51.5
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-numDeriv >= 2016.8.1.1
+Requires:         R-CRAN-sna >= 2.5
+Requires:         R-CRAN-GGally >= 1.4.0
+Requires:         R-CRAN-network >= 1.15
 Requires:         R-CRAN-Rcpp >= 1.0.4.6
 Requires:         R-CRAN-mathjaxr >= 1.0.1
 Requires:         R-CRAN-glassoFast >= 1.0
-Requires:         R-CRAN-Rdpack >= 0.11
+Requires:         R-CRAN-Rdpack >= 0.11.1
 Requires:         R-CRAN-reshape 
 Requires:         R-methods 
+Requires:         R-parallel 
+Requires:         R-CRAN-pbapply 
 Requires:         R-stats 
 Requires:         R-utils 
 
@@ -61,6 +71,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

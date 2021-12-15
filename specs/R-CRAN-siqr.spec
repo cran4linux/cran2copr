@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  siqr
-%global packver   0.8.0
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          An R Package for Single-Index Quantile Regression
 
@@ -16,11 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-CRAN-KernSmooth 
-Requires:         R-CRAN-MASS 
 Requires:         R-stats 
 Requires:         R-CRAN-quantreg 
 Requires:         R-CRAN-KernSmooth 

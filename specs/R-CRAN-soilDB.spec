@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  soilDB
-%global packver   2.6.9
+%global packver   2.6.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.9
+Version:          2.6.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Soil Database Interface
 

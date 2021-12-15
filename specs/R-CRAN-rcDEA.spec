@@ -1,30 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RMySQL
-%global packver   0.10.23
+%global packname  rcDEA
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.23
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Database Interface and 'MySQL' Driver for R
+Summary:          Robust and Conditional Data Envelopment Analysis (DEA)
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    mariadb-devel
-BuildRequires:    R-devel >= 2.8.0
-Requires:         R-core >= 2.8.0
-BuildRequires:    R-CRAN-DBI >= 0.4
-BuildRequires:    R-methods 
-Requires:         R-CRAN-DBI >= 0.4
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-np 
+BuildRequires:    R-CRAN-Benchmarking 
+Requires:         R-CRAN-np 
+Requires:         R-CRAN-Benchmarking 
 
 %description
-Legacy 'DBI' interface to 'MySQL' / 'MariaDB' based on old code ported
-from S-PLUS. A modern 'MySQL' client based on 'Rcpp' is available from the
-'RMariaDB' package.
+With this package we provide an easy method to compute robust and
+conditional Data Envelopment Analysis (DEA), Free Disposal Hull (FDH) and
+Benefit of the Doubt (BOD) scores. The robust approach is based on the
+work of Cazals, Florens and Simar (2002)
+<doi:10.1016/S0304-4076(01)00080-X>. The conditional approach is based on
+Daraio and Simar (2007) <doi:10.1007/s11123-007-0049-3>. Besides we
+provide graphs to help with the choice of m. We relay on the
+'Benchmarking' package to compute the efficiency scores and on the 'np'
+package to compute non parametric estimation of similarity among units.
 
 %prep
 %setup -q -c -n %{packname}

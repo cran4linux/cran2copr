@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  survsim
-%global packver   1.1.7
+%global packver   1.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.7
+Version:          1.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation of Simple and Complex Survival Data
 
@@ -24,7 +24,8 @@ Requires:         R-CRAN-statmod
 %description
 Simulation of simple and complex survival data including recurrent and
 multiple events and competing risks. See Moriña D, Navarro A. (2014)
-<doi:10.18637/jss.v059.i02>.
+<doi:10.18637/jss.v059.i02> and Moriña D, Navarro A. (2017)
+<doi:10.1080/03610918.2016.1175621>.
 
 %prep
 %setup -q -c -n %{packname}

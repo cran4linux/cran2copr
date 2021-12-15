@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rfishbase
-%global packver   3.1.10
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.10
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'FishBase'
 
@@ -17,41 +17,41 @@ BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-readr >= 2.0.0
-BuildRequires:    R-CRAN-arkdb >= 0.0.12
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-contentid >= 0.0.15
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-gh 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-dbplyr 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-duckdb 
+BuildRequires:    R-CRAN-rstudioapi 
 Requires:         R-CRAN-readr >= 2.0.0
-Requires:         R-CRAN-arkdb >= 0.0.12
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-contentid >= 0.0.15
 Requires:         R-methods 
 Requires:         R-utils 
+Requires:         R-tools 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-progress 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-gh 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-DBI 
-Requires:         R-tools 
-Requires:         R-CRAN-curl 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-dbplyr 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-duckdb 
+Requires:         R-CRAN-rstudioapi 
 
 %description
 A programmatic interface to 'FishBase', re-written based on an

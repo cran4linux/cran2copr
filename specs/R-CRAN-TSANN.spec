@@ -1,30 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RMySQL
-%global packver   0.10.23
+%global packname  TSANN
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.23
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Database Interface and 'MySQL' Driver for R
+Summary:          Time Series Artificial Neural Network
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    mariadb-devel
-BuildRequires:    R-devel >= 2.8.0
-Requires:         R-core >= 2.8.0
-BuildRequires:    R-CRAN-DBI >= 0.4
-BuildRequires:    R-methods 
-Requires:         R-CRAN-DBI >= 0.4
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-gtools 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Legacy 'DBI' interface to 'MySQL' / 'MariaDB' based on old code ported
-from S-PLUS. A modern 'MySQL' client based on 'Rcpp' is available from the
-'RMariaDB' package.
+The best ANN structure for time series data analysis is a demanding need
+in the present era. This package will find the best-fitted ANN model based
+on forecasting accuracy. The optimum size of the hidden layers was also
+determined after determining the number of lags to be included. This
+package has been developed using the algorithm of Paul and Garai (2021)
+<doi:10.1007/s00500-021-06087-4>.
 
 %prep
 %setup -q -c -n %{packname}
