@@ -1,30 +1,25 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cairoDevice
-%global packver   2.28.2.1
+%global packname  ox
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.28.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Embeddable Cairo Graphics Device Driver
+Summary:          Shorthand if-Else
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cairo-devel >= 1.0
-BuildRequires:    gtk2-devel
-BuildRequires:    R-devel >= 2.12.0
-Requires:         R-core >= 2.12.0
-BuildRequires:    R-grDevices 
-Requires:         R-grDevices 
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
+BuildArch:        noarch
 
 %description
-This device uses Cairo and GTK to draw to the screen, file (png, svg, pdf,
-and ps) or memory (arbitrary GdkDrawable or Cairo context). The screen
-device may be embedded into RGtk2 interfaces and supports all interactive
-features of other graphics devices, including getGraphicsEvent().
+Short hand if-else function to easily switch the values depending on a
+logical condition.
 
 %prep
 %setup -q -c -n %{packname}

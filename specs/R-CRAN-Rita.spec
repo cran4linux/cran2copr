@@ -1,28 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dietr
-%global packver   1.1.3
+%global packname  Rita
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diet Estimated Trophic Levels
+Summary:          Automated Transformations, Normality Testing, and Reporting
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rfishbase >= 3.1.10
-Requires:         R-CRAN-rfishbase >= 3.1.10
+BuildRequires:    R-base 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-lattice 
+Requires:         R-base 
+Requires:         R-stats 
+Requires:         R-CRAN-lattice 
 
 %description
-Estimates fractional trophic level from quantitative and qualitative diet
-data and calculates electivity indices in R. Borstein (2020)
-<doi:10.1007/s10750-020-04417-5>.
+Automated performance of common transformations used to fulfill parametric
+assumptions of normality and identification of the best performing method
+for the user. Output for various normality tests (Thode, 2002)
+corresponding to the best performing method and a descriptive statistical
+report of the input data in its original units (5-number summary and
+mathematical moments) are also presented. Lastly, the Rankit, an empirical
+normal quantile transformation (ENQT) (Soloman & Sawilowsky, 2009), is
+provided to accommodate non-standard use cases and facilitate adoption.
+<DOI: 10.1201/9780203910894>. <DOI: 10.22237/jmasm/1257034080>.
 
 %prep
 %setup -q -c -n %{packname}

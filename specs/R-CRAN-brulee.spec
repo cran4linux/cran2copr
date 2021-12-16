@@ -1,28 +1,50 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dietr
-%global packver   1.1.3
+%global packname  brulee
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diet Estimated Trophic Levels
+Summary:          High-Level Modeling Functions with 'torch'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rfishbase >= 3.1.10
-Requires:         R-CRAN-rfishbase >= 3.1.10
+BuildRequires:    R-CRAN-coro >= 1.0.1
+BuildRequires:    R-CRAN-torch >= 0.6.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-hardhat 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-coro >= 1.0.1
+Requires:         R-CRAN-torch >= 0.6.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-hardhat 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
-Estimates fractional trophic level from quantitative and qualitative diet
-data and calculates electivity indices in R. Borstein (2020)
-<doi:10.1007/s10750-020-04417-5>.
+Provides high-level modeling functions to define and train models using
+the 'torch' R package. Models include linear, logistic, and multinomial
+regression as well as multilayer perceptrons.
 
 %prep
 %setup -q -c -n %{packname}

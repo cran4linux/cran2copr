@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MARSS
-%global packver   3.11.3
+%global packver   3.11.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.11.3
+Version:          3.11.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Autoregressive State-Space Modeling
 
@@ -45,11 +45,9 @@ Hessian approximation and via bootstrapping and calculation of auxiliary
 residuals for detecting outliers and shocks.  The user guide shows
 examples of using MARSS for parameter estimation for a variety of
 applications, model selection, dynamic factor analysis, outlier and shock
-detection, and addition of covariates.  Type RShowDoc("UserGuide",
-package="MARSS") at the R command line to open the MARSS user guide.
-Online workshops (lectures and computer labs) at
-<https://nwfsc-timeseries.github.io/> See the NEWS file for update
-information.
+detection, and addition of covariates.  Online workshops (lectures, eBook,
+and computer labs) at <https://atsa-es.github.io/> See the NEWS file for
+update information.
 
 %prep
 %setup -q -c -n %{packname}
@@ -59,6 +57,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

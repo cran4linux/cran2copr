@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spray
-%global packver   1.0-16
+%global packver   1.0-18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.16
+Version:          1.0.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse Arrays and Multivariate Polynomials
 

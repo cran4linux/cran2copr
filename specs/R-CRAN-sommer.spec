@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sommer
-%global packver   4.1.4
+%global packver   4.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.4
+Version:          4.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Solving Mixed Model Equations in R
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Matrix >= 1.1.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.19
 BuildRequires:    R-methods 
@@ -34,16 +34,17 @@ Requires:         R-CRAN-crayon
 
 %description
 Structural multivariate-univariate linear mixed model solver for
-estimation of multiple random effects and unknown variance-covariance
-structures (i.e. heterogeneous and unstructured variance models)
-(Covarrubias-Pazaran, 2016 <doi:10.1371/journal.pone.0156744>; Maier et
-al., 2015 <doi:10.1016/j.ajhg.2014.12.006>). REML estimates can be
-obtained using the Direct-Inversion Newton-Raphson and Direct-Inversion
+estimation of multiple random effects with unknown variance-covariance
+structures (e.g., heterogeneous and unstructured) and known covariance
+among levels of random effects (e.g., pedigree and genomic relationship
+matrices) (Covarrubias-Pazaran, 2016 <doi:10.1371/journal.pone.0156744>;
+Maier et al., 2015 <doi:10.1016/j.ajhg.2014.12.006>). REML estimates can
+be obtained using the Direct-Inversion Newton-Raphson and Direct-Inversion
 Average Information algorithms. Designed for genomic prediction and genome
 wide association studies (GWAS), particularly focused in the p > n problem
-(more coefficients than observations) and dense known covariance
-structures for levels of random effects. Spatial models can also be fitted
-using the two-dimensional spline functionality available in sommer.
+(more coefficients to estimate than observations). Spatial models can also
+be fitted using the two-dimensional spline functionality available in
+sommer.
 
 %prep
 %setup -q -c -n %{packname}

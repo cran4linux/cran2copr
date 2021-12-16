@@ -1,54 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rbedrock
+%global packname  popPyramid
 %global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis and Manipulation of Data from Minecraft Bedrock Edition
+Summary:          Population Pyramids
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readr 
-Requires:         R-utils 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-fs 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Implements an interface to Minecraft (Bedrock Edition) worlds. Supports
-the analysis and management of these worlds and game saves.
+Functions that facilitate the elaboration of population pyramids.
 
 %prep
 %setup -q -c -n %{packname}

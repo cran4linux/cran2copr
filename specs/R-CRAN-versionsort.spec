@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  simfinR
-%global packver   0.2.3
+%global packname  versionsort
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Import Financial Data from the 'SimFin' Project
+Summary:          Sort and Order Version Codes
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,30 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-digest 
 
 %description
-Uses the 'SimFin' (SIMmplifying FINnance) api at
-<https://simfin.com/data/access/api> to download financial data straight
-into your R session. It includes financial statements -- balance sheet,
-cash flow and income statement -- and adjusted daily price of stocks. The
-available data is comprehensive, going back to 2005 and available for
-quarters (Q1, Q2, Q3, Q4) and years (FY).
+A lightweight package for sorting version codes in various forms. No
+strong dependencies guaranteed.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,6 +29,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

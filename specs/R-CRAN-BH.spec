@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BH
-%global packver   1.75.0-0
+%global packver   1.78.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.75.0.0
+Version:          1.78.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Boost C++ Header Files
 
@@ -24,16 +24,16 @@ at compile-time without linking.  This package aims to provide the most
 useful subset of Boost libraries for template use among CRAN packages. By
 placing these libraries in this package, we offer a more efficient
 distribution system for CRAN as replication of this code in the sources of
-other packages is avoided. As of release 1.75.0-0, the following Boost
+other packages is avoided. As of release 1.78.0-0, the following Boost
 libraries are included: 'accumulators' 'algorithm' 'align' 'any' 'atomic'
 'beast' 'bimap' 'bind' 'circular_buffer' 'compute' 'concept' 'config'
 'container' 'date_time' 'detail' 'dynamic_bitset' 'exception' 'flyweight'
 'foreach' 'functional' 'fusion' 'geometry' 'graph' 'heap' 'icl' 'integer'
-'interprocess' 'intrusive' 'io' 'iostreams' 'iterator' 'math' 'move'
-'mp11' 'mpl' 'multiprecision' 'numeric' 'pending' 'phoenix' 'polygon'
-'preprocessor' 'propery_tree' 'random' 'range' 'scope_exit' 'smart_ptr'
-'sort' 'spirit' 'tuple' 'type_traits' 'typeof' 'unordered' 'utility'
-'uuid'.
+'interprocess' 'intrusive' 'io' 'iostreams' 'iterator' 'lambda2' 'math'
+'move' 'mp11' 'mpl' 'multiprecision' 'numeric' 'pending' 'phoenix'
+'polygon' 'preprocessor' 'process' 'propery_tree' 'random' 'range'
+'scope_exit' 'smart_ptr' 'sort' 'spirit' 'tuple' 'type_traits' 'typeof'
+'unordered' 'utility' 'uuid'.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,6 +43,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

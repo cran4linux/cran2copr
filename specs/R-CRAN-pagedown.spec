@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pagedown
-%global packver   0.15
+%global packver   0.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15
+Version:          0.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Paginate the HTML Output of R Markdown with CSS for Print
 
@@ -17,20 +17,20 @@ Requires:         pandoc >= 2.0
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 1.16
+BuildRequires:    R-CRAN-rmarkdown >= 2.8
 BuildRequires:    R-CRAN-later >= 1.0.0
 BuildRequires:    R-CRAN-bookdown >= 0.8
-BuildRequires:    R-CRAN-servr >= 0.18
+BuildRequires:    R-CRAN-servr >= 0.23
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-httpuv 
 BuildRequires:    R-CRAN-xfun 
 BuildRequires:    R-CRAN-websocket 
-Requires:         R-CRAN-rmarkdown >= 1.16
+Requires:         R-CRAN-rmarkdown >= 2.8
 Requires:         R-CRAN-later >= 1.0.0
 Requires:         R-CRAN-bookdown >= 0.8
-Requires:         R-CRAN-servr >= 0.18
+Requires:         R-CRAN-servr >= 0.23
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-processx 
@@ -53,6 +53,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,28 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dietr
-%global packver   1.1.3
+%global packname  survival.svb
+%global packver   0.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diet Estimated Trophic Levels
+Summary:          Fit High-Dimensional Proportional Hazards Models
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rfishbase >= 3.1.10
-Requires:         R-CRAN-rfishbase >= 3.1.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.6
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.6
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-survival 
 
 %description
-Estimates fractional trophic level from quantitative and qualitative diet
-data and calculates electivity indices in R. Borstein (2020)
-<doi:10.1007/s10750-020-04417-5>.
+Variable selection in a high dimensional setting is becoming a task of key
+importance, particularly in the biomedical sciences where data is often
+high-dimensional. This package implements methodology designed to performs
+variable selection in a high-dimensional settings, whilst also providing
+mechanisms for uncertainty quantification and effect estimations. Broadly,
+we use a spike-and-slab prior with Laplace slab and Dirac spike and seek
+to approximate the corresponding posterior using variational inference.
+Our variational approximation thereby provides posterior inclusion
+probabilities, point estimates for the effect sizes and uncertainty
+quantification for the effect sizes.
 
 %prep
 %setup -q -c -n %{packname}

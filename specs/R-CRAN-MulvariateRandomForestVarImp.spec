@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MulvariateRandomForestVarImp
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variable Importance Measures for Multivariate Random Forests
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3.0
 BuildRequires:    R-CRAN-MultivariateRandomForest >= 1.1.5
@@ -22,13 +22,16 @@ Requires:         R-CRAN-MASS >= 7.3.0
 Requires:         R-CRAN-MultivariateRandomForest >= 1.1.5
 
 %description
-Calculates post-hoc variable importance measures for multivariate random
-forests. These are given by split improvement for splits defined by
-feature j as measured using user-defined (i.e. training or test) examples.
-Importance measures can also be calculated on a per-outcome variable basis
-using the change in predictions for each split. Both measures can be
-optionally thresholded to include only splits that produce statistically
-significant changes as measured by an F-test.
+Calculates two sets of post-hoc variable importance measures for
+multivariate random forests. The first set of variable importance measures
+are given by the sum of mean split improvements for splits defined by
+feature j measured on user-defined examples (i.e., training or testing
+samples). The second set of importance measures are calculated on a
+per-outcome variable basis as the sum of mean absolute difference of node
+values for each split defined by feature j measured on user-defined
+examples (i.e., training or testing samples). The user can optionally
+threshold both sets of importance measures to include only splits that are
+statistically significant as measured using an F-test.
 
 %prep
 %setup -q -c -n %{packname}

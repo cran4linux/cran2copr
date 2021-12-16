@@ -1,28 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dietr
-%global packver   1.1.3
+%global packname  GIC
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diet Estimated Trophic Levels
+Summary:          A General Iterative Clustering Algorithm
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rfishbase >= 3.1.10
-Requires:         R-CRAN-rfishbase >= 3.1.10
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Estimates fractional trophic level from quantitative and qualitative diet
-data and calculates electivity indices in R. Borstein (2020)
-<doi:10.1007/s10750-020-04417-5>.
+An iterative algorithm that improves the proximity matrix (PM) from a
+random forest (RF) and the resulting clusters as measured by the
+silhouette score.
 
 %prep
 %setup -q -c -n %{packname}

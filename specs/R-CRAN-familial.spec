@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  familial
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Tests of Familial Hypotheses
 
@@ -19,9 +19,11 @@ BuildArch:        noarch
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-DepthProc 
+BuildRequires:    R-CRAN-matrixStats 
 Requires:         R-parallel 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-DepthProc 
+Requires:         R-CRAN-matrixStats 
 
 %description
 Provides functionality for testing familial hypotheses. Currently supports

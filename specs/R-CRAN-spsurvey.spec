@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spsurvey
-%global packver   5.0.1
+%global packver   5.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.1
+Version:          5.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Sampling Design and Analysis
 
@@ -25,6 +25,7 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-sampling 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-units 
 Requires:         R-CRAN-survey >= 4.1.1
@@ -36,6 +37,7 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-sampling 
 Requires:         R-stats 
 Requires:         R-CRAN-units 
 

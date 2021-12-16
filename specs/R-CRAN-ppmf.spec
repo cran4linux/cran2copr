@@ -1,44 +1,51 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cthist
-%global packver   0.1.2
+%global packname  ppmf
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clinical Trial Registry History
+Summary:          Read Census Privacy Protected Microdata Files
 
-License:          AGPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 0.4.11
+BuildRequires:    R-CRAN-censable 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-selectr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-rlang >= 0.4.11
+Requires:         R-CRAN-censable 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-selectr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-zip 
 
 %description
-Retrieves historical versions of clinical trial registry entries.
+Implements data processing described in <doi:10.1126/sciadv.abk3283> to
+align modern differentially private data with formatting of older US
+Census data releases. The primary goal is to read in Census Privacy
+Protected Microdata Files data in a reproducible way. This includes tools
+for aggregating to relevant levels of geography by creating geographic
+identifiers which match the US Census Bureau's numbering. Additionally,
+there are tools for grouping race numeric identifiers into categories,
+consistent with OMB (Office of Management and Budget) classifications.
+Functions exist for downloading and linking to existing sources of privacy
+protected microdata.
 
 %prep
 %setup -q -c -n %{packname}
