@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ClusTorus
-%global packver   0.2.0
+%global packname  CLA
+%global packver   0.96-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.96.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Prediction and Clustering on the Torus by Conformal Prediction
+Summary:          Critical Line Algorithm in Pure R
 
-License:          GPL-3
+License:          GPL (>= 3) | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,33 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BAMBI 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-cowplot 
-Requires:         R-CRAN-BAMBI 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 Requires:         R-utils 
-Requires:         R-CRAN-cowplot 
 
 %description
-Provides various tools of for clustering multivariate angular data on the
-torus. The package provides angular adaptations of usual clustering
-methods such as the k-means clustering, pairwise angular distances, which
-can be used as an input for distance-based clustering algorithms, and
-implements clustering based on the conformal prediction framework. Options
-for the conformal scores include scores based on a kernel density
-estimate, multivariate von Mises mixtures, and naive k-means clusters.
-Moreover, the package provides some basic data handling tools for angular
-data.
+Implements 'Markowitz' Critical Line Algorithm ('CLA') for classical
+mean-variance portfolio optimization, see Markowitz (1952)
+<doi:10.2307/2975974>. Care has been taken for correctness in light of
+previous buggy implementations.
 
 %prep
 %setup -q -c -n %{packname}

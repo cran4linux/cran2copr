@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sendgridr
-%global packver   0.3.3
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mail Sender Using 'Sendgrid' Service
 
@@ -13,41 +13,29 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
+BuildRequires:    R-CRAN-emayili >= 0.7
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-usethis 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-clipr 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-desc 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-clisymbols 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-emayili >= 0.7
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-usethis 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-clipr 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-desc 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-clisymbols 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fs 
-Requires:         R-CRAN-stringr 
 
 %description
 Send email using 'Sendgrid' <https://sendgrid.com/> mail API(v3)

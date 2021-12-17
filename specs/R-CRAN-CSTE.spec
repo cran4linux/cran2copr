@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  CSTE
-%global packver   1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Covariate Specific Treatment Effect (CSTE) Curve
 
@@ -19,10 +19,14 @@ BuildRequires:    R-CRAN-Rcpp >= 1.0.4
 BuildRequires:    R-CRAN-fda 
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-locpol 
+BuildRequires:    R-CRAN-dfoptim 
 Requires:         R-CRAN-Rcpp >= 1.0.4
 Requires:         R-CRAN-fda 
 Requires:         R-splines 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-locpol 
+Requires:         R-CRAN-dfoptim 
 
 %description
 A uniform statistical inferential tool in making individualized treatment

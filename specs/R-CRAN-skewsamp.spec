@@ -1,51 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  readabs
-%global packver   0.4.11
+%global packname  skewsamp
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.11
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Tidy Time Series Data from the Australian Bureau of Statistics
+Summary:          Estimate Sample Sizes for Group Comparisons with Skewed Distributions
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-hutils >= 1.5.0
-BuildRequires:    R-CRAN-readxl >= 1.2.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.0
-BuildRequires:    R-CRAN-fst 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-hutils >= 1.5.0
-Requires:         R-CRAN-readxl >= 1.2.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.8.0
-Requires:         R-CRAN-fst 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringi 
-Requires:         R-tools 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Downloads, imports, and tidies time series data from the Australian Bureau
-of Statistics <https://www.abs.gov.au/>.
+Estimate necessary sample sizes for comparing the location of data from
+two groups or categories when the distribution of the data is skewed. The
+package offers a non-parametric method for a Wilcoxon Mann-Whitney test of
+location shift as well as methods for several generalized linear models,
+for instance, Gamma regression.
 
 %prep
 %setup -q -c -n %{packname}

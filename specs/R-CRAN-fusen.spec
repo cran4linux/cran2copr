@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fusen
-%global packver   0.2.4
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Build a Package from Rmarkdown File
 
@@ -16,40 +16,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-usethis >= 1.5.0
+BuildRequires:    R-CRAN-usethis >= 2.0.0
 BuildRequires:    R-CRAN-here >= 1.0.0
+BuildRequires:    R-CRAN-parsermd >= 0.1.0
 BuildRequires:    R-CRAN-attachment 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-desc 
+BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-parsermd 
-BuildRequires:    R-CRAN-rcmdcheck 
 BuildRequires:    R-CRAN-roxygen2 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-usethis >= 1.5.0
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-usethis >= 2.0.0
 Requires:         R-CRAN-here >= 1.0.0
+Requires:         R-CRAN-parsermd >= 0.1.0
 Requires:         R-CRAN-attachment 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-desc 
+Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-parsermd 
-Requires:         R-CRAN-rcmdcheck 
 Requires:         R-CRAN-roxygen2 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Use Rmarkdown First method to build your package. Start your package with
+Use Rmarkdown First method to build your package.  Start your package with
 documentation, functions, examples and tests in the same unique file.
 Everything can be set from the Rmarkdown template file provided in your
-project, then inflated as a package. Inflating the template copies the
+project, then inflated as a package.  Inflating the template copies the
 relevant chunks and sections in the appropriate files required for package
 development.
 

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ClusTorus
-%global packver   0.2.0
+%global packname  SOAs
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Prediction and Clustering on the Torus by Conformal Prediction
+Summary:          Creation of Stratum Orthogonal Arrays
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,33 +16,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BAMBI 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-DoE.base >= 1.2
+BuildRequires:    R-CRAN-lhs >= 1.1.3
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-cowplot 
-Requires:         R-CRAN-BAMBI 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-combinat 
+BuildRequires:    R-CRAN-FrF2 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-conf.design 
+Requires:         R-CRAN-DoE.base >= 1.2
+Requires:         R-CRAN-lhs >= 1.1.3
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-combinat 
+Requires:         R-CRAN-FrF2 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-conf.design 
 
 %description
-Provides various tools of for clustering multivariate angular data on the
-torus. The package provides angular adaptations of usual clustering
-methods such as the k-means clustering, pairwise angular distances, which
-can be used as an input for distance-based clustering algorithms, and
-implements clustering based on the conformal prediction framework. Options
-for the conformal scores include scores based on a kernel density
-estimate, multivariate von Mises mixtures, and naive k-means clusters.
-Moreover, the package provides some basic data handling tools for angular
-data.
+Creates stratum orthogonal arrays (also known as strong orthogonal
+arrays). These are arrays with more levels per column than the typical
+orthogonal array, and whose low order projections behave like orthogonal
+arrays, when collapsing levels to coarser strata. Details are described in
+Groemping (2021) "A unified implementation of stratum (aka strong)
+orthogonal arrays"
+<http://www1.bht-berlin.de/FB_II/reports/Report-2021-001.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

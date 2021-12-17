@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gld
-%global packver   2.6.3
+%global packver   2.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.3
+Version:          2.6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation and Use of the Generalised (Tukey) Lambda Distribution
 

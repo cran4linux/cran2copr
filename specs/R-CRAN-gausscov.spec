@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gausscov
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Gaussian Covariate Method for Variable Selection
 
@@ -35,10 +35,10 @@ whatever the data. The idea extends to stepwise regression again with
 exact probabilities. In the simplest version the only parameter is a
 specified cut-off P-value which can be interpreted as the probability of a
 false positive being included in the final selection. For more information
-see the website below and the accompanying papers: L. Davies and L.
-Duembgen, "Covariate Selection Based on a Model-free Approach to Linear
-Regression with Exact Probabilities", 2020, <arXiv:1906.01990>. L. Davies,
-"Lasso, Knockoff and Gaussian covariates: A comparison", 2018,
+see the web site below and the accompanying papers: L. Davies and L.
+Duembgen, "Covariate Selection Based on a Assumption -free Approach to
+Linear Regression with Exact Probabilities", 2020, <arXiv:1906.01990>. L.
+Davies, "Lasso, Knockoff and Gaussian covariates: A comparison", 2018,
 <arXiv:1807.09633>.
 
 %prep
@@ -49,6 +49,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,36 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  pegas
-%global packver   1.1
+%global packname  brmsmargins
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Population and Evolutionary Genetics Analysis System
+Summary:          Bayesian Marginal Effects for 'brms' Models
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-ape >= 5.3
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-data.table >= 1.12.0
+BuildRequires:    R-CRAN-extraoperators >= 0.1.1
 BuildRequires:    R-methods 
-Requires:         R-CRAN-ape >= 5.3
-Requires:         R-graphics 
-Requires:         R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-brms 
+BuildRequires:    R-CRAN-bayestestR 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-posterior 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-data.table >= 1.12.0
+Requires:         R-CRAN-extraoperators >= 0.1.1
 Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-brms 
+Requires:         R-CRAN-bayestestR 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-posterior 
 
 %description
-Functions for reading, writing, plotting, analysing, and manipulating
-allelic and haplotypic data, including from VCF files, and for the
-analysis of population nucleotide sequences and micro-satellites including
-coalescent analyses, linkage disequilibrium, population structure (Fst,
-Amova) and equilibrium (HWE), haplotype networks, minimum spanning tree
-and network, and median-joining networks.
+Calculate Bayesian marginal effects and average marginal effects for
+models fit using the 'brms' package including fixed effects, mixed
+effects, and location scale models. These are based on marginal
+predictions that integrate out random effects if necessary (see for
+example <doi:10.1186/s12874-015-0046-6>).
 
 %prep
 %setup -q -c -n %{packname}

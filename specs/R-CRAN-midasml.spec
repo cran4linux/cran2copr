@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  midasml
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation and Prediction Methods for High-Dimensional Mixed Frequency Time Series Data
 

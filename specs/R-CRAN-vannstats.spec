@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  vannstats
-%global packver   1.0.12.5
+%global packver   1.0.12.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.12.5
+Version:          1.0.12.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplified Statistics for PA 606
 
@@ -27,6 +27,8 @@ BuildRequires:    R-stats
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-formula.tools 
 BuildRequires:    R-CRAN-gplots 
+BuildRequires:    R-CRAN-rstatix 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
@@ -38,6 +40,8 @@ Requires:         R-stats
 Requires:         R-graphics 
 Requires:         R-CRAN-formula.tools 
 Requires:         R-CRAN-gplots 
+Requires:         R-CRAN-rstatix 
+Requires:         R-CRAN-stringr 
 
 %description
 Simplifies functions assess normality for bivariate and multivariate

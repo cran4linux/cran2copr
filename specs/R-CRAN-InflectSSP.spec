@@ -1,51 +1,52 @@
 %global __brp_check_rpaths %{nil}
-%global packname  readabs
-%global packver   0.4.11
+%global packname  InflectSSP
+%global packver   1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.11
+Version:          1.4.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Tidy Time Series Data from the Australian Bureau of Statistics
+Summary:          Melt Curve Fitting and Melt Shift Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-hutils >= 1.5.0
-BuildRequires:    R-CRAN-readxl >= 1.2.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.0
-BuildRequires:    R-CRAN-fst 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-xlsx 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-hutils >= 1.5.0
-Requires:         R-CRAN-readxl >= 1.2.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.8.0
-Requires:         R-CRAN-fst 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringi 
-Requires:         R-tools 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-network 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-svglite 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-plotrix 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-xlsx 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-GGally 
+Requires:         R-CRAN-network 
+Requires:         R-stats 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-svglite 
 
 %description
-Downloads, imports, and tidies time series data from the Australian Bureau
-of Statistics <https://www.abs.gov.au/>.
+Analyzes raw abundance data from a cellular thermal shift experiment and
+calculates melt temperatures and melt shifts for each protein in the
+experiment. McCracken (2021) <doi:10.1021/acs.jproteome.0c00872>.
 
 %prep
 %setup -q -c -n %{packname}
