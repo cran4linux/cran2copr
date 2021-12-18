@@ -1,39 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  matsindf
-%global packver   0.3.10
+%global packname  wsprv
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Matrices in Data Frames
+Summary:          Weighted Selection Probability for Rare Variant Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-matsbyname 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-matsbyname 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-mnormt 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-mnormt 
+Requires:         R-stats 
 
 %description
-Provides functions to collapse a tidy data frame into matrices in a data
-frame and expand a data frame of matrices into a tidy data frame.
+A weighted selection probability to locate rare variants associated with
+multiple phenotypes.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  matsindf
-%global packver   0.3.10
+%global packname  Counternull
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Matrices in Data Frames
+Summary:          Creating Null and Counternull Distributions to Find Counternull Values
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,24 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-matsbyname 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-matsbyname 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-effsize 
+BuildRequires:    R-graphics 
+Requires:         R-stats 
+Requires:         R-CRAN-effsize 
+Requires:         R-graphics 
 
 %description
-Provides functions to collapse a tidy data frame into matrices in a data
-frame and expand a data frame of matrices into a tidy data frame.
+Calculates the difference in average change over time for variables in
+given dataset. Generates a randomization matrix to resample data for
+permutation testing. Creates and plots null distributions and calculates
+P-Values. Identifies potential counternull values by generating and
+plotting counternull distributions. Rosenthal and Rubin (1994)
+<doi:10.1111/j.1467-9280.1994.tb00281.x>.
 
 %prep
 %setup -q -c -n %{packname}

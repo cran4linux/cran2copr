@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  FAMetA
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fatty Acid Metabolic Analysis
 
@@ -40,7 +40,7 @@ Requires:         R-CRAN-gplots
 Requires:         R-grDevices 
 
 %description
-Fatty Acid Metabolic Analysis aimed to the estimation of FA import (I), de
+Fatty acid metabolic analysis aimed to the estimation of FA import (I), de
 novo synthesis (S), fractional contribution of the 13C-tracers (D0, D1,
 D2), elongation (E) and desaturation (Des) based on mass isotopologue
 data.

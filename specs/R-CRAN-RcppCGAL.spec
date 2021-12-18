@@ -1,39 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  matsindf
-%global packver   0.3.10
+%global packname  RcppCGAL
+%global packver   5.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
+Version:          5.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Matrices in Data Frames
+Summary:          Rcpp Integration for CGAL
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-matsbyname 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-matsbyname 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
-Provides functions to collapse a tidy data frame into matrices in a data
-frame and expand a data frame of matrices into a tidy data frame.
+Creates a header only package to link to the CGAL (Computational Geometry
+Algorithms Library) header files in Rcpp. There are a variety of potential
+uses for the software such as Hilbert sorting, KDtree nearest neighbors,
+and convex hull algorithms. There is only one R function in this package,
+which returns the current version of the CGAL library included. For more
+information about how to use the header files, see the CGAL documentation
+at <https://www.cgal.org>. Currently includes the CGAL 5.3.1 stable
+release.
 
 %prep
 %setup -q -c -n %{packname}

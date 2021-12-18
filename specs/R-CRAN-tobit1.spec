@@ -1,39 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  matsindf
-%global packver   0.3.10
+%global packname  tobit1
+%global packver   0.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Matrices in Data Frames
+Summary:          One Equation Tobit Model
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-matsbyname 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-matsbyname 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-prediction 
+BuildRequires:    R-CRAN-margins 
+BuildRequires:    R-CRAN-generics 
+Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-prediction 
+Requires:         R-CRAN-margins 
+Requires:         R-CRAN-generics 
 
 %description
-Provides functions to collapse a tidy data frame into matrices in a data
-frame and expand a data frame of matrices into a tidy data frame.
+A set of estimators and tests for models for which the response is
+truncated. The package includes a lot of developments following the
+seminal paper of Tobin (1958) <doi:10.2307/1907382>.
 
 %prep
 %setup -q -c -n %{packname}

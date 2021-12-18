@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  deepdep
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualise and Explore the Deep Dependencies of R Packages
 
@@ -17,23 +17,11 @@ BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cranlogs 
-BuildRequires:    R-CRAN-ggforce 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggraph 
-BuildRequires:    R-CRAN-graphlayouts 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-cranlogs 
-Requires:         R-CRAN-ggforce 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggraph 
-Requires:         R-CRAN-graphlayouts 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-scales 
 
 %description
 Provides tools for exploration of R package dependencies. The main

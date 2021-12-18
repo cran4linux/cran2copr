@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  redland
-%global packver   1.0.17-14
+%global packver   1.0.17-15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.17.14
+Version:          1.0.17.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          RDF Library Bindings in R
 
@@ -26,7 +26,7 @@ Provides methods to parse, query and serialize information stored in the
 Resource Description Framework (RDF). RDF is described at
 <https://www.w3.org/TR/rdf-primer/>. This package supports RDF by
 implementing an R interface to the Redland RDF C library, described at
-<http://librdf.org/docs/api/index.html>. In brief, RDF provides a
+<https://librdf.org/docs/api/index.html>. In brief, RDF provides a
 structured graph consisting of Statements composed of Subject, Predicate,
 and Object Nodes.
 
@@ -38,6 +38,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

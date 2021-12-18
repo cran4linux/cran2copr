@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  glmtlp
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Linear Models with Truncated Lasso Penalty
 
@@ -16,11 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-foreach 
-Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-ggplot2 
 

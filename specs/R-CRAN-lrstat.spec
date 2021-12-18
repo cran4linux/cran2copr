@@ -1,39 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  matsindf
-%global packver   0.3.10
+%global packname  lrstat
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Matrices in Data Frames
+Summary:          Power and Sample Size Calculation for Non-Proportional Hazards
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-matsbyname 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-matsbyname 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-Rcpp >= 1.0.7
 
 %description
-Provides functions to collapse a tidy data frame into matrices in a data
-frame and expand a data frame of matrices into a tidy data frame.
+Performs power and sample size calculation for non-proportional hazards
+model using the Fleming-Harrington family of weighted log-rank tests. The
+sequentially calculated log-rank test score statistics are assumed to have
+independent increments as characterized in Anastasios A. Tsiatis (1982)
+<doi:10.1080/01621459.1982.10477898>. The mean and variance of log-rank
+test score statistics are calculated based on Edward Lakatos (1986)
+<doi:10.1016/0197-2456(86)90047-4> and Kaifeng Lu (2021)
+<doi:10.1002/pst.2069>. The boundary crossing probabilities are calculated
+using the recursive integration algorithm described in Christopher
+Jennison and Bruce W. Turnbull (2000, ISBN:0849303168).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  crossvalidationCP
-%global packver   1.0-0
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cross-Validation for Change-Point Regression
 
@@ -28,11 +28,12 @@ Requires:         R-CRAN-FDRSeg >= 1.0.3
 Requires:         R-stats 
 
 %description
-Can be customised by providing different cross-validation criteria,
-estimators for the change-point locations and local parameters, and freely
-chosen folds. Pre-implemented estimators and criteria are available. It
-also includes our own implementation of the COPPS procedure
-<doi:10.1214/19-AOS1814>.
+Implements the cross-validation methodology from Pein and Shah (2021)
+<arXiv:2112.03220>. Can be customised by providing different
+cross-validation criteria, estimators for the change-point locations and
+local parameters, and freely chosen folds. Pre-implemented estimators and
+criteria are available. It also includes our own implementation of the
+COPPS procedure <doi:10.1214/19-AOS1814>.
 
 %prep
 %setup -q -c -n %{packname}

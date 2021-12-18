@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DBItest
-%global packver   1.7.1
+%global packver   1.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1
+Version:          1.7.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Testing 'DBI' 'Backends'
+Summary:          Testing DBI Backends
 
 License:          LGPL (>= 2.1)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,7 +25,9 @@ BuildRequires:    R-CRAN-callr
 BuildRequires:    R-CRAN-desc 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-palmerpenguins 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-testthat >= 2.0.0
@@ -37,12 +39,14 @@ Requires:         R-CRAN-callr
 Requires:         R-CRAN-desc 
 Requires:         R-CRAN-lubridate 
 Requires:         R-methods 
+Requires:         R-CRAN-palmerpenguins 
 Requires:         R-CRAN-R6 
+Requires:         R-utils 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-vctrs 
 
 %description
-A helper that tests 'DBI' back ends for conformity to the interface.
+A helper that tests DBI back ends for conformity to the interface.
 
 %prep
 %setup -q -c -n %{packname}
