@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mclustAddons
-%global packver   0.5
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Addons for the 'mclust' Package
 

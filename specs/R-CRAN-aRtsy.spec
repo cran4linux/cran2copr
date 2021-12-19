@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  aRtsy
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generative Art with 'ggplot2'
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-ambient 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-kknn 
@@ -22,6 +23,7 @@ BuildRequires:    R-CRAN-randomForest
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-ambient 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-kknn 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ggpp
-%global packver   0.4.2
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Grammar Extensions to 'ggplot2'
 
@@ -51,12 +51,13 @@ Requires:         R-grid
 
 %description
 Extensions to 'ggplot2' respecting the grammar of graphics paradigm.
-Geomas: geom_table(), geom_plot() and geom_grob() add insets to plots
+Geometries: geom_table(), geom_plot() and geom_grob() add insets to plots
 using native data coordinates, while geom_table_npc(), geom_plot_npc() and
 geom_grob_npc() do the same using "npc" coordinates through new aesthetics
 "npcx" and "npcy". Statistics: select observations based on 2D density.
 Positions: radial nudging away from a center point and nudging away from a
-line or curve.
+line or curve; combined stacking and nudging; combined dodging and
+nudging.
 
 %prep
 %setup -q -c -n %{packname}

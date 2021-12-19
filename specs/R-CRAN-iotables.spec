@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  iotables
-%global packver   0.4.5
+%global packver   0.4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.4.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Importing and Manipulating Symmetric Input-Output Tables
 
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-eurostat 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-plyr 
@@ -29,14 +28,11 @@ BuildRequires:    R-CRAN-knitr
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-eurostat 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-stats 
 Requires:         R-CRAN-forcats 
 Requires:         R-utils 
 Requires:         R-CRAN-plyr 
@@ -45,8 +41,6 @@ Requires:         R-CRAN-knitr
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-rlang 
 
 %description
