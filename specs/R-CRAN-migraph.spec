@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  migraph
-%global packver   0.8.5
+%global packver   0.8.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.5
+Version:          0.8.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multimodal and Multilevel Network Analysis
 
@@ -24,9 +24,9 @@ BuildRequires:    R-CRAN-gridExtra
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-network 
+BuildRequires:    R-CRAN-oaqc 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sna 
 BuildRequires:    R-CRAN-stringr 
@@ -35,6 +35,7 @@ BuildRequires:    R-CRAN-tidygraph
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-concaveman 
 BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-readxl 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggdendro 
 Requires:         R-CRAN-ggraph 
@@ -43,9 +44,9 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-network 
+Requires:         R-CRAN-oaqc 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sna 
 Requires:         R-CRAN-stringr 
@@ -54,6 +55,7 @@ Requires:         R-CRAN-tidygraph
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-concaveman 
 Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-readxl 
 
 %description
 A set of tools that extend common social network analysis packages for

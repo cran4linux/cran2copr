@@ -1,35 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  populR
-%global packver   0.1.3
+%global packname  UKB.COVID19
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Population Down-Scaling
+Summary:          UK Biobank COVID-19 Data Processing and Risk Factor Association Tests
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-Metrics 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-Metrics 
+BuildRequires:    R-CRAN-questionr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-here 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-questionr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-here 
+Requires:         R-CRAN-dplyr 
 
 %description
-Areal interpolation of population data obtained by census surveys. Given a
-set of source zone polygons such as census tracts or city blocks alongside
-with population counts and a target zone of incogruent yet superimposed
-polygon features (such as individual buildings) populR transforms
-population counts from the former to the latter using Areal Weighted and
-Volume Weighted Interpolation methods.
+Process UK Biobank COVID-19 test result data for susceptibility, severity
+and mortality analyses, perform potential non-genetic COVID-19 risk factor
+and co-morbidity association tests. Wang et al. (2021)
+<doi:10.5281/zenodo.5174381>.
 
 %prep
 %setup -q -c -n %{packname}

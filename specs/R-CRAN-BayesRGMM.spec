@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MCM
-%global packver   0.1.4
+%global packname  BayesRGMM
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimating and Testing Intergenerational Social Mobility Effect
+Summary:          Bayesian Robust Generalized Mixed Models for Longitudinal Data
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,23 +15,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-survey 
-BuildRequires:    R-CRAN-gee 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-parameters 
-Requires:         R-CRAN-survey 
-Requires:         R-CRAN-gee 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-parameters 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-batchmeans 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-reshape 
+BuildRequires:    R-CRAN-msm 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppDist 
+Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-batchmeans 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-reshape 
+Requires:         R-CRAN-msm 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Estimate and test inter-generational social mobility effect on an outcome
-with cross-sectional or longitudinal data.
+To perform model estimation using MCMC algorithms with Bayesian methods
+for incomplete longitudinal studies on binary and ordinal outcomes that
+are measured repeatedly on subjects over time with drop-outs. Details
+about the method can be found in the vignette or
+<https://sites.google.com/view/kuojunglee/r-packages/bayesrgmm>.
 
 %prep
 %setup -q -c -n %{packname}

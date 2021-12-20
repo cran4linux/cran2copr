@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  inlabru
-%global packver   2.3.1
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Latent Gaussian Modelling using INLA and Extensions
 
@@ -18,20 +18,22 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rgdal >= 1.5.8
 BuildRequires:    R-CRAN-sp >= 1.4.5
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-rgdal >= 1.5.8
 Requires:         R-CRAN-sp >= 1.4.5
-Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-rgeos 
+Requires:         R-CRAN-rlang 
 Requires:         R-utils 
 Requires:         R-CRAN-withr 
 
@@ -58,6 +60,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

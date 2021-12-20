@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  blogdown
-%global packver   1.6
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Blogs and Websites with R Markdown
 
@@ -22,8 +22,8 @@ BuildRequires:    R-CRAN-rmarkdown >= 2.8
 BuildRequires:    R-CRAN-yaml >= 2.1.19
 BuildRequires:    R-CRAN-httpuv >= 1.4.0
 BuildRequires:    R-CRAN-knitr >= 1.25
+BuildRequires:    R-CRAN-xfun >= 0.29
 BuildRequires:    R-CRAN-bookdown >= 0.22
-BuildRequires:    R-CRAN-xfun >= 0.22
 BuildRequires:    R-CRAN-servr >= 0.21
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-later 
@@ -32,8 +32,8 @@ Requires:         R-CRAN-rmarkdown >= 2.8
 Requires:         R-CRAN-yaml >= 2.1.19
 Requires:         R-CRAN-httpuv >= 1.4.0
 Requires:         R-CRAN-knitr >= 1.25
+Requires:         R-CRAN-xfun >= 0.29
 Requires:         R-CRAN-bookdown >= 0.22
-Requires:         R-CRAN-xfun >= 0.22
 Requires:         R-CRAN-servr >= 0.21
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-later 

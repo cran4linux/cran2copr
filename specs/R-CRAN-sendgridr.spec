@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sendgridr
-%global packver   0.4.2
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mail Sender Using 'Sendgrid' Service
 
@@ -22,20 +22,14 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fs 
 Requires:         R-CRAN-emayili >= 0.7
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-usethis 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fs 
 
 %description
 Send email using 'Sendgrid' <https://sendgrid.com/> mail API(v3)
