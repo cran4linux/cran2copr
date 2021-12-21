@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  frailtypack
-%global packver   3.4.0
+%global packver   3.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.0
+Version:          3.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Shared, Joint (Generalized) Frailty Models; Surrogate Endpoints
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-statmod
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-splines 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-MASS 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-statmod
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-rootSolve 
+Requires:         R-splines 
 
 %description
 The following several classes of frailty models using a penalized
@@ -57,24 +59,25 @@ terminal event. 8) Joint models for longitudinal data and a terminal
 event. 9) Trivariate joint models for longitudinal data, recurrent events
 and a terminal event. 10) Joint frailty models for the validation of
 surrogate endpoints in multiple randomized clinical trials with
-failure-time endpoints 11) Conditional and Marginal two-part joint models
-for longitudinal semicontinuous data and a terminal event. 12) Joint
-frailty-copula models for the validation of surrogate endpoints in
-multiple randomized clinical trials with failure-time endpoints. 13)
-Generalized shared and joint frailty models for recurrent and terminal
-events. Proportional hazards (PH), additive hazard (AH), proportional odds
-(PO) and probit models are available in a fully parametric framework. For
-PH and AH models, it is possible to consider type-varying coefficients and
-flexible semiparametric hazard function. Prediction values are available
-(for a terminal event or for a new recurrent event). Left-truncated (not
-for Joint model), right-censored data, interval-censored data (only for
-Cox proportional hazard and shared frailty model) and strata are allowed.
-In each model, the random effects have the gamma or normal distribution.
-Now, you can also consider time-varying covariates effects in Cox, shared
-and joint frailty models (1-5). The package includes concordance measures
-for Cox proportional hazards models and for shared frailty models.
-Moreover, the package can be used with its shiny application, in a local
-mode or by following the link below.
+failure-time endpoints with the possibility to use a mediation analysis
+model. 11) Conditional and Marginal two-part joint models for longitudinal
+semicontinuous data and a terminal event. 12) Joint frailty-copula models
+for the validation of surrogate endpoints in multiple randomized clinical
+trials with failure-time endpoints. 13) Generalized shared and joint
+frailty models for recurrent and terminal events. Proportional hazards
+(PH), additive hazard (AH), proportional odds (PO) and probit models are
+available in a fully parametric framework. For PH and AH models, it is
+possible to consider type-varying coefficients and flexible semiparametric
+hazard function. Prediction values are available (for a terminal event or
+for a new recurrent event). Left-truncated (not for Joint model),
+right-censored data, interval-censored data (only for Cox proportional
+hazard and shared frailty model) and strata are allowed. In each model,
+the random effects have the gamma or normal distribution. Now, you can
+also consider time-varying covariates effects in Cox, shared and joint
+frailty models (1-5). The package includes concordance measures for Cox
+proportional hazards models and for shared frailty models. Moreover, the
+package can be used with its shiny application, in a local mode or by
+following the link below.
 
 %prep
 %setup -q -c -n %{packname}
@@ -84,6 +87,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

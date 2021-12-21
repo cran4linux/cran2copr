@@ -1,47 +1,49 @@
 %global __brp_check_rpaths %{nil}
-%global packname  assemblerr
-%global packver   0.1.0
+%global packname  aurin
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Assembly of Pharmacometric Models
+Summary:          Access Datasets from the 'AURIN' API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-R6 >= 2.5.0
 BuildRequires:    R-CRAN-cli >= 2.1.0
-BuildRequires:    R-CRAN-vctrs >= 0.3.4
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-checkmate >= 2.0.0
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-glue >= 1.4.0
+BuildRequires:    R-CRAN-httr >= 1.4.0
+BuildRequires:    R-CRAN-sf >= 0.9.0
+BuildRequires:    R-CRAN-ows4R >= 0.1
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-R6 >= 2.5.0
 Requires:         R-CRAN-cli >= 2.1.0
-Requires:         R-CRAN-vctrs >= 0.3.4
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-checkmate >= 2.0.0
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-glue >= 1.4.0
+Requires:         R-CRAN-httr >= 1.4.0
+Requires:         R-CRAN-sf >= 0.9.0
+Requires:         R-CRAN-ows4R >= 0.1
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-tidyselect 
 
 %description
-Construct pharmacometric nonlinear mixed effect models by combining
-predefined model components and automatically generate model code for
-NONMEM. Models are created by combining parameter and observation models,
-algebraic relationships, compartments, and flows. Pharmacokinetic models
-can be assembled from the higher-order components: absorption,
-distribution, and elimination. The generated code is optimized for
-performance by recognizing, for example, linear differential equations or
-differential equations with an analytic solution.
+'AURIN' <https://aurin.org.au/resources/aurin-apis/> is "Australia's
+single largest resource for accessing clean, integrated, spatially enabled
+and research-ready data on issues surrounding health and wellbeing,
+socio-economic metrics, transportation, and land-use.". This package
+provides functions to download and search datasets from the AURIN API
+(it's free to use!).
 
 %prep
 %setup -q -c -n %{packname}

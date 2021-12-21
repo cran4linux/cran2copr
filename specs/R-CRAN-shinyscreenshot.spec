@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  shinyscreenshot
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Capture Screenshots of Entire Pages or Parts of Pages in 'Shiny'
 
@@ -17,17 +17,19 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.0.0
+BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-uuid 
 Requires:         R-CRAN-shiny >= 1.0.0
+Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-uuid 
 
 %description
 Capture screenshots in 'Shiny' applications. Screenshots can either be of
 the entire viewable page, or a specific section of the page. The captured
-image is automatically downloaded as a PNG image. Powered by the
-'html2canvas' JavaScript library.
+image is automatically downloaded as a PNG image, or it can also be saved
+on the server. Powered by the 'html2canvas' JavaScript library.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

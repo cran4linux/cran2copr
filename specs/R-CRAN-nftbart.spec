@@ -1,41 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  transfR
-%global packver   0.1.1
+%global packname  nftbart
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Transfer of Hydrograph from Gauged to Ungauged Catchments
+Summary:          Nonparametric Failure Time Bayesian Additive Regression Trees
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-sf >= 0.8.0
-BuildRequires:    R-CRAN-stars >= 0.4.0
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-sf >= 0.8.0
-Requires:         R-CRAN-stars >= 0.4.0
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-units 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-Rcpp 
 
 %description
-A geomorphology-based hydrological modelling for transferring streamflow
-measurements from gauged to ungauged catchments. Inverse modelling enables
-to estimate net rainfall from streamflow measurements following Boudhraâ
-et al. (2018) <doi:10.1080/02626667.2018.1425801>. Resulting net rainfall
-is then estimated on the ungauged catchments by spatial interpolation in
-order to finally simulate streamflow following de Lavenne et al. (2016)
-<doi:10.1002/2016WR018716>.
+Nonparametric Failure Time (NFT) Bayesian Additive Regression Trees
+(BART): Time-to-event Machine Learning with Heteroskedastic Bayesian
+Additive Regression Trees (HBART) and Low Information Omnibus (LIO)
+Dirichlet Process Mixtures (DPM). An NFT BART model is of the form Y = mu
++ f(x) + s(x) E where functions f and s have BART and HBART priors,
+respectively, while E is a nonparametric error distribution due to a DPM
+LIO prior hierarchy. See the following for a technical description of the
+model
+<https://www.mcw.edu/-/media/MCW/Departments/Biostatistics/tr72.pdf?la=en>.
 
 %prep
 %setup -q -c -n %{packname}

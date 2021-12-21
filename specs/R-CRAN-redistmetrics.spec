@@ -1,41 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  transfR
-%global packver   0.1.1
+%global packname  redistmetrics
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Transfer of Hydrograph from Gauged to Ungauged Catchments
+Summary:          Redistricting Metrics
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-sf >= 0.8.0
-BuildRequires:    R-CRAN-stars >= 0.4.0
-BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-sf >= 0.8.0
-Requires:         R-CRAN-stars >= 0.4.0
-Requires:         R-CRAN-doParallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-geos 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-units 
-Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-geos 
 
 %description
-A geomorphology-based hydrological modelling for transferring streamflow
-measurements from gauged to ungauged catchments. Inverse modelling enables
-to estimate net rainfall from streamflow measurements following Boudhraâ
-et al. (2018) <doi:10.1080/02626667.2018.1425801>. Resulting net rainfall
-is then estimated on the ungauged catchments by spatial interpolation in
-order to finally simulate streamflow following de Lavenne et al. (2016)
-<doi:10.1002/2016WR018716>.
+Reliable and flexible tools for scoring redistricting plans using common
+measures and metrics. These functions provide key direct access to tools
+useful for non-simulation analyses of redistricting plans, such as for
+measuring compactness or partisan fairness. Tools are designed to work
+with the 'redist' package seamlessly.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,41 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  transfR
-%global packver   0.1.1
+%global packname  cosmicsig
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Transfer of Hydrograph from Gauged to Ungauged Catchments
+Summary:          Mutational Signatures from COSMIC (Catalogue of Somatic Mutations in Cancer)
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-sf >= 0.8.0
-BuildRequires:    R-CRAN-stars >= 0.4.0
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-sf >= 0.8.0
-Requires:         R-CRAN-stars >= 0.4.0
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-units 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
 
 %description
-A geomorphology-based hydrological modelling for transferring streamflow
-measurements from gauged to ungauged catchments. Inverse modelling enables
-to estimate net rainfall from streamflow measurements following Boudhraâ
-et al. (2018) <doi:10.1080/02626667.2018.1425801>. Resulting net rainfall
-is then estimated on the ungauged catchments by spatial interpolation in
-order to finally simulate streamflow following de Lavenne et al. (2016)
-<doi:10.1002/2016WR018716>.
+A data package with 2 main package variables: 'signature' and 'etiology'.
+The 'signature' variable contains the latest mutational signature profiles
+released on COSMIC <https://cancer.sanger.ac.uk/signatures/> for 4
+mutation types: * single base substitutions in the context of preceding
+and following bases, * Strand bias single base substitutions: single base
+substitutions from transcribed regions, that take into consideration the
+the transcribed versus non-transcribed strand, * Doublet base
+substitutions, and * Small insertions and deletions. The 'etiology'
+variable provides the known or hypothesized causes of signatures.
+'cosmicsig' stands for COSMIC signatures. Please run ?'cosmicsig' for more
+information.
 
 %prep
 %setup -q -c -n %{packname}

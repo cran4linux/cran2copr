@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  consort
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Consort Diagram
 
@@ -17,9 +17,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gtable 
 Requires:         R-grid 
-Requires:         R-CRAN-gtable 
 
 %description
 To make it easy to create CONSORT diagrams for the transparent reporting

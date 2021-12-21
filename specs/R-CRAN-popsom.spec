@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
 %global packname  popsom
-%global packver   5.2
+%global packver   6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.2
+Version:          6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Very Efficient Implementation of Kohonen's Self-Organizing Maps (SOMs) with Starburst Visualizations
+Summary:          An Efficient Implementation of Kohonen's Self-Organizing Maps (SOMs) with Starburst Visualizations
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -30,14 +30,15 @@ Requires:         R-grDevices
 
 %description
 Kohonen's self-organizing maps with a number of distinguishing features:
-(1) A very efficient, single threaded, stochastic training algorithm based
-on ideas from tensor algebra.  Up to 60x faster than traditional
-single-threaded training algorithms. No special accelerator hardware
-required. (2) Automatic centroid detection and visualization using
-starbursts. (3) Two models of the data: (a) a self-organizing map model,
-(b) a centroid based clustering model. (4) A number of easily accessible
-quality metrics for the self-organizing map and the centroid based cluster
-model.
+(1) An efficient, single threaded, stochastic training algorithm inspired
+by ideas from tensor algebra.  Provides significant speedups over
+traditional single-threaded training algorithms. No special accelerator
+hardware required (see <doi:10.1007/978-3-030-01057-7_60>). (2) Automatic
+centroid detection and visualization using starbursts. (3) Two models of
+the data: (a) a self organizing map model, (b) a centroid based clustering
+model. (4) A number of easily accessible quality metrics for the self
+organizing map and the centroid based cluster model (see
+<doi:10.1007/978-3-319-28518-4_4>).
 
 %prep
 %setup -q -c -n %{packname}

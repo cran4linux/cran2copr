@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ccid
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cross-Covariance Isolate Detect: a New Change-Point Method for Estimating Dynamic Functional Connectivity
 
@@ -35,7 +35,9 @@ connectivity networks for functional magnetic resonance imaging (fMRI),
 electroencephalography (EEG), magentoencephalography (MEG) and
 electrocorticography (ECoG) data. The main routines in the package have
 been extensively tested on fMRI data. For details on the CCID methodology,
-please see Anastasiou et al (2020) <doi:10.1101/2020.12.20.423696>.
+please see Anastasiou et al (2022), Cross-covariance isolate detect: A new
+change-point method for estimating dynamic functional connectivity.
+Medical Image Analysis, Volume 75.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,6 +47,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

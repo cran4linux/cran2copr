@@ -1,41 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  transfR
-%global packver   0.1.1
+%global packname  NMMIPW
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Transfer of Hydrograph from Gauged to Ungauged Catchments
+Summary:          Inverse Probability Weighting under Non-Monotone Missing
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-sf >= 0.8.0
-BuildRequires:    R-CRAN-stars >= 0.4.0
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-sf >= 0.8.0
-Requires:         R-CRAN-stars >= 0.4.0
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-units 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-lava 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-numDeriv 
+Requires:         R-CRAN-lava 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-numDeriv 
 
 %description
-A geomorphology-based hydrological modelling for transferring streamflow
-measurements from gauged to ungauged catchments. Inverse modelling enables
-to estimate net rainfall from streamflow measurements following Boudhraâ
-et al. (2018) <doi:10.1080/02626667.2018.1425801>. Resulting net rainfall
-is then estimated on the ungauged catchments by spatial interpolation in
-order to finally simulate streamflow following de Lavenne et al. (2016)
-<doi:10.1002/2016WR018716>.
+We fit inverse probability weighting estimator and the augmented inverse
+probability weighting for non-monotone missing at random data.
 
 %prep
 %setup -q -c -n %{packname}

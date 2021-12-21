@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  CommonMean.Copula
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Common Mean Vector under Copula Models
 
@@ -24,9 +24,10 @@ Requires:         R-CRAN-mvtnorm
 %description
 Estimate bivariate common mean vector under copula models with known
 correlation. In the current version, available copulas are the Clayton,
-Farlie-Gumbel-Morgenstern (FGM), and normal copulas. See Shih et al.
-(2019) <doi:10.1080/02331888.2019.1581782> and Shih et al. (2021) <under
-review> for details under the FGM and general copulas, respectively.
+Gumbel, Frank, Farlie-Gumbel-Morgenstern (FGM), and normal copulas. See
+Shih et al. (2019) <doi:10.1080/02331888.2019.1581782> and Shih et al.
+(2021) <under review> for details under the FGM and general copulas,
+respectively.
 
 %prep
 %setup -q -c -n %{packname}

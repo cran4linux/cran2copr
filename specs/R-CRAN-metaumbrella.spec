@@ -1,35 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  EMpeaksR
-%global packver   0.2.0
+%global packname  metaumbrella
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conducting the Peak Fitting Based on the EM Algorithm
+Summary:          Umbrella Review Package for R
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-meta 
+BuildRequires:    R-CRAN-powerSurvEpi 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-tcltk 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-writexl 
+BuildRequires:    R-CRAN-xtable 
+Requires:         R-CRAN-meta 
+Requires:         R-CRAN-powerSurvEpi 
+Requires:         R-CRAN-readxl 
+Requires:         R-tcltk 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-writexl 
+Requires:         R-CRAN-xtable 
 
 %description
-The peak fitting of spectral data is performed by using the frame work of
-EM algorithm.  We adapted the EM algorithm for the peak fitting of
-spectral data set by considering the weight of the intensity corresponding
-to the measurement energy steps (Matsumura, T., Nagamura, N., Akaho, S.,
-Nagata, K., & Ando, Y. (2019 and 2021) <doi:10.1080/14686996.2019.1620123>
-and <doi:10.1080/27660400.2021.1899449>.  The package efficiently
-estimates the parameters of Gaussian mixture model during iterative
-calculation between E-step and M-step, and the parameters are converged to
-a local optimal solution.  This package can support the investigation of
-peak shift with two advantages: (1) a large amount of data can be
-processed at high speed; and (2) stable and automatic calculation can be
-easily performed.
+A comprehensive range of facilities to perform umbrella reviews with
+stratification of the evidence in R. The package accomplishes this aim by
+building on three core functions that: (i) automatically perform all
+required calculations (including but not limited to meta-analyses), (ii)
+stratify evidence according to various criteria, and (iii) generate a
+visual representation of the results. Note that if you are not familiar
+with R, the core features of this package are available from a web browser
+(<https://www.metaumbrella.org/>).
 
 %prep
 %setup -q -c -n %{packname}
