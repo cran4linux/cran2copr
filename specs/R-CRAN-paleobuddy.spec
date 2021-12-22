@@ -1,31 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  WorldFlora
-%global packver   1.10
+%global packname  paleobuddy
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Standardize Plant Names According to World Flora Online Taxonomic Backbone
+Summary:          Simulating Diversification Dynamics
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 
 %description
-World Flora Online is an online flora of all known plants, available from
-<http://www.worldfloraonline.org/>. Methods are provided of matching a
-list of plant names (scientific names, taxonomic names, botanical names)
-against a static copy of the World Flora Online Taxonomic Backbone data
-that can be downloaded from the World Flora Online website. The World
-Flora Online Taxonomic Backbone is an updated version of The Plant List
-(<http://www.theplantlist.org/>), a working list of plant names that has
-become static since 2013.
+Simulation of species diversification, fossil records, and phylogenies.
+While the literature on species birth-death simulators is extensive,
+including important software like 'paleotree' and 'APE', we concluded
+there were interesting gaps to be filled regarding possible
+diversification scenarios. Here we strove for flexibility over focus,
+implementing a large array of regimens for users to experiment with and
+combine. In this way, 'paleobuddy' can be used in complement to other
+simulators as a flexible jack of all trades, or, in the case of scenarios
+implemented only here, can allow for robust and easy simulations for novel
+situations. Environmental data modified from that in 'RPANDA': Morlon H.
+et al (2016) <doi:10.1111/2041-210X.12526>.
 
 %prep
 %setup -q -c -n %{packname}

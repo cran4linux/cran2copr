@@ -1,31 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  WorldFlora
-%global packver   1.10
+%global packname  nsp
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Standardize Plant Names According to World Flora Online Taxonomic Backbone
+Summary:          Inference for Multiple Change-Points in Linear Models
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-lpSolve 
+Requires:         R-CRAN-lpSolve 
 
 %description
-World Flora Online is an online flora of all known plants, available from
-<http://www.worldfloraonline.org/>. Methods are provided of matching a
-list of plant names (scientific names, taxonomic names, botanical names)
-against a static copy of the World Flora Online Taxonomic Backbone data
-that can be downloaded from the World Flora Online website. The World
-Flora Online Taxonomic Backbone is an updated version of The Plant List
-(<http://www.theplantlist.org/>), a working list of plant names that has
-become static since 2013.
+Implementation of Narrowest Significance Pursuit, a general and flexible
+methodology for automatically detecting localised regions in data
+sequences which each must contain a change-point (understood as an abrupt
+change in the parameters of an underlying linear model), at a prescribed
+global significance level. Narrowest Significance Pursuit works with a
+wide range of distributional assumptions on the errors, and yields exact
+desired finite-sample coverage probabilities, regardless of the form or
+number of the covariates. For details, see P. Fryzlewicz (2021)
+<https://stats.lse.ac.uk/fryzlewicz/nsp/nsp.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

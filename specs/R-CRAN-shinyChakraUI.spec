@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  shinyChakraUI
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Wrapper of the 'React' Library 'Chakra UI' for 'Shiny'
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-formatR 
+BuildRequires:    R-CRAN-fontawesome 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-reactR 
 Requires:         R-CRAN-shiny 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-grDevices 
 Requires:         R-utils 
 Requires:         R-CRAN-formatR 
+Requires:         R-CRAN-fontawesome 
 
 %description
 Makes the 'React' library 'Chakra UI' usable in 'Shiny' apps. 'Chakra UI'

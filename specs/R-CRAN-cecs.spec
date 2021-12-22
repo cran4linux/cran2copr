@@ -1,31 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  WorldFlora
-%global packver   1.10
+%global packname  cecs
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Standardize Plant Names According to World Flora Online Taxonomic Backbone
+Summary:          R Interface for the C Implementation of CEC Benchmark Functions
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-cec2013 >= 0.1.5
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-cec2013 >= 0.1.5
 
 %description
-World Flora Online is an online flora of all known plants, available from
-<http://www.worldfloraonline.org/>. Methods are provided of matching a
-list of plant names (scientific names, taxonomic names, botanical names)
-against a static copy of the World Flora Online Taxonomic Backbone data
-that can be downloaded from the World Flora Online website. The World
-Flora Online Taxonomic Backbone is an updated version of The Plant List
-(<http://www.theplantlist.org/>), a working list of plant names that has
-become static since 2013.
+Goal of this package is to provide access to benchmark functions defined
+for the Special Session and Competition on Real-Parameter Single Objective
+Optimization in one place. The package contains functions from following
+years: 2013, 2014, 2015, 2017, 2019, 2021, 2022
+(<https://github.com/P-N-Suganthan>). Implementations of CEC-2013 (Y.
+Gonzalez-Fernandez & M. Zambrano-Bigiarini) and CEC2017 (D. Jagodziński)
+are taken from existed R packages. Also, the original C source code has
+been cleaned and reorganized for better readability.
 
 %prep
 %setup -q -c -n %{packname}

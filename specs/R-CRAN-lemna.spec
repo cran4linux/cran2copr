@@ -1,31 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  WorldFlora
-%global packver   1.10
+%global packname  lemna
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Standardize Plant Names According to World Flora Online Taxonomic Backbone
+Summary:          Lemna Ecotox Effect Model
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.60
+Requires:         R-core >= 3.60
+BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+Requires:         R-CRAN-deSolve 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
 
 %description
-World Flora Online is an online flora of all known plants, available from
-<http://www.worldfloraonline.org/>. Methods are provided of matching a
-list of plant names (scientific names, taxonomic names, botanical names)
-against a static copy of the World Flora Online Taxonomic Backbone data
-that can be downloaded from the World Flora Online website. The World
-Flora Online Taxonomic Backbone is an updated version of The Plant List
-(<http://www.theplantlist.org/>), a working list of plant names that has
-become static since 2013.
+An implementation of model equations and default parameters for the
+toxicokinetic-toxicodynamic (TKTD) model of the Lemna (duckweed) aquatic
+plant. Lemna is a standard test macrophyte used in ecotox effect studies.
+The model was described and published by the SETAC Europe Interest Group
+Effect Modeling. It is a refined description of the Lemna TKTD model
+published by Schmitt et al. (2013) <doi:10.1016/j.ecolmodel.2013.01.017>.
 
 %prep
 %setup -q -c -n %{packname}

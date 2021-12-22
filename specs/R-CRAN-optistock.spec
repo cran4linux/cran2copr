@@ -1,31 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  WorldFlora
-%global packver   1.10
+%global packname  optistock
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Standardize Plant Names According to World Flora Online Taxonomic Backbone
+Summary:          Determine Optimum Stocking Times Used in Fishery Enhancements
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 
 %description
-World Flora Online is an online flora of all known plants, available from
-<http://www.worldfloraonline.org/>. Methods are provided of matching a
-list of plant names (scientific names, taxonomic names, botanical names)
-against a static copy of the World Flora Online Taxonomic Backbone data
-that can be downloaded from the World Flora Online website. The World
-Flora Online Taxonomic Backbone is an updated version of The Plant List
-(<http://www.theplantlist.org/>), a working list of plant names that has
-become static since 2013.
+A collection of functions that aid in calculating the optimum time to
+stock hatchery reared fish into a body of water given the growth,
+mortality and cost of raising a particular number of individuals to a
+certain length.
 
 %prep
 %setup -q -c -n %{packname}

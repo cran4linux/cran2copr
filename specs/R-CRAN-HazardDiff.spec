@@ -1,31 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  WorldFlora
-%global packver   1.10
+%global packname  HazardDiff
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Standardize Plant Names According to World Flora Online Taxonomic Backbone
+Summary:          Conditional Treatment Effect for Competing Risks
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Rdpack >= 0.7
+BuildRequires:    R-CRAN-ahaz 
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-Rdpack >= 0.7
+Requires:         R-CRAN-ahaz 
+Requires:         R-CRAN-rootSolve 
+Requires:         R-stats 
+Requires:         R-CRAN-survival 
 
 %description
-World Flora Online is an online flora of all known plants, available from
-<http://www.worldfloraonline.org/>. Methods are provided of matching a
-list of plant names (scientific names, taxonomic names, botanical names)
-against a static copy of the World Flora Online Taxonomic Backbone data
-that can be downloaded from the World Flora Online website. The World
-Flora Online Taxonomic Backbone is an updated version of The Plant List
-(<http://www.theplantlist.org/>), a working list of plant names that has
-become static since 2013.
+The conditional treatment effect for competing risks data in observational
+studies is estimated. While it is described as a constant difference
+between the hazard functions given the covariates, we do not assume
+specific functional forms for the covariates. Rava, D. and Xu, R. (2021)
+<arXiv:2112.09535>.
 
 %prep
 %setup -q -c -n %{packname}
