@@ -1,41 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  GE
-%global packver   0.2.3
+%global packname  NicheBarcoding
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          General Equilibrium Modeling
+Summary:          Niche-model-Based Species Identification
 
-License:          GPL-2 | GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CGE 
-BuildRequires:    R-CRAN-data.tree 
-BuildRequires:    R-CRAN-DiagrammeR 
-Requires:         R-CRAN-CGE 
-Requires:         R-CRAN-data.tree 
-Requires:         R-CRAN-DiagrammeR 
+BuildRequires:    R-CRAN-e1071 >= 1.7.7
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-dismo 
+BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-rJava 
+BuildRequires:    R-CRAN-spider 
+BuildRequires:    R-CRAN-vegan 
+Requires:         R-CRAN-e1071 >= 1.7.7
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-dismo 
+Requires:         R-CRAN-maps 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-rJava 
+Requires:         R-CRAN-spider 
+Requires:         R-CRAN-vegan 
 
 %description
-Some tools for developing general equilibrium models and some general
-equilibrium models. These models can be used for teaching economic theory
-and are built by the methods of new structural economics (see
-<https://www.nse.pku.edu.cn/> and LI Wu, 2019, ISBN: 9787521804225,
-General Equilibrium and Structural Dynamics: Perspectives of New
-Structural Economics. Beijing: Economic Science Press). The model form and
-mathematical methods can be traced back to von Neumann, J. (1945, A Model
-of General Economic Equilibrium. The Review of Economic Studies, 13. pp.
-1-9) and Kemeny, J. G., O. Morgenstern and G. L. Thompson (1956, A
-Generalization of the von Neumann Model of an Expanding Economy,
-Econometrica, 24, pp. 115-135) et al. By the way, J. G. Kemeny is a
-co-inventor of the computer language BASIC.
+Species Identification using DNA Barcodes Integrated with Environmental
+Niche Models.
 
 %prep
 %setup -q -c -n %{packname}

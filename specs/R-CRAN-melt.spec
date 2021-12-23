@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  melt
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Empirical Likelihood Tests
 
@@ -23,9 +23,9 @@ Requires:         R-CRAN-Rcpp >= 1.0.6
 Requires:         R-stats 
 
 %description
-Multiple hypothesis testing via empirical likelihood in general block
-designs. It provides asymptotic generalized family-wise error rate
-control.
+Empirical likelihood-based multiple testing for the analysis of
+experimental designs. Details of the testing procedures are given in Kim
+et al. (2021) <arxiv:2112.09206>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rtgstat
-%global packver   0.1.1
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for 'TGstat API'
+Summary:          Client for 'TGStat API'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-retry 
 BuildRequires:    R-CRAN-snakecase 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
@@ -29,16 +28,15 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-retry 
 Requires:         R-CRAN-snakecase 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 
 %description
-Allow function for using 'TGstat Stat API' and 'TGstat Search API', for
+Allow function for using 'TGStat Stat API' and 'TGStat Search API', for
 more details see <https://api.tgstat.ru/docs/ru/start/intro.html>.
-'TGstat' provide telegram channel analytics data.
+'TGStat' provide telegram channel analytics data.
 
 %prep
 %setup -q -c -n %{packname}

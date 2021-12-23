@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  iotables
-%global packver   0.4.6
+%global packver   0.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.4.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Importing and Manipulating Symmetric Input-Output Tables
 
@@ -29,6 +29,8 @@ BuildRequires:    R-CRAN-kableExtra
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-glue 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-eurostat 
 Requires:         R-CRAN-magrittr 
@@ -42,6 +44,8 @@ Requires:         R-CRAN-kableExtra
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-glue 
 
 %description
 Pre-processing and basic analytical tasks related to working with

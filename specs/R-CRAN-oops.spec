@@ -1,41 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  GE
-%global packver   0.2.3
+%global packname  oops
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          General Equilibrium Modeling
+Summary:          S3 Style Object Oriented Programming
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CGE 
-BuildRequires:    R-CRAN-data.tree 
-BuildRequires:    R-CRAN-DiagrammeR 
-Requires:         R-CRAN-CGE 
-Requires:         R-CRAN-data.tree 
-Requires:         R-CRAN-DiagrammeR 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-pryr 
+Requires:         R-utils 
+Requires:         R-CRAN-pryr 
 
 %description
-Some tools for developing general equilibrium models and some general
-equilibrium models. These models can be used for teaching economic theory
-and are built by the methods of new structural economics (see
-<https://www.nse.pku.edu.cn/> and LI Wu, 2019, ISBN: 9787521804225,
-General Equilibrium and Structural Dynamics: Perspectives of New
-Structural Economics. Beijing: Economic Science Press). The model form and
-mathematical methods can be traced back to von Neumann, J. (1945, A Model
-of General Economic Equilibrium. The Review of Economic Studies, 13. pp.
-1-9) and Kemeny, J. G., O. Morgenstern and G. L. Thompson (1956, A
-Generalization of the von Neumann Model of an Expanding Economy,
-Econometrica, 24, pp. 115-135) et al. By the way, J. G. Kemeny is a
-co-inventor of the computer language BASIC.
+Create simple, hassle-free classes with reference semantics similar to
+'RefClass' or 'R6' but relying on S3 methods. "oops" class instances tend
+to be lighter weight and faster to create. Creating a class is as easy
+creating a list, while generating an instance is a simple function call.
+Support for inheritance and fixed field classes.
 
 %prep
 %setup -q -c -n %{packname}
