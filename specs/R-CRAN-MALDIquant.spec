@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MALDIquant
-%global packver   1.20
+%global packver   1.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.20
+Version:          1.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantitative Analysis of Mass Spectrometry Data
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  lrstat
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power and Sample Size Calculation for Non-Proportional Hazards
 
@@ -28,7 +28,11 @@ test score statistics are calculated based on Edward Lakatos (1986)
 <doi:10.1016/0197-2456(86)90047-4> and Kaifeng Lu (2021)
 <doi:10.1002/pst.2069>. The boundary crossing probabilities are calculated
 using the recursive integration algorithm described in Christopher
-Jennison and Bruce W. Turnbull (2000, ISBN:0849303168).
+Jennison and Bruce W. Turnbull (2000, ISBN:0849303168). The inverse normal
+combination method due to Lu Cui, H. M. James Hung, and Sue-Jane Wang
+(1999) <doi:10.1111/j.0006-341x.1999.00853.x> is used in the simulation
+study to accommodate the information time not proportional to the total
+number of events for weighted log-rank tests.
 
 %prep
 %setup -q -c -n %{packname}

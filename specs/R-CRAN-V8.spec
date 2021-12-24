@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  V8
-%global packver   3.6.0
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6.0
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Embedded JavaScript and WebAssembly Engine for R
 
@@ -27,8 +27,8 @@ Requires:         R-utils
 
 %description
 An R interface to V8: Google's open source JavaScript and WebAssembly
-engine. This package can be compiled either with V8 version 6 and up, a
-NodeJS shared library, or the legacy 3.14/3.15 branch of V8.
+engine. This package can be compiled either with V8 version 6 and up or
+NodeJS when built as a shared library.
 
 %prep
 %setup -q -c -n %{packname}

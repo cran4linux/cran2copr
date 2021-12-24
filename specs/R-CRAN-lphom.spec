@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  lphom
-%global packver   0.3.0-11
+%global packver   0.3.0-14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0.11
+Version:          0.3.0.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ecological Inference by Linear Programming under Homogeneity
 
