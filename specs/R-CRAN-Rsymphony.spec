@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Rsymphony
-%global packver   0.1-32
+%global packver   0.1-33
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.32
+Version:          0.1.33
 Release:          1%{?dist}%{?buildtag}
 Summary:          SYMPHONY in R
 
