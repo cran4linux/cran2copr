@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SPOT
-%global packver   2.5.12
+%global packver   2.5.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.12
+Version:          2.5.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sequential Parameter Optimization Toolbox
 
@@ -53,12 +53,12 @@ Requires:         R-utils
 
 %description
 A set of tools for model-based optimization and tuning of algorithms
-(hyperparameter tuning). It includes surrogate models, optimizers, and
-design of experiment approaches. The main interface is spot, which uses
-sequentially updated surrogate models for the purpose of efficient
-optimization. The main goal is to ease the burden of objective function
-evaluations, when a single evaluation requires a significant amount of
-resources.
+(hyperparameter tuning respectively hyperparameter optimization). It
+includes surrogate models, optimizers, and design of experiment
+approaches. The main interface is spot, which uses sequentially updated
+surrogate models for the purpose of efficient optimization. The main goal
+is to ease the burden of objective function evaluations, when a single
+evaluation requires a significant amount of resources.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  iSFun
-%global packver   0.1.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integrative Dimension Reduction Analysis for Multi-Source Data
 
@@ -28,15 +28,18 @@ Requires:         R-CRAN-irlba
 Requires:         R-stats 
 
 %description
-An implementation of integrative dimension reduction analysis procedures
-for multi-source data, which provides integrative sparse partial least
-squares, integrative sparse principal component analysis, integrative
-sparse canonical correlation analysis and corresponding meta-analysis
-versions, etc. The work is built and improved upon the references: (1)
-Fang, K., Fan, X., Zhang, Q., and Ma, S. (2018). "Integrative sparse
-principal component analysis." Journal of Multivariate Analysis,
+The implement of integrative analysis methods based on a two-part
+penalization, which realizes dimension reduction analysis and mining the
+heterogeneity and association of multiple studies with compatible designs.
+The software package provides the integrative analysis methods including
+integrative sparse principal component analysis (Fang et al., 2018),
+integrative sparse partial least squares (Liang et al., 2021) and
+integrative sparse canonical correlation analysis, as well as
+corresponding individual analysis and meta-analysis versions. References:
+(1) Fang, K., Fan, X., Zhang, Q., and Ma, S. (2018). Integrative sparse
+principal component analysis. Journal of Multivariate Analysis,
 <doi:10.1016/j.jmva.2018.02.002>. (2) Liang, W., Ma, S., Zhang, Q., and
-Zhu, T. (2021). "Integrative sparse partial least squares." Statistics in
+Zhu, T. (2021). Integrative sparse partial least squares. Statistics in
 Medicine, <doi:10.1002/sim.8900>.
 
 %prep

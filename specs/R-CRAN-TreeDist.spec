@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  TreeDist
-%global packver   2.2.0
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate and Map Distances Between Phylogenetic Trees
 
@@ -41,7 +41,7 @@ Requires:         R-CRAN-shinyjs
 Implements measures of tree similarity, including information-based
 generalized Robinson-Foulds distances (Phylogenetic Information Distance,
 Clustering Information Distance, Matching Split Information Distance;
-Smith, 2020) <doi:10.1093/bioinformatics/btaa614>; Jaccard-Robinson-Foulds
+Smith 2020) <doi:10.1093/bioinformatics/btaa614>; Jaccard-Robinson-Foulds
 distances (Bocker et al. 2013) <doi:10.1007/978-3-642-40453-5_13>,
 including the Nye et al. (2006) metric
 <doi:10.1093/bioinformatics/bti720>; the Matching Split Distance
@@ -50,8 +50,9 @@ Subtree distances; the Kendall-Colijn (2016) distance
 <doi:10.1093/molbev/msw124>, and the Nearest Neighbour Interchange (NNI)
 distance, approximated per Li et al. (1996)
 <doi:10.1007/3-540-61332-3_168>. Includes tools for visualizing mappings
-of tree space, for calculating the median of sets of trees, and for
-computing the information content of trees and splits.
+of tree space (Smith 2022) <doi:10.1093/sysbio/syab100>, for calculating
+the median of sets of trees, and for computing the information content of
+trees and splits.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  LMMstar
-%global packver   0.4.3
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Repeated Measurement Models for Discrete Times
 

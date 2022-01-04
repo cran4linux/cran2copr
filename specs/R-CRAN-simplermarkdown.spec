@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  simplermarkdown
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Engine for Generating Reports using R
 

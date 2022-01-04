@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  randomForestSRC
-%global packver   2.14.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.14.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Unified Random Forests for Survival, Regression, and Classification (RF-SRC)
 

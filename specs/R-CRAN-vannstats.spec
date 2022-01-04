@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  vannstats
-%global packver   1.0.12.16
+%global packver   1.2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.12.16
+Version:          1.2.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplified Statistics for PA 606
 
@@ -45,10 +45,10 @@ Requires:         R-CRAN-stringr
 
 %description
 Simplifies functions assess normality for bivariate and multivariate
-statistical techniques, including hst(), box(), and qq(). Plots designed
-to replicate those that would result from similar calls in 'SPSS'. Also
-includes simplified formulae, such as mode(), scatter(), ow.anova(), and
-rm.anova().
+statistical techniques. Includes functions designed to replicate plots and
+tables that would result from similar calls in 'SPSS', including hst(),
+box(), qq(), tab(), cormat(), and residplot(). Also includes simplified
+formulae, such as mode(), scatter(), p.corr(), ow.anova(), and rm.anova().
 
 %prep
 %setup -q -c -n %{packname}

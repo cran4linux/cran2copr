@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  phytools
-%global packver   0.7-90
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.90
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Phylogenetic Tools for Comparative Biology (and Other Things)
 
@@ -54,24 +54,24 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-A wide range of functions for phylogenetic analysis. Functionality is
-concentrated in phylogenetic comparative biology, but also includes
-numerous methods for visualizing, manipulating, reading or writing, and
-even inferring phylogenetic trees. Included among the functions in
-phylogenetic comparative biology are various for ancestral state
-reconstruction, model-fitting, simulation of phylogenies and data, and
-multivariate analysis. There are a broad range of plotting methods for
-phylogenies and comparative data which include, but are not restricted to,
+A wide range of functions for phylogenetic analysis - concentrated in
+phylogenetic comparative biology, but also including numerous methods for
+visualizing, manipulating, reading or writing, and even inferring
+phylogenetic trees. Included among the functions in phylogenetic
+comparative biology are various for ancestral state reconstruction,
+model-fitting, and simulation of phylogenies and data, for continuous,
+discrete, and multivariate characters. A broad range of plotting methods
+for phylogenies and comparative data include, but are not restricted to,
 methods for mapping trait evolution on trees, for projecting trees into
 phenotypic space or a geographic map, and for visualizing correlated
-speciation between trees. Finally, there are numerous functions for
+speciation between trees. Finally, numerous functions are designed for
 reading, writing, analyzing, inferring, simulating, and manipulating
-phylogenetic trees and comparative data not covered by other packages. For
-instance, there are functions for randomly or non-randomly attaching
-species or clades to a phylogeny, for computing consensus phylogenies from
-a set, for simulating trees and phylogenetic data under a range of models,
-and for a wide variety of other manipulations and analyses that
-phylogenetic biologists might find useful in their research.
+phylogenetic trees and comparative data. For instance, there are functions
+for randomly or non-randomly attaching species or clades to a phylogeny,
+for computing consensus phylogenies from a set, for simulating trees and
+phylogenetic data under a range of models, and for a wide variety of other
+manipulations and analyses that phylogenetic biologists might find useful
+in their research.
 
 %prep
 %setup -q -c -n %{packname}

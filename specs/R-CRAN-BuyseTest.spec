@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BuyseTest
-%global packver   2.3.5
+%global packver   2.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.5
+Version:          2.3.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Pairwise Comparisons
 
@@ -24,6 +24,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-lava 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-prodlim 
+BuildRequires:    R-CRAN-riskRegression 
 BuildRequires:    R-stats 
 BuildRequires:    R-stats4 
 BuildRequires:    R-utils 
@@ -37,6 +38,7 @@ Requires:         R-methods
 Requires:         R-CRAN-lava 
 Requires:         R-parallel 
 Requires:         R-CRAN-prodlim 
+Requires:         R-CRAN-riskRegression 
 Requires:         R-stats 
 Requires:         R-stats4 
 Requires:         R-utils 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  nhdR
-%global packver   0.5.6
+%global packver   0.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.6
+Version:          0.5.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Working with the National Hydrography Dataset
 
@@ -53,8 +53,7 @@ Requires:         R-CRAN-purrr
 %description
 Tools for working with the National Hydrography Dataset, with functions
 for querying, downloading, and networking both the NHD
-<https://www.usgs.gov/core-science-systems/ngp/national-hydrography> and
-NHDPlus
+<https://www.usgs.gov/national-hydrography> and NHDPlus
 <https://www.epa.gov/waterdata/nhdplus-national-hydrography-dataset-plus>
 datasets.
 

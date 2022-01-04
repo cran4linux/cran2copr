@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ggfortify
-%global packver   0.4.13
+%global packver   0.4.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.13
+Version:          0.4.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Visualization Tools for Statistical Analysis Results
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 

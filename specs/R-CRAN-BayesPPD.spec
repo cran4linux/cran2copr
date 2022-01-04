@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BayesPPD
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Power Prior Design
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -24,12 +24,13 @@ Requires:         R-CRAN-RcppNumerical
 
 %description
 Bayesian power/type I error calculation and model fitting using the power
-prior and the normalized power prior for generalized linear models. The
-Bayesian clinical trial design methodology is described in Chen et al.
-(2011) <doi:10.1111/j.1541-0420.2011.01561.x>, and Psioda and Ibrahim
-(2019) <doi:10.1093/biostatistics/kxy009>. The normalized power prior is
-described in Duan et al. (2006) <doi:10.1002/env.752> and Ibrahim et al.
-(2015) <doi:10.1002/sim.6728>.
+prior and the normalized power prior for generalized linear models.
+Detailed examples of applying the package are available at
+<arXiv:2112.14616>. The Bayesian clinical trial design methodology is
+described in Chen et al. (2011) <doi:10.1111/j.1541-0420.2011.01561.x>,
+and Psioda and Ibrahim (2019) <doi:10.1093/biostatistics/kxy009>. The
+normalized power prior is described in Duan et al. (2006)
+<doi:10.1002/env.752> and Ibrahim et al. (2015) <doi:10.1002/sim.6728>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,17 +1,17 @@
 %global __brp_check_rpaths %{nil}
 %global packname  h2o
-%global packver   3.34.0.6
+%global packver   3.36.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.34.0.6
+Version:          3.36.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface for the 'H2O' Scalable Machine Learning Platform
 
 License:          Apache License (== 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
-Source1:          https://s3.amazonaws.com/h2o-release/h2o/rel-zizler/6/Rjar/h2o.jar
+Source1:          https://s3.amazonaws.com/h2o-release/h2o/rel-zorn/1/Rjar/h2o.jar
 
 Requires:         java
 BuildRequires:    R-devel >= 2.13.0
@@ -39,8 +39,8 @@ unsupervised machine learning algorithms such as Generalized Linear Models
 (GLM), Gradient Boosting Machines (including XGBoost), Random Forests,
 Deep Neural Networks (Deep Learning), Stacked Ensembles, Naive Bayes,
 Generalized Additive Models (GAM), ANOVA GLM, Cox Proportional Hazards,
-K-Means, PCA, Maximum R GLM (maxrglm), Word2Vec, as well as a fully
-automatic machine learning algorithm (H2O AutoML).
+K-Means, PCA, ModelSelection, Word2Vec, as well as a fully automatic
+machine learning algorithm (H2O AutoML).
 
 %prep
 %setup -q -c -n %{packname}

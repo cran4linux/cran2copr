@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  EpiLPS
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Bayesian Tool for Near Real-Time Estimation of the Reproduction Number
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-MASS >= 7.3.54
-BuildRequires:    R-grDevices >= 4.1.1
+BuildRequires:    R-grDevices >= 4.1.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
 BuildRequires:    R-CRAN-gridExtra >= 2.3
 BuildRequires:    R-CRAN-EpiEstim >= 2.2.4
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-coda >= 0.19.4
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-MASS >= 7.3.54
-Requires:         R-grDevices >= 4.1.1
+Requires:         R-grDevices >= 4.1.0
 Requires:         R-CRAN-ggplot2 >= 3.3.5
 Requires:         R-CRAN-gridExtra >= 2.3
 Requires:         R-CRAN-EpiEstim >= 2.2.4

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fwildclusterboot
-%global packver   0.5.1
+%global packver   0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Wild Cluster Bootstrap Inference for Linear Regression Models
 
@@ -38,15 +38,15 @@ Requires:         R-CRAN-dqrng
 %description
 Implementation of the fast algorithm for wild cluster bootstrap inference
 developed in Roodman et al (2019, STATA Journal) for linear regression
-models <https://journals.sagepub.com/doi/full/10.1177/1536867X19830877>,
-which makes it feasible to quickly calculate bootstrap test statistics
-based on a large number of bootstrap draws even for large samples - as
-long as the number of bootstrapping clusters is not too large. Multiway
-clustering, regression weights, bootstrap weights, fixed effects and
-subcluster bootstrapping are supported. Further, both restricted (WCR) and
-unrestricted (WCU) bootstrap are supported. Methods are provided for a
-variety of fitted models, including 'lm()', 'feols()' (from package
-'fixest') and 'felm()' (from package 'lfe').
+models <doi:10.1177/1536867X19830877>, which makes it feasible to quickly
+calculate bootstrap test statistics based on a large number of bootstrap
+draws even for large samples - as long as the number of bootstrapping
+clusters is not too large. Multiway clustering, regression weights,
+bootstrap weights, fixed effects and subcluster bootstrapping are
+supported. Further, both restricted (WCR) and unrestricted (WCU) bootstrap
+are supported. Methods are provided for a variety of fitted models,
+including 'lm()', 'feols()' (from package 'fixest') and 'felm()' (from
+package 'lfe').
 
 %prep
 %setup -q -c -n %{packname}

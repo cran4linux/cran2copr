@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DFA.CANCOR
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Discriminant Function and Canonical Correlation Analysis
 
@@ -16,20 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-MVN 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-MVN 
+BuildRequires:    R-CRAN-BayesFactor 
+BuildRequires:    R-CRAN-MVN 
 Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-CRAN-BayesFactor 
+Requires:         R-CRAN-MVN 
 
 %description
 Produces SPSS- and SAS-like output for linear discriminant function
 analysis and canonical correlation analysis. The methods are described in
-Manly & Alberto (2017, ISBN:9781498728966), Tabachnik & Fidell (2013,
-ISBN-10:0-205-89081-4), and Venables & Ripley (2002, ISBN:0-387-95457-0).
+Manly & Alberto (2017, ISBN:9781498728966), Rencher (2002,
+ISBN:0-471-41889-7), and Tabachnik & Fidell (2019, ISBN:9780134790541).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Luminescence
-%global packver   0.9.16
+%global packver   0.9.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.16
+Version:          0.9.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive Luminescence Dating Data Analysis
 
@@ -18,7 +18,7 @@ Requires:         R-core >= 4.0
 BuildRequires:    R-CRAN-mclust >= 5.4.7
 BuildRequires:    R-CRAN-XML >= 3.99
 BuildRequires:    R-CRAN-plotrix >= 3.8.1
-BuildRequires:    R-CRAN-raster >= 3.4.10
+BuildRequires:    R-CRAN-raster >= 3.5.2
 BuildRequires:    R-CRAN-DEoptim >= 2.2.6
 BuildRequires:    R-CRAN-lamW >= 2.1.0
 BuildRequires:    R-CRAN-zoo >= 1.8
@@ -29,15 +29,15 @@ BuildRequires:    R-CRAN-minpack.lm >= 1.2.1
 BuildRequires:    R-CRAN-data.table >= 1.14.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-bbmle >= 1.0.24
-BuildRequires:    R-CRAN-matrixStats >= 0.60.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.10.6.0.0
+BuildRequires:    R-CRAN-matrixStats >= 0.61.0
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.10.7.0.0
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
 Requires:         R-CRAN-mclust >= 5.4.7
 Requires:         R-CRAN-XML >= 3.99
 Requires:         R-CRAN-plotrix >= 3.8.1
-Requires:         R-CRAN-raster >= 3.4.10
+Requires:         R-CRAN-raster >= 3.5.2
 Requires:         R-CRAN-DEoptim >= 2.2.6
 Requires:         R-CRAN-lamW >= 2.1.0
 Requires:         R-CRAN-zoo >= 1.8
@@ -47,7 +47,7 @@ Requires:         R-CRAN-readxl >= 1.3.1
 Requires:         R-CRAN-minpack.lm >= 1.2.1
 Requires:         R-CRAN-data.table >= 1.14.0
 Requires:         R-CRAN-bbmle >= 1.0.24
-Requires:         R-CRAN-matrixStats >= 0.60.0
+Requires:         R-CRAN-matrixStats >= 0.61.0
 Requires:         R-utils 
 Requires:         R-methods 
 Requires:         R-parallel 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  wrangle
-%global packver   0.5.5
+%global packver   0.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          0.5.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Systematic Data Wrangling Idiom
 
@@ -16,11 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dplyr >= 1.0.2
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dplyr >= 1.0.2
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 

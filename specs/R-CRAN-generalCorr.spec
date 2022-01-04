@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  generalCorr
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Correlations, Causal Paths and Portfolio Selection
 
@@ -29,8 +29,8 @@ Requires:         R-CRAN-lattice
 
 %description
 Since causal paths from data are important for all sciences, the package
-provides many sophisticated functions. causeSummBlk() gives
-easy-to-interpret causal paths.  Let Z denote control variables and
+provides many sophisticated functions. causeSummBlk() and causeSum2Blk()
+give easy-to-interpret causal paths.  Let Z denote control variables and
 compare two flipped kernel regressions: X=f(Y, Z)+e1 and Y=g(X,Z)+e2. Our
 criterion Cr1 says that if |e1*Y|>|e2*X| then variation in X is more
 "exogenous or independent" than in Y and causal path is X to Y. Criterion
@@ -46,10 +46,11 @@ canonRho() for generalized canonical correlations, depMeas() measures
 nonlinear dependence, and causeSummary(mtx) reports summary of causal
 paths among matrix columns is easiest to use. Portfolio selection:
 decileVote(), momentVote(), dif4mtx(), exactSdMtx() can rank several
-stocks. Several functions whose names begin with 'boot' provide bootstrap
+stocks.  Several functions whose names begin with 'boot' provide bootstrap
 statistical inference including a new bootGcRsq() test for
-"Granger-causality" allowing nonlinear relations. See five vignettes of
-the package for theory and usage tips. See Vinod (2019)
+"Granger-causality" allowing nonlinear relations. A new tool for
+evaluation of out-of-sample portfolio performance is outOFsamp(). See six
+vignettes of the package for theory and usage tips. See Vinod (2019)
 doi{10.1080/03610918.2015.1122048}.
 
 %prep

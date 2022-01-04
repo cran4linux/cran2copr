@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mousetrap
-%global packver   3.2.0
+%global packver   3.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          3.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Process and Analyze Mouse-Tracking Data
 
@@ -34,6 +34,7 @@ BuildRequires:    R-CRAN-fastcluster
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-psych >= 1.2.4
 Requires:         R-CRAN-dplyr >= 0.5.0
 Requires:         R-CRAN-Rcpp >= 0.11.4
@@ -53,6 +54,7 @@ Requires:         R-CRAN-fastcluster
 Requires:         R-parallel 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Mouse-tracking, the analysis of mouse movements in computerized
@@ -60,9 +62,9 @@ experiments, is a method that is becoming increasingly popular in the
 cognitive sciences. The mousetrap package offers functions for importing,
 preprocessing, analyzing, aggregating, and visualizing mouse-tracking
 data. An introduction into mouse-tracking analyses using mousetrap can be
-found in Kieslich, Henninger, Wulff, Haslbeck, & Schulte-Mecklenbeck
-(2019) <doi:10.4324/9781315160559-9> (preprint:
-<https://psyarxiv.com/zuvqa/>).
+found in Wulff, Kieslich, Henninger, Haslbeck, & Schulte-Mecklenbeck
+(2021) <doi:10.31234/osf.io/v685r> (preprint:
+<https://psyarxiv.com/v685r>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -72,6 +74,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Gmisc
-%global packver   2.1.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Descriptive Statistics, Transition Plots, and More
 
@@ -30,11 +30,12 @@ BuildRequires:    R-CRAN-lattice
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-htmlTable >= 2.0.0
 Requires:         R-CRAN-Rcpp >= 0.11.4
@@ -51,11 +52,12 @@ Requires:         R-CRAN-lattice
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-stringr 
 Requires:         R-stats 
-Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-XML 
+Requires:         R-CRAN-yaml 
 Requires:         R-utils 
 
 %description

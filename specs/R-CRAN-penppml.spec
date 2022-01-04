@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  penppml
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Penalized Poisson Pseudo Maximum Likelihood Regression
 
@@ -17,17 +17,15 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-lfe 
-BuildRequires:    R-CRAN-ncvreg 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-fixest 
+BuildRequires:    R-CRAN-collapse 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-lfe 
-Requires:         R-CRAN-ncvreg 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-fixest 
+Requires:         R-CRAN-collapse 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
 

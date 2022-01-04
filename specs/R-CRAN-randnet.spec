@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  randnet
-%global packver   0.4
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Random Network Model Estimation, Selection and Parameter Tuning
 
@@ -51,9 +51,10 @@ degree corrected version and graphon neighborhood smoothing (Zhang et. al.
 2015 <arXiv:1509.08588>). It also includes the consensus clustering of Gao
 et. al. (2014) <arXiv:1410.5837>, the method of moments estimation of
 nomination SBM of Li et. al. (2020) <arxiv:2008.03652>, and the network
-mixing method of Li and Le (2021) <arxiv:2106.02803>. The work to build
-and improve this package is partially supported by the NSF grants
-DMS-2015298 and DMS-2015134.
+mixing method of Li and Le (2021) <arxiv:2106.02803>. It also include the
+informative core-periphery data processing method of Miao and Lu (2021)
+<arXiv:2101.06388>. The work to build and improve this package is
+partially supported by the NSF grants DMS-2015298 and DMS-2015134.
 
 %prep
 %setup -q -c -n %{packname}
@@ -63,6 +64,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
