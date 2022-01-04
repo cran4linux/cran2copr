@@ -3,7 +3,7 @@
 %global rlibdir %{_datadir}/R/library
 
 Name:           R-%{packname}
-Version:        0.3.8.1
+Version:        0.3.9
 Release:        1%{?dist}%{?buildtag}
 Summary:        Package Manager for the 'cran2copr' Project
 
@@ -31,6 +31,8 @@ sed -i 's/%{projname}/%{packname}/' DESCRIPTION
 sed -i 's/%{projname}/%{packname}/g' man/* R/* inst/service/dbus.service.in
 sed -i 's@Enchufa2/%{packname}@Enchufa2/%{projname}@g' man/* R/*
 sed -i 's/_sys/_copr/g' NAMESPACE man/* R/*
+# do not update cache every time the installer runs
+sed -i '/update_cache/d' inst/service/backend/dnf.py
 
 cat <<EOF > inst/service/dbus-paths
 OPATH="/org/fedoraproject/cran2copr1/PackageManager"
