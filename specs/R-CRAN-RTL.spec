@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RTL
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Risk Tool Library - Trading, Risk, Analytic for Commodities
+Summary:          Risk Tool Library - Trading, Risk, 'Analytics' for Commodities
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,64 +16,55 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-tibbletime 
-BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-tidyquant 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-tsibble 
-BuildRequires:    R-CRAN-feasts 
-BuildRequires:    R-CRAN-fabletools 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-fabletools 
+BuildRequires:    R-CRAN-feasts 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-tidyquant 
+BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-timetk 
-BuildRequires:    R-CRAN-tidyverse 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-xts 
-Requires:         R-stats 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tsibble 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-tibbletime 
-Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-tidyquant 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-tsibble 
-Requires:         R-CRAN-feasts 
-Requires:         R-CRAN-fabletools 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-rlang 
-Requires:         R-utils 
 Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-fabletools 
+Requires:         R-CRAN-feasts 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-tidyquant 
+Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-timetk 
-Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tsibble 
 
 %description
-Collection of functions and metadata to complement core packages in
-Finance and Commodities, including futures expiry tables and
-<https://www.morningstar.com/products/commodities-and-energy> API
-functions. See <https://github.com/risktoollib/RTL>.
+A toolkit for Commodities 'analytics', risk management and trading
+professionals. Includes functions for API calls to 'Morningstar
+Commodities' and 'Genscape'.
 
 %prep
 %setup -q -c -n %{packname}

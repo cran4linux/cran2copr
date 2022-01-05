@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  nvmix
-%global packver   0.0-6
+%global packver   0.0-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Normal Variance Mixtures
 
@@ -22,6 +22,8 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-copula 
 BuildRequires:    R-CRAN-pcaPP 
 BuildRequires:    R-CRAN-ADGofTest 
+BuildRequires:    R-CRAN-mnormt 
+BuildRequires:    R-CRAN-pracma 
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-qrng 
@@ -29,6 +31,8 @@ Requires:         R-CRAN-Matrix
 Requires:         R-CRAN-copula 
 Requires:         R-CRAN-pcaPP 
 Requires:         R-CRAN-ADGofTest 
+Requires:         R-CRAN-mnormt 
+Requires:         R-CRAN-pracma 
 
 %description
 Functions for working with (grouped) multivariate normal variance mixture
@@ -45,6 +49,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

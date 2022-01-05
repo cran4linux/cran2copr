@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RCLabels
-%global packver   0.0.4
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manipulate Matrix Row and Column Labels with Ease
 
@@ -16,9 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 

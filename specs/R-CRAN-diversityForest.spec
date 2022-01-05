@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  diversityForest
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Complex Split Procedures in Random Forests Through Candidate Split Sampling
+Summary:          Innovative Complex Split Procedures in Random Forests Through Candidate Split Sampling
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -47,7 +47,7 @@ Requires:         R-CRAN-RcppEigen
 Requires:         R-CRAN-survival 
 
 %description
-Implements interaction forests [1], which are specific diversity forests,
+Implements interaction forests [1], which are specific diversity forests
 and the basic form of diversity forests that uses univariable, binary
 splitting [2]. Interaction forests (IFs) are ensembles of decision trees
 that model quantitative and qualitative interaction effects using
@@ -62,10 +62,10 @@ implements random forests using an efficient C++ implementation.
 References: [1] Hornung, R. & Boulesteix, A.-L. (2021) Interaction
 Forests: Identifying and exploiting interpretable quantitative and
 qualitative interaction effects. Technical Report No. 237, Department of
-Statistics, University of Munich [2] Hornung, R. (2020) Diversity Forests:
-Using split sampling to allow for complex split procedures in random
-forest. Technical Report No. 234, Department of Statistics, University of
-Munich.
+Statistics, University of Munich, <doi:10.5282/ubm/epub.75269>. [2]
+Hornung, R. (2022) Diversity forests: Using split sampling to enable
+innovative complex split procedures in random forests. SN Computer Science
+3(2):1, <doi:10.1007/s42979-021-00920-1>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -75,6 +75,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bootComb
-%global packver   1.0.2
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Combine Parameter Estimates via Parametric Bootstrap
 
@@ -16,6 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS >= 7.3.54
+Requires:         R-CRAN-MASS >= 7.3.54
 
 %description
 Propagate uncertainty from several estimates when combining these
@@ -24,11 +26,12 @@ to simulate values from the distribution of each estimate to build up an
 empirical distribution of the combined parameter. Finally either the
 percentile method is used or the highest density interval is chosen to
 derive a confidence interval for the combined parameter with the desired
-coverage. References: Davison and Hinkley (1997,ISBN:0-521-57471-4) for
-the parametric bootstrap and percentile method, Gelman et al.
-(2014,ISBN:978-1-4398-4095-5) for the highest density interval, Stockdale
-et al. (2020)<doi:10.1016/j.jhep.2020.04.008> for an example of combining
-conditional prevalences.
+coverage. Gaussian copulas are used for when parameters are assumed to be
+dependent / correlated. References: Davison and Hinkley
+(1997,ISBN:0-521-57471-4) for the parametric bootstrap and percentile
+method, Gelman et al. (2014,ISBN:978-1-4398-4095-5) for the highest
+density interval, Stockdale et al. (2020)<doi:10.1016/j.jhep.2020.04.008>
+for an example of combining conditional prevalences.
 
 %prep
 %setup -q -c -n %{packname}

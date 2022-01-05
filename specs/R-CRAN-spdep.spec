@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spdep
-%global packver   1.1-13
+%global packver   1.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.13
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Dependence: Weighting Schemes, Statistics
 
@@ -20,18 +20,11 @@ BuildRequires:    R-CRAN-sp >= 1.0
 BuildRequires:    R-CRAN-spData >= 0.2.6.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-deldir 
 BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-LearnBayes 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-CRAN-gmodels 
-BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-CRAN-s2 
 BuildRequires:    R-CRAN-e1071 
@@ -40,18 +33,11 @@ Requires:         R-CRAN-sp >= 1.0
 Requires:         R-CRAN-spData >= 0.2.6.0
 Requires:         R-methods 
 Requires:         R-CRAN-sf 
+Requires:         R-stats 
 Requires:         R-CRAN-deldir 
 Requires:         R-graphics 
-Requires:         R-grDevices 
 Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-LearnBayes 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-expm 
-Requires:         R-CRAN-gmodels 
-Requires:         R-CRAN-nlme 
+Requires:         R-grDevices 
 Requires:         R-CRAN-units 
 Requires:         R-CRAN-s2 
 Requires:         R-CRAN-e1071 
@@ -78,14 +64,9 @@ local 'Moran's I' ('Bivand et al.' 2009) <doi:10.1016/j.csda.2008.07.021>
 and 'LOSH' local indicators of spatial heteroscedasticity ('Ord' and
 'Getis') <doi:10.1007/s00168-011-0492-y>. The implementation of most of
 the measures is described in 'Bivand' and 'Wong' (2018)
-<doi:10.1007/s11749-018-0599-x>. 'spdep' >= 1.1-1 corresponds to
-'spatialreg' >= 1.1-1, in which the model fitting functions are deprecated
-and pass through to 'spatialreg', but will mask those in 'spatialreg'.
-From versions 1.2-1, the functions will be made defunct in 'spdep'. For
-now 'spatialreg' only has functions from 'spdep', where they are shown as
-deprecated. 'spatialreg' only loads the namespace of 'spdep'; if you
-attach 'spdep', the same functions in the other package will be masked.
-Some feed through adequately, others do not.
+<doi:10.1007/s11749-018-0599-x>. From 'spdep' and 'spatialreg' versions >=
+1.2-1, the model fitting functions previously present in this package are
+defunct in 'spdep' and may be found in 'spatialreg'.
 
 %prep
 %setup -q -c -n %{packname}

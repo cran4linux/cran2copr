@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  seminr
-%global packver   2.2.1
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Building and Estimating Structural Equation Models
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  terrainr
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Landscape Visualizations in R and 'Unity'
 
@@ -17,24 +17,24 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-magick >= 2.5.0
+BuildRequires:    R-CRAN-sf >= 1.0.5
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-gdalUtils 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-magick >= 2.5.0
+Requires:         R-CRAN-sf >= 1.0.5
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-gdalUtils 
 Requires:         R-methods 
 Requires:         R-CRAN-png 
-Requires:         R-CRAN-sf 
 Requires:         R-CRAN-units 
 Requires:         R-grDevices 
 Requires:         R-CRAN-ggplot2 
@@ -44,7 +44,7 @@ Functions for the retrieval, manipulation, and visualization of
 'geospatial' data, with an aim towards producing '3D' landscape
 visualizations in the 'Unity' '3D' rendering engine. Functions are also
 provided for retrieving elevation data and base map tiles from the 'USGS'
-National Map ('<https://apps.nationalmap.gov/services/>').
+National Map <https://apps.nationalmap.gov/services/>.
 
 %prep
 %setup -q -c -n %{packname}

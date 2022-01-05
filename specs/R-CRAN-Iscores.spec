@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Iscores
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Proper Scoring Rules for Missing Value Imputation
 
@@ -19,9 +19,11 @@ BuildArch:        noarch
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-kernlab 
 Requires:         R-parallel 
 Requires:         R-stats 
 Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-kernlab 
 
 %description
 Implementation of a KL-based scoring rule to assess the quality of

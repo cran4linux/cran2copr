@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tidyndr
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of the Nigeria National Data Repository (NDR)
 
@@ -24,9 +24,11 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.3
 BuildRequires:    R-CRAN-rlang >= 0.4.10
 BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-janitor >= 2.1.0
 Requires:         R-CRAN-magrittr >= 2.0.1
 Requires:         R-CRAN-lubridate >= 1.7.9.2
@@ -35,9 +37,11 @@ Requires:         R-CRAN-dplyr >= 1.0.3
 Requires:         R-CRAN-rlang >= 0.4.10
 Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-stringr 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
 The goal is to simplify routine analysis of the Nigeria National Data

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rocker
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Database Interface Class
 
@@ -18,16 +18,16 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-safer 
+BuildRequires:    R-CRAN-sodium 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-safer 
+Requires:         R-CRAN-sodium 
 
 %description
-'R6' class interface for handling database connections using 'DBI' package
-as backend. The class allows handling of connections to e.g. PostgreSQL,
-MariaDB and SQLite. The purpose is having an intuitive object allowing
-straightforward handling of databases.
+'R6' class interface for handling relational database connections using
+'DBI' package as backend. The class allows handling of connections to e.g.
+PostgreSQL, MariaDB and SQLite. The purpose is having an intuitive object
+allowing straightforward handling of SQL databases.
 
 %prep
 %setup -q -c -n %{packname}

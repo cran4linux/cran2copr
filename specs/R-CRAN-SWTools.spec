@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SWTools
-%global packver   0.2.1.0
+%global packver   0.2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1.0
+Version:          0.2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helper Tools for Australian Hydrologists
 
@@ -34,6 +34,8 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-hydroTSM 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-segmented 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-RColorBrewer 
@@ -52,6 +54,8 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-hydroTSM 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-segmented 
 
 %description
 Functions to speed up work flow for hydrological analysis. Focused on

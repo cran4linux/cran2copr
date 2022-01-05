@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  htmlTable
-%global packver   2.3.0
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Advanced Tables for Markdown/HTML
 
@@ -37,9 +37,9 @@ Requires:         R-CRAN-htmltools
 Tables with state-of-the-art layout elements such as row spanners, column
 spanners, table spanners, zebra striping, and more. While allowing
 advanced layout, the underlying css-structure is simple in order to
-maximize compatibility with word processors such as 'MS Word' or
-'LibreOffice'. The package also contains a few text formatting functions
-that help outputting text compatible with HTML/LaTeX.
+maximize compatibility with common word processors.  The package also
+contains a few text formatting functions that help outputting text
+compatible with HTML/LaTeX.
 
 %prep
 %setup -q -c -n %{packname}
