@@ -1,38 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  moonBook
-%global packver   0.3.1
+%global packname  multinet
+%global packver   4.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          4.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions and Datasets for the Book by Keon-Woong Moon
+Summary:          Analysis and Mining of Multilayer Social Networks
 
-License:          GPL-2
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
-BuildArch:        noarch
-BuildRequires:    R-CRAN-nortest 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-sjmisc 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-nortest 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-sjmisc 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-igraph >= 1.2
+BuildRequires:    R-CRAN-Rcpp >= 1.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RColorBrewer 
+Requires:         R-CRAN-igraph >= 1.2
+Requires:         R-CRAN-Rcpp >= 1.0
+Requires:         R-methods 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
-Several analysis-related functions for the book entitled "R statistics and
-graph for medical articles" (written in Korean), version 1, by Keon-Woong
-Moon with Korean demographic data with several plot functions.
+Functions for the creation/generation and analysis of multilayer social
+networks <doi:10.18637/jss.v098.i08>.
 
 %prep
 %setup -q -c -n %{packname}

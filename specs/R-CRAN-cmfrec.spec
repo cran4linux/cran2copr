@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cmfrec
-%global packver   3.3.0
+%global packver   3.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.0
+Version:          3.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collective Matrix Factorization for Recommender Systems
 
@@ -19,18 +19,18 @@ Requires:         R-core
 %description
 Collective matrix factorization (a.k.a. multi-view or multi-way
 factorization, Singh, Gordon, (2008) <doi:10.1145/1401890.1401969>) tries
-to approximate a matrix 'X' as the product of two low-dimensional matrices
-aided with secondary information matrices about rows and/or columns of 'X'
-which are also factorized using the same latent components. The intended
-usage is for recommender systems, dimensionality reduction, and missing
-value imputation. Implements extensions of the original model (Cortes,
-(2018) <arXiv:1809.00366>) and can produce different factorizations such
-as the weighted 'implicit-feedback' model (Hu, Koren, Volinsky, (2008)
-<doi:10.1109/ICDM.2008.22>), the 'weighted-lambda-regularization' model,
-(Zhou, Wilkinson, Schreiber, Pan, (2008)
-<doi:10.1007/978-3-540-68880-8_32>), or the enhanced model with 'implicit
-features' (Rendle, Zhang, Koren, (2019) <arXiv:1905.01395>), with or
-without side information. Can use gradient-based procedures or
+to approximate a matrix 'X' as the product of two low-dimensional
+matrices, optionally aided with secondary information matrices about rows
+and/or columns of 'X' which are also factorized using the same latent
+components. The intended usage is for recommender systems, dimensionality
+reduction, and missing value imputation. Implements extensions of the
+original model (Cortes, (2018) <arXiv:1809.00366>) and can produce
+different factorizations such as the weighted 'implicit-feedback' model
+(Hu, Koren, Volinsky, (2008) <doi:10.1109/ICDM.2008.22>), the
+'weighted-lambda-regularization' model, (Zhou, Wilkinson, Schreiber, Pan,
+(2008) <doi:10.1007/978-3-540-68880-8_32>), or the enhanced model with
+'implicit features' (Rendle, Zhang, Koren, (2019) <arXiv:1905.01395>),
+with or without side information. Can use gradient-based procedures or
 alternating-least squares procedures (Koren, Bell, Volinsky, (2009)
 <doi:10.1109/MC.2009.263>), with either a Cholesky solver, a faster
 conjugate gradient solver (Takacs, Pilaszy, Tikk, (2011)

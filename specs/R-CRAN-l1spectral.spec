@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  l1spectral
-%global packver   0.99.4
+%global packver   0.99.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.4
+Version:          0.99.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          An L1-Version of the Spectral Clustering
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-aricode 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-cvTools 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-aricode 
 Requires:         R-grDevices 
+Requires:         R-CRAN-caret 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-cvTools 

@@ -1,38 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  moonBook
-%global packver   0.3.1
+%global packname  hfr
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions and Datasets for the Book by Keon-Woong Moon
+Summary:          Estimate Hierarchical Feature Regression Models
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nortest 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-sjmisc 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-nortest 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-sjmisc 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dendextend 
+BuildRequires:    R-CRAN-RColorBrewer 
+Requires:         R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-quadprog 
+Requires:         R-stats 
+Requires:         R-CRAN-dendextend 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
-Several analysis-related functions for the book entitled "R statistics and
-graph for medical articles" (written in Korean), version 1, by Keon-Woong
-Moon with Korean demographic data with several plot functions.
+Provides functions for the estimation, plotting, predicting and
+cross-validation of hierarchical feature regression models as described in
+Pfitzinger (2021) <arXiv:2107.04831>.
 
 %prep
 %setup -q -c -n %{packname}

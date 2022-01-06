@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  epitweetr
-%global packver   0.1.28
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.28
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Early Detection of Public Health Threats from Twitter Data
 
@@ -18,27 +18,34 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-crul 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-httpuv 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-keyring 
+BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-emayili 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-rtweet 
 BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-rnaturalearthdata 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-tidytext 
 BuildRequires:    R-CRAN-tokenizers 
@@ -48,27 +55,34 @@ BuildRequires:    R-CRAN-xtable
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-bit64 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-crul 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-DT 
+Requires:         R-CRAN-future 
 Requires:         R-CRAN-httpuv 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-keyring 
+Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-emayili 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-magrittr 
 Requires:         R-parallel 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-rtweet 
 Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-rnaturalearthdata 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-stringr 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-tidytext 
 Requires:         R-CRAN-tokenizers 
@@ -92,6 +106,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

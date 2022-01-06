@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  FAOSTAT
-%global packver   2.2.1
+%global packver   2.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Data from the FAOSTAT Database
 
@@ -37,7 +37,7 @@ Requires:         R-CRAN-labeling >= 0.1
 Download Data from the FAOSTAT Database of the Food and Agricultural
 Organization (FAO) of the United Nations. A list of functions to download
 statistics from FAOSTAT (database of the FAO
-<http://www.fao.org/faostat/en/#data>) and WDI (database of the World Bank
+<https://www.fao.org/faostat/>) and WDI (database of the World Bank
 <https://data.worldbank.org/>), and to perform some harmonization
 operations.
 
@@ -49,6 +49,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

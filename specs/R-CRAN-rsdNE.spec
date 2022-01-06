@@ -1,38 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  moonBook
-%global packver   0.3.1
+%global packname  rsdNE
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions and Datasets for the Book by Keon-Woong Moon
+Summary:          Response Surface Designs with Neighbour Effects (rsdNE)
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nortest 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-sjmisc 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-nortest 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-sjmisc 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-crayon 
 
 %description
-Several analysis-related functions for the book entitled "R statistics and
-graph for medical articles" (written in Korean), version 1, by Keon-Woong
-Moon with Korean demographic data with several plot functions.
+Response surface designs with neighbour effects are suitable for
+experimental situations where it is expected that the treatment
+combination administered to one experimental unit may affect the response
+on neighboring units as well as the response on the unit to which it is
+applied. Integrating these effects in the response surface model improves
+the experiment's precision (Jaggi, S., Sarika and Sharma, V.K.
+(2010)<http://krishi.icar.gov.in/jspui/handle/123456789/4364>; Verma A.,
+Jaggi S., Varghese, E.,Varghese, C.,Bhowmik, A., Datta, A. and Hemavathi
+M. (2021)<DOI: 10.1080/03610918.2021.1890123>). This package includes
+sym(), asym1(), asym2() functions that generates response surface designs
+which are rotatable under a polynomial model of a given order without
+interaction term incorporating neighbour effects.
 
 %prep
 %setup -q -c -n %{packname}

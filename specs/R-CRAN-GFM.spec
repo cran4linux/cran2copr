@@ -1,38 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  moonBook
-%global packver   0.3.1
+%global packname  GFM
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions and Datasets for the Book by Keon-Woong Moon
+Summary:          Generalized Factor Model
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nortest 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-sjmisc 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-nortest 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-sjmisc 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-doSNOW 
+Requires:         R-parallel 
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
 
 %description
-Several analysis-related functions for the book entitled "R statistics and
-graph for medical articles" (written in Korean), version 1, by Keon-Woong
-Moon with Korean demographic data with several plot functions.
+Generalized factor model for ultra-high dimensional variables with mixed
+types. We develop a two-step iterative procedure so that each update can
+be carried out in parallel across all variables and samples. The fast
+computation version is provided for ultra-high dimensional data, see
+examples for more details. More details can be referred to Wei Liu,
+Huazhen Lin, Shurong Zheng and Jin Liu. (2021)
+<doi:10.1080/01621459.2021.1999818>.
 
 %prep
 %setup -q -c -n %{packname}

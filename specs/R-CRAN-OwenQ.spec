@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
 %global packname  OwenQ
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Owen Q-Function
 
-License:          GPL-3
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 

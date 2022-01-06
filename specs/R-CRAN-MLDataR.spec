@@ -1,38 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  moonBook
-%global packver   0.3.1
+%global packname  MLDataR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions and Datasets for the Book by Keon-Woong Moon
+Summary:          Collection of Machine Learning Datasets for Supervised Machine Learning
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nortest 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-sjmisc 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-nortest 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-sjmisc 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-CRAN-ConfusionTableR 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-parsnip 
+BuildRequires:    R-CRAN-rsample 
+BuildRequires:    R-CRAN-recipes 
+BuildRequires:    R-CRAN-workflows 
+BuildRequires:    R-CRAN-ranger 
+Requires:         R-CRAN-ConfusionTableR 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-parsnip 
+Requires:         R-CRAN-rsample 
+Requires:         R-CRAN-recipes 
+Requires:         R-CRAN-workflows 
+Requires:         R-CRAN-ranger 
 
 %description
-Several analysis-related functions for the book entitled "R statistics and
-graph for medical articles" (written in Korean), version 1, by Keon-Woong
-Moon with Korean demographic data with several plot functions.
+Contains a collection of datasets for working with machine learning tasks.
+It will contain datasets for supervised machine learning Jiang
+(2020)<doi:10.1016/j.beth.2020.05.002> and will include datasets for
+classification and regression. The aim of this package is to use data
+generated around health and other domains.
 
 %prep
 %setup -q -c -n %{packname}

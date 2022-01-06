@@ -1,29 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global packname  oceanic
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Return PAC, IND, ATL of Your Coordinate
+Summary:          Location Identify Tool
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-rgdal 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-rgdal 
 
 %description
-Determine the ocean area where the fishing boat is operating. The
-longitude and latitude of the geographic coordinates are used to match the
-three oceans (including the Pacific, Indian and Atlantic) to get the ocean
-area information.
+Determine the sea area where the fishing boat operates. The latitude and
+longitude of geographic coordinates are used to match oceanic areas and
+economic sea areas. Please refer to Flanders Marine Institute (2020)
+<doi:10.14284/403>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  lcmm
-%global packver   1.9.3
+%global packver   1.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.3
+Version:          1.9.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extended Mixed Models Using Latent Classes and Latent Processes
 
@@ -13,21 +13,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-survival >= 2.37.2
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-randtoolbox 
+BuildRequires:    R-CRAN-nlme 
 Requires:         R-CRAN-survival >= 2.37.2
 Requires:         R-parallel 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-randtoolbox 
+Requires:         R-CRAN-nlme 
 
 %description
 Estimation of various extensions of the mixed models including latent
-class mixed models, joint latent latent class mixed models and mixed
-models for curvilinear univariate or multivariate longitudinal outcomes
-using a maximum likelihood estimation method (Proust-Lima, Philipps,
-Liquet (2017) <doi:10.18637/jss.v078.i02>).
+class mixed models, joint latent latent class mixed models, mixed models
+for curvilinear outcomes or mixed models for multivariate longitudinal
+outcomes using a maximum likelihood estimation method (Proust-Lima,
+Philipps, Liquet (2017) <doi:10.18637/jss.v078.i02>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +41,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

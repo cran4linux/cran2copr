@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  unitizer
-%global packver   1.4.15
+%global packver   1.4.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.15
+Version:          1.4.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive R Unit Tests
 

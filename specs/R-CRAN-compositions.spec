@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  compositions
-%global packver   2.0-2
+%global packver   2.0-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.2.0
-Requires:         R-core >= 2.2.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 

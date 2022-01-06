@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  TDA
-%global packver   1.7.7
+%global packver   1.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.7
+Version:          1.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Tools for Topological Data Analysis
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    gmp-devel
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-BH >= 1.69.0.1
+BuildRequires:    R-CRAN-BH >= 1.78.0.0
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-igraph 
@@ -33,12 +33,12 @@ Requires:         R-CRAN-scales
 Tools for the statistical analysis of persistent homology and for density
 clustering. For that, this package provides an R interface for the
 efficient algorithms of the C++ libraries 'GUDHI'
-<http://gudhi.gforge.inria.fr/>, 'Dionysus'
+<https://project.inria.fr/gudhi/software/>, 'Dionysus'
 <https://www.mrzv.org/software/dionysus/>, and 'PHAT'
 <https://bitbucket.org/phat-code/phat/>. This package also implements the
-methods in Fasy et al. (2014) <doi:10.1214/14-AOS1252> and Chazal et al.
-(2014) <doi:10.1145/2582112.2582128> for analyzing the statistical
-significance of persistent homology features.
+methods in Fasy et al. (2014) and Chazal et al. (2014)
+<doi:10.1145/2582112.2582128> for analyzing the statistical significance
+of persistent homology features.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,6 +48,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

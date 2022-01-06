@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  healthyR
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hospital Data Analysis Workflow Tools
 
@@ -32,7 +32,6 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-sqldf 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-plotly 
 Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-magrittr 
@@ -50,7 +49,6 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-sqldf 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-plotly 
 
 %description

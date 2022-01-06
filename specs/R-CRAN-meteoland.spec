@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  meteoland
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Landscape Meteorology Tools
 
@@ -21,24 +21,18 @@ BuildRequires:    R-CRAN-sf
 BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-ncdf4 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-meteospain 
 BuildRequires:    R-CRAN-units 
-BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-spdep 
 Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-ncdf4 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-methods 
 Requires:         R-CRAN-meteospain 
 Requires:         R-CRAN-units 
-Requires:         R-CRAN-xml2 
 
 %description
 Functions to estimate weather variables at any position of a landscape [De

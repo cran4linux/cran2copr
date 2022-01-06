@@ -1,38 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  moonBook
-%global packver   0.3.1
+%global packname  qbld
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions and Datasets for the Book by Keon-Woong Moon
+Summary:          Quantile Regression for Binary Longitudinal Data
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
-BuildArch:        noarch
-BuildRequires:    R-CRAN-nortest 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-sjmisc 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-nortest 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-sjmisc 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-mcmcse 
+BuildRequires:    R-CRAN-stableGR 
+BuildRequires:    R-CRAN-RcppDist 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-CRAN-mcmcse 
+Requires:         R-CRAN-stableGR 
+Requires:         R-CRAN-RcppDist 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rmarkdown 
 
 %description
-Several analysis-related functions for the book entitled "R statistics and
-graph for medical articles" (written in Korean), version 1, by Keon-Woong
-Moon with Korean demographic data with several plot functions.
+Implements the Bayesian quantile regression model for binary longitudinal
+data (QBLD) developed in Rahman and Vossmeyer (2019)
+<DOI:10.1108/S0731-90532019000040B009>. The model handles both fixed and
+random effects and implements both a blocked and an unblocked Gibbs
+sampler for posterior inference.
 
 %prep
 %setup -q -c -n %{packname}

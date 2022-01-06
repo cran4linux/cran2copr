@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  stabiliser
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stabilising Variable Selection
 
@@ -13,9 +13,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-bigstep 
 BuildRequires:    R-CRAN-rsample 
@@ -26,8 +27,9 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-ncvreg 
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-bigstep 
 Requires:         R-CRAN-rsample 
@@ -38,8 +40,8 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-caret 
-Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-ncvreg 
+Requires:         R-CRAN-knitr 
 
 %description
 A stable approach to variable selection through stability selection and

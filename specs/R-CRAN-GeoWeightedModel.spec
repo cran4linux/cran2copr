@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  CruzPlot
-%global packver   1.4.7
+%global packname  GeoWeightedModel
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.7
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plot Shipboard DAS Data
+Summary:          User-Friendly Interface for Geographically-Weighted Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,35 +16,46 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-swfscDAS >= 0.3.0
+BuildRequires:    R-CRAN-beepr 
+BuildRequires:    R-CRAN-cartography 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-mapdata 
-BuildRequires:    R-CRAN-marmap 
-BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-GWmodel 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyalert 
+BuildRequires:    R-CRAN-shinyBS 
+BuildRequires:    R-CRAN-shinybusy 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-swfscDAS >= 0.3.0
+BuildRequires:    R-CRAN-shinyWidgets 
+BuildRequires:    R-CRAN-sp 
+Requires:         R-CRAN-beepr 
+Requires:         R-CRAN-cartography 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-mapdata 
-Requires:         R-CRAN-marmap 
-Requires:         R-CRAN-maps 
+Requires:         R-CRAN-GWmodel 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyalert 
+Requires:         R-CRAN-shinyBS 
+Requires:         R-CRAN-shinybusy 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-shinyWidgets 
+Requires:         R-CRAN-sp 
 
 %description
-A utility program oriented to create maps, plot data, and do basic data
-summaries of 'DAS' data
-<https://swfsc-publications.fisheries.noaa.gov/publications/TM/SWFSC/NOAA-TM-NMFS-SWFSC-305.PDF>
-produced by 'WinCruz' from the Southwest Fisheries Science Center.
-<https://www.fisheries.noaa.gov/west-coast/science-data/california-current-marine-mammal-assessment-program>.
+Contains the development of a tool that provides a web-based graphical
+user interface (GUI) to perform Techniques from a subset of spatial
+statistics known as geographically weighted (GW) models. Contains methods
+described by Brunsdon et al., 1996
+<doi:10.1111/j.1538-4632.1996.tb00936.x>, Brunsdon et al., 2002
+<doi:10.1016/s0198-9715(01)00009-6>, Harris et al., 2011
+<doi:10.1080/13658816.2011.554838>, Brunsdon et al., 2007
+<doi:10.1111/j.1538-4632.2007.00709.x>.
 
 %prep
 %setup -q -c -n %{packname}

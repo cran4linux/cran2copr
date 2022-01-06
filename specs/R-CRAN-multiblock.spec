@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  multiblock
-%global packver   0.8.0
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiblock Data Fusion in Statistics and Machine Learning
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-geigen
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-MFAg 
 BuildRequires:    R-CRAN-mixlm 
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-pls 
@@ -43,7 +42,6 @@ Requires:         R-CRAN-geigen
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-MFAg 
 Requires:         R-CRAN-mixlm 
 Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-pls 

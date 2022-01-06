@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  o2plsda
-%global packver   0.0.12
+%global packver   0.0.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.12
+Version:          0.0.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiomics Data Integration
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-ggrepel
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
