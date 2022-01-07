@@ -1,40 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tobit1
-%global packver   0.1-1
+%global packname  limonaid
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          One Equation Tobit Model
+Summary:          Working with 'LimeSurvey' Surveys and Responses
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-prediction 
-BuildRequires:    R-CRAN-margins 
-BuildRequires:    R-CRAN-generics 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-prediction 
-Requires:         R-CRAN-margins 
-Requires:         R-CRAN-generics 
+BuildRequires:    R-CRAN-R6 >= 2.4
+BuildRequires:    R-CRAN-jsonlite >= 1.7
+BuildRequires:    R-CRAN-httr >= 1.4
+Requires:         R-CRAN-R6 >= 2.4
+Requires:         R-CRAN-jsonlite >= 1.7
+Requires:         R-CRAN-httr >= 1.4
 
 %description
-A set of estimators and tests for models for which the response is
-truncated. The package includes a lot of developments following the
-seminal paper of Tobin (1958) <doi:10.2307/1907382>.
+'LimeSurvey' is Free/Libre Open Source Software for the development and
+administrations of online studies, using sophisticated tailoring
+capabilities to support multiple study designs (see
+<https://www.limesurvey.org>). This package supports programmatic creation
+of surveys that can then be imported into 'LimeSurvey', as well as user
+friendly import of responses from 'LimeSurvey' studies.
 
 %prep
 %setup -q -c -n %{packname}

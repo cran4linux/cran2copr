@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  effects
-%global packver   4.2-0
+%global packver   4.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.0
+Version:          4.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Effect Displays for Linear, Generalized Linear, and Other Models
 
@@ -18,8 +18,8 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-carData 
 BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-nnet 
-BuildRequires:    R-lattice 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-graphics 
@@ -31,8 +31,8 @@ BuildRequires:    R-CRAN-estimability
 BuildRequires:    R-CRAN-insight 
 Requires:         R-CRAN-carData 
 Requires:         R-CRAN-lme4 
-Requires:         R-nnet 
-Requires:         R-lattice 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-lattice 
 Requires:         R-grid 
 Requires:         R-CRAN-colorspace 
 Requires:         R-graphics 
@@ -50,9 +50,15 @@ statistical models with linear predictors.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -62,6 +68,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

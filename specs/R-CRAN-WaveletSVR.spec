@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  moult
-%global packver   2.2.0
+%global packname  WaveletSVR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Models for Analysing Moult in Birds
+Summary:          Wavelet-SVR Hybrid Model for Time Series Forecasting
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,14 +16,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-wavelets 
+BuildRequires:    R-CRAN-fracdiff 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-tsutils 
+Requires:         R-stats 
+Requires:         R-CRAN-wavelets 
+Requires:         R-CRAN-fracdiff 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-tsutils 
 
 %description
-Functions to estimate start and duration of moult from moult data, based
-on models developed in Underhill and Zucchini (1988, 1990).
+The main aim of this package is to combine the advantage of wavelet and
+support vector machine models for time series forecasting. This package
+also gives the accuracy measurements in terms of RMSE and MAPE. This
+package fits the hybrid Wavelet SVR model for time series forecasting The
+main aim of this package is to combine the advantage of wavelet and
+Support Vector Regression (SVR) models for time series forecasting. This
+package also gives the accuracy measurements in terms of Root Mean Square
+Error (RMSE) and Mean Absolute Prediction Error (MAPE). This package is
+based on the algorithm of Raimundo and Okamoto (2018) <DOI:
+10.1109/INFOCT.2018.8356851>.
 
 %prep
 %setup -q -c -n %{packname}

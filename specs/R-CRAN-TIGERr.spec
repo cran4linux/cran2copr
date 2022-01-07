@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  TIGERr
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Technical Variation Elimination with Ensemble Learning Architecture
 
@@ -16,15 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-caret >= 6.0.71
 BuildRequires:    R-CRAN-randomForest >= 4.6.14
-BuildRequires:    R-stats >= 4.0.3
+BuildRequires:    R-stats >= 3.0.0
 BuildRequires:    R-parallel >= 2.1.0
 BuildRequires:    R-CRAN-pbapply >= 1.4.3
 BuildRequires:    R-CRAN-ppcor >= 1.1
-Requires:         R-CRAN-caret >= 6.0.71
 Requires:         R-CRAN-randomForest >= 4.6.14
-Requires:         R-stats >= 4.0.3
+Requires:         R-stats >= 3.0.0
 Requires:         R-parallel >= 2.1.0
 Requires:         R-CRAN-pbapply >= 1.4.3
 Requires:         R-CRAN-ppcor >= 1.1
@@ -38,8 +36,7 @@ supports targeted and untargeted metabolomics data and is competent to
 perform both intra- and inter-batch technical variation removal. TIGER can
 also be used for cross-kit adjustment to ensure data obtained from
 different analytical assays can be effectively combined and compared.
-Reference: Han S. et al. (2021) TIGER: technical variation elimination for
-metabolomics data using ensemble learning architecture (submitted).
+Reference: Han S. et al. (2022) <doi:10.1093/bib/bbab535>.
 
 %prep
 %setup -q -c -n %{packname}

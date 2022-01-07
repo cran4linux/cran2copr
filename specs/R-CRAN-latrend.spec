@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  latrend
-%global packver   1.1.2
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Framework for Clustering Longitudinal Data
 
@@ -17,43 +17,23 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.12.0
-BuildRequires:    R-CRAN-stackoverflow >= 0.3.0
 BuildRequires:    R-CRAN-assertthat >= 0.2.1
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-longitudinalData 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-clusterCrit 
-BuildRequires:    R-CRAN-mclustcomp 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-mclust 
 Requires:         R-CRAN-data.table >= 1.12.0
-Requires:         R-CRAN-stackoverflow >= 0.3.0
 Requires:         R-CRAN-assertthat >= 0.2.1
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-longitudinalData 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-clusterCrit 
-Requires:         R-CRAN-mclustcomp 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-mclust 
 
 %description
 A framework for clustering longitudinal datasets in a standardized way.
@@ -72,6 +52,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

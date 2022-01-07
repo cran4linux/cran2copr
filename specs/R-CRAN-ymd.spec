@@ -1,40 +1,26 @@
 %global __brp_check_rpaths %{nil}
-%global packname  KernelICA
-%global packver   0.1.0
+%global packname  ymd
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kernel Independent Component Analysis
+Summary:          Parse 'YMD' Format Number or String to Date
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-inline 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ManifoldOptim 
-BuildRequires:    R-CRAN-JADE 
-BuildRequires:    R-CRAN-ICtest 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-inline 
-Requires:         R-methods 
-Requires:         R-CRAN-ManifoldOptim 
-Requires:         R-CRAN-JADE 
-Requires:         R-CRAN-ICtest 
 
 %description
-The kernel independent component analysis (kernel ICA) method introduced
-by Bach and Jordan (2003) <doi:10.1162/153244303768966085>. The incomplete
-Cholesky decomposition used in kernel ICA is provided as separate
-function.
+Convert 'YMD' format number or string to Date efficiently, using Rust's
+standard library. It also provides helper functions to handle Date, e.g.,
+quick finding the beginning or ending of the given period, adding months
+to Date, etc.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +30,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

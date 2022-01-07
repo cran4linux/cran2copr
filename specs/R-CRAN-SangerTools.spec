@@ -1,40 +1,51 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dcortools
-%global packver   0.1.2
+%global packname  SangerTools
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Providing Fast and Flexible Functions for Distance Correlation Analysis
+Summary:          Tools for Population Health Management Analytics
 
-License:          GPL-3
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.3
-Requires:         R-core >= 3.3.3
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-pheatmap 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-Rfast 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-ggthemes 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-odbc 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-pheatmap 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-readr 
+Requires:         R-utils 
+Requires:         R-CRAN-ggthemes 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-ggtext 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-odbc 
 
 %description
-Providing functionalities for calculating association measures and
-dependence tests based on distance covariance and distance correlation.
+Created for population health analytics and monitoring. The functions in
+this package work best when working with patient level Master Patient
+Index-like datasets . Built to be used by NHS bodies and other health
+service providers.
 
 %prep
 %setup -q -c -n %{packname}

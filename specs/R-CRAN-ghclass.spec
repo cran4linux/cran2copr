@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ggmatplot
-%global packver   0.1.0
+%global packname  ghclass
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plot Columns of Two Matrices Against Each Other Using 'ggplot2'
+Summary:          Tools for Managing Classes on GitHub
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,17 +16,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-cli >= 3.0.0
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-gh 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-whisker 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-cli >= 3.0.0
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-gh 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-whisker 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-dplyr 
 
 %description
-A quick and easy way of plotting the columns of two matrices or data
-frames against each other using 'ggplot2'. Although 'ggmatplot' doesn't
-provide the same flexibility as 'ggplot2', it can be used as a workaround
-for having to wrangle wide format data into long format for plotting with
-'ggplot2'.
+Interface for the GitHub API that enables efficient management of courses
+on GitHub. It has a functionality for managing organizations, teams,
+repositories, and users on GitHub and helps automate most of the tedious
+and repetitive tasks around creating and distributing assignments.
 
 %prep
 %setup -q -c -n %{packname}

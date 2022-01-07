@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rlc
-%global packver   0.4.1
+%global packname  geeasy
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Interactive Linked Charts with Minimal Code
+Summary:          Solve Generalized Estimating Equations for Clustered Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,27 +16,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jrc >= 0.4.0
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-hwriter 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-geepack 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-jrc >= 0.4.0
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-hwriter 
-Requires:         R-CRAN-plyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-geeM 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-MESS 
+Requires:         R-CRAN-geepack 
 Requires:         R-stats 
-Requires:         R-CRAN-R6 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-geeM 
+Requires:         R-CRAN-lme4 
+Requires:         R-methods 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MESS 
 
 %description
-An easy-to-use tool to employ interactivity in every-day exploratory
-analysis. It contains a collection of most commonly used types of charts
-(such as scatter plots, line plots, heatmaps, bar charts), which can be
-linked to each other or to other interactive elements with just few lines
-of code.
+Estimation of generalized linear models with correlated/clustered
+observations by use of generalized estimating equations (GEE). See e.g.
+Halekoh and Højsgaard, (2005, <doi:10.18637/jss.v015.i02>), for details.
+Several types of clustering are supported, including exchangeable variance
+structures, AR1 structures, M-dependent, user-specified variance
+structures and more. The model fitting computations are performed using
+modified code from the 'geeM' package, while the interface and output
+objects have been written to resemble the 'geepack' package. The package
+also contains additional tools for working with and inspecting results
+from the 'geepack' package, e.g. a 'confint' method for 'geeglm' objects
+from 'geepack'.
 
 %prep
 %setup -q -c -n %{packname}

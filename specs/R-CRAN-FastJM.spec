@@ -1,37 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  frscore
-%global packver   0.1.0
+%global packname  FastJM
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Calculating Fit-Robustness of CNA-Solutions
+Summary:          Semi-Parametric Joint Modeling of Survival and Longitudinal Data
 
-License:          AGPL (>= 3)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-cna >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-cna >= 3.2.0
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-statmod 
+Requires:         R-CRAN-survival 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Functions for automatically performing a reanalysis series on a data set
-using CNA, and for calculating the fit-robustness of the resulting models,
-as described in Parkkinen and Baumgartner (2021)
-<doi:10.1177/0049124120986200>.
+Maximum likelihood estimation for the semi-parametric joint modeling of
+competing risks and longitudinal data applying one way scan algorithm,
+proposed by Li and colleagues (2021) <arXiv:2110.14822>. The time-to-event
+data is modelled using a (cause-specific) Cox proportional hazards
+regression model with time-fixed covariates. The longitudinal outcome is
+modelled using a linear mixed effects model. The association is captured
+by shared random effects. The model is estimated using am Expectation
+Maximization algorithm.
 
 %prep
 %setup -q -c -n %{packname}

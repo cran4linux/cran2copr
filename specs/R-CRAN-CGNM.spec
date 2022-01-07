@@ -1,38 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  NetOrigin
-%global packver   1.1-2
+%global packname  CGNM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Origin Estimation for Propagation Processes on Complex Networks
+Summary:          Cluster Gauss-Newton Method
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.2
-Requires:         R-core >= 3.2.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-corpcor 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-corpcor 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Performs network-based source estimation. Different approaches are
-available: effective distance median, recursive backtracking, and
-centrality-based source estimation. Additionally, we provide public
-transportation network data as well as methods for data preparation,
-source estimation performance analysis and visualization.
+Find multiple solutions of a nonlinear least squares problem.  Cluster
+Gauss-Newton method does not assume uniqueness of the solution of the
+nonlinear least squares problem and compute approximate multiple
+minimizers. Please cite the following paper when this software is used in
+your research: Aoki et al. (2020) <doi:10.1007/s11081-020-09571-2>.
+Cluster Gauss–Newton method. Optimization and Engineering, 1-31.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,6 +37,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  NAP
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Local Alternative Priors in Psychology
 
@@ -32,17 +32,17 @@ Requires:         R-graphics
 %description
 Conducts Bayesian Hypothesis tests of a point null hypothesis against a
 two-sided alternative using Non-local Alternative Prior (NAP) for one- and
-two-sample z- and t-tests (Johnson, V. and Rossell, R. (2010)
-<doi:10.1111/j.1467-9868.2009.00730.x>). Under the alternative, the NAP is
-assumed on the standardized effects size in one-sample tests and on their
-differences in two-sample tests. The package considers two types of NAP
-densities: (1) the normal moment prior, and (2) the composite alternative.
-In fixed design tests, the functions calculate the Bayes factors and the
-expected weight of evidence for varied effect size and sample size. The
-package also provides a sequential testing framework using the Sequential
-Bayes Factor (SBF) design. The functions calculate the operating
-characteristics (OC) and the average sample number (ASN), and also
-conducts sequential tests for a sequentially observed data.
+two-sample z- and t-tests (Pramanik and Johnson, 2022). Under the
+alternative, the NAP is assumed on the standardized effects size in
+one-sample tests and on their differences in two-sample tests. The package
+considers two types of NAP densities: (1) the normal moment prior, and (2)
+the composite alternative. In fixed design tests, the functions calculate
+the Bayes factors and the expected weight of evidence for varied effect
+size and sample size. The package also provides a sequential testing
+framework using the Sequential Bayes Factor (SBF) design. The functions
+calculate the operating characteristics (OC) and the average sample number
+(ASN), and also conducts sequential tests for a sequentially observed
+data.
 
 %prep
 %setup -q -c -n %{packname}

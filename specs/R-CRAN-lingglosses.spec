@@ -1,38 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  GGEBiplots
-%global packver   0.1.2
+%global packname  lingglosses
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          GGE Biplots with 'ggplot2'
+Summary:          Linguistic Examples and Abbreviation Lists Generation
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.1
-Requires:         R-core >= 3.3.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-grDevices >= 3.3.1
-BuildRequires:    R-stats >= 3.3.1
-BuildRequires:    R-grid >= 3.3.1
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
-BuildRequires:    R-CRAN-scales >= 0.4.1
-BuildRequires:    R-CRAN-ggforce >= 0.1.1
-Requires:         R-grDevices >= 3.3.1
-Requires:         R-stats >= 3.3.1
-Requires:         R-grid >= 3.3.1
-Requires:         R-CRAN-ggplot2 >= 2.2.0
-Requires:         R-CRAN-scales >= 0.4.1
-Requires:         R-CRAN-ggforce >= 0.1.1
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-utils 
 
 %description
-Genotype plus genotype-by-environment (GGE) biplots rendered using
-'ggplot2'. Provides a command line interface to all of the functionality
-contained within the archived package 'GGEBiplotGUI'.
+Helps to render glossed linguistic examples in html 'rmarkdown' documents
+and then semi-automatically compiles the glosses list at the end of the
+document. It also provides a database of linguistic glosses.
 
 %prep
 %setup -q -c -n %{packname}

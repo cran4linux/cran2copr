@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ivsacim
-%global packver   1.3.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Structural Additive Cumulative Intensity Models with IV
 
@@ -13,14 +13,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-lava 
-Requires:         R-CRAN-Rcpp >= 1.0.5
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-lava 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
 
 %description
 An instrumental variable estimator under structural cumulative additive

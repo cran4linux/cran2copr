@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  FlexScan
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Scan Statistics
 
@@ -21,11 +21,13 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-spatialreg 
 Requires:         R-CRAN-smerc 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-spdep 
 Requires:         R-methods 
 Requires:         R-graphics 
+Requires:         R-CRAN-spatialreg 
 
 %description
 An easy way to conduct flexible scan. Monte-Carlo method is used to test

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  IFAA
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Inference for Absolute Abundance in Microbiome Analysis
 
@@ -19,7 +19,7 @@ BuildArch:        noarch
 BuildRequires:    R-methods >= 3.3.0
 BuildRequires:    R-parallel >= 3.3.0
 BuildRequires:    R-CRAN-foreach >= 1.4.3
-BuildRequires:    R-CRAN-Matrix >= 1.2.14
+BuildRequires:    R-CRAN-Matrix >= 1.4.0
 BuildRequires:    R-CRAN-picasso >= 1.2.0
 BuildRequires:    R-CRAN-future >= 1.12.0
 BuildRequires:    R-CRAN-HDCI >= 1.0.2
@@ -33,7 +33,7 @@ BuildRequires:    R-stats
 Requires:         R-methods >= 3.3.0
 Requires:         R-parallel >= 3.3.0
 Requires:         R-CRAN-foreach >= 1.4.3
-Requires:         R-CRAN-Matrix >= 1.2.14
+Requires:         R-CRAN-Matrix >= 1.4.0
 Requires:         R-CRAN-picasso >= 1.2.0
 Requires:         R-CRAN-future >= 1.12.0
 Requires:         R-CRAN-HDCI >= 1.0.2

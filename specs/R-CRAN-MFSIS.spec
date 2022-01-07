@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MFSIS
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Moder-Free Sure Independent Screening Procedures
 
@@ -21,20 +21,24 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-Ball 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-pkgdown 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dr 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-fs 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Ball 
 Requires:         R-CRAN-reticulate 
 Requires:         R-stats 
-Requires:         R-CRAN-pkgdown 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dr 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-fs 
 
 %description
