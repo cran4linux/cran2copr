@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  soilhypfit
-%global packver   0.1-4
+%global packver   0.1-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modelling of Soil Water Retention and Hydraulic Conductivity Data
 
@@ -52,7 +52,8 @@ optionally constrained by the evaporation characteristic length (Lehmann,
 P., Bickel, S., Wei, Z. and Or, D. (2020) "Physical Constraints for
 Improved Soil Hydraulic Parameter Estimation by Pedotransfer Functions"
 <doi:10.1029/2019WR025963>) to ensure that the estimated parameters are
-physically valid.
+physically valid. Common S3 methods and further utility functions allow to
+process, explore and visualise estimation results.
 
 %prep
 %setup -q -c -n %{packname}

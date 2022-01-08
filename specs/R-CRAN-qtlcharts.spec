@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  qtlcharts
-%global packver   0.14
+%global packver   0.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14
+Version:          0.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Graphics for QTL Experiments
 
@@ -16,12 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.15
 Requires:         R-core >= 2.15
 BuildArch:        noarch
-BuildRequires:    R-CRAN-qtl >= 1.30.4
+BuildRequires:    R-CRAN-qtl >= 1.30
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-qtl >= 1.30.4
+Requires:         R-CRAN-qtl >= 1.30
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-graphics 
 Requires:         R-stats 

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
 %global packname  postcards
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Beautiful, Simple Personal Websites
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -19,11 +19,9 @@ BuildArch:        noarch
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-bslib 
 Requires:         R-utils 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-bslib 
 
 %description
 A collection of R Markdown templates for creating simple and easy to

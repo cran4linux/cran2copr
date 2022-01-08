@@ -1,32 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tsibbledata
-%global packver   0.4.0
+%global packname  QoLMiss
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diverse Datasets for 'tsibble'
+Summary:          Scales Score Calculation from Quality of Life Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.3
-Requires:         R-core >= 3.1.3
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tsibble >= 0.9.0
-BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-tsibble >= 0.9.0
-Requires:         R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-missMethods 
+Requires:         R-CRAN-survival 
 Requires:         R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-missMethods 
 
 %description
-Provides diverse datasets in the 'tsibble' data structure. These datasets
-are useful for learning and demonstrating how tidy temporal data can
-tidied, visualised, and forecasted.
+There are three functions: qol, miss_qol and miss_patient takes input of
+the data set containing the answers of QOL questionnaire. It will compute
+the three types of domain based scale scores: Global, Functional, and
+Symptoms. In case of missing data, the miss_qol and miss_patient functions
+will make the required changes and then calculate the domain-wise scale
+scores. Finally, provide an output replacing the question columns with the
+domain-based scale scores in the original data set.
 
 %prep
 %setup -q -c -n %{packname}

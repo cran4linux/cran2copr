@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  expss
-%global packver   0.10.7
+%global packver   0.11.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.7
+Version:          0.11.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tables, Labels and Some Useful Functions from Spreadsheets and 'SPSS' Statistics
 
@@ -13,21 +13,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-data.table >= 1.12.6
 BuildRequires:    R-CRAN-htmlTable >= 1.11.0
-BuildRequires:    R-CRAN-data.table >= 1.10
+BuildRequires:    R-CRAN-maditr >= 0.8.2
 BuildRequires:    R-CRAN-matrixStats >= 0.51.0
-BuildRequires:    R-CRAN-foreign 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-data.table >= 1.12.6
 Requires:         R-CRAN-htmlTable >= 1.11.0
-Requires:         R-CRAN-data.table >= 1.10
+Requires:         R-CRAN-maditr >= 0.8.2
 Requires:         R-CRAN-matrixStats >= 0.51.0
-Requires:         R-CRAN-foreign 
 Requires:         R-utils 
 Requires:         R-stats 
 
@@ -39,10 +37,9 @@ significance testing. There are facilities for nice output of tables in
 labelled variables add value labels support to base R functions and to
 some functions from other packages. Additionally, the package brings
 popular data transformation functions from 'SPSS' Statistics and 'Excel':
-'RECODE', 'COUNT', 'COMPUTE', 'DO IF', 'COUNTIF', 'VLOOKUP' and etc. These
-functions are very useful for data processing in marketing research
-surveys. Package intended to help people to move data processing from
-'Excel' and 'SPSS' to R.
+'RECODE', 'COUNT', 'COUNTIF', 'VLOOKUP' and etc. These functions are very
+useful for data processing in marketing research surveys. Package intended
+to help people to move data processing from 'Excel' and 'SPSS' to R.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,6 +49,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

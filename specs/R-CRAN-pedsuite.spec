@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pedsuite
-%global packver   1.0.4
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Installation of the 'ped suite' Packages for Pedigree Analysis
 
@@ -17,20 +17,22 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-forrel 
-BuildRequires:    R-CRAN-pedmut 
 BuildRequires:    R-CRAN-pedprobr 
 BuildRequires:    R-CRAN-pedtools 
 BuildRequires:    R-CRAN-ribd 
+BuildRequires:    R-CRAN-verbalisr 
+BuildRequires:    R-CRAN-pedmut 
 BuildRequires:    R-CRAN-dvir 
 BuildRequires:    R-CRAN-ibdsim2 
 BuildRequires:    R-CRAN-paramlink2 
 BuildRequires:    R-CRAN-pedbuildr 
 BuildRequires:    R-CRAN-segregatr 
 Requires:         R-CRAN-forrel 
-Requires:         R-CRAN-pedmut 
 Requires:         R-CRAN-pedprobr 
 Requires:         R-CRAN-pedtools 
 Requires:         R-CRAN-ribd 
+Requires:         R-CRAN-verbalisr 
+Requires:         R-CRAN-pedmut 
 Requires:         R-CRAN-dvir 
 Requires:         R-CRAN-ibdsim2 
 Requires:         R-CRAN-paramlink2 
@@ -51,6 +53,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

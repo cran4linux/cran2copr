@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  metaumbrella
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Umbrella Review Package for R
 
@@ -35,11 +35,11 @@ Requires:         R-CRAN-xtable
 A comprehensive range of facilities to perform umbrella reviews with
 stratification of the evidence in R. The package accomplishes this aim by
 building on three core functions that: (i) automatically perform all
-required calculations (including but not limited to meta-analyses), (ii)
-stratify evidence according to various criteria, and (iii) generate a
-visual representation of the results. Note that if you are not familiar
-with R, the core features of this package are available from a web browser
-(<https://www.metaumbrella.org/>).
+required calculations in an umbrella review (including but not limited to
+meta-analyses), (ii) stratify evidence according to various classification
+criteria, and (iii) generate a visual representation of the results. Note
+that if you are not familiar with R, the core features of this package are
+available from a web browser (<https://www.metaumbrella.org/>).
 
 %prep
 %setup -q -c -n %{packname}

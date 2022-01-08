@@ -1,32 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tsibbledata
-%global packver   0.4.0
+%global packname  layer
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diverse Datasets for 'tsibble'
+Summary:          Tilts your Maps and Turns Them into Ggplot Objects
 
-License:          GPL-3
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.3
-Requires:         R-core >= 3.1.3
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tsibble >= 0.9.0
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-tsibble >= 0.9.0
-Requires:         R-CRAN-rappdirs 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-stars 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-scico 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggnewscale 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-stars 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-scico 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggnewscale 
 
 %description
-Provides diverse datasets in the 'tsibble' data structure. These datasets
-are useful for learning and demonstrating how tidy temporal data can
-tidied, visualised, and forecasted.
+Simplifies the whole process of creating stacked tilted maps, that are
+often used in scientific publications to show different environmental
+layers for a geographical region. Tilting maps and layering them allows to
+easily draw visual correlations between these environmental layers.
 
 %prep
 %setup -q -c -n %{packname}

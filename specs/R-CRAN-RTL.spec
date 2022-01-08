@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RTL
-%global packver   0.1.9
+%global packver   0.1.91
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.1.91
 Release:          1%{?dist}%{?buildtag}
 Summary:          Risk Tool Library - Trading, Risk, 'Analytics' for Commodities
 
@@ -29,7 +29,6 @@ BuildRequires:    R-CRAN-feasts
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-tidyquant 
-BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-timetk 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
@@ -51,7 +50,6 @@ Requires:         R-CRAN-feasts
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-tidyquant 
-Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-timetk 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 

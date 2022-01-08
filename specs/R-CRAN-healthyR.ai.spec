@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  healthyR.ai
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Machine Learning and AI Modeling Companion to 'healthyR'
 
@@ -27,7 +27,6 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-recipes 
-BuildRequires:    R-CRAN-parsnip 
 BuildRequires:    R-CRAN-rsample 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-h2o 
@@ -42,7 +41,6 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-recipes 
-Requires:         R-CRAN-parsnip 
 Requires:         R-CRAN-rsample 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-h2o 

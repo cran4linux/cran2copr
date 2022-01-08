@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  NeuralSens
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sensitivity Analysis of Neural Networks
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-Hmisc
 BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-ggnewscale 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-NeuralNetTools 
@@ -38,6 +39,7 @@ Requires:         R-CRAN-Hmisc
 Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-ggnewscale 
+Requires:         R-CRAN-magrittr 
 
 %description
 Analysis functions to quantify inputs importance in neural network models.
@@ -55,6 +57,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

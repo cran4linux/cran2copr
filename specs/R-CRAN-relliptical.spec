@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  relliptical
-%global packver   0.9.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Truncated Elliptical Family of Distributions
 
@@ -18,16 +18,13 @@ Requires:         R-core
 BuildRequires:    R-CRAN-FuzzyNumbers.Ext.2 
 BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppNumerical 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-Ryacas0 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-FuzzyNumbers.Ext.2 
 Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppNumerical 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-Ryacas0 
 Requires:         R-stats 

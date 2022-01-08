@@ -1,32 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tsibbledata
-%global packver   0.4.0
+%global packname  ILSE
+%global packver   1.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diverse Datasets for 'tsibble'
+Summary:          Linear Regression Based on 'ILSE' for Missing Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.3
-Requires:         R-core >= 3.1.3
-BuildArch:        noarch
-BuildRequires:    R-CRAN-tsibble >= 0.9.0
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-tsibble >= 0.9.0
-Requires:         R-CRAN-rappdirs 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.0.1
+Requires:         R-core >= 3.0.1
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-stats 
 
 %description
-Provides diverse datasets in the 'tsibble' data structure. These datasets
-are useful for learning and demonstrating how tidy temporal data can
-tidied, visualised, and forecasted.
+Linear regression when covariates include missing values by embedding the
+correlation information between covariates. Especially for block missing
+data, it works well. 'ILSE' conducts imputation and regression
+simultaneously and iteratively. More details can be referred to Huazhen
+Lin, Wei Liu and Wei Lan. (2021) <doi:10.1080/07350015.2019.1635486>.
 
 %prep
 %setup -q -c -n %{packname}

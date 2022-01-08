@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  psrwe
-%global packver   1.3
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          PS-Integrated Methods for Incorporating RWE in Clinical Studies
 
@@ -15,26 +15,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.2
 BuildRequires:    R-CRAN-randomForest >= 4.6.14
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
 BuildRequires:    R-parallel >= 3.2
 BuildRequires:    R-CRAN-StanHeaders >= 2.21.0.5
 BuildRequires:    R-CRAN-rstan >= 2.19.3
+BuildRequires:    R-CRAN-rstantools >= 2.1.1
 BuildRequires:    R-CRAN-BH >= 1.72.0.3
 BuildRequires:    R-CRAN-Rcpp >= 1.0.5
 BuildRequires:    R-CRAN-cowplot >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.5
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.7.0
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-randomForest >= 4.6.14
 Requires:         R-CRAN-ggplot2 >= 3.3.2
 Requires:         R-parallel >= 3.2
 Requires:         R-CRAN-rstan >= 2.19.3
+Requires:         R-CRAN-rstantools >= 2.1.1
 Requires:         R-CRAN-Rcpp >= 1.0.5
 Requires:         R-CRAN-cowplot >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.5
 Requires:         R-methods 
+Requires:         R-CRAN-survival 
 Requires:         R-CRAN-rstantools
 
 %description
@@ -45,7 +50,7 @@ methodology can be applied to pre-select a subset of real-world data
 containing patients that are similar to those in the current clinical
 study in terms of covariates, and to stratify the selected patients
 together with those in the current study into more homogeneous strata.
-Then, methods such as power prior approach or composite likelihood
+Then, methods such as the power prior approach or composite likelihood
 approach can be applied in each stratum to draw inference for the
 parameters of interest. This package provides functions that implement the
 PS-integrated RWE analysis methods proposed in Wang et al. (2019)
@@ -61,6 +66,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  targets
-%global packver   0.9.0
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Function-Oriented 'Make'-Like Declarative Workflows
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-R6 >= 2.4.1
 BuildRequires:    R-CRAN-withr >= 2.4.0
 BuildRequires:    R-CRAN-yaml >= 2.2.1
 BuildRequires:    R-CRAN-cli >= 2.0.2
+BuildRequires:    R-CRAN-base64url >= 1.4
 BuildRequires:    R-CRAN-knitr >= 1.34
 BuildRequires:    R-CRAN-igraph >= 1.2.5
 BuildRequires:    R-CRAN-data.table >= 1.12.8
@@ -39,6 +40,7 @@ Requires:         R-CRAN-R6 >= 2.4.1
 Requires:         R-CRAN-withr >= 2.4.0
 Requires:         R-CRAN-yaml >= 2.2.1
 Requires:         R-CRAN-cli >= 2.0.2
+Requires:         R-CRAN-base64url >= 1.4
 Requires:         R-CRAN-knitr >= 1.34
 Requires:         R-CRAN-igraph >= 1.2.5
 Requires:         R-CRAN-data.table >= 1.12.8

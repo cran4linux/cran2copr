@@ -1,32 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tsibbledata
-%global packver   0.4.0
+%global packname  dynatopGIS
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diverse Datasets for 'tsibble'
+Summary:          Algorithms for Helping Build Dynamic TOPMODEL Implementations from Spatial Data
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.3
-Requires:         R-core >= 3.1.3
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tsibble >= 0.9.0
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-tsibble >= 0.9.0
-Requires:         R-CRAN-rappdirs 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-rgeos 
+Requires:         R-methods 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Provides diverse datasets in the 'tsibble' data structure. These datasets
-are useful for learning and demonstrating how tidy temporal data can
-tidied, visualised, and forecasted.
+A set of algorithms based on Quinn et al. (1991)
+<doi:10.1002/hyp.3360050106> for processing river network and digital
+elevation data to build implementations of Dynamic TOPMODEL, a
+semi-distributed hydrological model proposed in Beven and Freer (2001)
+<doi:10.1002/hyp.252>. The 'dynatop' package implements simulation code
+for Dynamic TOPMODEL based on the output of 'dynatopGIS'.
 
 %prep
 %setup -q -c -n %{packname}

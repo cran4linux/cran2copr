@@ -1,40 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  trajeR
-%global packver   0.9.0.3
+%global packname  L2E
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Group Based Modeling Trajectory
+Summary:          Robust Structured Regression via the L2 Criterion
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.4.6
-BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-ucminf 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-capushe 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.4.6
-Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-ucminf 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-capushe 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-isotone 
+BuildRequires:    R-CRAN-cobs 
+Requires:         R-CRAN-isotone 
+Requires:         R-CRAN-cobs 
 
 %description
-Find the probability and the trajectory of longitudinal mixture model.
-Methos used in the package refer to Nagin (2005),
-<doi:10.4159/9780674041318>, Nagin, D. (2005). Group-Based Modeling of
-Development. Cambridge, MA: Harvard University Press. and Noel (2022),
-<https://orbilu.uni.lu/>, thesis.
+An implementation of a computational framework for performing robust
+structured regression with the L2 criterion from Chi and Chi (2021+).
 
 %prep
 %setup -q -c -n %{packname}

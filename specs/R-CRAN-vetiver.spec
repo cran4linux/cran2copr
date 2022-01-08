@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  vetiver
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Version, Share, Deploy, and Monitor Models
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-pins >= 1.0.0
 BuildRequires:    R-CRAN-plumber >= 1.0.0
 BuildRequires:    R-CRAN-butcher 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-hardhat 
 BuildRequires:    R-CRAN-httr 
@@ -36,6 +37,7 @@ Requires:         R-CRAN-pins >= 1.0.0
 Requires:         R-CRAN-plumber >= 1.0.0
 Requires:         R-CRAN-butcher 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-generics 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-hardhat 
 Requires:         R-CRAN-httr 

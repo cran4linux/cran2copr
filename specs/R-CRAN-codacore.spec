@@ -1,32 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tsibbledata
-%global packver   0.4.0
+%global packname  codacore
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diverse Datasets for 'tsibble'
+Summary:          Learning Sparse Log-Ratios for Compositional Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.3
-Requires:         R-core >= 3.1.3
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tsibble >= 0.9.0
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-tsibble >= 0.9.0
-Requires:         R-CRAN-rappdirs 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-gtools >= 3.8
+BuildRequires:    R-CRAN-R6 >= 2.5
+BuildRequires:    R-CRAN-keras >= 2.3
+BuildRequires:    R-CRAN-tensorflow >= 2.1
+BuildRequires:    R-CRAN-pROC >= 1.17
+Requires:         R-CRAN-gtools >= 3.8
+Requires:         R-CRAN-R6 >= 2.5
+Requires:         R-CRAN-keras >= 2.3
+Requires:         R-CRAN-tensorflow >= 2.1
+Requires:         R-CRAN-pROC >= 1.17
 
 %description
-Provides diverse datasets in the 'tsibble' data structure. These datasets
-are useful for learning and demonstrating how tidy temporal data can
-tidied, visualised, and forecasted.
+In the context of high-throughput genetic data, CoDaCoRe identifies a set
+of sparse biomarkers that are predictive of a response variable of
+interest (Gordon-Rodriguez et al., 2021)
+<doi:10.1093/bioinformatics/btab645>. More generally, CoDaCoRe can be
+applied to any regression problem where the independent variable is
+Compositional (CoDa), to derive a set of scale-invariant log-ratios (ILR
+or SLR) that are maximally associated to a dependent variable.
 
 %prep
 %setup -q -c -n %{packname}

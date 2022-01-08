@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  elevatr
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Elevation Data from Various APIs
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-raster 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-furrr
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-units 
+BuildRequires:    R-CRAN-slippymath 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-httr 
@@ -38,6 +39,7 @@ Requires:         R-CRAN-furrr
 Requires:         R-CRAN-purrr 
 Requires:         R-methods 
 Requires:         R-CRAN-units 
+Requires:         R-CRAN-slippymath 
 
 %description
 Several web services are available that provide access to elevation data.

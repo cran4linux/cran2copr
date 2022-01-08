@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  esquisse
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explore and Visualize Your Data Interactively
 
@@ -17,25 +17,27 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-datamods >= 1.2.0
 BuildRequires:    R-CRAN-shiny >= 1.1.0
 BuildRequires:    R-CRAN-shinyWidgets >= 0.6.0
+BuildRequires:    R-CRAN-htmltools >= 0.5.0
 BuildRequires:    R-CRAN-rlang >= 0.3.1
-BuildRequires:    R-CRAN-datamods 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-phosphoricons 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-datamods >= 1.2.0
 Requires:         R-CRAN-shiny >= 1.1.0
 Requires:         R-CRAN-shinyWidgets >= 0.6.0
+Requires:         R-CRAN-htmltools >= 0.5.0
 Requires:         R-CRAN-rlang >= 0.3.1
-Requires:         R-CRAN-datamods 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-scales 
 Requires:         R-grDevices 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-phosphoricons 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-scales 
 
 %description
 A 'shiny' gadget to create 'ggplot2' figures interactively with
@@ -51,6 +53,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
