@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  oce
-%global packver   1.4-0
+%global packver   1.5-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Oceanographic Data
 
@@ -15,16 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.15
 Requires:         R-core >= 2.15
-BuildRequires:    R-CRAN-sf >= 0.9.0
 BuildRequires:    R-CRAN-gsw 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-sf >= 0.9.0
 Requires:         R-CRAN-gsw 
 Requires:         R-methods 
-Requires:         R-CRAN-testthat 
 Requires:         R-utils 
 Requires:         R-CRAN-Rcpp 
 
@@ -35,9 +31,9 @@ sectional data, sea-level time series, coastline and topographic data,
 etc. Provides specialized functions for calculating seawater properties
 such as potential temperature in either the 'UNESCO' or 'TEOS-10' equation
 of state. Produces graphical displays that conform to the conventions of
-the Oceanographic literature. This package is discussed extensively in Dan
-Kelley's book Oceanographic Analysis with R, published in 2018 by
-'Springer-Verlag' with ISBN 978-1-4939-8842-6.
+the Oceanographic literature. This package is discussed extensively by
+Kelley (2018) "Oceanographic Analysis with R"
+<doi:10.1007/978-1-4939-8844-0>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +43,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

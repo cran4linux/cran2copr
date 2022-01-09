@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sparklyr
-%global packver   1.7.3
+%global packver   1.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.3
+Version:          1.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to Apache Spark
 
@@ -84,7 +84,7 @@ Requires:         R-CRAN-xml2
 
 %description
 R interface to Apache Spark, a fast and general engine for big data
-processing, see <http://spark.apache.org>. This package supports
+processing, see <https://spark.apache.org/>. This package supports
 connecting to local and remote Apache Spark clusters, provides a 'dplyr'
 compatible back-end, and provides an interface to Spark's built-in machine
 learning algorithms.

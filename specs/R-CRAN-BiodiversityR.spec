@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BiodiversityR
-%global packver   2.13-1
+%global packver   2.14-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.13.1
+Version:          2.14.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Package for Community Ecology and Suitability Analysis
 
@@ -16,10 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.2
 Requires:         R-core >= 3.2.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rcmdr >= 2.6.1
+BuildRequires:    R-CRAN-Rcmdr >= 2.7.0
 BuildRequires:    R-CRAN-vegan >= 2.5.1
 BuildRequires:    R-tcltk 
-Requires:         R-CRAN-Rcmdr >= 2.6.1
+Requires:         R-CRAN-Rcmdr >= 2.7.0
 Requires:         R-CRAN-vegan >= 2.5.1
 Requires:         R-tcltk 
 
@@ -42,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

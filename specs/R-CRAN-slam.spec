@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  slam
-%global packver   0.1-49
+%global packver   0.1-50
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.49
+Version:          0.1.50
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse Lightweight Arrays and Matrices
 

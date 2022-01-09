@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RcppCGAL
-%global packver   5.3.1
+%global packver   5.3.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.3.1
+Version:          5.3.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rcpp Integration for CGAL
 
@@ -17,7 +17,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-utils 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Creates a header only package to link to the CGAL (Computational Geometry

@@ -1,38 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  test2norm
-%global packver   0.2.0
+%global packname  mpr
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Normative Standards for Cognitive Tests
+Summary:          Multi-Parameter Regression (MPR)
 
-License:          CPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 2.14
+Requires:         R-core >= 2.14
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mfp 
-Requires:         R-CRAN-mfp 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-survival 
 
 %description
-Package test2norm contains functions to generate formulas for normative
-standards applied to cognitive tests. It takes raw test scores (e.g.,
-number of correct responses) and converts them to scaled scores and
-demographically adjusted scores, using methods described in Heaton et al.
-(2003) <doi:10.1016/B978-012703570-3/50010-9> & Heaton et al. (2009,
-ISBN:9780199702800). The scaled scores are calculated as quantiles of the
-raw test scores, scaled to have the mean of 10 and standard deviation of
-3, such that higher values always correspond to better performance on the
-test. The demographically adjusted scores are calculated from the
-residuals of a model that regresses scaled scores on demographic
-predictors (e.g., age). The norming procedure makes use of the mfp()
-function from the 'mfp' package to explore nonlinear associations between
-cognition and demographic variables.
+Fitting Multi-Parameter Regression (MPR) models to right-censored survival
+data. These are flexible parametric regression models which extend
+standard models, for example, proportional hazards. See Burke & MacKenzie
+(2016) <doi:10.1111/biom.12625> and Burke et al (2020)
+<doi:10.1111/rssc.12398>.
 
 %prep
 %setup -q -c -n %{packname}
