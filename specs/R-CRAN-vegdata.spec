@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  vegdata
-%global packver   0.9.8
+%global packver   0.9.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.8
-Release:          3%{?dist}%{?buildtag}
+Version:          0.9.10
+Release:          1%{?dist}%{?buildtag}
 Summary:          Access Vegetation Databases and Treat Taxonomy
 
 License:          GPL (>= 2)
@@ -13,29 +13,61 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.0.0
-Requires:         R-core >= 2.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-foreign 
+BuildRequires:    R-CRAN-curl >= 2.4
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-xml2 >= 1.3.0
+BuildRequires:    R-CRAN-RSQLite >= 1.1.2
+BuildRequires:    R-CRAN-readr >= 1.1.1
+BuildRequires:    R-CRAN-dbplyr >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 0.7.0
+BuildRequires:    R-CRAN-DBI >= 0.6.1
+BuildRequires:    R-CRAN-hoardr >= 0.1.0
+BuildRequires:    R-CRAN-foreign 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-plyr 
-Requires:         R-foreign 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-curl >= 2.4
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-xml2 >= 1.3.0
+Requires:         R-CRAN-RSQLite >= 1.1.2
+Requires:         R-CRAN-readr >= 1.1.1
+Requires:         R-CRAN-dbplyr >= 1.0.0
+Requires:         R-CRAN-dplyr >= 0.7.0
+Requires:         R-CRAN-DBI >= 0.6.1
+Requires:         R-CRAN-hoardr >= 0.1.0
+Requires:         R-CRAN-foreign 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-rlang 
 Requires:         R-utils 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-tibble 
 
 %description
-Handling of vegetation data from different sources ( Turboveg
-<http://www.synbiosys.alterra.nl/turboveg/>; the German national
-repository <http://www.vegetweb.de> and others. Taxonomic harmonization
+Handling of vegetation data from different sources ( Turboveg 2.0
+<https://www.synbiosys.alterra.nl/turboveg/>; the German national
+repository <https://www.vegetweb.de> and others. Taxonomic harmonization
 (given appropriate taxonomic lists, e.g. the German taxonomic standard
-list "GermanSL", <http://germansl.infinitenature.org>).
+list "GermanSL", <https://germansl.infinitenature.org>).
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -43,21 +75,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/ChangeLog
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/tvdata
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

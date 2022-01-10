@@ -1,27 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mfp
-%global packver   1.5.2.1
+%global packname  frscore
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariable Fractional Polynomials
+Summary:          Functions for Calculating Fit-Robustness of CNA-Solutions
 
-License:          GPL (>= 2)
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-CRAN-cna >= 3.2.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-cna >= 3.2.0
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
 
 %description
-Fractional polynomials are used to represent curvature in regression
-models. A key reference is Royston and Altman, 1994.
+Functions for automatically performing a reanalysis series on a data set
+using CNA, and for calculating the fit-robustness of the resulting models,
+as described in Parkkinen and Baumgartner (2021)
+<doi:10.1177/0049124120986200>.
 
 %prep
 %setup -q -c -n %{packname}

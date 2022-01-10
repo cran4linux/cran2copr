@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  vannstats
-%global packver   1.2.1.3
+%global packver   1.2.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1.3
+Version:          1.2.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplified Statistics for PA 606
 

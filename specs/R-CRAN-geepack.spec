@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  geepack
-%global packver   1.3-2
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Estimating Equation Package
 
@@ -27,7 +27,8 @@ Requires:         R-CRAN-magrittr
 %description
 Generalized estimating equations solver for parameters in mean, scale, and
 correlation structures, through mean link, scale link, and correlation
-link. Can also handle clustered categorical responses.
+link. Can also handle clustered categorical responses. See e.g. Halekoh
+and Højsgaard, (2005, <doi:10.18637/jss.v015.i02>), for details.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +38,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
