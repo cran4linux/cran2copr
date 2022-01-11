@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  idiogramFISH
-%global packver   2.0.6
+%global packver   2.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.6
+Version:          2.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Shiny App. Idiograms with Marks and Karyotype Indices
 
@@ -30,14 +30,15 @@ Requires:         R-CRAN-tidyr
 %description
 Plot idiograms of karyotypes, plasmids, circular chr. having a set of
 data.frames for chromosome data and optionally mark data. Two styles of
-chromosomes can be used: without or with visible chromatids (when not
-circular). Supports micrometers, cM and Mb or any unit. Three styles of
-centromeres are available: triangular, rounded and inProtein; and six
-styles of marks are available: square (squareLeft), dots, cM (cMLeft),
-cenStyle, upArrow (downArrow), exProtein (inProtein); its legend (label)
-can be drawn inline or to the right of karyotypes. Idiograms can also be
-plotted in concentric circles. It is possible to calculate chromosome
-indices by Levan et al. (1964) <doi:10.1111/j.1601-5223.1964.tb01953.x>,
+chromosomes can be used: without or with visible chromatids. Supports
+micrometers, cM and Mb or any unit. Three styles of centromeres are
+available: triangle, rounded and inProtein; and six styles of marks are
+available: square (squareLeft), dots, cM (cMLeft), cenStyle, upArrow
+(downArrow), exProtein (inProtein); its legend (label) can be drawn inline
+or to the right of karyotypes. Idiograms can also be plotted in concentric
+circles. It is possible to calculate chromosome indices by Levan et al.
+(1964)
+<https:onlinelibrary.wiley.com/doi/abs/10.1111/j.1601-5223.1964.tb01953.x>,
 karyotype indices of Watanabe et al. (1999) <doi:10.1007/PL00013869> and
 Romero-Zarco (1986) <doi:10.2307/1221906> and classify chromosomes by
 morphology Guerra (1986) and Levan et al. (1964).

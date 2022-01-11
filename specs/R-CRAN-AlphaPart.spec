@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  AlphaPart
-%global packver   0.8.4
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Partition/Decomposition of Breeding Values by Paths of Information
 
@@ -21,12 +21,16 @@ BuildRequires:    R-CRAN-directlabels >= 1.1
 BuildRequires:    R-CRAN-Rcpp >= 0.9.4
 BuildRequires:    R-CRAN-ggplot2 >= 0.8.9
 BuildRequires:    R-CRAN-reshape 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-gdata >= 2.6.0
 Requires:         R-CRAN-pedigree >= 1.3
 Requires:         R-CRAN-directlabels >= 1.1
 Requires:         R-CRAN-Rcpp >= 0.9.4
 Requires:         R-CRAN-ggplot2 >= 0.8.9
 Requires:         R-CRAN-reshape 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
 
 %description
 A software that implements a method for partitioning genetic trends to

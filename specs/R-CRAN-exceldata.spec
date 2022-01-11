@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DArand
-%global packver   0.0.1.1
+%global packname  exceldata
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Differential Analysis with Random Reference Genes
+Summary:          Streamline Data Import, Cleaning and Recoding from 'Excel'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,14 +16,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-parallel 
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-scales 
 
 %description
-Differential Analysis of short RNA transcripts that can be modeled by
-either Poisson or Negative binomial distribution.  The statistical
-methodology implemented in this package is based on the random selection
-of references genes (Desaulle et al. (2021) <arXiv:2103.09872>).
+A small group of functions to read in a data dictionary and the
+corresponding data table from 'Excel' and to automate the cleaning,
+re-coding and creation of simple calculated variables. This package was
+designed to be a companion to the macro-enabled 'Excel' template available
+on the GitHub site, but works with any similarly-formatted 'Excel' data.
 
 %prep
 %setup -q -c -n %{packname}

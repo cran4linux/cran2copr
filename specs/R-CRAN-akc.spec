@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  akc
-%global packver   0.9.5
+%global packver   0.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          0.9.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Knowledge Classification
 
@@ -28,9 +28,9 @@ BuildRequires:    R-CRAN-ggforce
 BuildRequires:    R-CRAN-textstem 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidytext 
-BuildRequires:    R-CRAN-widyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyfst 
 Requires:         R-CRAN-data.table >= 1.13.0
 Requires:         R-CRAN-tidygraph >= 1.1.2
 Requires:         R-CRAN-ggraph >= 1.0.2
@@ -43,9 +43,9 @@ Requires:         R-CRAN-ggforce
 Requires:         R-CRAN-textstem 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidytext 
-Requires:         R-CRAN-widyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyfst 
 
 %description
 A tidy framework for automatic knowledge classification and visualization.
@@ -63,6 +63,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  crypto2
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Crypto Currency Data from 'CoinMarketCap' without 'API'
 
@@ -25,6 +25,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-plyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
@@ -34,6 +35,7 @@ Requires:         R-stats
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-plyr 
 
 %description
 Retrieves crypto currency information and historical prices as well as
@@ -49,6 +51,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

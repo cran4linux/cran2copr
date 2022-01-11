@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  googleVis
-%global packver   0.6.10
+%global packver   0.6.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.10
+Version:          0.6.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to Google Charts
 
@@ -26,9 +26,8 @@ Requires:         R-utils
 %description
 R interface to Google's chart tools, allowing users to create interactive
 charts based on data frames. Charts are displayed locally via the R HTTP
-help server. A modern browser with an Internet connection is required and
-for some charts a Flash player. The data remains local and is not uploaded
-to Google.
+help server. A modern browser with an Internet connection is required. The
+data remains local and is not uploaded to Google.
 
 %prep
 %setup -q -c -n %{packname}
@@ -38,6 +37,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  criticalpath
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Implementation of the Critical Path Method
 
@@ -16,22 +16,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
-An R6 object oriented implementation of the Critical Path Method (CPM).
-CPM is a method used to estimate the minimum project duration and
-determine the amount of scheduling flexibility on the logical network
-paths within the schedule model. The flexibility is in terms of early
-start, early finish, late start, late finish, total float and free float.
-Beside, it permits to quantify the complexity of network diagram through
-the analysis of topological indicators. Finally, it permits to change the
-activities duration to perform what-if scenario analysis. The package was
-built based on following references: To make topological sorting and other
-graph operation, we use Csardi, G. & Nepusz, T. (2005)
+An R implementation of the Critical Path Method (CPM). CPM is a method
+used to estimate the minimum project duration and determine the amount of
+scheduling flexibility on the logical network paths within the schedule
+model. The flexibility is in terms of early start, early finish, late
+start, late finish, total float and free float. Beside, it permits to
+quantify the complexity of network diagram through the analysis of
+topological indicators. Finally, it permits to change the activities
+duration to perform what-if scenario analysis. The package was built based
+on following references: To make topological sorting and other graph
+operation, we use Csardi, G. & Nepusz, T. (2005)
 <https://www.researchgate.net/publication/221995787_The_Igraph_Software_Package_for_Complex_Network_Research>;
 For schedule concept, the reference was Project Management Institute
 (2017) <https://www.pmi.org/pmbok-guide-standards/foundational/pmbok>; For
@@ -50,6 +58,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
