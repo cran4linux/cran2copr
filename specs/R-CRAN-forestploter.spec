@@ -1,52 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fishualize
-%global packver   0.2.2
+%global packname  forestploter
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Color Palettes Based on Fish Species
+Summary:          Create Flexible Forest Plot
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 1.0.1
-BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-downloader 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-ggplot2 >= 1.0.1
-Requires:         R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-gtable 
 Requires:         R-grid 
-Requires:         R-CRAN-png 
-Requires:         R-CRAN-downloader 
-Requires:         R-utils 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-curl 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-gtable 
 
 %description
-Implementation of color palettes based on fish species.
+Create forest plot based on the layout of the data. Confidence interval in
+multiple columns by groups can be done easily. Editing plot,
+inserting/adding text, applying theme to the plot and much more.
 
 %prep
 %setup -q -c -n %{packname}
@@ -56,6 +36,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

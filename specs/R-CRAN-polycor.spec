@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  polycor
-%global packver   0.8-0
+%global packver   0.8-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Polychoric and Polyserial Correlations
 
@@ -16,10 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-admisc >= 0.22
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-parallel 
+Requires:         R-CRAN-admisc >= 0.22
 Requires:         R-stats 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-Matrix 

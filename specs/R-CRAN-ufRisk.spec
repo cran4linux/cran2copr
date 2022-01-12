@@ -1,38 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MLCM
-%global packver   0.4.3
+%global packname  ufRisk
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Maximum Likelihood Conjoint Measurement
+Summary:          Risk Measure Calculation in Financial TS
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-esemifar 
+BuildRequires:    R-CRAN-fracdiff 
+BuildRequires:    R-CRAN-rugarch 
+BuildRequires:    R-CRAN-smoots 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-base 
-Requires:         R-graphics 
+Requires:         R-CRAN-esemifar 
+Requires:         R-CRAN-fracdiff 
+Requires:         R-CRAN-rugarch 
+Requires:         R-CRAN-smoots 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-base 
 
 %description
-Conjoint measurement is a psychophysical procedure in which stimulus pairs
-are presented that vary along 2 or more dimensions and the observer is
-required to compare the stimuli along one of them.  This package contains
-functions to estimate the contribution of the n scales to the judgment by
-a maximum likelihood method under several hypotheses of how the perceptual
-dimensions interact. Reference: Knoblauch & Maloney (2012) "Modeling
-Psychophysical Data in R". <doi:10.1007/978-1-4614-4475-6>.
+Enables the user to calculate Value at Risk (VaR) and Expected Shortfall
+(ES) by means of various parametric and semiparametric GARCH-type models.
+For the latter the estimation of the nonparametric scale function is
+carried out by means of a data-driven smoothing approach. Model quality,
+in terms of forecasting VaR and ES, can be assessed by means of various
+backtesting methods such as the traffic light test for VaR and a newly
+developed traffic light test for ES. The approaches implemented in this
+package are described in e.g. Feng Y., Beran J., Letmathe S. and Ghosh S.
+<https://ideas.repec.org/p/pdn/ciepap/137.html> as well as Letmathe S.,
+Feng Y. and Uhde A. (2021)
+<https://ideas.repec.org/p/pdn/ciepap/141.html>.
 
 %prep
 %setup -q -c -n %{packname}

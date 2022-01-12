@@ -1,35 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ssimparser
-%global packver   0.1.1
+%global packname  tessellation
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Standard Schedules Information Parser
+Summary:          Delaunay and Voronoï Tessellations
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-airportr 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-airportr 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-hash 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-randomcoloR 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-sets 
+BuildRequires:    R-CRAN-cxhull 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-english 
+Requires:         R-CRAN-hash 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-randomcoloR 
+Requires:         R-utils 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-sets 
+Requires:         R-CRAN-cxhull 
+Requires:         R-graphics 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-english 
 
 %description
-Parse Standard Schedules Information file (types 2 and 3) into a Data
-Frame. Can also expand schedules into flights.
+Delaunay and Voronoï tessellations, with emphasis on the two-dimensional
+and the three-dimensional cases (the package provides functions to plot
+the tessellations for these cases). Delaunay tessellations are computed in
+C with the help of the 'Qhull' library <http://www.qhull.org/>.
 
 %prep
 %setup -q -c -n %{packname}

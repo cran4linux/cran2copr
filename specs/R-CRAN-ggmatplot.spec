@@ -1,35 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ssimparser
+%global packname  ggmatplot
 %global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Standard Schedules Information Parser
+Summary:          Plot Columns of Two Matrices Against Each Other Using 'ggplot2'
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-airportr 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-airportr 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
 
 %description
-Parse Standard Schedules Information file (types 2 and 3) into a Data
-Frame. Can also expand schedules into flights.
+A quick and easy way of plotting the columns of two matrices or data
+frames against each other using 'ggplot2'. Although 'ggmatplot' doesn't
+provide the same flexibility as 'ggplot2', it can be used as a workaround
+for having to wrangle wide format data into long format for plotting with
+'ggplot2'.
 
 %prep
 %setup -q -c -n %{packname}

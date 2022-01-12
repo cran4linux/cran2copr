@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  LEGIT
-%global packver   1.3.1
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
-Release:          3%{?dist}%{?buildtag}
+Version:          1.4.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Latent Environmental & Genetic InTeraction (LEGIT) Model
 
 License:          GPL-3
@@ -27,9 +27,10 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-iterators 
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-boot 
+BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-lme4 
 Requires:         R-CRAN-formula.tools 
 Requires:         R-stats 
 Requires:         R-graphics 
@@ -41,9 +42,10 @@ Requires:         R-utils
 Requires:         R-CRAN-iterators 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-grDevices 
-Requires:         R-boot 
+Requires:         R-CRAN-boot 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-lme4 
 
 %description
 Constructs genotype x environment interaction (GxE) models where G is a
@@ -60,11 +62,21 @@ highly interpretable results and is very parameter-efficient thus it can
 even be used with small sample sizes (n < 250). Tools to determine the
 type of interaction (vantage sensitivity, diathesis-stress or differential
 susceptibility), with any number of genetic variants or environments, are
-available <arXiv:1712.04058>.
+available <arXiv:1712.04058>. The software can now produce mixed-effects
+LEGIT models through the lme4 package.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -74,15 +86,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

@@ -1,35 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ssimparser
-%global packver   0.1.1
+%global packname  QZ
+%global packver   0.2-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Standard Schedules Information Parser
+Summary:          Generalized Eigenvalues and QZ Decomposition
 
-License:          MIT + file LICENSE
+License:          Mozilla Public License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-airportr 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-airportr 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-Matrix 
 
 %description
-Parse Standard Schedules Information file (types 2 and 3) into a Data
-Frame. Can also expand schedules into flights.
+Generalized eigenvalues and eigenvectors use QZ decomposition (generalized
+Schur decomposition). The decomposition needs an N-by-N non-symmetric
+matrix A or paired matrices (A,B) with eigenvalues reordering mechanism.
+The decomposition functions are mainly based Fortran subroutines in
+complex*16 and double precision of LAPACK library (version 3.10.0 or
+later).
 
 %prep
 %setup -q -c -n %{packname}

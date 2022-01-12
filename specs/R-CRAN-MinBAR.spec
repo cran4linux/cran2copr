@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MinBAR
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Determining the Minimal Background Area for Species Distribution Models
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ecospat >= 2.2
+BuildRequires:    R-CRAN-ecospat >= 2.2.0
 BuildRequires:    R-CRAN-geosphere >= 1.5.5
 BuildRequires:    R-CRAN-dismo >= 1.1.4
 BuildRequires:    R-CRAN-raster 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-CRAN-maxnet 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-latticeExtra 
-Requires:         R-CRAN-ecospat >= 2.2
+Requires:         R-CRAN-ecospat >= 2.2.0
 Requires:         R-CRAN-geosphere >= 1.5.5
 Requires:         R-CRAN-dismo >= 1.1.4
 Requires:         R-CRAN-raster 
@@ -51,6 +51,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

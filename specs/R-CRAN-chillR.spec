@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  chillR
-%global packver   0.72.6
+%global packver   0.72.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.72.6
+Version:          0.72.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Phenology Analysis in Temperate Fruit Trees
 

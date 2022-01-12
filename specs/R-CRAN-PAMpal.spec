@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  PAMpal
-%global packver   0.14.4
+%global packver   0.15.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.4
+Version:          0.15.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Load and Process Passive Acoustic Data
 
@@ -27,16 +27,13 @@ BuildRequires:    R-CRAN-RSQLite
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-manipulate 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-rjson 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-lubridate 
@@ -51,16 +48,13 @@ Requires:         R-CRAN-RSQLite
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-purrr 
 Requires:         R-methods 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-signal 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-manipulate 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-rjson 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-lubridate 

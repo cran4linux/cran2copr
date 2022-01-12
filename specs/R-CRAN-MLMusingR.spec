@@ -1,45 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  FastJM
-%global packver   1.0.1
+%global packname  MLMusingR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Semi-Parametric Joint Modeling of Longitudinal and Survival Data
+Summary:          Practical Multilevel Modeling
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-statmod 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-lme4 
+Requires:         R-stats 
 Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-Matrix 
 
 %description
-Maximum likelihood estimation for the semi-parametric joint modeling of
-competing risks and longitudinal data applying customized linear scan
-algorithms, proposed by Li and colleagues (2021) <arXiv:2110.14822>. The
-time-to-event data is modelled using a (cause-specific) Cox proportional
-hazards regression model with time-fixed covariates. The longitudinal
-outcome is modelled using a linear mixed effects model. The association is
-captured by shared random effects. The model is estimated using an
-Expectation Maximization algorithm.
+Convenience functions and datasets to be used with Practical Multilevel
+Modeling using R. The package includes functions for calculating group
+means, group mean centered variables, and displaying some basic missing
+data information. A function for computing robust standard errors for
+linear mixed models based on Liang and Zeger (1986)
+<doi:10.1093/biomet/73.1.13> is included as well as a function for
+checking for level-one homoskedasticity (Raudenbush & Bryk, 2002,
+ISBN:076191904X).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  declared
-%global packver   0.7
+%global packver   0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Declare Missing Values
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-admisc > 0.17
-Requires:         R-CRAN-admisc > 0.17
+BuildRequires:    R-CRAN-admisc > 0.21
+Requires:         R-CRAN-admisc > 0.21
 
 %description
 A set of functions that offer an alternative to package 'haven', to deal

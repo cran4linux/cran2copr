@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ssimparser
-%global packver   0.1.1
+%global packname  DQAstats
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Standard Schedules Information Parser
+Summary:          Core Functions for Data Quality Assessment
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,20 +16,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-airportr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-DIZutils 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-airportr 
+BuildRequires:    R-CRAN-parsedate 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-RPostgres 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tinytex 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-DIZutils 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-parsedate 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-RPostgres 
+Requires:         R-stats 
+Requires:         R-CRAN-tinytex 
+Requires:         R-utils 
 
 %description
-Parse Standard Schedules Information file (types 2 and 3) into a Data
-Frame. Can also expand schedules into flights.
+Perform data quality assessment ('DQA') of electronic health records
+('EHR'). Publication: Kapsner et al. (2021) <doi:10.1055/s-0041-1733847>.
 
 %prep
 %setup -q -c -n %{packname}

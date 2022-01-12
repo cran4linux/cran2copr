@@ -1,35 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ssimparser
-%global packver   0.1.1
+%global packname  toastui
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Standard Schedules Information Parser
+Summary:          Interactive Tables, Calendars and Charts for the Web
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-airportr 
+BuildRequires:    R-CRAN-shiny >= 1.1.0
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-airportr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-shinyWidgets 
+Requires:         R-CRAN-shiny >= 1.1.0
+Requires:         R-utils 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-shinyWidgets 
 
 %description
-Parse Standard Schedules Information file (types 2 and 3) into a Data
-Frame. Can also expand schedules into flights.
+Create interactive tables, calendars and charts with 'TOAST UI'
+<https://ui.toast.com/> libraries to integrate in 'shiny' applications or
+'rmarkdown' 'HTML' documents.
 
 %prep
 %setup -q -c -n %{packname}

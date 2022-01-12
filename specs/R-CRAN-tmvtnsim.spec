@@ -1,45 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  FastJM
-%global packver   1.0.1
+%global packname  tmvtnsim
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Semi-Parametric Joint Modeling of Longitudinal and Survival Data
+Summary:          Truncated Multivariate Normal and t Distribution Simulation
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-statmod 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-mvtnorm 
 
 %description
-Maximum likelihood estimation for the semi-parametric joint modeling of
-competing risks and longitudinal data applying customized linear scan
-algorithms, proposed by Li and colleagues (2021) <arXiv:2110.14822>. The
-time-to-event data is modelled using a (cause-specific) Cox proportional
-hazards regression model with time-fixed covariates. The longitudinal
-outcome is modelled using a linear mixed effects model. The association is
-captured by shared random effects. The model is estimated using an
-Expectation Maximization algorithm.
+Simulation of random vectors from truncated multivariate normal and t
+distributions based on the algorithms proposed by Yifang Li and Sujit K.
+Ghosh (2015) <doi:10.1080/15598608.2014.996690>.
 
 %prep
 %setup -q -c -n %{packname}

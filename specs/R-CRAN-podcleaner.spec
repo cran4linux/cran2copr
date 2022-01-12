@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ssimparser
-%global packver   0.1.1
+%global packname  podcleaner
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Standard Schedules Information Parser
+Summary:          Legacy Scottish Post Office Directories Cleaner
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,20 +16,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-airportr 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-airportr 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tibble >= 3.1.5
+BuildRequires:    R-CRAN-readr >= 2.0.2
+BuildRequires:    R-CRAN-magrittr >= 2.0.1
+BuildRequires:    R-CRAN-stringi >= 1.7.5
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-progress >= 1.2.2
+BuildRequires:    R-CRAN-tidyr >= 1.1.4
+BuildRequires:    R-CRAN-dplyr >= 1.0.7
+BuildRequires:    R-CRAN-rlang >= 0.4.12
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+BuildRequires:    R-CRAN-fuzzyjoin >= 0.1.6
+Requires:         R-CRAN-tibble >= 3.1.5
+Requires:         R-CRAN-readr >= 2.0.2
+Requires:         R-CRAN-magrittr >= 2.0.1
+Requires:         R-CRAN-stringi >= 1.7.5
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-progress >= 1.2.2
+Requires:         R-CRAN-tidyr >= 1.1.4
+Requires:         R-CRAN-dplyr >= 1.0.7
+Requires:         R-CRAN-rlang >= 0.4.12
+Requires:         R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-fuzzyjoin >= 0.1.6
 
 %description
-Parse Standard Schedules Information file (types 2 and 3) into a Data
-Frame. Can also expand schedules into flights.
+Attempts to clean optical character recognition (OCR) errors in legacy
+Scottish Post Office Directories. Further attempts to match records from
+trades and general directories.
 
 %prep
 %setup -q -c -n %{packname}

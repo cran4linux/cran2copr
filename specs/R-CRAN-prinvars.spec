@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ssimparser
-%global packver   0.1.1
+%global packname  prinvars
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Standard Schedules Information Parser
+Summary:          Principal Variables
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,20 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-airportr 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-airportr 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-methods 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Parse Standard Schedules Information file (types 2 and 3) into a Data
-Frame. Can also expand schedules into flights.
+Provides methods for reducing the number of features within a data set.
+See Bauer JO (2021) <doi:10.1145/3475827.3475832> and Bauer JO, Drabant B
+(2021) <doi:10.1016/j.jmva.2021.104754> for more information on principal
+loading analysis.
 
 %prep
 %setup -q -c -n %{packname}

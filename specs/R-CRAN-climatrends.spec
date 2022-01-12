@@ -1,45 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  FastJM
-%global packver   1.0.1
+%global packname  climatrends
+%global packver   0.1.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.13
 Release:          1%{?dist}%{?buildtag}
-Summary:          Semi-Parametric Joint Modeling of Longitudinal and Survival Data
+Summary:          Climate Variability Indices for Ecological Modelling
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-statmod 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-mvtnorm 
+BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Maximum likelihood estimation for the semi-parametric joint modeling of
-competing risks and longitudinal data applying customized linear scan
-algorithms, proposed by Li and colleagues (2021) <arXiv:2110.14822>. The
-time-to-event data is modelled using a (cause-specific) Cox proportional
-hazards regression model with time-fixed covariates. The longitudinal
-outcome is modelled using a linear mixed effects model. The association is
-captured by shared random effects. The model is estimated using an
-Expectation Maximization algorithm.
+Supports analysis of trends in climate change, ecological and crop
+modelling.
 
 %prep
 %setup -q -c -n %{packname}

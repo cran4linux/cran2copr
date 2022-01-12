@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  PAFit
-%global packver   1.2.4
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generative Mechanism Estimation in Temporal Complex Networks
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-mapproj 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-Rcpp >= 0.11.3
 Requires:         R-grDevices 
 Requires:         R-graphics 
@@ -45,6 +46,7 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-mapproj 
 Requires:         R-CRAN-knitr 
 Requires:         R-methods 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Statistical methods for estimating preferential attachment and node

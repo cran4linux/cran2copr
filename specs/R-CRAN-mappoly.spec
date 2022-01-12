@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mappoly
-%global packver   0.2.3
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genetic Linkage Maps in Autopolyploids
 
@@ -13,9 +13,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.6
+BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-ggpubr 
@@ -35,6 +36,7 @@ BuildRequires:    R-CRAN-vcfR
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-plotly 
 Requires:         R-CRAN-Rcpp >= 0.12.6
+Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-ggpubr 
@@ -72,6 +74,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
