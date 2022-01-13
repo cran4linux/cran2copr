@@ -1,34 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cecs
-%global packver   0.2.4
+%global packname  jab.adverse.reactions
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface for the C Implementation of CEC Benchmark Functions
+Summary:          Possible Adverse Events/Reactions from the Vaccinations/Experimental Gene Therapies
 
-License:          GPL (>= 3)
+License:          GPL (>= 3) | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-cec2013 >= 0.1.5
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-cec2013 >= 0.1.5
+BuildArch:        noarch
 
 %description
-Goal of this package is to provide access to benchmark functions defined
-for the Special Session and Competition on Real-Parameter Single Objective
-Optimization in one place. The package contains functions from following
-years: 2013, 2014, 2015, 2017, 2019, 2021, 2022
-(<https://github.com/P-N-Suganthan>). Implementations of CEC-2013 (Y.
-Gonzalez-Fernandez & M. Zambrano-Bigiarini) and CEC2017 (D. Jagodziński)
-are taken from existed R packages. Also, the original C source code has
-been cleaned and reorganized for better readability.
+Provides data about the possible adverse events/reactions resulting from
+being injected with a vaccine/experimental gene therapy. Currently, the
+data is only from three reference sources. Refer to the Citation file for
+the reference information. For information about
+vaccination$/immunization$ hazards, visit
+<https://www.questionuniverse.com/rethink.html#vaccine>,
+<https://www.ecoccs.com/healing.html#vaccines>,
+<https://www.questionuniverse.com/rethink_current_crisis.html#cov_vaccin>,
+and <https://www.questionuniverse.com/vaccination.html>.
 
 %prep
 %setup -q -c -n %{packname}

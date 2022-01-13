@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  coveffectsplot
-%global packver   0.0.9.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Produce Forest Plots to Visualize Covariate Effects
 
@@ -22,9 +22,11 @@ BuildRequires:    R-CRAN-data.table >= 1.9.8
 BuildRequires:    R-CRAN-colourpicker 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-egg 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-shinymeta 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-table1 
@@ -34,9 +36,11 @@ Requires:         R-CRAN-data.table >= 1.9.8
 Requires:         R-CRAN-colourpicker 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-egg 
+Requires:         R-grid 
 Requires:         R-CRAN-markdown 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-shinymeta 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-table1 
@@ -54,6 +58,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

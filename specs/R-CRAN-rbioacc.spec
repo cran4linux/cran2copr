@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rbioacc
-%global packver   1.0.2
+%global packver   1.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inference and Prediction of ToxicoKinetic (TK) Models
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-CRAN-ggmcmc 
 BuildRequires:    R-CRAN-GGally 
 BuildRequires:    R-CRAN-loo 
@@ -32,13 +31,11 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-rstan >= 2.18.1
 Requires:         R-CRAN-rstantools >= 2.1.1
 Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-testthat 
 Requires:         R-CRAN-ggmcmc 
 Requires:         R-CRAN-GGally 
 Requires:         R-CRAN-loo 
@@ -48,7 +45,7 @@ Requires:         R-CRAN-zoo
 Requires:         R-CRAN-rstantools
 
 %description
-The MOSAICbioacc application is a turn-key package providing
+The MOSAICbioacc application is a turnkey package providing
 bioaccumulation factors (BCF/BMF/BSAF) from a toxicokinetic (TK) model
 fitted to accumulation-depuration data. It is designed to fulfil the
 requirements of regulators when examining applications for market

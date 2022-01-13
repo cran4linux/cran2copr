@@ -1,34 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cecs
-%global packver   0.2.4
+%global packname  webtools
+%global packver   0.7.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.7.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface for the C Implementation of CEC Benchmark Functions
+Summary:          Various Useful Web Tools (Including Full CRAN Dataset Search and Fetch)
 
-License:          GPL (>= 3)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-cec2013 >= 0.1.5
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-cec2013 >= 0.1.5
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-pkgsearch 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-pkgsearch 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
 
 %description
-Goal of this package is to provide access to benchmark functions defined
-for the Special Session and Competition on Real-Parameter Single Objective
-Optimization in one place. The package contains functions from following
-years: 2013, 2014, 2015, 2017, 2019, 2021, 2022
-(<https://github.com/P-N-Suganthan>). Implementations of CEC-2013 (Y.
-Gonzalez-Fernandez & M. Zambrano-Bigiarini) and CEC2017 (D. Jagodziński)
-are taken from existed R packages. Also, the original C source code has
-been cleaned and reorganized for better readability.
+A set of useful web tools to improve your productivity. Including:
+searching DuckDuckGo; finding and loading datasets across all CRAN
+packages (not just those you've installed); sharing a file to a paste-bin;
+getting a fast GUID.
 
 %prep
 %setup -q -c -n %{packname}

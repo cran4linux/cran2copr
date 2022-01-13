@@ -1,35 +1,48 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rdacca.hp
-%global packver   1.0-5
+%global packname  ACDC
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hierarchical and Variation Partitioning for Canonical Analysis
+Summary:          Analysis of Congruent Diversification Classes
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-vegan 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-latex2exp 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-deSolve 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-latex2exp 
+Requires:         R-CRAN-tidyr 
 
 %description
-This function conducts variation partitioning and hierarchical
-partitioning to calculate the unique, shared (referred as to "common") and
-individual contributions of each predictor (or matrix) towards explained
-variation (R-square and adjusted R-square) on canonical analysis (RDA,CCA
-and db-RDA), applying the algorithm of Lai J.,Zou Y., Zhang J.,Peres-Neto
-P.(2022) Generalizing hierarchical and variation partitioning in multiple
-regression and canonical analyses using the rdacca.hp R package.Methods in
-Ecology and Evolution,<DOI:10.1111/2041-210X.13800>.
+Features tools for exploring congruent phylogenetic birth-death models. It
+can construct the pulled speciation- and net-diversification rates from a
+reference model. Given alternative speciation- or extinction rates, it can
+construct new models that are congruent with the reference model.
+Functionality is included to sample new rate functions, and to visualize
+the distribution of one congruence class. See also Louca & Pennell (2020)
+<doi:10.1038/s41586-020-2176-1>.
 
 %prep
 %setup -q -c -n %{packname}

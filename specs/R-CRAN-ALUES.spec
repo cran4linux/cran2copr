@@ -1,34 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cecs
-%global packver   0.2.4
+%global packname  ALUES
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface for the C Implementation of CEC Benchmark Functions
+Summary:          Agricultural Land Use Evaluation System
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-cec2013 >= 0.1.5
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-cec2013 >= 0.1.5
+BuildRequires:    R-CRAN-Rcpp >= 0.10.6
+Requires:         R-CRAN-Rcpp >= 0.10.6
 
 %description
-Goal of this package is to provide access to benchmark functions defined
-for the Special Session and Competition on Real-Parameter Single Objective
-Optimization in one place. The package contains functions from following
-years: 2013, 2014, 2015, 2017, 2019, 2021, 2022
-(<https://github.com/P-N-Suganthan>). Implementations of CEC-2013 (Y.
-Gonzalez-Fernandez & M. Zambrano-Bigiarini) and CEC2017 (D. Jagodziński)
-are taken from existed R packages. Also, the original C source code has
-been cleaned and reorganized for better readability.
+Evaluates land suitability for different crops production. The package is
+based on the Food and Agriculture Organization (FAO) and the International
+Rice Research Institute (IRRI) methodology for land evaluation.
+Development of ALUES is inspired by similar tool for land evaluation, Land
+Use Suitability Evaluation Tool (LUSET). The package uses fuzzy logic
+approach to evaluate land suitability of a particular area based on inputs
+such as rainfall, temperature, topography, and soil properties. The
+membership functions used for fuzzy modeling are the following:
+Triangular, Trapezoidal and Gaussian. The methods for computing the
+overall suitability of a particular area are also included, and these are
+the Minimum, Maximum and Average. Finally, ALUES is a highly optimized
+library with core algorithms written in C++.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  modeltime
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Tidymodels Extension for Time Series Modeling
 
@@ -83,7 +83,7 @@ ecosystem. Models include ARIMA, Exponential Smoothing, and additional
 time series models from the 'forecast' and 'prophet' packages. Refer to
 "Forecasting Principles & Practice, Second edition"
 (<https://otexts.com/fpp2/>). Refer to "Prophet: forecasting at scale"
-(<https://research.fb.com/blog/2017/02/prophet-forecasting-at-scale/>.).
+(<https://research.facebook.com/blog/2017/02/prophet-forecasting-at-scale/>.).
 
 %prep
 %setup -q -c -n %{packname}

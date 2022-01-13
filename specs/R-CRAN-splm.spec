@@ -1,34 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cecs
-%global packver   0.2.4
+%global packname  splm
+%global packver   1.5-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          1.5.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface for the C Implementation of CEC Benchmark Functions
+Summary:          Econometric Models for Spatial Panel Data
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-cec2013 >= 0.1.5
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-cec2013 >= 0.1.5
+BuildRequires:    R-devel >= 2.12.0
+Requires:         R-core >= 2.12.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-spatialreg >= 1.2.1
+BuildRequires:    R-CRAN-spdep >= 1.2.1
+BuildRequires:    R-CRAN-plm 
+BuildRequires:    R-CRAN-maxLik 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-bdsmatrix 
+BuildRequires:    R-CRAN-ibdreg 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-spam 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-spatialreg >= 1.2.1
+Requires:         R-CRAN-spdep >= 1.2.1
+Requires:         R-CRAN-plm 
+Requires:         R-CRAN-maxLik 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-bdsmatrix 
+Requires:         R-CRAN-ibdreg 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-spam 
+Requires:         R-methods 
 
 %description
-Goal of this package is to provide access to benchmark functions defined
-for the Special Session and Competition on Real-Parameter Single Objective
-Optimization in one place. The package contains functions from following
-years: 2013, 2014, 2015, 2017, 2019, 2021, 2022
-(<https://github.com/P-N-Suganthan>). Implementations of CEC-2013 (Y.
-Gonzalez-Fernandez & M. Zambrano-Bigiarini) and CEC2017 (D. Jagodziński)
-are taken from existed R packages. Also, the original C source code has
-been cleaned and reorganized for better readability.
+ML and GM estimation and diagnostic testing of econometric models for
+spatial panel data.
 
 %prep
 %setup -q -c -n %{packname}

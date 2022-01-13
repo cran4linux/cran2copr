@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DTDA
-%global packver   3.0
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Doubly Truncated Data Analysis
 
@@ -23,9 +23,10 @@ Requires:         R-CRAN-foreach
 
 %description
 Implementation of different algorithms for analyzing randomly truncated
-data, one-sided and two-sided (i.e. doubly) truncated data. It also
-computes the kernel density and hazard functions using different bandwidth
-selectors. Several real data sets are included.
+data, one-sided and two-sided (i.e. doubly) truncated data. It serves to
+compute empirical cumulative distributions and also kernel density and
+hazard functions using different bandwidth selectors. Several real data
+sets are included.
 
 %prep
 %setup -q -c -n %{packname}
@@ -35,6 +36,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

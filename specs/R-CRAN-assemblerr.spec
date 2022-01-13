@@ -1,44 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mvp
-%global packver   1.0-12
+%global packname  assemblerr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.12
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Symbolic Multivariate Polynomials
+Summary:          Assembly of Pharmacometric Models
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-mpoly >= 1.1.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-disordR >= 0.0.8
-BuildRequires:    R-methods 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 2.1.0
+BuildRequires:    R-CRAN-vctrs >= 0.3.4
+BuildRequires:    R-CRAN-purrr >= 0.3.0
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-partitions 
-BuildRequires:    R-CRAN-magic 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-mpoly >= 1.1.0
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-disordR >= 0.0.8
-Requires:         R-methods 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-cli >= 2.1.0
+Requires:         R-CRAN-vctrs >= 0.3.4
+Requires:         R-CRAN-purrr >= 0.3.0
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-partitions 
-Requires:         R-CRAN-magic 
-Requires:         R-CRAN-digest 
+Requires:         R-methods 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Fast manipulation of symbolic multivariate polynomials using the 'Map'
-class of the Standard Template Library.  The package uses print and
-coercion methods from the 'mpoly' package (Kahle 2013, "Multivariate
-polynomials in R".  The R Journal, 5(1):162), but offers speed
-improvements.  It is comparable in speed to the 'spray' package for sparse
-arrays, but retains the symbolic benefits of 'mpoly'.
+Construct pharmacometric nonlinear mixed effect models by combining
+predefined model components and automatically generate model code for
+NONMEM. Models are created by combining parameter and observation models,
+algebraic relationships, compartments, and flows. Pharmacokinetic models
+can be assembled from the higher-order components: absorption,
+distribution, and elimination. The generated code is optimized for
+performance by recognizing, for example, linear differential equations or
+differential equations with an analytic solution.
 
 %prep
 %setup -q -c -n %{packname}

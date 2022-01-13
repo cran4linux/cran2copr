@@ -1,34 +1,51 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cecs
-%global packver   0.2.4
+%global packname  topr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface for the C Implementation of CEC Benchmark Functions
+Summary:          Create Custom Plots for Viewing Genetic Association Results
 
-License:          GPL (>= 3)
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
+BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-cec2013 >= 0.1.5
+BuildRequires:    R-CRAN-readr >= 1.4.0
+BuildRequires:    R-CRAN-scales >= 1.1.1
+BuildRequires:    R-CRAN-dplyr >= 1.0.2
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-egg 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-toprdata 
+Requires:         R-CRAN-ggplot2 >= 3.3.2
+Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-cec2013 >= 0.1.5
+Requires:         R-CRAN-readr >= 1.4.0
+Requires:         R-CRAN-scales >= 1.1.1
+Requires:         R-CRAN-dplyr >= 1.0.2
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-egg 
+Requires:         R-grid 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-utils 
+Requires:         R-CRAN-toprdata 
 
 %description
-Goal of this package is to provide access to benchmark functions defined
-for the Special Session and Competition on Real-Parameter Single Objective
-Optimization in one place. The package contains functions from following
-years: 2013, 2014, 2015, 2017, 2019, 2021, 2022
-(<https://github.com/P-N-Suganthan>). Implementations of CEC-2013 (Y.
-Gonzalez-Fernandez & M. Zambrano-Bigiarini) and CEC2017 (D. Jagodziński)
-are taken from existed R packages. Also, the original C source code has
-been cleaned and reorganized for better readability.
+A collection of functions for visualizing, exploring and annotating
+genetic association results. Association results from multiple traits can
+be viewed simultaneously along with gene annotation, over the entire
+genome (Manhattan plot) or in the more detailed regional view.
 
 %prep
 %setup -q -c -n %{packname}
