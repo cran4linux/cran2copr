@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dataverse
-%global packver   0.3.10
+%global packname  TSLSTM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for Dataverse 4+ Repositories
+Summary:          Long Short Term Memory (LSTM) Model for Time Series Forecasting
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,26 +16,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-keras 
+BuildRequires:    R-CRAN-tensorflow 
+BuildRequires:    R-CRAN-tsutils 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-readr 
+Requires:         R-CRAN-keras 
+Requires:         R-CRAN-tensorflow 
+Requires:         R-CRAN-tsutils 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
 
 %description
-Provides access to Dataverse APIs <https://dataverse.org/> (versions 4-5),
-enabling data search, retrieval, and deposit. For Dataverse versions <=
-3.0, use the archived 'dvn' package
-<https://cran.r-project.org/package=dvn>.
+The LSTM (Long Short-Term Memory) model is a Recurrent Neural Network
+(RNN) based architecture that is widely used for time series forecasting.
+Min-Max transformation has been used for data preparation. Here, we have
+used one LSTM layer as a simple LSTM model and a Dense layer is used as
+the output layer. Then, compile the model using the loss function,
+optimizer and metrics. This package is based on Keras and TensorFlow
+modules and the algorithm of Paul and Garai (2021)
+<doi:10.1007/s00500-021-06087-4>.
 
 %prep
 %setup -q -c -n %{packname}

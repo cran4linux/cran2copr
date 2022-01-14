@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  PlaneGeometry
-%global packver   1.3.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plane Geometry
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-gsl 
 BuildRequires:    R-CRAN-uniformly 
 BuildRequires:    R-CRAN-sdpt3r 
+BuildRequires:    R-CRAN-fitConic 
 Requires:         R-CRAN-R6 
 Requires:         R-methods 
 Requires:         R-graphics 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-gsl 
 Requires:         R-CRAN-uniformly 
 Requires:         R-CRAN-sdpt3r 
+Requires:         R-CRAN-fitConic 
 
 %description
 An extensive set of plane geometry routines. Provides R6 classes

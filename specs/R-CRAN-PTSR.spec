@@ -1,41 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dataverse
-%global packver   0.3.10
+%global packname  PTSR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for Dataverse 4+ Repositories
+Summary:          Positive Time Series Regression
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-readr 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-CRAN-SuppDists 
+BuildRequires:    R-CRAN-actuar 
+BuildRequires:    R-CRAN-numDeriv 
+Requires:         R-CRAN-extraDistr 
+Requires:         R-CRAN-SuppDists 
+Requires:         R-CRAN-actuar 
+Requires:         R-CRAN-numDeriv 
 
 %description
-Provides access to Dataverse APIs <https://dataverse.org/> (versions 4-5),
-enabling data search, retrieval, and deposit. For Dataverse versions <=
-3.0, use the archived 'dvn' package
-<https://cran.r-project.org/package=dvn>.
+A collection of functions to simulate, estimate and forecast a wide range
+of regression based dynamic models for positive time series. This package
+implements the results presented in Prass, T.S.; Carlos, J.H.; Taufemback,
+C.G. and Pumi, G. (2022). "Positive Time Series Regression"
+<arXiv:2201.03667>.
 
 %prep
 %setup -q -c -n %{packname}

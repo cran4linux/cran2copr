@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dataverse
-%global packver   0.3.10
+%global packname  casabourse
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for Dataverse 4+ Repositories
+Summary:          Casablanca Stock Exchange Data
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,26 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-gsheet 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-gsheet 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-readr 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
 
 %description
-Provides access to Dataverse APIs <https://dataverse.org/> (versions 4-5),
-enabling data search, retrieval, and deposit. For Dataverse versions <=
-3.0, use the archived 'dvn' package
-<https://cran.r-project.org/package=dvn>.
+It provides real-time data from the Casablanca Stock Exchange. The
+objective is to facilitate access to data for all users of the R
+programming language. It includes a variety of data accessible just by
+function call.
 
 %prep
 %setup -q -c -n %{packname}

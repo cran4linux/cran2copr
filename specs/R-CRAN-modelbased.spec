@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  modelbased
-%global packver   0.7.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of Model-Based Predictions, Contrasts and Means
 
@@ -13,31 +13,33 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-effectsize >= 0.4.5
-BuildRequires:    R-CRAN-insight >= 0.14.1
-BuildRequires:    R-CRAN-parameters >= 0.14.0
-BuildRequires:    R-CRAN-bayestestR >= 0.10.0
+BuildRequires:    R-CRAN-effectsize >= 0.5
+BuildRequires:    R-CRAN-datawizard >= 0.2.1
+BuildRequires:    R-CRAN-parameters >= 0.15.0
+BuildRequires:    R-CRAN-insight >= 0.14.5
+BuildRequires:    R-CRAN-bayestestR >= 0.11.5
+BuildRequires:    R-CRAN-performance 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-performance 
-Requires:         R-CRAN-effectsize >= 0.4.5
-Requires:         R-CRAN-insight >= 0.14.1
-Requires:         R-CRAN-parameters >= 0.14.0
-Requires:         R-CRAN-bayestestR >= 0.10.0
+Requires:         R-CRAN-effectsize >= 0.5
+Requires:         R-CRAN-datawizard >= 0.2.1
+Requires:         R-CRAN-parameters >= 0.15.0
+Requires:         R-CRAN-insight >= 0.14.5
+Requires:         R-CRAN-bayestestR >= 0.11.5
+Requires:         R-CRAN-performance 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-performance 
 
 %description
 Implements a general interface for model-based estimations for a wide
-variety of models (see support list of insight; Lüdecke, Waggoner &
-Makowski (2019) <doi:10.21105/joss.01412>), used in the computation of
-marginal means, contrast analysis and predictions.
+variety of models (see list of supported models using the function
+'insight::supported_models()'), used in the computation of marginal means,
+contrast analysis and predictions.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +49,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

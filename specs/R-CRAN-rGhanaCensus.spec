@@ -1,41 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dataverse
-%global packver   0.3.10
+%global packname  rGhanaCensus
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for Dataverse 4+ Repositories
+Summary:          2021 Ghana Population and Housing Census Results as Data Frames
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-readr 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
 
 %description
-Provides access to Dataverse APIs <https://dataverse.org/> (versions 4-5),
-enabling data search, retrieval, and deposit. For Dataverse versions <=
-3.0, use the archived 'dvn' package
-<https://cran.r-project.org/package=dvn>.
+Datasets from the 2021 Ghana Population and Housing Census Results. Users
+can access results as 'tidyverse' and 'sf'-Ready Data Frames.  The data in
+this package is scraped from pdf reports released by the Ghana Statistical
+Service website <https://census2021.statsghana.gov.gh/> . The package
+currently only contains datasets from the literacy and education reports.
+Namely, school attendance data for respondents aged 3 years and above.
 
 %prep
 %setup -q -c -n %{packname}

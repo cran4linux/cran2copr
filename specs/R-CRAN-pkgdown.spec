@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pkgdown
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Make Static HTML Documentation for a Package
 
@@ -17,6 +17,7 @@ Requires:         pandoc
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-withr >= 2.4.3
 BuildRequires:    R-CRAN-callr >= 2.0.2
 BuildRequires:    R-CRAN-httr >= 1.4.2
 BuildRequires:    R-CRAN-fs >= 1.4.0
@@ -24,7 +25,7 @@ BuildRequires:    R-CRAN-xml2 >= 1.3.1
 BuildRequires:    R-CRAN-rmarkdown >= 1.1
 BuildRequires:    R-CRAN-downlit >= 0.4.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-bslib >= 0.3.1
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-desc 
 BuildRequires:    R-CRAN-digest 
@@ -35,8 +36,8 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-ragg 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-whisker 
-BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-withr >= 2.4.3
 Requires:         R-CRAN-callr >= 2.0.2
 Requires:         R-CRAN-httr >= 1.4.2
 Requires:         R-CRAN-fs >= 1.4.0
@@ -44,7 +45,7 @@ Requires:         R-CRAN-xml2 >= 1.3.1
 Requires:         R-CRAN-rmarkdown >= 1.1
 Requires:         R-CRAN-downlit >= 0.4.0
 Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-bslib >= 0.3.1
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-desc 
 Requires:         R-CRAN-digest 
@@ -55,7 +56,6 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-ragg 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-whisker 
-Requires:         R-CRAN-withr 
 Requires:         R-CRAN-yaml 
 
 %description

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mapsapi
-%global packver   0.5.0
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          'sf'-Compatible Interface to 'Google Maps' APIs
 
@@ -13,21 +13,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-bitops 
 BuildRequires:    R-CRAN-stars 
 BuildRequires:    R-CRAN-RgoogleMaps 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-httr 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-bitops 
 Requires:         R-CRAN-stars 
 Requires:         R-CRAN-RgoogleMaps 
+Requires:         R-CRAN-httr 
 
 %description
 Interface to the 'Google Maps' APIs: (1) routing directions based on the

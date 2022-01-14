@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mlt.docreg
-%global packver   1.1-2
+%global packver   1.1-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Most Likely Transformations: Documentation and Regression Tests
 
@@ -17,7 +17,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-multcomp >= 1.4.4
-BuildRequires:    R-CRAN-mlt >= 1.1.0
+BuildRequires:    R-CRAN-mlt >= 1.3.2
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-eha 
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-flexsurv
 BuildRequires:    R-CRAN-truncreg 
 BuildRequires:    R-CRAN-np 
 Requires:         R-CRAN-multcomp >= 1.4.4
-Requires:         R-CRAN-mlt >= 1.1.0
+Requires:         R-CRAN-mlt >= 1.3.2
 Requires:         R-CRAN-numDeriv 
 Requires:         R-stats 
 Requires:         R-CRAN-eha 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  FunWithNumbers
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fun with Fractions and Number Sequences
 
@@ -24,7 +24,7 @@ Requires:         R-CRAN-gmp
 %description
 A collection of toys to do things like generate Collatz sequences, convert
 a fraction to "continued fraction" form, calculate a fraction which is a
-close approximation to some value (e.g., 22/7 or 355/113 or pi), and so
+close approximation to some value (e.g., 22/7 or 355/113 for pi), and so
 on.
 
 %prep
@@ -35,6 +35,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dataverse
-%global packver   0.3.10
+%global packname  acca
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for Dataverse 4+ Repositories
+Summary:          A Canonical Correlation Analysis with Inferential Guaranties
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,26 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plyr 
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plyr 
 
 %description
-Provides access to Dataverse APIs <https://dataverse.org/> (versions 4-5),
-enabling data search, retrieval, and deposit. For Dataverse versions <=
-3.0, use the archived 'dvn' package
-<https://cran.r-project.org/package=dvn>.
+It performs Canonical Correlation Analysis and provides inferential
+guaranties on the correlation components. The p-values are computed
+following the resampling method developed in Winkler, A. M., Renaud, O.,
+Smith, S. M., & Nichols, T. E. (2020). Permutation inference for canonical
+correlation analysis. NeuroImage, <doi:10.1016/j.neuroimage.2020.117065>.
+Furthermore, it provides plotting tools to visualize the results.
 
 %prep
 %setup -q -c -n %{packname}
