@@ -1,41 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  apcluster
-%global packver   1.4.9
+%global packname  PoissonMultinomial
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.9
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Affinity Propagation Clustering
+Summary:          The Poisson-Multinomial Distribution
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.1
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-Rcpp >= 0.11.1
-Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Implements Affinity Propagation clustering introduced by Frey and Dueck
-(2007) <DOI:10.1126/science.1136800>. The algorithms are largely analogous
-to the 'Matlab' code published by Frey and Dueck. The package further
-provides leveraged affinity propagation and an algorithm for
-exemplar-based agglomerative clustering that can also be used to join
-clusters obtained from affinity propagation. Various plotting functions
-are available for analyzing clustering results.
+Implementation of the exact, normal approximation, and simulation-based
+methods for computing the probability mass function (pmf) and cumulative
+distribution function (cdf) of the Poisson-Multinomial distribution,
+together with a random number generator for the distribution. The exact
+method is based on multi-dimensional fast Fourier transformation (FFT) of
+the characteristic function of the Poisson-Multinomial distribution. The
+normal approximation method uses a multivariate normal distribution to
+approximate the pmf of the distribution based on central limit theorem.
+The simulation method is based on the law of large numbers. Details about
+the methods are available in Lin, Wang, and Hong (2022)
+<arXiv:2201.04237>.
 
 %prep
 %setup -q -c -n %{packname}

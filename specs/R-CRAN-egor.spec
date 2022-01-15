@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  egor
-%global packver   1.21.10
+%global packver   1.22.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.21.10
+Version:          1.22.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import and Analyse Ego-Centered Network Data
 

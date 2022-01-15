@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  casabourse
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Casablanca Stock Exchange Data
 
@@ -17,8 +17,10 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-gsheet 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-httr 
 Requires:         R-CRAN-gsheet 
+Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-httr 
 
 %description

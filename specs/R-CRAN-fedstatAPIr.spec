@@ -1,20 +1,20 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fedstatAPIr
-%global packver   0.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Unofficial API for Fedstat (EMISS) for Automatic and Efficient Data Queries
+Summary:          Unofficial API for Fedstat (Rosstat EMISS System) for Automatic and Efficient Data Queries
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-rvest 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-readsdmx 
-BuildRequires:    R-CRAN-rsdmx 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rlang 
@@ -35,7 +34,6 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-readsdmx 
-Requires:         R-CRAN-rsdmx 
 Requires:         R-CRAN-magrittr 
 Requires:         R-utils 
 Requires:         R-CRAN-rlang 

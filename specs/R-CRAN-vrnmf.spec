@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  vrnmf
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Volume-Regularized Structured Matrix Factorization
 
@@ -21,6 +21,7 @@ BuildRequires:    R-parallel >= 3.5.1
 BuildRequires:    R-CRAN-quadprog >= 1.5
 BuildRequires:    R-CRAN-ica >= 1.0
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-nnls 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-lpSolveAPI >= 5.5.2.0
@@ -28,6 +29,7 @@ Requires:         R-parallel >= 3.5.1
 Requires:         R-CRAN-quadprog >= 1.5
 Requires:         R-CRAN-ica >= 1.0
 Requires:         R-graphics 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-nnls 
 Requires:         R-stats 
 

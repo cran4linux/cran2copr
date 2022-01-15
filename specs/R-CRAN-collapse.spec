@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  collapse
-%global packver   1.6.5
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.5
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Advanced and Fast Data Transformation
 
@@ -30,22 +30,22 @@ Advanced statistical programming: A full set of fast statistical functions
 supporting grouped and weighted computations on vectors, matrices and data
 frames. Fast and programmable grouping, ordering, unique values / rows,
 factor generation and interactions. Fast and flexible functions for data
-manipulation and data object conversions. (2) Advanced aggregation: Fast
-and easy multi-data-type, multi-function, weighted, parallelized and fully
-customized data aggregation. (3) Advanced transformations: Fast row /
-column arithmetic, (grouped) replacing and sweeping out of statistics,
-(grouped, weighted) scaling / standardizing, between (averaging) and
-(quasi-)within (centering / demeaning) transformations, higher-dimensional
-centering (i.e. multiple fixed effects transformations), linear prediction
-/ partialling-out, linear model fitting and testing. (4) Advanced
-time-computations: Fast (sequences of) lags / leads, and (lagged / leaded,
-iterated, quasi-, log-) differences, (compounded) growth rates, and
-cumulative sums on (unordered, irregular) time series and panel data.
-Multivariate auto-, partial- and cross-correlation functions for panel
-data. Panel data to (ts-)array conversions. (5) List processing:
-(Recursive) list search / identification, splitting, extraction /
-subsetting, data-apply, and generalized recursive row-binding / unlisting
-in 2D. (6) Advanced data exploration: Fast (grouped, weighted,
+manipulation, data object conversions, and memory efficient R programming.
+(2) Advanced aggregation: Fast and easy multi-data-type, multi-function,
+weighted, parallelized and fully custom data aggregation. (3) Advanced
+transformations: Fast row / column arithmetic, (grouped) replacing and
+sweeping out of statistics, (grouped, weighted) scaling / standardizing,
+between (averaging) and (quasi-)within (centering / demeaning)
+transformations, higher-dimensional centering (i.e. multiple fixed effects
+transformations), linear prediction / partialling-out, linear model
+fitting and testing. (4) Advanced time-computations: Fast (sequences of)
+lags / leads, and (lagged / leaded, iterated, quasi-, log-) differences,
+(compounded) growth rates, and cumulative sums on (unordered, irregular)
+time series and panel data. Multivariate auto-, partial- and
+cross-correlation functions for panel data. Panel data to (ts-)array
+conversions. (5) List processing: (Recursive) list search, splitting,
+extraction / subsetting, data-apply, and generalized recursive row-binding
+/ unlisting in 2D. (6) Advanced data exploration: Fast (grouped, weighted,
 panel-decomposed) summary statistics for complex multilevel / panel data.
 
 %prep

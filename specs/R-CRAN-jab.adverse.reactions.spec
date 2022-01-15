@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  jab.adverse.reactions
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Possible Adverse Events/Reactions from the Vaccinations/Experimental Gene Therapies
 
@@ -19,10 +19,10 @@ BuildArch:        noarch
 
 %description
 Provides data about the possible adverse events/reactions resulting from
-being injected with a vaccine/experimental gene therapy. Currently, the
-data is only from three reference sources. Refer to the Citation file for
-the reference information. For information about
-vaccination$/immunization$ hazards, visit
+being injected with a vaccine/experimental gene therapy. Currently, this
+data set only includes information from six reference sources. Refer to
+the CITATION.cff file for the complete citations of the reference sources.
+For information about vaccination$/immunization$ hazards, visit
 <https://www.questionuniverse.com/rethink.html#vaccine>,
 <https://www.ecoccs.com/healing.html#vaccines>,
 <https://www.questionuniverse.com/rethink_current_crisis.html#cov_vaccin>,
