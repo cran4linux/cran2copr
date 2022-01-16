@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spiralize
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualize Data on Spirals
 
@@ -37,10 +37,10 @@ Requires:         R-utils
 
 %description
 It visualizes data along an Archimedean spiral
-<https://en.wikipedia.org/wiki/Archimedean_spiral>. It has two major
-advantages for visualization: 1. It is able to visualize data with very
-long axis with high resolution. 2. It is efficient for time series data to
-reveal periodic patterns.
+<https://en.wikipedia.org/wiki/Archimedean_spiral>, makes so-called spiral
+graph or spiral chart. It has two major advantages for visualization: 1.
+It is able to visualize data with very long axis with high resolution. 2.
+It is efficient for time series data to reveal periodic patterns.
 
 %prep
 %setup -q -c -n %{packname}

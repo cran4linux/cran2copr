@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rdomains
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get the Category of Content Hosted by a Domain
 
@@ -27,9 +27,9 @@ BuildRequires:    R-CRAN-xml2
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-virustotal 
 BuildRequires:    R-CRAN-aws.alexa 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-devtools 
+BuildRequires:    R-CRAN-R.utils 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-urltools 
 Requires:         R-CRAN-glmnet 
@@ -41,9 +41,9 @@ Requires:         R-CRAN-xml2
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-virustotal 
 Requires:         R-CRAN-aws.alexa 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-devtools 
+Requires:         R-CRAN-R.utils 
 
 %description
 Get the category of content hosted by a domain. Use Shallalist

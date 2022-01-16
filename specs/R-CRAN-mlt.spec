@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mlt
-%global packver   1.3-2
+%global packver   1.4-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Most Likely Transformations
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-basefun >= 1.1.0
+BuildRequires:    R-CRAN-basefun >= 1.1.2
 BuildRequires:    R-CRAN-variables >= 1.1.0
 BuildRequires:    R-CRAN-BB 
 BuildRequires:    R-CRAN-alabama 
@@ -28,9 +28,8 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-basefun >= 1.1.0
+Requires:         R-CRAN-basefun >= 1.1.2
 Requires:         R-CRAN-variables >= 1.1.0
 Requires:         R-CRAN-BB 
 Requires:         R-CRAN-alabama 
@@ -42,7 +41,6 @@ Requires:         R-grDevices
 Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-survival 
-Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-Matrix 
 
 %description

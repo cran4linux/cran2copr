@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ggPMX
-%global packver   1.2.4
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          'ggplot2' Based Tool to Facilitate Diagnostic Plots for NLME Models
 
@@ -63,7 +63,8 @@ for modeling activities in order to reduce the overall effort required for
 generating such plots. For this, we developed a guidance that proposes an
 adequate set of diagnostics and a toolbox, called 'ggPMX' to execute them.
 'ggPMX' is a toolbox that can generate all diagnostic plots at a quality
-sufficient for publication and submissions using few lines of code.
+sufficient for publication and submissions using few lines of code. This
+package focuses on plots recommended by ISoP <doi:10.1002/psp4.12161>.
 
 %prep
 %setup -q -c -n %{packname}

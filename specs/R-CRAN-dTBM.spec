@@ -1,47 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  TiPS
-%global packver   1.1.0
+%global packname  dTBM
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Trajectories and Phylogenies Simulator
+Summary:          Multi-Way Spherical Clustering via Degree-Corrected Tensor Block Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.14
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-inline 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-Rcpp >= 0.12.14
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-inline 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tensorregress 
+BuildRequires:    R-CRAN-WeightedCluster 
+BuildRequires:    R-CRAN-EnvStats 
+Requires:         R-CRAN-tensorregress 
+Requires:         R-CRAN-WeightedCluster 
+Requires:         R-CRAN-EnvStats 
 
 %description
-Generates stochastic time series and genealogies associated with a
-population dynamics model. Times series are simulated using the Gillespie
-exact and approximate algorithms and a new algorithm we introduce that
-uses both approaches to optimize the time execution of the simulations.
-Genealogies are simulated from a trajectory using a backwards-in-time
-based approach. Methods are described in Danesh G et al (2020)
-<doi:10.1101/2020.11.09.373795>.
+Implement weighted higher-order initialization and angle-based iteration
+for multi-way spherical clustering under degree-corrected tensor block
+model.
 
 %prep
 %setup -q -c -n %{packname}

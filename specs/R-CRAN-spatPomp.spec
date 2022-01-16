@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spatPomp
-%global packver   0.28.0.0
+%global packver   0.29.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.28.0.0
+Version:          0.29.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inference for Spatiotemporal Partially Observed Markov Processes
 
@@ -15,23 +15,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-pomp >= 3.3
+BuildRequires:    R-CRAN-pomp >= 4.1
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-pomp >= 3.3
+Requires:         R-CRAN-pomp >= 4.1
 Requires:         R-methods 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 

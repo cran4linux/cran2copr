@@ -1,36 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  entcn
-%global packver   1.0.0
+%global packname  rccola
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Translate English Words into Chinese Words
+Summary:          Safely Manage API Keys and Load Data from a REDCap or Other Source
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-RYoudaoTranslate 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-RYoudaoTranslate 
+BuildRequires:    R-CRAN-redcapAPI 
+BuildRequires:    R-CRAN-getPass 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-keyring 
+Requires:         R-CRAN-redcapAPI 
+Requires:         R-CRAN-getPass 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-keyring 
 
 %description
-If translate English words into Chinese, you might consider looking up a
-dictionary or online query, in fact, there is a faster way for R user.
-Ke-Hao Wu (2014) <RYoudaoTranslate: R package provide functions to
-translate English words into Chinese.> provides interface to Youdao
-translation open API for R user. But this software is not very friendly to
-use, I have made some improvements on the basis of this software. You can
-pass in a words or a vector consisting of multiple words, which will
-return the corresponding type of Chinese representation and be easy to
-reuse.
+The handling of an API key (misnomer for password) for protected data can
+be difficult. This package provides secure convenience functions for
+entering / handling API keys and pulling data directly into memory. By
+default it will load from REDCap instances, but other sources are
+injectable via inversion of control.
 
 %prep
 %setup -q -c -n %{packname}

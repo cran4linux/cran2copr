@@ -1,36 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  entcn
-%global packver   1.0.0
+%global packname  lglasso
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Translate English Words into Chinese Words
+Summary:          Longitudinal Graphical Lasso
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-RYoudaoTranslate 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-RYoudaoTranslate 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-glasso 
+Requires:         R-stats 
+Requires:         R-CRAN-glasso 
 
 %description
-If translate English words into Chinese, you might consider looking up a
-dictionary or online query, in fact, there is a faster way for R user.
-Ke-Hao Wu (2014) <RYoudaoTranslate: R package provide functions to
-translate English words into Chinese.> provides interface to Youdao
-translation open API for R user. But this software is not very friendly to
-use, I have made some improvements on the basis of this software. You can
-pass in a words or a vector consisting of multiple words, which will
-return the corresponding type of Chinese representation and be easy to
-reuse.
+For high-dimensional correlated observations, this package carries out the
+L_1 penalized maximum likelihood estimation of the precision matrix
+(network) and the correlation parameters. The correlated data can be
+longitudinal data (may be irregularly spaced) with dampening correlation
+or clustered data with uniform correlation. For the details of the
+algorithms, please see the paper Jie Zhou et al. Identifying Microbial
+Interaction Networks Based on Irregularly Spaced Longitudinal 16S rRNA
+sequence data <doi:10.1101/2021.11.26.470159>.
 
 %prep
 %setup -q -c -n %{packname}
