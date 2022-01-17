@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MazamaLocationUtils
-%global packver   0.2.7
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manage Spatial Metadata for Known Locations
 
@@ -19,7 +19,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-MazamaSpatialUtils >= 0.7
 BuildRequires:    R-CRAN-MazamaCoreUtils >= 0.4.10
 BuildRequires:    R-CRAN-geodist >= 0.0.7
-BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
@@ -30,10 +29,10 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidygeocoder 
 Requires:         R-CRAN-MazamaSpatialUtils >= 0.7
 Requires:         R-CRAN-MazamaCoreUtils >= 0.4.10
 Requires:         R-CRAN-geodist >= 0.0.7
-Requires:         R-CRAN-digest 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
@@ -44,6 +43,7 @@ Requires:         R-methods
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidygeocoder 
 
 %description
 Utility functions for discovering and managing metadata associated with

@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  clustra
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clustering Trajectories Anchored at Intervention Time
+Summary:          Clustering Longitudinal Trajectories
 
 License:          BSD 2-clause License + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -34,11 +34,13 @@ Requires:         R-parallel
 Requires:         R-stats 
 
 %description
-Clusters medical trajectories (unequally spaced and unequal length time
-series) aligned by an intervention time. Performs k-means clustering,
-where each mean is a thin plate spline fit to all points in a cluster.
-Distance is MSE across trajectory points to cluster spline. Provides
-silhouette plots and Adjusted Rand Index evaluations of the number of
+Clusters longitudinal trajectories over time (can be unequally spaced,
+unequal length time series and/or partially overlapping series) on a
+common time axis. Performs k-means clustering on a single continuous
+variable measured over time, where each mean is defined by a thin plate
+spline fit to all points in a cluster. Distance is MSE across trajectory
+points to cluster spline. Provides graphs of derived cluster splines,
+silhouette plots, and Adjusted Rand Index evaluations of the number of
 clusters. Scales well to large data with multicore parallelism available
 to speed computation.
 
