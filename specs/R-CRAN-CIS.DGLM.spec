@@ -1,35 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RMixtCompIO
-%global packver   4.0.7
+%global packname  CIS.DGLM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimal Interface of the C++ 'MixtComp' Library for Mixture Models with Heterogeneous and (Partially) Missing Data
+Summary:          Covariates, Interaction, and Selection for DGLM
 
-License:          AGPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dglm 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dglm 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-dplyr 
 
 %description
-Mixture Composer <https://github.com/modal-inria/MixtComp> is a project to
-build mixture models with heterogeneous data sets and partially missing
-data management. It includes models for real, categorical, counting,
-functional and ranking data. This package contains the minimal R interface
-of the C++ 'MixtComp' library.
+An implementation of double generalized linear model (DGLM) building with
+variable selection procedures and handling of interaction terms and other
+complex situations. We also provide a method of handling convergence
+issues within the dglm() function. The package offers a simulation
+function for generating simulated data for testing purposes and utilizes
+the forward stepwise variable selection procedure in model-building. It
+also provides a new custom bootstrap function for mean and standard
+deviation estimation and functions for building crossplots and squareplots
+from a data set.
 
 %prep
 %setup -q -c -n %{packname}

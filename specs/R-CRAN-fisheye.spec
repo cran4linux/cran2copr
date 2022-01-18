@@ -1,35 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RMixtCompIO
-%global packver   4.0.7
+%global packname  fisheye
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimal Interface of the C++ 'MixtComp' Library for Mixture Models with Heterogeneous and (Partially) Missing Data
+Summary:          Transform Base Maps Using Log-Azimuthal Projection
 
-License:          AGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-sf 
 
 %description
-Mixture Composer <https://github.com/modal-inria/MixtComp> is a project to
-build mixture models with heterogeneous data sets and partially missing
-data management. It includes models for real, categorical, counting,
-functional and ranking data. This package contains the minimal R interface
-of the C++ 'MixtComp' library.
+Base maps are transformed to focus on a specific location using an
+azimuthal logarithmic distance transformation.
 
 %prep
 %setup -q -c -n %{packname}

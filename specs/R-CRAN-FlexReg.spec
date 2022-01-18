@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  FlexReg
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Models for Bounded Responses
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-faraway 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rstan >= 2.18.1
 Requires:         R-CRAN-rstantools >= 2.0.0
@@ -39,20 +40,23 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-Formula 
 Requires:         R-utils 
 Requires:         R-grDevices 
+Requires:         R-CRAN-faraway 
 Requires:         R-CRAN-rstantools
 
 %description
-Functions to fit regression models for bounded responses, such as rates
-and proportions. Available models are the flexible beta (Migliorati, S.,
-Di Brisco, A. M., Ongaro, A. (2018) <doi:10.1214/17-BA1079>), the
-variance-inflated beta (Di Brisco, A. M., Migliorati, S., Ongaro, A.
-(2020) <doi:10.1177/1471082X18821213>), and the beta one (Ferrari, S.L.P.,
-and Cribari-Neto, F. (2004) <doi:10.1080/0266476042000214501>). Inference
-is dealt with a Bayesian approach based on the Hamiltonian Monte Carlo
-(HMC) algorithm (Gelman, A.; Carlin, J. B.; Stern, H. S. and Rubin, D. B.
-(2014) <doi:10.1201/b16018>). Besides, functions to compute residuals,
-posterior predictives, goodness-of-fit measures, convergence diagnostics,
-and graphical representations are provided.
+Functions to fit regression models for bounded responses (e.g.,
+proportions and rates) and binomial data. Available models are the
+flexible beta (Migliorati, S., Di Brisco, A. M., Ongaro, A. (2018)
+<doi:10.1214/17-BA1079>), the variance-inflated beta (Di Brisco, A. M.,
+Migliorati, S., Ongaro, A. (2020) <doi:10.1177/1471082X18821213>), the
+beta (Ferrari, S.L.P., and Cribari-Neto, F. (2004)
+<doi:10.1080/0266476042000214501>), the flexible beta-binomial (Ascari, R.
+and Migliorati, S. (2021) <doi:10.1002/sim.9005>), the beta-binomial, and
+the binomial one. Inference is dealt with a Bayesian approach based on the
+Hamiltonian Monte Carlo (HMC) algorithm (Gelman, A.; Carlin, J. B.; Stern,
+H. S. and Rubin, D. B. (2014) <doi:10.1201/b16018>). Besides, functions to
+compute residuals, posterior predictives, goodness-of-fit measures,
+convergence diagnostics, and graphical representations are provided.
 
 %prep
 %setup -q -c -n %{packname}
@@ -62,6 +66,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

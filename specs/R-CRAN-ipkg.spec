@@ -1,35 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RMixtCompIO
-%global packver   4.0.7
+%global packname  ipkg
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.7
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimal Interface of the C++ 'MixtComp' Library for Mixture Models with Heterogeneous and (Partially) Missing Data
+Summary:          Install R Packages on GitHub from Hub.fastgit.org
 
-License:          AGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-remotes 
+Requires:         R-CRAN-remotes 
 
 %description
-Mixture Composer <https://github.com/modal-inria/MixtComp> is a project to
-build mixture models with heterogeneous data sets and partially missing
-data management. It includes models for real, categorical, counting,
-functional and ranking data. This package contains the minimal R interface
-of the C++ 'MixtComp' library.
+When you want to install an R package on GitHub, but you can't access
+GitHub, this function helps you download and install the package from
+another website <https://hub.fastgit.org/>, which is in real-time sync
+with GitHub.
 
 %prep
 %setup -q -c -n %{packname}

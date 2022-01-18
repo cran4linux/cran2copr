@@ -1,43 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global packname  robsurvey
-%global packver   0.1.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Survey Statistics Estimation
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-survey >= 3.35
+BuildRequires:    R-CRAN-survey >= 3.35.1
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-survey >= 3.35
+BuildRequires:    R-CRAN-KernSmooth 
+Requires:         R-CRAN-survey >= 3.35.1
 Requires:         R-grDevices 
 Requires:         R-stats 
+Requires:         R-CRAN-KernSmooth 
 
 %description
-Multiple functions to compute robust survey statistics. The package
-supports the computations of robust means, totals, and ratios. Available
-methods are Huber M-estimators, trimming, and winsorization. The package
-'robsurvey' complements the 'survey' package. The package additionally
-includes a weighted version of the resistant line function of base R
-(line()), as well as two median based simple regression estimators. The
-methods are described in Hulliger (1995)
-<https://www150.statcan.gc.ca/n1/en/catalogue/12-001-X199500114407/>.
+Functions to compute robust (outlier-resistant) estimates of finite
+population characteristics. The package supports the computations of
+robust means, totals, ratios, etc. Available methods are regression M- and
+GM-estimators, trimming, and winsorization. The package robsurvey
+complements the survey.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -47,6 +52,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

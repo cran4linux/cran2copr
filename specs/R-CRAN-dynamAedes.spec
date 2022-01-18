@@ -1,35 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RMixtCompIO
-%global packver   4.0.7
+%global packname  dynamAedes
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.7
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimal Interface of the C++ 'MixtComp' Library for Mixture Models with Heterogeneous and (Partially) Missing Data
+Summary:          A Unified Mechanistic Model for the Population Dynamics of Invasive Aedes Mosquitoes
 
-License:          AGPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-drc 
+BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-doParallel 
+BuildRequires:    R-CRAN-insol 
+BuildRequires:    R-CRAN-slam 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-sp 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-drc 
+Requires:         R-CRAN-fields 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-insol 
+Requires:         R-CRAN-slam 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-sp 
 
 %description
-Mixture Composer <https://github.com/modal-inria/MixtComp> is a project to
-build mixture models with heterogeneous data sets and partially missing
-data management. It includes models for real, categorical, counting,
-functional and ranking data. This package contains the minimal R interface
-of the C++ 'MixtComp' library.
+Generalised model for population dynamics of invasive Aedes mosquitoes.
+Rationale and model structure are described here:
+<doi:10.1016/j.ecoinf.2020.101180> and <doi:10.1101/2021.12.21.473628> .
 
 %prep
 %setup -q -c -n %{packname}

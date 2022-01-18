@@ -1,52 +1,57 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gitdown
-%global packver   0.1.4
+%global packname  polimetrics
+%global packver   1.2.1.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.2.1.14
 Release:          1%{?dist}%{?buildtag}
-Summary:          Turn Your Git Commit Messages into a HTML Book
+Summary:          R Tools for Political Measures
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.2.3
+Requires:         R-core >= 3.2.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-git2r >= 0.26.0
-BuildRequires:    R-CRAN-attempt 
-BuildRequires:    R-CRAN-bookdown 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-git2r >= 0.26.0
-Requires:         R-CRAN-attempt 
-Requires:         R-CRAN-bookdown 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-formula.tools 
+BuildRequires:    R-CRAN-gplots 
+BuildRequires:    R-CRAN-rstatix 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-car 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rmarkdown 
 Requires:         R-stats 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
+Requires:         R-graphics 
+Requires:         R-CRAN-formula.tools 
+Requires:         R-CRAN-gplots 
+Requires:         R-CRAN-rstatix 
+Requires:         R-CRAN-stringr 
 
 %description
-Read all commit messages of your local git repository and sort them
-according to tags or specific text pattern into chapters of a HTML book
-using 'bookdown'. The git history book presentation helps organisms
-required to testify for every changes in their source code, in relation to
-features requests.
+This is a collection of data and functions for common metrics in political
+science research. Data measuring ideology, and functions calculating
+geographical diffusion and ideological diffusion - geog.diffuse() and
+ideo.dist(), respectively. Functions derived from methods developed in:
+Soule and King (2006) <doi:10.1086/499908>, Berry et al. (1998)
+<doi:10.2307/2991759>, Cruz-Aceves and Mallinson (2019)
+<doi:10.1177/0160323X20902818>, and Grossback et al. (2004)
+<doi:10.1177/1532673X04263801>.
 
 %prep
 %setup -q -c -n %{packname}

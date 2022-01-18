@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  poems
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pattern-Oriented Ensemble Modeling System
 
@@ -38,24 +38,28 @@ Requires:         R-CRAN-doParallel >= 1.0.16
 Requires:         R-CRAN-metRology >= 0.9.28.1
 
 %description
-The poems package provides a framework of interoperable R6 classes for
-building ensembles of viable models via the pattern-oriented modeling
-(POM) approach. The package includes classes for encapsulating and
-generating model parameters, and managing the POM workflow. The workflow
-includes: model setup; generating model parameters via Latin hyper-cube
-sampling; running multiple sampled model simulations; collating summary
-results; and validating and selecting an ensemble of models that best
-match known patterns. By default, model validation and selection utilizes
-an approximate Bayesian computation (ABC) approach, although alternative
-user-defined functionality could be employed. The package includes a
-spatially explicit demographic population model simulation engine, which
-incorporates default functionality for density dependence, correlated
-environmental stochasticity, stage-based transitions, and distance-based
-dispersal. The user may customize the simulator by defining functionality
-for translocations, harvesting, mortality, and other processes, as well as
-defining the sequence order for the simulator processes. The framework
-could also be adapted for use with other model simulators by utilizing its
-extendable (inheritable) base classes.
+The poems package provides a framework of interoperable R6 classes (Chang,
+2020, <https://CRAN.R-project.org/package=R6>) for building ensembles of
+viable models via the pattern-oriented modeling (POM) approach (Grimm et
+al., 2005, <doi:10.1126/science.1116681>). The package includes classes
+for encapsulating and generating model parameters, and managing the POM
+workflow. The workflow includes: model setup; generating model parameters
+via Latin hyper-cube sampling (Iman & Conover, 1980,
+<doi:10.1080/03610928008827996>); running multiple sampled model
+simulations; collating summary results; and validating and selecting an
+ensemble of models that best match known patterns. By default, model
+validation and selection utilizes an approximate Bayesian computation
+(ABC) approach (Beaumont et al., 2002, <doi:10.1093/genetics/162.4.2025>),
+although alternative user-defined functionality could be employed. The
+package includes a spatially explicit demographic population model
+simulation engine, which incorporates default functionality for density
+dependence, correlated environmental stochasticity, stage-based
+transitions, and distance-based dispersal. The user may customize the
+simulator by defining functionality for translocations, harvesting,
+mortality, and other processes, as well as defining the sequence order for
+the simulator processes. The framework could also be adapted for use with
+other model simulators by utilizing its extendable (inheritable) base
+classes.
 
 %prep
 %setup -q -c -n %{packname}
@@ -65,6 +69,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

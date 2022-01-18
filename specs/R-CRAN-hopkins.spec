@@ -1,35 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RMixtCompIO
-%global packver   4.0.7
+%global packname  hopkins
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.7
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimal Interface of the C++ 'MixtComp' Library for Mixture Models with Heterogeneous and (Partially) Missing Data
+Summary:          Calculate Hopkins Statistic for Clustering
 
-License:          AGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-donut 
+BuildRequires:    R-CRAN-pdist 
+BuildRequires:    R-CRAN-RANN 
+Requires:         R-CRAN-donut 
+Requires:         R-CRAN-pdist 
+Requires:         R-CRAN-RANN 
 
 %description
-Mixture Composer <https://github.com/modal-inria/MixtComp> is a project to
-build mixture models with heterogeneous data sets and partially missing
-data management. It includes models for real, categorical, counting,
-functional and ranking data. This package contains the minimal R interface
-of the C++ 'MixtComp' library.
+Calculate Hopkins statistic to assess the clusterability of data. See
+Hopkins and Skellam (1954) <doi:10.1093/oxfordjournals.aob.a083391>.
 
 %prep
 %setup -q -c -n %{packname}

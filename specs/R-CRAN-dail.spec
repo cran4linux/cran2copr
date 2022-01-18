@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dail
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data from Access to Information Law
 
@@ -18,16 +18,12 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stopwords 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidytext 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stopwords 
 Requires:         R-CRAN-stringr 

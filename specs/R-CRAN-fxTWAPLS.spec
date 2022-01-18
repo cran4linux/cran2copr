@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fxTWAPLS
-%global packver   0.0.7
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Improved Version of WA-PLS
 

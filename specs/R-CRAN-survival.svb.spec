@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  survival.svb
-%global packver   0.0-1
+%global packver   0.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit High-Dimensional Proportional Hazards Models
 
@@ -24,16 +24,15 @@ Requires:         R-CRAN-glmnet
 Requires:         R-CRAN-survival 
 
 %description
-Variable selection in a high dimensional setting is becoming a task of key
-importance, particularly in the biomedical sciences where data is often
-high-dimensional. This package implements methodology designed to performs
-variable selection in a high-dimensional settings, whilst also providing
-mechanisms for uncertainty quantification and effect estimations. Broadly,
-we use a spike-and-slab prior with Laplace slab and Dirac spike and seek
-to approximate the corresponding posterior using variational inference.
-Our variational approximation thereby provides posterior inclusion
-probabilities, point estimates for the effect sizes and uncertainty
-quantification for the effect sizes.
+Implementation of methodology designed to perform: (i) variable selection,
+(ii) effect estimation, and (iii) uncertainty quantification, for
+high-dimensional survival data. Our method uses a spike-and-slab prior
+with Laplace slab and Dirac spike and approximates the corresponding
+posterior using variational inference, a popular method in machine
+learning for scalable conditional inference. Although approximate, the
+variational posterior provides excellent point estimates and good control
+of the false discovery rate. For more information see Komodromos et al.
+(2021) <arXiv:2112.10270>.
 
 %prep
 %setup -q -c -n %{packname}

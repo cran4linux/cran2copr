@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  comorbidity
-%global packver   0.5.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
-Release:          3%{?dist}%{?buildtag}
+Version:          1.0.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Computing Comorbidity Scores
 
 License:          GPL (>= 3)
@@ -19,22 +19,36 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
 Requires:         R-stats 
+Requires:         R-CRAN-stringi 
 Requires:         R-utils 
 
 %description
-Computing comorbidity scores such as the weighted Charlson score
-(Charlson, 1987 <doi:10.1016/0021-9681(87)90171-8>) and the Elixhauser
-comorbidity score (Elixhauser, 1998
+Computing comorbidity indices and scores such as the weighted Charlson
+score (Charlson, 1987 <doi:10.1016/0021-9681(87)90171-8>) and the
+Elixhauser comorbidity score (Elixhauser, 1998
 <doi:10.1097/00005650-199801000-00004>) using ICD-9-CM or ICD-10 codes
-(Quan, 2005 <doi:10.1097/01.mlr.0000182534.19832.83>).
+(Quan, 2005 <doi:10.1097/01.mlr.0000182534.19832.83>). Australian and
+Swedish modifications of the Charlson Comorbidity Index are available as
+well (Sundararajan, 2004 <doi:10.1016/j.jclinepi.2004.03.012> and
+Ludvigsson, 2021 <doi:10.2147/CLEP.S282475>).
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -42,20 +56,10 @@ comorbidity score (Elixhauser, 1998
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

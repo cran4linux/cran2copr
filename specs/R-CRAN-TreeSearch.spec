@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  TreeSearch
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Phylogenetic Tree Search Using Custom Optimality Criteria
+Summary:          Phylogenetic Analysis with Morphological Data
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,48 +15,50 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-ape >= 5.1
+BuildRequires:    R-CRAN-ape >= 5.6
 BuildRequires:    R-CRAN-cli >= 3.0
+BuildRequires:    R-CRAN-TreeDist >= 2.3.0
 BuildRequires:    R-CRAN-phangorn >= 2.2.1
-BuildRequires:    R-CRAN-TreeTools >= 1.5.0
+BuildRequires:    R-CRAN-shiny >= 1.6.0
+BuildRequires:    R-CRAN-TreeTools >= 1.6.0
 BuildRequires:    R-CRAN-fastmatch >= 1.1.3
 BuildRequires:    R-CRAN-Rdpack >= 0.7
-BuildRequires:    R-CRAN-TreeDist > 2.0.3
-BuildRequires:    R-CRAN-Rogue > 1.0.0
+BuildRequires:    R-CRAN-Rogue > 2.0.0
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-promises 
 BuildRequires:    R-CRAN-protoclust 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ape >= 5.1
+Requires:         R-CRAN-ape >= 5.6
 Requires:         R-CRAN-cli >= 3.0
+Requires:         R-CRAN-TreeDist >= 2.3.0
 Requires:         R-CRAN-phangorn >= 2.2.1
-Requires:         R-CRAN-TreeTools >= 1.5.0
+Requires:         R-CRAN-shiny >= 1.6.0
+Requires:         R-CRAN-TreeTools >= 1.6.0
 Requires:         R-CRAN-fastmatch >= 1.1.3
 Requires:         R-CRAN-Rdpack >= 0.7
-Requires:         R-CRAN-TreeDist > 2.0.3
-Requires:         R-CRAN-Rogue > 1.0.0
+Requires:         R-CRAN-Rogue > 2.0.0
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-promises 
 Requires:         R-CRAN-protoclust 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyjs 
 Requires:         R-stats 
 
 %description
-Search for phylogenetic trees that are optimal using a user-defined
-criterion. Contains a "shiny" user interface for interactive tree search
-and exploration of results, including character visualization, rogue taxon
-detection, tree space mapping, and cluster consensus trees. Handles
-inapplicable data using the algorithm of Brazeau, Guillerme and Smith
-(2019) <doi:10.1093/sysbio/syy083> using the "Morphy" library. Implements
-Profile Parsimony (Faith and Trueman, 2001) <doi:10.1080/10635150118627>,
-and Successive Approximations (Farris, 1969) <doi:10.2307/2412182>.
+Reconstruct phylogenetic trees from discrete data. Inapplicable character
+states are handled using the algorithm of Brazeau, Guillerme and Smith
+(2019) <doi:10.1093/sysbio/syy083> with the "Morphy" library, under equal
+or implied step weights. Contains a "shiny" user interface for interactive
+tree search and exploration of results, including character visualization,
+rogue taxon detection, tree space mapping, and cluster consensus trees
+(Smith 2022a, b) <doi:10.1093/sysbio/syab099>,
+<doi:10.1093/sysbio/syab100>. Profile Parsimony (Faith and Trueman, 2001)
+<doi:10.1080/10635150118627>, Successive Approximations (Farris, 1969)
+<doi:10.2307/2412182> and custom optimality criteria are implemented.
 
 %prep
 %setup -q -c -n %{packname}

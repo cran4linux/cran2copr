@@ -1,44 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  sehrnett
-%global packver   0.0.3
+%global packname  agvgd
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Very Nice Interface to 'WordNet'
+Summary:          An R Implementation of the 'Align-GVGD' Method
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-purrr 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-grantham 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-seqinr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-grantham 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-seqinr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-vctrs 
 
 %description
-A very nice interface to Princeton's 'WordNet' without 'rJava' dependency.
-'WordNet' data is not included. Princeton University makes 'WordNet'
-available to research and commercial users free of charge provided the
-terms of their license
-(<https://wordnet.princeton.edu/license-and-commercial-use>) are followed,
-and proper reference is made to the project using an appropriate citation
-(<https://wordnet.princeton.edu/citing-wordnet>).
+'Align-GVGD' ('A-GVGD') is a method to predict the impact of 'missense'
+substitutions based on the properties of amino acid side chains and
+protein multiple sequence alignments <doi:10.1136/jmg.2005.033878>.
+'A-GVGD' is an extension of the original 'Grantham' distance to multiple
+sequence alignments. This package provides an alternative R implementation
+to the web version found on <http://agvgd.hci.utah.edu/>.
 
 %prep
 %setup -q -c -n %{packname}

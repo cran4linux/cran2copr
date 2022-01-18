@@ -1,35 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RMixtCompIO
-%global packver   4.0.7
+%global packname  TesiproV
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.7
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimal Interface of the C++ 'MixtComp' Library for Mixture Models with Heterogeneous and (Partially) Missing Data
+Summary:          Calculation of Reliability and Failure Probability in Civil Engineering
 
-License:          AGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-edfun 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-nloptr 
+Requires:         R-methods 
+Requires:         R-CRAN-edfun 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
 
 %description
-Mixture Composer <https://github.com/modal-inria/MixtComp> is a project to
-build mixture models with heterogeneous data sets and partially missing
-data management. It includes models for real, categorical, counting,
-functional and ranking data. This package contains the minimal R interface
-of the C++ 'MixtComp' library.
+Calculate the failure probability of civil engineering problems with Level
+I up to Level III Methods. Have fun and enjoy. References: Spaethe (1991,
+ISBN:3-211-82348-4) "Die Sicherheit tragender Baukonstruktionen", AU,BECK
+(2001) "Estimation of small failure probabilities in high dimensions by
+subset simulation." <doi:10.1016/S0266-8920(01)00019-4>, Breitung (1989)
+"Asymptotic approximations for probability integrals."
+<doi:10.1016/0266-8920(89)90024-6>.
 
 %prep
 %setup -q -c -n %{packname}
