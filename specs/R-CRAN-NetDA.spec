@@ -1,37 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  iNZightMR
-%global packver   2.2.6
+%global packname  NetDA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Exploring Multiple Response Data
+Summary:          Network-Based Discriminant Analysis Subject to Multi-Label Classes
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.13
-Requires:         R-core >= 2.13
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-grid 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-grid 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-glasso 
+Requires:         R-CRAN-glasso 
 
 %description
-Interaction and analysis of multiple response data, along with other tools
-for analysing these types of data including missing value analysis and
-calculation of standard errors for a range of covariance matrix results
-(proportions, multinomial, independent samples, and multiple response).
+Implementation of discriminant analysis with network structures in
+predictors accommodated to do classification and prediction.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,37 +1,25 @@
 %global __brp_check_rpaths %{nil}
-%global packname  iNZightMR
-%global packver   2.2.6
+%global packname  nsm3data
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.6
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Exploring Multiple Response Data
+Summary:          Datasets to Accompany Hollander, Wolfe, and Chicken NSM3
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.13
-Requires:         R-core >= 2.13
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-grid 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-grid 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Interaction and analysis of multiple response data, along with other tools
-for analysing these types of data including missing value analysis and
-calculation of standard errors for a range of covariance matrix results
-(proportions, multinomial, independent samples, and multiple response).
+Designed to add datasets which are used in the Nonparametric Statistical
+Methods textbook, 3rd edition.
 
 %prep
 %setup -q -c -n %{packname}

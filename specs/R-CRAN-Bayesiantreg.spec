@@ -1,37 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  iNZightMR
-%global packver   2.2.6
+%global packname  Bayesiantreg
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.6
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Exploring Multiple Response Data
+Summary:          Bayesian t Regression for Modeling Mean and Scale Parameters
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.13
-Requires:         R-core >= 2.13
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-grid 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-grid 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-MASS >= 7.3
+BuildRequires:    R-CRAN-Matrix >= 1.2
+BuildRequires:    R-CRAN-mvtnorm >= 1.1
+Requires:         R-CRAN-MASS >= 7.3
+Requires:         R-CRAN-Matrix >= 1.2
+Requires:         R-CRAN-mvtnorm >= 1.1
 
 %description
-Interaction and analysis of multiple response data, along with other tools
-for analysing these types of data including missing value analysis and
-calculation of standard errors for a range of covariance matrix results
-(proportions, multinomial, independent samples, and multiple response).
+Performs Bayesian t Regression where mean and scale parameters are
+modeling by lineal regression structures, and the degrees of freedom
+parameters are estimated.
 
 %prep
 %setup -q -c -n %{packname}

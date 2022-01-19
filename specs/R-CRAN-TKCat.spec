@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  TKCat
-%global packver   0.5.4
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tailored Knowledge Catalog
 
@@ -16,8 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RClickhouse >= 0.5.2
-BuildRequires:    R-CRAN-ReDaMoR >= 0.4.3
+BuildRequires:    R-CRAN-jsonvalidate >= 1.3.2
+BuildRequires:    R-CRAN-RClickhouse >= 0.6.0
+BuildRequires:    R-CRAN-ReDaMoR >= 0.5.2
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DBI 
@@ -28,15 +29,18 @@ BuildRequires:    R-CRAN-getPass
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-jsonvalidate 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-CRAN-promises 
 BuildRequires:    R-CRAN-future 
-Requires:         R-CRAN-RClickhouse >= 0.5.2
-Requires:         R-CRAN-ReDaMoR >= 0.4.3
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-uuid 
+Requires:         R-CRAN-jsonvalidate >= 1.3.2
+Requires:         R-CRAN-RClickhouse >= 0.6.0
+Requires:         R-CRAN-ReDaMoR >= 0.5.2
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DBI 
@@ -47,13 +51,15 @@ Requires:         R-CRAN-getPass
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-DT 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-jsonvalidate 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-markdown 
 Requires:         R-CRAN-promises 
 Requires:         R-CRAN-future 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-uuid 
 
 %description
 Facilitate the management of data from knowledge resources that are
@@ -74,6 +80,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

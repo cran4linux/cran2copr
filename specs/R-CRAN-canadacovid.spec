@@ -1,37 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  iNZightMR
-%global packver   2.2.6
+%global packname  canadacovid
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.6
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Exploring Multiple Response Data
+Summary:          API Wrapper for the Canadian COVID-19 Tracker
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.13
-Requires:         R-core >= 2.13
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-grid 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-Requires:         R-grid 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 
 %description
-Interaction and analysis of multiple response data, along with other tools
-for analysing these types of data including missing value analysis and
-calculation of standard errors for a range of covariance matrix results
-(proportions, multinomial, independent samples, and multiple response).
+Provides R functions to GET data from the Canadian COVID-19 tracker API
+<https://api.covid19tracker.ca>.
 
 %prep
 %setup -q -c -n %{packname}

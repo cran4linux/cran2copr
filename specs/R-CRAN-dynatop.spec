@@ -1,37 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  iNZightMR
-%global packver   2.2.6
+%global packname  dynatop
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.6
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Exploring Multiple Response Data
+Summary:          An Implementation of Dynamic TOPMODEL Hydrological Model in R
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.13
-Requires:         R-core >= 2.13
-BuildArch:        noarch
-BuildRequires:    R-grid 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-grid 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Interaction and analysis of multiple response data, along with other tools
-for analysing these types of data including missing value analysis and
-calculation of standard errors for a range of covariance matrix results
-(proportions, multinomial, independent samples, and multiple response).
+An R implementation and enhancement of the Dynamic TOPMODEL
+semi-distributed hydrological model originally proposed by Beven and Freer
+(2001) <doi:10.1002/hyp.252>. The 'dynatop' package implements code for
+simulating models which can be created using the 'dynatopGIS' package.
 
 %prep
 %setup -q -c -n %{packname}

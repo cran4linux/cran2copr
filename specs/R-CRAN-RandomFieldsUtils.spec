@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RandomFieldsUtils
-%global packver   1.0.11
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.11
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for the Simulation and Analysis of Random Fields and Genomic Data
+Summary:          Utilities for the Simulation and Analysis of Random Fields and Genetic Data
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,11 +25,7 @@ Requires:         R-parallel
 %description
 Various utilities are provided that might be used in spatial statistics
 and elsewhere. It delivers a method for solving linear equations that
-checks the sparsity of the matrix before any algorithm is used. In
-particular the following algorithms are implemented: the pivoted Cholesky
-decomposition <doi:10.1016/j.apnum.2011.10.001> and on graphic cards, the
-Struve functions <doi:10.1090/S0025-5718-1993-1176713-8>, and a precise
-algorithm for evaluating the special covariance function.
+checks the sparsity of the matrix before any algorithm is used.
 
 %prep
 %setup -q -c -n %{packname}

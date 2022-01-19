@@ -1,37 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  iNZightMR
-%global packver   2.2.6
+%global packname  DisaggregateTS
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.6
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Exploring Multiple Response Data
+Summary:          High-Dimensional Temporal Disaggregation
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.13
-Requires:         R-core >= 2.13
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-grid 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-grid 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-lars 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-lars 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-withr 
 
 %description
-Interaction and analysis of multiple response data, along with other tools
-for analysing these types of data including missing value analysis and
-calculation of standard errors for a range of covariance matrix results
-(proportions, multinomial, independent samples, and multiple response).
+First - Generates (potentially high-dimensional) high-frequency and
+low-frequency series for simulation studies in temporal disaggregation;
+Second - a toolkit utilizing temporal disaggregation and benchmarking
+techniques with a low-dimensional matrix of indicator series previously
+proposed in Dagum and Cholette (2006, ISBN:978-0-387-35439-2) ; and Third
+- novel techniques proposed by Mosley, Gibberd and Eckley (2021)
+<arXiv:2108.05783> for disaggregating low-frequency series in the presence
+of high-dimensional indicator matrices.
 
 %prep
 %setup -q -c -n %{packname}

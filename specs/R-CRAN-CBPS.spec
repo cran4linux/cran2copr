@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  CBPS
-%global packver   0.22
+%global packver   0.23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.22
+Version:          0.23
 Release:          1%{?dist}%{?buildtag}
 Summary:          Covariate Balancing Propensity Score
 
@@ -33,19 +33,19 @@ Imai and Ratkovic (2014) <DOI:10.1111/rssb.12027>. The propensity score is
 estimated such that it maximizes the resulting covariate balance as well
 as the prediction of treatment assignment. The method, therefore, avoids
 an iteration between model fitting and balance checking.  The package also
-implements optimal CBPS from Fan et al. (2016)
-<https://imai.fas.harvard.edu/research/CBPStheory.html>, several
-extensions of the CBPS beyond the cross-sectional, binary treatment
-setting. They include the CBPS for longitudinal settings so that it can be
-used in conjunction with marginal structural models from Imai and Ratkovic
-(2015) <DOI:10.1080/01621459.2014.956872>, treatments with three- and
-four-valued treatment variables, continuous-valued treatments from Fong,
-Hazlett, and Imai (2018) <DOI:10.1214/17-AOAS1101>, propensity score
-estimation with a large number of covariates from Ning, Peng, and Imai
-(2018) <arXiv:1812.08683>, and the situation with multiple distinct binary
-treatments administered simultaneously. In the future it will be extended
-to other settings including the generalization of experimental and
-instrumental variable estimates.
+implements optimal CBPS from Fan et al. (in-press)
+<DOI:10.1080/07350015.2021.2002159>, several extensions of the CBPS beyond
+the cross-sectional, binary treatment setting. They include the CBPS for
+longitudinal settings so that it can be used in conjunction with marginal
+structural models from Imai and Ratkovic (2015)
+<DOI:10.1080/01621459.2014.956872>, treatments with three- and four-valued
+treatment variables, continuous-valued treatments from Fong, Hazlett, and
+Imai (2018) <DOI:10.1214/17-AOAS1101>, propensity score estimation with a
+large number of covariates from Ning, Peng, and Imai (2020)
+<DOI:10.1093/biomet/asaa020>, and the situation with multiple distinct
+binary treatments administered simultaneously. In the future it will be
+extended to other settings including the generalization of experimental
+and instrumental variable estimates.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,6 +55,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

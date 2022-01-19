@@ -1,37 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  iNZightMR
-%global packver   2.2.6
+%global packname  braQCA
+%global packver   1.2.1.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.6
+Version:          1.2.1.18
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Exploring Multiple Response Data
+Summary:          Bootstrapped Robustness Assessment for Qualitative Comparative Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.13
-Requires:         R-core >= 2.13
+BuildRequires:    R-devel >= 3.2.3
+Requires:         R-core >= 3.2.3
 BuildArch:        noarch
-BuildRequires:    R-grid 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-grid 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-QCA 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-bootstrap 
+Requires:         R-CRAN-QCA 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-bootstrap 
 
 %description
-Interaction and analysis of multiple response data, along with other tools
-for analysing these types of data including missing value analysis and
-calculation of standard errors for a range of covariance matrix results
-(proportions, multinomial, independent samples, and multiple response).
+Test the robustness of a user's Qualitative Comparative Analysis solutions
+to randomness, using the bootstrapped assessment: baQCA(). This package
+also includes a function that provides recommendations for improving
+solutions to reach typical significance levels: brQCA(). Data included
+come from McVeigh et al. (2014) <doi:10.1177/0003122414534065>.
 
 %prep
 %setup -q -c -n %{packname}

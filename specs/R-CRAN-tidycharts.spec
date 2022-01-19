@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tidycharts
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate Tidy Charts Inspired by 'IBCS'
 
@@ -17,22 +17,22 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-rsvg 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-magick 
 Requires:         R-CRAN-rsvg 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-testthat 
-Requires:         R-CRAN-dplyr 
 Requires:         R-methods 
 Requires:         R-graphics 
 Requires:         R-CRAN-htmlwidgets 

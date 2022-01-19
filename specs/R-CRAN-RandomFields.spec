@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RandomFields
-%global packver   3.3.13
+%global packver   3.3.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.13
+Version:          3.3.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation and Analysis of Random Fields
 
@@ -15,14 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-RandomFieldsUtils >= 0.5.5
+BuildRequires:    R-CRAN-RandomFieldsUtils >= 1.1
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-RandomFieldsUtils >= 0.5.5
+Requires:         R-CRAN-RandomFieldsUtils >= 1.1
 Requires:         R-CRAN-sp 
 Requires:         R-graphics 
 Requires:         R-methods 
@@ -33,10 +33,8 @@ Requires:         R-utils
 %description
 Methods for the inference on and the simulation of Gaussian fields are
 provided. Furthermore, methods for the simulation of extreme value random
-fields are provided. Main geostatistical parts are based on the books by
-Christian Lantuejoul <doi:10.1007/978-3-662-04808-5>, Jean-Paul Chiles and
-Pierre Delfiner <doi:10.1002/9781118136188> and Noel A. Cressie
-<doi:10.1002/9781119115151>.
+fields are provided. Main geostatistical parts are based among others on
+the books by Christian Lantuejoul <doi:10.1007/978-3-662-04808-5>.
 
 %prep
 %setup -q -c -n %{packname}

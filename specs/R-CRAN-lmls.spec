@@ -1,37 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  iNZightMR
-%global packver   2.2.6
+%global packname  lmls
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Exploring Multiple Response Data
+Summary:          Gaussian Location-Scale Regression
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.13
-Requires:         R-core >= 2.13
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-grid 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-grid 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-generics >= 0.1.0
+Requires:         R-CRAN-generics >= 0.1.0
 
 %description
-Interaction and analysis of multiple response data, along with other tools
-for analysing these types of data including missing value analysis and
-calculation of standard errors for a range of covariance matrix results
-(proportions, multinomial, independent samples, and multiple response).
+The Gaussian location-scale regression model is a multi-predictor model
+with explanatory variables for the mean (= location) and the standard
+deviation (= scale) of a response variable. This package implements
+maximum likelihood and Markov chain Monte Carlo (MCMC) inference (using
+algorithms from Girolami and Calderhead (2011)
+<doi:10.1111/j.1467-9868.2010.00765.x> and Nesterov (2009)
+<doi:10.1007/s10107-007-0149-x>), a parametric bootstrap algorithm, and
+diagnostic plots for the model class.
 
 %prep
 %setup -q -c -n %{packname}

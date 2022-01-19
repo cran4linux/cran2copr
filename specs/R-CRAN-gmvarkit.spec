@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gmvarkit
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Gaussian or Student's t Mixture Vector Autoregressive Model
+Summary:          Estimate Gaussian and Student's t Mixture Vector Autoregressive Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}

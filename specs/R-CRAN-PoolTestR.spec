@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  PoolTestR
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prevalence and Regression for Pool-Tested (Group-Tested) Data
 
@@ -52,8 +52,9 @@ xenomonitoring software, 'PoolScreen'
 <https://sites.uab.edu/statgenetics/software/>. However, it goes further,
 allowing for estimates of prevalence to be adjusted for hierarchical
 sampling frames, and perform flexible mixed-effect regression analyses
-(McLure et al. pre-print <arXiv:2012.05405>). The package is currently in
-early stages, however more features are planned or in the works: e.g.
+(McLure et al. Environmental Modelling and Software.
+<DOI:10.1016/j.envsoft.2021.105158>). The package is currently in early
+stages, however more features are planned or in the works: e.g.
 adjustments for imperfect test specificity/sensitivity, functions for
 helping with optimal experimental design, and functions for spatial
 modelling.
@@ -66,6 +67,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
