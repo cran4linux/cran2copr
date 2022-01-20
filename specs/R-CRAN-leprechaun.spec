@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  plfm
-%global packver   2.2.3
+%global packname  leprechaun
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Probabilistic Latent Feature Analysis
+Summary:          Create Simple 'Shiny' Applications as Packages
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,15 +15,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-sfsmisc 
-BuildRequires:    R-CRAN-abind 
-Requires:         R-CRAN-sfsmisc 
-Requires:         R-CRAN-abind 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-roxygen2 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-roxygen2 
 
 %description
-Functions for estimating probabilistic latent feature models with a
-disjunctive, conjunctive or additive mapping rule on (aggregated) binary
-three-way data.
+Code generator for robust dependency-free 'Shiny' applications in the form
+of packages. It includes numerous convenience functions to create modules,
+include utility functions to create common 'Bootstrap' elements, setup a
+project from the ground-up, and much more.
 
 %prep
 %setup -q -c -n %{packname}

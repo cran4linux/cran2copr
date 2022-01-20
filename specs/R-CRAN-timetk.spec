@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  timetk
-%global packver   2.6.2
+%global packver   2.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.2
+Version:          2.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Tool Kit for Working with Time Series in R
 
@@ -38,6 +38,7 @@ BuildRequires:    R-CRAN-slider
 BuildRequires:    R-CRAN-anytime 
 BuildRequires:    R-CRAN-timeDate 
 BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-tsfeatures 
 BuildRequires:    R-CRAN-hms 
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-generics 
@@ -63,6 +64,7 @@ Requires:         R-CRAN-slider
 Requires:         R-CRAN-anytime 
 Requires:         R-CRAN-timeDate 
 Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-tsfeatures 
 Requires:         R-CRAN-hms 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-generics 

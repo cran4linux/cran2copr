@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  lefko3
-%global packver   4.1.1
+%global packver   4.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.1
+Version:          4.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Historical and Ahistorical Population Projection Matrix Analysis
 
@@ -23,9 +23,10 @@ BuildRequires:    R-CRAN-MuMIn
 BuildRequires:    R-CRAN-pscl 
 BuildRequires:    R-CRAN-SparseM 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-Rcpp >= 1.0.5
 Requires:         R-CRAN-glmmTMB 
 Requires:         R-CRAN-lme4 
@@ -34,18 +35,17 @@ Requires:         R-CRAN-MuMIn
 Requires:         R-CRAN-pscl 
 Requires:         R-CRAN-SparseM 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-VGAM 
+Requires:         R-grDevices 
 
 %description
-Creates matrix population models for use in population ecological
-analyses. Specializes on the construction of historical matrices, which
-are 2d matrices comprising 3 consecutive times of demographic information.
-Estimates both raw and function-based forms of historical and standard
-ahistorical matrices. It also estimates function-based age-by-stage
-matrices. Methodology based on Ehrlen (2000)
-<doi:10.1890/0012-9658(2000)081[1675:TDOPPD]2.0.CO;2> and deVries and
-Caswell (2018) <doi:10.1007/s12080-017-0353-0>.
+Complete analytical environment for the construction and analysis of
+matrix population models and integral projection models. Includes the
+ability to construct historical matrices, which are 2d matrices comprising
+3 consecutive times of demographic information. Estimates both raw and
+function-based forms of historical and standard ahistorical matrices. It
+also estimates function-based age-by-stage matrices and raw and
+function-based Leslie matrices.
 
 %prep
 %setup -q -c -n %{packname}

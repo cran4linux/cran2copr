@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  EigenR
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Complex Matrix Algebra with 'Eigen'
 
@@ -20,11 +20,11 @@ BuildRequires:    R-CRAN-RcppEigen
 Requires:         R-CRAN-Rcpp >= 1.0.5
 
 %description
-Matrix algebra using the 'Eigen' C++ library: determinant, rank,
-inversion, kernel and image, QR decomposition, Cholesky decomposition,
-linear least-squares problems. Also provides matrix functions such as
-exponential, logarithm, power, sine and cosine. Complex matrices are
-supported.
+Matrix algebra using the 'Eigen' C++ library: determinant, rank, inverse,
+pseudo-inverse, kernel and image, QR decomposition, Cholesky
+decomposition, linear least-squares problems. Also provides matrix
+functions such as exponential, logarithm, power, sine and cosine. Complex
+matrices are supported.
 
 %prep
 %setup -q -c -n %{packname}

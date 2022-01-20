@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bread
-%global packver   0.1.5
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze Big Files Without Loading Them in Memory
 
@@ -28,10 +28,14 @@ A simple set of wrapper functions for data.table::fread() that allows
 subsetting or filtering rows and selecting columns of table-formatted
 files too large for the available RAM. 'b stands for 'big files'. The
 package is using Unix commands like grep, cut and sed through (hopefully)
-intuitive parameters. IMPORTANT: On Windows environments, you need to have
-those Unix commands available in your "PATH". The easiest way is to
-install "RTools". Alternatively, Git or Cygwin should also work if their
-/bin/ folders are in your Path.
+intuitive parameters. bread makes heavy use of Unix commands like grep,
+sed, wc and cut. They are available by default in all Unix environments.
+For Windows, you need to install those commands externally in order to
+simulate a Unix environment and make sure that the executables are in the
+Windows PATH variable. To my knowledge, the simplest ways are to install
+RTools, Git or Cygwin. If they have been correctly installed (with the
+expected registry entries), they should be detected on loading the package
+and the correct directories will be added automatically to the PATH.
 
 %prep
 %setup -q -c -n %{packname}

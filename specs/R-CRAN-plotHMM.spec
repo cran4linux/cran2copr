@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  plfm
-%global packver   2.2.3
+%global packname  plotHMM
+%global packver   2022.1.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.3
+Version:          2022.1.18
 Release:          1%{?dist}%{?buildtag}
-Summary:          Probabilistic Latent Feature Analysis
+Summary:          Plot Hidden Markov Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,15 +15,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-sfsmisc 
-BuildRequires:    R-CRAN-abind 
-Requires:         R-CRAN-sfsmisc 
-Requires:         R-CRAN-abind 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.7
 
 %description
-Functions for estimating probabilistic latent feature models with a
-disjunctive, conjunctive or additive mapping rule on (aggregated) binary
-three-way data.
+Hidden Markov Models are useful for modeling sequential data. This package
+provides several functions implemented in C++ for explaining the
+algorithms used for Hidden Markov Models (forward, backward, decoding,
+learning).
 
 %prep
 %setup -q -c -n %{packname}

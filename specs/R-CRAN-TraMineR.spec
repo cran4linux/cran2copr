@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  TraMineR
-%global packver   2.2-2
+%global packver   2.2-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          2.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Trajectory Miner: a Toolbox for Exploring and Rendering Sequences
 
@@ -16,27 +16,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-weights 
 BuildRequires:    R-CRAN-cNORM 
+BuildRequires:    R-CRAN-boot 
 Requires:         R-utils 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-boot 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
-Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-psych 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-weights 
 Requires:         R-CRAN-cNORM 
+Requires:         R-CRAN-boot 
 
 %description
 Toolbox for the manipulation, description and rendering of sequences, and
@@ -61,6 +59,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

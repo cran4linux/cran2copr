@@ -1,29 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  plfm
-%global packver   2.2.3
+%global packname  npm
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Probabilistic Latent Feature Analysis
+Summary:          Interact with 'NPM'
 
-License:          GPL (>= 2)
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-sfsmisc 
-BuildRequires:    R-CRAN-abind 
-Requires:         R-CRAN-sfsmisc 
-Requires:         R-CRAN-abind 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-erratum >= 2.2.0
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-erratum >= 2.2.0
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-cli 
 
 %description
-Functions for estimating probabilistic latent feature models with a
-disjunctive, conjunctive or additive mapping rule on (aggregated) binary
-three-way data.
+Interact with 'NPM' from the 'R Console' to automate tasks and ease access
+to 'JavaScript'.
 
 %prep
 %setup -q -c -n %{packname}

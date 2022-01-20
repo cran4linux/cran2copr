@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  causact
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accelerated Bayesian Analytics with DAGs
 
@@ -21,7 +21,7 @@ BuildRequires:    R-CRAN-htmlwidgets >= 1.5.1
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-igraph >= 1.2.5
-BuildRequires:    R-CRAN-DiagrammeR >= 1.0.6
+BuildRequires:    R-CRAN-DiagrammeR >= 1.0.7
 BuildRequires:    R-CRAN-tidyr >= 1.0.3
 BuildRequires:    R-CRAN-cowplot >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.5
@@ -36,7 +36,7 @@ Requires:         R-CRAN-htmlwidgets >= 1.5.1
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-igraph >= 1.2.5
-Requires:         R-CRAN-DiagrammeR >= 1.0.6
+Requires:         R-CRAN-DiagrammeR >= 1.0.7
 Requires:         R-CRAN-tidyr >= 1.0.3
 Requires:         R-CRAN-cowplot >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.5
@@ -67,6 +67,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
