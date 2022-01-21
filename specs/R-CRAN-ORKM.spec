@@ -1,27 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  prereg
-%global packver   0.6.0
+%global packname  ORKM
+%global packver   0.0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Markdown Templates to Preregister Scientific Studies
+Summary:          The Online Regularized K-Means Clustering Algorithm
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 1.0
-Requires:         R-CRAN-rmarkdown >= 1.0
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
 
 %description
-Provides a collection of templates to author preregistration documents for
-scientific studies in PDF format.
+Algorithm of online regularized k-means to deal with online multi(single)
+view data. The philosophy of the package is described in Guo G. (2020)
+<doi:10.1080/02331888.2020.1823979>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bayesian
-%global packver   0.0.7
+%global packver   0.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bindings for Bayesian TidyModels
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-brms >= 2.16.1
+BuildRequires:    R-CRAN-brms >= 2.16.3
 BuildRequires:    R-CRAN-parsnip >= 0.1.7
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
@@ -24,7 +24,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-brms >= 2.16.1
+Requires:         R-CRAN-brms >= 2.16.3
 Requires:         R-CRAN-parsnip >= 0.1.7
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
@@ -35,7 +35,7 @@ Requires:         R-utils
 
 %description
 Fit Bayesian models using 'brms'/'Stan' with 'parsnip'/'tidymodels' via
-'bayesian' <doi:10.5281/zenodo.5539785>. 'tidymodels' is a collection of
+'bayesian' <doi:10.5281/zenodo.5884879>. 'tidymodels' is a collection of
 packages for machine learning; see Kuhn and Wickham (2020)
 <https://www.tidymodels.org>). The technical details of 'brms' and 'Stan'
 are described in Bürkner (2017) <doi:10.18637/jss.v080.i01>, Bürkner

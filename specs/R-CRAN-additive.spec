@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  additive
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bindings for Generalized Additive Models (GAM)
+Summary:          Bindings for Additive TidyModels
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mgcv >= 1.8.36
+BuildRequires:    R-CRAN-mgcv >= 1.8.38
 BuildRequires:    R-CRAN-parsnip >= 0.1.7
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
@@ -24,7 +24,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-mgcv >= 1.8.36
+Requires:         R-CRAN-mgcv >= 1.8.38
 Requires:         R-CRAN-parsnip >= 0.1.7
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
@@ -35,7 +35,7 @@ Requires:         R-utils
 
 %description
 Fit Generalized Additive Models (GAM) using 'mgcv' with
-'parsnip'/'tidymodels' via 'additive' <doi:10.5281/zenodo.5539481>.
+'parsnip'/'tidymodels' via 'additive' <doi:10.5281/zenodo.5884867>.
 'tidymodels' is a collection of packages for machine learning; see Kuhn
 and Wickham (2020) <https://www.tidymodels.org>). The technical details of
 'mgcv' are described in Wood (2017) <doi:10.1201/9781315370279>.

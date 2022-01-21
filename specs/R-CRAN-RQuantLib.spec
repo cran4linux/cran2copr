@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RQuantLib
-%global packver   0.4.14
+%global packver   0.4.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.14
+Version:          0.4.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to the 'QuantLib' Library
 
@@ -15,8 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    QuantLib-devel >= 1.14
 BuildRequires:    boost-devel
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 

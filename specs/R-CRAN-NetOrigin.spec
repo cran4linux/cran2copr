@@ -1,27 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  prereg
-%global packver   0.6.0
+%global packname  NetOrigin
+%global packver   1.1-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Markdown Templates to Preregister Scientific Studies
+Summary:          Origin Estimation for Propagation Processes on Complex Networks
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.2.2
+Requires:         R-core >= 3.2.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 1.0
-Requires:         R-CRAN-rmarkdown >= 1.0
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-corpcor 
+BuildRequires:    R-CRAN-plyr 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-corpcor 
+Requires:         R-CRAN-plyr 
 
 %description
-Provides a collection of templates to author preregistration documents for
-scientific studies in PDF format.
+Performs network-based source estimation. Different approaches are
+available: effective distance median (Manitz et al., 2014;
+<doi:10.1371/currents.outbreaks.f3fdeb08c5b9de7c09ed9cbcef5f01f2>),
+recursive backtracking (Manitz et al., 2016; <doi:10.1111/rssc.12176>),
+and centrality-based source estimation (Li et al., 2021;
+<doi:10.1371/journal.pcbi.1008545>). Additionally, we provide public
+transportation network data as well as methods for data preparation,
+source estimation performance analysis and visualization.
 
 %prep
 %setup -q -c -n %{packname}

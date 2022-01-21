@@ -1,50 +1,50 @@
 %global __brp_check_rpaths %{nil}
-%global packname  moderndive
-%global packver   0.5.3
+%global packname  icertool
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidyverse-Friendly Introductory Linear Regression
+Summary:          Calculate and Plot ICER
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broom >= 0.4.3
-BuildRequires:    R-CRAN-rlang >= 0.2.0
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-formula.tools 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-infer 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-broom >= 0.4.3
-Requires:         R-CRAN-rlang >= 0.2.0
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-shinyhelper 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-formula.tools 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-infer 
-Requires:         R-CRAN-glue 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-shinyhelper 
 
 %description
-Datasets and wrapper functions for tidyverse-friendly introductory linear
-regression, used in "Statistical Inference via Data Science: A ModernDive
-into R and the Tidyverse" available at <https://moderndive.com/>.
+The app will calculate the ICER (incremental cost-effectiveness ratio)
+Rawlins (2012) <doi:10.1016/B978-0-7020-4084-9.00044-6> from the mean
+costs and quality-adjusted life years (QALY) Torrance and Feeny (2009)
+<doi:10.1017/S0266462300008461> for a set of treatment options, and draw
+the efficiency frontier in the costs-effectiveness plane. The app
+automatically identifies and excludes dominated and extended-dominated
+options from the ICER calculation.
 
 %prep
 %setup -q -c -n %{packname}

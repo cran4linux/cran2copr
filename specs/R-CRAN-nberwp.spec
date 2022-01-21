@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  nberwp
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          NBER Working Papers
 
@@ -18,7 +18,7 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 
 %description
-Catalogue of NBER working papers published between June 1973 and June
+Catalogue of NBER working papers published between June 1973 and December
 2021.
 
 %prep

@@ -1,27 +1,48 @@
 %global __brp_check_rpaths %{nil}
-%global packname  prereg
-%global packver   0.6.0
+%global packname  chessR
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Markdown Templates to Preregister Scientific Studies
+Summary:          Functions to Extract, Clean and Analyse Online Chess Game Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 1.0
-Requires:         R-CRAN-rmarkdown >= 1.0
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-curl 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-curl 
 
 %description
-Provides a collection of templates to author preregistration documents for
-scientific studies in PDF format.
+A set of functions to enable users to extract chess game data from popular
+chess sites, including 'Lichess'<https://lichess.org/> and 'Chess.com'
+<https://www.chess.com/> and then perform analysis on that game data.
 
 %prep
 %setup -q -c -n %{packname}

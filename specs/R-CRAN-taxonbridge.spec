@@ -1,27 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  prereg
-%global packver   0.6.0
+%global packname  taxonbridge
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Markdown Templates to Preregister Scientific Studies
+Summary:          Combined Analysis of NCBI Taxonomy and GBIF Taxonomy
 
-License:          GPL-3
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 1.0
-Requires:         R-CRAN-rmarkdown >= 1.0
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-vroom 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rje 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-vroom 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rje 
 
 %description
-Provides a collection of templates to author preregistration documents for
-scientific studies in PDF format.
+The NCBI is the go to resource for taxonomic studies but it only contains
+data on extant species whereas the GBIF also includes extinct species.
+`taxonbridge` is useful for the combined analysis of the NCBI taxonomy and
+GBIF taxonomy.
 
 %prep
 %setup -q -c -n %{packname}

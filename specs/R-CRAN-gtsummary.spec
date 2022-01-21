@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gtsummary
-%global packver   1.5.0
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Presentation-Ready Data Summary and Analytic Result Tables
 
@@ -18,31 +18,31 @@ Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.0.3
 BuildRequires:    R-CRAN-cli >= 2.3.0
+BuildRequires:    R-CRAN-broom.helpers >= 1.6.0
 BuildRequires:    R-CRAN-glue >= 1.4.1
-BuildRequires:    R-CRAN-broom.helpers >= 1.4.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-knitr >= 1.29
 BuildRequires:    R-CRAN-tidyr >= 1.1.1
 BuildRequires:    R-CRAN-dplyr >= 1.0.3
-BuildRequires:    R-CRAN-broom >= 0.7.9
+BuildRequires:    R-CRAN-broom >= 0.7.11
 BuildRequires:    R-CRAN-forcats >= 0.5.0
 BuildRequires:    R-CRAN-rlang >= 0.4.10
 BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-CRAN-gt >= 0.3.0
+BuildRequires:    R-CRAN-gt >= 0.3.1
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 Requires:         R-CRAN-tibble >= 3.0.3
 Requires:         R-CRAN-cli >= 2.3.0
+Requires:         R-CRAN-broom.helpers >= 1.6.0
 Requires:         R-CRAN-glue >= 1.4.1
-Requires:         R-CRAN-broom.helpers >= 1.4.0
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-knitr >= 1.29
 Requires:         R-CRAN-tidyr >= 1.1.1
 Requires:         R-CRAN-dplyr >= 1.0.3
-Requires:         R-CRAN-broom >= 0.7.9
+Requires:         R-CRAN-broom >= 0.7.11
 Requires:         R-CRAN-forcats >= 0.5.0
 Requires:         R-CRAN-rlang >= 0.4.10
 Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-gt >= 0.3.0
+Requires:         R-CRAN-gt >= 0.3.1
 Requires:         R-CRAN-lifecycle >= 0.2.0
 
 %description

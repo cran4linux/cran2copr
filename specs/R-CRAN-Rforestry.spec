@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Rforestry
-%global packver   0.9.0.57
+%global packver   0.9.0.72
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0.57
+Version:          0.9.0.72
 Release:          1%{?dist}%{?buildtag}
 Summary:          Random Forests, Linear Trees, and Gradient Boosting for Inference and Interpretability
 
@@ -15,21 +15,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-glmnet >= 4.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.9
 BuildRequires:    R-parallel 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-visNetwork 
-BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-onehot 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppThread 
+Requires:         R-CRAN-glmnet >= 4.1
 Requires:         R-CRAN-Rcpp >= 0.12.9
 Requires:         R-parallel 
 Requires:         R-methods 
 Requires:         R-CRAN-visNetwork 
-Requires:         R-CRAN-glmnet 
 Requires:         R-grDevices 
 Requires:         R-CRAN-onehot 
 Requires:         R-CRAN-dplyr 

@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rscc
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Source Code Similarity Evaluation by Similarity Coefficients
+Summary:          R Source Code Similarity Evaluation by Variable/Function Names
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}

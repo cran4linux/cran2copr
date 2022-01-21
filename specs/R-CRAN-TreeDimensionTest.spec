@@ -1,44 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cthist
-%global packver   0.1.3
+%global packname  TreeDimensionTest
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clinical Trial Registry History
+Summary:          Trajectory Presence and Heterogeneity in Multivariate Data
 
-License:          AGPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-selectr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-selectr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.2
+BuildRequires:    R-CRAN-mlpack 
+BuildRequires:    R-CRAN-fitdistrplus 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-nFactors 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-Rcpp >= 1.0.2
+Requires:         R-CRAN-mlpack 
+Requires:         R-CRAN-fitdistrplus 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-nFactors 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Retrieves historical versions of clinical trial registry entries.
+Testing on multivariate data for trajectory presence and heterogeneity.
+Two statistical methods (Tenha & Song, provisionally accepted) are
+implemented. The tree dimension test quantifies the statistical evidence
+for trajectory presence. The subset specificity measure summarizes pattern
+heterogeneity using the minimum subtree cover. There is no user tunable
+parameters for either method. Examples are included to illustrate how to
+use the methods on single-cell data for studying gene and pathway
+expression dynamics and pathway expression specificity.
 
 %prep
 %setup -q -c -n %{packname}

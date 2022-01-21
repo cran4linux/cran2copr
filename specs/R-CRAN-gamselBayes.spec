@@ -1,27 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  prereg
-%global packver   0.6.0
+%global packname  gamselBayes
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Markdown Templates to Preregister Scientific Studies
+Summary:          Bayesian Generalized Additive Model Selection
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 1.0
-Requires:         R-CRAN-rmarkdown >= 1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-methods 
 
 %description
-Provides a collection of templates to author preregistration documents for
-scientific studies in PDF format.
+Generalized additive model selection via approximate Bayesian inference is
+provided. Bayesian mixed model-based penalized splines with
+spike-and-slab-type coefficient prior distributions are used to facilitate
+fitting and selection. The approximate Bayesian inference engine options
+are: (1) Markov chain Monte Carlo and (2) mean field variational Bayes.
+Markov chain Monte Carlo has better Bayesian inferential accuracy, but
+requires a longer run-time. Mean field variational Bayes is faster, but
+less accurate. The methodology is described in He and Wand (2021)
+<arXiv:2201.00412>.
 
 %prep
 %setup -q -c -n %{packname}

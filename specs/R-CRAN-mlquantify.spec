@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mlquantify
-%global packver   0.1.5
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Algorithms for Class Distribution Estimation
 
@@ -19,9 +19,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-FNN 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-randomForest 
 Requires:         R-stats 
+Requires:         R-CRAN-FNN 
 
 %description
 Quantification is a prominent machine learning task that has received an
@@ -43,6 +45,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  optedr
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculating Optimal and D-Augmented Designs
 
@@ -31,7 +31,6 @@ BuildRequires:    R-CRAN-shinyalert
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-hrbrthemes 
 BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-orthopolynom 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-purrr 
@@ -48,7 +47,6 @@ Requires:         R-CRAN-shinyalert
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-hrbrthemes 
 Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-orthopolynom 
 
 %description

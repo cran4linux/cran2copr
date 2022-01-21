@@ -1,47 +1,55 @@
 %global __brp_check_rpaths %{nil}
-%global packname  polyqtlR
-%global packver   0.0.8
+%global packname  BEKKs
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          QTL Analysis in Autopolyploid Bi-Parental F1 Populations
+Summary:          Multivariate Conditional Volatility Modelling and Forecasting
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.19
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-mathjaxr 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-ggfortify 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.19
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-expm 
 Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-mathjaxr 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-grid 
+Requires:         R-CRAN-ggfortify 
+Requires:         R-parallel 
+Requires:         R-CRAN-xts 
+Requires:         R-stats 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-future.apply 
 
 %description
-Quantitative trait loci (QTL) analysis and exploration of meiotic patterns
-in autopolyploid bi-parental F1 populations. For all ploidy levels,
-identity-by-descent (IBD) probabilities can be estimated. Significance
-thresholds, exploring QTL allele effects and visualising results are
-provided. For more background and to reference the package see
-<doi:10.1093/bioinformatics/btab574>.
+Methods and tools for estimating, simulating and forecasting of so-called
+BEKK-models (named after Baba, Engle, Kraft and Kroner) based on the fast
+Berndt–Hall–Hall–Hausman (BHHH) algorithm described in Hafner and Herwartz
+(2008) <doi:10.1007/s00184-007-0130-y>.
 
 %prep
 %setup -q -c -n %{packname}

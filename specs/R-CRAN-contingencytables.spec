@@ -1,27 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  prereg
-%global packver   0.6.0
+%global packname  contingencytables
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Markdown Templates to Preregister Scientific Studies
+Summary:          Statistical Analysis of Contingency Tables
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 1.0
-Requires:         R-CRAN-rmarkdown >= 1.0
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-boot 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-boot 
 
 %description
-Provides a collection of templates to author preregistration documents for
-scientific studies in PDF format.
+Provides functions to perform statistical inference of data organized in
+contingency tables. This package is a companion to the "Statistical
+Analysis of Contingency Tables" book by Fagerland et al. <ISBN
+9781466588172>.
 
 %prep
 %setup -q -c -n %{packname}

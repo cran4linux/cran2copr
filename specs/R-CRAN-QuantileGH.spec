@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  QuantileGH
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantile Least Mahalanobis Distance Estimator for Tukey g-&-h Mixture
 
@@ -19,12 +19,16 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-goftest 
+BuildRequires:    R-CRAN-LaplacesDemon 
 BuildRequires:    R-CRAN-rstpm2 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-tclust 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
 Requires:         R-graphics 
+Requires:         R-CRAN-goftest 
+Requires:         R-CRAN-LaplacesDemon 
 Requires:         R-CRAN-rstpm2 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-tclust 
