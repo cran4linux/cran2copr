@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ppmSuite
-%global packver   0.1.8
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Collection of Models that Employ a Prior Distribution on Partitions
+Summary:          A Collection of Models that Employ a Product Parition Prior Distribution on Partitions
 
 License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
@@ -26,7 +26,7 @@ missing, then the approach detailed in Page, G.L.; Quintana, F.A.;
 Mueller, P (2020) <arXiv:1912.13119> is employed.  Also included in the
 package is a function that fits a Gaussian likelihood spatial product
 partition model that is detailed in Page, G.L.; Quintana, F.A.; (2016)
-<doi:10.1214/15-BA971>.
+<DOI:10.1214/15-BA971>.
 
 %prep
 %setup -q -c -n %{packname}

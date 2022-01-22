@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  EasyDescribe
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Convenient Way of Descriptive Statistics
 
@@ -22,14 +22,16 @@ BuildRequires:    R-CRAN-gmodels
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-rcompanion 
 BuildRequires:    R-CRAN-FSA 
-BuildRequires:    R-CRAN-trend 
+BuildRequires:    R-CRAN-fitdistrplus 
+BuildRequires:    R-CRAN-nortest 
 Requires:         R-CRAN-multiCA 
 Requires:         R-CRAN-CATT 
 Requires:         R-CRAN-gmodels 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-rcompanion 
 Requires:         R-CRAN-FSA 
-Requires:         R-CRAN-trend 
+Requires:         R-CRAN-fitdistrplus 
+Requires:         R-CRAN-nortest 
 
 %description
 Descriptive Statistics is essential for publishing articles. This package
@@ -57,7 +59,8 @@ Szabo, A. (2016) <doi:10.1080/00031305.2017.1407823>, David, F. B. (1972)
 Heiberger, R. M. (1992) <doi:10.1201/9780203738535-5>, Shaffer, J. P.
 (1995) <doi:10.1146/annurev.ps.46.020195.003021>, Myles, H. and Douglas,
 A. W. (1973) <doi:10.2307/2063815>, Rahman, M. and Tiwari, R. (2012)
-<doi:10.4236/health.2012.410139>.
+<doi:10.4236/health.2012.410139>. Thode, H. J. (2002)
+<doi:10.1201/9780203910894>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -67,6 +70,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

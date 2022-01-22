@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  EigenR
-%global packver   1.2.1
+%global packname  starsTileServer
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Complex Matrix Algebra with 'Eigen'
+Summary:          A Dynamic Tile Server for R
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,16 +15,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 1.0.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-plumber 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stars 
+BuildRequires:    R-CRAN-units 
+BuildRequires:    R-CRAN-assertthat 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-plumber 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stars 
+Requires:         R-CRAN-units 
+Requires:         R-CRAN-assertthat 
 
 %description
-Matrix algebra using the 'Eigen' C++ library: determinant, rank, inverse,
-pseudo-inverse, kernel and image, QR decomposition, Cholesky
-decomposition, linear least-squares problems. Also provides matrix
-functions such as exponential, logarithm, power, sine and cosine. Complex
-matrices are supported.
+Makes it possible to serve map tiles for web maps (e.g. leaflet) based on
+a function or a stars object without having to render them in advance.
+This enables parallelization of the rendering, separating the data source
+and visualization location and to provide web services.
 
 %prep
 %setup -q -c -n %{packname}

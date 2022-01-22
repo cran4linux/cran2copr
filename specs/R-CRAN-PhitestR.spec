@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  PhitestR
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzing the Heterogeneity of Single-Cell Populations
 
@@ -18,10 +18,8 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-fitdistrplus 
-BuildRequires:    R-CRAN-Seurat 
 Requires:         R-parallel 
 Requires:         R-CRAN-fitdistrplus 
-Requires:         R-CRAN-Seurat 
 
 %description
 A bioinformatics method developed for analyzing the heterogeneity of

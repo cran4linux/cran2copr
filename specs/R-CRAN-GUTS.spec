@@ -1,30 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  EigenR
+%global packname  GUTS
 %global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Complex Matrix Algebra with 'Eigen'
+Summary:          Fast Calculation of the Likelihood of a Stochastic Survival Model
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.16
+BuildRequires:    R-methods 
+Requires:         R-CRAN-Rcpp >= 0.12.16
+Requires:         R-methods 
 
 %description
-Matrix algebra using the 'Eigen' C++ library: determinant, rank, inverse,
-pseudo-inverse, kernel and image, QR decomposition, Cholesky
-decomposition, linear least-squares problems. Also provides matrix
-functions such as exponential, logarithm, power, sine and cosine. Complex
-matrices are supported.
+Given exposure and survival time series as well as parameter values, GUTS
+allows for the fast calculation of the survival probabilities as well as
+the logarithm of the corresponding likelihood.
 
 %prep
 %setup -q -c -n %{packname}

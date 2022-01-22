@@ -1,30 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  EigenR
-%global packver   1.2.1
+%global packname  ie2miscdata
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Complex Matrix Algebra with 'Eigen'
+Summary:          Irucka Embry's Miscellaneous USGS Data Collection
 
-License:          GPL-3
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-lubridate 
 
 %description
-Matrix algebra using the 'Eigen' C++ library: determinant, rank, inverse,
-pseudo-inverse, kernel and image, QR decomposition, Cholesky
-decomposition, linear least-squares problems. Also provides matrix
-functions such as exponential, logarithm, power, sine and cosine. Complex
-matrices are supported.
+A collection of Irucka Embry's miscellaneous USGS data sets (USGS
+Parameter codes with fixed values, USGS global time zone codes, and US Air
+Force Global Engineering Weather Data). Irucka created these data sets
+while a Cherokee Nation Technology Solutions (CNTS) United States
+Geological Survey (USGS) Contractor and/or USGS employee.
 
 %prep
 %setup -q -c -n %{packname}

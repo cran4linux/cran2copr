@@ -1,52 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gitdown
-%global packver   0.1.5
+%global packname  TidyDensity
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Turn Your Git Commit Messages into a HTML Book
+Summary:          Functions for Tidy Analysis of Randomly Generated Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-git2r >= 0.26.0
-BuildRequires:    R-CRAN-attempt 
-BuildRequires:    R-CRAN-bookdown 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rlang >= 0.4.11
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-git2r >= 0.26.0
-Requires:         R-CRAN-attempt 
-Requires:         R-CRAN-bookdown 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-knitr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-healthyR.ai 
+Requires:         R-CRAN-rlang >= 0.4.11
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-stats 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-healthyR.ai 
 
 %description
-Read all commit messages of your local git repository and sort them
-according to tags or specific text pattern into chapters of a HTML book
-using 'bookdown'. The git history book presentation helps organisms
-required to testify for every changes in their source code, in relation to
-features requests.
+To make it easy to generate random numbers based upon the underlying stats
+distribution functions. All data is returned in a tidy and structured
+format making working with the data simple and straight forward. Given
+that the data is returned in a tidy 'tibble' it lends itself to working
+with the rest of the 'tidyverse'.
 
 %prep
 %setup -q -c -n %{packname}

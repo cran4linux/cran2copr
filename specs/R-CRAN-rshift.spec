@@ -1,52 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gitdown
-%global packver   0.1.5
+%global packname  rshift
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Turn Your Git Commit Messages into a HTML Book
+Summary:          Paleoecology Functions for Regime Shift Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-git2r >= 0.26.0
-BuildRequires:    R-CRAN-attempt 
-BuildRequires:    R-CRAN-bookdown 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-git2r >= 0.26.0
-Requires:         R-CRAN-attempt 
-Requires:         R-CRAN-bookdown 
+Requires:         R-grid 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-stats 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
 
 %description
-Read all commit messages of your local git repository and sort them
-according to tags or specific text pattern into chapters of a HTML book
-using 'bookdown'. The git history book presentation helps organisms
-required to testify for every changes in their source code, in relation to
-features requests.
+Contains a variety of functions, based around regime shift analysis of
+paleoecological data. Citations: Rodionov() from Rodionov (2004)
+<doi:10.1029/2004GL019448> Lanzante() from Lanzante (1996)
+<doi:10.1002/(SICI)1097-0088(199611)16:11%%3C1197::AID-JOC89%%3E3.0.CO;2-L>
+Hellinger_trans from Numerical Ecology, Legendre & Legendre (ISBN
+9780444538680) rolling_autoc from Liu, Gao & Wang (2018)
+<doi:10.1016/j.scitotenv.2018.06.276> Sample data sets lake_data &
+lake_RSI processed from Bush, Silman & Urrego (2004)
+<doi:10.1126/science.1090795>.
 
 %prep
 %setup -q -c -n %{packname}

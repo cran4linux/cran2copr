@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fuzzySim
-%global packver   3.7
+%global packname  flightsbr
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fuzzy Similarity in Species Distributions
+Summary:          Download Flight Data from Brazil
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,30 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-modEvA 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-modEvA 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-httr >= 1.4.1
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-httr >= 1.4.1
+Requires:         R-CRAN-data.table 
 
 %description
-Functions to calculate fuzzy versions of species' occurrence patterns
-based on presence-absence data (including inverse distance interpolation,
-trend surface analysis and prevalence-independent favourability GLM), and
-pair-wise fuzzy similarity (based on fuzzy versions of commonly used
-similarity indices) among those occurrence patterns. Includes also
-functions for model comparison (overlap and fuzzy similarity, loss or
-gain), and for data preparation, such as obtaining unique abbreviations of
-species names, converting species lists (long format) to presence-absence
-tables (wide format), transposing part of a data frame, assessing the
-false discovery rate, or analysing and dealing with multicollinearity
-among variables. Includes also sample datasets for providing practical
-examples.
+Download flight data from Brazil’s Civil Aviation Agency (ANAC)
+<https://www.gov.br/anac/pt-br>. The data includes detailed information on
+every international flight to and from Brazil, as well as domestic flights
+within the country.
 
 %prep
 %setup -q -c -n %{packname}

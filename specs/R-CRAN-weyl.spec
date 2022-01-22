@@ -1,45 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fuzzySim
-%global packver   3.7
+%global packname  weyl
+%global packver   0.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fuzzy Similarity in Species Distributions
+Summary:          The Weyl Algebra
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-freealg >= 1.0.4
+BuildRequires:    R-CRAN-spray >= 1.0.19
+BuildRequires:    R-CRAN-disordR >= 0.0.8
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-modEvA 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-mathjaxr 
+Requires:         R-CRAN-freealg >= 1.0.4
+Requires:         R-CRAN-spray >= 1.0.19
+Requires:         R-CRAN-disordR >= 0.0.8
 Requires:         R-methods 
-Requires:         R-CRAN-modEvA 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-mathjaxr 
 
 %description
-Functions to calculate fuzzy versions of species' occurrence patterns
-based on presence-absence data (including inverse distance interpolation,
-trend surface analysis and prevalence-independent favourability GLM), and
-pair-wise fuzzy similarity (based on fuzzy versions of commonly used
-similarity indices) among those occurrence patterns. Includes also
-functions for model comparison (overlap and fuzzy similarity, loss or
-gain), and for data preparation, such as obtaining unique abbreviations of
-species names, converting species lists (long format) to presence-absence
-tables (wide format), transposing part of a data frame, assessing the
-false discovery rate, or analysing and dealing with multicollinearity
-among variables. Includes also sample datasets for providing practical
-examples.
+A suite of routines for Weyl algebras.  Notation follows Coutinho (1995,
+ISBN 0-521-55119-6, "A Primer of Algebraic D-Modules").
 
 %prep
 %setup -q -c -n %{packname}

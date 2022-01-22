@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dcmodifydb
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modifying Rules on a DataBase
 
@@ -20,14 +20,14 @@ BuildRequires:    R-CRAN-dcmodify >= 0.1.9
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-validate 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-dcmodify >= 0.1.9
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-DBI 
-Requires:         R-methods 
 Requires:         R-CRAN-validate 
+Requires:         R-methods 
 
 %description
 Apply modification rules from R package 'dcmodify' to the database,

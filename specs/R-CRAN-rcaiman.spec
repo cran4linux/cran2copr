@@ -1,45 +1,52 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fuzzySim
-%global packver   3.7
+%global packname  rcaiman
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fuzzy Similarity in Species Distributions
+Summary:          An R Package for CAnopy IMage ANalysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-modEvA 
+BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-spatial 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-rgdal 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
-Requires:         R-CRAN-modEvA 
+Requires:         R-CRAN-testthat 
+Requires:         R-CRAN-pracma 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-spatial 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-rgdal 
 
 %description
-Functions to calculate fuzzy versions of species' occurrence patterns
-based on presence-absence data (including inverse distance interpolation,
-trend surface analysis and prevalence-independent favourability GLM), and
-pair-wise fuzzy similarity (based on fuzzy versions of commonly used
-similarity indices) among those occurrence patterns. Includes also
-functions for model comparison (overlap and fuzzy similarity, loss or
-gain), and for data preparation, such as obtaining unique abbreviations of
-species names, converting species lists (long format) to presence-absence
-tables (wide format), transposing part of a data frame, assessing the
-false discovery rate, or analysing and dealing with multicollinearity
-among variables. Includes also sample datasets for providing practical
-examples.
+Its main strength is to classify hemispherical photographs of the plant
+canopy with algorithms specially developed for such a task and well
+documented in Díaz and Lencinas (2015) <doi:10.1109/lgrs.2015.2425931> and
+Díaz and Lencinas (2018) <doi:10.1139/cjfr-2018-0006>. It supports
+non-circular hemispherical photography.
 
 %prep
 %setup -q -c -n %{packname}

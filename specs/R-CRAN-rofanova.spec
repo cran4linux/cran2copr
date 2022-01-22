@@ -1,45 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fuzzySim
-%global packver   3.7
+%global packname  rofanova
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fuzzy Similarity in Species Distributions
+Summary:          Robust Functional Analysis of Variance
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-modEvA 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-fda.usc 
+BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-modEvA 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-fda.usc 
+Requires:         R-CRAN-robustbase 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-abind 
+Requires:         R-parallel 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Functions to calculate fuzzy versions of species' occurrence patterns
-based on presence-absence data (including inverse distance interpolation,
-trend surface analysis and prevalence-independent favourability GLM), and
-pair-wise fuzzy similarity (based on fuzzy versions of commonly used
-similarity indices) among those occurrence patterns. Includes also
-functions for model comparison (overlap and fuzzy similarity, loss or
-gain), and for data preparation, such as obtaining unique abbreviations of
-species names, converting species lists (long format) to presence-absence
-tables (wide format), transposing part of a data frame, assessing the
-false discovery rate, or analysing and dealing with multicollinearity
-among variables. Includes also sample datasets for providing practical
-examples.
+Implements the robust functional analysis of variance (RoFANOVA),
+described in Centofanti et al. (2021) <arXiv:2112.10643>. It allows
+testing mean differences among groups of functional data by being robust
+against the presence of outliers.
 
 %prep
 %setup -q -c -n %{packname}

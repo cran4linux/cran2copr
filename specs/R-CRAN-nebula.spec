@@ -1,45 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fuzzySim
-%global packver   3.7
+%global packname  nebula
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fuzzy Similarity in Species Distributions
+Summary:          Negative Binomial Mixed Models Using Large-Sample Approximation for Differential Expression Analysis of ScRNA-Seq Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-modEvA 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-modEvA 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-trust 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-MASS 
 Requires:         R-stats 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
 Requires:         R-utils 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-trust 
 
 %description
-Functions to calculate fuzzy versions of species' occurrence patterns
-based on presence-absence data (including inverse distance interpolation,
-trend surface analysis and prevalence-independent favourability GLM), and
-pair-wise fuzzy similarity (based on fuzzy versions of commonly used
-similarity indices) among those occurrence patterns. Includes also
-functions for model comparison (overlap and fuzzy similarity, loss or
-gain), and for data preparation, such as obtaining unique abbreviations of
-species names, converting species lists (long format) to presence-absence
-tables (wide format), transposing part of a data frame, assessing the
-false discovery rate, or analysing and dealing with multicollinearity
-among variables. Includes also sample datasets for providing practical
-examples.
+A fast negative binomial mixed model for conducting association analysis
+of multi-subject single-cell data. It can be used for identifying marker
+genes, differential expression and co-expression analyses. The model
+includes subject-level random effects to account for the hierarchical
+structure in multi-subject single-cell data. See He et al. (2021)
+<doi:10.1038/s42003-021-02146-6>.
 
 %prep
 %setup -q -c -n %{packname}

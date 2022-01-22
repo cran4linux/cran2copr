@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  waves
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Vis-NIR Spectral Analysis Wrapper
 
@@ -17,38 +17,44 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tidyr >= 1.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-prospectr 
-BuildRequires:    R-CRAN-spectacles 
 BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-pls 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-wesanderson 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-pls 
+BuildRequires:    R-CRAN-prospectr 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-spectacles 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-tidyr >= 1.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-prospectr 
-Requires:         R-CRAN-spectacles 
 Requires:         R-CRAN-caret 
-Requires:         R-CRAN-pls 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-wesanderson 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-pls 
+Requires:         R-CRAN-prospectr 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-spectacles 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
 
 %description
 Originally designed application in the context of resource-limited plant
 research and breeding programs, 'waves' provides an open-source solution
 to spectral data processing and model development by bringing useful
-packages together into a streamlined pipeline. This package is wrapper for
-functions related to the analysis of point visible and near-infrared
+packages together into a streamlined pipeline.  This package is wrapper
+for functions related to the analysis of point visible and near-infrared
 reflectance measurements. It includes visualization, filtering,
 aggregation, preprocessing, cross-validation set formation, model
 training, and prediction functions to enable open-source association of
@@ -66,6 +72,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
