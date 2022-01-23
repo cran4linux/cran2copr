@@ -1,20 +1,20 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bvartools
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Inference of Vector Autoregressive Models
+Summary:          Bayesian Inference of Vector Autoregressive and Error Correction Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.14
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-grDevices 
@@ -33,11 +33,12 @@ Requires:         R-stats
 
 %description
 Assists in the set-up of algorithms for Bayesian inference of vector
-autoregressive (VAR) models. Functions for posterior simulation,
-forecasting, impulse response analysis and forecast error variance
-decomposition are largely based on the introductory texts of Chan, Koop,
-Poirier and Tobias (2019, ISBN: 9781108437493), Koop and Korobilis (2010)
-<doi:10.1561/0800000013> and Luetkepohl (2006, ISBN: 9783540262398).
+autoregressive (VAR) and error correction (VEC) models. Functions for
+posterior simulation, forecasting, impulse response analysis and forecast
+error variance decomposition are largely based on the introductory texts
+of Chan, Koop, Poirier and Tobias (2019, ISBN: 9781108437493), Koop and
+Korobilis (2010) <doi:10.1561/0800000013> and Luetkepohl (2006, ISBN:
+9783540262398).
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +48,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

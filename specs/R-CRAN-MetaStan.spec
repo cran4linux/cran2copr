@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MetaStan
-%global packver   0.4.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Meta-Analysis via 'Stan'
 
@@ -13,28 +13,39 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
 BuildRequires:    R-CRAN-rstan >= 2.18.1
 BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
+BuildRequires:    R-CRAN-metafor >= 2.0.0
+BuildRequires:    R-CRAN-loo >= 2.0
 BuildRequires:    R-CRAN-BH >= 1.66.0.1
+BuildRequires:    R-CRAN-forestplot >= 1.6
 BuildRequires:    R-CRAN-rstantools >= 1.5.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.4.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.17
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-HDInterval 
+BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rstan >= 2.18.1
+Requires:         R-CRAN-metafor >= 2.0.0
+Requires:         R-CRAN-loo >= 2.0
+Requires:         R-CRAN-forestplot >= 1.6
 Requires:         R-CRAN-rstantools >= 1.5.0
 Requires:         R-CRAN-Rcpp >= 0.12.17
 Requires:         R-methods 
+Requires:         R-CRAN-HDInterval 
+Requires:         R-CRAN-coda 
 Requires:         R-CRAN-rstantools
 
 %description
-Performs Bayesian meta-analysis and model-based meta-analysis using
-'Stan'. Includes binomial-normal hierarchical models and option to use
-weakly informative priors for the heterogeneity parameter and the
-treatment effect parameter which are described in Guenhan, Roever, and
-Friede (2020) <doi:10.1002/jrsm.1370>.
+Performs Bayesian meta-analysis, meta-regression and model-based
+meta-analysis using 'Stan'. Includes binomial-normal hierarchical models
+and option to use weakly informative priors for the heterogeneity
+parameter and the treatment effect parameter which are described in
+Guenhan, Roever, and Friede (2020) <doi:10.1002/jrsm.1370>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mlr3learners
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Recommended Learners for 'mlr3'
 
@@ -17,13 +17,13 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mlr3misc >= 0.9.4
-BuildRequires:    R-CRAN-mlr3 >= 0.12.0.9000
+BuildRequires:    R-CRAN-mlr3 >= 0.13.1
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-paradox 
 BuildRequires:    R-CRAN-R6 
 Requires:         R-CRAN-mlr3misc >= 0.9.4
-Requires:         R-CRAN-mlr3 >= 0.12.0.9000
+Requires:         R-CRAN-mlr3 >= 0.13.1
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-paradox 
