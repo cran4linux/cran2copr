@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pointblank
-%global packver   0.9.0
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Validation and Organization of Metadata for Local and Remote Tables
 
@@ -17,9 +17,9 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.1.2
+BuildRequires:    R-CRAN-cli >= 2.5.0
 BuildRequires:    R-CRAN-testthat >= 2.3.2
 BuildRequires:    R-CRAN-yaml >= 2.2.1
-BuildRequires:    R-CRAN-cli >= 2.2.0
 BuildRequires:    R-CRAN-dbplyr >= 2.1.1
 BuildRequires:    R-CRAN-fs >= 1.5.0
 BuildRequires:    R-CRAN-glue >= 1.4.2
@@ -37,9 +37,9 @@ BuildRequires:    R-CRAN-gt >= 0.3.0
 BuildRequires:    R-CRAN-base64enc >= 0.1.3
 BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-tibble >= 3.1.2
+Requires:         R-CRAN-cli >= 2.5.0
 Requires:         R-CRAN-testthat >= 2.3.2
 Requires:         R-CRAN-yaml >= 2.2.1
-Requires:         R-CRAN-cli >= 2.2.0
 Requires:         R-CRAN-dbplyr >= 2.1.1
 Requires:         R-CRAN-fs >= 1.5.0
 Requires:         R-CRAN-glue >= 1.4.2

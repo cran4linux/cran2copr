@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  OPI
-%global packver   2.10.0
+%global packname  GPGame
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.10.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Perimetry Interface
+Summary:          Solving Complex Game Problems using Gaussian Processes
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,19 +15,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp >= 0.12.5
+BuildRequires:    R-CRAN-DiceKriging 
+BuildRequires:    R-CRAN-GPareto 
+BuildRequires:    R-CRAN-KrigInv 
+BuildRequires:    R-CRAN-DiceDesign 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mnormt 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-matrixStats 
+Requires:         R-CRAN-Rcpp >= 0.12.5
+Requires:         R-CRAN-DiceKriging 
+Requires:         R-CRAN-GPareto 
+Requires:         R-CRAN-KrigInv 
+Requires:         R-CRAN-DiceDesign 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mnormt 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-methods 
+Requires:         R-CRAN-matrixStats 
 
 %description
-Implementation of the Open Perimetry Interface (OPI) for simulating and
-controlling visual field machines using R. The OPI is a standard for
-interfacing with visual field testing machines (perimeters). It specifies
-basic functions that allow many visual field tests to be constructed. As
-of October 2017 it is fully implemented on the Octopus 900 and partially
-on the Heidelberg Edge Perimeter, the Kowa AP 7000, the CrewT imo and the
-Centervue Compass. It also has a cousin: the R package 'visualFields',
-which has tools for analysing and manipulating visual field data.
+Sequential strategies for finding a game equilibrium are proposed in a
+black-box setting (expensive pay-off evaluations, no derivatives). The
+algorithm handles noiseless or noisy evaluations. Two acquisition
+functions are available. Graphical outputs can be generated automatically.
+V. Picheny, M. Binois, A. Habbal (2018) <doi:10.1007/s10898-018-0688-0>.
+M. Binois, V. Picheny, P. Taillandier, A. Habbal (2020)
+<arXiv:1902.06565v2>.
 
 %prep
 %setup -q -c -n %{packname}

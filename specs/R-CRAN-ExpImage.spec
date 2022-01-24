@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ExpImage
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tool For Analysis of Images in Experiments
 
@@ -16,14 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-foreach 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-raster 
 Requires:         R-parallel 
 Requires:         R-CRAN-foreach 
 

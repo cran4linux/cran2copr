@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rasterVis
-%global packver   0.51.1
+%global packver   0.51.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.51.1
+Version:          0.51.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization Methods for Raster Data
 

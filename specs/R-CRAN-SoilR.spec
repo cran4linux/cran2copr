@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  disprose
-%global packver   0.1.3
+%global packname  SoilR
+%global packver   1.2.105
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.2.105
 Release:          1%{?dist}%{?buildtag}
-Summary:          Discriminating Probes Selection
+Summary:          Models of Soil Organic Matter Decomposition
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,18 +16,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-CRAN-sets 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-deSolve 
+Requires:         R-methods 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-assertthat 
+Requires:         R-parallel 
+Requires:         R-CRAN-expm 
+Requires:         R-CRAN-sets 
+Requires:         R-CRAN-purrr 
 
 %description
-Set of tools for molecular probes selection and design of a microarray,
-e.g. the assessment of physical and chemical properties, blast
-performance, selection according to sensitivity and selectivity. Methods
-used in package are described in: Lorenz R., Stephan H.B., Höner zu
-Siederdissen C. et al. (2011) <doi:10.1186/1748-7188-6-26>; Camacho C.,
-Coulouris G., Avagyan V. et al. (2009) <doi:10.1186/1471-2105-10-421>.
+Functions for modeling Soil Organic Matter decomposition in terrestrial
+ecosystems with linear and nonlinear models.
 
 %prep
 %setup -q -c -n %{packname}
-
+find %{packname} -type f -exec sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \;
 # fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
