@@ -1,40 +1,50 @@
 %global __brp_check_rpaths %{nil}
-%global packname  EnvStats
-%global packver   2.5.0
+%global packname  powerHaDeX
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package for Environmental Statistics, Including US EPA Guidance
+Summary:          Efficient Simulation of HDX-MS Data and Tools for the Statistical Analysis
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-nortest 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-lmerTest 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-signal 
+Requires:         R-CRAN-Rcpp >= 1.0.3
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-expm 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-nortest 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-lmerTest 
+Requires:         R-methods 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-signal 
 
 %description
-Graphical and statistical analyses of environmental data, with focus on
-analyzing chemical concentrations and physical parameters, usually in the
-context of mandated environmental monitoring.  Major environmental
-statistical methods found in the literature and regulatory guidance
-documents, with extensive help that explains what these methods do, how to
-use them, and where to find them in the literature.  Numerous built-in
-data sets from regulatory guidance documents and environmental statistics
-literature.  Includes scripts reproducing analyses presented in the book
-"EnvStats: An R Package for Environmental Statistics" (Millard, 2013,
-Springer, ISBN 978-1-4614-8455-4,
-<https://link.springer.com/book/9781461484554>).
+Facilitates simulating and analyzing data coming from HDX-MS experiments
+along with the possibility of comparing the power of the tests verifying
+differences in the levels of deuterium uptake. The simulation of mass
+spectra is a fast version of <https://github.com/kanzy/HX-MS-Simulations>.
 
 %prep
 %setup -q -c -n %{packname}

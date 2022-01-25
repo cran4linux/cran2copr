@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  galah
-%global packver   1.3.1
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Atlas of Living Australia (ALA) Data and Resources in R
 
@@ -13,9 +13,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-glue >= 1.3.2
+BuildRequires:    R-CRAN-lifecycle >= 1.0.0
 BuildRequires:    R-CRAN-stringr >= 1.0.0
 BuildRequires:    R-CRAN-jsonlite >= 0.9.8
 BuildRequires:    R-CRAN-assertthat 
@@ -24,10 +26,14 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-data.tree 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-wellknown 
+Requires:         R-CRAN-glue >= 1.3.2
+Requires:         R-CRAN-lifecycle >= 1.0.0
 Requires:         R-CRAN-stringr >= 1.0.0
 Requires:         R-CRAN-jsonlite >= 0.9.8
 Requires:         R-CRAN-assertthat 
@@ -36,18 +42,18 @@ Requires:         R-CRAN-data.table
 Requires:         R-CRAN-data.tree 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
 Requires:         R-CRAN-wellknown 
 
 %description
 The Atlas of Living Australia ('ALA') provides tools to enable users of
 biodiversity information to find, access, combine and visualise data on
-Australian plants and animals; these have been made available from
-<https://ala.org.au/>. 'galah' provides a subset of the tools to be
-directly used within R. It enables the R community to directly access data
-and resources hosted by the 'ALA'.
+Australian plants and animals. 'galah' enables the R community to directly
+access data and resources hosted by the ALA and other living atlases.
 
 %prep
 %setup -q -c -n %{packname}

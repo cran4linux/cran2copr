@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  iNZightPlots
-%global packver   2.13.3
+%global packver   2.14.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.13.3
+Version:          2.14.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphical Tools for Exploring Data with 'iNZight'
 
@@ -13,47 +13,49 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-iNZightMR >= 2.2.5
 BuildRequires:    R-CRAN-iNZightTools >= 1.9
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-s20x 
-BuildRequires:    R-CRAN-survey 
-BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-CRAN-hexbin 
+BuildRequires:    R-CRAN-chron 
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-dichromat 
-BuildRequires:    R-CRAN-chron 
+BuildRequires:    R-CRAN-emmeans 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-hexbin 
 BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-s20x 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-iNZightMR >= 2.2.5
 Requires:         R-CRAN-iNZightTools >= 1.9
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-grid 
 Requires:         R-CRAN-boot 
-Requires:         R-CRAN-s20x 
-Requires:         R-CRAN-survey 
-Requires:         R-CRAN-quantreg 
-Requires:         R-CRAN-hexbin 
+Requires:         R-CRAN-chron 
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-dichromat 
-Requires:         R-CRAN-chron 
+Requires:         R-CRAN-emmeans 
+Requires:         R-grDevices 
+Requires:         R-grid 
+Requires:         R-CRAN-hexbin 
 Requires:         R-CRAN-hms 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-s20x 
+Requires:         R-CRAN-scales 
+Requires:         R-stats 
+Requires:         R-CRAN-survey 
+Requires:         R-utils 
 
 %description
 Simple plotting function(s) for exploratory data analysis with flexible
@@ -73,6 +75,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

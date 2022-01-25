@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MBHdesign
-%global packver   2.1.11
+%global packver   2.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.11
+Version:          2.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Designs for Ecological and Environmental Surveys
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-class 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-raster 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-geometry 
 Requires:         R-CRAN-randtoolbox 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-stats 
 Requires:         R-CRAN-class 
 Requires:         R-parallel 
+Requires:         R-CRAN-raster 
 
 %description
 Provides spatially survey balanced designs using the quasi-random number

@@ -1,49 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  FAMetA
-%global packver   0.1.2
+%global packname  glmm.hp
+%global packver   0.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fatty Acid Metabolic Analysis
+Summary:          Hierarchical Partitioning of Marginal R2 for Generalized Mixed-Effect Models
 
-License:          GPL (>= 2)
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-LipidMS 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-accucor 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-gplots 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-LipidMS 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-accucor 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-gplots 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-MuMIn 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lme4 
+Requires:         R-CRAN-MuMIn 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lme4 
 
 %description
-Fatty acid metabolic analysis aimed to the estimation of FA import (I), de
-novo synthesis (S), fractional contribution of the 13C-tracers (D0, D1,
-D2), elongation (E) and desaturation (Des) based on mass isotopologue
-data.
+This function conducts commonality analysis and hierarchical partitioning
+to calculate the unique, shared (referred as to "common") and individual
+contributions of each predictor towards marginal R2 for generalized
+mixed-effect model, applying the algorithm of Lai J.,Zou Y., Zhang
+J.,Peres-Neto P.(2022) Generalizing hierarchical and variation
+partitioning in multiple regression and canonical analyses using the
+rdacca.hp R package.Methods in Ecology and
+Evolution,<DOI:10.1111/2041-210X.13800>.
 
 %prep
 %setup -q -c -n %{packname}
