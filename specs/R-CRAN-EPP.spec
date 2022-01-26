@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  EPP
-%global packver   0.3.5
+%global packver   0.3.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.3.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evaluation of Proximity Programs
 
@@ -16,15 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-osrm >= 3.5.1
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-cpp11 
-BuildRequires:    R-CRAN-s2 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-CRAN-flexclust 
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-osrm 
 BuildRequires:    R-CRAN-deldir 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-dplyr 
@@ -35,17 +33,13 @@ BuildRequires:    R-CRAN-nngeo
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-clipr 
+Requires:         R-CRAN-osrm >= 3.5.1
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-cpp11 
-Requires:         R-CRAN-s2 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-maptools 
 Requires:         R-CRAN-flexclust 
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-osrm 
 Requires:         R-CRAN-deldir 
 Requires:         R-methods 
 Requires:         R-CRAN-dplyr 
@@ -56,8 +50,6 @@ Requires:         R-CRAN-nngeo
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-clipr 
 
 %description
 A toolbox for coverage evaluation of proximity programs.

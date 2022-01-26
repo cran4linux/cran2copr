@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  pillar
-%global packver   1.6.5
+%global packname  mappp
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Coloured Formatting for Columns
+Summary:          Map in Parallel with Progress
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,30 +16,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 2.3.0
-BuildRequires:    R-CRAN-crayon >= 1.3.4
-BuildRequires:    R-CRAN-utf8 >= 1.1.0
-BuildRequires:    R-CRAN-vctrs >= 0.3.8
-BuildRequires:    R-CRAN-ellipsis >= 0.3.2
-BuildRequires:    R-CRAN-rlang >= 0.3.0
-BuildRequires:    R-CRAN-fansi 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli >= 2.3.0
-Requires:         R-CRAN-crayon >= 1.3.4
-Requires:         R-CRAN-utf8 >= 1.1.0
-Requires:         R-CRAN-vctrs >= 0.3.8
-Requires:         R-CRAN-ellipsis >= 0.3.2
-Requires:         R-CRAN-rlang >= 0.3.0
-Requires:         R-CRAN-fansi 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-pbmcapply 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-parallelly 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-pbmcapply 
+Requires:         R-parallel 
+Requires:         R-CRAN-parallelly 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 
 %description
-Provides 'pillar' and 'colonnade' generics designed for formatting columns
-of data using the full range of colours provided by modern terminals.
+Provides one function, which is a wrapper around purrr::map() with some
+extras on top, including parallel computation, progress bars, error
+handling, and result caching.
 
 %prep
 %setup -q -c -n %{packname}

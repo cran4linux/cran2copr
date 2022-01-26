@@ -1,45 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  pillar
-%global packver   1.6.5
+%global packname  penAFT
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Coloured Formatting for Columns
+Summary:          Fit the Regularized Gehan Estimator with Elastic Net and Sparse Group Lasso Penalties
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 2.3.0
-BuildRequires:    R-CRAN-crayon >= 1.3.4
-BuildRequires:    R-CRAN-utf8 >= 1.1.0
-BuildRequires:    R-CRAN-vctrs >= 0.3.8
-BuildRequires:    R-CRAN-ellipsis >= 0.3.2
-BuildRequires:    R-CRAN-rlang >= 0.3.0
-BuildRequires:    R-CRAN-fansi 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli >= 2.3.0
-Requires:         R-CRAN-crayon >= 1.3.4
-Requires:         R-CRAN-utf8 >= 1.1.0
-Requires:         R-CRAN-vctrs >= 0.3.8
-Requires:         R-CRAN-ellipsis >= 0.3.2
-Requires:         R-CRAN-rlang >= 0.3.0
-Requires:         R-CRAN-fansi 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-irlba 
 
 %description
-Provides 'pillar' and 'colonnade' generics designed for formatting columns
-of data using the full range of colours provided by modern terminals.
+The semiparametric accelerated failure time (AFT) model is an attractive
+alternative to the Cox proportional hazards model. This package provides a
+suite of functions for fitting one popular estimator of the semiparametric
+AFT model, the regularized Gehan estimator. Specifically, we provide
+functions for cross-validation, prediction, coefficient extraction, and
+visualizing both trace plots and cross-validation curves. For further
+details, please see Suder, P. M. and Molstad, A. J., (2022+) Scalable
+algorithms for semiparametric accelerated failure time models in high
+dimensions, to appear in Statistics in Medicine <doi:10.1002/sim.9264>.
 
 %prep
 %setup -q -c -n %{packname}

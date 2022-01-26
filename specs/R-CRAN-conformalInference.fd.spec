@@ -1,43 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  lavaan
-%global packver   0.6-10
+%global packname  conformalInference.fd
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.10
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Latent Variable Analysis
+Summary:          Tools for Conformal Inference for Regression in Multivariate Functional Setting
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats4 
+BuildRequires:    R-CRAN-fda >= 5.5.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
+BuildRequires:    R-CRAN-gridExtra >= 2.3
+BuildRequires:    R-CRAN-future.apply >= 1.8.1
+BuildRequires:    R-CRAN-future >= 1.23.0
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mnormt 
-BuildRequires:    R-CRAN-pbivnorm 
-BuildRequires:    R-CRAN-numDeriv 
-Requires:         R-methods 
-Requires:         R-stats4 
+Requires:         R-CRAN-fda >= 5.5.1
+Requires:         R-CRAN-ggplot2 >= 3.3.5
+Requires:         R-CRAN-gridExtra >= 2.3
+Requires:         R-CRAN-future.apply >= 1.8.1
+Requires:         R-CRAN-future >= 1.23.0
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mnormt 
-Requires:         R-CRAN-pbivnorm 
-Requires:         R-CRAN-numDeriv 
 
 %description
-Fit a variety of latent variable models, including confirmatory factor
-analysis, structural equation modeling and latent growth curve models.
+It computes full conformal, split conformal and multi split conformal
+prediction regions when the response has functional nature. Moreover, the
+package also contain a plot function to visualize the output of the split
+conformal. To guarantee consistency, the package structure mimics the
+univariate 'conformalInference' package of professor Ryan Tibshirani. The
+main references for the code are: Diquigiovanni, Fontana, and Vantini
+(2021) <arXiv:2102.06746>, Diquigiovanni, Fontana, and Vantini (2021)
+<arXiv:2106.01792>, Solari, and Djordjilovic (2021) <arXiv:2103.00627>.
 
 %prep
 %setup -q -c -n %{packname}

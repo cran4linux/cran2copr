@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  discretefit
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulated Goodness-of-Fit Tests for Discrete Distributions
 
@@ -19,8 +19,8 @@ BuildRequires:    R-CRAN-Rcpp
 Requires:         R-CRAN-Rcpp 
 
 %description
-Implements Monte Carlo simulations for goodness-of-fit (GOF) tests for
-discrete distributions. This includes tests based on the Chi-squared
+Implements fast Monte Carlo simulations for goodness-of-fit (GOF) tests
+for discrete distributions. This includes tests based on the Chi-squared
 statistic, the log-likelihood-ratio (G^2) statistic, the Freeman-Tukey
 (Hellinger-distance) statistic, the Kolmogorov-Smirnov statistic, the
 Cramer-von Mises statistic as described in Choulakian, Lockhart and

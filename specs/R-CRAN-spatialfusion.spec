@@ -1,45 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  pillar
-%global packver   1.6.5
+%global packname  spatialfusion
+%global packver   0.6-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.5
+Version:          0.6.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Coloured Formatting for Columns
+Summary:          Multivariate Analysis of Spatial Data Using a Unifying Spatial Fusion Framework
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 2.3.0
-BuildRequires:    R-CRAN-crayon >= 1.3.4
-BuildRequires:    R-CRAN-utf8 >= 1.1.0
-BuildRequires:    R-CRAN-vctrs >= 0.3.8
-BuildRequires:    R-CRAN-ellipsis >= 0.3.2
-BuildRequires:    R-CRAN-rlang >= 0.3.0
-BuildRequires:    R-CRAN-fansi 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-methods 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-cli >= 2.3.0
-Requires:         R-CRAN-crayon >= 1.3.4
-Requires:         R-CRAN-utf8 >= 1.1.0
-Requires:         R-CRAN-vctrs >= 0.3.8
-Requires:         R-CRAN-ellipsis >= 0.3.2
-Requires:         R-CRAN-rlang >= 0.3.0
-Requires:         R-CRAN-fansi 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-Rcpp 
+Requires:         R-methods 
+Requires:         R-graphics 
+Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-rstan 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-rstantools
 
 %description
-Provides 'pillar' and 'colonnade' generics designed for formatting columns
-of data using the full range of colours provided by modern terminals.
+Multivariate modelling of geostatistical (point), lattice (areal) and
+point pattern data in a unifying spatial fusion framework. Details are
+given in Wang and Furrer (2021) <doi:10.1016/j.csda.2021.107240>. Model
+inference is done using either 'Stan' <https://mc-stan.org/> or 'INLA'
+<https://www.r-inla.org/>.
 
 %prep
 %setup -q -c -n %{packname}
