@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  meshed
-%global packver   0.1.4
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Regression with Meshed Gaussian Processes
 
@@ -32,9 +32,10 @@ Requires:         R-CRAN-magrittr
 %description
 Fits Bayesian spatial or spatiotemporal multivariate regression models
 based on latent Meshed Gaussian Processes (MGP) as described in Peruzzi,
-Banerjee, Finley (2020) <doi:10.1080/01621459.2020.1833889> and Peruzzi,
-Banerjee, Dunson, and Finley (2021) <arXiv:2101.03579>. Funded by ERC
-grant 856506 and NIH grant R01ES028804.
+Banerjee, Finley (2020) <doi:10.1080/01621459.2020.1833889>, Peruzzi,
+Banerjee, Dunson, and Finley (2021) <arXiv:2101.03579>, Peruzzi and Dunson
+(2022) <arXiv:2201.10080>. Funded by ERC grant 856506 and NIH grant
+R01ES028804.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  QCA
-%global packver   3.14
+%global packname  bipd
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.14
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Qualitative Comparative Analysis
+Summary:          Bayesian Individual Patient Data Meta-Analysis using 'JAGS'
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-admisc > 0.22
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-venn 
-Requires:         R-CRAN-admisc > 0.22
-Requires:         R-methods 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-venn 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rjags >= 4.6
+BuildRequires:    R-CRAN-coda >= 0.13
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-rjags >= 4.6
+Requires:         R-CRAN-coda >= 0.13
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-dplyr 
 
 %description
-An extensive set of functions to perform Qualitative Comparative Analysis:
-crisp sets ('csQCA'), temporal ('tQCA'), multi-value ('mvQCA') and fuzzy
-sets ('fsQCA'), using a GUI - graphical user interface. 'QCA' is a
-methodology that bridges the qualitative and quantitative divide in social
-science research. It uses a Boolean algorithm, resulting in a minimal
-causal configuration that explains a given phenomenon.
+We use a Bayesian approach to run individual patient data meta-analysis
+using 'JAGS'. The methods incorporate shrinkage methods and calculate
+patient-specific treatment effects as described in Seo et al. (2021)
+<DOI:10.1002/sim.8859>. This package also includes user-friendly functions
+that impute missing data in an individual patient data using mice-related
+packages.
 
 %prep
 %setup -q -c -n %{packname}

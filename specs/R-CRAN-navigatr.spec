@@ -1,36 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  QCA
-%global packver   3.14
+%global packname  navigatr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.14
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Qualitative Comparative Analysis
+Summary:          Navigation Menu for Pipe-Friendly Data Processing
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-admisc > 0.22
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-venn 
-Requires:         R-CRAN-admisc > 0.22
-Requires:         R-methods 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-venn 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-vctrs 
 
 %description
-An extensive set of functions to perform Qualitative Comparative Analysis:
-crisp sets ('csQCA'), temporal ('tQCA'), multi-value ('mvQCA') and fuzzy
-sets ('fsQCA'), using a GUI - graphical user interface. 'QCA' is a
-methodology that bridges the qualitative and quantitative divide in social
-science research. It uses a Boolean algorithm, resulting in a minimal
-causal configuration that explains a given phenomenon.
+Provides a navigation menu to enable pipe-friendly data processing for
+hierarchical data structures. By activating the menu items, you can
+perform operations on each item while maintaining the overall structure in
+attributes.
 
 %prep
 %setup -q -c -n %{packname}

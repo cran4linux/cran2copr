@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  JuliaConnectoR
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Functionally Oriented Interface for Integrating 'Julia' with R
 
@@ -20,7 +20,8 @@ BuildArch:        noarch
 %description
 Allows to import functions and whole packages from 'Julia' in R. Imported
 'Julia' functions can directly be called as R functions. Data structures
-can be translated between 'Julia' and R.
+can be translated between 'Julia' and R. More details can also be found in
+the corresponding article <doi:10.18637/jss.v101.i06>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  QCA
-%global packver   3.14
+%global packname  naflex
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.14
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Qualitative Comparative Analysis
+Summary:          Flexible Options for Handling Missing Values
 
-License:          GPL (>= 3)
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-admisc > 0.22
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-venn 
-Requires:         R-CRAN-admisc > 0.22
-Requires:         R-methods 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-venn 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-An extensive set of functions to perform Qualitative Comparative Analysis:
-crisp sets ('csQCA'), temporal ('tQCA'), multi-value ('mvQCA') and fuzzy
-sets ('fsQCA'), using a GUI - graphical user interface. 'QCA' is a
-methodology that bridges the qualitative and quantitative divide in social
-science research. It uses a Boolean algorithm, resulting in a minimal
-causal configuration that explains a given phenomenon.
+For use in summary functions to omit missing values conditionally using
+specified checks.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  namedropR
-%global packver   2.1.1
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Visual Citations to Include in Presentations
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-lubridate
 BuildRequires:    R-CRAN-webshot 
 BuildRequires:    R-CRAN-bib2df 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readr 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-qrcode 
 Requires:         R-CRAN-here 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-lubridate
 Requires:         R-CRAN-webshot 
 Requires:         R-CRAN-bib2df 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-readr 
 
 %description
 Provides 'visual citations' containing the metadata of a scientific paper

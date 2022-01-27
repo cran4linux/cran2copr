@@ -1,36 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  QCA
-%global packver   3.14
+%global packname  optimbase
+%global packver   1.0-10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.14
+Version:          1.0.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Qualitative Comparative Analysis
+Summary:          R Port of the 'Scilab' Optimbase Module
 
-License:          GPL (>= 3)
+License:          CeCILL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-admisc > 0.22
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-venn 
-Requires:         R-CRAN-admisc > 0.22
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-venn 
 
 %description
-An extensive set of functions to perform Qualitative Comparative Analysis:
-crisp sets ('csQCA'), temporal ('tQCA'), multi-value ('mvQCA') and fuzzy
-sets ('fsQCA'), using a GUI - graphical user interface. 'QCA' is a
-methodology that bridges the qualitative and quantitative divide in social
-science research. It uses a Boolean algorithm, resulting in a minimal
-causal configuration that explains a given phenomenon.
+Provides a set of commands to manage an abstract optimization method. The
+goal is to provide a building block for a large class of specialized
+optimization methods. This package manages: the number of variables, the
+minimum and maximum bounds, the number of non linear inequality
+constraints, the cost function, the logging system, various termination
+criteria, etc...
 
 %prep
 %setup -q -c -n %{packname}

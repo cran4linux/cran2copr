@@ -1,34 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ompr
-%global packver   0.8.1
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model and Solve Mixed Integer Linear Programs
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-listcomp >= 0.4.0
 BuildRequires:    R-CRAN-rlang >= 0.2.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-fastmap 
+Requires:         R-CRAN-listcomp >= 0.4.0
 Requires:         R-CRAN-rlang >= 0.2.0
-Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-progress 
 Requires:         R-methods 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-fastmap 
 
 %description
 Model mixed integer linear programs in an algebraic way directly in R. The
@@ -46,6 +47,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

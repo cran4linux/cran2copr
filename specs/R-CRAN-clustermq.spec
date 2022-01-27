@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  clustermq
-%global packver   0.8.95.2
+%global packver   0.8.95.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.95.2
+Version:          0.8.95.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evaluate Function Calls on HPC Schedulers (LSF, SGE, SLURM, PBS/Torque)
 

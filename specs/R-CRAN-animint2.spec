@@ -1,35 +1,51 @@
 %global __brp_check_rpaths %{nil}
-%global packname  lpdensity
-%global packver   2.3
+%global packname  animint2
+%global packver   2022.1.25
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3
+Version:          2022.1.25
 Release:          1%{?dist}%{?buildtag}
-Summary:          Local Polynomial Density Estimation and Inference
+Summary:          Animated Interactive Grammar of Graphics
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plyr >= 1.7.1
+BuildRequires:    R-CRAN-knitr >= 1.5
+BuildRequires:    R-CRAN-scales >= 0.4.1
+BuildRequires:    R-CRAN-gtable >= 0.1.1
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-RJSONIO 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-lazyeval 
+Requires:         R-CRAN-plyr >= 1.7.1
+Requires:         R-CRAN-knitr >= 1.5
+Requires:         R-CRAN-scales >= 0.4.1
+Requires:         R-CRAN-gtable >= 0.1.1
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-RJSONIO 
+Requires:         R-grid 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-reshape2 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-lazyeval 
 
 %description
-Without imposing stringent distributional assumptions or shape
-restrictions, nonparametric estimation has been popular in economics and
-other social sciences for counterfactual analysis, program evaluation, and
-policy recommendations. This package implements a novel density (and
-derivatives) estimator based on local polynomial regressions, documented
-in Cattaneo, Jansson and Ma (2022) <doi:10.18637/jss.v101.i02>:
-lpdensity() to construct local polynomial based density (and derivatives)
-estimator, and lpbwdensity() to perform data-driven bandwidth selection.
+Functions are provided for defining animated, interactive data
+visualizations in R code, and rendering on a web page. The 2018 Journal of
+Computational and Graphical Statistics paper,
+<doi:10.1080/10618600.2018.1513367> describes the concepts implemented.
 
 %prep
 %setup -q -c -n %{packname}

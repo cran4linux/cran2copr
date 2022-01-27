@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  childesr
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accessing the 'CHILDES' Database
 
@@ -34,7 +34,7 @@ Requires:         R-CRAN-RMySQL >= 0.10.21
 %description
 Tools for connecting to 'CHILDES', an open repository for transcripts of
 parent-child interaction. For more information on the underlying data, see
-<https://childes-db.stanford.edu>.
+<https://langcog.github.io/childes-db-website/>.
 
 %prep
 %setup -q -c -n %{packname}

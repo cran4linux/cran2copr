@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  apollo
-%global packver   0.2.6
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Choice Model Estimation and Application
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-matrixStats
 BuildRequires:    R-CRAN-RSGHB 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.0.0
@@ -47,15 +48,17 @@ Requires:         R-CRAN-matrixStats
 Requires:         R-CRAN-RSGHB 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-stringr 
 
 %description
-The Choice Modelling Centre (CMC) at the University of Leeds has developed
-flexible code for the estimation and application of choice models in R.
-Users are able to write their own model functions or use a mix of already
-available ones. Random heterogeneity, both continuous and discrete and at
-the level of individuals and choices, can be incorporated for all models.
-There is support for both standalone models and hybrid model structures.
-Both classical and Bayesian estimation is available, and multiple discrete
+Choice models are a widely used technique across numerous scientific
+disciplines. The Apollo package is a very flexible tool for the estimation
+and application of choice models in R. Users are able to write their own
+model functions or use a mix of already available ones. Random
+heterogeneity, both continuous and discrete and at the level of
+individuals and choices, can be incorporated for all models. There is
+support for both standalone models and hybrid model structures.  Both
+classical and Bayesian estimation is available, and multiple discrete
 continuous models are covered in addition to discrete choice.
 Multi-threading processing is supported for estimation and a large number
 of pre and post-estimation routines, including for computing posterior

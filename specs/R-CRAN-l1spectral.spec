@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  l1spectral
-%global packver   0.99.5
+%global packver   0.99.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.5
+Version:          0.99.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          An L1-Version of the Spectral Clustering
 
@@ -46,8 +46,7 @@ Provides an l1-version of the spectral clustering algorithm devoted to
 robustly clustering highly perturbed graphs using l1-penalty. This
 algorithm is described with more details in the preprint C. Champion, M.
 Champion, M. Blazère, R. Burcelin and J.M. Loubes, "l1-spectral clustering
-algorithm: a robust spectral clustering using Lasso regularization"
-(2021).
+algorithm: a spectral clustering method using l1-regularization" (2022).
 
 %prep
 %setup -q -c -n %{packname}

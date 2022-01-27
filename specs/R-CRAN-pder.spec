@@ -1,36 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  QCA
-%global packver   3.14
+%global packname  pder
+%global packver   1.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.14
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Qualitative Comparative Analysis
+Summary:          Panel Data Econometrics with R
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-admisc > 0.22
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-venn 
-Requires:         R-CRAN-admisc > 0.22
-Requires:         R-methods 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-venn 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-plm 
+Requires:         R-CRAN-plm 
 
 %description
-An extensive set of functions to perform Qualitative Comparative Analysis:
-crisp sets ('csQCA'), temporal ('tQCA'), multi-value ('mvQCA') and fuzzy
-sets ('fsQCA'), using a GUI - graphical user interface. 'QCA' is a
-methodology that bridges the qualitative and quantitative divide in social
-science research. It uses a Boolean algorithm, resulting in a minimal
-causal configuration that explains a given phenomenon.
+Data sets for the Panel Data Econometrics with R
+<doi:10.1002/9781119504641> book.
 
 %prep
 %setup -q -c -n %{packname}
