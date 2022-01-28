@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  upsetjs
-%global packver   1.10.10
+%global packver   1.10.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.10
+Version:          1.10.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          'HTMLWidget' Wrapper of 'UpSet.js' for Exploring Large Set Intersections
 

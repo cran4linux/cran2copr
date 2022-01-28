@@ -1,45 +1,49 @@
 %global __brp_check_rpaths %{nil}
-%global packname  happign
-%global packver   0.1.1
+%global packname  imaginator
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to 'IGN' Web Services
+Summary:          Simulate General Insurance Policies and Losses
 
-License:          GPL (>= 3)
+License:          MPL-2.0 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.3
+Requires:         R-core >= 3.2.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-distributions3 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stars 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-distributions3 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stars 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-tibble 
 
 %description
-Interface to easily access the National Institute of Geographic and
-Forestry Information open-source data for any area of interest in France
-via WFS (shapefile) and WMS (raster) web services
-<https://geoservices.ign.fr/services-web-experts>.
+Simulate general insurance policies, losses and loss emergence. The
+functions contemplate deterministic and stochastic policy retention and
+growth scenarios. Retention and growth rates are percentages relative to
+the expiring portfolio. Claims are simulated for each policy. This is
+accomplished either be assuming a frequency distribution per development
+lag or by generating random wait times until claim emergence and
+settlement. Loss simulation uses standard loss distributions for claim
+amounts.
 
 %prep
 %setup -q -c -n %{packname}

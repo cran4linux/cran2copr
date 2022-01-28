@@ -1,38 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  clampSeg
-%global packver   1.1-1
+%global packname  ElliptCopulas
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Idealisation of Patch Clamp Recordings
+Summary:          Inference of Elliptical Distributions and Copulas
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stepR >= 2.1.0
-BuildRequires:    R-CRAN-lowpassFilter 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-stepR >= 2.1.0
-Requires:         R-CRAN-lowpassFilter 
-Requires:         R-stats 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-Runuran 
+BuildRequires:    R-CRAN-pcaPP 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-Runuran 
+Requires:         R-CRAN-pcaPP 
+Requires:         R-CRAN-Matrix 
 
 %description
-Implements the model-free multiscale idealisation approaches:
-Jump-Segmentation by MUltiResolution Filter (JSMURF)
-<doi:10.1109/TNB.2013.2284063>, JUmp Local dEconvolution Segmentation
-filter (JULES) <doi:10.1109/TNB.2018.2845126> and Heterogeneous
-Idealization by Local testing and DEconvolution (HILDE)
-<arXiv:2008.02658>. Further details on how to use them are given in the
-accompanying vignette.
+Provides functions for the simulation and the nonparametric estimation of
+elliptical distributions, meta-elliptical copulas and trans-elliptical
+distributions, following the article Derumigny and Fermanian (2021)
+<arXiv:2106.12367>.
 
 %prep
 %setup -q -c -n %{packname}

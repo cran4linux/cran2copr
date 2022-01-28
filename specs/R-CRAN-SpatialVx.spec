@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SpatialVx
-%global packver   0.8
+%global packver   0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Forecast Verification
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-fields >= 6.8
 BuildRequires:    R-CRAN-spatstat >= 2.0.0
@@ -50,7 +50,7 @@ Spatial forecast verification refers to verifying weather forecasts when
 the verification set (forecast and observations) is on a spatial field,
 usually a high-resolution gridded spatial field.  Most of the functions
 here require the forecast and observed fields to be gridded and on the
-same grid.  For a thorough review of most of the methods in this package,
+same grid. For a thorough review of most of the methods in this package,
 please see Gilleland et al. (2009) <doi: 10.1175/2009WAF2222269.1>.
 
 %prep
@@ -61,6 +61,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  supernova
-%global packver   2.5.0
+%global packver   2.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          2.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Judd, McClelland, & Ryan Formatting for ANOVA Output
 

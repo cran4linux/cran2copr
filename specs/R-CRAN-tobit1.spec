@@ -1,38 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  clampSeg
-%global packver   1.1-1
+%global packname  tobit1
+%global packver   0.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Idealisation of Patch Clamp Recordings
+Summary:          One Equation Tobit Model
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stepR >= 2.1.0
-BuildRequires:    R-CRAN-lowpassFilter 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-stepR >= 2.1.0
-Requires:         R-CRAN-lowpassFilter 
-Requires:         R-stats 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-prediction 
+BuildRequires:    R-CRAN-margins 
+BuildRequires:    R-CRAN-generics 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-prediction 
+Requires:         R-CRAN-margins 
+Requires:         R-CRAN-generics 
 
 %description
-Implements the model-free multiscale idealisation approaches:
-Jump-Segmentation by MUltiResolution Filter (JSMURF)
-<doi:10.1109/TNB.2013.2284063>, JUmp Local dEconvolution Segmentation
-filter (JULES) <doi:10.1109/TNB.2018.2845126> and Heterogeneous
-Idealization by Local testing and DEconvolution (HILDE)
-<arXiv:2008.02658>. Further details on how to use them are given in the
-accompanying vignette.
+A set of estimators and tests for models for which the response is
+truncated. The package includes a lot of developments following the
+seminal paper of Tobin (1958) <doi:10.2307/1907382>.
 
 %prep
 %setup -q -c -n %{packname}

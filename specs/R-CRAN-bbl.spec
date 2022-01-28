@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bbl
-%global packver   0.4.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Boltzmann Bayes Learner
 
@@ -35,8 +35,8 @@ naive Bayes model to include interactions. Enables classification of data
 into multiple response groups based on a large number of discrete
 predictors that can take factor values of heterogeneous levels. Either
 pseudo-likelihood or mean field inference can be used with L2
-regularization, cross-validation, and prediction on new data. Woo et al.
-(2016) <doi:10.1186/s12864-016-2871-3>.
+regularization, cross-validation, and prediction on new data.
+<doi:10.18637/jss.v101.i05>.
 
 %prep
 %setup -q -c -n %{packname}

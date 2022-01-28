@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  UKFE
-%global packver   0.2.0
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          UK Flood Estimation
 
@@ -31,13 +31,15 @@ Analysis - an approach based on L-moments", Hosking & Wallis (1997, ISBN:
 analysis: with an emphasis on flood frequency studies", Hammond (2019,
 <doi:10.2166/nh.2019.157>). "Making better use of local data in flood
 frequency estimation", Environment Agency (2017, ISBN: 978 1 84911 387 8).
-"Improving the FEH statistical procedures for flood frequency estimation",
-Environment Agency (2008, ISBN: 978 1 84432 920 5). "Low flow estimation
-in the United Kingdom", Institute of Hydrology (1992, ISBN 0 948540 45 1).
-Wallingford HydroSolutions, (2016,
+"Sampling uncertainty of UK design flood estimation" , Hammond (2021,
+<doi:10.2166/nh.2021.059>). "Improving the FEH statistical procedures for
+flood frequency estimation", Environment Agency (2008, ISBN: 978 1 84432
+920 5). "Low flow estimation in the United Kingdom", Institute of
+Hydrology (1992, ISBN 0 948540 45 1). Wallingford HydroSolutions, (2016,
 <http://software.hydrosolutions.co.uk/winfap4/Urban-Adjustment-Procedure-Technical-Note.pdf>).
 Data from the UK National River Flow Archive (<https://nrfa.ceh.ac.uk/>,
-terms and conditions: <https://nrfa.ceh.ac.uk/costs-terms-and-conditions>.
+terms and conditions:
+<https://nrfa.ceh.ac.uk/costs-terms-and-conditions>).
 
 %prep
 %setup -q -c -n %{packname}

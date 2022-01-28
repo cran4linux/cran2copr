@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BSL
-%global packver   3.2.2
+%global packver   3.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.2
+Version:          3.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Synthetic Likelihood
 
@@ -68,7 +68,8 @@ observed summary statistic. Shrinkage estimation can help to decrease the
 number of model simulations when the dimension of the summary statistic is
 high (e.g., BSLasso, An et al. (2019)
 <doi:10.1080/10618600.2018.1537928>). Extensions to this package are
-planned.
+planned. For a journal article describing how to use this package, see An
+et al. (2022) <doi:10.18637/jss.v101.i11>.
 
 %prep
 %setup -q -c -n %{packname}

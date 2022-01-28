@@ -1,38 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  clampSeg
-%global packver   1.1-1
+%global packname  freqpcr
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Idealisation of Patch Clamp Recordings
+Summary:          Estimates Allele Frequency on qPCR DeltaDeltaCq from Bulk Samples
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stepR >= 2.1.0
-BuildRequires:    R-CRAN-lowpassFilter 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-cubature 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-stepR >= 2.1.0
-Requires:         R-CRAN-lowpassFilter 
-Requires:         R-stats 
+Requires:         R-CRAN-cubature 
 Requires:         R-methods 
 
 %description
-Implements the model-free multiscale idealisation approaches:
-Jump-Segmentation by MUltiResolution Filter (JSMURF)
-<doi:10.1109/TNB.2013.2284063>, JUmp Local dEconvolution Segmentation
-filter (JULES) <doi:10.1109/TNB.2018.2845126> and Heterogeneous
-Idealization by Local testing and DEconvolution (HILDE)
-<arXiv:2008.02658>. Further details on how to use them are given in the
-accompanying vignette.
+Interval estimation of the population allele frequency from qPCR analysis
+based on the restriction enzyme digestion (RED)-DeltaDeltaCq method
+(Osakabe et al. 2017, <doi:10.1016/j.pestbp.2017.04.003>), as well as
+general DeltaDeltaCq analysis. Compatible with the Cq measurement of DNA
+extracted from multiple individuals at once, so called "group-testing",
+this model assumes that the quantity of DNA extracted from an individual
+organism follows a gamma distribution. Therefore, the point estimate is
+robust regarding the uncertainty of the DNA yield.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,38 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  clampSeg
-%global packver   1.1-1
+%global packname  gps
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Idealisation of Patch Clamp Recordings
+Summary:          General P-Splines
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-stepR >= 2.1.0
-BuildRequires:    R-CRAN-lowpassFilter 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-stats 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-stepR >= 2.1.0
-Requires:         R-CRAN-lowpassFilter 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 Requires:         R-stats 
+Requires:         R-splines 
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-Implements the model-free multiscale idealisation approaches:
-Jump-Segmentation by MUltiResolution Filter (JSMURF)
-<doi:10.1109/TNB.2013.2284063>, JUmp Local dEconvolution Segmentation
-filter (JULES) <doi:10.1109/TNB.2018.2845126> and Heterogeneous
-Idealization by Local testing and DEconvolution (HILDE)
-<arXiv:2008.02658>. Further details on how to use them are given in the
-accompanying vignette.
+Routines to construct general P-splines for non-uniform B-splines on
+arbitrary knots, proposed by Li and Cao (2022) <arXiv:2201.06808>. This
+P-spline variant extends the standard P-splines of Eilers and Marx (1996)
+<doi:10.1214/ss/1038425655> that are tailored for uniform B-splines on
+equidistant knots. Includes SparseD() for computing general difference
+matrices, SparseS() for computing derivative penalty matrix or its sparse
+root using a sandwich formula, etc. Also includes several demos on
+B-splines and P-splines. Aims to facilitate other packages to implement
+general P-splines as a smoothing tool in their model estimation framework.
 
 %prep
 %setup -q -c -n %{packname}

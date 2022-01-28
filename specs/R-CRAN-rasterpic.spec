@@ -1,38 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  clampSeg
-%global packver   1.1-1
+%global packname  rasterpic
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Idealisation of Patch Clamp Recordings
+Summary:          Create a Spatial Raster from Plain Images
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stepR >= 2.1.0
-BuildRequires:    R-CRAN-lowpassFilter 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-stepR >= 2.1.0
-Requires:         R-CRAN-lowpassFilter 
-Requires:         R-stats 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-terra >= 1.4.22
+BuildRequires:    R-CRAN-sf >= 1.0.0
+BuildRequires:    R-CRAN-png >= 0.1.5
+Requires:         R-CRAN-terra >= 1.4.22
+Requires:         R-CRAN-sf >= 1.0.0
+Requires:         R-CRAN-png >= 0.1.5
 
 %description
-Implements the model-free multiscale idealisation approaches:
-Jump-Segmentation by MUltiResolution Filter (JSMURF)
-<doi:10.1109/TNB.2013.2284063>, JUmp Local dEconvolution Segmentation
-filter (JULES) <doi:10.1109/TNB.2018.2845126> and Heterogeneous
-Idealization by Local testing and DEconvolution (HILDE)
-<arXiv:2008.02658>. Further details on how to use them are given in the
-accompanying vignette.
+Creates a spatial raster, as the ones provided by 'terra', from regular
+pictures.
 
 %prep
 %setup -q -c -n %{packname}

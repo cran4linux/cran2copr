@@ -1,38 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  clampSeg
-%global packver   1.1-1
+%global packname  jetpack
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Idealisation of Patch Clamp Recordings
+Summary:          A Friendly Package Manager
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stepR >= 2.1.0
-BuildRequires:    R-CRAN-lowpassFilter 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-stepR >= 2.1.0
-Requires:         R-CRAN-lowpassFilter 
-Requires:         R-stats 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-remotes >= 2.0.3
+BuildRequires:    R-CRAN-desc >= 1.2.0
+BuildRequires:    R-CRAN-docopt >= 0.4
+BuildRequires:    R-CRAN-renv >= 0.13.1
+Requires:         R-CRAN-remotes >= 2.0.3
+Requires:         R-CRAN-desc >= 1.2.0
+Requires:         R-CRAN-docopt >= 0.4
+Requires:         R-CRAN-renv >= 0.13.1
 
 %description
-Implements the model-free multiscale idealisation approaches:
-Jump-Segmentation by MUltiResolution Filter (JSMURF)
-<doi:10.1109/TNB.2013.2284063>, JUmp Local dEconvolution Segmentation
-filter (JULES) <doi:10.1109/TNB.2018.2845126> and Heterogeneous
-Idealization by Local testing and DEconvolution (HILDE)
-<arXiv:2008.02658>. Further details on how to use them are given in the
-accompanying vignette.
+Manage project dependencies from your DESCRIPTION file. Create a
+reproducible virtual environment with minimal additional files in your
+project. Provides tools to add, remove, and update dependencies as well as
+install existing dependencies with a single function.
 
 %prep
 %setup -q -c -n %{packname}

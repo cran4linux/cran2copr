@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  neptune
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'Neptune' Experiment Tracking and Management Tool
+Summary:          MLOps Metadata Store - Experiment Tracking and Model Registry for Production Teams
 
 License:          Apache License 2.0 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -32,11 +32,14 @@ Requires:         R-CRAN-this.path >= 0.4.4
 Requires:         R-methods 
 
 %description
-Interface to 'Neptune', experiment tracking tool that helps you organize
-your machine learning experiments. You can log your hyperparameter,
-metrics, model binaries and performance charts, organize them with tags
-and names and share everything easily in the app. For more information see
-<https://neptune.ai/>.
+An interface to Neptune. A metadata store for MLOps, built for teams that
+run a lot of experiments. It gives you a single place to log, store,
+display, organize, compare, and query all your model-building metadata.
+Neptune is used for: • Experiment tracking: Log, display, organize, and
+compare ML experiments in a single place. • Model registry: Version,
+store, manage, and query trained models, and model building metadata. •
+Monitoring ML runs live: Record and monitor model training, evaluation, or
+production runs live For more information see <https://neptune.ai/>.
 
 %prep
 %setup -q -c -n %{packname}

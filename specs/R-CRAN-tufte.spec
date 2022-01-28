@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tufte
-%global packver   0.11
+%global packver   0.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11
+Version:          0.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tufte's Styles for R Markdown Documents
 
@@ -16,11 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 2.1
+BuildRequires:    R-CRAN-rmarkdown >= 2.11
 BuildRequires:    R-CRAN-knitr >= 1.28
 BuildRequires:    R-CRAN-xfun >= 0.13
 BuildRequires:    R-CRAN-htmltools 
-Requires:         R-CRAN-rmarkdown >= 2.1
+Requires:         R-CRAN-rmarkdown >= 2.11
 Requires:         R-CRAN-knitr >= 1.28
 Requires:         R-CRAN-xfun >= 0.13
 Requires:         R-CRAN-htmltools 

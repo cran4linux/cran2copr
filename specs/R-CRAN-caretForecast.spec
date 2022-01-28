@@ -1,38 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  clampSeg
-%global packver   1.1-1
+%global packname  caretForecast
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Idealisation of Patch Clamp Recordings
+Summary:          Time Series Forecasting Using Caret Infrastructure
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stepR >= 2.1.0
-BuildRequires:    R-CRAN-lowpassFilter 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-stepR >= 2.1.0
-Requires:         R-CRAN-lowpassFilter 
-Requires:         R-stats 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-forecast >= 8.15
+BuildRequires:    R-CRAN-caret >= 6.0.88
+BuildRequires:    R-methods >= 4.1.1
+BuildRequires:    R-CRAN-magrittr >= 2.0.1
+Requires:         R-CRAN-forecast >= 8.15
+Requires:         R-CRAN-caret >= 6.0.88
+Requires:         R-methods >= 4.1.1
+Requires:         R-CRAN-magrittr >= 2.0.1
 
 %description
-Implements the model-free multiscale idealisation approaches:
-Jump-Segmentation by MUltiResolution Filter (JSMURF)
-<doi:10.1109/TNB.2013.2284063>, JUmp Local dEconvolution Segmentation
-filter (JULES) <doi:10.1109/TNB.2018.2845126> and Heterogeneous
-Idealization by Local testing and DEconvolution (HILDE)
-<arXiv:2008.02658>. Further details on how to use them are given in the
-accompanying vignette.
+Recursive time series forecast using Caret infrastructure. The models are
+selected based on time series cross-validation and forecasting is done
+recursively.
 
 %prep
 %setup -q -c -n %{packname}

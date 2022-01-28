@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  plotHMM
-%global packver   2022.1.18
+%global packver   2022.1.25
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2022.1.18
+Version:          2022.1.25
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plot Hidden Markov Models
 

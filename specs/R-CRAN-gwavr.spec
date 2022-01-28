@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  happign
-%global packver   0.1.1
+%global packname  gwavr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to 'IGN' Web Services
+Summary:          Get Water Attributes Visually in R
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,30 +16,46 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-leaflet.extras 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-miniUI 
+BuildRequires:    R-CRAN-nhdplusTools 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stars 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-units 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-promises 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-leaflet.extras 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-miniUI 
+Requires:         R-CRAN-nhdplusTools 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stars 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-units 
+Requires:         R-utils 
+Requires:         R-CRAN-promises 
 
 %description
-Interface to easily access the National Institute of Geographic and
-Forestry Information open-source data for any area of interest in France
-via WFS (shapefile) and WMS (raster) web services
-<https://geoservices.ign.fr/services-web-experts>.
+Provides methods to Get Water Attributes Visually in R ('gwavr'). This
+allows the user to point and click on areas within the United States and
+get back hydrological data, e.g. flowlines, catchments, basin boundaries,
+comids, etc.
 
 %prep
 %setup -q -c -n %{packname}

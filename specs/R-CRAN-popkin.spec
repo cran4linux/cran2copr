@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  popkin
-%global packver   1.3.13
+%global packver   1.3.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.13
+Version:          1.3.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Kinship and FST under Arbitrary Population Structure
 

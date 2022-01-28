@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dipsaus
-%global packver   0.1.9
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Dipping Sauce for Data Analysis and Visualizations
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-fastmap >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-rstudioapi >= 0.11
 BuildRequires:    R-utils 
+BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-parallel 
@@ -42,6 +43,7 @@ Requires:         R-CRAN-fastmap >= 1.1.0
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-rstudioapi >= 0.11
 Requires:         R-utils 
+Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-parallel 

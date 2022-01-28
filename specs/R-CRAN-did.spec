@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  did
-%global packver   2.1.0
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Treatment Effects with Multiple Periods and Groups
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BMisc >= 1.4.1
+BuildRequires:    R-CRAN-BMisc >= 1.4.4
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-ggplot2 
@@ -24,7 +24,7 @@ BuildRequires:    R-CRAN-ggpubr
 BuildRequires:    R-CRAN-DRDID 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-BMisc >= 1.4.1
+Requires:         R-CRAN-BMisc >= 1.4.4
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-ggplot2 
