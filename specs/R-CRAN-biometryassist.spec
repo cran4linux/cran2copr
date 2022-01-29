@@ -1,44 +1,54 @@
 %global __brp_check_rpaths %{nil}
-%global packname  torchvision
-%global packver   0.4.1
+%global packname  biometryassist
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Models, Datasets and Transformations for Images
+Summary:          Functions to Assist Design and Analysis of Agronomic Experiments
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-torch >= 0.3.0
-BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-agricolae 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-ellipsis 
+BuildRequires:    R-CRAN-farver 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-interp 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-multcompView 
+BuildRequires:    R-CRAN-predictmeans 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-jpeg 
-BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-torch >= 0.3.0
-Requires:         R-CRAN-fs 
+Requires:         R-CRAN-agricolae 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-farver 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-interp 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-multcompView 
+Requires:         R-CRAN-predictmeans 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-utils 
-Requires:         R-CRAN-jpeg 
-Requires:         R-CRAN-png 
-Requires:         R-CRAN-abind 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-withr 
 
 %description
-Provides access to datasets, models and preprocessing facilities for deep
-learning with images. Integrates seamlessly with the 'torch' package and
-it's 'API' borrows heavily from 'PyTorch' vision package.
+Provides functions to aid in the design and analysis of agronomic and
+agricultural experiments through easy access to documentation and helper
+functions, especially for users who are learning these concepts.
 
 %prep
 %setup -q -c -n %{packname}

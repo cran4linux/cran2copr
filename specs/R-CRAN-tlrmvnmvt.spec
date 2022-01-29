@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tlrmvnmvt
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
-Release:          3%{?dist}%{?buildtag}
+Version:          1.1.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Low-Rank Methods for MVN and MVT Probabilities
 
 License:          GPL-2
@@ -31,13 +31,25 @@ computation of multivariate normal probabilities," Journal of
 Computational and Graphical Statistics, 1, 141-149 (1992)
 <doi:10.1080/10618600.1992.10477010>; Cao, J., Genton, M. G., Keyes, D.
 E., & Turkiyyah, G. M. "Exploiting Low Rank Covariance Structures for
-Computing High-Dimensional Normal and Student- t Probabilities" (2019)
-<https://marcgenton.github.io/2019.CGKT.manuscript.pdf>.
+Computing High-Dimensional Normal and Student- t Probabilities,"
+Statistics and Computing, 31.1, 1-16 (2021)
+<doi:10.1007/s11222-020-09978-y>; Cao, J., Genton, M. G., Keyes, D. E., &
+Turkiyyah, G. M. "tlrmvnmvt: Computing High-Dimensional Multivariate
+Normal and Student-t Probabilities with Low-Rank Methods in R," Journal of
+Statistical Software, 101.4, 1-25 (2022) <doi:10.18637/jss.v101.i04>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -45,18 +57,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

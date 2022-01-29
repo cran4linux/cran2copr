@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MixtureMissing
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Model-Based Clustering for Data Sets with Missing Values at Random
 
@@ -16,17 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
+BuildRequires:    R-CRAN-MASS >= 7.3
 BuildRequires:    R-CRAN-cluster >= 2.1.2
 BuildRequires:    R-CRAN-mnormt >= 2.0.2
-BuildRequires:    R-CRAN-GGally >= 2.0.0
 BuildRequires:    R-CRAN-rootSolve >= 1.8.2.2
 BuildRequires:    R-CRAN-ContaminatedMixt >= 1.3.4.1
 BuildRequires:    R-CRAN-mvtnorm >= 1.1.2
-Requires:         R-CRAN-ggplot2 >= 3.3.5
+Requires:         R-CRAN-MASS >= 7.3
 Requires:         R-CRAN-cluster >= 2.1.2
 Requires:         R-CRAN-mnormt >= 2.0.2
-Requires:         R-CRAN-GGally >= 2.0.0
 Requires:         R-CRAN-rootSolve >= 1.8.2.2
 Requires:         R-CRAN-ContaminatedMixt >= 1.3.4.1
 Requires:         R-CRAN-mvtnorm >= 1.1.2

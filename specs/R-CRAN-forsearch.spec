@@ -1,37 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  metasens
-%global packver   1.0-1
+%global packname  forsearch
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Methods for Sensitivity Analysis in Meta-Analysis
+Summary:          Outlier Diagnostics for Some Linear Effects and Linear Mixed Effects Models
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-meta >= 5.0.0
-Requires:         R-CRAN-meta >= 5.0.0
+BuildRequires:    R-CRAN-Hmisc >= 4.6.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
+BuildRequires:    R-CRAN-tibble >= 3.1.2
+BuildRequires:    R-CRAN-nlme >= 3.1.152
+BuildRequires:    R-CRAN-Cairo >= 1.5.14
+Requires:         R-CRAN-Hmisc >= 4.6.0
+Requires:         R-CRAN-ggplot2 >= 3.3.5
+Requires:         R-CRAN-tibble >= 3.1.2
+Requires:         R-CRAN-nlme >= 3.1.152
+Requires:         R-CRAN-Cairo >= 1.5.14
 
 %description
-The following methods are implemented to evaluate how sensitive the
-results of a meta-analysis are to potential bias in meta-analysis and to
-support Schwarzer et al. (2015) <DOI:10.1007/978-3-319-21416-0>, Chapter 5
-'Small-Study Effects in Meta-Analysis': - Copas selection model described
-in Copas & Shi (2001) <DOI:10.1177/096228020101000402>; - limit
-meta-analysis by Rücker et al. (2011) <DOI:10.1093/biostatistics/kxq046>;
-- upper bound for outcome reporting bias by Copas & Jackson (2004)
-<DOI:10.1111/j.0006-341X.2004.00161.x>; - imputation methods for missing
-binary data by Gamble & Hollis (2005) <DOI:10.1016/j.jclinepi.2004.09.013>
-and Higgins et al. (2008) <DOI:10.1177/1740774508091600>; - LFK index test
-and Doi plot by Furuya-Kanamori et al. (2018)
-<DOI:10.1097/XEB.0000000000000141>.
+Identifies potential data outliers and their impact on estimates and
+analyses. Uses the forward search approach of Atkinson and Riani, "Robust
+Diagnostic Regression Analysis", (2000,<ISBN: o-387-95017-6>) to prepare
+descriptive statistics of a dataset that is to be analyzed by stats::lm()
+or nlme::lme().  Includes graphics functions to display the descriptive
+statistics.
 
 %prep
 %setup -q -c -n %{packname}

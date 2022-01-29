@@ -1,39 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  biglasso
-%global packver   1.4.1
+%global packname  scryr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extending Lasso Model Fitting to Big Data
+Summary:          An Interface to the 'Scryfall' API
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-bigmemory >= 4.5.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.8.600
-BuildRequires:    R-CRAN-Rcpp >= 0.12.1
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-ncvreg 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-bigmemory >= 4.5.0
-Requires:         R-CRAN-Rcpp >= 0.12.1
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-ncvreg 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
 
 %description
-Extend lasso and elastic-net model fitting for ultrahigh-dimensional,
-multi-gigabyte data sets that cannot be loaded into memory. It's much more
-memory- and computation-efficient as compared to existing lasso-fitting
-packages like 'glmnet' and 'ncvreg', thus allowing for very powerful big
-data analysis even with an ordinary laptop.
+A simple, light, and robust interface between R and the 'Scryfall' card
+data API <https://scryfall.com/docs/api>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,6 +37,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

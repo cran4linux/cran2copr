@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  metasens
-%global packver   1.0-1
+%global packname  optimsimplex
+%global packver   1.0-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Methods for Sensitivity Analysis in Meta-Analysis
+Summary:          R Port of the 'Scilab' Optimsimplex Module
 
-License:          GPL (>= 2)
+License:          CeCILL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,22 +16,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-meta >= 5.0.0
-Requires:         R-CRAN-meta >= 5.0.0
+BuildRequires:    R-CRAN-optimbase >= 1.0.8
+BuildRequires:    R-methods 
+Requires:         R-CRAN-optimbase >= 1.0.8
+Requires:         R-methods 
 
 %description
-The following methods are implemented to evaluate how sensitive the
-results of a meta-analysis are to potential bias in meta-analysis and to
-support Schwarzer et al. (2015) <DOI:10.1007/978-3-319-21416-0>, Chapter 5
-'Small-Study Effects in Meta-Analysis': - Copas selection model described
-in Copas & Shi (2001) <DOI:10.1177/096228020101000402>; - limit
-meta-analysis by Rücker et al. (2011) <DOI:10.1093/biostatistics/kxq046>;
-- upper bound for outcome reporting bias by Copas & Jackson (2004)
-<DOI:10.1111/j.0006-341X.2004.00161.x>; - imputation methods for missing
-binary data by Gamble & Hollis (2005) <DOI:10.1016/j.jclinepi.2004.09.013>
-and Higgins et al. (2008) <DOI:10.1177/1740774508091600>; - LFK index test
-and Doi plot by Furuya-Kanamori et al. (2018)
-<DOI:10.1097/XEB.0000000000000141>.
+Provides a building block for optimization algorithms based on a simplex.
+The 'optimsimplex' package may be used in the following optimization
+methods: the simplex method of Spendley et al. (1962)
+<doi:10.1080/00401706.1962.10490033>, the method of Nelder and Mead (1965)
+<doi:10.1093/comjnl/7.4.308>, Box's algorithm for constrained optimization
+(1965) <doi:10.1093/comjnl/8.1.42>, the multi-dimensional search by
+Torczon (1989) <https://www.cs.wm.edu/~va/research/thesis.pdf>, etc...
 
 %prep
 %setup -q -c -n %{packname}

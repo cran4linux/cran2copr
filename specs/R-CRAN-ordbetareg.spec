@@ -1,37 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  metasens
-%global packver   1.0-1
+%global packname  ordbetareg
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Methods for Sensitivity Analysis in Meta-Analysis
+Summary:          Ordered Beta Regression Models with Brms
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-meta >= 5.0.0
-Requires:         R-CRAN-meta >= 5.0.0
+BuildRequires:    R-CRAN-faux 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-brms 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-faux 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-brms 
+Requires:         R-CRAN-tidyr 
+Requires:         R-stats 
 
 %description
-The following methods are implemented to evaluate how sensitive the
-results of a meta-analysis are to potential bias in meta-analysis and to
-support Schwarzer et al. (2015) <DOI:10.1007/978-3-319-21416-0>, Chapter 5
-'Small-Study Effects in Meta-Analysis': - Copas selection model described
-in Copas & Shi (2001) <DOI:10.1177/096228020101000402>; - limit
-meta-analysis by Rücker et al. (2011) <DOI:10.1093/biostatistics/kxq046>;
-- upper bound for outcome reporting bias by Copas & Jackson (2004)
-<DOI:10.1111/j.0006-341X.2004.00161.x>; - imputation methods for missing
-binary data by Gamble & Hollis (2005) <DOI:10.1016/j.jclinepi.2004.09.013>
-and Higgins et al. (2008) <DOI:10.1177/1740774508091600>; - LFK index test
-and Doi plot by Furuya-Kanamori et al. (2018)
-<DOI:10.1097/XEB.0000000000000141>.
+Implements ordered beta regression models, which are for modeling
+continuous variables with upper and lower bounds, such as survey sliders,
+dose-response relationships and indexes. For more information, see Kubinec
+(2022) <doi:10.31235/osf.io/2sx6y>. The package is a front-end to the R
+package 'brms', which facilitates a range of regression specifications,
+including hierarchical, dynamic and multivariate modeling.
 
 %prep
 %setup -q -c -n %{packname}

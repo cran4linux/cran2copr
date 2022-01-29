@@ -1,37 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  metasens
-%global packver   1.0-1
+%global packname  sandwichr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Methods for Sensitivity Analysis in Meta-Analysis
+Summary:          Spatial Interpolation Based on Spatial Stratified Heterogeneity
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-meta >= 5.0.0
-Requires:         R-CRAN-meta >= 5.0.0
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-geodetector 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-lwgeom 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-geodetector 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-lwgeom 
+Requires:         R-tools 
+Requires:         R-CRAN-dplyr 
 
 %description
-The following methods are implemented to evaluate how sensitive the
-results of a meta-analysis are to potential bias in meta-analysis and to
-support Schwarzer et al. (2015) <DOI:10.1007/978-3-319-21416-0>, Chapter 5
-'Small-Study Effects in Meta-Analysis': - Copas selection model described
-in Copas & Shi (2001) <DOI:10.1177/096228020101000402>; - limit
-meta-analysis by Rücker et al. (2011) <DOI:10.1093/biostatistics/kxq046>;
-- upper bound for outcome reporting bias by Copas & Jackson (2004)
-<DOI:10.1111/j.0006-341X.2004.00161.x>; - imputation methods for missing
-binary data by Gamble & Hollis (2005) <DOI:10.1016/j.jclinepi.2004.09.013>
-and Higgins et al. (2008) <DOI:10.1177/1740774508091600>; - LFK index test
-and Doi plot by Furuya-Kanamori et al. (2018)
-<DOI:10.1097/XEB.0000000000000141>.
+Spatial interpolation is a common practice in social and environmental
+science. This package enables the implementation of SSH-based spatial
+interpolation proposed by Wang et al. (2013) <doi:10.1068/a44710>. It
+provides functions to (1) evaluate stratification schemes, (2) interpolate
+sampling data over user-defined reporting units, (3) assess interpolation
+uncertainties, and (4) evaluate overall accuracy using the k-fold
+cross-validation estimate.
 
 %prep
 %setup -q -c -n %{packname}

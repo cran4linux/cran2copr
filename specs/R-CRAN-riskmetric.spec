@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  torchvision
-%global packver   0.4.1
+%global packname  riskmetric
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Models, Datasets and Transformations for Images
+Summary:          Risk Metrics to Evaluating R Packages
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,29 +16,42 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-torch >= 0.3.0
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-jpeg 
-BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-torch >= 0.3.0
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rappdirs 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-urltools 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-BiocManager 
+BuildRequires:    R-CRAN-cranlogs 
+BuildRequires:    R-CRAN-covr 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-pkgload 
+BuildRequires:    R-CRAN-devtools 
+Requires:         R-CRAN-backports 
 Requires:         R-utils 
-Requires:         R-CRAN-jpeg 
-Requires:         R-CRAN-png 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-withr 
+Requires:         R-tools 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-urltools 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-BiocManager 
+Requires:         R-CRAN-cranlogs 
+Requires:         R-CRAN-covr 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-pkgload 
+Requires:         R-CRAN-devtools 
 
 %description
-Provides access to datasets, models and preprocessing facilities for deep
-learning with images. Integrates seamlessly with the 'torch' package and
-it's 'API' borrows heavily from 'PyTorch' vision package.
+Facilities for assessing R packages against a number of metrics to help
+quantify their robustness.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rgrass7
-%global packver   0.2-6
+%global packver   0.2-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface Between GRASS 7 Geographical Information System and R
+Summary:          Interface Between GRASS Geographical Information System and R
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,8 +27,8 @@ Requires:         R-utils
 Requires:         R-methods 
 
 %description
-Interpreted interface between 'GRASS' 7 geographical information system
-and R, based on starting R from within the 'GRASS' 'GIS' environment, or
+Interpreted interface between 'GRASS' geographical information system and
+R, based on starting R from within the 'GRASS' 'GIS' environment, or
 running free-standing R in a temporary 'GRASS' location; the package
 provides facilities for using all 'GRASS' commands from the R command
 line. This package may not be used for 'GRASS' 6, for which 'spgrass6'

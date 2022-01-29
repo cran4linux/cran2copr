@@ -1,49 +1,59 @@
 %global __brp_check_rpaths %{nil}
-%global packname  eurlex
-%global packver   0.4.0
+%global packname  interpretCI
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve Data on European Union Law
+Summary:          Estimate the Confidence Interval and Interpret Step by Step
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-pdftools 
-BuildRequires:    R-CRAN-antiword 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-ggbeeswarm 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-aplot 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-english 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-moonBook 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-pdftools 
-Requires:         R-CRAN-antiword 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-ggbeeswarm 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-aplot 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-officer 
+Requires:         R-CRAN-english 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-moonBook 
 
 %description
-Access to data on European Union laws and court decisions made easy with
-pre-defined 'SPARQL' queries and 'GET' requests.
+Estimate confidence intervals for mean, proportion, mean difference for
+unpaired and paired samples and proportion difference. Plot the confidence
+intervals. Generate documents explaining the statistical result step by
+step.
 
 %prep
 %setup -q -c -n %{packname}

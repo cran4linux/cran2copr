@@ -1,32 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fctbases
-%global packver   1.1.0
+%global packname  just.install
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functional Bases
+Summary:          Very Simple Function to Install Packages without Attaching
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.19
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.19
+BuildArch:        noarch
+BuildRequires:    R-CRAN-remotes 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-remotes 
+Requires:         R-CRAN-dplyr 
+Requires:         R-utils 
 
 %description
-Easy-to-use, very fast implementation of various functional bases. Easily
-used together with other packages. A functional basis is a collection of
-basis functions [phi_1, ..., phi_n] that can represent a smooth
-function, i.e. $f(t) = sum c_k phi_k(t)$. First- and second-order
-derivatives are also included. These are the mathematically correct ones,
-no approximations applied. As of version 1.0, this package includes
-B-splines, Fourier bases and polynomials.
+Install packages without attaching them. If a package it is already
+installed, it will be skipped.
 
 %prep
 %setup -q -c -n %{packname}
@@ -36,6 +35,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  googleAuthR
-%global packver   1.4.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Authenticate and Create Google APIs
 
