@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  braQCA
-%global packver   1.2.1.18
+%global packver   1.2.1.29
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1.18
+Version:          1.2.1.29
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bootstrapped Robustness Assessment for Qualitative Comparative Analysis
 

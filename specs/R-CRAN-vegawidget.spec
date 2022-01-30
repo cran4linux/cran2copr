@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  vegawidget
-%global packver   0.3.3
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Htmlwidget' for 'Vega' and 'Vega-Lite'
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-assertthat 
@@ -32,6 +33,7 @@ Requires:         R-CRAN-glue
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-digest 
+Requires:         R-utils 
 
 %description
 'Vega' and 'Vega-Lite' parse text in 'JSON' notation to render

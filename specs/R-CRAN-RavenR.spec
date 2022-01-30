@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RavenR
-%global packver   2.1.4
+%global packver   2.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          2.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Raven Hydrological Modelling Framework R Support and Analysis
 
@@ -33,6 +33,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-visNetwork 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-colorspace 
@@ -53,6 +54,7 @@ Requires:         R-stats
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
+Requires:         R-CRAN-visNetwork 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-zoo 
 
@@ -60,7 +62,7 @@ Requires:         R-CRAN-zoo
 Utilities for processing input and output files associated with the Raven
 Hydrological Modelling Framework. Includes various plotting functions,
 model diagnostics, reading output files into extensible time series
-format, and support for writing Raven input files. The RavenR package is
+format, and support for writing Raven input files. The 'RavenR' package is
 also archived at Chlumsky et al. (2020) <doi:10.5281/zenodo.4248183>. The
 Raven Hydrologic Modelling Framework method can be referenced with Craig
 et al. (2020) <doi:10.1016/j.envsoft.2020.104728>.
