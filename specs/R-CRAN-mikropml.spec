@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mikropml
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          User-Friendly R Package for Supervised Machine Learning Pipelines
 
@@ -46,9 +46,9 @@ An interface to build machine learning models for classification and
 regression problems. 'mikropml' implements the ML pipeline described by
 Topçuoğlu et al. (2020) <doi:10.1128/mBio.00434-20> with reasonable
 default options for data preprocessing, hyperparameter tuning,
-cross-validation, testing, model evaluation, and interpretation steps. See
-the website <https://www.schlosslab.org/mikropml/> for more information,
-documentation, and examples.
+cross-validation, testing, model evaluation, and interpretation steps.
+See the website <https://www.schlosslab.org/mikropml/> for more
+information, documentation, and examples.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MixtureMissing
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Model-Based Clustering for Data Sets with Missing Values at Random
 
@@ -33,9 +33,9 @@ Requires:         R-CRAN-mvtnorm >= 1.1.2
 Implementation of robust model based cluster analysis with missing data.
 The models used are: Multivariate Contaminated Normal Mixtures (MCNM),
 Multivariate Student's t Mixtures (MtM), and Multivariate Normal Mixtures
-(MNM) for data sets with missing values at random. "Cluster analysis and
-outlier detection with missing data" Hung Tong, Cristina Tortora (2020)
-<arXiv:2012.05394>.
+(MNM) for data sets with missing values at random. See "Model-Based
+Clustering and Outlier Detection with Missing Data" by Hung Tong and
+Cristina Tortora (2022) <doi:10.1007/s11634-021-00476-1>.
 
 %prep
 %setup -q -c -n %{packname}

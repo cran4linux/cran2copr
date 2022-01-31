@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  disk.frame
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Larger-than-RAM Disk-Based Data Manipulation Framework
 
@@ -25,15 +25,13 @@ BuildRequires:    R-CRAN-future >= 1.14.0
 BuildRequires:    R-CRAN-data.table >= 1.12.2
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-fst >= 0.8.0
-BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-purrr >= 0.3.2
-BuildRequires:    R-CRAN-furrr >= 0.2.2
 BuildRequires:    R-CRAN-bigreadr >= 0.2.0
-BuildRequires:    R-CRAN-globals >= 0.12.4
 BuildRequires:    R-CRAN-Rcpp >= 0.12.13
 BuildRequires:    R-CRAN-pryr >= 0.1.4
 BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-benchmarkme 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-jsonlite >= 1.6
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-crayon >= 1.3.4
@@ -44,15 +42,13 @@ Requires:         R-CRAN-future >= 1.14.0
 Requires:         R-CRAN-data.table >= 1.12.2
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-fst >= 0.8.0
-Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-purrr >= 0.3.2
-Requires:         R-CRAN-furrr >= 0.2.2
 Requires:         R-CRAN-bigreadr >= 0.2.0
-Requires:         R-CRAN-globals >= 0.12.4
 Requires:         R-CRAN-Rcpp >= 0.12.13
 Requires:         R-CRAN-pryr >= 0.1.4
 Requires:         R-CRAN-bit64 
 Requires:         R-CRAN-benchmarkme 
+Requires:         R-CRAN-rlang 
 
 %description
 A disk-based data manipulation tool for working with large-than-RAM
@@ -68,6 +64,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
