@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  outForest
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Outlier Detection and Replacement
 
@@ -17,15 +17,15 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-missRanger >= 2.1.0
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-missRanger >= 2.1.0
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-FNN 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
 Provides a random forest based implementation of the method described in
@@ -47,6 +47,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

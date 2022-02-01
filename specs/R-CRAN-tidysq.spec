@@ -1,34 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cecs
-%global packver   0.2.4
+%global packname  tidysq
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface for the C Implementation of CEC Benchmark Functions
+Summary:          Tidy Processing and Analysis of Biological Sequences
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-cec2013 >= 0.1.5
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-cec2013 >= 0.1.5
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-tibble >= 2.1.3
+BuildRequires:    R-CRAN-cli >= 2.0.0
+BuildRequires:    R-CRAN-checkmate >= 1.9.0
+BuildRequires:    R-CRAN-pillar >= 1.4.2
+BuildRequires:    R-CRAN-crayon >= 1.3.4
+BuildRequires:    R-CRAN-dplyr >= 1.0.2
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-vctrs >= 0.3.0
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-tibble >= 2.1.3
+Requires:         R-CRAN-cli >= 2.0.0
+Requires:         R-CRAN-checkmate >= 1.9.0
+Requires:         R-CRAN-pillar >= 1.4.2
+Requires:         R-CRAN-crayon >= 1.3.4
+Requires:         R-CRAN-dplyr >= 1.0.2
+Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-vctrs >= 0.3.0
 
 %description
-Goal of this package is to provide access to benchmark functions defined
-for the Special Session and Competition on Real-Parameter Single Objective
-Optimization in one place. The package contains functions from following
-years: 2013, 2014, 2015, 2017, 2019, 2021, 2022
-(<https://github.com/P-N-Suganthan>). Implementations of CEC-2013 (Y.
-Gonzalez-Fernandez & M. Zambrano-Bigiarini) and CEC2017 (D. Jagodziński)
-are taken from existed R packages. Also, the original C source code has
-been cleaned and reorganized for better readability.
+A tidy approach to analysis of biological sequences. All processing and
+data-storage functions are heavily optimized to allow the fastest and most
+efficient data storage.
 
 %prep
 %setup -q -c -n %{packname}

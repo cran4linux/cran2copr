@@ -1,47 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidySEM
+%global packname  danstat
 %global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Structural Equation Modeling
+Summary:          R Client for the Statistics Denmark Databank API
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-OpenMx 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-CRAN-MplusAutomation 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-gtable 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-OpenMx 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lavaan 
-Requires:         R-CRAN-MplusAutomation 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-psych 
-Requires:         R-methods 
-Requires:         R-CRAN-gtable 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-readr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-readr 
 
 %description
-A tidy workflow for generating, estimating, reporting, and plotting
-structural equation models using 'lavaan', 'OpenMx', or 'Mplus'.
-Throughout this workflow, elements of syntax, results, and graphs are
-represented as 'tidy' data, making them easy to customize.
+The purpose of the package is to enable an R function interface into the
+Statistics Denmark Databank API mainly for research purposes. The
+Statistics Denmark Databank API has four endpoints, see here for more
+information and testing the API in their console:
+<https://www.dst.dk/en/Statistik/brug-statistikken/muligheder-i-statistikbanken/api>.
+This package mimics the structure of the API and provides four main
+functions to match the functionality of the API endpoints.
 
 %prep
 %setup -q -c -n %{packname}

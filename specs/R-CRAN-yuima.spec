@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  yuima
-%global packver   1.15.2
+%global packver   1.15.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.15.2
+Version:          1.15.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          The YUIMA Project Package for SDEs
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-expm
 BuildRequires:    R-CRAN-cubature 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-glassoFast 
-BuildRequires:    R-CRAN-wavethresh 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-boot >= 1.3.2
@@ -40,7 +39,6 @@ Requires:         R-CRAN-expm
 Requires:         R-CRAN-cubature 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-glassoFast 
-Requires:         R-CRAN-wavethresh 
 Requires:         R-CRAN-coda 
 
 %description

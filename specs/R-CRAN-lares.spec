@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  lares
-%global packver   5.0.4
+%global packver   5.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.4
+Version:          5.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analytics, Data Mining & Machine Learning Sidekick
+Summary:          Analytics & Machine Learning Sidekick
 
 License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}

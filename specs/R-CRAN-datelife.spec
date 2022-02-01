@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  datelife
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scientific Data on Time of Lineage Divergence for Your Taxa
 
@@ -37,6 +37,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-phylocomr 
+BuildRequires:    R-CRAN-BiocManager 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-bold 
@@ -58,6 +59,7 @@ Requires:         R-utils
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-phylocomr 
+Requires:         R-CRAN-BiocManager 
 
 %description
 Methods and workflows to get chronograms (i.e., phylogenetic trees with

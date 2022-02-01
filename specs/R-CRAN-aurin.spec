@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  aurin
-%global packver   0.5.1
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Datasets from the 'AURIN' API
 
@@ -16,24 +16,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 2.5.0
-BuildRequires:    R-CRAN-cli >= 2.1.0
-BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-glue >= 1.4.0
-BuildRequires:    R-CRAN-httr >= 1.4.0
-BuildRequires:    R-CRAN-sf >= 0.9.0
-BuildRequires:    R-CRAN-ows4R >= 0.1
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-ows4R 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-R6 >= 2.5.0
-Requires:         R-CRAN-cli >= 2.1.0
-Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-glue >= 1.4.0
-Requires:         R-CRAN-httr >= 1.4.0
-Requires:         R-CRAN-sf >= 0.9.0
-Requires:         R-CRAN-ows4R >= 0.1
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-ows4R 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
 

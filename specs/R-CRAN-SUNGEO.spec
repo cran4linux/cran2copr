@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SUNGEO
-%global packver   0.2.27
+%global packver   0.2.288
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.27
+Version:          0.2.288
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sub-National Geospatial Data Archive: Geoprocessing Toolkit
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  basedosdados
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Base Dos Dados' R Client
 
@@ -28,12 +28,15 @@ BuildRequires:    R-CRAN-readr >= 1.4.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-bigrquery >= 1.4.0
 BuildRequires:    R-CRAN-writexl >= 1.4.0
+BuildRequires:    R-CRAN-xml2 >= 1.3.0
 BuildRequires:    R-CRAN-scales >= 1.1.1
 BuildRequires:    R-CRAN-DBI >= 1.1.1
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-dplyr >= 1.0.6
 BuildRequires:    R-CRAN-dotenv >= 1.0.2
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-purrr >= 0.3.4
+BuildRequires:    R-CRAN-typed >= 0.0.1
 Requires:         R-CRAN-tibble >= 3.1.1
 Requires:         R-CRAN-cli >= 2.5.0
 Requires:         R-CRAN-dbplyr >= 2.1.1
@@ -46,12 +49,15 @@ Requires:         R-CRAN-readr >= 1.4.0
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-bigrquery >= 1.4.0
 Requires:         R-CRAN-writexl >= 1.4.0
+Requires:         R-CRAN-xml2 >= 1.3.0
 Requires:         R-CRAN-scales >= 1.1.1
 Requires:         R-CRAN-DBI >= 1.1.1
+Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-dplyr >= 1.0.6
 Requires:         R-CRAN-dotenv >= 1.0.2
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-typed >= 0.0.1
 
 %description
 An R interface to the 'Base dos Dados' API
