@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bidask
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Estimation of Bid-Ask Spreads from Open, High, Low, and Close Prices
 
@@ -22,7 +22,7 @@ Requires:         R-CRAN-xts
 Requires:         R-CRAN-zoo 
 
 %description
-Implements a novel estimation procedure of bid-ask spreads from open,
+Implements an efficient estimation procedure of bid-ask spreads from open,
 high, low, and close prices as described in Ardia-Guidotti-Kroencke
 <https://www.ssrn.com/abstract=3892335>. Moreover, it provides an
 implementation of the estimators proposed in Roll (1984)

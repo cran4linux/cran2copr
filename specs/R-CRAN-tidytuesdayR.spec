@@ -1,50 +1,52 @@
 %global __brp_check_rpaths %{nil}
-%global packname  norgeo
-%global packver   2.1.0
+%global packname  tidytuesdayR
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Track Geo Code Changes in all Regional Granularity in Norway
+Summary:          Access the Weekly 'TidyTuesday' Project Dataset
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-odbc 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-writexl 
+BuildRequires:    R-tools >= 3.1.0
+BuildRequires:    R-CRAN-lubridate >= 1.7.0
+BuildRequires:    R-CRAN-xml2 >= 1.2.0
+BuildRequires:    R-CRAN-readxl >= 1.0.0
+BuildRequires:    R-CRAN-readr >= 1.0.0
+BuildRequires:    R-CRAN-rvest >= 0.3.2
+BuildRequires:    R-CRAN-purrr >= 0.2.5
+BuildRequires:    R-CRAN-rstudioapi >= 0.2
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-vcr 
-BuildRequires:    R-CRAN-progressr 
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-odbc 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-writexl 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-usethis 
+Requires:         R-tools >= 3.1.0
+Requires:         R-CRAN-lubridate >= 1.7.0
+Requires:         R-CRAN-xml2 >= 1.2.0
+Requires:         R-CRAN-readxl >= 1.0.0
+Requires:         R-CRAN-readr >= 1.0.0
+Requires:         R-CRAN-rvest >= 0.3.2
+Requires:         R-CRAN-purrr >= 0.2.5
+Requires:         R-CRAN-rstudioapi >= 0.2
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-vcr 
-Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-usethis 
 
 %description
-Regional granularity levels in Norway which are depicted by different
-codes, have undergone several changes over the years. Identifying when
-codes have changed and how many changes have taken place can be
-troublesome. This package will help to identify these changes and when the
-changes have taken place. One of the limitation of this package is that it
-is heavily depending on the codes available from SSB website
-<https://data.ssb.no/api/klass/v1/api-guide.html>.
+'TidyTuesday' is a project by the 'R4DS Online Learning Community' in
+which they post a weekly dataset onto post a weekly dataset in a public
+data repository (<https://github.com/rfordatascience/tidytuesday>) for
+people to analyze and visualize. This package provides the tools to easily
+download this data and the description of the source.
 
 %prep
 %setup -q -c -n %{packname}

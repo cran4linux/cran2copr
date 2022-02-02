@@ -1,30 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  GUTS
-%global packver   1.2.2
+%global packname  docore
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Calculation of the Likelihood of a Stochastic Survival Model
+Summary:          Utility Functions for Scientific Coding
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.16
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 0.12.16
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-bit64 
+Requires:         R-utils 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-bit64 
 
 %description
-Given exposure and survival time series as well as parameter values, GUTS
-allows for the fast calculation of the survival probabilities as well as
-the logarithm of the corresponding likelihood (see Albert, C., Vogel, S.
-and Ashauer, R. (2016) <doi:10.1371/journal.pcbi.1004978>).
+Basic routines used in scientific coding, such as timing routines,
+vector/array handing functions and I/O support routines.
 
 %prep
 %setup -q -c -n %{packname}

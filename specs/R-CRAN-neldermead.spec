@@ -1,44 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  quadtree
-%global packver   0.1.9
+%global packname  neldermead
+%global packver   1.0-12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          1.0.12
 Release:          1%{?dist}%{?buildtag}
-Summary:          Region Quadtrees for Spatial Data
+Summary:          R Port of the 'Scilab' Neldermead Module
 
-License:          MIT + file LICENSE
+License:          CeCILL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-optimbase >= 1.0.9
+BuildRequires:    R-CRAN-optimsimplex >= 1.0.7
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 1.0.5
-Requires:         R-graphics 
-Requires:         R-grDevices 
+Requires:         R-CRAN-optimbase >= 1.0.9
+Requires:         R-CRAN-optimsimplex >= 1.0.7
 Requires:         R-methods 
-Requires:         R-CRAN-raster 
-Requires:         R-stats 
 
 %description
-Provides functionality for working with raster-like quadtrees (also called
-“region quadtrees”), which allow for variable-sized cells. The package
-allows for flexibility in the quadtree creation process.  Several
-functions defining how to split and aggregate cells are provided, and
-custom functions can be written for both of these processes. In addition,
-quadtrees can be created using other quadtrees as “templates”, so that the
-new quadtree's structure is identical to the template quadtree. The
-package also includes functionality for modifying quadtrees, querying
-values, saving quadtrees to a file, and calculating least-cost paths using
-the quadtree as a resistance surface.
+Provides several direct search optimization algorithms based on the
+simplex method. The provided algorithms are direct search algorithms, i.e.
+algorithms which do not use the derivative of the cost function. They are
+based on the update of a simplex. The following algorithms are available:
+the fixed shape simplex method of Spendley, Hext and Himsworth
+(unconstrained optimization with a fixed shape simplex, 1962)
+<doi:10.1080/00401706.1962.10490033>, the variable shape simplex method of
+Nelder and Mead (unconstrained optimization with a variable shape simplex
+made, 1965) <doi:10.1093/comjnl/7.4.308>, and Box's complex method
+(constrained optimization with a variable shape simplex, 1965) <doi:
+10.1093/comjnl/8.1.42>.
 
 %prep
 %setup -q -c -n %{packname}

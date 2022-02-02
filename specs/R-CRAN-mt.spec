@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mt
-%global packver   2.0-1.18
+%global packver   2.0-1.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1.18
+Version:          2.0.1.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Metabolomics Data Analysis Toolbox
 

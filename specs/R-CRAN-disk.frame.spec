@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  disk.frame
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Larger-than-RAM Disk-Based Data Manipulation Framework
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.13
 BuildRequires:    R-CRAN-pryr >= 0.1.4
 BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-benchmarkme 
+BuildRequires:    R-CRAN-globals 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-jsonlite >= 1.6
 Requires:         R-CRAN-stringr >= 1.4.0
@@ -48,6 +49,7 @@ Requires:         R-CRAN-Rcpp >= 0.12.13
 Requires:         R-CRAN-pryr >= 0.1.4
 Requires:         R-CRAN-bit64 
 Requires:         R-CRAN-benchmarkme 
+Requires:         R-CRAN-globals 
 Requires:         R-CRAN-rlang 
 
 %description

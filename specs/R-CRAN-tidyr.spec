@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tidyr
-%global packver   1.1.4
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Messy Data
 
@@ -17,9 +17,9 @@ BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
 BuildRequires:    R-CRAN-tibble >= 2.1.1
 BuildRequires:    R-CRAN-tidyselect >= 1.1.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.2
-BuildRequires:    R-CRAN-vctrs >= 0.3.6
-BuildRequires:    R-CRAN-cpp11 >= 0.2.6
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-cpp11 >= 0.4.0
+BuildRequires:    R-CRAN-vctrs >= 0.3.7
 BuildRequires:    R-CRAN-ellipsis >= 0.1.0
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lifecycle 
@@ -29,8 +29,8 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-utils 
 Requires:         R-CRAN-tibble >= 2.1.1
 Requires:         R-CRAN-tidyselect >= 1.1.0
-Requires:         R-CRAN-dplyr >= 0.8.2
-Requires:         R-CRAN-vctrs >= 0.3.6
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-vctrs >= 0.3.7
 Requires:         R-CRAN-ellipsis >= 0.1.0
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lifecycle 

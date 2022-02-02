@@ -1,44 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  quadtree
-%global packver   0.1.9
+%global packname  ODMeans
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Region Quadtrees for Spatial Data
+Summary:          OD-Means: k-Means for Origin-Destination
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-raster 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 1.0.5
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-CRAN-raster 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 
 %description
-Provides functionality for working with raster-like quadtrees (also called
-“region quadtrees”), which allow for variable-sized cells. The package
-allows for flexibility in the quadtree creation process.  Several
-functions defining how to split and aggregate cells are provided, and
-custom functions can be written for both of these processes. In addition,
-quadtrees can be created using other quadtrees as “templates”, so that the
-new quadtree's structure is identical to the template quadtree. The
-package also includes functionality for modifying quadtrees, querying
-values, saving quadtrees to a file, and calculating least-cost paths using
-the quadtree as a resistance surface.
+OD-means is a hierarchical adaptive k-means algorithm based on
+origin-destination pairs. In the first layer of the hierarchy, the
+clusters are separated automatically based on the variation of the
+within-cluster distance of each cluster until convergence. The second
+layer of the hierarchy corresponds to the sub clustering process of small
+clusters based on the distance between the origin and destination of each
+cluster.
 
 %prep
 %setup -q -c -n %{packname}

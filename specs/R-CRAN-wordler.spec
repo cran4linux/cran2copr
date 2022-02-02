@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  quadtree
-%global packver   0.1.9
+%global packname  wordler
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Region Quadtrees for Spatial Data
+Summary:          The 'WORDLE' Game
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,30 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 1.0.5
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-CRAN-raster 
-Requires:         R-stats 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-crayon 
+Requires:         R-CRAN-crayon 
 
 %description
-Provides functionality for working with raster-like quadtrees (also called
-“region quadtrees”), which allow for variable-sized cells. The package
-allows for flexibility in the quadtree creation process.  Several
-functions defining how to split and aggregate cells are provided, and
-custom functions can be written for both of these processes. In addition,
-quadtrees can be created using other quadtrees as “templates”, so that the
-new quadtree's structure is identical to the template quadtree. The
-package also includes functionality for modifying quadtrees, querying
-values, saving quadtrees to a file, and calculating least-cost paths using
-the quadtree as a resistance surface.
+The 'Wordle' game. Players have six attempts to guess a five-letter word.
+After each guess, the player is informed which letters in their guess are
+either: anywhere in the word; in the right position in the word. This can
+be used to inform the next guess. Can be played interactively in the
+console, or programmatically. Based on Josh Wardle's game
+<https://www.powerlanguage.co.uk/wordle/>.
 
 %prep
 %setup -q -c -n %{packname}

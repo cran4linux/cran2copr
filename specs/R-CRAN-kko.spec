@@ -1,30 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  GUTS
-%global packver   1.2.2
+%global packname  kko
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Calculation of the Likelihood of a Stochastic Survival Model
+Summary:          Kernel Knockoffs Selection for Nonparametric Additive Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.16
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 0.12.16
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.6.3
+Requires:         R-core >= 3.6.3
+BuildArch:        noarch
+BuildRequires:    R-CRAN-grpreg 
+BuildRequires:    R-CRAN-knockoff 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-ExtDist 
+Requires:         R-CRAN-grpreg 
+Requires:         R-CRAN-knockoff 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-ExtDist 
 
 %description
-Given exposure and survival time series as well as parameter values, GUTS
-allows for the fast calculation of the survival probabilities as well as
-the logarithm of the corresponding likelihood (see Albert, C., Vogel, S.
-and Ashauer, R. (2016) <doi:10.1371/journal.pcbi.1004978>).
+A variable selection procedure, dubbed KKO, for nonparametric additive
+model with finite-sample false discovery rate control guarantee. The
+method integrates three key components: knockoffs, subsampling for
+stability, and random feature mapping for nonparametric function
+approximation. For more information, see the accompanying paper: Dai, X.,
+Lyu, X., & Li, L. (2021). “Kernel Knockoffs Selection for Nonparametric
+Additive Models”. arXiv preprint <arXiv:2105.11659>.
 
 %prep
 %setup -q -c -n %{packname}

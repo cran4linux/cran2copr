@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  autostsm
-%global packver   2.1.1
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Structural Time Series Models
 

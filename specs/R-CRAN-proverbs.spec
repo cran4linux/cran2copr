@@ -1,47 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  abjutils
-%global packver   0.3.2
+%global packname  proverbs
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Useful Tools for Jurimetrical Analysis Used by the Brazilian Jurimetrics Association
+Summary:          Print a Daily Bible Proverb to Console
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
 
 %description
-The Brazilian Jurimetrics Association (ABJ in Portuguese, see
-<https://abj.org.br/> for more information) is a non-profit organization
-which aims to investigate and promote the use of statistics and
-probability in the study of Law and its institutions. This package
-implements general purpose tools used by ABJ, such as functions for
-sampling and basic manipulation of Brazilian lawsuits identification
-number. It also implements functions for text cleaning, such as
-accentuation removal.
+A simple package to grab a Bible proverb corresponding to the day of the
+month.
 
 %prep
 %setup -q -c -n %{packname}

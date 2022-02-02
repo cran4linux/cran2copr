@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  TDA
-%global packver   1.8.2
+%global packver   1.8.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.2
+Version:          1.8.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Tools for Topological Data Analysis
 
@@ -36,9 +36,9 @@ efficient algorithms of the C++ libraries 'GUDHI'
 <https://project.inria.fr/gudhi/software/>, 'Dionysus'
 <https://www.mrzv.org/software/dionysus/>, and 'PHAT'
 <https://bitbucket.org/phat-code/phat/>. This package also implements the
-methods in Fasy et al. (2014) and Chazal et al. (2014)
-<doi:10.1145/2582112.2582128> for analyzing the statistical significance
-of persistent homology features.
+methods in Fasy et al. (2014) <doi:10.1214/14-AOS1252> and Chazal et al.
+(2014) <doi:10.1145/2582112.2582128> for analyzing the statistical
+significance of persistent homology features.
 
 %prep
 %setup -q -c -n %{packname}

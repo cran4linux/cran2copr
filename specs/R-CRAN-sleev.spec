@@ -1,30 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  GUTS
-%global packver   1.2.2
+%global packname  sleev
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Calculation of the Likelihood of a Stochastic Survival Model
+Summary:          Semiparametric Likelihood Estimation with Errors in Variables
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.16
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 0.12.16
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.7
 
 %description
-Given exposure and survival time series as well as parameter values, GUTS
-allows for the fast calculation of the survival probabilities as well as
-the logarithm of the corresponding likelihood (see Albert, C., Vogel, S.
-and Ashauer, R. (2016) <doi:10.1371/journal.pcbi.1004978>).
+Efficient regression analysis under general two-phase sampling, where
+Phase I includes error-prone data and Phase II contains validated data on
+a subset.
 
 %prep
 %setup -q -c -n %{packname}

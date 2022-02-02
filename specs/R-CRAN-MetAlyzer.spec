@@ -1,47 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  abjutils
-%global packver   0.3.2
+%global packname  MetAlyzer
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Useful Tools for Jurimetrical Analysis Used by the Brazilian Jurimetrics Association
+Summary:          Read and Analyze 'MetIDQ&trade;' Software Output Files
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-agricolae 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-agricolae 
+Requires:         R-methods 
+Requires:         R-CRAN-rlang 
 
 %description
-The Brazilian Jurimetrics Association (ABJ in Portuguese, see
-<https://abj.org.br/> for more information) is a non-profit organization
-which aims to investigate and promote the use of statistics and
-probability in the study of Law and its institutions. This package
-implements general purpose tools used by ABJ, such as functions for
-sampling and basic manipulation of Brazilian lawsuits identification
-number. It also implements functions for text cleaning, such as
-accentuation removal.
+The 'MetAlyzer' S4 object provides methods to read and reformat
+metabolomics data for convenient data handling, statistics and downstream
+analysis. The resulting format corresponds to input data of the Shiny app
+'MetaboExtract'
+(<https://www.metaboextract.shiny.dkfz.de/MetaboExtract/>).
 
 %prep
 %setup -q -c -n %{packname}

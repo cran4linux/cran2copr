@@ -1,44 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  quadtree
-%global packver   0.1.9
+%global packname  ATNr
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Region Quadtrees for Spatial Data
+Summary:          Run Allometric Trophic Networks Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 1.0.5
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-methods 
-Requires:         R-CRAN-raster 
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-deSolve 
 
 %description
-Provides functionality for working with raster-like quadtrees (also called
-“region quadtrees”), which allow for variable-sized cells. The package
-allows for flexibility in the quadtree creation process.  Several
-functions defining how to split and aggregate cells are provided, and
-custom functions can be written for both of these processes. In addition,
-quadtrees can be created using other quadtrees as “templates”, so that the
-new quadtree's structure is identical to the template quadtree. The
-package also includes functionality for modifying quadtrees, querying
-values, saving quadtrees to a file, and calculating least-cost paths using
-the quadtree as a resistance surface.
+Implements the differential equations associated to different versions of
+Allometric Trophic Models (ATN) to estimate the temporal dynamics of
+species biomasses in food webs. It offers several features to generate
+synthetic food webs and to parametrise models as well as a wrapper to the
+ODE solver deSolve.
 
 %prep
 %setup -q -c -n %{packname}

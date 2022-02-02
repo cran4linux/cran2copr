@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  nodeSub
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate DNA Alignments Using Node Substitutions
 
@@ -26,16 +26,16 @@ BuildRequires:    R-CRAN-Rmpfr
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-phylobase 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-geiger 
 BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-testit 
 BuildRequires:    R-CRAN-babette 
 BuildRequires:    R-CRAN-beautier 
 BuildRequires:    R-CRAN-beastier 
 BuildRequires:    R-CRAN-mauricer 
 BuildRequires:    R-CRAN-tracerer 
 BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-testit 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RPANDA 
 Requires:         R-CRAN-nLTT 
@@ -47,16 +47,16 @@ Requires:         R-CRAN-Rmpfr
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-phylobase 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-geiger 
 Requires:         R-CRAN-ape 
-Requires:         R-CRAN-testit 
 Requires:         R-CRAN-babette 
 Requires:         R-CRAN-beautier 
 Requires:         R-CRAN-beastier 
 Requires:         R-CRAN-mauricer 
 Requires:         R-CRAN-tracerer 
 Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-testit 
+Requires:         R-CRAN-stringr 
 
 %description
 Simulate DNA sequences for the node substitution model. In the node

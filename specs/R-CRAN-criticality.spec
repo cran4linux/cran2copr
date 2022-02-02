@@ -1,47 +1,48 @@
 %global __brp_check_rpaths %{nil}
-%global packname  abjutils
-%global packver   0.3.2
+%global packname  criticality
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Useful Tools for Jurimetrical Analysis Used by the Brazilian Jurimetrics Association
+Summary:          Modeling Fissile Material Operations in Nuclear Facilities
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-bnlearn 
+BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-evd 
+BuildRequires:    R-CRAN-fitdistrplus 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-keras 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-bnlearn 
+Requires:         R-CRAN-caret 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-evd 
+Requires:         R-CRAN-fitdistrplus 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-keras 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-parallel 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-scales 
 
 %description
-The Brazilian Jurimetrics Association (ABJ in Portuguese, see
-<https://abj.org.br/> for more information) is a non-profit organization
-which aims to investigate and promote the use of statistics and
-probability in the study of Law and its institutions. This package
-implements general purpose tools used by ABJ, such as functions for
-sampling and basic manipulation of Brazilian lawsuits identification
-number. It also implements functions for text cleaning, such as
-accentuation removal.
+A collection of functions for modeling fissile material operations in
+nuclear facilities, based on Zywiec et al (2021)
+<doi:10.1016/j.ress.2020.107322>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  nasapower
-%global packver   4.0.3
+%global packver   4.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.3
+Version:          4.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          NASA POWER API Client
 
@@ -16,16 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble >= 3.0.2
 BuildRequires:    R-CRAN-crul 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-tibble >= 3.0.2
 Requires:         R-CRAN-crul 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-tibble 
 
 %description
 Client for 'NASA' 'POWER' global meteorology, surface solar energy and

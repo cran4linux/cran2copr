@@ -1,47 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  abjutils
-%global packver   0.3.2
+%global packname  canadianmaps
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Useful Tools for Jurimetrical Analysis Used by the Brazilian Jurimetrics Association
+Summary:          Canadian Mapping Made Easy
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
 
 %description
-The Brazilian Jurimetrics Association (ABJ in Portuguese, see
-<https://abj.org.br/> for more information) is a non-profit organization
-which aims to investigate and promote the use of statistics and
-probability in the study of Law and its institutions. This package
-implements general purpose tools used by ABJ, such as functions for
-sampling and basic manipulation of Brazilian lawsuits identification
-number. It also implements functions for text cleaning, such as
-accentuation removal.
+Several functions to make mapping provincial, regional, and forward
+sortation area data easy using 'ggplot2'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  estadistica
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fundamentos De Estadistica Descriptiva e Inferencial
 
@@ -27,6 +27,9 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-forecast 
 Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
@@ -38,6 +41,9 @@ Requires:         R-CRAN-magrittr
 Requires:         R-grid 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-forecast 
 
 %description
 Este paquete pretende apoyar el proceso enseñanza-aprendizaje de

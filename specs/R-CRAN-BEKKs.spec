@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BEKKs
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Conditional Volatility Modelling and Forecasting
 
@@ -47,7 +47,7 @@ Requires:         R-CRAN-future.apply
 
 %description
 Methods and tools for estimating, simulating and forecasting of so-called
-BEKK-models (named after Baba, Engle, Kraft and Kroner) based on the fast
+BEKK-models (named after Baba, Engle, Kraft and Kroner ) based on the fast
 Berndt–Hall–Hall–Hausman (BHHH) algorithm described in Hafner and Herwartz
 (2008) <doi:10.1007/s00184-007-0130-y>.
 
