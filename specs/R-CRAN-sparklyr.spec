@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sparklyr
-%global packver   1.7.4
+%global packver   1.7.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.4
+Version:          1.7.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to Apache Spark
 
@@ -19,11 +19,11 @@ Requires:         R-core >= 3.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite >= 1.4
 BuildRequires:    R-CRAN-httr >= 1.2.1
+BuildRequires:    R-CRAN-tidyr >= 1.2.0
 BuildRequires:    R-CRAN-dbplyr >= 1.1.0
 BuildRequires:    R-CRAN-openssl >= 0.8
 BuildRequires:    R-CRAN-dplyr >= 0.7.2
 BuildRequires:    R-CRAN-DBI >= 0.6.1
-BuildRequires:    R-CRAN-tidyr >= 0.3.0
 BuildRequires:    R-CRAN-config >= 0.2
 BuildRequires:    R-CRAN-rstudioapi >= 0.10
 BuildRequires:    R-CRAN-rlang >= 0.1.4
@@ -51,11 +51,11 @@ BuildRequires:    R-CRAN-withr
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-jsonlite >= 1.4
 Requires:         R-CRAN-httr >= 1.2.1
+Requires:         R-CRAN-tidyr >= 1.2.0
 Requires:         R-CRAN-dbplyr >= 1.1.0
 Requires:         R-CRAN-openssl >= 0.8
 Requires:         R-CRAN-dplyr >= 0.7.2
 Requires:         R-CRAN-DBI >= 0.6.1
-Requires:         R-CRAN-tidyr >= 0.3.0
 Requires:         R-CRAN-config >= 0.2
 Requires:         R-CRAN-rstudioapi >= 0.10
 Requires:         R-CRAN-rlang >= 0.1.4

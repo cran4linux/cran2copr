@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rebmix
-%global packver   2.13.1
+%global packver   2.14.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.13.1
+Version:          2.14.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Finite Mixture Modeling, Clustering & Classification
 
@@ -30,8 +30,8 @@ Requires:         R-grDevices
 Random univariate and multivariate finite mixture model generation,
 estimation, clustering, latent class analysis and classification.
 Variables can be continuous, discrete, independent or dependent and may
-follow normal, lognormal, Weibull, gamma, Gumbel, binomial, Poisson, Dirac
-or circular von Mises parametric families.
+follow normal, lognormal, Weibull, gamma, Gumbel, binomial, Poisson,
+Dirac, uniform or circular von Mises parametric families.
 
 %prep
 %setup -q -c -n %{packname}

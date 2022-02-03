@@ -1,39 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  onpoint
-%global packver   1.0.2
+%global packname  factset.protobuf.stach.v2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions for Point Pattern Analysis
+Summary:          'FactSet' 'STACH V2' Library
 
-License:          GPL (>= 3)
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-spatstat.core 
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.random 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-spatstat.core 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.random 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-RProtoBuf 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-RProtoBuf 
+Requires:         R-CRAN-R6 
 
 %description
-Growing collection of helper functions for point pattern analysis. Most
-functions are designed to work with the 'spatstat' (<http://spatstat.org>)
-package. The focus of most functions are either null models or summary
-functions for spatial point patterns. For a detailed description of all
-null models and summary functions, see Wiegand and Moloney (2014,
-ISBN:9781420082548).
+Generates 'RProtobuf' classes for 'FactSet' 'STACH V2' tabular format
+which represents complex multi-dimensional array of data. These classes
+help in the 'serialization' and 'deserialization' of 'STACH V2' formatted
+data. See 'GitHub' repository documentation for more information.
 
 %prep
 %setup -q -c -n %{packname}

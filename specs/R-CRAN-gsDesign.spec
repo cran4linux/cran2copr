@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gsDesign
-%global packver   3.2.1
+%global packver   3.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.1
+Version:          3.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Group Sequential Design
 
@@ -38,7 +38,7 @@ Requires:         R-CRAN-xtable
 
 %description
 Derives group sequential clinical trial designs and describes their
-properties. Particular focus on time-to-event, binary and continuous
+properties. Particular focus on time-to-event, binary, and continuous
 outcomes. Largely based on methods described in Jennison, Christopher and
 Turnbull, Bruce W., 2000, "Group Sequential Methods with Applications to
 Clinical Trials" ISBN: 0-8493-0316-8.

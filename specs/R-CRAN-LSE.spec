@@ -1,39 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  onpoint
-%global packver   1.0.2
+%global packname  LSE
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions for Point Pattern Analysis
+Summary:          Constrained Least Squares and Generalized QR Factorization
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-spatstat.core 
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.random 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-spatstat.core 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.random 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-pracma 
 
 %description
-Growing collection of helper functions for point pattern analysis. Most
-functions are designed to work with the 'spatstat' (<http://spatstat.org>)
-package. The focus of most functions are either null models or summary
-functions for spatial point patterns. For a detailed description of all
-null models and summary functions, see Wiegand and Moloney (2014,
-ISBN:9781420082548).
+The solution of equality constrained least squares problem (LSE) is given
+through four analytics methods (Generalized QR Factorization, Lagrange
+Multipliers, Direct Elimination and Null Space method). We expose the
+orthogonal decomposition called Generalized QR Factorization (GQR) and
+also RQ factorization. Finally some codes for the solution of LSE applied
+in quaternions.
 
 %prep
 %setup -q -c -n %{packname}

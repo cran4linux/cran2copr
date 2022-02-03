@@ -1,39 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  onpoint
-%global packver   1.0.2
+%global packname  tipa
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions for Point Pattern Analysis
+Summary:          Tau-Independent Phase Analysis for Circadian Time-Course Data
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-spatstat.core 
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.random 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-spatstat.core 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.random 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-optimr >= 2016.8.16
+Requires:         R-CRAN-optimr >= 2016.8.16
 
 %description
-Growing collection of helper functions for point pattern analysis. Most
-functions are designed to work with the 'spatstat' (<http://spatstat.org>)
-package. The focus of most functions are either null models or summary
-functions for spatial point patterns. For a detailed description of all
-null models and summary functions, see Wiegand and Moloney (2014,
-ISBN:9781420082548).
+Accurately estimates phase shifts by accounting for period changes and for
+the point in the circadian cycle at which the stimulus occurs.
 
 %prep
 %setup -q -c -n %{packname}

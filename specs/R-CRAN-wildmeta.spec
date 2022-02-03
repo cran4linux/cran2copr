@@ -1,39 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  onpoint
-%global packver   1.0.2
+%global packname  wildmeta
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions for Point Pattern Analysis
+Summary:          Cluster Wild Bootstrapping for Meta-Analysis
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-spatstat.core 
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.random 
+BuildRequires:    R-CRAN-clubSandwich >= 0.5.4
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-robumeta 
+BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-spatstat.core 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.random 
+Requires:         R-CRAN-clubSandwich >= 0.5.4
+Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-robumeta 
+Requires:         R-CRAN-metafor 
 Requires:         R-stats 
 
 %description
-Growing collection of helper functions for point pattern analysis. Most
-functions are designed to work with the 'spatstat' (<http://spatstat.org>)
-package. The focus of most functions are either null models or summary
-functions for spatial point patterns. For a detailed description of all
-null models and summary functions, see Wiegand and Moloney (2014,
-ISBN:9781420082548).
+Conducts single coefficient tests and multiple-contrast hypothesis tests
+of meta-regression models using cluster wild bootstrapping, based on
+methods examined in Joshi, Pustejovsky, and Beretvas (2021)
+<DOI:10.31222/osf.io/x6uhk>.
 
 %prep
 %setup -q -c -n %{packname}

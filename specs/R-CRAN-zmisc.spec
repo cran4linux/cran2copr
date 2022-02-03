@@ -1,39 +1,26 @@
 %global __brp_check_rpaths %{nil}
-%global packname  onpoint
-%global packver   1.0.2
+%global packname  zmisc
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions for Point Pattern Analysis
+Summary:          Vector Look-Ups and Safer Sampling
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-spatstat.core 
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.random 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-spatstat.core 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.random 
-Requires:         R-stats 
 
 %description
-Growing collection of helper functions for point pattern analysis. Most
-functions are designed to work with the 'spatstat' (<http://spatstat.org>)
-package. The focus of most functions are either null models or summary
-functions for spatial point patterns. For a detailed description of all
-null models and summary functions, see Wiegand and Moloney (2014,
-ISBN:9781420082548).
+A collection of utility functions that facilitate looking up vector values
+from a lookup table, and support a safer approach to vector sampling,
+sequence generation, and aggregation.
 
 %prep
 %setup -q -c -n %{packname}
