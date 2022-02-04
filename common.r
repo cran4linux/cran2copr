@@ -35,7 +35,15 @@ check_copr <- function() {
 }
 
 list_pkgs <- function() {
-  copr_call("list-package-names", getOption("copr.repo"))
+  tryCatch({
+    copr_call("list-package-names", getOption("copr.repo"))
+  }, error = function(e) {
+    # workaround until https://pagure.io/copr/copr/issue/2071 is fixed
+    warning(e)
+    pkgs <- copr_call("monitor", getOption("copr.repo"),
+                      "--output-format=text-row", "--fields=name")
+    unique(pkgs)
+  })
 }
 
 watch_builds <- function(ids) {
