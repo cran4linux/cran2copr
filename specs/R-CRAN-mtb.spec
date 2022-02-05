@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mtb
-%global packver   0.1.1
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Toolkit for Time Related Data Presentation and Adding Colors to Markdown or Shiny
+Summary:          Toolkit for Assisting Kitchen and Garden Projects
 
 License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -26,10 +26,12 @@ Requires:         R-CRAN-htmltools >= 0.4.0
 Requires:         R-CRAN-labeling >= 0.3
 
 %description
-The purpose of this package is to provide a collection of functions for
-(1) aiding summarizing time related data; (2) generating axis
-transformation from data; and (3) aiding Markdown (with html output) and
-Shiny file editing.
+The purpose of this package is to share a collection of functions the
+author wrote during weekends for managing kitchen and garden tasks, e.g.
+making plant growth charts or Thanksgiving kitchen schedule charts, etc.
+Functions might include but not limited to: (1) aiding summarizing time
+related data; (2) generating axis transformation from data; and (3) aiding
+Markdown (with html output) and Shiny file editing.
 
 %prep
 %setup -q -c -n %{packname}

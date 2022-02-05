@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  brew
-%global packver   1.0-7
+%global packname  endogeneity
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Templating Framework for Report Generation
+Summary:          Recursive Two-Stage Models to Address Endogeneity
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,11 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-pbivnorm 
+BuildRequires:    R-CRAN-maxLik 
+BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-pbivnorm 
+Requires:         R-CRAN-maxLik 
+Requires:         R-CRAN-statmod 
+Requires:         R-CRAN-MASS 
 
 %description
-Implements a templating framework for mixing text and R code for report
-generation. brew template syntax is similar to PHP, Ruby's erb module,
-Java Server Pages, and Python's psp module.
+Various recursive two-stage models to address the endogeneity issue of
+treatment variables in observational study or mediators in experiments.
+The details of the models are discussed in Peng (2022)
+<doi:10.2139/ssrn.3494856>.
 
 %prep
 %setup -q -c -n %{packname}

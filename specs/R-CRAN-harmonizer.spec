@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  harmonizer
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Harmonizing CN8 and PC8 Product Codes
 
@@ -22,7 +22,8 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Several functions are provided to harmonize CN8 and PC8 product codes over
+Several functions are provided to harmonize CN8 (Combined Nomenclature 8
+digits) and PC8 (Production Communautaire 8 digits) product codes over
 time and the classification systems HS6 and BEC. Harmonization of CN8
 codes are possible by default from 1995 to 2020 and of PC8 from 2008 to
 2017, respectively.

@@ -1,26 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  brew
-%global packver   1.0-7
+%global packname  elo
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Templating Framework for Report Generation
+Summary:          Ranking Teams by Elo Rating and Comparable Methods
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-pROC 
+Requires:         R-stats 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-pROC 
 
 %description
-Implements a templating framework for mixing text and R code for report
-generation. brew template syntax is similar to PHP, Ruby's erb module,
-Java Server Pages, and Python's psp module.
+A flexible framework for calculating Elo ratings and resulting rankings of
+any two-team-per-matchup system (chess, sports leagues, 'Go', etc.). This
+implementation is capable of evaluating a variety of matchups, Elo rating
+updates, and win probabilities, all based on the basic Elo rating system.
+It also includes methods to benchmark performance, including logistic
+regression and Markov chain models.
 
 %prep
 %setup -q -c -n %{packname}

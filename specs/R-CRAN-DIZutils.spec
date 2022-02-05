@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DIZutils
-%global packver   0.0.11
+%global packver   0.0.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.11
+Version:          0.0.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for 'DIZ' R Package Development
 
@@ -16,23 +16,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-DBI >= 1.1.0
 BuildRequires:    R-CRAN-config 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-parsedate 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-rapportools 
+BuildRequires:    R-CRAN-RJDBC 
 BuildRequires:    R-CRAN-RJSONIO 
+BuildRequires:    R-CRAN-RPostgres 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-DBI >= 1.1.0
 Requires:         R-CRAN-config 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-parsedate 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-rapportools 
+Requires:         R-CRAN-RJDBC 
 Requires:         R-CRAN-RJSONIO 
+Requires:         R-CRAN-RPostgres 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-xml2 

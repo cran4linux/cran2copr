@@ -1,26 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  brew
-%global packver   1.0-7
+%global packname  nbody
+%global packver   1.30
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.30
 Release:          1%{?dist}%{?buildtag}
-Summary:          Templating Framework for Report Generation
+Summary:          Gravitational N-Body Simulation
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-magicaxis 
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-magicaxis 
 
 %description
-Implements a templating framework for mixing text and R code for report
-generation. brew template syntax is similar to PHP, Ruby's erb module,
-Java Server Pages, and Python's psp module.
+Tools to run simple direct gravitational N-body simulations. It can access
+different external N-body simulators, but also has a simple built-in
+default simulator. This default simulator uses a variable block time step
+and lets the user choose between a range of integrators, including 4th and
+6th order integrators for high-accuracy simulations. Basic top-hat
+smoothing is available as an option. The code also allows the definition
+of background particles that are fixed or in uniform motion, not subject
+to acceleration by other particles.
 
 %prep
 %setup -q -c -n %{packname}

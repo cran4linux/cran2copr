@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MorphoTools2
-%global packver   0.9.1.1
+%global packver   0.9.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1.1
+Version:          0.9.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Morphometric Analysis
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-candisc
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-class 
 BuildRequires:    R-CRAN-ellipse 
-BuildRequires:    R-CRAN-fpc 
 BuildRequires:    R-CRAN-heplots 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
@@ -35,7 +34,6 @@ Requires:         R-CRAN-candisc
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-class 
 Requires:         R-CRAN-ellipse 
-Requires:         R-CRAN-fpc 
 Requires:         R-CRAN-heplots 
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 

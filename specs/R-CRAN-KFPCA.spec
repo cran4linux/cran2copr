@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  KFPCA
-%global packver   1.0
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kendall Functional Principal Component Analysis
 
@@ -36,8 +36,11 @@ Implementation for Kendall functional principal component analysis.
 Kendall functional principal component analysis is a robust functional
 principal component analysis technique for non-Gaussian
 functional/longitudinal data. The crucial function of this package is
-KFPCA(). Moreover, least square estimates of functional principal
-component scores are also provided. Refer to <arXiv:2102.00911>.
+KFPCA() and KFPCA_reg(). Moreover, least square estimates of functional
+principal component scores are also provided. Refer to Rou Zhong, Shishi
+Liu, Haocheng Li, Jingxiao Zhang. (2021) <arXiv:2102.01286>. Rou Zhong,
+Shishi Liu, Haocheng Li, Jingxiao Zhang. (2021)
+<doi:10.1016/j.jmva.2021.104864>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +50,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

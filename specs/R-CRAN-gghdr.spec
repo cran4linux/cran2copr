@@ -1,26 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  brew
-%global packver   1.0-7
+%global packname  gghdr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Templating Framework for Report Generation
+Summary:          Visualisation of Highest Density Regions in 'ggplot2'
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-hdrcde 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-farver 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-digest 
+Requires:         R-CRAN-hdrcde 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grid 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-farver 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-digest 
 
 %description
-Implements a templating framework for mixing text and R code for report
-generation. brew template syntax is similar to PHP, Ruby's erb module,
-Java Server Pages, and Python's psp module.
+Provides 'ggplot2' framework for visualising Highest Density Regions (HDR)
+<doi:10.1080/00031305.1996.10474359>. This work is based on the package
+'hdrcde'<https://pkg.robjhyndman.com/hdrcde/> and displays highest density
+regions in 'ggplot2' for one and two dimensions and univariate densities
+conditional on one covariate.
 
 %prep
 %setup -q -c -n %{packname}

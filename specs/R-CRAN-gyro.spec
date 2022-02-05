@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  brew
-%global packver   1.0-7
+%global packname  gyro
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Templating Framework for Report Generation
+Summary:          Three-Dimensional Hyperbolic Geometry
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,11 +16,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cxhull >= 0.3.0
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-Rvcg 
+BuildRequires:    R-CRAN-Morpho 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-clipr 
+Requires:         R-CRAN-cxhull >= 0.3.0
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-Rvcg 
+Requires:         R-CRAN-Morpho 
+Requires:         R-CRAN-purrr 
+Requires:         R-grDevices 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-clipr 
 
 %description
-Implements a templating framework for mixing text and R code for report
-generation. brew template syntax is similar to PHP, Ruby's erb module,
-Java Server Pages, and Python's psp module.
+Hyperbolic geometry in the hyperboloid model, with emphasis on the 3D
+case. The methods are based on the gyrovector space theory developed by A.
+A. Ungar that can be found in the book 'Analytic Hyperbolic Geometry:
+Mathematical Foundations And Applications' <doi:10.1142/5914>.
 
 %prep
 %setup -q -c -n %{packname}

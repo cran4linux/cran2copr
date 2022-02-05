@@ -1,26 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  brew
-%global packver   1.0-7
+%global packname  graphx
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Templating Framework for Report Generation
+Summary:          Graphics Routines for Scientific Research
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.1
+Requires:         R-core >= 3.1.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-magicaxis 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-jpeg 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-docore 
+Requires:         R-CRAN-magicaxis 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-plotrix 
+Requires:         R-CRAN-cubature 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-jpeg 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-docore 
 
 %description
-Implements a templating framework for mixing text and R code for report
-generation. brew template syntax is similar to PHP, Ruby's erb module,
-Java Server Pages, and Python's psp module.
+Routines to produce and export publication-ready scientific plots and
+movies (e.g., used in Obreschkow et al. (2020)
+<doi:10.1093/mnras/staa445>). These include special color scales,
+projection routines, and bitmap handling routines.
 
 %prep
 %setup -q -c -n %{packname}

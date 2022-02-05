@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mediateP
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mediation Analysis Based on the Product Method
 
@@ -22,9 +22,9 @@ Requires:         R-CRAN-boot
 %description
 Functions for calculating the point and interval estimates of the natural
 indirect effect (NIE), total effect (TE), and mediation proportion (MP),
-based on the product approach. We perform the methods considered in Chao
-Cheng, Donna Spiegelman, and Fan Li. (2020+)
-<https://github.com/chaochengstat/chaochengstat.github.io/blob/master/manuscript_Epidemiologic_Methods.pdf>.
+based on the product approach. We perform the methods considered in Cheng,
+Spiegelman, and Li (2021) Estimating the natural indirect effect and the
+mediation proportion via the product method.
 
 %prep
 %setup -q -c -n %{packname}
@@ -34,6 +34,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

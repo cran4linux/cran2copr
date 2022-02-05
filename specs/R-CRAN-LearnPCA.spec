@@ -1,39 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RClickhouse
-%global packver   0.6.0
+%global packname  LearnPCA
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A 'DBI' Interface to the 'Yandex Clickhouse' Database Providing Basic 'dplyr' Support
+Summary:          Functions, Data Sets and Vignettes to Aid in Learning Principal Components Analysis (PCA)
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
-BuildRequires:    R-methods >= 3.3.2
-BuildRequires:    R-CRAN-dbplyr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.7.0
-BuildRequires:    R-CRAN-DBI >= 0.6.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-CRAN-bit64 
-Requires:         R-methods >= 3.3.2
-Requires:         R-CRAN-dbplyr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.7.0
-Requires:         R-CRAN-DBI >= 0.6.0
-Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-bit64 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-'Yandex Clickhouse' (<https://clickhouse.com/>) is a high-performance
-relational column-store database to enable big data exploration and
-'analytics' scaling to petabytes of data. Methods are provided that enable
-working with 'Yandex Clickhouse' databases via 'DBI' methods and using
-'dplyr'/'dbplyr' idioms.
+Principal component analysis (PCA) is one of the most widely used data
+analysis techniques.  This package provides a series of vignettes
+explaining PCA starting from basic concepts. The primary purpose is to
+serve as a self-study resource for anyone wishing to understand PCA
+better. A few convenience functions are provided as well.
 
 %prep
 %setup -q -c -n %{packname}
