@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DQAstats
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Core Functions for Data Quality Assessment
 
@@ -16,9 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-DIZutils >= 0.0.12
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-DIZutils 
-BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-jsonlite 
@@ -27,13 +26,11 @@ BuildRequires:    R-CRAN-knitr
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-parsedate 
 BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-RPostgres 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tinytex 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-DIZutils >= 0.0.12
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-DIZutils 
-Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-jsonlite 
@@ -42,7 +39,6 @@ Requires:         R-CRAN-knitr
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-parsedate 
 Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-RPostgres 
 Requires:         R-stats 
 Requires:         R-CRAN-tinytex 
 Requires:         R-utils 
