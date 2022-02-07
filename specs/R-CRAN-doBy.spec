@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  doBy
-%global packver   4.6.11
+%global packver   4.6.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6.11
+Version:          4.6.12
 Release:          1%{?dist}%{?buildtag}
-Summary:          Groupwise Statistics, LSmeans, Linear Contrasts, Utilities
+Summary:          Groupwise Statistics, LSmeans, Linear Estimates, Utilities
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,7 +19,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-pbkrtest >= 0.4.8.1
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-curry 
 BuildRequires:    R-CRAN-Deriv 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
@@ -31,7 +30,6 @@ BuildRequires:    R-CRAN-tibble
 Requires:         R-CRAN-pbkrtest >= 0.4.8.1
 Requires:         R-methods 
 Requires:         R-CRAN-broom 
-Requires:         R-CRAN-curry 
 Requires:         R-CRAN-Deriv 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
@@ -42,9 +40,10 @@ Requires:         R-CRAN-microbenchmark
 Requires:         R-CRAN-tibble 
 
 %description
-Contains: 1) Facilities for working with grouped data: 'do' something to
-data stratified 'by' some variables. 2) LSmeans (least-squares means),
-general linear contrasts. 3) Miscellaneous other utilities.
+Utility package containing: 1) Facilities for working with grouped data:
+'do' something to data stratified 'by' some variables. 2) LSmeans
+(least-squares means), general linear estimates. 3) Restrict functions to
+a smaller domain. 4) Miscellaneous other utilities.
 
 %prep
 %setup -q -c -n %{packname}
