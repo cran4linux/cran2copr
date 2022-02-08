@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mrbin
-%global packver   1.6.1
+%global packver   1.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1
+Version:          1.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Magnetic Resonance Binning, Integration and Normalization
 
@@ -26,13 +26,14 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Nuclear Magnetic Resonance is widely used in Life Science research. The
-package (<doi:10.1021/acs.jproteome.0c00684>) converts 1D or 2D data into
-a matrix of values suitable for further data analysis and performs basic
-processing steps in a reproducible way. Negative values, a common issue in
-such data, are replaced by positive values. All used parameters are stored
-in a readable text file and can be restored from that file to enable exact
-reproduction of the data at a later time.
+Nuclear Magnetic Resonance is widely used for metabolite analysis. This
+package is a collection for processing and analyzing metabolite data.
+(<doi:10.1021/acs.jproteome.0c00684>). The namesake function converts 1D
+or 2D data into a matrix of values suitable for further data analysis and
+performs basic processing steps in a reproducible way. Negative values, a
+common issue in such data, are replaced by positive values. All used
+parameters are stored in a readable text file and can be restored from
+that file to enable exact reproduction of the data at a later time.
 
 %prep
 %setup -q -c -n %{packname}

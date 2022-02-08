@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  EFA.dimensions
-%global packver   0.1.7.3
+%global packver   0.1.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7.3
+Version:          0.1.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploratory Factor Analysis Functions for Assessing Dimensionality
 
@@ -28,17 +28,18 @@ Requires:         R-CRAN-EFAtools
 %description
 Functions for eleven procedures for determining the number of factors,
 including functions for parallel analysis and the minimum average partial
-test. There are functions for conducting principal components analysis,
-principal axis factor analysis, maximum likelihood factor analysis, image
-factor analysis, and extension factor analysis, all of which can take raw
-data or correlation matrices as input and with options for conducting the
-analyses using Pearson correlations, Kendall correlations, Spearman
-correlations, gamma correlations, or polychoric correlations. Varimax
-rotation, promax rotation, and Procrustes rotations can be performed.
-Additional functions focus on the factorability of a correlation matrix,
-the congruences between factors from different datasets, the assessment of
-local independence, and the assessment of factor solution complexity.
-O'Connor (2000, <doi:10.3758/bf03200807>); O'Connor (2001,
+test. There are also functions for conducting principal components
+analysis, principal axis factor analysis, maximum likelihood factor
+analysis, image factor analysis, and extension factor analysis, all of
+which can take raw data or correlation matrices as input and with options
+for conducting the analyses using Pearson correlations, Kendall
+correlations, Spearman correlations, gamma correlations, or polychoric
+correlations. Varimax rotation, promax rotation, and Procrustes rotations
+can be performed. Additional functions focus on the factorability of a
+correlation matrix, the congruences between factors from different
+datasets, the assessment of local independence, the assessment of factor
+solution complexity, and internal consistency. O'Connor (2000,
+<doi:10.3758/bf03200807>); O'Connor (2001,
 <doi:10.1177/01466216010251011>); Auerswald & Moshagen (2019,
 <doi:10.1037/met0000200>); Fabrigar & Wegener (2012,
 ISBN:978-0-19-973417-7); Field, Miles, & Field (2012,

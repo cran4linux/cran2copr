@@ -1,29 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dimensionsR
-%global packver   0.0.3
+%global packname  cricketdata
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gathering Bibliographic Records from 'Digital Science Dimensions' Using 'DSL' API
+Summary:          International Cricket Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-xml2 
 
 %description
-A set of tools to extract bibliographic content from 'Digital Science
-Dimensions' using 'DSL' API <https://www.dimensions.ai/dimensions-apis/>.
+Data on international and other major cricket matches from ESPNCricinfo
+<https://www.espncricinfo.com> and Cricsheet <https://cricsheet.org>. This
+package provides some functions to download the data into tibbles ready
+for analysis.
 
 %prep
 %setup -q -c -n %{packname}

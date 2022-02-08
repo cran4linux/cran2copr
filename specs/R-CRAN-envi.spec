@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  envi
-%global packver   0.1.10
+%global packver   0.1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.1.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Environmental Interpolation using Spatial Kernel Density Estimation
 
@@ -16,10 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat >= 2.0.0
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.core 
-BuildRequires:    R-CRAN-spatstat.linnet 
 BuildRequires:    R-CRAN-concaveman 
 BuildRequires:    R-CRAN-cvAUC 
 BuildRequires:    R-CRAN-doFuture 
@@ -30,18 +26,15 @@ BuildRequires:    R-CRAN-future
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-CRAN-pls 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-ROCR 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-sparr 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.random 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-spatstat >= 2.0.0
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.core 
-Requires:         R-CRAN-spatstat.linnet 
 Requires:         R-CRAN-concaveman 
 Requires:         R-CRAN-cvAUC 
 Requires:         R-CRAN-doFuture 
@@ -52,13 +45,14 @@ Requires:         R-CRAN-future
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-iterators 
-Requires:         R-CRAN-maptools 
 Requires:         R-CRAN-pls 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-ROCR 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-sparr 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.random 
 Requires:         R-stats 
 
 %description

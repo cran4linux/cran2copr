@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dimensionsR
-%global packver   0.0.3
+%global packname  finnishgrid
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gathering Bibliographic Records from 'Digital Science Dimensions' Using 'DSL' API
+Summary:          'Fingrid Open Data API' R Client
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -22,8 +22,10 @@ Requires:         R-CRAN-httr
 Requires:         R-CRAN-jsonlite 
 
 %description
-A set of tools to extract bibliographic content from 'Digital Science
-Dimensions' using 'DSL' API <https://www.dimensions.ai/dimensions-apis/>.
+R API client package for 'Fingrid Open Data' on the electricity market and
+the power system. get_data() function holds the main application logic to
+retrieve time-series data. API calls require free user account
+registration.
 
 %prep
 %setup -q -c -n %{packname}

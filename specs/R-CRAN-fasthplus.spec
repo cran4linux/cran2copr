@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dimensionsR
-%global packver   0.0.3
+%global packname  fasthplus
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gathering Bibliographic Records from 'Digital Science Dimensions' Using 'DSL' API
+Summary:          Fast Label-Dissimilarity Discordance Estimation with H+
 
-License:          GPL-3
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,14 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-A set of tools to extract bibliographic content from 'Digital Science
-Dimensions' using 'DSL' API <https://www.dimensions.ai/dimensions-apis/>.
+Estimation procedures for assessing fitness of observation labels (i.e.,
+clusters or partitions) given observation dissimilarities, or vice versa.
+The estimated parameter of interest is modified from G+ (Williams 1971),
+so we call it H+.
 
 %prep
 %setup -q -c -n %{packname}

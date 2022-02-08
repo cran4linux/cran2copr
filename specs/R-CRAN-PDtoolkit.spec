@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  PDtoolkit
-%global packver   0.0.9
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collection of Tools for PD Rating Model Development
+Summary:          Collection of Tools for PD Rating Model Development and Validation
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}

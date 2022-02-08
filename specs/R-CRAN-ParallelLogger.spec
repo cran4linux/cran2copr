@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ParallelLogger
-%global packver   2.0.2
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Support for Parallel Computation, Logging, and Function Automation
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-snow 
 BuildRequires:    R-CRAN-xml2 

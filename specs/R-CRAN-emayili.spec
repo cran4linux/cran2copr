@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  emayili
-%global packver   0.7.0
+%global packver   0.7.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Send Email Messages
 
@@ -29,11 +29,11 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-mime 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-urltools 
-BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-xfun 
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-curl >= 4.0
@@ -49,11 +49,11 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-mime 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-urltools 
-Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-xfun 
 Requires:         R-CRAN-xml2 
 

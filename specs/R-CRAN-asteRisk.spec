@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  asteRisk
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computation of Satellite Position
 
@@ -15,13 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-CRAN-nanotime 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-onion 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-deSolve 
 Requires:         R-CRAN-nanotime 
 Requires:         R-stats 
+Requires:         R-CRAN-onion 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppParallel 
+Requires:         R-utils 
 
 %description
 Provides basic functionalities to calculate the position of satellites

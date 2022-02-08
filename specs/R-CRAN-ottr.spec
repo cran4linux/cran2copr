@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dimensionsR
-%global packver   0.0.3
+%global packname  ottr
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gathering Bibliographic Records from 'Digital Science Dimensions' Using 'DSL' API
+Summary:          An R Autograding Extension for Otter-Grader
 
-License:          GPL-3
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,14 +16,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-pryr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-testthat 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-pryr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-zip 
 
 %description
-A set of tools to extract bibliographic content from 'Digital Science
-Dimensions' using 'DSL' API <https://www.dimensions.ai/dimensions-apis/>.
+An R autograding extension for Otter-Grader
+(<https://otter-grader.readthedocs.io>). It supports grading R scripts,
+RMarkdown documents, and R Jupyter Notebooks.
 
 %prep
 %setup -q -c -n %{packname}

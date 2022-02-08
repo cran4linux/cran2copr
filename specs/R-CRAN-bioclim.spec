@@ -1,29 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dimensionsR
-%global packver   0.0.3
+%global packname  bioclim
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gathering Bibliographic Records from 'Digital Science Dimensions' Using 'DSL' API
+Summary:          Bioclimatic Analysis and Classification
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-berryFunctions 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-berryFunctions 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-stats 
+Requires:         R-grDevices 
 
 %description
-A set of tools to extract bibliographic content from 'Digital Science
-Dimensions' using 'DSL' API <https://www.dimensions.ai/dimensions-apis/>.
+Using numeric or raster data, this package contains functions to
+calculate: complete water balance, bioclimatic balance, bioclimatic
+intensities, reports for individual locations, multi-layered rasters for
+spatial analysis.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  edgar
-%global packver   2.0.4
+%global packver   2.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          2.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tool for the U.S. SEC EDGAR Retrieval and Parsing of Corporate Filings
 
@@ -22,12 +22,14 @@ BuildRequires:    R-CRAN-XML
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-qdapRegex 
+BuildRequires:    R-CRAN-httr 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-tm 
 Requires:         R-CRAN-XML 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-qdapRegex 
+Requires:         R-CRAN-httr 
 
 %description
 In the USA, companies file different forms with the U.S. Securities and
