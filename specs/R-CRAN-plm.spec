@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  plm
-%global packver   2.4-3
+%global packver   2.6-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.3
+Version:          2.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Models for Panel Data
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-collapse >= 1.6.0
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-bdsmatrix 
 BuildRequires:    R-CRAN-zoo 
@@ -27,6 +28,7 @@ BuildRequires:    R-CRAN-maxLik
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-collapse >= 1.6.0
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-bdsmatrix 
 Requires:         R-CRAN-zoo 
@@ -40,8 +42,17 @@ Requires:         R-CRAN-Formula
 Requires:         R-stats 
 
 %description
-A set of estimators and tests for panel data econometrics, as described in
-Baltagi (2021), Econometric Analysis of Panel Data,
+A set of estimators for models and (robust) covariance matrices, and tests
+for panel data econometrics, including within/fixed effects, random
+effects, between, first-difference, nested random effects as well as
+instrumental-variable (IV) and Hausman-Taylor-style models, panel
+generalized method of moments (GMM) and general FGLS models, mean groups
+(MG), demeaned MG, and common correlated effects (CCEMG) and pooled (CCEP)
+estimators with common factors, variable coefficients and limited
+dependent variables models. Test functions include model specification,
+serial correlation, cross-sectional dependence, panel unit root and panel
+Granger (non-)causality. Typical references are general econometrics text
+books such as Baltagi (2021), Econometric Analysis of Panel Data,
 ISBN-13:978-3-030-53952-8, Hsiao (2014), Analysis of Panel Data
 <doi:10.1017/CBO9781139839327>, and Croissant and Millo (2018), Panel Data
 Econometrics with R, ISBN-13:978-1-118-94918-4.

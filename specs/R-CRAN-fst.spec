@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fst
-%global packver   0.9.6
+%global packver   0.9.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          0.9.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lightning Fast Serialization of Data Frames
 
@@ -15,14 +15,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-fstcore 
 BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-fstcore 
 Requires:         R-CRAN-Rcpp 
 
 %description
 Multithreaded serialization of compressed data frames using the 'fst'
-format. The 'fst' format allows for random access of stored data and
-compression with the LZ4 and ZSTD compressors created by Yann Collet. The
-ZSTD compression library is owned by Facebook Inc.
+format. The 'fst' format allows for full random access of stored data and
+a wide range of compression settings using the LZ4 and ZSTD compressors.
 
 %prep
 %setup -q -c -n %{packname}

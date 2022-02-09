@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  simmer
-%global packver   4.4.3
+%global packver   4.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.3
+Version:          4.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discrete-Event Simulation for R
 

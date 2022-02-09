@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  glmtrans
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Transfer Learning with Regularized Generalized Linear Models
+Summary:          Transfer Learning under Regularized Generalized Linear Models
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -37,11 +37,10 @@ Requires:         R-stats
 We provide an efficient implementation for two-step multi-source transfer
 learning algorithms in high-dimensional generalized linear models (GLMs).
 The elastic-net penalized GLM with three popular families, including
-linear, logistic and Poisson models, can be fitted. To avoid negative
-transfer, a transferable source detection algorithm is available. We also
-provides visualization for the transferable source detection results. A
-relevant paper by Ye Tian and Yang Feng (2021) will be available soon on
-arXiv.
+linear, logistic and Poisson regression models, can be fitted. To avoid
+negative transfer, a transferable source detection algorithm is proposed.
+We also provides visualization for the transferable source detection
+results. The relevant paper is available on arXiv: <arXiv:2105.14328>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,6 +50,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

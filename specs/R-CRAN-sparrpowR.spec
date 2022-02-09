@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sparrpowR
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Analysis to Detect Spatial Relative Risk Clusters
 
@@ -16,10 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat >= 2.0.0
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.core 
-BuildRequires:    R-CRAN-spatstat.linnet 
 BuildRequires:    R-CRAN-doFuture 
 BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-fields 
@@ -32,11 +28,9 @@ BuildRequires:    R-CRAN-lifecycle
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-sparr 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.random 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-spatstat >= 2.0.0
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.core 
-Requires:         R-CRAN-spatstat.linnet 
 Requires:         R-CRAN-doFuture 
 Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-fields 
@@ -49,6 +43,8 @@ Requires:         R-CRAN-lifecycle
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-sparr 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.random 
 Requires:         R-stats 
 
 %description

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  scINSIGHT
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interpretation of Heterogeneous Single-Cell Gene Expression Data
 
@@ -37,12 +37,12 @@ analyze multiple single-cell gene expression samples from biologically
 heterogeneous sources, such as different disease phases, treatment groups,
 or developmental stages. Given multiple gene expression samples from
 different biological conditions, 'scINSIGHT' simultaneously identifies
-common and condition-specific gene pathways and quantify their expression
+common and condition-specific gene modules and quantify their expression
 levels in each sample in a lower-dimensional space. With the factorized
 results, the inferred expression levels and memberships of common gene
-pathways can be used to cluster cells and detect cell identities, and the
-condition-specific gene pathways can help compare functional differences
-in transcriptomes from distinct conditions.
+modules can be used to cluster cells and detect cell identities, and the
+condition-specific gene modules can help compare functional differences in
+transcriptomes from distinct conditions.
 
 %prep
 %setup -q -c -n %{packname}

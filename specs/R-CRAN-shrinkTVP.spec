@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  shrinkTVP
-%global packver   2.0.4
+%global packver   2.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          2.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Bayesian Inference for Time-Varying Parameter Models with Shrinkage
 

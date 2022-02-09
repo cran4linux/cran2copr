@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  TestDesign
-%global packver   1.2.6
+%global packver   1.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          1.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Test Design Approach to Fixed and Adaptive Test Construction
 

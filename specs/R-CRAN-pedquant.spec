@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pedquant
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Public Economic Data and Quantitative Analysis
 
@@ -19,10 +19,12 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-TTR 
 BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-PerformanceAnalytics 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-webdriver 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-readxl 
@@ -34,10 +36,12 @@ BuildRequires:    R-CRAN-plotly
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-TTR 
 Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-PerformanceAnalytics 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-webdriver 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-readxl 
@@ -50,7 +54,7 @@ Requires:         R-CRAN-plotly
 %description
 Provides an interface to access public economic and financial data for
 economic research and quantitative analysis. The data sources including
-NBS, FRED, Yahoo Finance, 163 Finance and etc.
+NBS, FRED, 163, Sina, Eastmoney and etc.
 
 %prep
 %setup -q -c -n %{packname}

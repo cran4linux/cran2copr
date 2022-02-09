@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MCMCvis
-%global packver   0.15.3
+%global packver   0.15.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.3
+Version:          0.15.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Visualize, Manipulate, and Summarize MCMC Output
 
@@ -20,13 +20,13 @@ BuildRequires:    R-CRAN-coda
 BuildRequires:    R-CRAN-rstan 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-overlapping 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-rstan 
 Requires:         R-methods 
 Requires:         R-CRAN-overlapping 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-rstantools
 
 %description
@@ -45,6 +45,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

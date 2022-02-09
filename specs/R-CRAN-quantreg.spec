@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  quantreg
-%global packver   5.87
+%global packver   5.88
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.87
+Version:          5.88
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantile Regression
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  CHNOSZ
-%global packver   1.4.1
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Thermodynamic Calculations and Diagrams for Geochemistry
 
@@ -39,8 +39,8 @@ to Eh-pH, oxygen fugacity- temperature, and other diagrams with a redox
 variable. The package has been developed to handle common calculations in
 aqueous geochemistry, such as solubility due to complexation of metal
 ions, mineral buffers of redox or pH, and changing the basis species
-across a diagram ("mosaic diagrams"). CHNOSZ also has unique capabilities
-for comparing the compositional and thermodynamic properties of different
+across a diagram ("mosaic diagrams"). CHNOSZ also implements a group
+additivity algorithm for the standard thermodynamic properties of
 proteins.
 
 %prep
@@ -51,6 +51,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

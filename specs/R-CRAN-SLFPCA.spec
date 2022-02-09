@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SLFPCA
-%global packver   1.0
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse Logistic Functional Principal Component Analysis
 
@@ -13,19 +13,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-fda 
 BuildRequires:    R-CRAN-fdapace 
 BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-splines 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-fda 
 Requires:         R-CRAN-fdapace 
 Requires:         R-CRAN-psych 
+Requires:         R-splines 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
 Implementation for sparse logistic functional principal component analysis

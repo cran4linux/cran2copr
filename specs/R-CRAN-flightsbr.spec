@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  flightsbr
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Flight Data from Brazil
+Summary:          Download Flight and Airport Data from Brazil
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,15 +17,22 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr >= 1.4.1
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-data.table >= 1.14.0
+BuildRequires:    R-CRAN-parzer 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-rvest 
 Requires:         R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-data.table >= 1.14.0
+Requires:         R-CRAN-parzer 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-rvest 
 
 %description
-Download flight data from Brazil’s Civil Aviation Agency (ANAC)
-<https://www.gov.br/anac/pt-br>. The data includes detailed information on
-every international flight to and from Brazil, as well as domestic flights
-within the country.
+Download flight and airport data from Brazil’s Civil Aviation Agency
+(ANAC) <https://www.gov.br/anac>. The data includes detailed information
+on all aircrafts, aerodromes, airports, and airports movements registered
+in ANAC, and on every international flight to and from Brazil, as well as
+domestic flights within the country.
 
 %prep
 %setup -q -c -n %{packname}
