@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  simglm
-%global packver   0.8.8
+%global packver   0.8.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.8
+Version:          0.8.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate Models Based on the Generalized Linear Model
 
@@ -18,7 +18,6 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
@@ -26,7 +25,6 @@ BuildRequires:    R-CRAN-broom
 BuildRequires:    R-CRAN-future.apply 
 Requires:         R-stats 
 Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 

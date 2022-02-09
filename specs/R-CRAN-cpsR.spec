@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cpsR
-%global packver   0.4.5
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Load CPS Microdata into R Using the 'Census Bureau Data' API
 

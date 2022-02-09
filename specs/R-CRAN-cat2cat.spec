@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cat2cat
-%global packver   0.2.1
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mapping of a Categorical Variable in a Panel Dataset
+Summary:          Unify a Categorical Variable in a Panel Dataset
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,22 +17,16 @@ BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-assertthat 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-caret 
 Requires:         R-CRAN-progress 
-Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-assertthat 
 
 %description
@@ -52,6 +46,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

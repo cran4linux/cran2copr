@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  PlanetNICFI
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Processing of the 'Planet NICFI' Satellite Imagery
 
@@ -20,14 +20,14 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-gdalUtils 
-BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-terra 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-gdalUtils 
-Requires:         R-CRAN-raster 
+Requires:         R-utils 
+Requires:         R-CRAN-terra 
 
 %description
 It includes functions to download and process the 'Planet NICFI' (Norway's

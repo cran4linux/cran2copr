@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cloudos
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Client Library for CloudOS
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-ggplot2 
@@ -28,6 +29,7 @@ Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-httr 
 Requires:         R-utils 
 Requires:         R-methods 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-ggplot2 

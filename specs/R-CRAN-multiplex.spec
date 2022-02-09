@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  multiplex
-%global packver   2.9.7
+%global packver   2.9.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.7
+Version:          2.9.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Algebraic Tools for the Analysis of Multiple Social Networks
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
 Requires:         R-methods 

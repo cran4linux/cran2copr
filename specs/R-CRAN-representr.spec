@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  representr
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Representative Records After Entity Resolution
 
@@ -15,13 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-Rcpp 
 
 %description
 An implementation of Kaplan, Betancourt, Steorts (2020) <arXiv:1810.01538>

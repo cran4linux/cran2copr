@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spacejamr
-%global packver   0.1.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate Spatial Bernoulli Networks
 
@@ -23,10 +23,9 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-spatstat.core 
+BuildRequires:    R-CRAN-spatstat.random 
 BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-ggthemes 
-BuildRequires:    R-methods 
 Requires:         R-CRAN-crsuggest 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggraph 
@@ -34,10 +33,9 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-spatstat.core 
+Requires:         R-CRAN-spatstat.random 
 Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-ggthemes 
-Requires:         R-methods 
 
 %description
 Social network analysis is becoming commonplace in many social science
@@ -46,7 +44,7 @@ marginalized populations, still remains a formidable challenge. This
 package mitigates that problem by providing tools to simulate spatial
 Bernoulli networks as proposed in Carter T. Butts (2002,
 ISBN:978-0-493-72676-2), "Spatial models of large-scale interpersonal
-networks. Using this package, network analysts can simulate a spatial
+networks." Using this package, network analysts can simulate a spatial
 point process or sequence with a given number of nodes inside a
 geographical boundary and estimate the probability of a tie formation
 between all node pairs. When simulating a network, an analyst can choose

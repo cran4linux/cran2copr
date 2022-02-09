@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  covidregionaldata
-%global packver   0.9.2
+%global packver   0.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.9.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Subnational Data for COVID-19 Epidemiology
 
@@ -20,37 +20,33 @@ BuildRequires:    R-CRAN-countrycode >= 1.2.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-vroom 
-BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-countrycode >= 1.2.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-vroom 
-Requires:         R-CRAN-withr 
 Requires:         R-CRAN-xml2 
 
 %description
@@ -76,6 +72,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

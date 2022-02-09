@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  worldfootballR
-%global packver   0.4.9
+%global packver   0.4.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.9
+Version:          0.4.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Extract and Clean World Football (Soccer) Data
 

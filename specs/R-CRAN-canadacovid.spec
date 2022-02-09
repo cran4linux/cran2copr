@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  canadacovid
-%global packver   0.3.1
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          API Wrapper for the Canadian COVID-19 Tracker
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-lubridate 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-magrittr 
@@ -38,6 +39,7 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
+Requires:         R-CRAN-lubridate 
 
 %description
 Provides R functions to GET data from the Canadian COVID-19 tracker API

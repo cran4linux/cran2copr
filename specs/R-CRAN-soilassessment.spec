@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  soilassessment
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assessment Models for Agriculture Soil Conditions and Crop Suitability
 
@@ -22,46 +22,44 @@ BuildRequires:    R-CRAN-Cubist
 BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-FuzzyAHP 
+BuildRequires:    R-CRAN-googledrive 
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-kernlab 
-BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-quantregForest 
 BuildRequires:    R-CRAN-qrnn 
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-soiltexture 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-arm 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-Cubist 
 Requires:         R-CRAN-deSolve 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-FuzzyAHP 
+Requires:         R-CRAN-googledrive 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-kernlab 
-Requires:         R-CRAN-maptools 
 Requires:         R-methods 
-Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-quantregForest 
 Requires:         R-CRAN-qrnn 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-raster 
+Requires:         R-CRAN-png 
 Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-soiltexture 
 Requires:         R-CRAN-sp 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
 Soil assessment builds information for improved decision in soil

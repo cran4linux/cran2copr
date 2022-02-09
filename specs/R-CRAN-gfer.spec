@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gfer
-%global packver   0.1.11
+%global packver   0.1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.11
+Version:          0.1.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Green Finance and Environmental Risk
 
@@ -28,7 +28,7 @@ BuildRequires:    R-CRAN-scatterpie
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-circlize 
-BuildRequires:    R-CRAN-googlesheets 
+BuildRequires:    R-CRAN-googlesheets4 
 BuildRequires:    R-CRAN-gsheet 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-xml2 
@@ -42,7 +42,7 @@ Requires:         R-CRAN-scatterpie
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-circlize 
-Requires:         R-CRAN-googlesheets 
+Requires:         R-CRAN-googlesheets4 
 Requires:         R-CRAN-gsheet 
 
 %description
@@ -60,6 +60,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

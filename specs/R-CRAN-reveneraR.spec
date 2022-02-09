@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  reveneraR
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Connect to Your 'Revenera' (Formerly 'Revulytics') Data
 
@@ -37,8 +37,8 @@ Requires:         R-CRAN-purrr >= 0.3.3
 Facilitates making a connection to the 'Revenera' API and executing
 various queries. You can use it to get event data and metadata. The
 'Revenera' documentation is available at
-<https://docs.revenera.com/ui560/report/Content/helplibrary/APIRoot.htm>.
-This package is not supported by 'Flexera' (owner of the software).
+<https://docs.revenera.com/ui560/report/>. This package is not supported
+by 'Flexera' (owner of the software).
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,6 +48,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

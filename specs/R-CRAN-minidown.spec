@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  minidown
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Simple Yet Powerful HTML Documents with Light Weight CSS Frameworks
 
@@ -17,14 +17,18 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-katex 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-mime 
 BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-sass 
 BuildRequires:    R-CRAN-xfun 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-katex 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-mime 
 Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-sass 
 Requires:         R-CRAN-xfun 
 
 %description
