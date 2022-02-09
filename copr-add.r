@@ -25,7 +25,10 @@ for (pkgs in blist) {
 
   specs <- sapply(pkgs, function(pkg) {
     spec <- create_spec(pkg, cran)
-    if (!spec$pkg %in% copr) add_pkg_scm(spec$pkg)
+    if (!spec$pkg %in% copr) tryCatch(
+      add_pkg_scm(spec$pkg),
+      error = function(e) if (!grepl("already exists", e)) stop(e)
+    )
     spec$dest
   })
   ids <- build_spec(specs, ids)
