@@ -6,7 +6,7 @@ options(
   copr.prefix      = "R-CRAN-",
   copr.tpl         = "spec.in",
   copr.bflags      = "",
-  copr.chroots     = c("fedora-34-x86_64", "fedora-35-x86_64", "fedora-rawhide-x86_64"),
+  copr.chroots     = paste("fedora", c(34:36, "rawhide"), "x86_64", sep="-"),
   repos            = "https://cran.r-project.org",
   error            = NULL,
   stringsAsFactors = FALSE,
