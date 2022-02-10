@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  showtext
-%global packver   0.9-4
+%global packver   0.9-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          0.9.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Using Fonts More Easily in R Graphs
 

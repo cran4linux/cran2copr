@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  CohortPlat
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation of Cohort Platform Trials for Combination Treatments
 
@@ -48,7 +48,8 @@ active compounds. In order to obtain approval for this combination
 therapy, superiority of the combination over the two active compounds and
 superiority of the two active compounds over placebo need to be
 demonstrated. A more detailed description of the design can be found in
-Meyer et al. <arXiv:2103.09547>.
+Meyer et al. <DOI:10.1002/pst.2194> and a manual in Meyer et al.
+<arXiv:2202.02182>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -58,6 +59,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

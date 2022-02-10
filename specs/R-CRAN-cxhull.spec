@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cxhull
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convex Hull
 
@@ -16,7 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-Rvcg 
+BuildRequires:    R-CRAN-Morpho 
+BuildRequires:    R-grDevices 
 Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-Rvcg 
+Requires:         R-CRAN-Morpho 
+Requires:         R-grDevices 
 
 %description
 Computes the convex hull in arbitrary dimension, based on the Qhull

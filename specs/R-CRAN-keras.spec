@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  keras
-%global packver   2.7.0
+%global packver   2.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.0
+Version:          2.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'Keras'
 
@@ -16,10 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tensorflow >= 2.6.0
-BuildRequires:    R-CRAN-reticulate >= 1.10
 BuildRequires:    R-CRAN-tfruns >= 1.0
 BuildRequires:    R-CRAN-generics >= 0.0.1
+BuildRequires:    R-CRAN-tensorflow > 2.7.0
+BuildRequires:    R-CRAN-reticulate > 1.22
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-zeallot 
 BuildRequires:    R-CRAN-glue 
@@ -27,10 +27,10 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-tensorflow >= 2.6.0
-Requires:         R-CRAN-reticulate >= 1.10
 Requires:         R-CRAN-tfruns >= 1.0
 Requires:         R-CRAN-generics >= 0.0.1
+Requires:         R-CRAN-tensorflow > 2.7.0
+Requires:         R-CRAN-reticulate > 1.22
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-zeallot 
 Requires:         R-CRAN-glue 

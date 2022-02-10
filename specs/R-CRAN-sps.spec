@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sps
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sequential Poisson Sampling
 
@@ -23,7 +23,7 @@ Requires:         R-stats
 Sequential Poisson sampling is a method for drawing
 probability-proportional-to-size samples with a given number of units, and
 is commonly used for price-index surveys. This package gives functions to
-draw a stratified sequential Poisson sample according to the method by
+draw stratified sequential Poisson samples according to the method by
 Ohlsson (1998, ISSN:0282-423X), and generate bootstrap replicate weights
 according to the generalized bootstrap method by Beaumont and Patak (2012,
 <doi:10.1111/j.1751-5823.2011.00166.x>).

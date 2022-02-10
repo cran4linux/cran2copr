@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SWTools
-%global packver   0.2.2.0
+%global packver   0.2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2.0
+Version:          0.2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helper Tools for Australian Hydrologists
 
@@ -18,9 +18,9 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-stringr 
@@ -29,18 +29,18 @@ BuildRequires:    R-CRAN-rmarkdown
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggmap 
-BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-hydroTSM 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-segmented 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-stringr 
@@ -49,11 +49,11 @@ Requires:         R-CRAN-rmarkdown
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggmap 
-Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-hydroTSM 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sp 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-segmented 
 

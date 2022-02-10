@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mpath
-%global packver   0.4-2.20
+%global packver   0.4-2.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2.20
+Version:          0.4.2.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regularized Linear Models
 
