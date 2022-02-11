@@ -1,28 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gvc
-%global packver   6.2.1
+%global packname  DBpower
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Global Value Chains Tools
+Summary:          Finite Sample Power Calculations for Detection Boundary Tests
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-decompr 
-BuildRequires:    R-CRAN-diagonals 
-Requires:         R-CRAN-decompr 
-Requires:         R-CRAN-diagonals 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-combinat 
+BuildRequires:    R-CRAN-GBJ 
+BuildRequires:    R-CRAN-kit 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-stats 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-combinat 
+Requires:         R-CRAN-GBJ 
+Requires:         R-CRAN-kit 
 
 %description
-Several tools for Global Value Chain ('GVC') analysis are implemented.
+Calculates lower bound on power, upper bound on power, and exact power
+(small sets only) for detection boundary tests (e.g. Berk-Jones,
+Generalized Berk-Jones, innovated Berk-Jones) used in set-based inference
+studies. These detection boundary tests are described in Sun et al.,
+(2019) <doi:10.1080/01621459.2019.1660170>.
 
 %prep
 %setup -q -c -n %{packname}

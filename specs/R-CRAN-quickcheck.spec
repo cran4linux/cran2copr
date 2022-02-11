@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  quickcheck
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Property Based Testing
 
@@ -13,17 +13,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-testthat >= 3.0.0
 BuildRequires:    R-CRAN-hedgehog 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-hms 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-testthat >= 3.0.0
 Requires:         R-CRAN-hedgehog 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-hms 
 Requires:         R-stats 
 

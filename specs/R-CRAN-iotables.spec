@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  iotables
-%global packver   0.4.7
+%global packver   0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.7
+Version:          0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Importing and Manipulating Symmetric Input-Output Tables
+Summary:          Reproducible Input-Output Economics Analysis, Economic and Environmental Impact Assessment with Empirical Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-readxl
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-eurostat 
 Requires:         R-CRAN-magrittr 
@@ -46,6 +47,7 @@ Requires:         R-CRAN-readxl
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-tidyselect 
 
 %description
 Pre-processing and basic analytical tasks related to working with

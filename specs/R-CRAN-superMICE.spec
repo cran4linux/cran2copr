@@ -1,28 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gvc
-%global packver   6.2.1
+%global packname  superMICE
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.2.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Global Value Chains Tools
+Summary:          SuperLearner Method for MICE
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-decompr 
-BuildRequires:    R-CRAN-diagonals 
-Requires:         R-CRAN-decompr 
-Requires:         R-CRAN-diagonals 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mice 
+BuildRequires:    R-CRAN-SuperLearner 
+Requires:         R-stats 
+Requires:         R-CRAN-mice 
+Requires:         R-CRAN-SuperLearner 
 
 %description
-Several tools for Global Value Chain ('GVC') analysis are implemented.
+Adds a Super Learner ensemble model method (using the 'SuperLearner'
+package) to the 'mice' package. Laqueur, H. S., Shev, A. B., Kagawa, R. M.
+C. (2021) <doi:10.1093/aje/kwab271>.
 
 %prep
 %setup -q -c -n %{packname}

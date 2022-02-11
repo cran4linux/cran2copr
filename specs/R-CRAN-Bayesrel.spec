@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Bayesrel
-%global packver   0.7.1
+%global packver   0.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Reliability Estimation
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-coda
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.4.6
@@ -33,24 +34,25 @@ Requires:         R-CRAN-coda
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-CRAN-progress 
 Requires:         R-CRAN-Rdpack 
 
 %description
-Functionality for reliability estimates. For unidimensional tests:
+Functionality for reliability estimates. For 'unidimensional' tests:
 Coefficient alpha, 'Guttman's' lambda-2/-4/-6, the Greatest lower bound
-and coefficient omega in a Bayesian and a frequentist version. For
-multidimensional tests: omega-total and omega-hierarchical. The results
-include confidence and credible intervals, the probability of a
-coefficient being larger than a cutoff, and a check for the factor models,
-necessary for the omega coefficients. The method for the Bayesian
-unidimensional estimates, except for omega, is sampling from the posterior
-inverse 'Wishart' for the covariance matrix based measures (see 'Murphy',
-2007,
+and coefficient omega_u ('unidimensional') in a Bayesian and a frequentist
+version. For multidimensional tests: omega_t (total) and omega_h
+(hierarchical). The results include confidence and credible intervals, the
+probability of a coefficient being larger than a cutoff, and a check for
+the factor models, necessary for the omega coefficients. The method for
+the Bayesian 'unidimensional' estimates, except for omega_u, is sampling
+from the posterior inverse 'Wishart' for the covariance matrix based
+measures (see 'Murphy', 2007,
 <https://groups.seas.harvard.edu/courses/cs281/papers/murphy-2007.pdf>.
-The Bayesian omegas (unidimensional, hierarchical, and total) are obtained
-by 'Gibbs' Sampling from the conditional posterior distributions of (1)
-the single factor model and (2) the higher order factor model ('Lee',
-2007, <doi:10.1002/9780470024737>).
+The Bayesian omegas (u, t, and h) are obtained by 'Gibbs' sampling from
+the conditional posterior distributions of (1) the single factor model and
+(2) the second-order factor model ('Lee', 2007,
+<https://onlinelibrary.wiley.com/doi/book/10.1002/9780470024737>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,44 +1,50 @@
 %global __brp_check_rpaths %{nil}
-%global packname  TidyMultiqc
-%global packver   1.0.2
+%global packname  vsp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Converts 'MultiQC' Reports into Tidy Data Frames
+Summary:          Vintage Sparse PCA for Semi-Parametric Factor Analysis
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-invertiforms 
+BuildRequires:    R-CRAN-LRMF3 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-invertiforms 
+Requires:         R-CRAN-LRMF3 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-withr 
 
 %description
-Provides the means to convert 'multiqc_data.json' files, produced by the
-wonderful 'MultiQC' tool, into tidy data frames for downstream analysis in
-R. This analysis might involve cohort analysis, quality control
-visualisation, change-point detection, statistical process control,
-clustering, or any other type of quality analysis.
+Provides fast spectral estimation of latent factors in random dot product
+graphs using the vsp estimator. Under mild assumptions, the vsp estimator
+is consistent for (degree-corrected) stochastic blockmodels,
+(degree-corrected) mixed-membership stochastic blockmodels, and
+degree-corrected overlapping stochastic blockmodels.
 
 %prep
 %setup -q -c -n %{packname}

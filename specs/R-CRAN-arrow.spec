@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  arrow
-%global packver   6.0.1
+%global packver   7.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.1
+Version:          7.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integration to 'Apache' 'Arrow'
 
@@ -14,9 +14,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    arrow-dataset-devel
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildRequires:    R-CRAN-bit64 >= 0.9.7
+BuildRequires:    R-CRAN-cpp11 >= 0.4.2
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 

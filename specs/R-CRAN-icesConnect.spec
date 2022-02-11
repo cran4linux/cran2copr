@@ -1,28 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gvc
-%global packver   6.2.1
+%global packname  icesConnect
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Global Value Chains Tools
+Summary:          Provides User Tokens for Access to ICES Web Services
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-decompr 
-BuildRequires:    R-CRAN-diagonals 
-Requires:         R-CRAN-decompr 
-Requires:         R-CRAN-diagonals 
+BuildRequires:    R-CRAN-whoami 
+BuildRequires:    R-CRAN-keyring 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-getPass 
+Requires:         R-CRAN-whoami 
+Requires:         R-CRAN-keyring 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-getPass 
 
 %description
-Several tools for Global Value Chain ('GVC') analysis are implemented.
+Provides user tokens for ICES web services that require authentication and
+authorization.  Web services covered by this package are ICES VMS
+database, the ICES DATSU web services, and the ICES SharePoint site.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  envstat
-%global packver   0.0.1
+%global packname  rrcov3way
+%global packver   0.2-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Configurable Reporting on your External Compute Environment
+Summary:          Robust Methods for Multiway Data Analysis, Applicable also for Compositional Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,21 +16,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-yaml 
+BuildRequires:    R-CRAN-rrcov 
+BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-CRAN-ThreeWay 
+BuildRequires:    R-CRAN-nnls 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-rrcov 
+Requires:         R-CRAN-robustbase 
+Requires:         R-CRAN-ThreeWay 
+Requires:         R-CRAN-nnls 
+Requires:         R-CRAN-pracma 
 
 %description
-Runs a series of configurable tests against a user's compute environment.
-This can be used for checking that things like a specific directory or an
-environment variable is available before you start an analysis.
-Alternatively, you can use the package's situation report when filing
-error reports with your compute infrastructure.
+Provides methods for multiway data analysis by means of Parafac and Tucker
+3 models. Robust versions (Engelen and Hubert (2011)
+<doi:10.1016/j.aca.2011.04.043>) and versions for compositional data are
+also provided (Gallo (2015) <doi:10.1080/03610926.2013.798664>, Di Palma
+et al. (2018) <doi:10.1080/02664763.2017.1381669>.
 
 %prep
 %setup -q -c -n %{packname}

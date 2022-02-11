@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sarp.snowprofile.alignment
-%global packver   1.0.2
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Snow Profile Alignment, Aggregation, and Clustering
 
@@ -16,14 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sarp.snowprofile 
+BuildRequires:    R-CRAN-sarp.snowprofile >= 1.2.0
 BuildRequires:    R-CRAN-dtw 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-sarp.snowprofile 
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-sarp.snowprofile >= 1.2.0
 Requires:         R-CRAN-dtw 
 Requires:         R-grid 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-data.table 
 
 %description
 Snow profiles describe the vertical (1D) stratigraphy of layered snow with
@@ -36,8 +38,13 @@ profiles can then be assessed with an independent, global similarity
 measure that is geared towards avalanche hazard assessment. Finally,
 through exploiting data aggregation and clustering methods, the similarity
 measure provides the foundation for grouping and summarizing snow profiles
-according to similar hazard conditions. For more background information
-refer to Herla, Horton, and Haegeli (accepted) <doi:10.5194/gmd-2020-171>.
+according to similar hazard conditions. In particular, this package allows
+for averaging large numbers of snow profiles with DTW Barycenter Averaging
+and thereby facilitates the computation of individual layer distributions
+and summary statistics that are relevant for avalanche forecasting
+purposes. For more background information refer to Herla, Horton, Mair,
+and Haegeli (2021) <doi:10.5194/gmd-14-239-2021>, and Herla, Mair, and
+Haegeli (2022, in review) <doi:10.5194/tc-2022-29>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +54,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

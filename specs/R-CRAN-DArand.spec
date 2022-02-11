@@ -1,28 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gvc
-%global packver   6.2.1
+%global packname  DArand
+%global packver   0.0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.2.1
+Version:          0.0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Global Value Chains Tools
+Summary:          Differential Analysis with Random Reference Genes
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-decompr 
-BuildRequires:    R-CRAN-diagonals 
-Requires:         R-CRAN-decompr 
-Requires:         R-CRAN-diagonals 
+BuildRequires:    R-parallel 
+Requires:         R-parallel 
 
 %description
-Several tools for Global Value Chain ('GVC') analysis are implemented.
+Differential Analysis of short RNA transcripts that can be modeled by
+either Poisson or Negative binomial distribution.  The statistical
+methodology implemented in this package is based on the random selection
+of references genes (Desaulle et al. (2021) <arXiv:2103.09872>).
 
 %prep
 %setup -q -c -n %{packname}
