@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RTL
+%global packname  Certara.R
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Risk Tool Library - Trading, Risk, 'Analytics' for Commodities
+Summary:          Easily Install Pharmacometric Packages and Shiny Applications Developed by Certara
 
-License:          MIT + file LICENSE
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,61 +16,56 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-batchtools >= 0.9.9
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fabletools 
-BuildRequires:    R-CRAN-feasts 
+BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-reshape 
+BuildRequires:    R-CRAN-remotes 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyquant 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-timetk 
-BuildRequires:    R-CRAN-tsibble 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-shinyWidgets 
+BuildRequires:    R-CRAN-shinymaterial 
+BuildRequires:    R-CRAN-shinyjqui 
+BuildRequires:    R-CRAN-sortable 
+BuildRequires:    R-CRAN-ssh 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-batchtools >= 0.9.9
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fabletools 
-Requires:         R-CRAN-feasts 
+Requires:         R-CRAN-DT 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
 Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-readr 
+Requires:         R-CRAN-reshape 
+Requires:         R-CRAN-remotes 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyquant 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-timetk 
-Requires:         R-CRAN-tsibble 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-shinyWidgets 
+Requires:         R-CRAN-shinymaterial 
+Requires:         R-CRAN-shinyjqui 
+Requires:         R-CRAN-sortable 
+Requires:         R-CRAN-ssh 
+Requires:         R-utils 
+Requires:         R-CRAN-xml2 
 
 %description
-A toolkit for Commodities 'analytics', risk management and trading
-professionals. Includes functions for API calls to 'Morningstar
-Commodities' and 'Genscape'.
+A convenient set of wrapper functions to install pharmacometric packages
+and Shiny applications developed by Certara PMX and Integrated Drug
+Development (iDD). The functions ensure the successful installation of
+packages from non-standard repositories.
 
 %prep
 %setup -q -c -n %{packname}

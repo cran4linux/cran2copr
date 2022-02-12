@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gausscov
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Gaussian Covariate Method for Variable Selection
 
@@ -36,10 +36,10 @@ exact probabilities. In the simplest version the only parameter is a
 specified cut-off P-value which can be interpreted as the probability of a
 false positive being included in the final selection. For more information
 see the web site below and the accompanying papers: L. Davies and L.
-Duembgen, "Covariate Selection Based on a Assumption -free Approach to
-Linear Regression with Exact Probabilities", 2020, <arXiv:1906.01990>. L.
-Davies, "Lasso, Knockoff and Gaussian covariates: A comparison", 2018,
-<arXiv:1807.09633>.
+Duembgen, "Covariate Selection Based on a Model-free Approach to Linear
+Regression with Exact Probabilities", 2022, <arxiv:2202.01553>. L. Davies,
+"Linear Regression, Covariate Selection and the Failure of Modelling",
+2022, <arXiv:2112.08738>.
 
 %prep
 %setup -q -c -n %{packname}

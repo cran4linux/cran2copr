@@ -1,28 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  maybe
-%global packver   0.2.0
+%global packname  fastadi
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Maybe Monad
+Summary:          Self-Tuning Data Adaptive Matrix Imputation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
+BuildRequires:    R-CRAN-LRMF3 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-ellipsis 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-logger 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-LRMF3 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-logger 
+Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RSpectra 
 
 %description
-The maybe type represents the possibility of some value or nothing. It is
-often used instead of throwing an error or returning `NULL`. The advantage
-of using a maybe type over `NULL` is that it is both composable and
-requires the developer to explicitly acknowledge the potential absence of
-a value, helping to avoid the existence of unexpected behaviour.
+Implements the AdaptiveImpute matrix completion algorithm of 'Intelligent
+Initialization and Adaptive Thresholding for Iterative Matrix Completion',
+<https://amstat.tandfonline.com/doi/abs/10.1080/10618600.2018.1518238>.
+AdaptiveImpute is useful for embedding sparsely observed matrices, often
+out performs competing matrix completion algorithms, and self-tunes its
+hyperparameter, making usage easy.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  R2SWF
-%global packver   0.9-7
+%global packname  monoreg
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert R Graphics to Flash Animations
+Summary:          Bayesian Monotonic Regression Using a Marked Point Process Construction
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    zlib-devel
-BuildRequires:    libpng-devel
-BuildRequires:    freetype-devel
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-sysfonts 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-sysfonts 
-Requires:         R-grDevices 
-Requires:         R-utils 
+BuildRequires:    gsl-devel
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 
 %description
-Using the 'Ming' library <https://github.com/libming/libming> to create
-Flash animations. Users can either use the 'SWF' device swf() to generate
-'SWF' file directly through plotting functions like plot() and lines(), or
-convert images of other formats ('SVG', 'PNG', 'JPEG') into 'SWF'.
+An extended version of the nonparametric Bayesian monotonic regression
+procedure described in Saarela & Arjas (2011)
+<DOI:10.1111/j.1467-9469.2010.00716.x>, allowing for multiple additive
+monotonic components in the linear predictor, and time-to-event outcomes
+through case-base sampling. The extension and its applications, including
+estimation of absolute risks, are described in Saarela & Arjas (2015)
+<DOI:10.1111/sjos.12125>. The package also implements the nonparametric
+ordinal regression model described in Saarela, Rohrbeck & Arjas
+<arXiv:2007.01390>.
 
 %prep
 %setup -q -c -n %{packname}

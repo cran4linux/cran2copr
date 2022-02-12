@@ -1,47 +1,59 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DIZutils
-%global packver   0.0.13
+%global packname  DQAgui
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.13
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for 'DIZ' R Package Development
+Summary:          Graphical User Interface for Data Quality Assessment
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DBI >= 1.1.0
+BuildRequires:    R-CRAN-DQAstats >= 0.2.3
+BuildRequires:    R-CRAN-DIZutils >= 0.0.12
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-DIZtools 
-BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-daterangepicker 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-RJDBC 
-BuildRequires:    R-CRAN-RJSONIO 
-BuildRequires:    R-CRAN-RPostgres 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-DBI >= 1.1.0
+BuildRequires:    R-CRAN-parsedate 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyalert 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-shinyFiles 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-shinyWidgets 
+BuildRequires:    R-CRAN-waiter 
+Requires:         R-CRAN-DQAstats >= 0.2.3
+Requires:         R-CRAN-DIZutils >= 0.0.12
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-DIZtools 
-Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-daterangepicker 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-psych 
-Requires:         R-CRAN-RJDBC 
-Requires:         R-CRAN-RJSONIO 
-Requires:         R-CRAN-RPostgres 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-parsedate 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyalert 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-shinyFiles 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-shinyWidgets 
+Requires:         R-CRAN-waiter 
 
 %description
-Utility functions used for the R package development infrastructure inside
-the data integration centers ('DIZ') to standardize and facilitate
-repetitive tasks such as setting up a database connection or issuing
-notification messages and to avoid redundancy.
+A graphical user interface (GUI) to the functions implemented in the R
+package 'DQAstats'.
 
 %prep
 %setup -q -c -n %{packname}

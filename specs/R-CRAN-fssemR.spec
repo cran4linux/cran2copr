@@ -1,35 +1,49 @@
 %global __brp_check_rpaths %{nil}
-%global packname  R2SWF
-%global packver   0.9-7
+%global packname  fssemR
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert R Graphics to Flash Animations
+Summary:          Fused Sparse Structural Equation Models to Jointly Infer Gene Regulatory Network
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    zlib-devel
-BuildRequires:    libpng-devel
-BuildRequires:    freetype-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-sysfonts 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-sysfonts 
-Requires:         R-grDevices 
-Requires:         R-utils 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-qtl 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-qpdf 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Matrix 
+Requires:         R-stats 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-qtl 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-qpdf 
 
 %description
-Using the 'Ming' library <https://github.com/libming/libming> to create
-Flash animations. Users can either use the 'SWF' device swf() to generate
-'SWF' file directly through plotting functions like plot() and lines(), or
-convert images of other formats ('SVG', 'PNG', 'JPEG') into 'SWF'.
+An optimizer of Fused-Sparse Structural Equation Models, which is the
+state of the art jointly fused sparse maximum likelihood function for
+structural equation models proposed by Xin Zhou and Xiaodong Cai (2018
+<doi:10.1101/466623>).
 
 %prep
 %setup -q -c -n %{packname}

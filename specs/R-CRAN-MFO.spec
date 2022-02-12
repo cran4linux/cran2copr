@@ -1,47 +1,49 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DIZutils
-%global packver   0.0.13
+%global packname  MFO
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.13
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for 'DIZ' R Package Development
+Summary:          Maximal Fat Oxidation and Kinetics Calculation
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DBI >= 1.1.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-DIZtools 
-BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-RJDBC 
-BuildRequires:    R-CRAN-RJSONIO 
-BuildRequires:    R-CRAN-RPostgres 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-DBI >= 1.1.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-DIZtools 
-Requires:         R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-psych 
-Requires:         R-CRAN-RJDBC 
-Requires:         R-CRAN-RJSONIO 
-Requires:         R-CRAN-RPostgres 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Utility functions used for the R package development infrastructure inside
-the data integration centers ('DIZ') to standardize and facilitate
-repetitive tasks such as setting up a database connection or issuing
-notification messages and to avoid redundancy.
+Calculate the maximal fat oxidation, the exercise intensity that elicits
+the maximal fat oxidation and the SIN model to represent the fat oxidation
+kinetics. Three variables can be obtained from the SIN model: dilatation,
+symmetry and translation. Examples of these methods can be found in Montes
+de Oca et al (2021) <doi:10.1080/17461391.2020.1788650> and Chenevière et
+al. (2009) <doi:10.1249/MSS.0b013e31819e2f91>.
 
 %prep
 %setup -q -c -n %{packname}

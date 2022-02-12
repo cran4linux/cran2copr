@@ -1,35 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  R2SWF
-%global packver   0.9-7
+%global packname  icesDatsu
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert R Graphics to Flash Animations
+Summary:          Functions to Interact with the ICES Data Submission Utility (DATSU)
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    zlib-devel
-BuildRequires:    libpng-devel
-BuildRequires:    freetype-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-sysfonts 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-sysfonts 
-Requires:         R-grDevices 
-Requires:         R-utils 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-icesConnect >= 1.0.0
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-icesConnect >= 1.0.0
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Using the 'Ming' library <https://github.com/libming/libming> to create
-Flash animations. Users can either use the 'SWF' device swf() to generate
-'SWF' file directly through plotting functions like plot() and lines(), or
-convert images of other formats ('SVG', 'PNG', 'JPEG') into 'SWF'.
+Functions to Interact with the ICES Data Submission Utility (DATSU)
+<https://datsu.ices.dk/web/index.aspx>.
 
 %prep
 %setup -q -c -n %{packname}
