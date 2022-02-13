@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  aquodom
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access to Aquo domaintables from R (Dutch)
 
@@ -44,8 +44,8 @@ Requires:         R-CRAN-openxlsx
 %description
 The Aquo Standard is the Dutch Standard for the exchange of data in water
 management. With *aquodom* (short for aquo domaintables) it is easy to
-exploit the API (<https://www.aquo.nl>) to download domaintables of the
-Aquo Standard and use them in R.
+exploit the API (<https://www.aquo.nl/index.php/Hoofdpagina>) to download
+domaintables of the Aquo Standard and use them in R.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,6 +55,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

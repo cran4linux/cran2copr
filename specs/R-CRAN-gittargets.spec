@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gittargets
-%global packver   0.0.1
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Version Control for the Targets Package
 
@@ -36,20 +36,17 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Pipelines with the 'targets' R package (2021, <doi:10.21105/joss.02959>)
-skip steps that are up to already date. Although this behavior reduces the
-runtime of subsequent runs, it comes at the cost of overwriting previous
-results. So if the pipeline source code is under version control, and if
-you revert to a previous commit or branch, the data will no longer be up
-to date with the code you just checked out. Ordinarily, you would need to
-rerun the pipeline in order to recover the targets you had before.
-However, 'gittargets' preserves historical output, creating version
-control snapshots of data store. Each data snapshot remembers the
-contemporaneous Git commit of the pipeline source code, so you can recover
-the right data when you navigate the Git history. In other words,
-'gittargets' makes it possible to switch commits or branches without
-invalidating the pipeline. You can simply check out the up-to-date targets
-from the past instead of taking the time to recompute them from scratch.
+In computationally demanding data analysis pipelines, the 'targets' R
+package (2021, <doi:10.21105/joss.02959>) maintains an up-to-date set of
+results while skipping tasks that do not need to rerun. This process
+increases speed and increases trust in the final end product. However, it
+also overwrites old output with new output, and past results disappear by
+default. To preserve historical output, the 'gittargets' package captures
+version-controlled snapshots of the data store, and each snapshot links to
+the underlying commit of the source code. That way, when the user rolls
+back the code to a previous branch or commit, 'gittargets' can recover the
+data contemporaneous with that commit so that all targets remain up to
+date.
 
 %prep
 %setup -q -c -n %{packname}

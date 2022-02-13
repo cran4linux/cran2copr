@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  text
-%global packver   0.9.10
+%global packver   0.9.50
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.10
+Version:          0.9.50
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyses of Text using Natural Language Processing and Machine Learning
 
@@ -17,9 +17,8 @@ BuildRequires:    R-devel >= 4.00
 Requires:         R-core >= 4.00
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tokenizers 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
@@ -36,10 +35,10 @@ BuildRequires:    R-CRAN-workflows
 BuildRequires:    R-CRAN-yardstick 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-overlapping 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tokenizers 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
@@ -56,6 +55,7 @@ Requires:         R-CRAN-workflows
 Requires:         R-CRAN-yardstick 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-overlapping 
 
 %description
 Transforms text variables to word embeddings; where the word embeddings
@@ -72,6 +72,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
