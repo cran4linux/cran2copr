@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  isotree
-%global packver   0.5.5
+%global packver   0.5.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          0.5.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Isolation-Based Outlier Detection
 
@@ -27,13 +27,14 @@ Zhou (2010) <doi:10.1007/978-3-642-15883-4_18>), fair-cut forest (Cortes
 Schrijvers (2016) <http://proceedings.mlr.press/v48/guha16.html>), and
 customizable variations of them, for isolation-based outlier detection,
 clustered outlier detection, distance or similarity approximation (Cortes
-(2019) <arXiv:1910.12362>), and imputation of missing values (Cortes
-(2019) <arXiv:1911.06646>), based on random or guided decision tree
-splitting, and providing different metrics for scoring anomalies based on
-isolation depth or density (Cortes (2021) <arXiv:2111.11639>). Provides
-simple heuristics for fitting the model to categorical columns and
-handling missing data, and offers options for varying between random and
-guided splits, and for using different splitting criteria.
+(2019) <arXiv:1910.12362>), isolation kernel calculation (Ting, Zhu, Zhou
+(2018) <doi:10.1145/3219819.3219990>), and imputation of missing values
+(Cortes (2019) <arXiv:1911.06646>), based on random or guided decision
+tree splitting, and providing different metrics for scoring anomalies
+based on isolation depth or density (Cortes (2021) <arXiv:2111.11639>).
+Provides simple heuristics for fitting the model to categorical columns
+and handling missing data, and offers options for varying between random
+and guided splits, and for using different splitting criteria.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  secr
-%global packver   4.5.1
+%global packver   4.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.5.1
+Version:          4.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatially Explicit Capture-Recapture
 
@@ -16,6 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.1.1
+BuildRequires:    R-CRAN-raster >= 3.5.15
+BuildRequires:    R-CRAN-terra >= 1.5.12
 BuildRequires:    R-CRAN-Rcpp >= 0.12.14
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-abind 
@@ -25,9 +27,8 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-utils 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-stringr 
@@ -35,6 +36,8 @@ BuildRequires:    R-CRAN-RcppNumerical
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-RcppParallel >= 5.1.1
+Requires:         R-CRAN-raster >= 3.5.15
+Requires:         R-CRAN-terra >= 1.5.12
 Requires:         R-CRAN-Rcpp >= 0.12.14
 Requires:         R-methods 
 Requires:         R-CRAN-abind 
@@ -44,9 +47,8 @@ Requires:         R-CRAN-MASS
 Requires:         R-utils 
 Requires:         R-parallel 
 Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-raster 
 Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-CRAN-stringr 

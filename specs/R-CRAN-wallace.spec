@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  wallace
-%global packver   1.1.0
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Modular Platform for Reproducible Modeling of Species Niches and Distributions
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-spocc >= 0.8.0
 BuildRequires:    R-CRAN-DT >= 0.4
 BuildRequires:    R-CRAN-dismo 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ecospat 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-leaflet.extras 
 BuildRequires:    R-CRAN-magrittr 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-spocc >= 0.8.0
 Requires:         R-CRAN-DT >= 0.4
 Requires:         R-CRAN-dismo 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ecospat 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-leaflet.extras 
 Requires:         R-CRAN-magrittr 
@@ -72,6 +74,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

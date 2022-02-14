@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  EIAdata
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Wrapper for the Energy Information Administration (EIA) API
 
@@ -19,9 +19,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-httr 
 Requires:         R-CRAN-XML 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-httr 
 
 %description
 An R wrapper to allow the user to query categories and Series IDs, and

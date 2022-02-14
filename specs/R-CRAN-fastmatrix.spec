@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fastmatrix
-%global packver   0.3-8196
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8196
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Computation of some Matrices Useful in Statistics
 
@@ -28,7 +28,7 @@ package includes a number of common statistical procedures such as the
 sweep operator, weighted mean and covariance matrix using an online
 algorithm, linear regression (using Cholesky, QR, SVD, sweep operator and
 conjugate gradients methods), ridge regression (with optimal selection of
-the ridge parameter considering the GCV procedure), functions to compute
+the ridge parameter considering several procedures), functions to compute
 the multivariate skewness, kurtosis, Mahalanobis distance (checking the
 positive defineteness) and the Wilson-Hilferty transformation of chi
 squared variables. Furthermore, the package provides interfaces to C code

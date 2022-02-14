@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ggdist
-%global packver   3.0.1
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizations of Distributions and Uncertainty
 
@@ -19,7 +19,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.3.0
-BuildRequires:    R-CRAN-distributional >= 0.2.2
+BuildRequires:    R-CRAN-distributional >= 0.3.0
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-grid 
@@ -27,10 +27,12 @@ BuildRequires:    R-CRAN-HDInterval
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-glue 
 Requires:         R-CRAN-ggplot2 >= 3.3.5
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.3.0
-Requires:         R-CRAN-distributional >= 0.2.2
+Requires:         R-CRAN-distributional >= 0.3.0
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-scales 
 Requires:         R-grid 
@@ -38,6 +40,8 @@ Requires:         R-CRAN-HDInterval
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-withr 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-glue 
 
 %description
 Provides primitives for visualizing distributions using 'ggplot2' that are

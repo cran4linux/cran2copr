@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  EmissV
-%global packver   0.665.5.2
+%global packver   0.665.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.665.5.2
+Version:          0.665.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Create Emissions for Air Quality Models
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-rgdal 
 Requires:         R-CRAN-units >= 0.5.1
 Requires:         R-CRAN-ncdf4 
 Requires:         R-CRAN-raster 
@@ -31,7 +30,6 @@ Requires:         R-CRAN-sp
 Requires:         R-CRAN-sf 
 Requires:         R-methods 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-rgdal 
 
 %description
 Processing tools to create emissions for use in numerical air quality
@@ -52,6 +50,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
