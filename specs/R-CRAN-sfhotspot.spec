@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  robust2sls
+%global packname  sfhotspot
 %global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Outlier Robust Two-Stage Least Squares Inference and Testing
+Summary:          Hot-Spot Analysis with Simple Features
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,32 +16,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-AER 
-BuildRequires:    R-CRAN-doRNG 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mathjaxr 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-AER 
-Requires:         R-CRAN-doRNG 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mathjaxr 
-Requires:         R-CRAN-pracma 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-SpatialKDE 
+BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-SpatialKDE 
+Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-tibble 
 
 %description
-An implementation of easy tools for outlier robust inference in two-stage
-least squares (2SLS) models. The user specifies a reference distribution
-against which observations are classified as outliers or not. After
-removing the outliers, adjusted standard errors are automatically
-provided. Furthermore, several statistical tests for the false outlier
-detection rate can be calculated. The outlier removing algorithm can be
-iterated a fixed number of times or until the procedure converges. The
-algorithms and robust inference are described in more detail in Jiao
-(2019)
-<https://drive.google.com/file/d/1qPxDJnLlzLqdk94X9wwVASptf1MPpI2w/view>.
+Identify and understand clusters of points (typically representing the
+locations of places or events) stored in simple-features (SF) objects.
+This is useful for analysing, for example, hot-spots of crime events. The
+package emphasises producing results from point SF data in a single step
+using reasonable default values for all other arguments, to aid rapid data
+analysis by users who are starting out. Functions available include kernel
+density estimation (for details, see Yip (2020)
+<doi:10.22224/gistbok/2020.1.12>), analysis of spatial association (Getis
+and Ord (1992) <doi:10.1111/j.1538-4632.1992.tb00261.x>) and hot-spot
+classification (Chainey (2020) ISBN:158948584X).
 
 %prep
 %setup -q -c -n %{packname}

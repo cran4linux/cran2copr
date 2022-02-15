@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MALDIrppa
-%global packver   1.0.5-1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          MALDI Mass Spectrometry Data Robust Pre-Processing and Analysis
 
@@ -15,14 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.2.5
 Requires:         R-core >= 3.2.5
+BuildArch:        noarch
 BuildRequires:    R-CRAN-MALDIquant 
 BuildRequires:    R-CRAN-signal 
 BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-waveslim 
 Requires:         R-CRAN-MALDIquant 
 Requires:         R-CRAN-signal 
 Requires:         R-CRAN-robustbase 
 Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-waveslim 
 
 %description
 Provides methods for quality control and robust pre-processing and

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  disk.frame
-%global packver   0.6.1
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Larger-than-RAM Disk-Based Data Manipulation Framework
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildRequires:    R-CRAN-jsonlite >= 1.6
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-crayon >= 1.3.4
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-bit64
 BuildRequires:    R-CRAN-benchmarkme 
 BuildRequires:    R-CRAN-globals 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-arrow 
 Requires:         R-CRAN-jsonlite >= 1.6
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-crayon >= 1.3.4
@@ -51,6 +52,7 @@ Requires:         R-CRAN-bit64
 Requires:         R-CRAN-benchmarkme 
 Requires:         R-CRAN-globals 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-arrow 
 
 %description
 A disk-based data manipulation tool for working with large-than-RAM

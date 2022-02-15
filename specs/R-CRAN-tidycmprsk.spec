@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tidycmprsk
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Competing Risks Estimation
 
@@ -16,31 +16,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-tibble >= 3.1.4
-BuildRequires:    R-CRAN-cli >= 3.0.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
+BuildRequires:    R-CRAN-tibble >= 3.1.6
+BuildRequires:    R-CRAN-cli >= 3.1.0
 BuildRequires:    R-CRAN-cmprsk >= 2.2.10
-BuildRequires:    R-CRAN-gtsummary >= 1.5.0
+BuildRequires:    R-CRAN-gtsummary >= 1.5.2
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-tidyr >= 1.1.4
 BuildRequires:    R-CRAN-dplyr >= 1.0.7
-BuildRequires:    R-CRAN-broom >= 0.7.9
-BuildRequires:    R-CRAN-rlang >= 0.4.11
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-broom >= 0.7.11
 BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-CRAN-hardhat >= 0.1.6
+BuildRequires:    R-CRAN-hardhat >= 0.2.0
 BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-tibble >= 3.1.4
-Requires:         R-CRAN-cli >= 3.0.1
+Requires:         R-CRAN-ggplot2 >= 3.3.5
+Requires:         R-CRAN-tibble >= 3.1.6
+Requires:         R-CRAN-cli >= 3.1.0
 Requires:         R-CRAN-cmprsk >= 2.2.10
-Requires:         R-CRAN-gtsummary >= 1.5.0
+Requires:         R-CRAN-gtsummary >= 1.5.2
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-tidyr >= 1.1.4
 Requires:         R-CRAN-dplyr >= 1.0.7
-Requires:         R-CRAN-broom >= 0.7.9
-Requires:         R-CRAN-rlang >= 0.4.11
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-broom >= 0.7.11
 Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-hardhat >= 0.1.6
+Requires:         R-CRAN-hardhat >= 0.2.0
 Requires:         R-CRAN-survival 
 
 %description

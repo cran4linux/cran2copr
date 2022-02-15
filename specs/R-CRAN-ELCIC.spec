@@ -1,47 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  robust2sls
+%global packname  ELCIC
 %global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Outlier Robust Two-Stage Least Squares Inference and Testing
+Summary:          The Empirical Likelihood-Based Consistent Information Criterion
 
-License:          GPL-3
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-AER 
-BuildRequires:    R-CRAN-doRNG 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mathjaxr 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-AER 
-Requires:         R-CRAN-doRNG 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-PoisNor 
+BuildRequires:    R-CRAN-bindata 
+BuildRequires:    R-CRAN-geepack 
+BuildRequires:    R-CRAN-wgeesel 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mathjaxr 
-Requires:         R-CRAN-pracma 
-Requires:         R-stats 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-PoisNor 
+Requires:         R-CRAN-bindata 
+Requires:         R-CRAN-geepack 
+Requires:         R-CRAN-wgeesel 
 
 %description
-An implementation of easy tools for outlier robust inference in two-stage
-least squares (2SLS) models. The user specifies a reference distribution
-against which observations are classified as outliers or not. After
-removing the outliers, adjusted standard errors are automatically
-provided. Furthermore, several statistical tests for the false outlier
-detection rate can be calculated. The outlier removing algorithm can be
-iterated a fixed number of times or until the procedure converges. The
-algorithms and robust inference are described in more detail in Jiao
-(2019)
-<https://drive.google.com/file/d/1qPxDJnLlzLqdk94X9wwVASptf1MPpI2w/view>.
+We developed a consistent and robust information criterion to conduct
+model selection for semiparametric models. It is free of distribution
+specification and powerful to locate the true model given large sample
+size. This package provides several usage of ELCIC with applications in
+generalized linear model (GLM), generalized estimating equation (GEE) for
+longitudinal data, and weighted GEE (WGEE) for missing longitudinal data
+under the mechanism of missing at random and drop-out. Chixaing Chen, Ming
+Wang, Rongling Wu, Runze Li (2020) <doi:10.5705/ss.202020.0254>.
 
 %prep
 %setup -q -c -n %{packname}

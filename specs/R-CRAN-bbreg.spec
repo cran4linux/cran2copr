@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bbreg
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bessel and Beta Regressions via Expectation-Maximization Algorithm for Continuous Bounded Data
 
@@ -30,8 +30,9 @@ Functions to fit, via Expectation-Maximization (EM) algorithm, the Bessel
 and Beta regressions to a data set with a bounded continuous response
 variable. The Bessel regression is a new and robust approach proposed in
 the literature. The EM version for the well known Beta regression is
-another major contribution of this package. See the reference
-Barreto-Souza, Mayrink and Simas (2020) <arXiv:2003.05157> for details.
+another major contribution of this package. See details in the references
+Barreto-Souza, Mayrink and Simas (2022) <doi:10.1111/anzs.12354> and
+Barreto-Souza, Mayrink and Simas (2020) <arXiv:2003.05157>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -41,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

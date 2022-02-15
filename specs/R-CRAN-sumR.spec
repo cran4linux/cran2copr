@@ -1,30 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RNifti
-%global packver   1.4.0
+%global packname  sumR
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast R and C++ Access to NIfTI Images
+Summary:          Approximates Summation of Discrete Series
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-CRAN-matrixStats 
+Requires:         R-CRAN-matrixStats 
 
 %description
-Provides very fast read and write access to images stored in the NIfTI-1,
-NIfTI-2 and ANALYZE-7.5 formats, with seamless synchronisation of
-in-memory image objects between compiled C and interpreted R code. Also
-provides a simple image viewer, and a C/C++ API that can be used by other
-packages. Not to be confused with 'RNiftyReg', which performs image
-registration and applies spatial transformations.
+Application of theoretical results which ensure that the summation of an
+infinite discrete series is within an arbitrary margin of error of its
+true value. The C code under the hood is shared through header files to
+allow users to sum their own low level functions as well. Based on the
+paper by Braden (1992) <doi: 10.2307/2324995>.
 
 %prep
 %setup -q -c -n %{packname}

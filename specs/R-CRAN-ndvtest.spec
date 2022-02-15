@@ -1,30 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RNifti
-%global packver   1.4.0
+%global packname  ndvtest
+%global packver   1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast R and C++ Access to NIfTI Images
+Summary:          Shi's Non Degenerate Vuong Test
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-nonnest2 
+BuildRequires:    R-CRAN-CompQuadForm 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-nonnest2 
+Requires:         R-CRAN-CompQuadForm 
 
 %description
-Provides very fast read and write access to images stored in the NIfTI-1,
-NIfTI-2 and ANALYZE-7.5 formats, with seamless synchronisation of
-in-memory image objects between compiled C and interpreted R code. Also
-provides a simple image viewer, and a C/C++ API that can be used by other
-packages. Not to be confused with 'RNiftyReg', which performs image
-registration and applies spatial transformations.
+The Vuong test <doi:10.2307/1912557> is a very popular test for non-nested
+models. Shi <doi:10.3982/QE382> proposed a non-degenerate version of the
+Vuong test using local asymptotic theory.
 
 %prep
 %setup -q -c -n %{packname}

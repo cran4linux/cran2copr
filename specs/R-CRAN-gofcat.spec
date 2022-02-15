@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gofcat
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Goodness-of-Fit Measures for Categorical Response Models
 
@@ -17,7 +17,6 @@ BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-VGAM >= 1.1.4
-BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-stats 
@@ -26,7 +25,6 @@ BuildRequires:    R-CRAN-epiR
 BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-VGAM >= 1.1.4
-Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-CRAN-crayon 
 Requires:         R-stats 

@@ -1,54 +1,51 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dexterMST
-%global packver   0.9.3
+%global packname  coala
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          CML and Bayesian Calibration of Multistage Tests
+Summary:          A Framework for Coalescent Simulation
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
-BuildRequires:    R-CRAN-igraph >= 1.2.1
-BuildRequires:    R-CRAN-dexter >= 1.1.4
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-rehh >= 3.0.0
+BuildRequires:    R-CRAN-R6 >= 2.0.1
+BuildRequires:    R-CRAN-scrm >= 1.6.0.2
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.3.810.0
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-CRAN-assertthat >= 0.1
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-igraph >= 1.2.1
-Requires:         R-CRAN-dexter >= 1.1.4
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-crayon 
-Requires:         R-graphics 
+Requires:         R-CRAN-rehh >= 3.0.0
+Requires:         R-CRAN-R6 >= 2.0.1
+Requires:         R-CRAN-scrm >= 1.6.0.2
+Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-CRAN-assertthat >= 0.1
+Requires:         R-CRAN-digest 
 Requires:         R-methods 
+Requires:         R-parallel 
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Conditional Maximum Likelihood Calibration and data management of
-multistage tests. Supports polytomous items and incomplete designs with
-linear as well as multistage tests. Extended Nominal Response and
-Interaction models, DIF and profile analysis. See Robert J. Zwitser and
-Gunter Maris (2015)<doi:10.1007/s11336-013-9369-6>.
+Coalescent simulators can rapidly simulate biological sequences evolving
+according to a given model of evolution. You can use this package to
+specify such models, to conduct the simulations and to calculate
+additional statistics from the results (Staab, Metzler, 2016
+<doi:10.1093/bioinformatics/btw098>). It relies on existing simulators for
+doing the simulation, and currently supports the programs 'ms', 'msms' and
+'scrm'. It also supports finite-sites mutation models by combining the
+simulators with the program 'seq-gen'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,30 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RNifti
-%global packver   1.4.0
+%global packname  audubon
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast R and C++ Access to NIfTI Images
+Summary:          Japanese Text Processing Tools
 
-License:          GPL-2
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 0.4.11
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-V8 
+Requires:         R-CRAN-rlang >= 0.4.11
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-V8 
 
 %description
-Provides very fast read and write access to images stored in the NIfTI-1,
-NIfTI-2 and ANALYZE-7.5 formats, with seamless synchronisation of
-in-memory image objects between compiled C and interpreted R code. Also
-provides a simple image viewer, and a C/C++ API that can be used by other
-packages. Not to be confused with 'RNiftyReg', which performs image
-registration and applies spatial transformations.
+A collection of Japanese text processing tools for filling Japanese
+iteration marks, Japanese character type conversions, segmentation by
+phrase, and text normalization which is based on rules for the 'Sudachi'
+morphological analyzer and the 'NEologd' (Neologism dictionary for
+'MeCab').  These features are specific to Japanese and are not implemented
+in 'ICU' (International Components for Unicode).
 
 %prep
 %setup -q -c -n %{packname}

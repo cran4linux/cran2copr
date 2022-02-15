@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  VGAM
-%global packver   1.1-5
+%global packver   1.1-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Vector Generalized Linear and Additive Models
 
@@ -33,7 +33,7 @@ thought of as multivariate GLMs. VGAMs are data-driven VGLMs that use
 smoothing. The book "Vector Generalized Linear and Additive Models: With
 an Implementation in R" (Yee, 2015) <DOI:10.1007/978-1-4939-2818-7> gives
 details of the statistical framework and the package. Currently only
-fixed-effects models are implemented. Many (150+) models and distributions
+fixed-effects models are implemented. Many (100+) models and distributions
 are estimated by maximum likelihood estimation (MLE) or penalized MLE. The
 other classes are RR-VGLMs (reduced-rank VGLMs), quadratic RR-VGLMs,
 reduced-rank VGAMs, RCIMs (row-column interaction models)---these classes
@@ -51,6 +51,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

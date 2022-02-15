@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  VGAMdata
-%global packver   1.1-6
+%global packname  metacore
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Supporting the 'VGAM' Package
+Summary:          A Centralized Metadata Object Focus on Clinical Trial Data Programming Workflows
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,22 +16,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-VGAM 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-VGAM 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Mainly data sets to accompany the VGAM package and the book "Vector
-Generalized Linear and Additive Models: With an Implementation in R" (Yee,
-2015) <DOI:10.1007/978-1-4939-2818-7>. These are used to illustrate vector
-generalized linear and additive models (VGLMs/VGAMs), and associated
-models (Reduced-Rank VGLMs, Quadratic RR-VGLMs, Row-Column Interaction
-Models, and constrained and unconstrained ordination models in ecology).
-This package now contains some old VGAM family functions which have been
-replaced by newer ones (often because they are now special cases).
+Create an immutable container holding metadata for the purpose of better
+enabling programming activities and functionality of other packages within
+the clinical programming workflow.
 
 %prep
 %setup -q -c -n %{packname}

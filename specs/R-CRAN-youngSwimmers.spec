@@ -1,30 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RNifti
-%global packver   1.4.0
+%global packname  youngSwimmers
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast R and C++ Access to NIfTI Images
+Summary:          Young Swimmers Dataset
 
-License:          GPL-2
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Provides very fast read and write access to images stored in the NIfTI-1,
-NIfTI-2 and ANALYZE-7.5 formats, with seamless synchronisation of
-in-memory image objects between compiled C and interpreted R code. Also
-provides a simple image viewer, and a C/C++ API that can be used by other
-packages. Not to be confused with 'RNiftyReg', which performs image
-registration and applies spatial transformations.
+Dataset from the young elite swimmers study.
 
 %prep
 %setup -q -c -n %{packname}

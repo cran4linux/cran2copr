@@ -1,30 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RNifti
-%global packver   1.4.0
+%global packname  scrm
+%global packver   1.7.4-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.7.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast R and C++ Access to NIfTI Images
+Summary:          Simulating the Evolution of Biological Sequences
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-Rcpp >= 0.11.2
+Requires:         R-CRAN-Rcpp >= 0.11.2
 
 %description
-Provides very fast read and write access to images stored in the NIfTI-1,
-NIfTI-2 and ANALYZE-7.5 formats, with seamless synchronisation of
-in-memory image objects between compiled C and interpreted R code. Also
-provides a simple image viewer, and a C/C++ API that can be used by other
-packages. Not to be confused with 'RNiftyReg', which performs image
-registration and applies spatial transformations.
+A coalescent simulator that allows the rapid simulation of biological
+sequences under neutral models of evolution. Different to other coalescent
+based simulations, it has an optional approximation parameter that allows
+for high accuracy while maintaining a linear run time cost for long
+sequences. It is optimized for simulating massive data sets as produced by
+Next- Generation Sequencing technologies for up to several thousand
+sequences.
 
 %prep
 %setup -q -c -n %{packname}

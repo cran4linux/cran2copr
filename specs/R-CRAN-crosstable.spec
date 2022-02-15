@@ -1,47 +1,55 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cricketdata
-%global packver   0.1.1
+%global packname  crosstable
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          International Cricket Data
+Summary:          Crosstables for Descriptive Analyses
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-flextable >= 0.5.8
+BuildRequires:    R-CRAN-rlang >= 0.4.7
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rvest 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-flextable >= 0.5.8
+Requires:         R-CRAN-rlang >= 0.4.7
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-officer 
+Requires:         R-CRAN-purrr 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Data on international and other major cricket matches from ESPNCricinfo
-<https://www.espncricinfo.com> and Cricsheet <https://cricsheet.org>. This
-package provides some functions to download the data into tibbles ready
-for analysis.
+Create descriptive tables for continuous and categorical variables. Apply
+summary statistics and counting function, with or without a grouping
+variable, and create beautiful reports using 'rmarkdown' or 'officer'. You
+can also compute effect sizes and statistical tests if needed.
 
 %prep
 %setup -q -c -n %{packname}

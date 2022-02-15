@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SPlit
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Split a Dataset for Training and Testing
 
@@ -22,9 +22,9 @@ Requires:         R-CRAN-Rcpp >= 1.0.4
 %description
 Procedure to optimally split a dataset for training and testing. 'SPlit'
 is based on the method of support points, which is independent of modeling
-methods. Please see Joseph and Vakayil (2020) <arXiv:2012.10945> for
-details. This work is supported by U.S. National Science Foundation grant
-CBET-1921873.
+methods. Please see Joseph and Vakayil (2021)
+<doi:10.1080/00401706.2021.1921037> for details. This work is supported by
+U.S. National Science Foundation grant DMREF-1921873.
 
 %prep
 %setup -q -c -n %{packname}
@@ -34,6 +34,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

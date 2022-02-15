@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  FastJM
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Semi-Parametric Joint Modeling of Longitudinal and Survival Data
 
@@ -34,12 +34,12 @@ Requires:         R-CRAN-mvtnorm
 %description
 Maximum likelihood estimation for the semi-parametric joint modeling of
 competing risks and longitudinal data applying customized linear scan
-algorithms, proposed by Li and colleagues (2021) <arXiv:2110.14822>. The
-time-to-event data is modelled using a (cause-specific) Cox proportional
-hazards regression model with time-fixed covariates. The longitudinal
-outcome is modelled using a linear mixed effects model. The association is
-captured by shared random effects. The model is estimated using an
-Expectation Maximization algorithm.
+algorithms, proposed by Li and colleagues (2022)
+<doi:10.1155/2022/1362913>. The time-to-event data is modelled using a
+(cause-specific) Cox proportional hazards regression model with time-fixed
+covariates. The longitudinal outcome is modelled using a linear mixed
+effects model. The association is captured by shared random effects. The
+model is estimated using an Expectation Maximization algorithm.
 
 %prep
 %setup -q -c -n %{packname}
