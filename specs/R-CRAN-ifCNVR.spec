@@ -1,45 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  see
-%global packver   0.6.9
+%global packname  ifCNVR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualisation Toolbox for 'easystats' and Extra Geoms, Themes and Color Palettes for 'ggplot2'
+Summary:          Isolation-Forest Based 'CNV' Detection from 'NGS' Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
-BuildRequires:    R-CRAN-effectsize >= 0.5
-BuildRequires:    R-CRAN-datawizard >= 0.2.2.9000
-BuildRequires:    R-CRAN-parameters >= 0.15.0
-BuildRequires:    R-CRAN-insight >= 0.14.5
-BuildRequires:    R-CRAN-bayestestR >= 0.11.5
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 >= 3.3.5
-Requires:         R-CRAN-effectsize >= 0.5
-Requires:         R-CRAN-datawizard >= 0.2.2.9000
-Requires:         R-CRAN-parameters >= 0.15.0
-Requires:         R-CRAN-insight >= 0.14.5
-Requires:         R-CRAN-bayestestR >= 0.11.5
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-isotree 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-isotree 
 
 %description
-Provides plotting utilities supporting easystats-packages
-(<https://github.com/easystats/easystats>) and some extra themes, geoms,
-and scales for 'ggplot2'. Color scales are based on
-<https://materialui.co/colors>.
+Automatically detects Copy Number Variations (CNV) from Next Generation
+Sequencing data using a machine learning algorithm, Isolation forest. More
+details about the method can be found in the paper by Cabello-Aguilar
+(2022) <doi:10.1101/2022.01.03.474771>.
 
 %prep
 %setup -q -c -n %{packname}

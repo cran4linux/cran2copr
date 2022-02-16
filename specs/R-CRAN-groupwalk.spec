@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  groupwalk
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Implement the Group Walk Algorithm
 
@@ -18,9 +18,9 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-A procedure that allows the user to reject multiple hypotheses in the
-presence of group structure, while controlling the false discovery rate
-(FDR).
+A procedure that uses target-decoy competition (or knockoffs) to reject
+multiple hypotheses in the presence of group structure. The procedure
+controls the false discovery rate (FDR) at a user-specified threshold.
 
 %prep
 %setup -q -c -n %{packname}

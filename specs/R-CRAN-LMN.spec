@@ -1,45 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  see
-%global packver   0.6.9
+%global packname  LMN
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.9
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualisation Toolbox for 'easystats' and Extra Geoms, Themes and Color Palettes for 'ggplot2'
+Summary:          Inference for Linear Models with Nuisance Parameters
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
-BuildRequires:    R-CRAN-effectsize >= 0.5
-BuildRequires:    R-CRAN-datawizard >= 0.2.2.9000
-BuildRequires:    R-CRAN-parameters >= 0.15.0
-BuildRequires:    R-CRAN-insight >= 0.14.5
-BuildRequires:    R-CRAN-bayestestR >= 0.11.5
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.12.4.4
+BuildRequires:    R-CRAN-SuperGauss 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 >= 3.3.5
-Requires:         R-CRAN-effectsize >= 0.5
-Requires:         R-CRAN-datawizard >= 0.2.2.9000
-Requires:         R-CRAN-parameters >= 0.15.0
-Requires:         R-CRAN-insight >= 0.14.5
-Requires:         R-CRAN-bayestestR >= 0.11.5
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 0.12.4.4
+Requires:         R-CRAN-SuperGauss 
 Requires:         R-stats 
 
 %description
-Provides plotting utilities supporting easystats-packages
-(<https://github.com/easystats/easystats>) and some extra themes, geoms,
-and scales for 'ggplot2'. Color scales are based on
-<https://materialui.co/colors>.
+Efficient Frequentist profiling and Bayesian marginalization of parameters
+for which the conditional likelihood is that of a multivariate linear
+regression model.  Arbitrary inter-observation error correlations are
+supported, with optimized calculations provided for
+independent-heteroskedastic and stationary dependence structures.
 
 %prep
 %setup -q -c -n %{packname}

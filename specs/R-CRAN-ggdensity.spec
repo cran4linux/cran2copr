@@ -1,45 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  see
-%global packver   0.6.9
+%global packname  ggdensity
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.9
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualisation Toolbox for 'easystats' and Extra Geoms, Themes and Color Palettes for 'ggplot2'
+Summary:          Interpretable Bivariate Density Visualization with ggplot2
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
-BuildRequires:    R-CRAN-effectsize >= 0.5
-BuildRequires:    R-CRAN-datawizard >= 0.2.2.9000
-BuildRequires:    R-CRAN-parameters >= 0.15.0
-BuildRequires:    R-CRAN-insight >= 0.14.5
-BuildRequires:    R-CRAN-bayestestR >= 0.11.5
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-isoband 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 >= 3.3.5
-Requires:         R-CRAN-effectsize >= 0.5
-Requires:         R-CRAN-datawizard >= 0.2.2.9000
-Requires:         R-CRAN-parameters >= 0.15.0
-Requires:         R-CRAN-insight >= 0.14.5
-Requires:         R-CRAN-bayestestR >= 0.11.5
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-isoband 
+Requires:         R-CRAN-MASS 
 Requires:         R-stats 
+Requires:         R-CRAN-scales 
 
 %description
-Provides plotting utilities supporting easystats-packages
-(<https://github.com/easystats/easystats>) and some extra themes, geoms,
-and scales for 'ggplot2'. Color scales are based on
-<https://materialui.co/colors>.
+The 'ggplot2' package provides simple functions for visualizing contours
+of 2-d kernel density estimates. 'ggdensity' implements several additional
+density estimators as well as more interpretable visualizations based on
+highest density regions instead of the traditional height of the estimated
+density surface.
 
 %prep
 %setup -q -c -n %{packname}

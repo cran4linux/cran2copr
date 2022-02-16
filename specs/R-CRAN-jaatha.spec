@@ -1,45 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  see
-%global packver   0.6.9
+%global packname  jaatha
+%global packver   3.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.9
+Version:          3.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualisation Toolbox for 'easystats' and Extra Geoms, Themes and Color Palettes for 'ggplot2'
+Summary:          Simulation-Based Maximum Likelihood Parameter Estimation
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
-BuildRequires:    R-CRAN-effectsize >= 0.5
-BuildRequires:    R-CRAN-datawizard >= 0.2.2.9000
-BuildRequires:    R-CRAN-parameters >= 0.15.0
-BuildRequires:    R-CRAN-insight >= 0.14.5
-BuildRequires:    R-CRAN-bayestestR >= 0.11.5
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-R6 >= 2.1.1
+BuildRequires:    R-CRAN-assertthat >= 0.1
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 >= 3.3.5
-Requires:         R-CRAN-effectsize >= 0.5
-Requires:         R-CRAN-datawizard >= 0.2.2.9000
-Requires:         R-CRAN-parameters >= 0.15.0
-Requires:         R-CRAN-insight >= 0.14.5
-Requires:         R-CRAN-bayestestR >= 0.11.5
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-R6 >= 2.1.1
+Requires:         R-CRAN-assertthat >= 0.1
+Requires:         R-parallel 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Provides plotting utilities supporting easystats-packages
-(<https://github.com/easystats/easystats>) and some extra themes, geoms,
-and scales for 'ggplot2'. Color scales are based on
-<https://materialui.co/colors>.
+An estimation method that can use computer simulations to approximate
+maximum-likelihood estimates even when the likelihood function can not be
+evaluated directly. It can be applied whenever it is feasible to conduct
+many simulations, but works best when the data is approximately Poisson
+distributed. It was originally designed for demographic inference in
+evolutionary biology (Naduvilezhath et al., 2011
+<doi:10.1111/j.1365-294X.2011.05131.x>, Mathew et al., 2013
+<doi:10.1002/ece3.722>). It has optional support for conducting coalescent
+simulation using the 'coala' package.
 
 %prep
 %setup -q -c -n %{packname}

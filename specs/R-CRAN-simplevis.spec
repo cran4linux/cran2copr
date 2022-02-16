@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  simplevis
-%global packver   6.0.0
+%global packver   6.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.0
+Version:          6.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple 'ggplot2' and 'leaflet' Visualisation with Less Brainpower
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-htmlwidgets
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-leafem 
 BuildRequires:    R-CRAN-leafpop 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-plotly 
@@ -45,7 +44,6 @@ Requires:         R-CRAN-htmlwidgets
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-leafem 
 Requires:         R-CRAN-leafpop 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-plotly 

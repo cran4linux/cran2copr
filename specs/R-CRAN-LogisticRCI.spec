@@ -1,45 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  see
-%global packver   0.6.9
+%global packname  LogisticRCI
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.9
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualisation Toolbox for 'easystats' and Extra Geoms, Themes and Color Palettes for 'ggplot2'
+Summary:          Linear and Logistic Regression-Based Reliable Change Index
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
-BuildRequires:    R-CRAN-effectsize >= 0.5
-BuildRequires:    R-CRAN-datawizard >= 0.2.2.9000
-BuildRequires:    R-CRAN-parameters >= 0.15.0
-BuildRequires:    R-CRAN-insight >= 0.14.5
-BuildRequires:    R-CRAN-bayestestR >= 0.11.5
+BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 >= 3.3.5
-Requires:         R-CRAN-effectsize >= 0.5
-Requires:         R-CRAN-datawizard >= 0.2.2.9000
-Requires:         R-CRAN-parameters >= 0.15.0
-Requires:         R-CRAN-insight >= 0.14.5
-Requires:         R-CRAN-bayestestR >= 0.11.5
+BuildRequires:    R-utils 
+Requires:         R-methods 
 Requires:         R-graphics 
-Requires:         R-grDevices 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Provides plotting utilities supporting easystats-packages
-(<https://github.com/easystats/easystats>) and some extra themes, geoms,
-and scales for 'ggplot2'. Color scales are based on
-<https://materialui.co/colors>.
+Here we provide an implementation of the linear and logistic
+regression-based Reliable Change Index (RCI), to be used with lm and
+binomial glm model objects, respectively, following Moral et al.
+<https://psyarxiv.com/gq7az/>. The RCI function returns a score assumed to
+be approximately normally distributed, which is helpful to detect patients
+that may present cognitive decline.
 
 %prep
 %setup -q -c -n %{packname}

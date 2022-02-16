@@ -1,45 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  see
-%global packver   0.6.9
+%global packname  epidm
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.9
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualisation Toolbox for 'easystats' and Extra Geoms, Themes and Color Palettes for 'ggplot2'
+Summary:          UK Epidemiological Data Management
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
-BuildRequires:    R-CRAN-effectsize >= 0.5
-BuildRequires:    R-CRAN-datawizard >= 0.2.2.9000
-BuildRequires:    R-CRAN-parameters >= 0.15.0
-BuildRequires:    R-CRAN-insight >= 0.14.5
-BuildRequires:    R-CRAN-bayestestR >= 0.11.5
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-odbc 
+BuildRequires:    R-CRAN-phonics 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 >= 3.3.5
-Requires:         R-CRAN-effectsize >= 0.5
-Requires:         R-CRAN-datawizard >= 0.2.2.9000
-Requires:         R-CRAN-parameters >= 0.15.0
-Requires:         R-CRAN-insight >= 0.14.5
-Requires:         R-CRAN-bayestestR >= 0.11.5
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-odbc 
+Requires:         R-CRAN-phonics 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
 Requires:         R-stats 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringr 
+Requires:         R-utils 
 
 %description
-Provides plotting utilities supporting easystats-packages
-(<https://github.com/easystats/easystats>) and some extra themes, geoms,
-and scales for 'ggplot2'. Color scales are based on
-<https://materialui.co/colors>.
+Contains utilities and functions for the cleaning, processing and
+management of patient level public health data for surveillance and
+analysis held by the UK Health Security Agency, UKHSA.
 
 %prep
 %setup -q -c -n %{packname}

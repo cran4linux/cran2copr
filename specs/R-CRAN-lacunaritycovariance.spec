@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  lacunaritycovariance
-%global packver   1.1-2
+%global packver   1.1-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gliding Box Lacunarity and Other Metrics for 2D Random Closed Sets
 
@@ -18,14 +18,14 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-spatstat.core >= 2.3.0
 BuildRequires:    R-CRAN-spatstat >= 2.0.0
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.linnet 
 BuildRequires:    R-CRAN-RcppRoll 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.random 
 Requires:         R-CRAN-spatstat.core >= 2.3.0
 Requires:         R-CRAN-spatstat >= 2.0.0
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.linnet 
 Requires:         R-CRAN-RcppRoll 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.random 
 
 %description
 Functions for estimating the gliding box lacunarity (GBL), covariance, and

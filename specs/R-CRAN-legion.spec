@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  legion
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forecasting Using Multivariate Models
 
@@ -16,25 +16,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-smooth >= 3.1.0
+BuildRequires:    R-CRAN-greybox >= 1.0.4
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.8.100.0.0
-BuildRequires:    R-CRAN-greybox >= 0.6.9
 BuildRequires:    R-CRAN-Rcpp >= 0.12.3
+BuildRequires:    R-CRAN-generics >= 0.1.2
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-smooth >= 3.1.0
-Requires:         R-CRAN-greybox >= 0.6.9
+Requires:         R-CRAN-greybox >= 1.0.4
 Requires:         R-CRAN-Rcpp >= 0.12.3
+Requires:         R-CRAN-generics >= 0.1.2
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-statmod 
 Requires:         R-CRAN-nloptr 
 Requires:         R-utils 
 Requires:         R-CRAN-zoo 
@@ -55,6 +53,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
