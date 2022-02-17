@@ -1,36 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Rfast
-%global packver   2.0.6
+%global packname  frictionless
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Collection of Efficient and Extremely Fast R Functions
+Summary:          Read and Write Frictionless Data Packages
 
-License:          GPL (>= 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.3
-BuildRequires:    R-CRAN-RcppZiggurat 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.3
-Requires:         R-CRAN-RcppZiggurat 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-readr >= 2.1.0
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-readr >= 2.1.0
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-purrr 
+Requires:         R-utils 
+Requires:         R-CRAN-yaml 
 
 %description
-A collection of fast (utility) functions for data analysis. Column- and
-row- wise means, medians, variances, minimums, maximums, many t, F and
-G-square tests, many regressions (normal, logistic, Poisson), are some of
-the many fast functions. References: a) Tsagris M., Papadakis M. (2018).
-Taking R to its limits: 70+ tips. PeerJ Preprints 6:e26605v1
-<doi:10.7287/peerj.preprints.26605v1>. b) Tsagris M. and Papadakis M.
-(2018). Forward regression in R: from the extreme slow to the extreme
-fast. Journal of Data Science, 16(4): 771--780.
-<doi:10.6339/JDS.201810_16(4).00006>.
+Read and write Frictionless Data Packages. A 'Data Package'
+(<https://specs.frictionlessdata.io/data-package/>) is a simple container
+format and standard to describe and package a collection of (tabular)
+data. It is typically used to publish FAIR
+(<https://www.go-fair.org/fair-principles/>) and open datasets.
 
 %prep
 %setup -q -c -n %{packname}

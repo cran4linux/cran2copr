@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
 %global packname  serp
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Smooth Effects on Response Penalty for 'CLM'
+Summary:          Smooth Effects on Response Penalty for CLM
 
-License:          GPL-2 | file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -25,8 +25,8 @@ Requires:         R-stats
 
 %description
 A regularization method for the cumulative link models.  The
-'smooth-effect-on-response penalty' ('SERP') provides flexible modelling
-of the ordinal model by enabling the smooth transition from the general
+smooth-effect-on-response penalty (SERP) provides flexible modelling of
+the ordinal model by enabling the smooth transition from the general
 cumulative link model to a coarser form of the same model. In other words,
 as the tuning parameter goes from zero to infinity, the subject-specific
 effects associated with each variable in the model tend to a unique global
@@ -37,9 +37,8 @@ non-penalized log-likelihood, this and other numerical problems common
 with the general model are to a large extent eliminated. Fitting is via a
 modified Newton's method. Several standard model performance and
 descriptive methods are also available. For more details on the penalty
-implemented here, see, 'Ugba (2021)' <doi:10.21105/joss.03705>, 'Ugba et
-al. (2021)' <doi:10.3390/stats4030037> and 'Tutz and Gertheiss (2016)'
-<doi:10.1177/1471082X16642560>.
+implemented here, see, Ugba (2021) <doi:10.21105/joss.03705> and Ugba et
+al. (2021) <doi:10.3390/stats4030037>.
 
 %prep
 %setup -q -c -n %{packname}

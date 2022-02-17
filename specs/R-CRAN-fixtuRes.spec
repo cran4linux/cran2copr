@@ -1,36 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Rfast
-%global packver   2.0.6
+%global packname  fixtuRes
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.6
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Collection of Efficient and Extremely Fast R Functions
+Summary:          Mock Data Generator
 
-License:          GPL (>= 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.3
-BuildRequires:    R-CRAN-RcppZiggurat 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.3
-Requires:         R-CRAN-RcppZiggurat 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-stringi 
+Requires:         R-stats 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-dplyr 
 
 %description
-A collection of fast (utility) functions for data analysis. Column- and
-row- wise means, medians, variances, minimums, maximums, many t, F and
-G-square tests, many regressions (normal, logistic, Poisson), are some of
-the many fast functions. References: a) Tsagris M., Papadakis M. (2018).
-Taking R to its limits: 70+ tips. PeerJ Preprints 6:e26605v1
-<doi:10.7287/peerj.preprints.26605v1>. b) Tsagris M. and Papadakis M.
-(2018). Forward regression in R: from the extreme slow to the extreme
-fast. Journal of Data Science, 16(4): 771--780.
-<doi:10.6339/JDS.201810_16(4).00006>.
+Generate mock data in R using YAML configuration.
 
 %prep
 %setup -q -c -n %{packname}

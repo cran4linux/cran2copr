@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RCPA3
-%global packver   1.1.1
+%global packname  SpaDES
+%global packver   2.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          2.0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data and Functions for R Companion to Political Analysis 3rd Ed
+Summary:          Develop and Run Spatially Explicit Discrete Event Simulation Models
 
-License:          CC0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,40 +16,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-beepr 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-descr 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-reproducible >= 1.2.1.9007
+BuildRequires:    R-CRAN-SpaDES.core >= 1.0.4
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-quickPlot 
+BuildRequires:    R-CRAN-SpaDES.tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-weights 
-Requires:         R-CRAN-beepr 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-descr 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-reproducible >= 1.2.1.9007
+Requires:         R-CRAN-SpaDES.core >= 1.0.4
 Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-survey 
+Requires:         R-CRAN-quickPlot 
+Requires:         R-CRAN-SpaDES.tools 
 Requires:         R-utils 
-Requires:         R-CRAN-weights 
 
 %description
-Bundles the datasets and functions featured in Philip H. Pollock and Barry
-C. Edwards (Forthcoming 2022)<https://edge.sagepub.com/pollock>, "An R
-Companion to Political Analysis, 3rd Edition," Thousand Oaks, CA: Sage
-Publications.
+Metapackage for implementing a variety of event-based models, with a focus
+on spatially explicit models. These include raster-based, event-based, and
+agent-based models. The core simulation components (provided by
+'SpaDES.core') are built upon a discrete event simulation (DES; see
+Matloff (2011) ch 7.8.3 <https://nostarch.com/artofr.htm>) framework that
+facilitates modularity, and easily enables the user to include additional
+functionality by running user-built simulation modules (see also
+'SpaDES.tools'). Included are numerous tools to visualize rasters and
+other maps (via 'quickPlot'), and caching methods for reproducible
+simulations (via 'reproducible'). Tools for running simulation experiments
+are provided by 'SpaDES.experiment'. Additional functionality is provided
+by the 'SpaDES.addins' and 'SpaDES.shiny' packages.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rhype
-%global packver   0.0.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Work with Hypergraphs in R
 
@@ -16,8 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-RSpectra 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-RSpectra 
 
 %description
 Create and manipulate hypergraph objects. This early version of rhype

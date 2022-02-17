@@ -1,45 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fdacluster
-%global packver   0.1.0
+%global packname  supercells
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Joint Clustering and Alignment of Functional Data
+Summary:          Superpixels of Spatial Data
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-nloptr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-terra >= 1.4.21
+BuildRequires:    R-CRAN-philentropy >= 0.6.0
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-terra >= 1.4.21
+Requires:         R-CRAN-philentropy >= 0.6.0
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-future.apply 
 
 %description
-Revisited clustering approaches to accommodate functional data by allowing
-to jointly align the data during the clustering process. Currently, shift,
-dilation and affine transformations only are available to perform
-alignment. The k-mean algorithm has been extended to integrate alignment
-and is fully parallelized. Hierarchical clustering will soon be available
-as well.
+Creates superpixels based on input spatial data. This package works on
+spatial data with one variable (e.g., continuous raster), many variables
+(e.g., RGB rasters), and spatial patterns (e.g., areas in categorical
+rasters). It is based on the SLIC algorithm (Achanta et al. (2012)
+<doi:10.1109/TPAMI.2012.120>), and readapts it to work with arbitrary
+dissimilarity measures.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,47 +1,57 @@
 %global __brp_check_rpaths %{nil}
-%global packname  regweight
-%global packver   1.0.2
+%global packname  campsis
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convenience Functions for Implicit Regression Weights
+Summary:          Generic PK/PD Simulation Platform CAMPSIS
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-campsismod 
+BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-gt 
-BuildRequires:    R-CRAN-lpdensity 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-campsismod 
+Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-gt 
-Requires:         R-CRAN-lpdensity 
+Requires:         R-CRAN-MASS 
+Requires:         R-methods 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
 
 %description
-A simple wrapper for calculating regression weights as defined by Aronow
-and Samii (2015) <doi:10.1111/ajps.12185>. Given a model object and a term
-of interest, 'regweight' will calculate implicit regression weights and
-provide a variety of useful visualizations and summary statistics.
+A generic, easy-to-use and intuitive PK/PD simulation platform based on R
+packages 'RxODE' and 'mrgsolve'. CAMPSIS provides an abstraction layer
+over the underlying processes of writing a PK/PD model, assembling a
+custom dataset and running a simulation. CAMPSIS has a strong dependency
+to the R package 'campsismod', which allows to read/write a model from/to
+files and adapt it further on the fly in the R environment. Package
+'campsis' allows the user to assemble a dataset in an intuitive manner.
+Once the user’s dataset is ready, the package is in charge of preparing
+the simulation, calling 'RxODE' or 'mrgsolve' and returning the results,
+for the given model, dataset and desired simulation settings.
 
 %prep
 %setup -q -c -n %{packname}

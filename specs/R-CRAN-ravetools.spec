@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ravetools
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Signal Processing Toolbox for Analyzing 'Electrophysiology' Data
 
@@ -15,7 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-RcppParallel >= 5.1.5
 BuildRequires:    R-CRAN-waveslim >= 1.8.2
 BuildRequires:    R-CRAN-Rcpp >= 1.0.8
 BuildRequires:    R-CRAN-signal >= 0.7.7
@@ -23,7 +22,6 @@ BuildRequires:    R-CRAN-digest >= 0.6.29
 BuildRequires:    R-CRAN-filearray >= 0.1.3
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-RcppParallel >= 5.1.5
 Requires:         R-CRAN-waveslim >= 1.8.2
 Requires:         R-CRAN-Rcpp >= 1.0.8
 Requires:         R-CRAN-signal >= 0.7.7

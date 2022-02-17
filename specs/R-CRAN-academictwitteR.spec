@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  academictwitteR
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access the Twitter Academic Research Product Track V2 API Endpoint
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
@@ -38,6 +39,7 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-utils 
 
 %description
 Package to query the Twitter Academic Research Product Track, providing

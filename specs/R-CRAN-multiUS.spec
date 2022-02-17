@@ -1,36 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Rfast
-%global packver   2.0.6
+%global packname  multiUS
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.6
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Collection of Efficient and Extremely Fast R Functions
+Summary:          Functions for the Courses Multivariate Analysis and Computer Intensive Methods
 
-License:          GPL (>= 2.0)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.3
-BuildRequires:    R-CRAN-RcppZiggurat 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.3
-Requires:         R-CRAN-RcppZiggurat 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-gplots 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-CRAN-gplots 
+Requires:         R-graphics 
+Requires:         R-CRAN-MASS 
 
 %description
-A collection of fast (utility) functions for data analysis. Column- and
-row- wise means, medians, variances, minimums, maximums, many t, F and
-G-square tests, many regressions (normal, logistic, Poisson), are some of
-the many fast functions. References: a) Tsagris M., Papadakis M. (2018).
-Taking R to its limits: 70+ tips. PeerJ Preprints 6:e26605v1
-<doi:10.7287/peerj.preprints.26605v1>. b) Tsagris M. and Papadakis M.
-(2018). Forward regression in R: from the extreme slow to the extreme
-fast. Journal of Data Science, 16(4): 771--780.
-<doi:10.6339/JDS.201810_16(4).00006>.
+Provides utility functions for multivariate analysis (factor analysis,
+discriminant analysis, and others). The package is primary written for the
+course Multivariate analysis and for the course Computer intensive methods
+at the masters program of Applied Statistics at University of Ljubljana.
 
 %prep
 %setup -q -c -n %{packname}

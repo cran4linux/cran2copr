@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bigsnpr
-%global packver   1.9.11
+%global packname  respR
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.11
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Massive SNP Arrays
+Summary:          Import, Process, Analyse, and Calculate Rates from Respirometry Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,42 +15,58 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
-BuildRequires:    R-CRAN-bigstatsr >= 1.5.6
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.600
-BuildRequires:    R-CRAN-bigsparser >= 0.5
-BuildRequires:    R-CRAN-bigutilsr >= 0.3.3
-BuildRequires:    R-CRAN-bigassertr >= 0.1.3
-BuildRequires:    R-CRAN-bigparallelr 
-BuildRequires:    R-CRAN-bigreadr 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-marelac 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-roll 
+BuildRequires:    R-CRAN-segmented 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-rmio 
-Requires:         R-CRAN-bigstatsr >= 1.5.6
-Requires:         R-CRAN-bigsparser >= 0.5
-Requires:         R-CRAN-bigutilsr >= 0.3.3
-Requires:         R-CRAN-bigassertr >= 0.1.3
-Requires:         R-CRAN-bigparallelr 
-Requires:         R-CRAN-bigreadr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glue 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-marelac 
 Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-roll 
+Requires:         R-CRAN-segmented 
 Requires:         R-stats 
-Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-stringr 
+Requires:         R-utils 
+Requires:         R-CRAN-xml2 
 
 %description
-Easy-to-use, efficient, flexible and scalable tools for analyzing massive
-SNP arrays. Privé et al. (2018) <doi:10.1093/bioinformatics/bty185>.
+Provides a structural, reproducible workflow for the processing and
+analysis of respirometry data. It contains analytical functions and
+utilities for working with oxygen time-series to determine respiration or
+oxygen production rates, and to make it easier to report and share
+analyses.
 
 %prep
 %setup -q -c -n %{packname}
