@@ -1,29 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rmio
-%global packver   0.4.0
+%global packname  icesSAG
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Provides 'mio' C++11 Header Files
+Summary:          Stock Assessment Graphs Database Web Services
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bigassertr 
-BuildRequires:    R-CRAN-ff 
-Requires:         R-CRAN-bigassertr 
-Requires:         R-CRAN-ff 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-icesVocab 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-icesVocab 
 
 %description
-Provides header files of 'mio', a cross-platform C++11 header-only library
-for memory mapped file IO <https://github.com/mandreyel/mio>.
+R interface to access the web services of the ICES Stock Assessment Graphs
+database <https://sg.ices.dk>.
 
 %prep
 %setup -q -c -n %{packname}

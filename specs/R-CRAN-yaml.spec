@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  yaml
-%global packver   2.2.2
+%global packver   2.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          2.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods to Convert R Data to YAML and Back
 

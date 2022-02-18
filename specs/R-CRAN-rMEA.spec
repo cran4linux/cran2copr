@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rMEA
-%global packver   1.2.0
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Synchrony in Motion Energy Analysis (MEA) Time-Series
 
@@ -32,15 +32,23 @@ A suite of tools useful to read, visualize and export bivariate motion
 energy time-series. Lagged synchrony between subjects can be analyzed
 through windowed cross-correlation. Surrogate data generation allows an
 estimation of pseudosynchrony that helps to estimate the effect size of
-the observed synchronization. Ramseyer & Tschacher (2011)
-<doi:10.1037/a0023419>.
+the observed synchronization. Kleinbub, J. R., & Ramseyer, F. T. (2020).
+rMEA: An R package to assess nonverbal synchronization in motion energy
+analysis time-series. Psychotherapy research, 1-14.
+<doi:10.1080/10503307.2020.1844334>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -50,6 +58,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

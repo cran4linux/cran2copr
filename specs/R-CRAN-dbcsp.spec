@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dbcsp
-%global packver   0.0.1.0
+%global packver   0.0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.0
+Version:          0.0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distance-Based Common Spatial Patterns
 
@@ -17,25 +17,27 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-TSdist >= 3.7
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-parallelDist 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-geigen 
 BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-geigen 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-parallelDist 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-TSdist >= 3.7
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-parallelDist 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-geigen 
 Requires:         R-CRAN-caret 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
+Requires:         R-CRAN-geigen 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
+Requires:         R-CRAN-parallelDist 
+Requires:         R-CRAN-plyr 
+Requires:         R-stats 
+Requires:         R-CRAN-zoo 
 
 %description
 A way to apply Distance-Based Common Spatial Patterns (DB-CSP) techniques

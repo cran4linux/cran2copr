@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rmio
-%global packver   0.4.0
+%global packname  speechbr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Provides 'mio' C++11 Header Files
+Summary:          Access the Speechs and Speaker's Informations of House of Representatives of Brazil
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,14 +16,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bigassertr 
-BuildRequires:    R-CRAN-ff 
-Requires:         R-CRAN-bigassertr 
-Requires:         R-CRAN-ff 
+BuildRequires:    R-CRAN-abjutils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-abjutils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-glue 
 
 %description
-Provides header files of 'mio', a cross-platform C++11 header-only library
-for memory mapped file IO <https://github.com/mandreyel/mio>.
+Scrap speech text and speaker informations of speeches of House of
+Representatives of Brazil, and transform in a cleaned tibble.
 
 %prep
 %setup -q -c -n %{packname}

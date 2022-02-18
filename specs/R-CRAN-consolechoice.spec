@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  casabourse
+%global packname  consolechoice
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Casablanca Stock Exchange Data
+Summary:          An Easy and Quick Way to Loop a Character Vector as a Menu in the Console
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,18 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gsheet 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-gsheet 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-httr 
 
 %description
-It provides real-time data from the Casablanca Stock Exchange. The
-objective is to facilitate access to data for all users of the R
-programming language. It includes a variety of data accessible just by
-function call.
+A fast way to loop a character vector or file names as a menu in the
+console for the user to choose an option.
 
 %prep
 %setup -q -c -n %{packname}
