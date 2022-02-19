@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  IGoRRR
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Shiny Interface for Simple Data Management
 
@@ -46,7 +46,6 @@ BuildRequires:    R-CRAN-ggformula
 BuildRequires:    R-CRAN-mapsf 
 BuildRequires:    R-CRAN-clipr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinydashboard 
@@ -77,7 +76,6 @@ Requires:         R-CRAN-ggformula
 Requires:         R-CRAN-mapsf 
 Requires:         R-CRAN-clipr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
 
 %description
 Launches a shiny application generating code to view tables in several

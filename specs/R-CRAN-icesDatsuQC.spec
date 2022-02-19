@@ -1,29 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  reconstructr
-%global packver   2.0.4
+%global packname  icesDatsuQC
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Session Reconstruction and Analysis
+Summary:          Run Quality Checks on Data Prior to Submission to ICES
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-openssl 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-openssl 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-icesDatsu >= 1.1.0
+BuildRequires:    R-CRAN-sqldf 
+Requires:         R-CRAN-icesDatsu >= 1.1.0
+Requires:         R-CRAN-sqldf 
 
 %description
-Functions to reconstruct sessions from web log or other user trace data
-and calculate various metrics around them, producing tabular, output that
-is compatible with 'dplyr' or 'data.table' centered processes.
+Run quality checks on data sets using the same checks that are conducted
+on the ICES Data Submission Utility (DATSU)
+<https://datsu.ices.dk/web/index.aspx>.
 
 %prep
 %setup -q -c -n %{packname}

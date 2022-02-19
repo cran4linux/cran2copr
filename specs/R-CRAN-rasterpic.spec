@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rasterpic
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create a Spatial Raster from Plain Images
 
@@ -24,7 +24,7 @@ Requires:         R-CRAN-sf >= 1.0.0
 Requires:         R-CRAN-png >= 0.1.5
 
 %description
-Creates a spatial raster, as the ones provided by 'terra', from regular
+Create a spatial raster, as the ones provided by 'terra', from regular
 pictures.
 
 %prep

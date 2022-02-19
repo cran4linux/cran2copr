@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dextergui
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Graphical User Interface for Dexter
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.2
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
 BuildRequires:    R-CRAN-tibble >= 2.1
 BuildRequires:    R-CRAN-RCurl >= 1.95
 BuildRequires:    R-CRAN-readODS >= 1.6
@@ -44,7 +44,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-tools 
-Requires:         R-CRAN-ggplot2 >= 3.2
+Requires:         R-CRAN-ggplot2 >= 3.3.5
 Requires:         R-CRAN-tibble >= 2.1
 Requires:         R-CRAN-RCurl >= 1.95
 Requires:         R-CRAN-readODS >= 1.6

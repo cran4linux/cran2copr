@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  panelView
-%global packver   1.1.5
+%global packver   1.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizing Panel Data
 
@@ -24,10 +24,11 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-grid 
 
 %description
-Visualizes panel data. It has two main functionalities: (1) it visualizes
-the treatment and missing-value statuses of each observation in a
-panel/time-series-cross-sectional (TSCS) dataset; and (2) it plots the
-outcome variable (either continuous or discrete) in a time-series fashion.
+Visualizes panel data. It has three main functionalities: (1) it
+visualizes treatment status and missing values in a panel dataset; (2) it
+plots an outcome variable (or any variable) in a time-series fashion; (3)
+it visualizes bivariate relationships of two variables by unit or in
+aggregate.
 
 %prep
 %setup -q -c -n %{packname}

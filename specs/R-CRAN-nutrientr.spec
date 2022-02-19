@@ -1,29 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  reconstructr
-%global packver   2.0.4
+%global packname  nutrientr
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Session Reconstruction and Analysis
+Summary:          R Wrapper for the Canadian Nutrient File API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-openssl 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-openssl 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-qpdf 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-testthat 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-qpdf 
 
 %description
-Functions to reconstruct sessions from web log or other user trace data
-and calculate various metrics around them, producing tabular, output that
-is compatible with 'dplyr' or 'data.table' centered processes.
+Contains functions that wraps the Canadian Nutrient File API available at
+<https://hc-sc.api.canada.ca/en/detail?api=cnf>. This database reports the
+quantity of nutrients in foods commonly consumed in Canada.
 
 %prep
 %setup -q -c -n %{packname}

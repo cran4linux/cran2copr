@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  recipes
-%global packver   0.1.17
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.17
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Preprocessing and Feature Engineering Steps for Modeling
 
@@ -21,7 +21,8 @@ BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-ipred >= 0.9.12
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-purrr >= 0.2.3
-BuildRequires:    R-CRAN-generics >= 0.1.0
+BuildRequires:    R-CRAN-hardhat >= 0.1.6.9001
+BuildRequires:    R-CRAN-generics >= 0.1.0.9000
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-glue 
@@ -41,7 +42,8 @@ Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-ipred >= 0.9.12
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-purrr >= 0.2.3
-Requires:         R-CRAN-generics >= 0.1.0
+Requires:         R-CRAN-hardhat >= 0.1.6.9001
+Requires:         R-CRAN-generics >= 0.1.0.9000
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ellipsis 
 Requires:         R-CRAN-glue 

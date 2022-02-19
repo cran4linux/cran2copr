@@ -1,33 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mwaved
-%global packver   1.1.8
+%global packname  Allspice
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.8
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multichannel Wavelet Deconvolution with Additive Long Memory Noise
+Summary:          RNA-Seq Profile Classifier
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    fftw-devel >= 3.3.4
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-grid 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-shiny 
-Requires:         R-grid 
+BuildArch:        noarch
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-Computes the Wavelet deconvolution estimate of a common signal present in
-multiple channels that have possible different levels of blur and long
-memory additive error, see Kulik, Sapatinas and Wishart (2015),
-<doi:10.1016/j.acha.2014.04.004>.
+We developed a lightweight machine learning tool for RNA profiling of
+acute lymphoblastic leukemia (ALL), however, it can be used for any
+problem where multiple classes need to be identified from
+multi-dimensional data. The classifier contains optimized mean profiles of
+the classes (centroids) as observed in the training data, and new samples
+are matched to these centroids using the shortest Euclidean distance.
+Centroids derived from a dataset of 1,598 ALL patients are included, but
+users can train the models with their own data as well. The output
+includes both numerical and visual presentations of the classification
+results. Samples with mixed features from multiple classes or atypical
+values are also identified.
 
 %prep
 %setup -q -c -n %{packname}

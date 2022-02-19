@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  FSA
-%global packver   0.9.2
+%global packver   0.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.9.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Fisheries Stock Assessment Methods
 
@@ -22,11 +22,9 @@ BuildRequires:    R-stats
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-dunn.test 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-sciplot 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-graphics 
 Requires:         R-grDevices 
@@ -34,11 +32,9 @@ Requires:         R-stats
 Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-car 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-dunn.test 
 Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-sciplot 
 Requires:         R-CRAN-withr 
 
 %description

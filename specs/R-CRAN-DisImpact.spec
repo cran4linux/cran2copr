@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DisImpact
-%global packver   0.0.15
+%global packver   0.0.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.15
+Version:          0.0.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculates Disproportionate Impact When Binary Success Data are Disaggregated by Subgroups
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rainette
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Reinert Method for Textual Data Clustering
 
@@ -30,7 +30,6 @@ BuildRequires:    R-CRAN-gridExtra
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-miniUI 
-BuildRequires:    R-CRAN-formatR 
 BuildRequires:    R-CRAN-highr 
 BuildRequires:    R-CRAN-progressr 
 Requires:         R-CRAN-quanteda >= 2.1
@@ -48,7 +47,6 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-miniUI 
-Requires:         R-CRAN-formatR 
 Requires:         R-CRAN-highr 
 Requires:         R-CRAN-progressr 
 

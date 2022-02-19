@@ -1,42 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gwsem
-%global packver   2.1.4
+%global packname  regional
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Genome-Wide Structural Equation Modeling
+Summary:          Intra- and Inter-Regional Similarity
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-OpenMx >= 2.19.8
-BuildRequires:    R-CRAN-BH >= 1.69.0.1
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-qqman 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-OpenMx >= 2.19.8
-Requires:         R-CRAN-data.table 
-Requires:         R-methods 
-Requires:         R-CRAN-qqman 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-philentropy >= 0.6.0
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-philentropy >= 0.6.0
+Requires:         R-CRAN-terra 
 
 %description
-Melds genome-wide association tests with structural equation modeling
-(SEM) using 'OpenMx'. This package contains low-level C/C++ code to
-rapidly read genetic data encoded in U.K. Biobank or 'plink' formats.
-Prebuilt modeling options include one and two factor models. Alternately,
-analyses may utilize arbitrary, user-provided SEMs.  See Verhulst, Maes, &
-Neale (2017) <doi:10.1007/s10519-017-9842-6> for details. An updated
-manuscript is in preparation.
+Calculates intra-regional and inter-regional similarities based on
+user-provided spatial vector objects (regions) and spatial raster objects
+(cells with values). Implemented metrics include inhomogeneity, isolation
+(Haralick and Shapiro (1985) <doi:10.1016/S0734-189X(85)90153-7>,
+Jasiewicz et al. (2018) <doi:10.1016/j.cageo.2018.06.003>), and
+distinction (Nowosad (2021) <doi:10.1080/13658816.2021.1893324>).
 
 %prep
 %setup -q -c -n %{packname}

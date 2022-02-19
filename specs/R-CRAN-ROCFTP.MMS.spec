@@ -1,29 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  reconstructr
-%global packver   2.0.4
+%global packname  ROCFTP.MMS
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Session Reconstruction and Analysis
+Summary:          Perfect Sampling
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-openssl 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-openssl 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-stats >= 4.0.0
+BuildRequires:    R-CRAN-vctrs >= 0.3.8
+Requires:         R-stats >= 4.0.0
+Requires:         R-CRAN-vctrs >= 0.3.8
 
 %description
-Functions to reconstruct sessions from web log or other user trace data
-and calculate various metrics around them, producing tabular, output that
-is compatible with 'dplyr' or 'data.table' centered processes.
+The algorithm provided in this package generates perfect sample for
+unimodal or multimodal posteriors. Read Once Coupling From The Past, with
+Metropolis-Multishift is used to generate a perfect sample for a given
+posterior density based on the two extreme starting paths, minimum and
+maximum of the most interest range of the posterior. It uses the monotone
+random operation of multishift coupler which allows to sandwich all of the
+state space in one point. It means both Markov Chains starting from the
+maximum and minimum will be coalesced. The generated sample is independent
+from the starting points. It is useful for mixture distributions too. The
+output of this function is a real value as an exact draw from the
+posterior distribution.
 
 %prep
 %setup -q -c -n %{packname}

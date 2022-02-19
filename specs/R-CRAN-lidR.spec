@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  lidR
-%global packver   3.2.3
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.3
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Airborne LiDAR Data Manipulation and Visualization for Forestry Applications
 
@@ -17,36 +17,38 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-BH >= 1.72.0
 BuildRequires:    R-CRAN-rlas >= 1.5.0
-BuildRequires:    R-CRAN-sp >= 1.4.2
 BuildRequires:    R-CRAN-data.table >= 1.12.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.3
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-geometry 
+BuildRequires:    R-CRAN-classInt 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-lazyeval 
+BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stars 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-rlas >= 1.5.0
-Requires:         R-CRAN-sp >= 1.4.2
 Requires:         R-CRAN-data.table >= 1.12.0
 Requires:         R-CRAN-Rcpp >= 1.0.3
 Requires:         R-methods 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-geometry 
+Requires:         R-CRAN-classInt 
 Requires:         R-CRAN-glue 
 Requires:         R-grDevices 
 Requires:         R-CRAN-lazyeval 
+Requires:         R-CRAN-raster 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sp 
 Requires:         R-stats 
+Requires:         R-CRAN-stars 
+Requires:         R-CRAN-terra 
 Requires:         R-tools 
 Requires:         R-utils 
 

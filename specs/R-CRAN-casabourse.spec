@@ -1,29 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  reconstructr
-%global packver   2.0.4
+%global packname  casabourse
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Session Reconstruction and Analysis
+Summary:          Casablanca Stock Exchange Data
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-openssl 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-openssl 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-gsheet 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-httr 
+Requires:         R-CRAN-gsheet 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-httr 
 
 %description
-Functions to reconstruct sessions from web log or other user trace data
-and calculate various metrics around them, producing tabular, output that
-is compatible with 'dplyr' or 'data.table' centered processes.
+It provides real-time data from the Casablanca Stock Exchange. The
+objective is to facilitate access to data for all users of the R
+programming language. It includes a variety of data accessible just by
+function call.
 
 %prep
 %setup -q -c -n %{packname}

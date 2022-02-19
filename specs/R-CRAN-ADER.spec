@@ -1,29 +1,24 @@
 %global __brp_check_rpaths %{nil}
-%global packname  reconstructr
-%global packver   2.0.4
+%global packname  ADER
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Session Reconstruction and Analysis
+Summary:          Data Analysis in Ecology
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-openssl 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-openssl 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 
 %description
-Functions to reconstruct sessions from web log or other user trace data
-and calculate various metrics around them, producing tabular, output that
-is compatible with 'dplyr' or 'data.table' centered processes.
+Data sets used in Cayuela and De la Cruz (2022, ISBN:978-84-8476-705-3).
 
 %prep
 %setup -q -c -n %{packname}

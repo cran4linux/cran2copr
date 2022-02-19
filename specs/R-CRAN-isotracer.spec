@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  isotracer
-%global packver   1.1.0
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Isotopic Tracer Analysis Using MCMC
 
@@ -19,7 +19,6 @@ BuildRequires:    R-methods >= 3.6.0
 BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-rstan >= 2.19.3
 BuildRequires:    R-CRAN-StanHeaders >= 2.19.2
-BuildRequires:    R-CRAN-rstantools >= 2.0.0
 BuildRequires:    R-CRAN-BH >= 1.72.0
 BuildRequires:    R-CRAN-pillar >= 1.4.3
 BuildRequires:    R-CRAN-Rcpp >= 1.0.4
@@ -37,7 +36,6 @@ BuildRequires:    R-CRAN-rstantools
 Requires:         R-methods >= 3.6.0
 Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-rstan >= 2.19.3
-Requires:         R-CRAN-rstantools >= 2.0.0
 Requires:         R-CRAN-pillar >= 1.4.3
 Requires:         R-CRAN-Rcpp >= 1.0.4
 Requires:         R-CRAN-tidyr >= 1.0.2

@@ -1,29 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  reconstructr
-%global packver   2.0.4
+%global packname  clustAnalytics
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Session Reconstruction and Analysis
+Summary:          Cluster Evaluation on Graphs
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-openssl 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-openssl 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-mcclust 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-fossil 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-mcclust 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-fossil 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Functions to reconstruct sessions from web log or other user trace data
-and calculate various metrics around them, producing tabular, output that
-is compatible with 'dplyr' or 'data.table' centered processes.
+Evaluates the stability and significance of clusters on 'igraph' graphs.
+Supports weighted and unweighted graphs. Implements the cluster evaluation
+methods defined by Arratia A, Renedo M (2021) <doi:10.7717/peerj-cs.600>.
 
 %prep
 %setup -q -c -n %{packname}
