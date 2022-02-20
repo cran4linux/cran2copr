@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  paws.common
-%global packver   0.3.15
+%global packver   0.3.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.15
+Version:          0.3.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Paws Low-Level Amazon Web Services API
 

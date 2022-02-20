@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rpymat
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy to Configure an Isolated 'Python' Environment
 
@@ -16,17 +16,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite >= 1.7.3
+BuildRequires:    R-CRAN-glue >= 1.4.2
+BuildRequires:    R-CRAN-IRkernel >= 1.3
 BuildRequires:    R-CRAN-reticulate >= 1.21
 BuildRequires:    R-CRAN-fastmap >= 1.1.0
 BuildRequires:    R-CRAN-rappdirs >= 0.3.3
+BuildRequires:    R-CRAN-rstudioapi >= 0.13
+BuildRequires:    R-utils 
+Requires:         R-CRAN-jsonlite >= 1.7.3
+Requires:         R-CRAN-glue >= 1.4.2
+Requires:         R-CRAN-IRkernel >= 1.3
 Requires:         R-CRAN-reticulate >= 1.21
 Requires:         R-CRAN-fastmap >= 1.1.0
 Requires:         R-CRAN-rappdirs >= 0.3.3
+Requires:         R-CRAN-rstudioapi >= 0.13
+Requires:         R-utils 
 
 %description
 Aims to create a single isolated 'Miniconda' and 'Python' environment for
-reproducible pipeline scripts. The package is a shell of 'reticulate'
-package, but provides more stable behaviors, especially on 'ARM' machines.
+reproducible pipeline scripts. The package provides utilities to run
+system command within the 'conda' environment, making it easy to install,
+launch, manage, and stop 'Jupyter-lab'.
 
 %prep
 %setup -q -c -n %{packname}
