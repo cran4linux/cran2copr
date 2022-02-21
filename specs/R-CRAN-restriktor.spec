@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  restriktor
-%global packver   0.3-100
+%global packver   0.3-400
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.100
+Version:          0.3.400
 Release:          1%{?dist}%{?buildtag}
 Summary:          Restricted Statistical Estimation and Inference for Linear Models
 
@@ -13,18 +13,18 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-lavaan >= 0.6.10
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-ic.infer 
-BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-quadprog 
+Requires:         R-CRAN-lavaan >= 0.6.10
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-ic.infer 
-Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-quadprog 

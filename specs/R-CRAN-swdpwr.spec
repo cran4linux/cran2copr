@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  swdpwr
-%global packver   1.6
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Calculation for Stepped Wedge Cluster Randomized Trials
 
@@ -15,8 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-spatstat.core 
-Requires:         R-CRAN-spatstat.core 
+BuildRequires:    R-CRAN-spatstat.random 
+Requires:         R-CRAN-spatstat.random 
 
 %description
 To meet the needs of statistical power calculation for stepped wedge

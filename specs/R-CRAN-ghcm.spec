@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ghcm
-%global packver   2.0.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Conditional Independence Testing with the GHCM
 
@@ -15,19 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildArch:        noarch
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-refund 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-CompQuadForm 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-splines 
 Requires:         R-graphics 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-refund 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-CompQuadForm 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-splines 
 
 %description
 A statistical hypothesis test for conditional independence. Given
