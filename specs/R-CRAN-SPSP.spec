@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SPSP
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Selection by Partitioning the Solution Paths
 
@@ -18,11 +18,9 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-lars 
-BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-lars 
-Requires:         R-CRAN-MASS 
 
 %description
 An implementation of the feature Selection procedure by Partitioning the

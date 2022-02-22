@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mpath
-%global packver   0.4-2.21
+%global packver   0.4-2.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2.21
+Version:          0.4.2.22
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regularized Linear Models
 
@@ -37,14 +37,17 @@ Requires:         R-CRAN-bst
 Requires:         R-CRAN-WeightSVM 
 
 %description
-Algorithms compute concave convex (CC) estimators including robust
-(penalized) generalized linear models and robust support vector machines
-via the COCO - composite optimization by conjugation operator. The package
-also contains penalized Poisson, negative binomial, zero-inflated Poisson,
-zero-inflated negative binomial regression models and robust models with
-non-convex loss functions. Wang et al. (2014) <doi:10.1002/sim.6314>, Wang
-et al. (2015) <doi:10.1002/bimj.201400143>, Wang et al. (2016)
-<doi:10.1177/0962280214530608>, Wang (2021)
+Algorithms compute robust estimators for loss functions in the concave
+convex (CC) family by the iteratively reweighted convex optimization
+(IRCO), an extension of the iteratively reweighted least squares (IRLS).
+The IRCO reduces the weight of the observation that leads to a large loss;
+it also provides weights to help identify outliers. Applications include
+robust (penalized) generalized linear models and robust support vector
+machines. The package also contains penalized Poisson, negative binomial,
+zero-inflated Poisson, zero-inflated negative binomial regression models
+and robust models with non-convex loss functions. Wang et al. (2014)
+<doi:10.1002/sim.6314>, Wang et al. (2015) <doi:10.1002/bimj.201400143>,
+Wang et al. (2016) <doi:10.1177/0962280214530608>, Wang (2021)
 <doi:10.1007/s11749-021-00770-2>, Wang (2020) <arXiv:2010.02848>.
 
 %prep

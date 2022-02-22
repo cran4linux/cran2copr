@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  PowerTOST
-%global packver   1.5-4
+%global packname  CATkit
+%global packver   3.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.4
+Version:          3.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power and Sample Size for (Bio)Equivalence Studies
+Summary:          Chronomics Analysis Toolkit (CAT): Periodicity Analysis
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,27 +16,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cubature >= 1.3.6
-BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-rtf 
+BuildRequires:    R-CRAN-season 
+BuildRequires:    R-CRAN-magic 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-TeachingDemos 
-Requires:         R-CRAN-cubature >= 1.3.6
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-CRAN-assertr 
+BuildRequires:    R-CRAN-CombMSC 
+BuildRequires:    R-CRAN-Hmisc 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-rtf 
+Requires:         R-CRAN-season 
+Requires:         R-CRAN-magic 
 Requires:         R-stats 
-Requires:         R-utils 
 Requires:         R-graphics 
+Requires:         R-utils 
 Requires:         R-grDevices 
-Requires:         R-CRAN-TeachingDemos 
+Requires:         R-CRAN-signal 
+Requires:         R-CRAN-assertr 
+Requires:         R-CRAN-CombMSC 
+Requires:         R-CRAN-Hmisc 
 
 %description
-Contains functions to calculate power and sample size for various study
-designs used in bioequivalence studies. Use known.designs() to see the
-designs supported. Power and sample size can be obtained based on
-different methods, amongst them prominently the TOST procedure (two
-one-sided t-tests). See README and NEWS for further information.
+Calculates auto- and cross-correlation functions and plots an actogram and
+a smoothing function from a time series to identify and visualize periodic
+components. Tests presence of anticipated rhythm and estimates rhythm
+parameters; fits model consisting of multiple rhythmic components to data;
+performs least squares spectral analysis and other cosinor-based analyses,
+including population-mean cosinor (PMC) and population-mean cosinor
+parameter tests (PMCtest).
 
 %prep
 %setup -q -c -n %{packname}

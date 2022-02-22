@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DQAstats
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Core Functions for Data Quality Assessment
 
@@ -16,8 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DIZutils >= 0.0.12
+BuildRequires:    R-CRAN-DIZutils >= 0.0.13
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-DIZtools 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-jsonlite 
@@ -29,8 +30,9 @@ BuildRequires:    R-CRAN-rmarkdown
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tinytex 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-DIZutils >= 0.0.12
+Requires:         R-CRAN-DIZutils >= 0.0.13
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-DIZtools 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-jsonlite 

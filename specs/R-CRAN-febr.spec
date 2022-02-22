@@ -1,37 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RLumModel
-%global packver   0.2.10
+%global packname  febr
+%global packver   1.9.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.10
+Version:          1.9.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Solving Ordinary Differential Equations to Understand Luminescence
+Summary:          Data Repository of the Brazilian Soil
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-khroma >= 1.8.0
-BuildRequires:    R-CRAN-deSolve >= 1.30
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.400.2.0
-BuildRequires:    R-CRAN-Luminescence >= 0.9.18
+Requires:         pandoc
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-khroma >= 1.8.0
-Requires:         R-CRAN-deSolve >= 1.30
-Requires:         R-CRAN-Rcpp >= 1.0.8
-Requires:         R-CRAN-Luminescence >= 0.9.18
+Requires:         R-CRAN-data.table 
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-methods 
 
 %description
-A collection of functions to simulate luminescence signals in quartz and
-Al2O3 based on published models.
+Utilities to access and process data from the Data Repository of the
+Brazilian Soil <https://www.pedometria.org/febr/>.
 
 %prep
 %setup -q -c -n %{packname}

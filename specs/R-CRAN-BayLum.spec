@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BayLum
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Chronological Bayesian Models Integrating Optically Stimulated Luminescence and Radiocarbon Age Dating
 
@@ -13,33 +13,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rjags >= 4.10
-BuildRequires:    R-CRAN-runjags >= 2.0.4
+BuildRequires:    R-CRAN-rjags >= 4.12
+BuildRequires:    R-CRAN-KernSmooth >= 2.23
+BuildRequires:    R-CRAN-runjags >= 2.2.0
 BuildRequires:    R-CRAN-ArchaeoPhases >= 1.5
-BuildRequires:    R-CRAN-Luminescence >= 0.8.2
+BuildRequires:    R-CRAN-hexbin >= 1.28.2
+BuildRequires:    R-CRAN-Luminescence >= 0.9.18
+BuildRequires:    R-CRAN-coda >= 0.19
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-hexbin 
-BuildRequires:    R-CRAN-KernSmooth 
-Requires:         R-CRAN-rjags >= 4.10
-Requires:         R-CRAN-runjags >= 2.0.4
+Requires:         R-CRAN-rjags >= 4.12
+Requires:         R-CRAN-KernSmooth >= 2.23
+Requires:         R-CRAN-runjags >= 2.2.0
 Requires:         R-CRAN-ArchaeoPhases >= 1.5
-Requires:         R-CRAN-Luminescence >= 0.8.2
+Requires:         R-CRAN-hexbin >= 1.28.2
+Requires:         R-CRAN-Luminescence >= 0.9.18
+Requires:         R-CRAN-coda >= 0.19
 Requires:         R-utils 
-Requires:         R-CRAN-coda 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
 Requires:         R-methods 
-Requires:         R-CRAN-hexbin 
-Requires:         R-CRAN-KernSmooth 
 
 %description
 Bayesian analysis of luminescence data and C-14 age estimates. Bayesian
@@ -56,6 +50,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

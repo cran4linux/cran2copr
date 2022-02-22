@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  navigatr
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Navigation Menu for Pipe-Friendly Data Processing
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-cli 
@@ -29,7 +28,6 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-vctrs 
 

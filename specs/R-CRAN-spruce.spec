@@ -1,55 +1,56 @@
 %global __brp_check_rpaths %{nil}
-%global packname  finetune
-%global packver   0.1.1
+%global packname  spruce
+%global packver   0.99.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.99.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Additional Functions for Model Tuning
+Summary:          Spatial Random Effects Clustering of Single Cell Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-workflows >= 0.2.3
-BuildRequires:    R-CRAN-tune >= 0.1.6
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dials 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-BayesLogit 
+BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-workflows >= 0.2.3
-Requires:         R-CRAN-tune >= 0.1.6
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dials 
+BuildRequires:    R-CRAN-Seurat 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-BayesLogit 
+Requires:         R-CRAN-truncnorm 
+Requires:         R-stats 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-Seurat 
+Requires:         R-CRAN-rlang 
 
 %description
-The ability to tune models is important. 'finetune' enhances the 'tune'
-package by providing more specialized methods for finding reasonable
-values of model tuning parameters.  Two racing methods described by Kuhn
-(2014) <arXiv:1405.6974> are included. An iterative search method using
-generalized simulated annealing (Bohachevsky, Johnson and Stein, 1986)
-<doi:10.1080/00401706.1986.10488128> is also included.
+Allows for identification of cell sub-populations within tissue samples
+using Bayesian multivariate mixture models with spatial random effects to
+account for a wide range of spatial gene expression patterns, as described
+in Allen et. al, 2021 <doi:10.1101/2021.06.23.449615>. Bayesian inference
+is conducted using efficient Gibbs sampling implemented using 'Rcpp'.
 
 %prep
 %setup -q -c -n %{packname}

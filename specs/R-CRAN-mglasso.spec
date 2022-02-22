@@ -1,37 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RLumModel
-%global packver   0.2.10
+%global packname  mglasso
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.10
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Solving Ordinary Differential Equations to Understand Luminescence
+Summary:          Multiscale Graphical Lasso
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-khroma >= 1.8.0
-BuildRequires:    R-CRAN-deSolve >= 1.30
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.400.2.0
-BuildRequires:    R-CRAN-Luminescence >= 0.9.18
-BuildRequires:    R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-corpcor 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-khroma >= 1.8.0
-Requires:         R-CRAN-deSolve >= 1.30
-Requires:         R-CRAN-Rcpp >= 1.0.8
-Requires:         R-CRAN-Luminescence >= 0.9.18
-Requires:         R-utils 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-corpcor 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-reticulate 
+Requires:         R-stats 
 
 %description
-A collection of functions to simulate luminescence signals in quartz and
-Al2O3 based on published models.
+Inference of Multiscale graphical models with neighborhood selection
+approach.  The method is based on solving a convex optimization problem
+combining a Lasso and fused-group Lasso penalties.  This allows to infer
+simultaneously a conditional independence graph and a clustering
+partition. The optimization is based on the Continuation with Nesterov
+smoothing in a Shrinkage-Thresholding Algorithm solver (Hadj-Selem et al.
+2018) <doi:10.1109/TMI.2018.2829802> implemented in python.
 
 %prep
 %setup -q -c -n %{packname}

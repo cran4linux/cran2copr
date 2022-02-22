@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bayesmeta
-%global packver   2.7
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7
+Version:          3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Random-Effects Meta-Analysis
+Summary:          Bayesian Random-Effects Meta-Analysis and Meta-Regression
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,9 +19,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-numDeriv >= 2016.8.1.1
 BuildRequires:    R-CRAN-forestplot >= 2.0.0
 BuildRequires:    R-CRAN-metafor >= 2.0.0
+BuildRequires:    R-CRAN-mvtnorm >= 1.1.1
 Requires:         R-CRAN-numDeriv >= 2016.8.1.1
 Requires:         R-CRAN-forestplot >= 2.0.0
 Requires:         R-CRAN-metafor >= 2.0.0
+Requires:         R-CRAN-mvtnorm >= 1.1.1
 
 %description
 A collection of functions allowing to derive the posterior distribution of

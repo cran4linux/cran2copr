@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  skedastic
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Heteroskedasticity Diagnostics for Linear Regression Models
 
@@ -18,12 +18,10 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3.47
 BuildRequires:    R-CRAN-quantreg >= 5.55
-BuildRequires:    R-CRAN-Hmisc >= 4.4.2
 BuildRequires:    R-CRAN-pracma >= 2.2.9
 BuildRequires:    R-CRAN-cubature >= 2.0.4
 BuildRequires:    R-CRAN-CompQuadForm >= 1.4.3
 BuildRequires:    R-CRAN-boot >= 1.3.24
-BuildRequires:    R-CRAN-berryFunctions >= 1.17
 BuildRequires:    R-CRAN-data.table >= 1.12.8
 BuildRequires:    R-CRAN-arrangements >= 1.1.8
 BuildRequires:    R-CRAN-mvtnorm >= 1.1.0
@@ -35,12 +33,10 @@ BuildRequires:    R-CRAN-gmp >= 0.5.13
 BuildRequires:    R-CRAN-Rdpack >= 0.11.1
 Requires:         R-CRAN-MASS >= 7.3.47
 Requires:         R-CRAN-quantreg >= 5.55
-Requires:         R-CRAN-Hmisc >= 4.4.2
 Requires:         R-CRAN-pracma >= 2.2.9
 Requires:         R-CRAN-cubature >= 2.0.4
 Requires:         R-CRAN-CompQuadForm >= 1.4.3
 Requires:         R-CRAN-boot >= 1.3.24
-Requires:         R-CRAN-berryFunctions >= 1.17
 Requires:         R-CRAN-data.table >= 1.12.8
 Requires:         R-CRAN-arrangements >= 1.1.8
 Requires:         R-CRAN-mvtnorm >= 1.1.0
@@ -100,6 +96,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

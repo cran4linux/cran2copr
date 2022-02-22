@@ -1,41 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  funtimes
-%global packver   8.1
+%global packname  rconfig
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Time Series Analysis
+Summary:          Manage R Configuration at the Command Line
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Jmisc 
-BuildRequires:    R-CRAN-Kendall 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-TDA 
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-dbscan 
-BuildRequires:    R-CRAN-igraph 
-Requires:         R-CRAN-Jmisc 
-Requires:         R-CRAN-Kendall 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-TDA 
-Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-dbscan 
-Requires:         R-CRAN-igraph 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Includes nonparametric estimators and tests for time series analysis. The
-functions are to test for presence of possibly non-monotonic trends and
-for synchronism of trends in multiple time series, using bootstrap
-techniques and robust nonparametric difference-based estimators.
+Configuration management using files (JSON, YAML, separated text), JSON
+strings, and command line arguments. Command line arguments can be used to
+override configuration. Period-separated command line flags are parsed as
+hierarchical lists.
 
 %prep
 %setup -q -c -n %{packname}
