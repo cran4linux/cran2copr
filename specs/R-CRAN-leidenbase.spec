@@ -1,33 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  lomb
-%global packver   2.1.0
+%global packname  leidenbase
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lomb-Scargle Periodogram
+Summary:          R and C/C++ Wrappers to Run the Leiden find_partition() Function
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-pracma 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-igraph >= 0.8.2
+Requires:         R-CRAN-igraph >= 0.8.2
 
 %description
-Computes the Lomb-Scargle Periodogram for unevenly sampled time series.
-Includes a randomization procedure to obtain exact p-values.
+An R to C/C++ interface that runs the Leiden community detection algorithm
+to find a basic partition (). It runs the equivalent of the 'leidenalg'
+find_partition() function, which is given in the 'leidenalg' distribution
+file 'leiden/src/functions.py'. This package includes the required source
+code files from the official 'leidenalg' distribution and functions from
+the R 'igraph' package.  The 'leidenalg' distribution is available from
+<https://github.com/vtraag/leidenalg/> and the R 'igraph' package is
+available from <https://igraph.org/r/>. The Leiden algorithm is described
+in the article by Traag et al. (2019) <doi:10.1038/s41598-019-41695-z>.
 
 %prep
 %setup -q -c -n %{packname}

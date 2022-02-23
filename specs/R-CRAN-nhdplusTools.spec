@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  nhdplusTools
-%global packver   0.4.3
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          NHDPlus Tools
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-units
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-utils 
@@ -43,7 +42,6 @@ Requires:         R-CRAN-units
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-R.utils 
 Requires:         R-utils 

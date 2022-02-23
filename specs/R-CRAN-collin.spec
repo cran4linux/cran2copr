@@ -1,20 +1,20 @@
 %global __brp_check_rpaths %{nil}
 %global packname  collin
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Effects of Collinearity in Distributed Lag and Other Models
+Summary:          Visualization the Effects of Collinearity in Distributed Lag Models and Other Linear Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dlnm 
 BuildRequires:    R-graphics 
@@ -36,10 +36,16 @@ Requires:         R-utils
 Requires:         R-CRAN-VGAM 
 
 %description
-Visual tool to assessing whether the results of a study could be driven by
-collinearity. The methods are described in Basagana X, Barrera-Gomez J
-(2021) "Visualizing the effects of collinearity in distributed lag
-models". International Journal of Epidemiology (under review).
+Tool to assessing whether the results of a study could be influenced by
+collinearity. Simulations under a given hypothesized truth regarding
+effects of an exposure on the outcome are used and the resulting curves of
+lagged effects are visualized. A user's manual is provided, which includes
+detailed examples (e.g. a cohort study looking for windows of
+vulnerability to air pollution, a time series study examining the linear
+association of air pollution with hospital admissions, and a time series
+study examining the non-linear association between temperature and
+mortality). The methods are described in Basagana and Barrera-Gomez (2021)
+<doi:10.1093/ije/dyab179>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,6 +55,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

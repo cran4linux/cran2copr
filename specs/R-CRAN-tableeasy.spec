@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  lomb
-%global packver   2.1.0
+%global packname  tableeasy
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lomb-Scargle Periodogram
+Summary:          Tables of Clinical Study
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,18 +16,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-pracma 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-nortest 
+BuildRequires:    R-CRAN-tableone 
+Requires:         R-CRAN-survival 
+Requires:         R-stats 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-nortest 
+Requires:         R-CRAN-tableone 
 
 %description
-Computes the Lomb-Scargle Periodogram for unevenly sampled time series.
-Includes a randomization procedure to obtain exact p-values.
+Creates some tables of clinical study. 'Table 1' is created by table1() to
+describe baseline characteristics, which is essential in every clinical
+study. Created by table2(), the function of 'Table 2' is to explore
+influence factors. And 'Table 3' created by table3() is able to make
+stratified analysis.
 
 %prep
 %setup -q -c -n %{packname}

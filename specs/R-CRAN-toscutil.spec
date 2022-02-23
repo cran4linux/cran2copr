@@ -1,45 +1,26 @@
 %global __brp_check_rpaths %{nil}
-%global packname  FAVAR
-%global packver   0.1.0
+%global packname  toscutil
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Analysis of a FAVAR Model
+Summary:          Utility Functions by Tobias Schmidt (ToSc)
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-matlab 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-bvartools 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-matlab 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-bvartools 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-MCMCpack 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-Matrix 
 
 %description
-Estimate a FAVAR model by a Bayesian method, based on Bernanke et al.
-(2005) <DOI:10.1162/0033553053327452>.
+Base R sometimes requires verbose statements for simple, often recurring
+tasks, such as printing text without trailing space, ending with newline.
+This package aims at providing shorthands for such tasks.
 
 %prep
 %setup -q -c -n %{packname}

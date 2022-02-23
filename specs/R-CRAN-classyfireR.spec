@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  lomb
-%global packver   2.1.0
+%global packname  classyfireR
+%global packver   0.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          0.3.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lomb-Scargle Periodogram
+Summary:          R Interface to the 'ClassyFire' REST API
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,18 +16,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-pracma 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-clisymbols 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-tidyjson 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-clisymbols 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-methods 
+Requires:         R-CRAN-rjson 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-tidyjson 
+Requires:         R-CRAN-tidyr 
 
 %description
-Computes the Lomb-Scargle Periodogram for unevenly sampled time series.
-Includes a randomization procedure to obtain exact p-values.
+Access to the 'ClassyFire' REST API <http://classyfire.wishartlab.com>.
+Retrieve existing entity classifications and submit new entities for
+classification.
 
 %prep
 %setup -q -c -n %{packname}

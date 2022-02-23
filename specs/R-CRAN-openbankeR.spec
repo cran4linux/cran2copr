@@ -1,33 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  lomb
-%global packver   2.1.0
+%global packname  openbankeR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lomb-Scargle Periodogram
+Summary:          R Client for Querying the UK 'Open Banking' ('Open Data') API
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.3
+Requires:         R-core >= 3.2.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-pracma 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-httpcode 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-httpcode 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-glue 
 
 %description
-Computes the Lomb-Scargle Periodogram for unevenly sampled time series.
-Includes a randomization procedure to obtain exact p-values.
+Creates a client with queries for the UK 'Open Banking' ('Open Data') API.
 
 %prep
 %setup -q -c -n %{packname}

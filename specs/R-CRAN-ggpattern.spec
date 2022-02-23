@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  lomb
-%global packver   2.1.0
+%global packname  ggpattern
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lomb-Scargle Periodogram
+Summary:          'ggplot2' Pattern Geoms
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,18 +16,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-gridpattern >= 0.5.1
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-gridpattern >= 0.5.1
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-glue 
+Requires:         R-grid 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 
 %description
-Computes the Lomb-Scargle Periodogram for unevenly sampled time series.
-Includes a randomization procedure to obtain exact p-values.
+Provides 'ggplot2' geoms filled with various patterns.  Includes a
+patterned version of every 'ggplot2' geom that has a region that can be
+filled with a pattern.  Provides a suite of 'ggplot2' aesthetics and
+scales for controlling pattern appearances.  Supports over a dozen builtin
+patterns (every pattern implemented by 'gridpattern') as well as allowing
+custom user-defined patterns.
 
 %prep
 %setup -q -c -n %{packname}

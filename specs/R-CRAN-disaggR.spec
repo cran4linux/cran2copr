@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  disaggR
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Two-Steps Benchmarks for Time Series Disaggregation
 
@@ -36,8 +36,9 @@ using the French National Accounts methodology. The aggregated sum of the
 resulting time-serie is strictly equal to the low-frequency serie within
 the benchmarking window. Typically, the low-frequency serie is an annual
 one, unknown for the last year, and the high frequency one is either
-quarterly or mensual. See "Methodology of quarterly national accounts",
-Insee Méthodes N°126, by Insee (2012, ISBN:978-2-11-068613-8).
+quarterly or monthly. See "Methodology of quarterly national accounts",
+Insee Méthodes N°126, by Insee (2012, ISBN:978-2-11-068613-8,
+<https://www.insee.fr/en/information/2579410>).
 
 %prep
 %setup -q -c -n %{packname}

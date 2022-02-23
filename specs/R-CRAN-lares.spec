@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  lares
-%global packver   5.0.6
+%global packver   5.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.6
+Version:          5.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analytics & Machine Learning Sidekick
 

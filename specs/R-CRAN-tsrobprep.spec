@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tsrobprep
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Preprocessing of Time Series Data
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-textTinyR 
 BuildRequires:    R-CRAN-zoo 
@@ -29,6 +30,7 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-mclust 
 Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-Rdpack 
 Requires:         R-splines 
 Requires:         R-CRAN-textTinyR 
 Requires:         R-CRAN-zoo 
@@ -40,7 +42,8 @@ model-based approach. The model may consist of both autoregressive
 components and external regressors. The methods work robust and efficient,
 and they are fully tunable. The primary motivation for writing the package
 was preprocessing of the energy systems data, e.g. power plant production
-time series, but the package could be used with any time series data.
+time series, but the package could be used with any time series data. For
+details, see Narajewski et al. (2021) <doi:10.1016/j.softx.2021.100809>.
 
 %prep
 %setup -q -c -n %{packname}

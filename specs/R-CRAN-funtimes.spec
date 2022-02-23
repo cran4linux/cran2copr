@@ -1,33 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  lomb
-%global packver   2.1.0
+%global packname  funtimes
+%global packver   8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          8.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lomb-Scargle Periodogram
+Summary:          Functions for Time Series Analysis
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-pracma 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-CRAN-Jmisc 
+BuildRequires:    R-CRAN-Kendall 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-CRAN-dbscan 
+BuildRequires:    R-CRAN-igraph 
+Requires:         R-CRAN-Jmisc 
+Requires:         R-CRAN-Kendall 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-FNN 
+Requires:         R-CRAN-dbscan 
+Requires:         R-CRAN-igraph 
 
 %description
-Computes the Lomb-Scargle Periodogram for unevenly sampled time series.
-Includes a randomization procedure to obtain exact p-values.
+Nonparametric estimators and tests for time series analysis. The functions
+use bootstrap techniques and robust nonparametric difference-based
+estimators to test for the presence of possibly nonmonotonic trends and
+for synchronism of trends in multiple time series.
 
 %prep
 %setup -q -c -n %{packname}

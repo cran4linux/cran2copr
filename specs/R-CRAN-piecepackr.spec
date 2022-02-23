@@ -1,23 +1,22 @@
 %global __brp_check_rpaths %{nil}
 %global packname  piecepackr
-%global packver   1.9.2
+%global packver   1.10.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.2
+Version:          1.10.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Board Game Graphics
 
-License:          CC BY-SA 4.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 Requires:         ghostscript
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridGeometry 
 BuildRequires:    R-CRAN-grImport2 
@@ -26,11 +25,11 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-jpeg 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-backports 
 Requires:         R-grid 
 Requires:         R-CRAN-gridGeometry 
 Requires:         R-CRAN-grImport2 
@@ -39,16 +38,20 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-jpeg 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-tools 
 Requires:         R-utils 
 
 %description
-Functions to make board game graphics.  Specializes in game diagrams,
-animations, and "Print & Play" layouts for the 'piecepack'
+Functions to make board game graphics with the 'ggplot2', 'grid',
+'rayrender', 'rayvertex', and 'rgl' packages.  Specializes in game
+diagrams, animations, and "Print & Play" layouts for the 'piecepack'
 <https://www.ludism.org/ppwiki> but can make graphics for other board game
-systems.  Includes configurations for several public domain game systems.
+systems.  Includes configurations for several public domain game systems
+such as checkers, (double-18) dominoes, go, 'piecepack', playing cards,
+etc.
 
 %prep
 %setup -q -c -n %{packname}

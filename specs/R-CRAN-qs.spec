@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  qs
-%global packver   0.25.2
+%global packver   0.25.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.25.2
+Version:          0.25.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quick Serialization of R Objects
 

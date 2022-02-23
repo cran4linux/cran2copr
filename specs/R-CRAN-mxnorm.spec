@@ -1,55 +1,62 @@
 %global __brp_check_rpaths %{nil}
-%global packname  inti
-%global packver   0.5.4
+%global packname  mxnorm
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools and Statistical Procedures in Plant Science
+Summary:          Apply Normalization Methods to Multiplexed Images
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-fda 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-uwot 
 BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-agricolae 
-BuildRequires:    R-CRAN-FactoMineR 
-BuildRequires:    R-CRAN-emmeans 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-DT 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-KernSmooth 
+BuildRequires:    R-CRAN-kSamples 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-fossil 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-fda 
+Requires:         R-stats 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-uwot 
 Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-agricolae 
-Requires:         R-CRAN-FactoMineR 
-Requires:         R-CRAN-emmeans 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-DT 
+Requires:         R-CRAN-KernSmooth 
+Requires:         R-CRAN-kSamples 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-fossil 
 
 %description
-The 'inti' package is part of the 'inkaverse' project for developing
-different procedures and tools used in plant science and experimental
-designs. The mean aim of the package is to support researchers during the
-planning of experiments and data collection (tarpuy()), data analysis and
-graphics (yupana()) , and technical writing. Learn more about the
-'inkaverse' project at <https://inkaverse.com/>.
+Implements methods to normalize multiplexed imaging data, including
+statistical metrics and visualizations to quantify technical variation in
+this data type.
 
 %prep
 %setup -q -c -n %{packname}

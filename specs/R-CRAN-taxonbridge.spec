@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  taxonbridge
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Combined Analysis of NCBI Taxonomy and GBIF Taxonomy
+Summary:          Create Custom Taxonomies Based on the NCBI Taxonomy and GBIF Backbone Taxonomy
 
 License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,17 +21,22 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-vroom 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rje 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-vroom 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rje 
+Requires:         R-CRAN-withr 
+Requires:         R-utils 
 
 %description
-The NCBI is the go to resource for taxonomic studies but it only contains
-data on extant species whereas the GBIF also includes extinct species.
-`taxonbridge` is useful for the combined analysis of the NCBI taxonomy and
-GBIF taxonomy.
+The NCBI taxonomy is a popular resource for taxonomic studies but it only
+contains data on species with sequence data whereas the GBIF has a more
+extensive coverage of extinct species. Taxonbridge is useful for the
+creation and analysis of custom taxonomies based on the NCBI taxonomy and
+GBIF backbone taxonomy.
 
 %prep
 %setup -q -c -n %{packname}

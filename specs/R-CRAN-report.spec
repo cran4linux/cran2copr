@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  lomb
-%global packver   2.1.0
+%global packname  report
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lomb-Scargle Periodogram
+Summary:          Automated Reporting of Results and Statistical Models
 
-License:          GPL (>= 3)
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,18 +16,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-pracma 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-CRAN-performance >= 0.8.0
+BuildRequires:    R-CRAN-effectsize >= 0.6.0
+BuildRequires:    R-CRAN-datawizard >= 0.2.3
+BuildRequires:    R-CRAN-insight >= 0.16.0
+BuildRequires:    R-CRAN-parameters >= 0.16.0
+BuildRequires:    R-CRAN-bayestestR >= 0.11.5
+BuildRequires:    R-stats 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-performance >= 0.8.0
+Requires:         R-CRAN-effectsize >= 0.6.0
+Requires:         R-CRAN-datawizard >= 0.2.3
+Requires:         R-CRAN-insight >= 0.16.0
+Requires:         R-CRAN-parameters >= 0.16.0
+Requires:         R-CRAN-bayestestR >= 0.11.5
+Requires:         R-stats 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Computes the Lomb-Scargle Periodogram for unevenly sampled time series.
-Includes a randomization procedure to obtain exact p-values.
+The aim of the 'report' package is to bridge the gap between R’s output
+and the formatted results contained in your manuscript. This package
+converts statistical models and data frames into textual reports suited
+for publication, ensuring standardization and quality in results
+reporting.
 
 %prep
 %setup -q -c -n %{packname}

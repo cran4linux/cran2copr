@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bigsparser
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse Matrix Format with Data on Disk
 
@@ -15,11 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
-BuildRequires:    R-CRAN-rmio >= 0.3
+BuildRequires:    R-CRAN-rmio >= 0.4
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-bigassertr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-rmio >= 0.4
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-bigassertr 
 Requires:         R-methods 

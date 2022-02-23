@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  lomb
-%global packver   2.1.0
+%global packname  WaveletRF
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lomb-Scargle Periodogram
+Summary:          Wavelet-RF Hybrid Model for Time Series Forecasting
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,18 +16,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-pracma 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-wavelets 
+BuildRequires:    R-CRAN-fracdiff 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-tsutils 
+Requires:         R-stats 
+Requires:         R-CRAN-wavelets 
+Requires:         R-CRAN-fracdiff 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-tsutils 
 
 %description
-Computes the Lomb-Scargle Periodogram for unevenly sampled time series.
-Includes a randomization procedure to obtain exact p-values.
+The Wavelet Decomposition followed by Random Forest Regression (RF) models
+have been applied for time series forecasting. The maximum overlap
+discrete wavelet transform (MODWT) algorithm was chosen as it works for
+any length of the series. The series is first divided into training and
+testing sets. In each of the wavelet decomposed series, the supervised
+machine learning approach namely random forest was employed to train the
+model. This package also provides accuracy metrics in the form of Root
+Mean Square Error (RMSE) and Mean Absolute Prediction Error (MAPE). This
+package is based on the algorithm of Ding et al. (2021) <DOI:
+10.1007/s11356-020-12298-3>.
 
 %prep
 %setup -q -c -n %{packname}

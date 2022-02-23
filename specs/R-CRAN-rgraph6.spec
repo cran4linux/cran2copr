@@ -1,33 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  lomb
-%global packver   2.1.0
+%global packname  rgraph6
+%global packver   2.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lomb-Scargle Periodogram
+Summary:          Representing Graphs as 'graph6', 'digraph6' or 'sparse6' Strings
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-pracma 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-methods 
+Requires:         R-CRAN-Rcpp >= 1.0.3
+Requires:         R-methods 
 
 %description
-Computes the Lomb-Scargle Periodogram for unevenly sampled time series.
-Includes a randomization procedure to obtain exact p-values.
+Encode network data as strings of printable ASCII characters. Implemented
+functions include encoding and decoding adjacency matrices, edgelists,
+igraph, and network objects to/from formats 'graph6', 'sparse6', and
+'digraph6'. The formats and methods are described in McKay, B.D. and
+Piperno, A (2014) <doi:10.1016/j.jsc.2013.09.003>.
 
 %prep
 %setup -q -c -n %{packname}

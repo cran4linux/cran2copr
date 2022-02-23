@@ -1,47 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  wordspace
-%global packver   0.2-7
+%global packname  clusterCons
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distributional Semantic Models in R
+Summary:          Consensus Clustering using Multiple Algorithms and Parameters
 
-License:          GPL-3
+License:          GPL (> 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-sparsesvd 
-BuildRequires:    R-CRAN-iotools 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-sparsesvd 
-Requires:         R-CRAN-iotools 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-apcluster 
 Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
 Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-grid 
+Requires:         R-CRAN-apcluster 
 
 %description
-An interactive laboratory for research on distributional semantic models
-('DSM', see <https://en.wikipedia.org/wiki/Distributional_semantics> for
-more information).
+Functions for calculation of robustness measures for clusters and cluster
+membership based on generating consensus matrices from bootstrapped
+clustering experiments in which a random proportion of rows of the data
+set are used in each individual clustering. This allows the user to
+prioritise clusters and the members of clusters based on their consistency
+in this regime. The functions allow the user to select several algorithms
+to use in the re-sampling scheme and with any of the parameters that the
+algorithm would normally take. See Simpson, T. I., Armstrong, J. D. &
+Jarman, A. P. (2010) <doi:10.1186/1471-2105-11-590> and Monti, S., Tamayo,
+P., Mesirov, J. & Golub, T. (2003) <doi:10.1023/a:1023949509487>.
 
 %prep
 %setup -q -c -n %{packname}

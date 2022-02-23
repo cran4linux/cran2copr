@@ -1,33 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  lomb
-%global packver   2.1.0
+%global packname  CEOdata
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lomb-Scargle Periodogram
+Summary:          Datasets of the CEO (Centre d'Estudis d'Opinio) for Opinion Polls in Catalonia
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-pracma 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-urltools 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-urltools 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Computes the Lomb-Scargle Periodogram for unevenly sampled time series.
-Includes a randomization procedure to obtain exact p-values.
+Easy and convenient access to the datasets / microdata of the "Centre
+d'Estudis d'Opinió", the catalan institution for polling and public
+opinion.  The package uses the data stored in the servers of the CEO and
+returns it in a tidy format (tibble).
 
 %prep
 %setup -q -c -n %{packname}

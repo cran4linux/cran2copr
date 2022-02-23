@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  LipidMS
-%global packver   3.0.2
+%global packver   3.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          3.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lipid Annotation for LC-MS/MS DDA or DIA Data
 
