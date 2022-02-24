@@ -1,40 +1,50 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rflsgen
-%global packver   1.0.0
+%global packname  rgho
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to the 'Flsgen' Neutral Landscape Generator with Targets on Landscape Indices
+Summary:          Access WHO Global Health Observatory Data from R
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.2
+Requires:         R-core >= 3.2.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rJava 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-rJava 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-checkmate 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-lazyeval 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lazyeval 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rlang 
 
 %description
-Interface to the 'flsgen' neutral landscape generator
-<https://github.com/dimitri-justeau/flsgen>. It allows to - Generate
-fractal terrain; - Generate landscape structures satisfying user targets
-over landscape indices; - Generate landscape raster from landscape
-structures.
+Access WHO Global Health Observatory (<https://www.who.int/data/gho/>)
+data from R via the Athena web service
+(<https://apps.who.int/gho/data/node.resources.api>), an application
+program interface providing a simple query interface to the World Health
+Organization's data and statistics content.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  polished
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Authentication, User Administration, and Hosting for 'shiny' Apps
 
@@ -26,8 +26,8 @@ BuildRequires:    R-CRAN-jose
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinycssloaders 
 BuildRequires:    R-CRAN-shinydashboard 
@@ -51,8 +51,8 @@ Requires:         R-CRAN-jose
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinycssloaders 
 Requires:         R-CRAN-shinydashboard 
@@ -70,7 +70,8 @@ Requires:         R-CRAN-yaml
 %description
 Easily add modern authentication and user administration to your 'shiny'
 apps. Customize user sign in and registration pages to match your brand.
-Control who can access one or more of your 'shiny' apps.
+Control who can access one or more of your 'shiny' apps. Also, deploy &
+host your apps with Polished Hosting.
 
 %prep
 %setup -q -c -n %{packname}

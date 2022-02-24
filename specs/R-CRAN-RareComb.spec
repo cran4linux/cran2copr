@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RareComb
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Combinatorial and Statistical Analyses of Rare Events
 
@@ -39,8 +39,10 @@ Requires:         R-CRAN-sqldf
 A custom implementation of the apriori algorithm and binomial tests to
 identify combinations of features (genes, variants etc) significantly
 enriched for simultaneous mutations/events from sparse Boolean input, see
-Vijay Kumar Pounraja, Santhosh Girirajan (2021).
-<doi:10.1101/2021.10.01.462832>.
+Vijay Kumar Pounraja, Santhosh Girirajan (2021). Version 1.1 includes a
+minor adjustment to the number of combinations to be considered for
+multiple testing correction. This updated version is more conservative in
+its approach and hence more selective. <doi:10.1101/2021.10.01.462832>.
 
 %prep
 %setup -q -c -n %{packname}

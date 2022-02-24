@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  GmAMisc
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Gianmarco Alberti' Miscellaneous
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Hmisc >= 4.1.1
 BuildRequires:    R-graphics >= 3.4.3
@@ -26,8 +26,6 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-raster >= 2.6.7
 BuildRequires:    R-CRAN-gridExtra >= 2.3
 BuildRequires:    R-CRAN-cluster >= 2.0.7.1
-BuildRequires:    R-CRAN-spatstat.linnet >= 2.0.0
-BuildRequires:    R-CRAN-spatstat >= 2.0.0
 BuildRequires:    R-CRAN-plyr >= 1.8.4
 BuildRequires:    R-CRAN-spatstat.geom >= 1.65.5
 BuildRequires:    R-CRAN-spatstat.core >= 1.65.5
@@ -47,6 +45,7 @@ BuildRequires:    R-CRAN-kimisc >= 0.4
 BuildRequires:    R-CRAN-rgeos >= 0.3.28
 BuildRequires:    R-CRAN-classInt >= 0.2.3
 BuildRequires:    R-CRAN-InPosition >= 0.12.7
+BuildRequires:    R-CRAN-spatstat.random 
 Requires:         R-CRAN-Hmisc >= 4.1.1
 Requires:         R-graphics >= 3.4.3
 Requires:         R-grDevices >= 3.4.3
@@ -57,8 +56,6 @@ Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-raster >= 2.6.7
 Requires:         R-CRAN-gridExtra >= 2.3
 Requires:         R-CRAN-cluster >= 2.0.7.1
-Requires:         R-CRAN-spatstat.linnet >= 2.0.0
-Requires:         R-CRAN-spatstat >= 2.0.0
 Requires:         R-CRAN-plyr >= 1.8.4
 Requires:         R-CRAN-spatstat.geom >= 1.65.5
 Requires:         R-CRAN-spatstat.core >= 1.65.5
@@ -78,6 +75,7 @@ Requires:         R-CRAN-kimisc >= 0.4
 Requires:         R-CRAN-rgeos >= 0.3.28
 Requires:         R-CRAN-classInt >= 0.2.3
 Requires:         R-CRAN-InPosition >= 0.12.7
+Requires:         R-CRAN-spatstat.random 
 
 %description
 Contains many functions useful for univariate outlier detection,
@@ -98,6 +96,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mrf
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiresolution Forecasting
 
@@ -45,8 +45,8 @@ for computing the weights of a parameter set. The test data is for
 choosing the best parameter set. The evaluation data is for assessing the
 forecast performance of the best parameter set on new data unknown to the
 model. This work is published in Stier, Q.; Gehlert, T.; Thrun, M.C.
-Multiresolution Forecasting for Industrial Applications, in press,
-Processes 2021.
+Multiresolution Forecasting for Industrial Applications. Processes 2021,
+9, 1697. <doi:10.3390/pr9101697>.
 
 %prep
 %setup -q -c -n %{packname}

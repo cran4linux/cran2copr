@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  IRSF
-%global packver   1.0.3
+%global packname  BetterReg
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interaction Random Survival Forest
+Summary:          Better Statistics for OLS and Binomial Logistic Regression
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,25 +16,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-randomForestSRC 
-BuildRequires:    R-CRAN-abind 
-Requires:         R-parallel 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-randomForestSRC 
-Requires:         R-CRAN-abind 
+BuildRequires:    R-stats >= 3.5.0
+BuildRequires:    R-CRAN-car >= 3.0.0
+BuildRequires:    R-CRAN-dplyr >= 0.8.0
+Requires:         R-stats >= 3.5.0
+Requires:         R-CRAN-car >= 3.0.0
+Requires:         R-CRAN-dplyr >= 0.8.0
 
 %description
-Builds ensemble survival tree models to reveal variable interactions when
-the response is a time-to-events outcome. Codes contain randomization,
-interaction modeling, and prediction subroutines to be used in addition to
-the following R packages: 'survival' for Kaplan-Meier and Cox regression
-modeling, 'randomForestSRC' for RSF modeling, and optionally
-'ggRandomForests' for Random Forest exploration/visualization. The current
-version contains additional R codes in folder "/inst/doc" for the analysis
-and generation of results shown in the corresponding article (Dazard et
-al. (2018) <doi:10.1515/sagmb-2017-0038>).
+Provides squared semi partial correlations, tolerance, Mahalanobis,
+Likelihood Ratio Chi Square, and Pseudo R Square. Aberson, C. L. (2022)
+<doi:10.31234/osf.io/s2yqn>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +36,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

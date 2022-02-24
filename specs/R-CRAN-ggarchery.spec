@@ -1,39 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  boostmtree
-%global packver   1.5.0
+%global packname  ggarchery
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Boosted Multivariate Trees for Longitudinal Data
+Summary:          Flexible Segment Geoms with Arrows for 'ggplot2'
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-randomForestSRC >= 2.9.0
-BuildRequires:    R-parallel 
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-nlme 
-Requires:         R-CRAN-randomForestSRC >= 2.9.0
-Requires:         R-parallel 
-Requires:         R-splines 
-Requires:         R-CRAN-nlme 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-rlang 
 
 %description
-Implements Friedman's gradient descent boosting algorithm for modeling
-longitudinal response using multivariate tree base learners. Longitudinal
-response could be continuous, binary, nominal or ordinal.  A
-time-covariate interaction effect is modeled using penalized B-splines
-(P-splines) with estimated adaptive smoothing parameter. Although the
-package is design for longitudinal data, it can handle cross-sectional
-data as well. Implementation details are provided in Pande et al. (2017),
-Mach Learn <DOI:10.1007/s10994-016-5597-1>.
+Geoms for placing arrowheads at multiple points along a segment, not just
+at the end; position function to shift starts and ends of arrows to avoid
+exactly intersecting points.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
