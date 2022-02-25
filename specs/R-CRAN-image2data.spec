@@ -1,36 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  KODAMA
-%global packver   1.8
+%global packname  image2data
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Knowledge Discovery by Accuracy Maximization
+Summary:          Turn Images into Data Sets
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.4
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-minerva 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.4
-Requires:         R-stats 
-Requires:         R-CRAN-minerva 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-readbitmap >= 0.1.0
+Requires:         R-CRAN-readbitmap >= 0.1.0
 
 %description
-An unsupervised and semi-supervised learning algorithm that performs
-feature extraction from noisy and high-dimensional data. It facilitates
-identification of patterns representing underlying groups on all samples
-in a data set. Based on Cacciatore S, Tenori L, Luchinat C, Bennett PR,
-MacIntyre DA. (2017) Bioinformatics <doi:10.1093/bioinformatics/btw705>
-and Cacciatore S, Luchinat C, Tenori L. (2014) Proc Natl Acad Sci USA
-<doi:10.1073/pnas.1220873111>.
+The goal of 'image2data' is to extract images and return them into a data
+set, especially for teaching data manipulation and data visualization.
+Basically, the eponymous function takes an image file ('png', 'tiff',
+'jpeg', 'bmp') and turn it into a data set, pixels being rows (subjects)
+and columns (variables) being their coordinate positions (x- and y-axis)
+and their respective color (in hex codes). The function can return a
+complete image or a range of color (i.e., contour, silhouette). The data
+can then be manipulated as would any data set by either creating other
+related variables (to hide the image) or as a genuine toy data set.
 
 %prep
 %setup -q -c -n %{packname}

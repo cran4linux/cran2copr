@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  amanida
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Meta-Analysis for Non-Integral Data
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-knitr >= 1.33
 BuildRequires:    R-CRAN-kableExtra >= 1.3.0
 BuildRequires:    R-CRAN-tidyverse >= 1.3.0
 BuildRequires:    R-CRAN-tidyr >= 1.1.0
+BuildRequires:    R-CRAN-webchem >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-readr >= 1.0.0
 BuildRequires:    R-CRAN-readxl >= 1.0.0
@@ -40,6 +41,7 @@ Requires:         R-CRAN-knitr >= 1.33
 Requires:         R-CRAN-kableExtra >= 1.3.0
 Requires:         R-CRAN-tidyverse >= 1.3.0
 Requires:         R-CRAN-tidyr >= 1.1.0
+Requires:         R-CRAN-webchem >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-readr >= 1.0.0
 Requires:         R-CRAN-readxl >= 1.0.0

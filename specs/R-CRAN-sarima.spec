@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sarima
-%global packver   0.8.6
+%global packver   0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.6
+Version:          0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation and Prediction with Seasonal ARIMA Models
 
@@ -24,11 +24,9 @@ BuildRequires:    R-graphics
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-FitAR 
-BuildRequires:    R-CRAN-ltsa 
-BuildRequires:    R-CRAN-FitARMA 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-ltsa 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-PolynomF >= 1.0.0
 Requires:         R-CRAN-lagged >= 0.2.1
@@ -39,11 +37,9 @@ Requires:         R-graphics
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-FitAR 
-Requires:         R-CRAN-ltsa 
-Requires:         R-CRAN-FitARMA 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-ltsa 
 
 %description
 Functions, classes and methods for time series modelling with ARIMA and

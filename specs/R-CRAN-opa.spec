@@ -1,32 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  FrF2.catlg128
-%global packver   1.2-2
+%global packname  opa
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Catalogues of Resolution IV 128 Run 2-Level Fractional Factorials Up to 33 Factors that Do Have 5-Letter Words
+Summary:          An Implementation of Ordinal Pattern Analysis
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.13.0
-Requires:         R-core >= 2.13.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-FrF2 >= 1.4
-Requires:         R-CRAN-FrF2 >= 1.4
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-combinat 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-combinat 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Catalogues of resolution IV regular fractional factorial designs in 128
-runs are provided for up to 33 2-level factors. The catalogues are
-complete, excluding resolution IV designs without 5-letter words, because
-these do not add value for a search for unblocked clear designs. The
-previous package version 1.0 with complete catalogues up to 24 runs (24
-runs and a namespace added later) can be downloaded from the authors
-website.
+Quantifyies hypothesis to data fit for repeated measures observations and
+time series data, as described by Thorngate (1987)
+<doi:10.1016/S0166-4115(08)60083-7> and Grice et al., (2015)
+<doi:10.1177/2158244015604192>. Hypothesis and data are encoded as
+pairwise relative orderings which are then compared to determine the
+percentage of orderings in the data that are matched by the hypothesis.
 
 %prep
 %setup -q -c -n %{packname}

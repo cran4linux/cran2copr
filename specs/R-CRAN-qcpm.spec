@@ -1,37 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  catchr
-%global packver   0.2.31
+%global packname  qcpm
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.31
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Taking the Pain Out of Catching and Handling Conditions
+Summary:          Quantile Composite Path Modeling
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.3.1
-BuildRequires:    R-CRAN-purrr >= 0.2.0
-Requires:         R-CRAN-rlang >= 0.3.1
-Requires:         R-CRAN-purrr >= 0.2.0
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-cSEM 
+BuildRequires:    R-CRAN-broom 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-cSEM 
+Requires:         R-CRAN-broom 
 
 %description
-R has a unique way of dealing with warnings, errors, messages, and other
-conditions, but it can often be troublesome to users coming from different
-programming backgrounds. The purpose of this package is to provide
-flexible and useful tools for handling R conditions with less hassle. In
-order to lower the barrier of entry, keep code clean and readable, and
-reduce the amount of typing required, `catchr` uses a very simple
-domain-specific language that simplifies things on the front-end. This
-package aims to maintain a continuous learning curve that lets new users
-jump straight in to condition-handling, while simultaneously offering
-depth and complexity for more advanced users.
+Implements the Quantile Composite-based Path Modeling approach (Davino and
+Vinzi, 2016 <doi:10.1007/s11634-015-0231-9>; Dolce et al., 2021
+<doi:10.1007/s11634-021-00469-0>). The method complement the traditional
+PLS Path Modeling approach, analyzing the entire distribution of outcome
+variables and, thus, overcoming the classical exploration of only average
+effects. It exploits quantile regression to investigate changes in the
+relationships among constructs and and between constructs and observed
+variables according to the analyzed quantile of interest.
 
 %prep
 %setup -q -c -n %{packname}

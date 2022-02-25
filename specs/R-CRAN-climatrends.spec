@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  climatrends
-%global packver   0.1.13
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.13
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Climate Variability Indices for Ecological Modelling
 

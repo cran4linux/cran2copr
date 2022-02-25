@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  misty
-%global packver   0.4.3
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions 'T. Yanagida'
 
@@ -16,29 +16,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-norm 
+BuildRequires:    R-CRAN-r2mlm 
 BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-writexl 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-norm 
+Requires:         R-CRAN-r2mlm 
 Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-writexl 
 
 %description
 Miscellaneous functions for descriptive statistics (e.g., frequency table,
-cross tabulation, multilevel descriptive statistics, within-group and
-between-group correlation matrix, coefficient alpha and omega, and various
-effect size measures), missing data (e.g., descriptive statistics for
-missing data, missing data pattern, Little's test of Missing Completely at
-Random, and auxiliary variable analysis), data management (e.g.,
-grand-mean and group-mean centering, recode variables and reverse code
-items, scale and group scores, reading and writing SPSS and Excel files),
-and statistical analysis (e.g., confidence intervals, collinearity
-diagnostics, Levene's test, t-test, z-test, and sample size
-determination).
+cross tabulation, multilevel descriptive statistics, multilevel R-squared
+measures, within-group and between-group correlation matrix, coefficient
+alpha and omega, and various effect size measures), missing data (e.g.,
+descriptive statistics for missing data, missing data pattern, Little's
+test of Missing Completely at Random, and auxiliary variable analysis),
+data management (e.g., grand-mean and group-mean centering, recode
+variables and reverse code items, scale and group scores, reading and
+writing SPSS and Excel files), and statistical analysis (e.g., confidence
+intervals, collinearity diagnostics, Levene's test, t-test, z-test, and
+sample size determination).
 
 %prep
 %setup -q -c -n %{packname}

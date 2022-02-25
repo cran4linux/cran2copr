@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  chunked
-%global packver   0.5.1
+%global packname  ggchangepoint
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Chunkwise Text-File Processing for 'dplyr'
+Summary:          Combines Changepoint Analysis with 'ggplot2'
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,23 +16,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 0.7
-BuildRequires:    R-CRAN-LaF 
+BuildRequires:    R-CRAN-changepoint 
+BuildRequires:    R-CRAN-changepoint.np 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ecp 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-progress 
-Requires:         R-CRAN-dplyr >= 0.7
-Requires:         R-CRAN-LaF 
+Requires:         R-CRAN-changepoint 
+Requires:         R-CRAN-changepoint.np 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ecp 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-tibble 
 Requires:         R-utils 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-progress 
 
 %description
-Data stored in text file can be processed chunkwise using 'dplyr'
-commands. These are recorded and executed per data chunk, so large files
-can be processed with limited memory using the 'LaF' package.
+R provides fantastic tools for changepoint analysis, but plots generated
+by the tools do not have the 'ggplot2' style. This tool, however, combines
+'changepoint', 'changepoint.np' and 'ecp' together, and uses 'ggplot2' to
+visualize changepoints.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,6 +47,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

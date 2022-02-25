@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pomdp
-%global packver   0.99.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Solver for Partially Observable Markov Decision Processes (POMDP)
 
@@ -15,15 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-pomdpSolve 
 BuildRequires:    R-CRAN-igraph 
+Requires:         R-CRAN-pomdpSolve 
 Requires:         R-CRAN-igraph 
 
 %description
 Provides the infrastructure to define and analyze the solutions of
-Partially Observable Markov Decision Processes (POMDP) models. The package
-includes pomdp-solve to solve POMDPs using a variety of exact and
-approximate value iteration algorithms. Smallwood and Sondik (1973)
-<doi:10.1287/opre.21.5.1071>.
+Partially Observable Markov Decision Process (POMDP) models. Interfaces
+for various exact and approximate solution algorithms are available
+including value iteration, point-based value iteration and SARSOP.
+Smallwood and Sondik (1973) <doi:10.1287/opre.21.5.1071>.
 
 %prep
 %setup -q -c -n %{packname}

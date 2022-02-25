@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rlfsm
-%global packver   1.0.3
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulations and Statistical Inference for Linear Fractional Stable Motions
 
@@ -35,12 +35,12 @@ Requires:         R-CRAN-Rdpack
 Requires:         R-CRAN-Rcpp 
 
 %description
-Contains functions for simulating linear fractional stable motions,
-according to techniques developed by Stoev and Taqqu (2004)
-<doi:10.1142/S0218348X04002379>, as well as functions for computing
-important statistics used with these processes introduced by Mazur,
-Otryakhin and Podolskij (2018) <arXiv:1802.06373>, and also different
-quantities related to those statistics.
+Contains functions for simulating the linear fractional stable motion
+according to the algorithm developed by Mazur and Otryakhin
+<doi:10.32614/RJ-2020-008> based on the method from Stoev and Taqqu (2004)
+<doi:10.1142/S0218348X04002379>, as well as functions for estimation of
+parameters of these processes introduced by Mazur, Otryakhin and Podolskij
+(2018) <arXiv:1802.06373>, and also different related quantities.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,6 +50,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

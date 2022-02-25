@@ -1,38 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  contribution
-%global packver   0.2.0
+%global packname  bodycomp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Tiny Contribution Table Generator Based on 'ggplot2'
+Summary:          Percent Body Fat Values Using Anthropometric Prediction Equations
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-gh 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-gh 
 
 %description
-Contribution table for credit assignment based on 'ggplot2'. This can
-improve the author contribution information in academic journals and
-personal CV.
+Skinfold measurements is one of the most popular and practical methods for
+estimating percent body fat. Body composition is a term that describes the
+relative proportions of fat, bone, and muscle mass in the human body.
+Following the collection of skinfold measurements, regression analysis (a
+statistical procedure used to predict a dependent variable based on one or
+more independent or predictor variables) is used to estimate total percent
+body fat in humans. <doi:10.4324/9780203868744>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,6 +34,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

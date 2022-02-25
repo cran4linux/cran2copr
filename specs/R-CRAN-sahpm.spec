@@ -1,46 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  climaemet
+%global packname  sahpm
 %global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Climate AEMET Tools
+Summary:          Variable Selection using Simulated Annealing
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
-BuildRequires:    R-CRAN-tibble >= 3.0.3
-BuildRequires:    R-CRAN-jsonlite >= 1.7.0
-BuildRequires:    R-CRAN-httr >= 1.4.1
-BuildRequires:    R-CRAN-readr >= 1.4.0
-BuildRequires:    R-CRAN-tidyr >= 1.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 0.4.6
-BuildRequires:    R-CRAN-rappdirs >= 0.3.3
-Requires:         R-CRAN-ggplot2 >= 3.3.2
-Requires:         R-CRAN-tibble >= 3.0.3
-Requires:         R-CRAN-jsonlite >= 1.7.0
-Requires:         R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-readr >= 1.4.0
-Requires:         R-CRAN-tidyr >= 1.1.0
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-rlang >= 0.4.6
-Requires:         R-CRAN-rappdirs >= 0.3.3
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-utils 
 
 %description
-Tools to download the climatic data of the Spanish Meteorological Agency
-(AEMET) directly from R using their API and create scientific graphs
-(climate charts, trend analysis of climate time series, temperature and
-precipitation anomalies maps, warming stripes graphics, climatograms,
-etc.).
+Highest posterior model is widely accepted as a good model among available
+models. In terms of variable selection highest posterior model is often
+the true model. Our stochastic search process SAHPM based on simulated
+annealing maximization method tries to find the highest posterior model by
+maximizing the model space with respect to the posterior probabilities of
+the models. This package currently contains the SAHPM method only for
+linear models. The codes for GLM will be added in future.
 
 %prep
 %setup -q -c -n %{packname}

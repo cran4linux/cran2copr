@@ -1,44 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  prider
-%global packver   1.0.2
+%global packname  RRF
+%global packver   1.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.9.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiplexed Primer Design by Linear Set Coverage Approximation
+Summary:          Regularized Random Forest
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-blaster 
-BuildRequires:    R-CRAN-gplots 
-Requires:         R-CRAN-Rcpp >= 1.0.5
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-blaster 
-Requires:         R-CRAN-gplots 
+BuildRequires:    R-devel >= 2.5.0
+Requires:         R-core >= 2.5.0
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Implementation of an oligonucleotide primer and probe design algorithm
-using a linearly scaling approximation of set coverage. A detailed
-description available at Smolander and Tamminen, 2021;
-<doi:10.1101/2021.09.06.459073>.
+Feature Selection with Regularized Random Forest. This package is based on
+the 'randomForest' package by Andy Liaw. The key difference is the RRF()
+function that builds a regularized random forest. Fortran original by Leo
+Breiman and Adele Cutler, R port by Andy Liaw and Matthew Wiener,
+Regularized random forest for classification by Houtao Deng, Regularized
+random forest for regression by Xin Guan. Reference: Houtao Deng (2013)
+<arXiv:1306.0237>.
 
 %prep
 %setup -q -c -n %{packname}
