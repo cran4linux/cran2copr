@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  albatross
-%global packver   0.3-2
+%global packver   0.3-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          PARAFAC Analysis of Fluorescence Excitation-Emission Matrices
 
@@ -17,11 +17,13 @@ BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-multiway >= 1.0.4
+BuildRequires:    R-CRAN-CMLS 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-multiway >= 1.0.4
+Requires:         R-CRAN-CMLS 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-lattice 
 Requires:         R-parallel 
@@ -29,14 +31,13 @@ Requires:         R-CRAN-Matrix
 
 %description
 Perform parallel factor analysis (PARAFAC: Hitchcock, 1927)
-<doi:10.1002/sapm192761164> on fluorescence excitation-emission matrices
-(FEEMs): handle scattering signal and inner filter effect, scale the
-dataset, fit the model; perform split-half validation or jack-knifing. A
-modified approach called "randomised split-half" is also available. The
-package has a low dependency footprint (only two direct dependencies not
-in core or recommended; four total non-core/recommended dependencies) and
-has been tested on a wide range of R versions (including R as old as 3.3.3
-from Debian Stretch).
+<doi:10.1002/sapm192761164> on fluorescence excitation-emission matrices:
+handle scattering signal and inner filter effect, scale the dataset, fit
+the model; perform split-half validation or jack-knifing. Modified
+approaches such as Whittaker interpolation, randomised split-half, and
+fluorescence and scattering model estimation are also available. The
+package has a low dependency footprint and has been tested on a wide range
+of R versions.
 
 %prep
 %setup -q -c -n %{packname}

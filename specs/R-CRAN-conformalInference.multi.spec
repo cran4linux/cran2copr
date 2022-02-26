@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  conformalInference.multi
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conformal Inference Tools for Regression with Multivariate Response
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-future >= 1.23.0
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-hrbrthemes 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 >= 3.3.5
 Requires:         R-CRAN-gridExtra >= 2.3
 Requires:         R-CRAN-future.apply >= 1.8.1
@@ -31,7 +30,6 @@ Requires:         R-CRAN-future >= 1.23.0
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-hrbrthemes 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
 It computes full conformal, split conformal and multi split conformal

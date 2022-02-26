@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pvLRT
-%global packver   0.3
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Likelihood Ratio Test-Based Approaches to Pharmacovigilance
 
@@ -20,24 +20,24 @@ BuildRequires:    R-CRAN-magrittr >= 2.0.0
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggfittext 
 Requires:         R-CRAN-magrittr >= 2.0.0
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-utils 
-Requires:         R-grDevices 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-bit64 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggfittext 
 
 %description
 A suite of likelihood ratio test based methods to use in

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bsreg
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Spatial Regression Models
 
-License:          GPL-3
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -30,10 +30,7 @@ Requires:         R-utils
 Requires:         R-grDevices 
 
 %description
-Fit Bayesian models with a focus on spillover effects. Implements linear
-specifications (with or without shrinkage), allows for spatial lags of the
-dependent, explanatories, and error term, parameterised connectivity, and
-stochastic volatility.
+Fit Bayesian models with a focus on the spatial econometric models.
 
 %prep
 %setup -q -c -n %{packname}

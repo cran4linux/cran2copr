@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  IGoRRR
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Shiny Interface for Simple Data Management
 
@@ -19,7 +19,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinydashboard 
-BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-shinyFiles 
 BuildRequires:    R-CRAN-htmltools 
@@ -39,6 +38,7 @@ BuildRequires:    R-CRAN-fst
 BuildRequires:    R-CRAN-feather 
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-readODS 
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-skimr 
 BuildRequires:    R-CRAN-tables 
@@ -49,7 +49,6 @@ BuildRequires:    R-CRAN-magrittr
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinydashboard 
-Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-shinyFiles 
 Requires:         R-CRAN-htmltools 
@@ -69,6 +68,7 @@ Requires:         R-CRAN-fst
 Requires:         R-CRAN-feather 
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-readODS 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-skimr 
 Requires:         R-CRAN-tables 

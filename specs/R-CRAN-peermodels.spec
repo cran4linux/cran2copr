@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  peermodels
-%global packver   0.10.2
+%global packver   0.10.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.2
+Version:          0.10.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Client-Side R API Wrapper for Peer Models Network Model Repository
 
@@ -18,9 +18,13 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-stringr 
 
 %description

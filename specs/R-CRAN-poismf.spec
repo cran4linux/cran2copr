@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  poismf
-%global packver   0.3.1-3
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1.3
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Factorization of Sparse Counts Matrices Through Poisson Likelihood
 
@@ -21,13 +21,15 @@ Requires:         R-CRAN-Matrix >= 1.3
 Requires:         R-methods 
 
 %description
-Creates a low-rank factorization of a sparse counts matrix by maximizing
-Poisson likelihood with l1/l2 regularization with all non-negative latent
-factors (e.g. for recommender systems or topic modeling) (Cortes, (2018)
-<arXiv:1811.01908>). Similar to hierarchical Poisson factorization, but
-follows an optimization-based approach with regularization instead of a
-hierarchical structure, and is fit through gradient-based methods instead
-of variational inference.
+Creates a non-negative low-rank approximate factorization of a sparse
+counts matrix by maximizing Poisson likelihood with L1/L2 regularization
+(e.g. for implicit-feedback recommender systems or bag-of-words-based
+topic modeling) (Cortes, (2018) <arXiv:1811.01908>), which usually leads
+to very sparse user and item factors (over 90%% zero-valued). Similar to
+hierarchical Poisson factorization (HPF), but follows an
+optimization-based approach with regularization instead of a hierarchical
+prior, and is fit through gradient-based methods instead of variational
+inference.
 
 %prep
 %setup -q -c -n %{packname}

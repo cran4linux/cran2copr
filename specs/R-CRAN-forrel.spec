@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  forrel
-%global packver   1.3.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forensic Pedigree Analysis and Relatedness Inference
 
@@ -13,19 +13,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pedtools >= 0.9.6
+BuildRequires:    R-CRAN-ribd >= 1.3.0
+BuildRequires:    R-CRAN-pedtools >= 1.1.0
 BuildRequires:    R-CRAN-pedprobr >= 0.4
-BuildRequires:    R-CRAN-ribd 
-BuildRequires:    R-CRAN-pedmut 
 BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-pedtools >= 0.9.6
+BuildRequires:    R-CRAN-pedmut 
+Requires:         R-CRAN-ribd >= 1.3.0
+Requires:         R-CRAN-pedtools >= 1.1.0
 Requires:         R-CRAN-pedprobr >= 0.4
-Requires:         R-CRAN-ribd 
-Requires:         R-CRAN-pedmut 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-pedmut 
 
 %description
 Forensic applications of pedigree analysis, including likelihood ratios
@@ -35,15 +35,16 @@ based on Egeland et al. (2014) <doi:10.1016/j.fsigen.2013.05.001>. Several
 functions deal specifically with family reunion cases, implementing and
 developing ideas from Kling et al. (2017)
 <doi:10.1016/j.fsigen.2017.08.006>. A novelty of 'forrel' is the ability
-to model background inbreeding in forensic pedigree computations. This can
-have significant impact in applications, as exemplified in Vigeland and
-Egeland (2019) <doi:10.1016/j.fsigss.2019.10.175>. 'forrel' is part of the
-ped suite, a collection of packages for pedigree analysis. In particular,
-'forrel' imports 'pedtools' for creating and manipulating pedigrees and
-markers, 'pedprobr' for likelihood computations, and 'pedmut' for mutation
-modelling. Pedigree data may be created from scratch, or loaded from text
-files. Data import from the 'Familias' software (Egeland et al. (2000)
-<doi:10.1016/S0379-0738(00)00147-X>) is supported.
+to model background inbreeding in forensic pedigree computations.  This
+can have significant impact in applications, as exemplified in Vigeland
+and Egeland (2019) <doi:10.1016/j.fsigss.2019.10.175>. 'forrel' is part of
+the ped suite, a collection of packages for pedigree analysis. In
+particular, 'forrel' imports 'pedtools' for creating and manipulating
+pedigrees and markers, 'pedprobr' for likelihood computations, and
+'pedmut' for mutation modelling.  Pedigree data may be created from
+scratch, or loaded from text files. Data import from the 'Familias'
+software (Egeland et al. (2000) <doi:10.1016/S0379-0738(00)00147-X>) is
+supported.
 
 %prep
 %setup -q -c -n %{packname}
@@ -53,6 +54,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

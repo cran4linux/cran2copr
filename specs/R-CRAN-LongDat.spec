@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  LongDat
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Tool for 'Confounder'-Sensitive Longitudinal Analysis on 'Multi-omics' Data
 

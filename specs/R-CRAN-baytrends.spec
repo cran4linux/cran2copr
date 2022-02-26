@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  baytrends
-%global packver   2.0.5
+%global packver   2.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          2.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Long Term Water Quality Trend Analysis
 
@@ -18,17 +18,31 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dataRetrieval 
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fitdistrplus 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-pander 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-sessioninfo 
 BuildRequires:    R-CRAN-survival 
 Requires:         R-CRAN-dataRetrieval 
 Requires:         R-CRAN-digest 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fitdistrplus 
+Requires:         R-grDevices 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-pander 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-sessioninfo 
 Requires:         R-CRAN-survival 
 
 %description
@@ -52,6 +66,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

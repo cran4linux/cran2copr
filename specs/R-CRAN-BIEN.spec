@@ -1,53 +1,55 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BAT
-%global packver   2.8.0
+%global packname  BIEN
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.0
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Biodiversity Assessment Tools
+Summary:          Tools for Accessing the Botanical Information and Ecology Network Database
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.2.1
+Requires:         R-core >= 3.2.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-RPostgreSQL 
+BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-geometry 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-hypervolume 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nls2 
-BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-fasterize 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-foreach 
+Requires:         R-CRAN-RPostgreSQL 
+Requires:         R-CRAN-rgeos 
+Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-ape 
-Requires:         R-CRAN-geometry 
-Requires:         R-graphics 
-Requires:         R-CRAN-hypervolume 
-Requires:         R-CRAN-MASS 
 Requires:         R-methods 
-Requires:         R-CRAN-nls2 
-Requires:         R-parallel 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-fasterize 
 Requires:         R-CRAN-raster 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-CRAN-foreach 
 
 %description
-Includes algorithms to assess alpha and beta diversity in all their
-dimensions (taxonomic, phylogenetic and functional). It allows performing
-a number of analyses based on species identities/abundances,
-phylogenetic/functional distances, trees, convex-hulls or kernel density
-n-dimensional hypervolumes depicting species relationships. Cardoso et al.
-(2015) <doi:10.1111/2041-210X.12310>.
+Provides Tools for Accessing the Botanical Information and Ecology Network
+Database.  The BIEN database contains cleaned and standardized botanical
+data including occurrence, trait, plot and taxonomic data (See
+<https://bien.nceas.ucsb.edu/bien/> for more Information).  This package
+provides functions that query the BIEN database by constructing and
+executing optimized SQL queries.
 
 %prep
 %setup -q -c -n %{packname}

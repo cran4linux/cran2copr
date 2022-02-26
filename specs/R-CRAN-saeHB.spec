@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  saeHB
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Small Area Estimation using Hierarchical Bayesian Method
 
@@ -22,21 +22,27 @@ BuildRequires:    R-CRAN-rjags
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-nimble 
+BuildRequires:    R-CRAN-CARBayesdata 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-rjags 
 Requires:         R-stats 
 Requires:         R-grDevices 
 Requires:         R-graphics 
+Requires:         R-CRAN-nimble 
+Requires:         R-CRAN-CARBayesdata 
+Requires:         R-CRAN-MASS 
 
 %description
 Provides several functions for area level of small area estimation using
-hierarchical Bayesian (HB) method with Univariate Normal distribution and
-Univariate Beta distribution for variables of interest. Some dataset
-produced by a data generation are also provided. The 'rjags' package is
-employed to obtain parameter estimates. Model-based estimators involves
-the HB estimators which include the mean and the variation of mean. For
-the reference, see Rao and Molina (2015) <doi:10.1002/9781118735855>.
+hierarchical Bayesian (HB) method with several univariate distributions
+for variable of interest. The dataset that used in every function is
+generated accordingly in the Example. The 'rjags' package is employed to
+obtain parameter estimates. Model-based estimators involves the HB
+estimators which include the mean and the variation of mean. For the
+reference, see Rao and Molina (2015) <doi:10.1002/9781118735855>.
 
 %prep
 %setup -q -c -n %{packname}
