@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mxnorm
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Apply Normalization Methods to Multiplexed Images
 
@@ -34,6 +34,8 @@ BuildRequires:    R-CRAN-KernSmooth
 BuildRequires:    R-CRAN-kSamples 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-fossil 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
@@ -52,6 +54,8 @@ Requires:         R-CRAN-KernSmooth
 Requires:         R-CRAN-kSamples 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-fossil 
+Requires:         R-CRAN-glue 
+Requires:         R-methods 
 
 %description
 Implements methods to normalize multiplexed imaging data, including

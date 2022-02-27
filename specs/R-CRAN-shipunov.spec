@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  shipunov
-%global packver   1.16
+%global packver   1.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.16
+Version:          1.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions from Alexey Shipunov
 
@@ -17,7 +17,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-PBSmapping 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-PBSmapping 
+Requires:         R-methods 
 
 %description
 A collection of functions for data manipulation, plotting and statistical

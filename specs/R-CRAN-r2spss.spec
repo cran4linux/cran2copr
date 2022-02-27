@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  r2spss
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Format R Output to Look Like SPSS
 
@@ -16,12 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-car 
+Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-CRAN-car 
 
@@ -30,10 +34,10 @@ Create plots and LaTeX tables that look like SPSS output for use in
 teaching materials.  Rather than copying-and-pasting SPSS output into
 documents, R code that mocks up SPSS output can be integrated directly
 into dynamic LaTeX documents with tools such as knitr.  Functionality
-includes methods that are typically covered in introductory statistics
-classes: descriptive statistics, common hypothesis tests, ANOVA, and
-linear regression, as well as boxplots, histograms, scatterplots, and line
-plots (including profile plots).
+includes statistical techniques that are typically covered in introductory
+statistics classes: descriptive statistics, common hypothesis tests,
+ANOVA, and linear regression, as well as box plots, histograms, scatter
+plots, and line plots (including profile plots).
 
 %prep
 %setup -q -c -n %{packname}
