@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ggdist
-%global packver   3.1.0
+%global packver   3.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizations of Distributions and Uncertainty
 
@@ -51,8 +51,9 @@ confidence distributions or Bayesian priors) and distributions represented
 as samples (such as bootstrap distributions or Bayesian posterior samples)
 are easily visualized. Visualization primitives include but are not
 limited to: points with multiple uncertainty intervals, eye plots
-(Spiegelhalter D., 1999) <doi:10.1111/1467-985X.00120>, density plots,
-gradient plots, dot plots (Wilkinson L., 1999)
+(Spiegelhalter D., 1999)
+<https://ideas.repec.org/a/bla/jorssa/v162y1999i1p45-58.html>, density
+plots, gradient plots, dot plots (Wilkinson L., 1999)
 <doi:10.1080/00031305.1999.10474474>, quantile dot plots (Kay M., Kola T.,
 Hullman J., Munson S., 2016) <doi:10.1145/2858036.2858558>, complementary
 cumulative distribution function barplots (Fernandes M., Walls L., Munson

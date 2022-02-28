@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  apexcharter
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Interactive Chart with the JavaScript 'ApexCharts' Library
 
@@ -16,16 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-htmlwidgets >= 1.5.3
 BuildRequires:    R-CRAN-shiny >= 1.1.0
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-htmlwidgets >= 1.5.3
 Requires:         R-CRAN-shiny >= 1.1.0
 Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 

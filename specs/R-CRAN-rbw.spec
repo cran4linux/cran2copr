@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rbw
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Residual Balancing Weights for Marginal Structural Models
 
@@ -30,7 +30,7 @@ effect in a cross-sectional observational study, (b) controlled
 direct/mediator effects in causal mediation analysis, and (c) the effects
 of time-varying treatments in panel data (Zhou and Wodtke 2020
 <doi:10.1017/pan.2020.2>). This package provides three functions,
-rbwATE(), rbwMed(), and rbwPanel(), that produce residual balancing
+rbwPoint(), rbwMed(), and rbwPanel(), that produce residual balancing
 weights for estimating (a), (b), (c), respectively.
 
 %prep

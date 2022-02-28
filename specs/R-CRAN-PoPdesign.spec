@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  PoPdesign
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Posterior Predictive (PoP) Design for Phase I Clinical Trials
 
@@ -27,16 +27,15 @@ Requires:         R-CRAN-magick
 The primary goal of phase I clinical trials is to find the maximum
 tolerated dose (MTD). To reach this objective, we introduce a new design
 for phase I clinical trials, the posterior predictive (PoP) design. The
-PoP design is an innovative model-assisted design that is easy to
-implement in a manner similar to the traditional 3+3 design, as its
-decision rules can be pre-tabulated prior to the onset of trial, but is of
-more flexibility of selecting diverse target toxicity rates and cohort
-sizes. The PoP design has desirable properties, such as coherence and
-consistency. Moreover, the PoP design provides better performance than the
-BOIN and Keyboard design with respect to high average probabilities of
-choosing the MTD and slightly lower risk of treating patients at
-subtherapeutic or overly toxic doses. Reference: Brunk, H., Barlow, R. E.,
-Bartholomew, D. J. & Bremner, J. M (1972, ISBN-13: 978-0471049708).
+PoP design is an innovative model-assisted design that is as simply as the
+conventional algorithmic designs as its decision rules can be
+pre-tabulated prior to the onset of trial, but is of more flexibility of
+selecting diverse target toxicity rates and cohort sizes. The PoP design
+has desirable properties, such as coherence and consistency. Moreover, the
+PoP design provides better empirical performance than the BOIN and
+Keyboard design with respect to high average probabilities of choosing the
+MTD and slightly lower risk of treating patients at subtherapeutic or
+overly toxic doses.
 
 %prep
 %setup -q -c -n %{packname}
