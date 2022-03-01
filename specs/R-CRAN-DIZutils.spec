@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DIZutils
-%global packver   0.0.14
+%global packver   0.0.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.14
+Version:          0.0.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for 'DIZ' R Package Development
 
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-DBI >= 1.1.0
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-DIZtools 
 BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-RJDBC 
 BuildRequires:    R-CRAN-RJSONIO 
@@ -30,7 +29,6 @@ Requires:         R-CRAN-DBI >= 1.1.0
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-DIZtools 
 Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-RJDBC 
 Requires:         R-CRAN-RJSONIO 

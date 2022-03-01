@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  LSDinterface
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface Tools for LSD Simulation Results Files
 
@@ -19,13 +19,15 @@ BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-TSdist 
 Requires:         R-stats 
 Requires:         R-CRAN-boot 
 Requires:         R-utils 
-Requires:         R-CRAN-abind 
 Requires:         R-parallel 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-TSdist 
 
 %description
 Interfaces R with LSD simulation models. Reads object-oriented data in

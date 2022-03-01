@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BinMat
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Processes Binary Data Obtained from Fragment Analysis (Such as AFLPs, ISSRs, and RFLPs)
 
@@ -37,16 +37,18 @@ Requires:         R-CRAN-magrittr
 A molecular genetics tool that processes binary data from fragment
 analysis. It consolidates replicate sample pairs, outputs summary
 statistics, and produces hierarchical clustering trees and nMDS plots.
-This package was developed from the M.Sc. thesis entitled "A genetic
-analysis of the species and intraspecific lineages of Dactylopius Costa
-(Hemiptera:Dactylopiidae)" (van Steenderen, 2019, Rhodes University,
-Department of Zoology and Entomology, Center for Biological Control (CBC)
-<https://www.ru.ac.za/centreforbiologicalcontrol/>, Grahamstown, South
-Africa), <doi:10.13140/RG.2.2.28470.86083>. The GUI version of this
-package is available on the R Shiny online server at:
-<https://clarkevansteenderen.shinyapps.io/BINMAT/> , or it is accessible
-via GitHub by typing: shiny::runGitHub("BinMat", "CJMvS") into the console
-in R.
+This package was developed from the publication available here:
+<https://www.sciencedirect.com/science/article/pii/S1049964420306538>. The
+GUI version of this package is available on the R Shiny online server at:
+<https://clarkevansteenderen.shinyapps.io/BINMAT/> or it is accessible via
+GitHub by typing: shiny::runGitHub("BinMat", "CJMvS") into the console in
+R. Two real-world datasets accompany the package: an AFLP dataset of
+Bunias orientalis samples from Tewes et. al. (2017)
+<https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/1365-2745.12869>,
+and an ISSR dataset of Nymphaea specimens from Reid et. al. (2021)
+<https://www.sciencedirect.com/science/article/pii/S0304377021000218> .
+The authors of these publications are thanked for allowing the use of
+their data.
 
 %prep
 %setup -q -c -n %{packname}

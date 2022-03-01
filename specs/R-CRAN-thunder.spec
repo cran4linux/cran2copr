@@ -1,32 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  jmvReadWrite
-%global packver   0.3.1
+%global packname  thunder
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read and Write 'jamovi' Files ('.omv')
+Summary:          Computation and Visualisation of Atmospheric Convective Parameters
 
-License:          AGPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-CRAN-zip 
-Requires:         R-CRAN-rjson 
-Requires:         R-CRAN-zip 
+BuildRequires:    R-CRAN-Rcpp >= 0.12.9.4
+BuildRequires:    R-CRAN-climate 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-aiRthermo 
+Requires:         R-CRAN-Rcpp >= 0.12.9.4
+Requires:         R-CRAN-climate 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-aiRthermo 
 
 %description
-The free and open a statistical spreadsheet 'jamovi' (www.jamovi.org) aims
-to make statistical analyses easy and intuitive. 'jamovi' produces syntax
-that can directly be used in R (in connection with the R-package 'jmv').
-Having import / export routines for the data files 'jamovi' produces
-('.omv') permits an easy transfer of analyses between 'jamovi' and R.
+Collection of functions for rapid computation and visualisation of
+convective parameters commonly used in the operational prediction of
+severe convective storms. Core algorithm is based on a highly optimized
+'C++' code linked into 'R' via 'Rcpp'. Highly efficient engine allows to
+derive thermodynamic and kinematic parameters from large numerical
+datasets such as reanalyses or operational Numerical Weather Prediction
+models in a reasonable amount of time. Package has been developed since
+2017 by research meteorologists specializing in severe thunderstorms.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,32 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  jmvReadWrite
-%global packver   0.3.1
+%global packname  autoRasch
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read and Write 'jamovi' Files ('.omv')
+Summary:          Semi-Automated Rasch Analysis
 
-License:          AGPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-CRAN-zip 
-Requires:         R-CRAN-rjson 
-Requires:         R-CRAN-zip 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-lavaan 
 
 %description
-The free and open a statistical spreadsheet 'jamovi' (www.jamovi.org) aims
-to make statistical analyses easy and intuitive. 'jamovi' produces syntax
-that can directly be used in R (in connection with the R-package 'jmv').
-Having import / export routines for the data files 'jamovi' produces
-('.omv') permits an easy transfer of analyses between 'jamovi' and R.
+Performs Rasch analysis (semi-)automatically, which has been shown to be
+comparable with the standard Rasch analysis (Feri Wijayanto et al. (2021)
+<doi:10.1111/bmsp.12218>, Feri Wijayanto et al. (2022)
+<https://psyarxiv.com/erxuh/>).
 
 %prep
 %setup -q -c -n %{packname}

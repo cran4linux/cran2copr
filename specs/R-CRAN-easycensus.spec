@@ -1,50 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rgho
-%global packver   2.0.2
+%global packname  easycensus
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access WHO Global Health Observatory Data from R
+Summary:          Quickly Extract and Marginalize U.S. Census Tables
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.2
-Requires:         R-core >= 3.2.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidycensus 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidycensus 
+Requires:         R-CRAN-cli 
 
 %description
-Access WHO Global Health Observatory (<https://www.who.int/data/gho/>)
-data from R via the Athena web service
-(<https://apps.who.int/gho/data/node.resources.api>), an application
-program interface providing a simple query interface to the World Health
-Organization's data and statistics content.
+Extracting desired data using the proper Census variable names can be
+time-consuming. This package takes the pain out of that process by
+providing functions to quickly locate variables and download labeled
+tables from the Census APIs
+(<https://www.census.gov/data/developers/data-sets.html>).
 
 %prep
 %setup -q -c -n %{packname}

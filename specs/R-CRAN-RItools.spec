@@ -1,32 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  jmvReadWrite
-%global packver   0.3.1
+%global packname  RItools
+%global packver   0.1-18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.18
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read and Write 'jamovi' Files ('.omv')
+Summary:          Randomization Inference Tools
 
-License:          AGPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.2.0
+Requires:         R-core >= 2.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-CRAN-zip 
-Requires:         R-CRAN-rjson 
-Requires:         R-CRAN-zip 
+BuildRequires:    R-CRAN-SparseM 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-xtable 
+BuildRequires:    R-CRAN-svd 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-SparseM 
+Requires:         R-grDevices 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-svd 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-methods 
+Requires:         R-CRAN-survival 
 
 %description
-The free and open a statistical spreadsheet 'jamovi' (www.jamovi.org) aims
-to make statistical analyses easy and intuitive. 'jamovi' produces syntax
-that can directly be used in R (in connection with the R-package 'jmv').
-Having import / export routines for the data files 'jamovi' produces
-('.omv') permits an easy transfer of analyses between 'jamovi' and R.
+Tools for randomization-based inference. Current focus is on the d^2
+omnibus test of differences of means following Hansen and Bowers (2008)
+<doi:10.1214/08-STS254> . This test is useful for assessing balance in
+matched observational studies or for analysis of outcomes in
+block-randomized experiments.
 
 %prep
 %setup -q -c -n %{packname}

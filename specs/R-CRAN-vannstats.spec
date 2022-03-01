@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  vannstats
-%global packver   1.2.2.21
+%global packver   1.2.2.27
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2.21
+Version:          1.2.2.27
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplified Statistics for PA 606
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.3
 Requires:         R-core >= 3.2.3
 BuildArch:        noarch
+BuildRequires:    R-CRAN-gdata 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
@@ -29,6 +30,7 @@ BuildRequires:    R-CRAN-formula.tools
 BuildRequires:    R-CRAN-gplots 
 BuildRequires:    R-CRAN-rstatix 
 BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-gdata 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 

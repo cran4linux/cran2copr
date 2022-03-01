@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Riemann
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Learning with Data on Riemannian Manifolds
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-maotai >= 0.2.2
 BuildRequires:    R-CRAN-CVXR 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-RiemBase 
@@ -24,12 +25,11 @@ BuildRequires:    R-CRAN-T4cluster
 BuildRequires:    R-CRAN-DEoptim 
 BuildRequires:    R-CRAN-lpSolve 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-maotai 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-maotai >= 0.2.2
 Requires:         R-CRAN-CVXR 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-RiemBase 
@@ -38,10 +38,8 @@ Requires:         R-CRAN-T4cluster
 Requires:         R-CRAN-DEoptim 
 Requires:         R-CRAN-lpSolve 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-maotai 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-ggrepel 
 
 %description
 We provide a variety of algorithms for manifold-valued data, including
@@ -58,6 +56,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

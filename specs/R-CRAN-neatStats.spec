@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  neatStats
-%global packver   1.9.0
+%global packver   1.10.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.0
+Version:          1.10.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Neat and Painless Statistical Reporting
 
@@ -18,14 +18,14 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-fBasics 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-bayestestR 
 BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-MBESS 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-ez 
-BuildRequires:    R-CRAN-BayesFactor 
 BuildRequires:    R-CRAN-Exact 
+BuildRequires:    R-CRAN-BayesFactor 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-logspline 
@@ -34,14 +34,14 @@ BuildRequires:    R-stats
 BuildRequires:    R-graphics 
 Requires:         R-CRAN-viridis 
 Requires:         R-CRAN-fBasics 
-Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-bayestestR 
 Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-MBESS 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-ez 
-Requires:         R-CRAN-BayesFactor 
 Requires:         R-CRAN-Exact 
+Requires:         R-CRAN-BayesFactor 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-logspline 

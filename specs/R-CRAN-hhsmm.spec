@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  hhsmm
-%global packver   0.2.5
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hidden Hybrid Markov/Semi-Markov Model Fitting
 
@@ -24,6 +24,8 @@ BuildRequires:    R-CRAN-mice
 BuildRequires:    R-CRAN-cpr 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-magic 
+BuildRequires:    R-CRAN-splines2 
 Requires:         R-CRAN-CMAPSS 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-Rcpp 
@@ -33,6 +35,8 @@ Requires:         R-CRAN-mice
 Requires:         R-CRAN-cpr 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-progress 
+Requires:         R-CRAN-magic 
+Requires:         R-CRAN-splines2 
 
 %description
 Develops algorithms for fitting, prediction, simulation and initialization
@@ -41,8 +45,10 @@ of the hidden hybrid Markov/semi-Markov model, introduced by Guedon (2005)
 handling missing data, nonparametric mixture of B-splines emissions
 (Langrock et al., 2015 <doi:10.1111/biom.12282>), fitting regime switching
 regression (Kim et al., 2008 <doi:10.1016/j.jeconom.2007.10.002>) and
-auto-regressive hidden hybrid Markov/semi-Markov model, and many other
-useful tools (read for more description: <arXiv:2109.12489>).
+auto-regressive hidden hybrid Markov/semi-Markov model, spline-based
+nonparametric estimation of additive state-switching models (Langrock et
+al., 2018 <doi:10.1111/stan.12133>) and many other useful tools (read for
+more description: <arXiv:2109.12489>).
 
 %prep
 %setup -q -c -n %{packname}

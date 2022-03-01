@@ -1,32 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  jmvReadWrite
-%global packver   0.3.1
+%global packname  fgitR
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read and Write 'jamovi' Files ('.omv')
+Summary:          Using 'FastGit' to Accelerate the Access to 'GitHub'
 
-License:          AGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-CRAN-zip 
-Requires:         R-CRAN-rjson 
-Requires:         R-CRAN-zip 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-devtools 
+BuildRequires:    R-CRAN-git2r 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-devtools 
+Requires:         R-CRAN-git2r 
 
 %description
-The free and open a statistical spreadsheet 'jamovi' (www.jamovi.org) aims
-to make statistical analyses easy and intuitive. 'jamovi' produces syntax
-that can directly be used in R (in connection with the R-package 'jmv').
-Having import / export routines for the data files 'jamovi' produces
-('.omv') permits an easy transfer of analyses between 'jamovi' and R.
+'FastGit' <https://doc.fastgit.org/> works like a mirror of 'GitHub' to
+make significant acceleration. 'fgitR' is a package to do git operation
+with 'FastGit' automatically.
 
 %prep
 %setup -q -c -n %{packname}
