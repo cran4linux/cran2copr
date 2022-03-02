@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  FactorsR
-%global packver   1.4
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
-Release:          3%{?dist}%{?buildtag}
+Version:          1.5
+Release:          1%{?dist}%{?buildtag}
 Summary:          Identification of the Factors Affecting Species Richness
 
 License:          GPL (>= 2)
@@ -20,17 +20,25 @@ BuildArch:        noarch
 %description
 It identifies the factors significantly related to species richness, and
 their relative contribution, using multiple regressions and support vector
-machine models. It uses an output file of 'ModestR'
-(<http://www.ipez.es/ModestR>) with data of richness of the species and
-environmental variables in a cell size defined by the user. The residuals
-of the support vector machine model are shown on a map. Negative residuals
-may be potential areas with undiscovered and/or unregistered species, or
-areas with decreased species richness due to the negative effect of
-anthropogenic factors.
+machine models. It uses an output file of 'ModestR' with data of richness
+of the species and environmental variables in a cell size defined by the
+user. The residuals of the support vector machine model are shown on a
+map. Negative residuals may be potential areas with undiscovered and/or
+unregistered species, or areas with decreased species richness due to the
+negative effect of anthropogenic factors.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -40,15 +48,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

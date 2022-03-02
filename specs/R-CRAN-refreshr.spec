@@ -1,44 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  burnr
-%global packver   0.6.1
+%global packname  refreshr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Forest Fire History Analysis
+Summary:          Work with Refreshable Datasets that Update their Data Automatically
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-dplyr 
 
 %description
-Tools to read, write, parse, and analyze forest fire history data (e.g.
-FHX). Described in Malevich et al. (2018)
-<doi:10.1016/j.dendro.2018.02.005>.
+Connects dataframes/tables with a remote data source. Raw data downloaded
+from the data source can be further processed and transformed using data
+preparation code that is also baked into the dataframe/table. Refreshable
+dataframes can be shared easily (e.g. as R data files). Their users do not
+need to care about the inner workings of the data update mechanisms.
 
 %prep
 %setup -q -c -n %{packname}

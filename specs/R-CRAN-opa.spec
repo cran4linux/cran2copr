@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  opa
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Implementation of Ordinal Pattern Analysis
 
@@ -25,12 +25,12 @@ Requires:         R-CRAN-combinat
 Requires:         R-CRAN-ggplot2 
 
 %description
-Quantifyies hypothesis to data fit for repeated measures observations and
-time series data, as described by Thorngate (1987)
-<doi:10.1016/S0166-4115(08)60083-7> and Grice et al., (2015)
-<doi:10.1177/2158244015604192>. Hypothesis and data are encoded as
-pairwise relative orderings which are then compared to determine the
-percentage of orderings in the data that are matched by the hypothesis.
+Quantifies hypothesis to data fit for repeated measures and time series
+data, as described by Thorngate (1987) <doi:10.1016/S0166-4115(08)60083-7>
+and Grice et al., (2015) <doi:10.1177/2158244015604192>. Hypothesis and
+data are encoded as pairwise relative orderings which are then compared to
+determine the percentage of orderings in the data that are matched by the
+hypothesis.
 
 %prep
 %setup -q -c -n %{packname}

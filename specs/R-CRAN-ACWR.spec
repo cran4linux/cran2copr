@@ -1,44 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  burnr
-%global packver   0.6.1
+%global packname  ACWR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Forest Fire History Analysis
+Summary:          Acute Chronic Workload Ratio Calculation
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-r2d3 
+Requires:         R-CRAN-r2d3 
 
 %description
-Tools to read, write, parse, and analyze forest fire history data (e.g.
-FHX). Described in Malevich et al. (2018)
-<doi:10.1016/j.dendro.2018.02.005>.
+Functions for calculating the acute chronic workload ratio using three
+different methods: exponentially weighted moving average (EWMA), rolling
+average coupled (RAC) and rolling averaged uncoupled (RAU). Examples of
+this methods can be found in Williams et al. (2017)
+<doi:10.1136/bjsports-2016-096589> for EWMA and Windt & Gabbet (2018) for
+RAC and RAU <doi: 10.1136/bjsports-2017-098925>.
 
 %prep
 %setup -q -c -n %{packname}

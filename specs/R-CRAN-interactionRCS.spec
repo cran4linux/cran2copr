@@ -1,49 +1,55 @@
 %global __brp_check_rpaths %{nil}
-%global packname  pcds
-%global packver   0.1.4
+%global packname  interactionRCS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Proximity Catch Digraphs and Their Applications
+Summary:          Calculate Estimates in Models with Interaction
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rdpack >= 0.7
-BuildRequires:    R-CRAN-combinat 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-interp 
-BuildRequires:    R-CRAN-plot3D 
-BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-Rdpack >= 0.7
-Requires:         R-CRAN-combinat 
+BuildRequires:    R-utils 
+BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-msm 
+BuildRequires:    R-CRAN-rms 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-pspline 
+BuildRequires:    R-CRAN-pryr 
+BuildRequires:    R-CRAN-mlbench 
 Requires:         R-graphics 
-Requires:         R-CRAN-interp 
-Requires:         R-CRAN-plot3D 
-Requires:         R-CRAN-plotrix 
+Requires:         R-grDevices 
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-methods 
+Requires:         R-parallel 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-msm 
+Requires:         R-CRAN-rms 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-pspline 
+Requires:         R-CRAN-pryr 
+Requires:         R-CRAN-mlbench 
 
 %description
-Contains the functions for generating patterns of segregation,
-association, complete spatial randomness (CSR)) and Uniform data in one,
-two and three dimensional cases, for testing these patterns based on two
-invariants of various families of the proximity catch digraphs (PCDs) (see
-(Ceyhan (2005) ISBN:978-3-639-19063-2). The graph invariants used in
-testing spatial point data are the domination number (Ceyhan (2011)
-<doi:10.1080/03610921003597211>) and arc density (Ceyhan et al. (2006)
-<doi:10.1016/j.csda.2005.03.002>; Ceyhan et al. (2007)
-<doi:10.1002/cjs.5550350106>) of for two-dimensional data for
-visualization of PCDs for one, two and three dimensional data. The PCD
-families considered are Arc-Slice PCDs, Proportional-Edge PCDs and Central
-Similarity PCDs.
+A tool to calculate and plot estimates from models in which an interaction
+between the main predictor and a continuous covariate has been specified.
+Methods used in the package refer to Harrell Jr FE (2015,
+ISBN:9783319330396); Durrleman S, Simon R. (1989)
+<doi:10.1002/sim.4780080504>; Greenland S. (1995)
+<doi:10.1097/00001648-199507000-00005>.
 
 %prep
 %setup -q -c -n %{packname}

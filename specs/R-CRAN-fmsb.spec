@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fmsb
-%global packver   0.7.2
+%global packver   0.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.7.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Medical Statistics Book with some Demographic Data
 

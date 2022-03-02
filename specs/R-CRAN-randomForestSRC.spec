@@ -1,44 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  burnr
-%global packver   0.6.1
+%global packname  randomForestSRC
+%global packver   3.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          3.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Forest Fire History Analysis
+Summary:          Fast Unified Random Forests for Survival, Regression, and Classification (RF-SRC)
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
-BuildArch:        noarch
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-data.tree 
+BuildRequires:    R-CRAN-DiagrammeR 
+Requires:         R-parallel 
+Requires:         R-CRAN-data.tree 
+Requires:         R-CRAN-DiagrammeR 
 
 %description
-Tools to read, write, parse, and analyze forest fire history data (e.g.
-FHX). Described in Malevich et al. (2018)
-<doi:10.1016/j.dendro.2018.02.005>.
+Fast OpenMP parallel computing of Breiman's random forests for univariate,
+multivariate, unsupervised, survival, competing risks, class imbalanced
+classification and quantile regression. New Mahalanobis splitting for
+correlated outcomes.  Extreme random forests and randomized splitting.
+Suite of imputation methods for missing data.  Fast random forests using
+subsampling. Confidence regions and standard errors for variable
+importance. New improved holdout importance. Case-specific importance.
+Minimal depth variable importance. Visualize trees on your Safari or
+Google Chrome browser. Anonymous random forests for data privacy.
 
 %prep
 %setup -q -c -n %{packname}

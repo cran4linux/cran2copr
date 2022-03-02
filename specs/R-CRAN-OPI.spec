@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  OPI
-%global packver   2.10.0
+%global packver   2.10.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.10.0
+Version:          2.10.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Open Perimetry Interface
 
@@ -22,12 +22,14 @@ Requires:         R-methods
 %description
 Implementation of the Open Perimetry Interface (OPI) for simulating and
 controlling visual field machines using R. The OPI is a standard for
-interfacing with visual field testing machines (perimeters). It specifies
-basic functions that allow many visual field tests to be constructed. As
-of October 2017 it is fully implemented on the Octopus 900 and partially
-on the Heidelberg Edge Perimeter, the Kowa AP 7000, the CrewT imo and the
-Centervue Compass. It also has a cousin: the R package 'visualFields',
-which has tools for analysing and manipulating visual field data.
+interfacing with visual field testing machines (perimeters) first started
+as an open source project with support of Haag-Streit in 2010. It
+specifies basic functions that allow many visual field tests to be
+constructed. As of February 2022 it is fully implemented on the
+Haag-Streit Octopus 900 with partial implementations on the Centervue
+Compass, Kowa AP 7000, Android phones and the CrewT IMO. It also has a
+cousin: the R package 'visualFields', which has tools for analysing and
+manipulating visual field data.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Rodam
-%global packver   0.1.12
+%global packver   0.1.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.12
+Version:          0.1.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wrapper Functions for 'ODAM' (Open Data for Access and Mining) Web Services
 

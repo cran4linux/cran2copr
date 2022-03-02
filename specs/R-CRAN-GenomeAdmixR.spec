@@ -1,44 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  burnr
-%global packver   0.6.1
+%global packname  GenomeAdmixR
+%global packver   2.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          2.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Forest Fire History Analysis
+Summary:          Simulate Admixture of Genomes
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
-BuildArch:        noarch
-BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-ggridges 
+BuildRequires:    R-CRAN-hierfstat 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-forcats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-vcfR 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-ggridges 
+Requires:         R-CRAN-hierfstat 
+Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-rlang 
-Requires:         R-stats 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-vcfR 
 
 %description
-Tools to read, write, parse, and analyze forest fire history data (e.g.
-FHX). Described in Malevich et al. (2018)
-<doi:10.1016/j.dendro.2018.02.005>.
+Individual-based simulations forward in time, simulating how patterns in
+ancestry along the genome change after admixture. Full description can be
+found in Janzen (2021) <doi:10.1111/2041-210X.13612>.
 
 %prep
 %setup -q -c -n %{packname}

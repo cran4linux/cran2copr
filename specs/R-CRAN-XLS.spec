@@ -1,44 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  burnr
-%global packver   0.6.1
+%global packname  XLS
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Forest Fire History Analysis
+Summary:          A Modeling Approach that Optimizes Future Errors in Least Squares
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-mpoly 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-mpoly 
 Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
 
 %description
-Tools to read, write, parse, and analyze forest fire history data (e.g.
-FHX). Described in Malevich et al. (2018)
-<doi:10.1016/j.dendro.2018.02.005>.
+Given the date column as an ascending entry, future errors are included in
+the sum of squares of error that should be minimized based on the number
+of steps and weights you determine. Thus, it is prevented that the
+variables affect each other's coefficients unrealistically.
 
 %prep
 %setup -q -c -n %{packname}

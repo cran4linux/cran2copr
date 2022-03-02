@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RKorAPClient
-%global packver   0.7.1
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          'KorAP' Web Service Client Package
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-keyring 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-PTXQC 
 BuildRequires:    R-CRAN-purrr 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-keyring 
 Requires:         R-utils 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-curl 
 Requires:         R-methods 
 Requires:         R-CRAN-PTXQC 
 Requires:         R-CRAN-purrr 

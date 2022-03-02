@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mlr3
-%global packver   0.13.2
+%global packver   0.13.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.2
+Version:          0.13.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Machine Learning in R - Next Generation
 

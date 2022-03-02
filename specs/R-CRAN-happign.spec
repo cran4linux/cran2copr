@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  happign
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'IGN' Web Services
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stars 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-curl 
@@ -31,7 +30,6 @@ Requires:         R-CRAN-httr
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stars 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-xml2 
 

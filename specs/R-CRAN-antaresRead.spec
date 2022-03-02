@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  antaresRead
-%global packver   2.2.9
+%global packver   2.2.95
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.9
+Version:          2.2.95
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import, Manipulate and Explore the Results of an 'Antares' Simulation
 

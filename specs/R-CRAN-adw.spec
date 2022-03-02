@@ -1,32 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ifultools
-%global packver   2.0-23
+%global packname  adw
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.23
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Insightful Research Tools
+Summary:          Angular Distance Weighting Interpolation
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-splus2R >= 1.2.0
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-splus2R >= 1.2.0
-Requires:         R-CRAN-MASS 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rnaturalearth 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rnaturalearth 
 
 %description
-Insightful Research Tools is a collection of signal processing, image
-processing, and time series modeling routines written in the C language
-for speed and efficency. The routines were originally developed at
-Insightful for use in S-PLUS.
+The irregularly-spaced data are interpolated onto regular
+latitude-longitude grids by weighting each station according to its
+distance and angle from the center of a search radius.
 
 %prep
 %setup -q -c -n %{packname}

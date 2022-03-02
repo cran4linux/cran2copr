@@ -1,44 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  burnr
-%global packver   0.6.1
+%global packname  ngboostForecast
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Forest Fire History Analysis
+Summary:          Probabilistic Time Series Forecasting
 
-License:          GPL (>= 3)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-forecast >= 8.15
+BuildRequires:    R-CRAN-R6 >= 2.5.1
+BuildRequires:    R-CRAN-magrittr >= 2.0.1
+BuildRequires:    R-CRAN-reticulate >= 1.20
+BuildRequires:    R-CRAN-dplyr >= 1.0.7
+Requires:         R-CRAN-forecast >= 8.15
+Requires:         R-CRAN-R6 >= 2.5.1
+Requires:         R-CRAN-magrittr >= 2.0.1
+Requires:         R-CRAN-reticulate >= 1.20
+Requires:         R-CRAN-dplyr >= 1.0.7
 
 %description
-Tools to read, write, parse, and analyze forest fire history data (e.g.
-FHX). Described in Malevich et al. (2018)
-<doi:10.1016/j.dendro.2018.02.005>.
+Probabilistic time series forecasting via Natural Gradient Boosting for
+Probabilistic Prediction.
 
 %prep
 %setup -q -c -n %{packname}

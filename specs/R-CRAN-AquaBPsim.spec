@@ -1,55 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ecoCopula
-%global packver   1.0.2
+%global packname  AquaBPsim
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphical Modelling and Ordination using Copulas
+Summary:          Aquaculture Breeding Program Simulation
 
-License:          LGPL (>= 2.1)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvabund >= 4.2
-BuildRequires:    R-CRAN-glasso 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-sna 
+BuildRequires:    R-CRAN-matlib 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-tweedie 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-betareg 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-glm2 
-BuildRequires:    R-CRAN-ordinal 
-BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-pedigree 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-mvabund >= 4.2
-Requires:         R-CRAN-glasso 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-sna 
+Requires:         R-CRAN-matlib 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-tweedie 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-betareg 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-glm2 
-Requires:         R-CRAN-ordinal 
-Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-pedigree 
+Requires:         R-CRAN-readxl 
 Requires:         R-stats 
 
 %description
-Creates 'graphs' of species associations (interactions) and ordination
-biplots from co-occurrence data by fitting discrete gaussian copula
-graphical models. Methods described in Popovic, GC., Hui, FKC., Warton,
-DI., (2018) <doi:10.1016/j.jmva.2017.12.002>.
+Breeding programs can be simulated with this package. The functions are
+written to simulate production and reproduction systems encountered in
+aquaculture and are easy to combine with custom functions. Simulating
+breeding programs is useful to predict the expected genetic gain, rate of
+inbreeding and the effect of changes in the breeding program. AquaBPsim
+does not simulate genome wide-markers and QTLs, but it simulates estimated
+breeding values as values correlated to the true breeding values. The
+correlation equals the accuracy, which can be provided or calculated using
+deterministic formulas. For genomic selection, the accuracy can be
+calculate using the formula of Deatwyler et al. (2010)
+<doi:10.1534/genetics.110.116855>. Without genomic selection, accuracy can
+be calculated with the selection index method (Mrode, 2014.
+ISBN:978-1-84593-981-6).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,44 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  burnr
-%global packver   0.6.1
+%global packname  tradestatistics
+%global packver   3.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          3.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Forest Fire History Analysis
+Summary:          Open Trade Statistics API Wrapper and Utility Program
 
-License:          GPL (>= 3)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-crul 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-digest 
+Requires:         R-CRAN-crul 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-digest 
 
 %description
-Tools to read, write, parse, and analyze forest fire history data (e.g.
-FHX). Described in Malevich et al. (2018)
-<doi:10.1016/j.dendro.2018.02.005>.
+Access 'Open Trade Statistics' API from R to download international trade
+data.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  stable
-%global packver   1.1.5
+%global packver   1.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Probability Functions and Generalized Regression Models for Stable Distributions
 
@@ -21,12 +21,12 @@ Requires:         R-CRAN-rmutil
 %description
 Density, distribution, quantile and hazard functions of a stable variate;
 generalized regression models for the parameters of a stable distribution.
-See the README for how to make equivalent calls to those of 'stabledist'.
-See github for Lambert and Lindsey 1999 JRSS-C journal article, which
-details the parameterization of the Buck (1995) stable distribution which
-allowed a Fourier inversion to arrive at a form of the $g_d$ function as
-detailed in Nolan (2020). See the Details section of the `?dstable` help
-file for context and references.
+See the README for how to make equivalent calls to those of 'stabledist'
+(i.e., Nolan's 0-parameterization and 1-parameterization as detailed in
+Nolan (2020)). See github for Lambert and Lindsey 1999 JRSS-C journal
+article, which details the parameterization of the Buck (1995) stable. See
+the Details section of the `?dstable` help file for context and
+references.
 
 %prep
 %setup -q -c -n %{packname}
