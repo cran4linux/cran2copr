@@ -1,38 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rcol
-%global packver   0.2.0
+%global packname  dccpp
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Catalogue of Life Client
+Summary:          Fast Computation of Distance Correlations
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-crul 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-crul 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.8
 
 %description
-Client for the Catalogue of Life ('CoL')
-(<https://www.catalogueoflife.org/>); based on the new 'CoL' service, not
-the old one. Catalogue of Life is a database of taxonomic names. Includes
-functions for each of the API methods, including searching for names, and
-more.
+Fast computation of the distance covariance 'dcov' and distance
+correlation 'dcor'.  The computation cost is only O(n log(n)) for the
+distance correlation (see Chaudhuri, Hu (2019) <arXiv:1810.11332>
+<doi:10.1016/j.csda.2019.01.016>). The functions are written entirely in
+C++ to speed up the computation.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,6 +34,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

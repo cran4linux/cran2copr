@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bruceR
-%global packver   0.8.3
+%global packver   0.8.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.3
+Version:          0.8.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Broadly Useful Convenient and Efficient R Functions
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-afex 
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-effectsize 
 BuildRequires:    R-CRAN-performance 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-psych 
+Requires:         R-CRAN-afex 
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-effectsize 
 Requires:         R-CRAN-performance 

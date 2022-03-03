@@ -1,49 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  geomorph
-%global packver   4.0.3
+%global packname  cjbart
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.3
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geometric Morphometric Analyses of 2D/3D Landmark Data
+Summary:          Heterogeneous Effects Analysis of Conjoint Experiments
 
-License:          GPL (>= 2)
+License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RRPP >= 1.0.0
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-BART 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-jpeg 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-RRPP >= 1.0.0
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-Matrix 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-randomForestSRC 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-BART 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-jpeg 
-Requires:         R-CRAN-ape 
-Requires:         R-parallel 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-randomForestSRC 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Read, manipulate, and digitize landmark data, generate shape variables via
-Procrustes analysis for points, curves and surfaces, perform shape
-analyses, and provide graphical depictions of shapes and patterns of shape
-variation.
+A tool for analyzing conjoint experiments using Bayesian Additive
+Regression Trees ('BART'), a machine learning method developed by Chipman,
+George and McCulloch (2010) <doi:10.1214/09-AOAS285>. This tool focuses
+specifically on estimating, identifying, and visualizing the heterogeneity
+within marginal component effects, at the observation- and
+individual-level. It uses a variable importance measure ('VIMP') with
+delete-d jackknife variance estimation, following Ishwaran and Lu (2019)
+<doi:10.1002/sim.7803>, to obtain bias-corrected estimates of which
+variables drive heterogeneity in the predicted individual-level effects.
 
 %prep
 %setup -q -c -n %{packname}

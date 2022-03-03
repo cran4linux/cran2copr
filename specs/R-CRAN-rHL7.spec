@@ -1,30 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  renv
-%global packver   0.15.4
+%global packname  rHL7
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Project Environments
+Summary:          Read and Write Health Level 7 Files
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-randomNames 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-matlab 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-randomNames 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-matlab 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-stringi 
 
 %description
-A dependency management toolkit for R. Using 'renv', you can create and
-manage project-local R libraries, save the state of these libraries to a
-'lockfile', and later restore your library as required. Together, these
-tools can help make your projects more isolated, portable, and
-reproducible.
+Read health level 7 transactions and write random health level 7 files.
 
 %prep
 %setup -q -c -n %{packname}

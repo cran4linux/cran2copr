@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  discSurv
-%global packver   1.4.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discrete Time Survival Analysis
 
@@ -13,17 +13,31 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-treeClust 
 BuildRequires:    R-CRAN-functional 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-CRAN-geepack 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-mvnfast 
+Requires:         R-CRAN-treeClust 
 Requires:         R-CRAN-functional 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-VGAM 
+Requires:         R-CRAN-geepack 
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-mvnfast 
 
 %description
 Provides data transformations, estimation utilities, predictive evaluation

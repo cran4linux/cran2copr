@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rcbsubset
-%global packver   1.1.5
+%global packver   1.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Subset Matching with Refined Covariate Balance
 
@@ -29,7 +29,10 @@ observational studies, with support for refined covariate balance
 constraints, (including fine and near-fine balance as special cases). A
 close relative is the 'rcbalance' package.  See Pimentel, et al.(2015)
 <doi:10.1080/01621459.2014.997879> and Pimentel and Kelz (2020)
-<doi:10.1080/01621459.2020.1720693>.
+<doi:10.1080/01621459.2020.1720693>. The optmatch package, which is useful
+for running many of the provided functions, may be downloaded from Github
+at <https://github.com/markmfredrickson/optmatch> if not available on
+CRAN.
 
 %prep
 %setup -q -c -n %{packname}

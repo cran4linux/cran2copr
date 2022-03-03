@@ -1,30 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  renv
-%global packver   0.15.4
+%global packname  saeHB.spatial
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Project Environments
+Summary:          Small Area Estimation under Spatial SAR Model using Hierarchical Bayesian Method
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-rjags 
+Requires:         R-stats 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 
 %description
-A dependency management toolkit for R. Using 'renv', you can create and
-manage project-local R libraries, save the state of these libraries to a
-'lockfile', and later restore your library as required. Together, these
-tools can help make your projects more isolated, portable, and
-reproducible.
+Provides several functions and datasets for area level of Small Area
+Estimation under Spatial SAR Model using Hierarchical Bayesian (HB)
+Method.
 
 %prep
 %setup -q -c -n %{packname}

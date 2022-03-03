@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bipd
-%global packver   0.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Individual Patient Data Meta-Analysis using 'JAGS'
 
@@ -27,11 +27,11 @@ Requires:         R-CRAN-dplyr
 
 %description
 We use a Bayesian approach to run individual patient data meta-analysis
-using 'JAGS'. The methods incorporate shrinkage methods and calculate
-patient-specific treatment effects as described in Seo et al. (2021)
-<DOI:10.1002/sim.8859>. This package also includes user-friendly functions
-that impute missing data in an individual patient data using mice-related
-packages.
+and network meta-analysis using 'JAGS'. The methods incorporate shrinkage
+methods and calculate patient-specific treatment effects as described in
+Seo et al. (2021) <DOI:10.1002/sim.8859>. This package also includes
+user-friendly functions that impute missing data in an individual patient
+data using mice-related packages.
 
 %prep
 %setup -q -c -n %{packname}

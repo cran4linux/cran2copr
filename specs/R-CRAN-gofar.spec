@@ -1,30 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  renv
-%global packver   0.15.4
+%global packname  gofar
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.4
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Project Environments
+Summary:          Generalized Co-Sparse Factor Regression
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-Rcpp >= 0.12.9
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rrpack 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.9
+Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rrpack 
+Requires:         R-CRAN-glmnet 
 
 %description
-A dependency management toolkit for R. Using 'renv', you can create and
-manage project-local R libraries, save the state of these libraries to a
-'lockfile', and later restore your library as required. Together, these
-tools can help make your projects more isolated, portable, and
-reproducible.
+Divide and conquer approach for estimating low-rank and sparse coefficient
+matrix in the generalized co-sparse factor regression. Please refer the
+manuscript 'Mishra, Aditya, Dipak K. Dey, Yong Chen, and Kun Chen.
+Generalized co-sparse factor regression. Computational Statistics & Data
+Analysis 157 (2021): 107127' for more details.
 
 %prep
 %setup -q -c -n %{packname}

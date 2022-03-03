@@ -1,37 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  supercells
-%global packver   0.8.0
+%global packname  leem
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Superpixels of Spatial Data
+Summary:          Laboratory of Teaching to Statistics and Mathematics
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-terra >= 1.4.21
-BuildRequires:    R-CRAN-philentropy >= 0.6.0
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-terra >= 1.4.21
-Requires:         R-CRAN-philentropy >= 0.6.0
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-future.apply 
+BuildArch:        noarch
+BuildRequires:    R-tcltk 
+BuildRequires:    R-CRAN-tkrplot 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
+Requires:         R-tcltk 
+Requires:         R-CRAN-tkrplot 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-utils 
 
 %description
-Creates superpixels based on input spatial data. This package works on
-spatial data with one variable (e.g., continuous raster), many variables
-(e.g., RGB rasters), and spatial patterns (e.g., areas in categorical
-rasters). It is based on the SLIC algorithm (Achanta et al. (2012)
-<doi:10.1109/TPAMI.2012.120>), and readapts it to work with arbitrary
-dissimilarity measures.
+Educational tool for teaching of statistics and mathematics in primary and
+higher education. The objective is to assist in teaching/learning for both
+student study planning and teacher teaching strategies. The 'leem' package
+will try to bring, in a simple and at the same time in-depth, knowledge of
+statistics and mathematics to everyone who wants to study these areas of
+knowledge. The main function of the package is 'leem()' function.
 
 %prep
 %setup -q -c -n %{packname}

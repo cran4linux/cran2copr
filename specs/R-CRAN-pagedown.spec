@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pagedown
-%global packver   0.16
+%global packver   0.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16
+Version:          0.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Paginate the HTML Output of R Markdown with CSS for Print
 

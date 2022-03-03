@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MTS
-%global packver   1.0.3
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          All-Purpose Toolkit for Analyzing Multivariate Time Series (MTS) and Estimating Multivariate Volatility Models
 
@@ -19,6 +19,7 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-fGarch 
 BuildRequires:    R-CRAN-fBasics 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-fGarch 
 Requires:         R-CRAN-fBasics 
@@ -60,6 +61,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

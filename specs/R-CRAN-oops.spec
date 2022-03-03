@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  oops
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          S3 Style Object Oriented Programming
 
@@ -15,11 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
-BuildArch:        noarch
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-pryr 
 Requires:         R-utils 
-Requires:         R-CRAN-pryr 
 
 %description
 Create simple, hassle-free classes with reference semantics similar to

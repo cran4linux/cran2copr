@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MixedIndTests
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tests of Randomness and Tests of Independence
 
@@ -19,12 +19,14 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-copula 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-survey 
 Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-stats 
+Requires:         R-CRAN-copula 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-survey 
 

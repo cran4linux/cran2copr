@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  renv
-%global packver   0.15.4
+%global packname  git4r
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Project Environments
+Summary:          Interactive Git for R
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,15 +16,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-git2r 
+BuildRequires:    R-CRAN-diffr 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-git2r 
+Requires:         R-CRAN-diffr 
 Requires:         R-utils 
 
 %description
-A dependency management toolkit for R. Using 'renv', you can create and
-manage project-local R libraries, save the state of these libraries to a
-'lockfile', and later restore your library as required. Together, these
-tools can help make your projects more isolated, portable, and
-reproducible.
+An interactive git user interface from the R command line. Intuitive tools
+to make commits, branches, remotes, and diffs an integrated part of R
+coding. Built on git2r, a system installation of git is not required and
+has default on-premises remote option.
 
 %prep
 %setup -q -c -n %{packname}

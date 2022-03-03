@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MixTwice
-%global packver   1.1
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          MixTwice--a Package for Large-Scale Hypothesis Testing
+Summary:          Large-Scale Hypothesis Testing by Variance Mixing
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,9 +19,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-alabama 
 BuildRequires:    R-CRAN-ashr 
 BuildRequires:    R-CRAN-fdrtool 
+BuildRequires:    R-CRAN-Iso 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-alabama 
 Requires:         R-CRAN-ashr 
 Requires:         R-CRAN-fdrtool 
+Requires:         R-CRAN-Iso 
+Requires:         R-stats 
 
 %description
 Implements large-scale hypothesis testing by variance mixing. It takes two
@@ -29,7 +33,8 @@ statistics per testing unit -- an estimated effect and its associated
 squared standard error -- and fits a nonparametric, shape-constrained
 mixture separately on two latent parameters. It reports local false
 discovery rates (lfdr) and local false sign rates (lfsr). Manuscript
-describing algorithm of MixTwice: Zheng et al(2020) <arXiv:2011.07420>.
+describing algorithm of MixTwice: Zheng et al(2021) <doi:
+10.1093/bioinformatics/btab162>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -39,6 +44,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

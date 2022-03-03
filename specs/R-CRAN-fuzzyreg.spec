@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fuzzyreg
-%global packver   0.5.2
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fuzzy Linear Regression
 
@@ -37,7 +37,8 @@ the model fit. Calculates predictions from the model and total error of
 fit. Diamond (1988) <doi:10.1016/0020-0255(88)90047-3>, Hung & Yang (2006)
 <doi:10.1016/j.fss.2006.08.004>, Lee & Tanaka (1999)
 <doi:10.15807/jorsj.42.98>, Nasrabadi, Nasrabadi & Nasrabady (2005)
-<doi:10.1016/j.amc.2004.02.008>, Tanaka, Hayashi & Watada (1989)
+<doi:10.1016/j.amc.2004.02.008>, Skrabanek, Marek & Pozdilkova (2021)
+<doi:10.3390/math9060685>, Tanaka, Hayashi & Watada (1989)
 <doi:10.1016/0377-2217(89)90431-1>, Zeng, Feng & Li (2017)
 <doi:10.1016/j.asoc.2016.09.029>.
 

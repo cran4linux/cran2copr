@@ -1,30 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  renv
-%global packver   0.15.4
+%global packname  ggDoubleHeat
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Project Environments
+Summary:          A Heatmap-Like Visualization Tool
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-ggnewscale >= 0.4.5
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-grid 
+Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-ggnewscale >= 0.4.5
+Requires:         R-CRAN-rlang 
+Requires:         R-grid 
 
 %description
-A dependency management toolkit for R. Using 'renv', you can create and
-manage project-local R libraries, save the state of these libraries to a
-'lockfile', and later restore your library as required. Together, these
-tools can help make your projects more isolated, portable, and
-reproducible.
+A data visualization design that provides comparison between two (Double)
+data sources (usually on a par with each other) on one reformed heatmap,
+while inheriting 'ggplot2' features.
 
 %prep
 %setup -q -c -n %{packname}
