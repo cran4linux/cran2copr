@@ -1,33 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  withr
-%global packver   2.5.0
+%global packname  imputeGeneric
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Run Code 'With' Temporarily Modified Global State
+Summary:          Ease the Implementation of Imputation Methods
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-gower 
+BuildRequires:    R-CRAN-parsnip 
 BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+Requires:         R-CRAN-gower 
+Requires:         R-CRAN-parsnip 
 Requires:         R-stats 
 
 %description
-A set of functions to run code 'with' safely and temporarily modified
-global state. Many of these functions were originally a part of the
-'devtools' package, this provides a simple package with limited
-dependencies to provide access to these functions.
+The general workflow of most imputation methods is quite similar. The aim
+of this package is to provide parts of this general workflow to make the
+implementation of imputation methods easier. The heart of an imputation
+method is normally the used model. These models can be defined using the
+'parsnip' package or customized specifications. The rest of an imputation
+method are more technical specification e.g. which columns and rows should
+be used for imputation and in which order. These technical specifications
+can be set inside the imputation functions.
 
 %prep
 %setup -q -c -n %{packname}

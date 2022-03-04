@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  peperr
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parallelised Estimation of Prediction Error
 
@@ -17,8 +17,10 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-snowfall 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-snowfall 
 Requires:         R-CRAN-survival 
+Requires:         R-methods 
 
 %description
 Designed for prediction error estimation through resampling techniques,
@@ -37,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

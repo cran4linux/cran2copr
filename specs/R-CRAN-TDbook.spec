@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  TDbook
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Companion Package for the Book "Data Integration, Manipulation and Visualization of Phylogenetic Trees"
+Summary:          Companion Package for the Book "Data Integration, Manipulation and Visualization of Phylogenetic Trees" by Guangchuang Yu (2022, ISBN:9781032233574)
 
 License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,9 +18,9 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 
 %description
-The companion package provides all data sets that are used in the book
+The companion package that provides all the datasets used in the book
 "Data Integration, Manipulation and Visualization of Phylogenetic Trees"
-by Guangchuang Yu (2021) <https://yulab-smu.top/treedata-book/>.
+by Guangchuang Yu (2022, ISBN:9781032233574).
 
 %prep
 %setup -q -c -n %{packname}

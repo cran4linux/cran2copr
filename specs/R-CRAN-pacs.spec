@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pacs
-%global packver   0.4.2
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Supplementary Tools for R Packages Developers
 
@@ -20,21 +20,25 @@ BuildRequires:    R-CRAN-memoise
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-renv 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-curl 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-renv 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-curl 
 
 %description
 Supplementary utils for CRAN maintainers and R packages developers.
-Validating the library or packages. Exploring a complexity of a specific
-package like evaluating its size in bytes with all dependencies. The shiny
-app complexity could be explored too. Assessing the life duration of a
-specific package version. Checking a CRAN package check page status for
-any errors and warnings. Retrieving a DESCRIPTION or NAMESPACE file for
-any package version. Comparing DESCRIPTION or NAMESPACE files between
-different package versions. Getting a list of all releases for a specific
-package. The Bioconductor is partly supported.
+Validating the library, packages and lock files. Exploring a complexity of
+a specific package like evaluating its size in bytes with all
+dependencies. The shiny app complexity could be explored too. Assessing
+the life duration of a specific package version. Checking a CRAN package
+check page status for any errors and warnings. Retrieving a DESCRIPTION or
+NAMESPACE file for any package version. Comparing DESCRIPTION or NAMESPACE
+files between different package versions. Getting a list of all releases
+for a specific package. The Bioconductor is partly supported.
 
 %prep
 %setup -q -c -n %{packname}

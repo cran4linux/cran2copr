@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  piecemaker
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Preparing Text for Tokenizers
 
@@ -17,11 +17,9 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang >= 0.4.2
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-rlang >= 0.4.2
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
 

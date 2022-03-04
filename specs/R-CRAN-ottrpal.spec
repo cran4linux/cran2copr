@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ottrpal
-%global packver   1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Companion Tools for Open-Source Tools for Training Resources (OTTR)
 
@@ -18,11 +18,9 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rmarkdown >= 2.10
 BuildRequires:    R-CRAN-knitr >= 1.33
-BuildRequires:    R-CRAN-googledrive 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-readr 
@@ -34,15 +32,12 @@ BuildRequires:    R-CRAN-rprojroot
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-qpdf 
 BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-rmarkdown >= 2.10
 Requires:         R-CRAN-knitr >= 1.33
-Requires:         R-CRAN-googledrive 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-fs 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-readr 
@@ -54,7 +49,6 @@ Requires:         R-CRAN-rprojroot
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-qpdf 
 Requires:         R-CRAN-purrr 
 
 %description

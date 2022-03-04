@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  walker
-%global packver   1.0.3-1
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3.1
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Generalized Linear Models with Time-Varying Coefficients
 
@@ -49,15 +49,15 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-rstantools
 
 %description
-Bayesian generalized linear models with time-varying coefficients as in
-Helske (2020, <arXiv:2009.07063>). Gaussian, Poisson, and binomial
-observations are supported. The Markov chain Monte Carlo (MCMC)
-computations are done using Hamiltonian Monte Carlo provided by Stan,
-using a state space representation of the model in order to marginalise
-over the coefficients for efficient sampling. For non-Gaussian models, the
-package uses the importance sampling type estimators based on approximate
-marginal MCMC as in Vihola, Helske, Franks (2020,
-<doi:10.1111/sjos.12492>).
+Efficient Bayesian generalized linear models with time-varying
+coefficients as in Helske (2022, <doi:10.1016/j.softx.2022.101016>).
+Gaussian, Poisson, and binomial observations are supported. The Markov
+chain Monte Carlo (MCMC) computations are done using Hamiltonian Monte
+Carlo provided by Stan, using a state space representation of the model in
+order to marginalise over the coefficients for efficient sampling. For
+non-Gaussian models, the package uses the importance sampling type
+estimators based on approximate marginal MCMC as in Vihola, Helske, Franks
+(2020, <doi:10.1111/sjos.12492>).
 
 %prep
 %setup -q -c -n %{packname}

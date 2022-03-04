@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  wordpiece
-%global packver   2.0.1
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Implementation of Wordpiece Tokenization
 
@@ -16,17 +16,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-memoise >= 2.0.0
+BuildRequires:    R-CRAN-fastmatch >= 1.1
 BuildRequires:    R-CRAN-wordpiece.data >= 1.0.2
 BuildRequires:    R-CRAN-dlr >= 1.0.0
 BuildRequires:    R-CRAN-piecemaker >= 1.0.0
 BuildRequires:    R-CRAN-stringi >= 1.0
-BuildRequires:    R-CRAN-purrr >= 0.2.3
 BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-memoise >= 2.0.0
+Requires:         R-CRAN-fastmatch >= 1.1
 Requires:         R-CRAN-wordpiece.data >= 1.0.2
 Requires:         R-CRAN-dlr >= 1.0.0
 Requires:         R-CRAN-piecemaker >= 1.0.0
 Requires:         R-CRAN-stringi >= 1.0
-Requires:         R-CRAN-purrr >= 0.2.3
 Requires:         R-CRAN-rlang 
 
 %description

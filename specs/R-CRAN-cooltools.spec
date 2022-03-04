@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cooltools
-%global packver   1.6
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Practical Tools for Scientific Computations and Visualizations
 
@@ -53,10 +53,10 @@ distributions, information and entropy analysis, special Fourier
 transforms, two-point correlation estimation (e.g. as in Landy & Szalay
 (1993) <doi:10.1086/172900>), binning & gridding of point sets, 2D
 interpolation, Monte Carlo integration, vector arithmetic and coordinate
-transformations. Also included is a non-exhaustive list of important
-constants in astrophysics and cosmological conversion functions. The
-graphics routines can be used to produce and export publication-ready
-scientific plots and movies, e.g. as used in Obreschkow et al. (2020)
+transformations. Also included are a non-exhaustive list of important
+constants and cosmological conversion functions. The graphics routines can
+be used to produce and export publication-ready scientific plots and
+movies, e.g. as used in Obreschkow et al. (2020)
 <doi:10.1093/mnras/staa445>. These routines include special color scales,
 projection functions, and bitmap handling routines.
 

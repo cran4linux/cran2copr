@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  airGRteaching
-%global packver   0.2.12
+%global packver   0.2.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.12
+Version:          0.2.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Teaching Hydrological Modelling with the GR Rainfall-Runoff Models ('Shiny' Interface Included)
 

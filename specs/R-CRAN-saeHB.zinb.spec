@@ -1,33 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  withr
-%global packver   2.5.0
+%global packname  saeHB.zinb
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Run Code 'With' Temporarily Modified Global State
+Summary:          Small Area Estimation using Hierarchical Bayesian under Zero Inflated Negative Binomial Distribution
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-rjags 
 BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-rjags 
 Requires:         R-stats 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 
 %description
-A set of functions to run code 'with' safely and temporarily modified
-global state. Many of these functions were originally a part of the
-'devtools' package, this provides a simple package with limited
-dependencies to provide access to these functions.
+We designed this package to provide a function for area level of small
+area estimation using Hierarchical Bayesian (HB) method under Zero
+Inflated Negative Binomial Distribution. This package provides model using
+Univariate Zero Inflated Negative Binomial Distribution for variable of
+interest. This package also provides a dataset produced by a data
+generation. The 'rjags' package is employed to obtain parameter estimates.
+Model-based estimators involves the HB estimators which include the mean
+and the variation of mean, and the quantile. For the reference, see
+Rao,J.N.K & Molina (2015) <doi:10.1002/9781118735855>.
 
 %prep
 %setup -q -c -n %{packname}
