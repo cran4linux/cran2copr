@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  disaggR
-%global packver   1.0.3
+%global packver   1.0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Two-Steps Benchmarks for Time Series Disaggregation
 
@@ -31,13 +31,13 @@ Requires:         R-utils
 
 %description
 The twoStepsBenchmark() and threeRuleSmooth() functions allow you to
-disaggregate a low-frequency time-serie with higher frequency time-series,
-using the French National Accounts methodology. The aggregated sum of the
-resulting time-serie is strictly equal to the low-frequency serie within
-the benchmarking window. Typically, the low-frequency serie is an annual
-one, unknown for the last year, and the high frequency one is either
-quarterly or monthly. See "Methodology of quarterly national accounts",
-Insee Méthodes N°126, by Insee (2012, ISBN:978-2-11-068613-8,
+disaggregate a low-frequency time series with higher frequency time
+series, using the French National Accounts methodology. The aggregated sum
+of the resulting time series is strictly equal to the low-frequency time
+series within the benchmarking window. Typically, the low-frequency time
+series is an annual one, unknown for the last year, and the high frequency
+one is either quarterly or monthly. See "Methodology of quarterly national
+accounts", Insee Méthodes N°126, by Insee (2012, ISBN:978-2-11-068613-8,
 <https://www.insee.fr/en/information/2579410>).
 
 %prep

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  allestimates
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Effect Estimates from All Models
 
@@ -39,9 +39,9 @@ Requires:         R-CRAN-dplyr
 Estimates and plots effect estimates from models with all possible
 combinations of a list of variables. It can be used for assessing
 treatment effects in clinical trials or risk factors in bio-medical and
-epidemiological research. Like Stata command 'confall' (Wang Z (2007)
-<doi:10.1177/1536867X0700700203> ), 'allestimates' calculates and stores
-all effect estimates, and plots them against p values or Akaike
+epidemiological research. Like Stata command 'confall' (Wang Z. Stata
+Journal 2007; 7, Number 2, pp. 183–196), 'allestimates' calculates and
+stores all effect estimates, and plots them against p values or Akaike
 information criterion (AIC) values. It currently has functions for linear
 regression: all_lm(), logistic and Poisson regression: all_glm() and
 all_speedglm(), and Cox proportional hazards regression: all_cox().
@@ -54,6 +54,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

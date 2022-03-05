@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  highriskzone
-%global packver   1.4.6
+%global packver   1.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.6
+Version:          1.4.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Determining and Evaluating High-Risk Zones
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-ks
 BuildRequires:    R-CRAN-deldir 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-spatstat.random 
 BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-spatstat.core 
 Requires:         R-CRAN-spatstat >= 1.54.0
@@ -40,6 +41,7 @@ Requires:         R-CRAN-ks
 Requires:         R-CRAN-deldir 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-maps 
+Requires:         R-CRAN-spatstat.random 
 Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-spatstat.core 
 

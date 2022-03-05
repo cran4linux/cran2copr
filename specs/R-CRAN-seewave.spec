@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  seewave
-%global packver   2.1.8
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.8
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sound Analysis and Synthesis
 
@@ -22,11 +22,13 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-tuneR 
+BuildRequires:    R-methods 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-tuneR 
+Requires:         R-methods 
 
 %description
 Functions for analysing, manipulating, displaying, editing and

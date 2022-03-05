@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  adaptTest
-%global packver   1.1
+%global packname  emIRT
+%global packver   0.0.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.0.13
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adaptive Two-Stage Tests
+Summary:          EM Algorithms for Estimating Item Response Theory Models
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-lattice 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-pscl >= 1.0.0
+BuildRequires:    R-CRAN-Rcpp >= 0.10.6
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-pscl >= 1.0.0
+Requires:         R-CRAN-Rcpp >= 0.10.6
 
 %description
-The functions defined in this program serve for implementing adaptive
-two-stage tests. Currently, four tests are included: Bauer and Koehne
-(1994), Lehmacher and Wassmer (1999), Vandemeulebroecke (2006), and the
-horizontal conditional error function. User-defined tests can also be
-implemented. Reference: Vandemeulebroecke, An investigation of two-stage
-tests, Statistica Sinica 2006.
+Various Expectation-Maximization (EM) algorithms are implemented for item
+response theory (IRT) models. The package includes IRT models for binary
+and ordinal responses, along with dynamic and hierarchical IRT models with
+binary responses. The latter two models are fitted using variational EM.
+The package also includes variational network and text scaling models.
+The algorithms are described in Imai, Lo, and Olmsted (2016)
+<DOI:10.1017/S000305541600037X>.
 
 %prep
 %setup -q -c -n %{packname}

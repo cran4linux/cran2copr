@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tidytree
-%global packver   0.3.8
+%global packver   0.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          0.3.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Tidy Tool for Phylogenetic Tree Data Manipulation
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-pillar 
 Requires:         R-CRAN-yulab.utils >= 0.0.4
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-dplyr 
@@ -36,6 +37,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-pillar 
 
 %description
 Phylogenetic tree generally contains multiple components including node,

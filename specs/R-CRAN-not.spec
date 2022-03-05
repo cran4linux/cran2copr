@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  adaptTest
-%global packver   1.1
+%global packname  not
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adaptive Two-Stage Tests
+Summary:          Narrowest-Over-Threshold Change-Point Detection
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-stats 
+BuildRequires:    R-splines 
 Requires:         R-graphics 
-Requires:         R-CRAN-lattice 
 Requires:         R-stats 
+Requires:         R-splines 
 
 %description
-The functions defined in this program serve for implementing adaptive
-two-stage tests. Currently, four tests are included: Bauer and Koehne
-(1994), Lehmacher and Wassmer (1999), Vandemeulebroecke (2006), and the
-horizontal conditional error function. User-defined tests can also be
-implemented. Reference: Vandemeulebroecke, An investigation of two-stage
-tests, Statistica Sinica 2006.
+Provides efficient implementation of the Narrowest-Over-Threshold
+methodology for detecting an unknown number of change-points occurring at
+unknown locations in one-dimensional data following 'deterministic signal
++ noise' model. Currently implemented scenarios are: piecewise-constant
+signal, piecewise-constant signal with a heavy-tailed noise,
+piecewise-linear signal, piecewise-quadratic signal, piecewise-constant
+signal and with piecewise-constant variance of the noise. For details, see
+Baranowski, Chen and Fryzlewicz (2019) <doi:10.1111/rssb.12322>.
 
 %prep
 %setup -q -c -n %{packname}

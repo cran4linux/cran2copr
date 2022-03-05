@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  simplevis
-%global packver   6.2.0
+%global packname  occCite
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.2.0
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple 'ggplot2' and 'leaflet' Visualisation with Less Brainpower
+Summary:          Querying and Managing Large Biodiversity Occurrence Datasets
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,54 +16,53 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rgbif >= 3.1
+BuildRequires:    R-CRAN-bib2df 
+BuildRequires:    R-CRAN-BIEN 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-leafem 
-BuildRequires:    R-CRAN-leafpop 
-BuildRequires:    R-CRAN-kimisc 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-snakecase 
-BuildRequires:    R-CRAN-stars 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-taxize 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-RPostgreSQL 
+BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-waffle 
+Requires:         R-CRAN-rgbif >= 3.1
+Requires:         R-CRAN-bib2df 
+Requires:         R-CRAN-BIEN 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-leafem 
-Requires:         R-CRAN-leafpop 
-Requires:         R-CRAN-kimisc 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-snakecase 
-Requires:         R-CRAN-stars 
+Requires:         R-methods 
+Requires:         R-CRAN-taxize 
 Requires:         R-CRAN-stringr 
+Requires:         R-stats 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-RPostgreSQL 
+Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-waffle 
 
 %description
-Wrapper functions to make 'ggplot2' and 'leaflet' visualisation easier
-with less brainpower required.
+Facilitates the gathering of biodiversity occurrence data from disparate
+sources. Metadata is managed throughout the process to facilitate
+reporting and enhanced ability to repeat analyses.
 
 %prep
 %setup -q -c -n %{packname}

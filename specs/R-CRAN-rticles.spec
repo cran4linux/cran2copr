@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rticles
-%global packver   0.22
+%global packver   0.23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.22
+Version:          0.23
 Release:          1%{?dist}%{?buildtag}
 Summary:          Article Formats for R Markdown
 
@@ -20,14 +20,14 @@ BuildRequires:    R-CRAN-rmarkdown >= 2.5
 BuildRequires:    R-CRAN-knitr >= 1.30
 BuildRequires:    R-CRAN-tinytex >= 0.30
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-xfun 
+BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-rmarkdown >= 2.5
 Requires:         R-CRAN-knitr >= 1.30
 Requires:         R-CRAN-tinytex >= 0.30
 Requires:         R-utils 
-Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-xfun 
+Requires:         R-CRAN-yaml 
 
 %description
 A suite of custom R Markdown formats and templates for authoring journal
