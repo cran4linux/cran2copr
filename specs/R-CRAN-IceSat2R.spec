@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  IceSat2R
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          ICESat-2 Altimeter Data using R
 
@@ -34,6 +34,8 @@ BuildRequires:    R-CRAN-leafsync
 BuildRequires:    R-CRAN-miniUI 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-rnaturalearth 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-rvest 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-lwgeom 
@@ -52,6 +54,8 @@ Requires:         R-CRAN-leafsync
 Requires:         R-CRAN-miniUI 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-rnaturalearth 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-rvest 
 
 %description
 Programmatic connection to the 'OpenAltimetry API'

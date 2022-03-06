@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ARTofR
-%global packver   0.3.3
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Who Ever Care About the [Art of R] Scripts?
+Summary:          To Insert Title, Divider, and Block of Comments
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,12 +18,17 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bannerCommenter >= 1.0.0
 BuildRequires:    R-CRAN-clipr >= 0.4.0
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-shiny 
 Requires:         R-CRAN-bannerCommenter >= 1.0.0
 Requires:         R-CRAN-clipr >= 0.4.0
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-shiny 
 
 %description
 For instructions, check <https://github.com/Hzhang-ouce/ARTofR>. This is a
-wrapper of 'bannerCommenter', for generating neat comments!
+wrapper of 'bannerCommenter', for inserting neat comments, headers and
+dividers.
 
 %prep
 %setup -q -c -n %{packname}

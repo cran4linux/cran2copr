@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  knnwtsim
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          K Nearest Neighbor Forecasting with a Tailored Similarity Metric
 
@@ -25,8 +25,7 @@ similarity metric tailored to the problem of forecasting univariate time
 series where recent observations, seasonal patterns, and exogenous
 predictors are all relevant in predicting future observations of the
 series in question. For more information on the formulation of this
-similarity metric please see Trupiano (2021)
-<https://github.com/mtrupiano1/knnwtsim/blob/main/README.md>.
+similarity metric please see Trupiano (2021) <arXiv:2112.06266>.
 
 %prep
 %setup -q -c -n %{packname}

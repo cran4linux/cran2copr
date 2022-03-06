@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cata
-%global packver   0.0.10.3
+%global packver   0.0.10.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.10.3
+Version:          0.0.10.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Check-All-that-Apply (CATA) Data
 
@@ -16,11 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
-Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-graphics 
@@ -32,9 +30,8 @@ provided, as described in for CATA data analysis by Meyners, Castura &
 Carr (2013) <doi:10.1016/j.foodqual.2013.06.010>. Cluster analysis can be
 performed using b-cluster analysis. The quality of cluster analysis
 solutions can be evaluated using various measures. The methods related to
-b-cluster analysis are described in a pre-print manuscript by Castura,
-Meyners, Varela & Naes (2021)
-<https://secure.compusense.com/research/wp-content/uploads/2021/12/Castura_bcluster_submitted_20211130.pdf>.
+b-cluster analysis are described in a manuscript by Castura, Meyners,
+Varela & Naes (2022) <doi:10.1016/j.foodqual.2022.104564>.
 
 %prep
 %setup -q -c -n %{packname}

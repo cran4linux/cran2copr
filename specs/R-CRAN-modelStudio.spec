@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  modelStudio
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Studio for Explanatory Model Analysis
 
@@ -38,10 +38,10 @@ serverless HTML site with only one line of code. This tool is
 model-agnostic, therefore compatible with most of the black-box predictive
 models and frameworks. The main function computes various (instance and
 model-level) explanations and produces a customisable dashboard, which
-consists of multiple panels for plots with their short descriptions.
-Easily save the dashboard and share it with others. Tools for Explanatory
-Model Analysis unite with tools for Exploratory Data Analysis to give a
-broad overview of the model behavior.
+consists of multiple panels for plots with their short descriptions. It is
+possible to easily save the dashboard and share it with others. Tools for
+Explanatory Model Analysis unite with tools for Exploratory Data Analysis
+to give a broad overview of the model behavior.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SPLICE
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Synthetic Paid Loss and Incurred Cost Experience (SPLICE) Simulator
 
@@ -20,10 +20,12 @@ BuildRequires:    R-CRAN-SynthETIC >= 1.0.0
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-SynthETIC >= 1.0.0
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-lifecycle 
 
 %description
 An extension to the individual claim simulator called 'SynthETIC' (on

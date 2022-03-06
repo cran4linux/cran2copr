@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gbmt
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Group-Based Multivariate Trajectory Modeling
 
@@ -23,7 +23,8 @@ Requires:         R-methods
 
 %description
 Estimation and analysis of group-based multivariate trajectory models
-(Nagin, 2018 <doi:10.1177/0962280216673085>). The package implements an
+(Nagin, 2018 <doi:10.1177/0962280216673085>; Magrini, 2022
+<doi:10.1007/s10182-022-00437-9>). The package implements an
 Expectation-Maximization (EM) algorithm allowing unbalanced panel and
 missing values, and provides several functionalities for prediction and
 graphical representation.

@@ -1,52 +1,59 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gitdown
-%global packver   0.1.6
+%global packname  taxadb
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Turn Your Git Commit Messages into a HTML Book
+Summary:          A High-Performance Local Taxonomic Database Interface
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-git2r >= 0.26.0
-BuildRequires:    R-CRAN-attempt 
-BuildRequires:    R-CRAN-bookdown 
+BuildRequires:    R-CRAN-arkdb > 0.0.10
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-git2r >= 0.26.0
-Requires:         R-CRAN-attempt 
-Requires:         R-CRAN-bookdown 
+BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-duckdb 
+BuildRequires:    R-CRAN-contentid 
+BuildRequires:    R-CRAN-R.utils 
+Requires:         R-CRAN-arkdb > 0.0.10
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-stats 
 Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-progress 
 Requires:         R-utils 
+Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-duckdb 
+Requires:         R-CRAN-contentid 
+Requires:         R-CRAN-R.utils 
 
 %description
-Read all commit messages of your local git repository and sort them
-according to tags or specific text pattern into chapters of a HTML book
-using 'bookdown'. The git history book presentation helps organisms
-required to testify for every changes in their source code, in relation to
-features requests.
+Creates a local database of many commonly used taxonomic authorities and
+provides functions that can quickly query this data.
 
 %prep
 %setup -q -c -n %{packname}

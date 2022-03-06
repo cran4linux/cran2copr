@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tessellation
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Delaunay and Voronoï Tessellations
 
@@ -25,6 +25,8 @@ BuildRequires:    R-CRAN-cxhull
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-english 
+BuildRequires:    R-CRAN-interp 
+BuildRequires:    R-CRAN-Rvcg 
 Requires:         R-CRAN-hash 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-randomcoloR 
@@ -35,6 +37,8 @@ Requires:         R-CRAN-cxhull
 Requires:         R-graphics 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-english 
+Requires:         R-CRAN-interp 
+Requires:         R-CRAN-Rvcg 
 
 %description
 Delaunay and Voronoï tessellations, with emphasis on the two-dimensional
