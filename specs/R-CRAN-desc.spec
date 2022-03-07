@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  desc
-%global packver   1.4.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manipulate DESCRIPTION Files
 
@@ -13,20 +13,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-rprojroot 
-Requires:         R-utils 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-rprojroot 
+Requires:         R-utils 
 
 %description
-Tools to read, write, create, and manipulate DESCRIPTION files. It is
+Tools to read, write, create, and manipulate DESCRIPTION files.  It is
 intended for packages that create or manipulate other packages.
 
 %prep

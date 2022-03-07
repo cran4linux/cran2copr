@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BinMat
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Processes Binary Data Obtained from Fragment Analysis (Such as AFLPs, ISSRs, and RFLPs)
 
@@ -23,7 +23,6 @@ BuildRequires:    R-base >= 3.4.0
 BuildRequires:    R-CRAN-tibble >= 3.1.4
 BuildRequires:    R-CRAN-pvclust >= 2.0
 BuildRequires:    R-CRAN-ggpubr >= 0.4.0
-BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-MASS >= 7.3
 Requires:         R-stats >= 3.4.0
 Requires:         R-graphics >= 3.4.0
@@ -31,7 +30,6 @@ Requires:         R-base >= 3.4.0
 Requires:         R-CRAN-tibble >= 3.1.4
 Requires:         R-CRAN-pvclust >= 2.0
 Requires:         R-CRAN-ggpubr >= 0.4.0
-Requires:         R-CRAN-magrittr 
 
 %description
 A molecular genetics tool that processes binary data from fragment
@@ -41,9 +39,9 @@ This package was developed from the publication available here:
 <https://www.sciencedirect.com/science/article/pii/S1049964420306538>. The
 GUI version of this package is available on the R Shiny online server at:
 <https://clarkevansteenderen.shinyapps.io/BINMAT/> or it is accessible via
-GitHub by typing: shiny::runGitHub("BinMat", "CJMvS") into the console in
-R. Two real-world datasets accompany the package: an AFLP dataset of
-Bunias orientalis samples from Tewes et. al. (2017)
+GitHub by typing: shiny::runGitHub("BinMat", "clarkevansteenderen") into
+the console in R. Two real-world datasets accompany the package: an AFLP
+dataset of Bunias orientalis samples from Tewes et. al. (2017)
 <https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/1365-2745.12869>,
 and an ISSR dataset of Nymphaea specimens from Reid et. al. (2021)
 <https://www.sciencedirect.com/science/article/pii/S0304377021000218> .

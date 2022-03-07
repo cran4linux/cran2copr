@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ufRisk
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Risk Measure Calculation in Financial TS
 
@@ -38,8 +38,8 @@ in terms of forecasting VaR and ES, can be assessed by means of various
 backtesting methods such as the traffic light test for VaR and a newly
 developed traffic light test for ES. The approaches implemented in this
 package are described in e.g. Feng Y., Beran J., Letmathe S. and Ghosh S.
-<https://ideas.repec.org/p/pdn/ciepap/137.html> as well as Letmathe S.,
-Feng Y. and Uhde A. (2021)
+(2020) <https://ideas.repec.org/p/pdn/ciepap/137.html> as well as Letmathe
+S., Feng Y. and Uhde A. (2021)
 <https://ideas.repec.org/p/pdn/ciepap/141.html>.
 
 %prep

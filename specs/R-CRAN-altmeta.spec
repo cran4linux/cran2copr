@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  altmeta
-%global packver   3.3
+%global packver   4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3
+Version:          4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Alternative Meta-Analysis Methods
 
@@ -17,22 +17,22 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rjags >= 4.6
+BuildRequires:    R-CRAN-metafor >= 3.0.2
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-rjags >= 4.6
+Requires:         R-CRAN-metafor >= 3.0.2
 Requires:         R-CRAN-coda 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-metafor 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -52,9 +52,10 @@ for synthesizing sensitivities, specificities, etc. (Reitsma et al., 2005
 <doi:10.1016/j.jclinepi.2006.06.011>); - meta-analysis methods for
 synthesizing proportions (Lin and Chu, 2020
 <doi:10.1097/ede.0000000000001232>); - models for multivariate
-meta-analysis (Lin and Chu, 2018 <doi:10.1002/jrsm.1293>); - measures of
-inconsistency degrees of freedom in Bayesian network meta-analysis (Lin,
-2020 <doi:10.1080/10543406.2020.1852247>).
+meta-analysis, measures of inconsistency degrees of freedom in Bayesian
+network meta-analysis, and predictive P-score (Lin and Chu, 2018
+<doi:10.1002/jrsm.1293>; Lin, 2020 <doi:10.1080/10543406.2020.1852247>;
+Rosenberger et al., 2021 <doi:10.1186/s12874-021-01397-5>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -64,6 +65,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  indicspecies
-%global packver   1.7.11
+%global packver   1.7.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.11
+Version:          1.7.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Relationship Between Species and Groups of Sites
 

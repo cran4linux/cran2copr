@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RcppCWB
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Rcpp' Bindings for the 'Corpus Workbench' ('CWB')
 
@@ -21,7 +21,9 @@ BuildRequires:    ncurses-devel
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-fs 
 Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-fs 
 
 %description
 'Rcpp' Bindings for the C code of the 'Corpus Workbench' ('CWB'), an

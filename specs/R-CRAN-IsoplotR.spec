@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  IsoplotR
-%global packver   4.2
+%global packver   4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2
+Version:          4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Toolbox for Radiometric Geochronology
 

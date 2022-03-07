@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  PAMpal
-%global packver   0.15.0
+%global packver   0.16.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.0
+Version:          0.16.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Load and Process Passive Acoustic Data
 
@@ -16,13 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-PAMmisc >= 1.8.3
 BuildRequires:    R-CRAN-PamBinaries >= 1.3.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tuneR 
 BuildRequires:    R-CRAN-seewave 
 BuildRequires:    R-CRAN-gam 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-PAMmisc 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-purrr 
@@ -37,13 +37,13 @@ BuildRequires:    R-CRAN-xml2
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-PAMmisc >= 1.8.3
 Requires:         R-CRAN-PamBinaries >= 1.3.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tuneR 
 Requires:         R-CRAN-seewave 
 Requires:         R-CRAN-gam 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-PAMmisc 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-purrr 
