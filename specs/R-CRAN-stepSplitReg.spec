@@ -1,34 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  multilevel
-%global packver   2.7
+%global packname  stepSplitReg
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multilevel Functions
+Summary:          Stepwise Split Regularized Regression
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-SplitGLM 
+BuildRequires:    R-CRAN-nnls 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-SplitGLM 
+Requires:         R-CRAN-nnls 
 
 %description
-Tools used by organizational researchers for the analysis of multilevel
-data. Includes four broad sets of tools. First, functions for estimating
-within-group agreement and reliability indices. Second, functions for
-manipulating multilevel and longitudinal (panel) data. Third, simulations
-for estimating power and generating multilevel data. Fourth, miscellaneous
-functions for estimating reliability and performing simple calculations
-and data transformations.
+Functions to perform stepwise split regularized regression. The approach
+first uses a stepwise algorithm to split the variables into the models
+with a goodness of fit criterion, and then regularization is applied to
+each model. The weights of the models in the ensemble are determined based
+on a criterion selected by the user.
 
 %prep
 %setup -q -c -n %{packname}

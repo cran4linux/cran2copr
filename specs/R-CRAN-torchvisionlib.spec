@@ -1,34 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  multilevel
-%global packver   2.7
+%global packname  torchvisionlib
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multilevel Functions
+Summary:          Additional Operators for Image Models
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-torch >= 0.7.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-torch >= 0.7.0
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-glue 
 
 %description
-Tools used by organizational researchers for the analysis of multilevel
-data. Includes four broad sets of tools. First, functions for estimating
-within-group agreement and reliability indices. Second, functions for
-manipulating multilevel and longitudinal (panel) data. Third, simulations
-for estimating power and generating multilevel data. Fourth, miscellaneous
-functions for estimating reliability and performing simple calculations
-and data transformations.
+Implements additional operators for computer vision models, including
+operators necessary for image segmentation and object detection deep
+learning models.
 
 %prep
 %setup -q -c -n %{packname}

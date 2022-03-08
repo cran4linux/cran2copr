@@ -1,34 +1,48 @@
 %global __brp_check_rpaths %{nil}
-%global packname  multilevel
-%global packver   2.7
+%global packname  hdImpute
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multilevel Functions
+Summary:          A Batch Process for High Dimensional Imputation
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-missRanger 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-missForest 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-usethis 
+Requires:         R-CRAN-missRanger 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-missForest 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-usethis 
 
 %description
-Tools used by organizational researchers for the analysis of multilevel
-data. Includes four broad sets of tools. First, functions for estimating
-within-group agreement and reliability indices. Second, functions for
-manipulating multilevel and longitudinal (panel) data. Third, simulations
-for estimating power and generating multilevel data. Fourth, miscellaneous
-functions for estimating reliability and performing simple calculations
-and data transformations.
+A correlation-based batch process for fast imputation for high dimensional
+missing data problems via chained random forests. See Stekhoven and
+Bühlmann (2012) <doi:10.1093/bioinformatics/btr597> for more on
+missForest, and Mayer (2022) <https://github.com/mayer79/missRanger> for
+more on missRanger.
 
 %prep
 %setup -q -c -n %{packname}

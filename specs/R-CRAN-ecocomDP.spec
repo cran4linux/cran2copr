@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ecocomDP
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Create, Use, and Convert ecocomDP Data
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-tidyr >= 0.6.1
 BuildRequires:    R-CRAN-emld >= 0.5.1
 BuildRequires:    R-CRAN-uuid >= 0.1.4
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-stats 
@@ -51,6 +52,7 @@ Requires:         R-CRAN-tidyr >= 0.6.1
 Requires:         R-CRAN-emld >= 0.5.1
 Requires:         R-CRAN-uuid >= 0.1.4
 Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-stats 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ARPALData
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieving, Managing and Analysing Air Quality and Weather Data for Lombardy (Italy) using ARPA Lombardia Open Database
 
@@ -39,6 +39,7 @@ BuildRequires:    R-CRAN-aweek
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-moments 
+BuildRequires:    R-CRAN-mondate 
 Requires:         R-CRAN-RSocrata 
 Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-tidyselect 
@@ -62,6 +63,7 @@ Requires:         R-CRAN-aweek
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-moments 
+Requires:         R-CRAN-mondate 
 
 %description
 Contains functions for retrieving, managing and analysing air quality and

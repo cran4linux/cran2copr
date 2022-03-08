@@ -1,34 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  multilevel
-%global packver   2.7
+%global packname  statisfactory
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multilevel Functions
+Summary:          Statistical and Geometrical Tools
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-omnibus 
+BuildRequires:    R-CRAN-rlist 
+Requires:         R-CRAN-omnibus 
+Requires:         R-CRAN-rlist 
 
 %description
-Tools used by organizational researchers for the analysis of multilevel
-data. Includes four broad sets of tools. First, functions for estimating
-within-group agreement and reliability indices. Second, functions for
-manipulating multilevel and longitudinal (panel) data. Third, simulations
-for estimating power and generating multilevel data. Fourth, miscellaneous
-functions for estimating reliability and performing simple calculations
-and data transformations.
+A collection of statistical and geometrical tools including the aligned
+rank transform (ART; Higgins et al. 1990 <doi:10.4148/2475-7772.1443>;
+Peterson 2002 <doi:10.22237/jmasm/1020255240>; Wobbrock et al. 2011
+<doi:10.1145/1978942.1978963>), 2-D histograms and histograms with
+overlapping bins, a function for making all possible formulae within a set
+of constraints, amongst others.
 
 %prep
 %setup -q -c -n %{packname}

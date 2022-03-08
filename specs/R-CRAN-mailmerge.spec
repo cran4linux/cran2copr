@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mailmerge
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mail Merge Using R Markdown Documents and 'gmailr'
 
@@ -21,11 +21,8 @@ BuildRequires:    R-CRAN-gmailr
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-googledrive 
 BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-googlesheets4 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-fs 
@@ -37,11 +34,8 @@ Requires:         R-CRAN-gmailr
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-googledrive 
 Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-googlesheets4 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-withr 
 Requires:         R-CRAN-purrr 
 Requires:         R-utils 
 Requires:         R-CRAN-fs 

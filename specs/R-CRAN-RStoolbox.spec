@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RStoolbox
-%global packver   0.2.6
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
-Release:          3%{?dist}%{?buildtag}
+Version:          0.3.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Remote Sensing Data Analysis
 
 License:          GPL (>= 3)
@@ -18,14 +18,17 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-caret >= 6.0.79
 BuildRequires:    R-CRAN-raster >= 2.3.40
 BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-codetools 
+BuildRequires:    R-CRAN-codetools 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-exactextractr 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-Rcpp 
@@ -34,14 +37,17 @@ BuildRequires:    R-CRAN-RcppArmadillo
 Requires:         R-CRAN-caret >= 6.0.79
 Requires:         R-CRAN-raster >= 2.3.40
 Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-XML 
-Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-rgdal 
-Requires:         R-codetools 
+Requires:         R-CRAN-codetools 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-parallel 
+Requires:         R-CRAN-exactextractr 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-Rcpp 
@@ -55,7 +61,15 @@ unsupervised and supervised classification or fractional cover analyses.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -63,20 +77,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/external
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

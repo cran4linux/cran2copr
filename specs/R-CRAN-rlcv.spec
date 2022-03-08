@@ -1,34 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  multilevel
-%global packver   2.7
+%global packname  rlcv
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multilevel Functions
+Summary:          Robust Likelihood Cross Validation Bandwidth Selection
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-statmod 
+Requires:         R-stats 
 
 %description
-Tools used by organizational researchers for the analysis of multilevel
-data. Includes four broad sets of tools. First, functions for estimating
-within-group agreement and reliability indices. Second, functions for
-manipulating multilevel and longitudinal (panel) data. Third, simulations
-for estimating power and generating multilevel data. Fourth, miscellaneous
-functions for estimating reliability and performing simple calculations
-and data transformations.
+Robust likelihood cross validation bandwidth for uni- and multi-variate
+kernel densities. It is robust against fat-tailed distributions and/or
+outliers. Based on "Robust Likelihood Cross-Validation for Kernel Density
+Estimation," Wu (2019) <doi:10.1080/07350015.2018.1424633>.
 
 %prep
 %setup -q -c -n %{packname}

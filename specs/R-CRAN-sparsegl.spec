@@ -1,44 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  aghq
-%global packver   0.4.0
+%global packname  sparsegl
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adaptive Gauss Hermite Quadrature for Bayesian Inference
+Summary:          Sparse Group Lasso
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mvQuad 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-polynom 
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-numDeriv 
-Requires:         R-methods 
-Requires:         R-CRAN-mvQuad 
+BuildRequires:    R-CRAN-dotCall64 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-assertthat 
+Requires:         R-methods 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-polynom 
-Requires:         R-splines 
-Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-dotCall64 
 
 %description
-Adaptive Gauss Hermite Quadrature for Bayesian inference. The AGHQ method
-for normalizing posterior distributions and making Bayesian inferences
-based on them. Functions are provided for doing quadrature and marginal
-Laplace approximations, and summary methods are provided for making
-inferences based on the results. See Stringer (2021). "Implementing
-Adaptive Quadrature for Bayesian Inference: the aghq Package"
-<arXiv:2101.04468>.
+Efficient implementation of sparse group lasso with optional bound
+constraints on the coefficients. It supports the use of a sparse design
+matrix as well as returning coefficient estimates in a sparse matrix.
+Furthermore, it correctly calculates the degrees of freedom to allow for
+information criteria rather than cross-validation with very large data.
+Finally, the interface to compiled code avoids unnecessary copies and
+allows for the use of long integers.
 
 %prep
 %setup -q -c -n %{packname}

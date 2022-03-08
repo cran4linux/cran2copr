@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  imager
-%global packver   0.42.11
+%global packver   0.42.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.42.11
+Version:          0.42.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Image Processing Library Based on 'CImg'
 

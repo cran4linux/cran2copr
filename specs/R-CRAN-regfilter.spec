@@ -1,34 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  multilevel
-%global packver   2.7
+%global packname  regfilter
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multilevel Functions
+Summary:          Elimination of Noisy Samples in Regression Datasets using Noise Filters
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-CRAN-gbm 
+BuildRequires:    R-CRAN-modelr 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-rpart 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-FNN 
+Requires:         R-CRAN-gbm 
+Requires:         R-CRAN-modelr 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-rpart 
 
 %description
-Tools used by organizational researchers for the analysis of multilevel
-data. Includes four broad sets of tools. First, functions for estimating
-within-group agreement and reliability indices. Second, functions for
-manipulating multilevel and longitudinal (panel) data. Third, simulations
-for estimating power and generating multilevel data. Fourth, miscellaneous
-functions for estimating reliability and performing simple calculations
-and data transformations.
+Traditional noise filtering methods aim at removing noisy samples from a
+classification dataset. This package adapts classic and recent filtering
+techniques to be used in regression problems. To do this, it uses the
+approach proposed in Martin (2021) [<doi:10.1109/ACCESS.2021.3123151>].
+Thus, the goal of the implemented noise filters is to eliminate samples
+with noise in regression datasets.
 
 %prep
 %setup -q -c -n %{packname}
