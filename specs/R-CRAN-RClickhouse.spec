@@ -1,37 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RcppRedis
-%global packver   0.2.0
+%global packname  RClickhouse
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.6.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Rcpp' Bindings for 'Redis' using the 'hiredis' Library
+Summary:          'Yandex Clickhouse' Interface for R with Basic 'dplyr' Support
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    hiredis-devel
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
+BuildRequires:    R-methods >= 3.3.2
+BuildRequires:    R-CRAN-dbplyr >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 0.7.0
+BuildRequires:    R-CRAN-DBI >= 0.6.0
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RApiSerialize 
+BuildRequires:    R-CRAN-bit64 
+Requires:         R-methods >= 3.3.2
+Requires:         R-CRAN-dbplyr >= 1.0.0
+Requires:         R-CRAN-dplyr >= 0.7.0
+Requires:         R-CRAN-DBI >= 0.6.0
 Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-methods 
-Requires:         R-CRAN-RApiSerialize 
+Requires:         R-CRAN-bit64 
 
 %description
-Connection to the 'Redis' key/value store using the C-language client
-library 'hiredis' (included as a fallback) with 'MsgPack' encoding
-provided via 'RcppMsgPack' headers. It now also includes the pub/sub
-functions from the 'rredis' package.
+'Yandex Clickhouse' (<https://clickhouse.com/>) is a high-performance
+relational column-store database to enable big data exploration and
+'analytics' scaling to petabytes of data. Methods are provided that enable
+working with 'Yandex Clickhouse' databases via 'DBI' methods and using
+'dplyr'/'dbplyr' idioms.
 
 %prep
 %setup -q -c -n %{packname}
-find %{packname} -type f -exec sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \;
+
 # fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping

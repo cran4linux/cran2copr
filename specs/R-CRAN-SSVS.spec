@@ -1,38 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ursa
-%global packver   3.9.6
+%global packname  SSVS
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.9.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Interactive Spatial Tools for Raster Processing and Visualization
+Summary:          Functions for Stochastic Search Variable Selection (SSVS)
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-utils 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-bayestestR 
+BuildRequires:    R-CRAN-BoomSpikeSlab 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-jpeg 
-Requires:         R-utils 
+Requires:         R-CRAN-bayestestR 
+Requires:         R-CRAN-BoomSpikeSlab 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
-Requires:         R-grDevices 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-png 
-Requires:         R-CRAN-jpeg 
 
 %description
-S3 classes and methods for manipulation with georeferenced raster data:
-reading/writing, processing, multi-panel visualization. SWU.
+Functions for performing stochastic search variable selection (SSVS) for
+binary and continuous outcomes and visualizing the results. SSVS is a
+Bayesian variable selection method used to estimate the probability that
+individual predictors should be included in a regression model. Using MCMC
+estimation, the method samples thousands of regression models in order to
+characterize the model uncertainty regarding both the predictor set and
+the regression parameters.
 
 %prep
 %setup -q -c -n %{packname}

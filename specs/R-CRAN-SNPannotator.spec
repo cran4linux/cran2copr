@@ -1,45 +1,51 @@
 %global __brp_check_rpaths %{nil}
-%global packname  sdcHierarchies
-%global packver   0.19.2
+%global packname  SNPannotator
+%global packver   0.2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.19.2
+Version:          0.2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create and (Interactively) Modify Nested Hierarchies
+Summary:          Investigating the Functional Characteristics of Selected SNPs and Their Vicinity Genomic Region
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-shinythemes 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-shinyTree 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-shinythemes 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-shinyTree 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rmarkdown 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-methods 
+Requires:         R-CRAN-rmarkdown 
 
 %description
-Provides functionality to generate, (interactively) modify (by adding,
-removing and renaming nodes) and convert nested hierarchies between
-different formats. These tree like structures can be used to define for
-example complex hierarchical tables used for statistical disclosure
-control.
+To investigate the functional characteristics of selected SNPs and their
+vicinity genomic region. Linked SNPs in moderate to high linkage
+disequilibrium (e.g. r2>0.50) with the corresponding index SNPs will be
+selected for further analysis.
 
 %prep
 %setup -q -c -n %{packname}

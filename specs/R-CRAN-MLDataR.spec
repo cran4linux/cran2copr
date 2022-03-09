@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MLDataR
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collection of Machine Learning Datasets for Supervised Machine Learning
 
@@ -24,6 +24,9 @@ BuildRequires:    R-CRAN-recipes
 BuildRequires:    R-CRAN-workflows 
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-varhandle 
+BuildRequires:    R-CRAN-OddsPlotty 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-ConfusionTableR 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-parsnip 
@@ -32,6 +35,9 @@ Requires:         R-CRAN-recipes
 Requires:         R-CRAN-workflows 
 Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-caret 
+Requires:         R-CRAN-varhandle 
+Requires:         R-CRAN-OddsPlotty 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Contains a collection of datasets for working with machine learning tasks.

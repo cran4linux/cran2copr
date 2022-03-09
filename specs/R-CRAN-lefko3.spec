@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  lefko3
-%global packver   4.2.0
+%global packver   5.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.0
+Version:          5.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Historical and Ahistorical Population Projection Matrix Analysis
 
@@ -19,6 +19,7 @@ BuildRequires:    R-CRAN-Rcpp >= 1.0.5
 BuildRequires:    R-CRAN-glmmTMB 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-MuMIn 
 BuildRequires:    R-CRAN-pscl 
 BuildRequires:    R-CRAN-SparseM 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-Rcpp >= 1.0.5
 Requires:         R-CRAN-glmmTMB 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-MASS 
+Requires:         R-methods 
 Requires:         R-CRAN-MuMIn 
 Requires:         R-CRAN-pscl 
 Requires:         R-CRAN-SparseM 

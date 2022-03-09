@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gdalcubes
-%global packver   0.5.1
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Earth Observation Data Cubes from Satellite Image Collections
 
@@ -21,11 +21,9 @@ BuildRequires:    sqlite-devel
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppProgress 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-ncdf4 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppProgress 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-ncdf4 
 
@@ -38,8 +36,8 @@ using the 'Geospatial Data Abstraction Library' ('GDAL'). Implemented
 functions on data cubes include reduction over space and time, applying
 arithmetic expressions on pixel band values, moving window aggregates over
 time, filtering by space, time, bands, and predicates on pixel values,
-exporting data cubes as 'netCDF' or 'GeoTIFF' files, and plotting.  The
-package implements lazy evaluation and multithreading. All computational
+exporting data cubes as 'netCDF' or 'GeoTIFF' files, plotting, and
+extraction from spatial and or spatiotemporal features. All computational
 parts are implemented in C++, linking to the 'GDAL', 'netCDF', 'CURL', and
 'SQLite' libraries. See Appel and Pebesma (2019) <doi:10.3390/data4030092>
 for further details.

@@ -1,52 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  arcpullr
-%global packver   0.2.2
+%global packname  ggpointless
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pull Data from an 'ArcGIS REST' API
+Summary:          Emphasize Observations with Points
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster >= 3.4.5
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-jsonlite >= 1.6.1
-BuildRequires:    R-CRAN-httr >= 1.4.1
-BuildRequires:    R-CRAN-dplyr >= 1.0.2
-BuildRequires:    R-CRAN-tidyr >= 1.0.2
-BuildRequires:    R-CRAN-sf >= 0.9.7
-BuildRequires:    R-CRAN-rlang >= 0.4.7
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-bslib 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-rgdal 
-Requires:         R-CRAN-raster >= 3.4.5
 Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-jsonlite >= 1.6.1
-Requires:         R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-dplyr >= 1.0.2
-Requires:         R-CRAN-tidyr >= 1.0.2
-Requires:         R-CRAN-sf >= 0.9.7
-Requires:         R-CRAN-rlang >= 0.4.7
-Requires:         R-methods 
-Requires:         R-CRAN-bslib 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-rgdal 
 
 %description
-Functions to efficiently query 'ArcGIS REST' APIs
-<https://developers.arcgis.com/rest/>. Both spatial and SQL queries can be
-used to retrieve data. Simple Feature (sf) objects are utilized to perform
-spatial queries. This package was neither produced nor is maintained by
-Esri.
+Add minimal emphasis to your plots. 'ggpointless' is a small extension of
+the 'ggplot2' library making it easy to highlight the first, or last
+observations, sample minimum and maximum. The goal is to provide
+additional context. Or just some visual sugar.
 
 %prep
 %setup -q -c -n %{packname}

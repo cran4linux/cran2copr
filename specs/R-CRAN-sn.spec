@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sn
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Skew-Normal and Related Distributions Such as the Skew-t and the SUN
 

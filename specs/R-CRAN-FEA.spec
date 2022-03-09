@@ -1,32 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  FactorAssumptions
-%global packver   2.0.1
+%global packname  FEA
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Set of Assumptions for Factor and Principal Component Analysis
+Summary:          Finite Element Modeling for R
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-geometry 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-ptinpoly 
+BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-psych 
+Requires:         R-CRAN-geometry 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-ptinpoly 
+Requires:         R-CRAN-sp 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-psych 
 
 %description
-Tests for Kaiser-Meyer-Olkin (KMO) and communalities in a dataset. It
-provides a final sample by removing variables in a iterable manner while
-keeping account of the variables that were removed in each step. It
-follows the best practices and assumptions according to Hair, Black, Babin
-& Anderson (2018, ISBN:9781473756540).
+Finite element modeling of 2D geometries using constant strain triangles.
+Applies material properties and boundary conditions (load and constraint)
+to generate a finite element model. The model produces stress, strain, and
+nodal displacements; a heat map is available to demonstrate regions where
+output variables are high or low.  Also provides options for creating a
+triangular mesh of 2D geometries. Package developed with reference to:
+Bathe, K. J. (1996). Finite Element Procedures.[ISBN 978-0-9790049-5-7] --
+Seshu, P. (2012). Textbook of Finite Element Analysis.
+[ISBN-978-81-203-2315-5] -- Mustapha, K. B. (2018). Finite Element
+Computations in Mechanics with R. [ISBN 9781315144474].
 
 %prep
 %setup -q -c -n %{packname}

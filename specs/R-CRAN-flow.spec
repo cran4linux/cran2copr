@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  flow
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          View and Browse Code Using Flow Diagrams
 
@@ -22,12 +22,18 @@ BuildRequires:    R-CRAN-htmlwidgets
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-webshot 
 BuildRequires:    R-CRAN-styler 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-here 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-nomnoml 
 Requires:         R-utils 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-webshot 
 Requires:         R-CRAN-styler 
+Requires:         R-methods 
+Requires:         R-CRAN-here 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Visualize as flow diagrams the logic of functions, expressions or scripts

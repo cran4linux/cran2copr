@@ -1,56 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  simr
-%global packver   1.0.6
+%global packname  saeHB.hnb
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power Analysis for Generalised Linear Mixed Models by Simulation
+Summary:          Small Area Estimation under Hurdle Negative Binomial Distribution using Hierarchical Bayesian Method
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lmerTest >= 3.0.0
-BuildRequires:    R-CRAN-lme4 >= 1.1.16
-BuildRequires:    R-CRAN-binom 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-pbkrtest 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-RLRsim 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-rjags 
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-car 
-Requires:         R-CRAN-lmerTest >= 3.0.0
-Requires:         R-CRAN-lme4 >= 1.1.16
-Requires:         R-CRAN-binom 
-Requires:         R-CRAN-iterators 
-Requires:         R-CRAN-pbkrtest 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-RLRsim 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-rjags 
 Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-car 
+Requires:         R-graphics 
 
 %description
-Calculate power for generalised linear mixed models, using simulation.
-Designed to work with models fit using the 'lme4' package. Described in
-Green and MacLeod, 2016 <doi:10.1111/2041-210X.12504>.
+We design this package to provide a function for area level of small area
+estimation using Hierarchical Bayesian (HB) method under Hurdle Negative
+Binomial Distribution. This package provides model using Univariate Hurdle
+Negative Binomial Distribution for variable of interest. This package also
+provides a dataset produced by a data generation. The 'rjags' package is
+employed to obtain parameter estimates. Model-based estimators involves
+the Hierarchical Bayes estimators which include the mean and the variation
+of mean. For references, see Hilbe (2011) <doi:10.1017/CBO9780511973420>
+and Rao (2015) <doi:10.1002/9781118735855>.
 
 %prep
 %setup -q -c -n %{packname}

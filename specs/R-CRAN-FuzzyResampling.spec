@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  FuzzyResampling
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Resampling Methods for Triangular and Trapezoidal Fuzzy Numbers
 
@@ -32,7 +32,8 @@ To do this, different characteristics of triangular/trapezoidal numbers
 are kept (like the value, the ambiguity, etc., see Grzegorzewski et al.
 <doi:10.2991/eusflat-19.2019.68>, Grzegorzewski et al. (2020)
 <doi:10.2991/ijcis.d.201012.003>, Grzegorzewski et al. (2020)
-<doi:10.34768/amcs-2020-0022>, Romaniuk and Hryniewicz (2019)
+<doi:10.34768/amcs-2020-0022>, Grzegorzewski and Romaniuk (2022)
+<doi:10.1007/978-3-030-95929-6_3>, Romaniuk and Hryniewicz (2019)
 <doi:10.1007/s00500-018-3251-5>). Some additional procedures related to
 these resampling methods are also provided, like calculation of the
 Bertoluzza et al.'s distance (aka the mid/spread distance, see Bertoluzza

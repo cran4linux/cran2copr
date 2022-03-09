@@ -1,56 +1,51 @@
 %global __brp_check_rpaths %{nil}
-%global packname  simr
-%global packver   1.0.6
+%global packname  ebnm
+%global packver   1.0-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power Analysis for Generalised Linear Mixed Models by Simulation
+Summary:          Solve the Empirical Bayes Normal Means Problem
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lmerTest >= 3.0.0
-BuildRequires:    R-CRAN-lme4 >= 1.1.16
-BuildRequires:    R-CRAN-binom 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-pbkrtest 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-RLRsim 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-car 
-Requires:         R-CRAN-lmerTest >= 3.0.0
-Requires:         R-CRAN-lme4 >= 1.1.16
-Requires:         R-CRAN-binom 
-Requires:         R-CRAN-iterators 
-Requires:         R-CRAN-pbkrtest 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-RLRsim 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-ashr 
+BuildRequires:    R-CRAN-mixsqp 
+BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-trust 
+BuildRequires:    R-CRAN-horseshoe 
+BuildRequires:    R-CRAN-deconvolveR 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-car 
+Requires:         R-CRAN-ashr 
+Requires:         R-CRAN-mixsqp 
+Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-trust 
+Requires:         R-CRAN-horseshoe 
+Requires:         R-CRAN-deconvolveR 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Calculate power for generalised linear mixed models, using simulation.
-Designed to work with models fit using the 'lme4' package. Described in
-Green and MacLeod, 2016 <doi:10.1111/2041-210X.12504>.
+Provides simple, fast, and stable functions to fit the normal means model
+using empirical Bayes. For available models and details, see function
+ebnm(). A comprehensive introduction to the package is provided by
+Willwerscheid and Stephens (2021) <arXiv:2110.00152>.
 
 %prep
 %setup -q -c -n %{packname}

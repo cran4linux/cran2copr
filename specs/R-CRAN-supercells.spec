@@ -1,37 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RcppRedis
-%global packver   0.2.0
+%global packname  supercells
+%global packver   0.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.8.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Rcpp' Bindings for 'Redis' using the 'hiredis' Library
+Summary:          Superpixels of Spatial Data
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    hiredis-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RApiSerialize 
-Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-methods 
-Requires:         R-CRAN-RApiSerialize 
+BuildRequires:    R-CRAN-terra >= 1.4.21
+BuildRequires:    R-CRAN-philentropy >= 0.6.0
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-terra >= 1.4.21
+Requires:         R-CRAN-philentropy >= 0.6.0
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-future.apply 
 
 %description
-Connection to the 'Redis' key/value store using the C-language client
-library 'hiredis' (included as a fallback) with 'MsgPack' encoding
-provided via 'RcppMsgPack' headers. It now also includes the pub/sub
-functions from the 'rredis' package.
+Creates superpixels based on input spatial data. This package works on
+spatial data with one variable (e.g., continuous raster), many variables
+(e.g., RGB rasters), and spatial patterns (e.g., areas in categorical
+rasters). It is based on the SLIC algorithm (Achanta et al. (2012)
+<doi:10.1109/TPAMI.2012.120>), and readapts it to work with arbitrary
+dissimilarity measures.
 
 %prep
 %setup -q -c -n %{packname}
-find %{packname} -type f -exec sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python2@g' {} \;
+
 # fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping

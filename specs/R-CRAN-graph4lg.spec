@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  graph4lg
-%global packver   1.2.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Build Graphs for Landscape Genetics Analysis
 
@@ -20,11 +20,8 @@ BuildRequires:    R-CRAN-adegenet
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.core 
 BuildRequires:    R-CRAN-spatstat.linnet 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-vegan 
@@ -46,11 +43,8 @@ Requires:         R-CRAN-adegenet
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rmarkdown 
 Requires:         R-stats 
 Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.core 
 Requires:         R-CRAN-spatstat.linnet 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-vegan 
@@ -94,6 +88,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

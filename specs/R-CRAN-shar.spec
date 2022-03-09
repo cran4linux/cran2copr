@@ -1,56 +1,50 @@
 %global __brp_check_rpaths %{nil}
-%global packname  simr
-%global packver   1.0.6
+%global packname  shar
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power Analysis for Generalised Linear Mixed Models by Simulation
+Summary:          Species-Habitat Associations
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lmerTest >= 3.0.0
-BuildRequires:    R-CRAN-lme4 >= 1.1.16
-BuildRequires:    R-CRAN-binom 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-pbkrtest 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-RLRsim 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-classInt 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-car 
-Requires:         R-CRAN-lmerTest >= 3.0.0
-Requires:         R-CRAN-lme4 >= 1.1.16
-Requires:         R-CRAN-binom 
-Requires:         R-CRAN-iterators 
-Requires:         R-CRAN-pbkrtest 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-RLRsim 
-Requires:         R-CRAN-stringr 
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-utils 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-spatstat.core 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.random 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-classInt 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-car 
+Requires:         R-methods 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-spatstat.core 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.random 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Calculate power for generalised linear mixed models, using simulation.
-Designed to work with models fit using the 'lme4' package. Described in
-Green and MacLeod, 2016 <doi:10.1111/2041-210X.12504>.
+Analyse species-habitat associations in R. Therefore, information about
+the location of the species (as a point pattern) is needed together with
+environmental conditions (as a categorical raster). To test for
+significance habitat associations, one of the two components is
+randomized. Methods are mainly based on Plotkin et al. (2000)
+<doi:10.1006/jtbi.2000.2158> and Harms et al. (2001)
+<doi:10.1111/j.1365-2745.2001.00615.x>.
 
 %prep
 %setup -q -c -n %{packname}

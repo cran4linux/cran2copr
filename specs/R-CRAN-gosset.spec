@@ -1,56 +1,51 @@
 %global __brp_check_rpaths %{nil}
-%global packname  simr
-%global packver   1.0.6
+%global packname  gosset
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power Analysis for Generalised Linear Mixed Models by Simulation
+Summary:          Tools for Data Analysis in Experimental Agriculture
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lmerTest >= 3.0.0
-BuildRequires:    R-CRAN-lme4 >= 1.1.16
-BuildRequires:    R-CRAN-binom 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-pbkrtest 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-RLRsim 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-stats 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-BradleyTerry2 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggparty 
+BuildRequires:    R-CRAN-partykit 
+BuildRequires:    R-CRAN-PlackettLuce 
+BuildRequires:    R-CRAN-psychotools 
+BuildRequires:    R-CRAN-qvcalc 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-car 
-Requires:         R-CRAN-lmerTest >= 3.0.0
-Requires:         R-CRAN-lme4 >= 1.1.16
-Requires:         R-CRAN-binom 
-Requires:         R-CRAN-iterators 
-Requires:         R-CRAN-pbkrtest 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-RLRsim 
-Requires:         R-CRAN-stringr 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-patchwork 
 Requires:         R-methods 
+Requires:         R-CRAN-BradleyTerry2 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggparty 
+Requires:         R-CRAN-partykit 
+Requires:         R-CRAN-PlackettLuce 
+Requires:         R-CRAN-psychotools 
+Requires:         R-CRAN-qvcalc 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-car 
+Requires:         R-CRAN-patchwork 
 
 %description
-Calculate power for generalised linear mixed models, using simulation.
-Designed to work with models fit using the 'lme4' package. Described in
-Green and MacLeod, 2016 <doi:10.1111/2041-210X.12504>.
+Toolkit for a workflow to analyse experimental agriculture data, from data
+synthesis to model selection and visualisation. The package is named after
+W.S. Gosset aka ‘Student’, a pioneer of modern statistics in small sample
+experimental design and analysis.
 
 %prep
 %setup -q -c -n %{packname}

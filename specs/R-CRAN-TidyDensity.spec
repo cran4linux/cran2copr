@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  TidyDensity
-%global packver   0.0.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Tidy Analysis of Randomly Generated Data
+Summary:          Functions for Tidy Analysis and Generation of Random Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,7 +24,9 @@ BuildRequires:    R-CRAN-plotly
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-healthyR.ai 
+BuildRequires:    R-CRAN-actuar 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-rlang >= 0.4.11
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
@@ -33,7 +35,9 @@ Requires:         R-CRAN-plotly
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-healthyR.ai 
+Requires:         R-CRAN-actuar 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
 To make it easy to generate random numbers based upon the underlying stats

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  NNS
-%global packver   0.8.4.1
+%global packver   0.8.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4.1
+Version:          0.8.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonlinear Nonparametric Statistics
 

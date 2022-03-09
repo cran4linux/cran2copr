@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MicroMoB
-%global packver   0.0.9
+%global packver   0.0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.0.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discrete Time Simulation of Mosquito-Borne Pathogen Transmission
 
@@ -17,8 +17,14 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-extraDistr 
 BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-plumber 
+BuildRequires:    R-CRAN-httpuv 
 Requires:         R-CRAN-extraDistr 
 Requires:         R-CRAN-abind 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-plumber 
+Requires:         R-CRAN-httpuv 
 
 %description
 Provides a framework based on S3 dispatch for constructing models of

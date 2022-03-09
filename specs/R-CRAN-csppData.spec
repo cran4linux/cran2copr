@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  csppData
-%global packver   0.1.4
+%global packver   0.2.51
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.51
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Only: The Correlates of State Policy Project Dataset
 
@@ -21,7 +21,7 @@ BuildArch:        noarch
 Contains the Correlates of State Policy Project dataset (+ codebook)
 assembled by Marty P. Jordan and Matt Grossmann (2020)
 <http://ippsr.msu.edu/public-policy/correlates-state-policy> used by the
-'cspp' package. The Correlates data contains over 2000 variables across
+'cspp' package. The Correlates data contains over 3000 variables across
 more than 100 years that pertain to state politics and policy in the
 United States.
 

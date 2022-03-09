@@ -1,38 +1,52 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ursa
-%global packver   3.9.6
+%global packname  fishualize
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.9.6
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Interactive Spatial Tools for Raster Processing and Visualization
+Summary:          Color Palettes Based on Fish Species
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 1.0.1
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-jpeg 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-CRAN-rgdal 
+BuildRequires:    R-CRAN-downloader 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-curl 
+Requires:         R-CRAN-ggplot2 >= 1.0.1
+Requires:         R-CRAN-gridExtra 
+Requires:         R-grid 
 Requires:         R-CRAN-png 
-Requires:         R-CRAN-jpeg 
+Requires:         R-CRAN-downloader 
+Requires:         R-utils 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-curl 
 
 %description
-S3 classes and methods for manipulation with georeferenced raster data:
-reading/writing, processing, multi-panel visualization. SWU.
+Implementation of color palettes based on fish species.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  logr
-%global packver   1.2.8
+%global packver   1.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.8
+Version:          1.2.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creates Log Files
 

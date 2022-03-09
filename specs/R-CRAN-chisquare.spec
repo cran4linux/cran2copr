@@ -1,41 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  wdnr.gis
-%global packver   0.1.2
+%global packname  chisquare
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pull Spatial Layers from 'WDNR ArcGIS REST API'
+Summary:          Chi-Square Test of Independence
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arcpullr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-arcpullr 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-formattable >= 0.2.1
+Requires:         R-CRAN-formattable >= 0.2.1
 
 %description
-Functions for finding and pulling data from the 'Wisconsin Department of
-Natural Resources ArcGIS REST APIs'
-<https://dnrmaps.wi.gov/arcgis/rest/services> and
-<https://dnrmaps.wi.gov/arcgis2/rest/services>.
+Provides the facility to perform the chi-square test of independence,
+calculates permutation-based p value, and provides coefficients of
+association such as Phi, adjusted contingency coefficient, Cramer's V,
+bias-corrected Cramer's V, Cohen's w, Goodman-Kruskal's lambda and gamma.
+It also calculates standardized and adjusted standardized residuals.
+Different outputs are returned in nicely formatted tables.
 
 %prep
 %setup -q -c -n %{packname}
