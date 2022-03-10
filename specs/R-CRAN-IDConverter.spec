@@ -1,46 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Knoema
-%global packver   0.1.19
+%global packname  IDConverter
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.19
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the Knoema API
+Summary:          Convert Identifiers in Biological Databases
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-methods 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-zoo 
-Requires:         R-methods 
 
 %description
-Using this package, users can access to the largest collection of public
-data and statistics on the Internet featuring about 2.5 billion time
-series from thousands of sources collected in 'Knoema' repository and use
-rich R calculations in order to analyze the data. Because data in 'Knoema'
-is time series data, 'Knoema' function offers data in a number of formats
-usable in R such as 'ts', 'xts' or 'zoo'. For more information about
-'Knoema' API go to <https://knoema.com/dev/docs>.
+Identifiers in biological databases connect different levels of metadata,
+phenotype data or genotype data. This tool is designed to easily convert
+identifiers within or between different biological databases.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  wallace
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Modular Platform for Reproducible Modeling of Species Niches and Distributions
 
@@ -33,7 +33,6 @@ BuildRequires:    R-CRAN-rgeos
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-shinythemes 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-spThin 
 BuildRequires:    R-CRAN-zip 
@@ -54,7 +53,6 @@ Requires:         R-CRAN-rgeos
 Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-shinythemes 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-spThin 
 Requires:         R-CRAN-zip 

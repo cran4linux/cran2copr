@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  parsnip
-%global packver   0.1.7
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Common API to Modeling and Analysis Functions
 
@@ -21,8 +21,10 @@ BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.0.1
 BuildRequires:    R-CRAN-rlang >= 0.3.1
 BuildRequires:    R-CRAN-vctrs >= 0.2.0
-BuildRequires:    R-CRAN-hardhat >= 0.1.5.9000
-BuildRequires:    R-CRAN-generics >= 0.1.0
+BuildRequires:    R-CRAN-hardhat >= 0.1.6.9001
+BuildRequires:    R-CRAN-generics >= 0.1.0.9000
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-globals 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lifecycle 
@@ -31,13 +33,16 @@ BuildRequires:    R-CRAN-prettyunits
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-tibble >= 2.1.1
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.0.1
 Requires:         R-CRAN-rlang >= 0.3.1
 Requires:         R-CRAN-vctrs >= 0.2.0
-Requires:         R-CRAN-hardhat >= 0.1.5.9000
-Requires:         R-CRAN-generics >= 0.1.0
+Requires:         R-CRAN-hardhat >= 0.1.6.9001
+Requires:         R-CRAN-generics >= 0.1.0.9000
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-globals 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lifecycle 
@@ -46,6 +51,7 @@ Requires:         R-CRAN-prettyunits
 Requires:         R-CRAN-purrr 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-withr 
 
 %description
 A common interface is provided to allow users to specify a model without

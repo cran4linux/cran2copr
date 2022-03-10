@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  czso
-%global packver   0.3.8
+%global packver   0.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          0.3.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Use Open Data from the Czech Statistical Office in R
 
@@ -21,29 +21,27 @@ BuildRequires:    R-tools >= 3.6.0
 BuildRequires:    R-utils >= 3.6.0
 BuildRequires:    R-CRAN-tibble >= 2.1.3
 BuildRequires:    R-CRAN-jsonlite >= 1.6
-BuildRequires:    R-CRAN-usethis >= 1.5.1
 BuildRequires:    R-CRAN-httr >= 1.4.1
-BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-readr >= 1.3.1
 BuildRequires:    R-CRAN-dplyr >= 0.8.3
 BuildRequires:    R-CRAN-rlang >= 0.4.4
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-stringi 
 Requires:         R-CRAN-curl >= 4.3
 Requires:         R-tools >= 3.6.0
 Requires:         R-utils >= 3.6.0
 Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-jsonlite >= 1.6
-Requires:         R-CRAN-usethis >= 1.5.1
 Requires:         R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-readr >= 1.3.1
 Requires:         R-CRAN-dplyr >= 0.8.3
 Requires:         R-CRAN-rlang >= 0.4.4
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-stringi 
 
 %description
 Get programmatic access to the open data provided by the Czech Statistical

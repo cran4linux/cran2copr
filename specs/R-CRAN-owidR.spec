@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  owidR
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Package for Importing Data from Our World in Data
 
@@ -34,6 +34,7 @@ BuildRequires:    R-CRAN-ggrepel
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-httr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-readr 
@@ -52,6 +53,7 @@ Requires:         R-CRAN-ggrepel
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-rlang 
 Requires:         R-grDevices 
+Requires:         R-CRAN-httr 
 
 %description
 Imports data from the Our World in Data website, offering easy to use

@@ -1,46 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RClone
-%global packver   1.0.3
+%global packname  ExactMed
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Partially Clonal Populations Analysis
+Summary:          Exact Mediation Analysis for Binary Outcomes
 
-License:          GPL (>= 2.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-logistf 
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
-BuildRequires:    R-datasets 
-BuildRequires:    R-methods 
-Requires:         R-graphics 
+Requires:         R-CRAN-logistf 
 Requires:         R-stats 
-Requires:         R-grDevices 
 Requires:         R-utils 
-Requires:         R-datasets 
-Requires:         R-methods 
 
 %description
-R version of 'GenClone' (a computer program to analyse genotypic data,
-test for clonality and describe spatial clonal organization, Arnaud-Haond
-& Belkhir 2007,
-<https://wwz.ifremer.fr/clonix/content/download/68205/903914/file/GenClone2.0.setup.zip>),
-this package allows clone handling as 'GenClone' does, plus the
-possibility to work with several populations, MultiLocus Lineages (MLL)
-custom definition and use, and p-value calculation for psex statistic
-(probability of originating from distinct sexual events) and psex_Fis
-statistic (taking account of Hardy-Weinberg equilibrium departure) as
-'MLGsim'/'MLGsim2' (a program for detecting clones using a simulation
-approach, Stenberg et al. 2003).
+A tool for conducting exact parametric regression-based causal mediation
+analysis of binary outcomes as described in Samoilenko, Blais and Lefebvre
+(2018) <doi:10.1353/obs.2018.0013> and Samoilenko, Lefebvre (2021)
+<doi:10.1093/aje/kwab055>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,6 +37,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
