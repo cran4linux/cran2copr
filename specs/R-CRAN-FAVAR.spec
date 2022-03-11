@@ -1,39 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dipm
-%global packver   1.6
+%global packname  FAVAR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Depth Importance in Precision Medicine (DIPM) Method
+Summary:          Bayesian Analysis of a FAVAR Model
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-partykit >= 1.2.6
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-matlab 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-Requires:         R-CRAN-partykit >= 1.2.6
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-CRAN-bvartools 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-matlab 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
+Requires:         R-CRAN-bvartools 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-Matrix 
 
 %description
-An implementation of the Depth Importance in Precision Medicine (DIPM)
-method in Chen and Zhang (2020) <doi:10.1093/biostatistics/kxaa021> and
-Chen and Zhang (2020) <doi:10.1007/978-3-030-46161-4_16>. The DIPM method
-is a classification tree that searches for subgroups with especially poor
-or strong performance in a given treatment group.
+Estimate a FAVAR model by a Bayesian method, based on Bernanke et al.
+(2005) <DOI:10.1162/0033553053327452>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dipm
-%global packver   1.6
+%global packname  calendRio
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Depth Importance in Precision Medicine (DIPM) Method
+Summary:          'calendR' Fork with Additional Features (Backwards Compatible)
 
-License:          GPL (>= 2)
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-partykit >= 1.2.6
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-gggibbous 
+BuildRequires:    R-CRAN-ggimage 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-Requires:         R-CRAN-partykit >= 1.2.6
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-CRAN-suncalc 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-gggibbous 
+Requires:         R-CRAN-ggimage 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
+Requires:         R-CRAN-suncalc 
 
 %description
-An implementation of the Depth Importance in Precision Medicine (DIPM)
-method in Chen and Zhang (2020) <doi:10.1093/biostatistics/kxaa021> and
-Chen and Zhang (2020) <doi:10.1007/978-3-030-46161-4_16>. The DIPM method
-is a classification tree that searches for subgroups with especially poor
-or strong performance in a given treatment group.
+Fork of 'calendR' R package to generate ready to print calendars with
+'ggplot2' (see <https://r-coder.com/calendar-plot-r/>) with additional
+features (backwards compatible). 'calendRio' provides a 'calendR()'
+function that serves as a drop-in replacement for the upstream version but
+allows for additional parameters unlocking extra functionality.
 
 %prep
 %setup -q -c -n %{packname}

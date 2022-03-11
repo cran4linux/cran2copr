@@ -1,32 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  pomdp
-%global packver   1.0.0
+%global packname  rrMixture
+%global packver   0.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Solver for Partially Observable Markov Decision Processes (POMDP)
+Summary:          Reduced-Rank Mixture Models
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-pomdpSolve 
-BuildRequires:    R-CRAN-igraph 
-Requires:         R-CRAN-pomdpSolve 
-Requires:         R-CRAN-igraph 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-gtools 
+Requires:         R-utils 
 
 %description
-Provides the infrastructure to define and analyze the solutions of
-Partially Observable Markov Decision Process (POMDP) models. Interfaces
-for various exact and approximate solution algorithms are available
-including value iteration, point-based value iteration and SARSOP.
-Smallwood and Sondik (1973) <doi:10.1287/opre.21.5.1071>.
+We implement full-ranked, rank-penalized, and adaptive nuclear norm
+penalized estimation methods using multivariate mixture models proposed by
+Kang, Chen, and Yao (2022+).
 
 %prep
 %setup -q -c -n %{packname}

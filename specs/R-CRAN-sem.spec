@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sem
-%global packver   3.1-13
+%global packver   3.1-14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.13
+Version:          3.1.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Structural Equation Models
 

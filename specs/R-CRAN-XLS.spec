@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  XLS
-%global packver   0.0.9
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Modeling Approach that Optimizes Future Errors in Least Squares
 
@@ -17,9 +17,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mpoly 
-BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-mpoly 
-Requires:         R-CRAN-rlang 
 
 %description
 Given the date column as an ascending entry, future errors are included in

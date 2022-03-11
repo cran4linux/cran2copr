@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gfpop
-%global packver   1.0.3
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graph-Constrained Functional Pruning Optimal Partitioning
 
@@ -21,13 +21,16 @@ Requires:         R-CRAN-Rcpp >= 1.0.0
 %description
 Penalized parametric change-point detection by functional pruning dynamic
 programming algorithm. The successive means are constrained using a graph
-structure with edges of types null, up, down, std or abs. To each edge we
-can associate some additional properties: a minimal gap size, a penalty,
-some robust parameters (K,a). The user can also constrain the inferred
-means to lie between some minimal and maximal values. Data is modeled by a
-quadratic cost with possible use of a robust loss, biweight and Huber (see
-edge parameters K and a). Other losses are also available with log-linear
-representation or a log-log representation.
+structure with edges defining the nature of the changes These changes can
+be unconstrained (type std), up or down constrained (type up and down) or
+constrained by a minimal size jump (type abs). The type null means that
+the graph allows us to stay on the same segment. To each edge we can
+associate some additional properties: a minimal gap size, a penalty, some
+robust parameters (K,a) for biweight (K) and Huber losses (K and a). The
+user can also constrain the inferred means to lie between some minimal and
+maximal values. Data is modeled by a cost with possible use of a robust
+loss, biweight and Huber (see edge parameters K and a). These costs should
+have a quadratic, log-linear or a log-log representation.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

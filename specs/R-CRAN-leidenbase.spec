@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  leidenbase
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          R and C/C++ Wrappers to Run the Leiden find_partition() Function
 

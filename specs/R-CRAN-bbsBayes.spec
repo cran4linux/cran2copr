@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bbsBayes
-%global packver   2.3.8.2020
+%global packver   2.4.0.2020
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.8.2020
+Version:          2.4.0.2020
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Bayesian Analysis of North American BBS Data
 
@@ -30,6 +30,7 @@ BuildRequires:    R-tools
 BuildRequires:    R-CRAN-latticeExtra 
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-sbtools 
+BuildRequires:    R-CRAN-mgcv 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-jagsUI 
 Requires:         R-CRAN-ggrepel 
@@ -44,6 +45,7 @@ Requires:         R-tools
 Requires:         R-CRAN-latticeExtra 
 Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-sbtools 
+Requires:         R-CRAN-mgcv 
 
 %description
 The North American Breeding Bird Survey (BBS) is a long-running program

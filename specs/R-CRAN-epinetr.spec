@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  epinetr
-%global packver   0.95
+%global packver   0.96
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.95
+Version:          0.96
 Release:          1%{?dist}%{?buildtag}
 Summary:          Epistatic Network Modelling with Forward-Time Simulation
 

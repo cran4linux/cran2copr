@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rfPermute
-%global packver   2.5
+%global packver   2.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5
+Version:          2.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Permutation p-Values for Random Forest Importance Metrics
 
@@ -16,39 +16,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-randomForest >= 4.6
+BuildRequires:    R-CRAN-ggplot2 >= 3.3
+BuildRequires:    R-CRAN-tibble >= 3.1
+BuildRequires:    R-CRAN-magrittr >= 2.0
 BuildRequires:    R-CRAN-swfscMisc >= 1.5
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-abind >= 1.4
+BuildRequires:    R-CRAN-tidyr >= 1.1
+BuildRequires:    R-CRAN-dplyr >= 1.0
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-randomForest >= 4.6
+Requires:         R-CRAN-ggplot2 >= 3.3
+Requires:         R-CRAN-tibble >= 3.1
+Requires:         R-CRAN-magrittr >= 2.0
 Requires:         R-CRAN-swfscMisc >= 1.5
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-abind >= 1.4
+Requires:         R-CRAN-tidyr >= 1.1
+Requires:         R-CRAN-dplyr >= 1.0
 Requires:         R-grDevices 
 Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-parallel 
-Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 
 %description

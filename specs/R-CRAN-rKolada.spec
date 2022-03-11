@@ -1,39 +1,48 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dipm
-%global packver   1.6
+%global packname  rKolada
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Depth Importance in Precision Medicine (DIPM) Method
+Summary:          Access Data from the 'Kolada' Database
 
-License:          GPL (>= 2)
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-partykit >= 1.2.6
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-Requires:         R-CRAN-partykit >= 1.2.6
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-urltools 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-urltools 
 
 %description
-An implementation of the Depth Importance in Precision Medicine (DIPM)
-method in Chen and Zhang (2020) <doi:10.1093/biostatistics/kxaa021> and
-Chen and Zhang (2020) <doi:10.1007/978-3-030-46161-4_16>. The DIPM method
-is a classification tree that searches for subgroups with especially poor
-or strong performance in a given treatment group.
+Methods for downloading and processing data and metadata from 'Kolada',
+the official Swedish regions and municipalities database
+<https://kolada.se/>.
 
 %prep
 %setup -q -c -n %{packname}

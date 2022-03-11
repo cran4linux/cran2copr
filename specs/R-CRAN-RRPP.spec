@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RRPP
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Model Evaluation with Randomized Residuals in a Permutation Procedure
 
@@ -30,13 +30,12 @@ Linear model calculations are made for many random versions of data. Using
 residual randomization in a permutation procedure, sums of squares are
 calculated over many permutations to generate empirical probability
 distributions for evaluating model effects.  This packaged is described by
-Collyer & Adams (2018) <doi:10.1111/2041-210X.13029>.  Additionally,
-coefficients, statistics, fitted values, and residuals generated over many
-permutations can be used for various procedures including pairwise tests,
-prediction, classification, and model comparison.  This package should
-provide most tools one could need for the analysis of high-dimensional
-data, especially in ecology and evolutionary biology, but certainly other
-fields, as well.
+Collyer & Adams (2018).  Additionally, coefficients, statistics, fitted
+values, and residuals generated over many permutations can be used for
+various procedures including pairwise tests, prediction, classification,
+and model comparison.  This package should provide most tools one could
+need for the analysis of high-dimensional data, especially in ecology and
+evolutionary biology, but certainly other fields, as well.
 
 %prep
 %setup -q -c -n %{packname}

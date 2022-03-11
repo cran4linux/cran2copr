@@ -1,40 +1,54 @@
 %global __brp_check_rpaths %{nil}
-%global packname  exceldata
-%global packver   0.1.1.1
+%global packname  rbedrock
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Streamline Data Import, Cleaning and Recoding from 'Excel'
+Summary:          Analysis and Manipulation of Data from Minecraft Bedrock Edition
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-bit64 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-fs 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-bit64 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-readr 
+Requires:         R-utils 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-fs 
 
 %description
-A small group of functions to read in a data dictionary and the
-corresponding data table from 'Excel' and to automate the cleaning,
-re-coding and creation of simple calculated variables. This package was
-designed to be a companion to the macro-enabled 'Excel' template available
-on the GitHub site, but works with any similarly-formatted 'Excel' data.
+Implements an interface to Minecraft (Bedrock Edition) worlds. Supports
+the analysis and management of these worlds and game saves.
 
 %prep
 %setup -q -c -n %{packname}

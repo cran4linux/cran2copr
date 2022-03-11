@@ -1,40 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  exceldata
-%global packver   0.1.1.1
+%global packname  TDA
+%global packver   1.8.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1.1
+Version:          1.8.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Streamline Data Import, Cleaning and Recoding from 'Excel'
+Summary:          Statistical Tools for Topological Data Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-readxl 
+BuildRequires:    gmp-devel
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-BH >= 1.78.0.0
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-readxl 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-CRAN-FNN 
+Requires:         R-CRAN-igraph 
+Requires:         R-parallel 
 Requires:         R-CRAN-scales 
 
 %description
-A small group of functions to read in a data dictionary and the
-corresponding data table from 'Excel' and to automate the cleaning,
-re-coding and creation of simple calculated variables. This package was
-designed to be a companion to the macro-enabled 'Excel' template available
-on the GitHub site, but works with any similarly-formatted 'Excel' data.
+Tools for the statistical analysis of persistent homology and for density
+clustering. For that, this package provides an R interface for the
+efficient algorithms of the C++ libraries 'GUDHI'
+<https://project.inria.fr/gudhi/software/>, 'Dionysus'
+<https://www.mrzv.org/software/dionysus/>, and 'PHAT'
+<https://bitbucket.org/phat-code/phat/>. This package also implements the
+methods in Fasy et al. (2014) <doi:10.1214/14-AOS1252> and Chazal et al.
+(2014) <doi:10.1145/2582112.2582128> for analyzing the statistical
+significance of persistent homology features.
 
 %prep
 %setup -q -c -n %{packname}

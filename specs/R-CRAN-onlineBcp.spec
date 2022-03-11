@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  onlineBcp
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Online Bayesian Methods for Change Point Analysis
 
@@ -23,7 +23,8 @@ Requires:         R-CRAN-VIM
 It implements the online Bayesian methods for change point analysis. It
 can also perform missing data imputation with methods from 'VIM'. The
 reference is Yigiter A, Chen J, An L, Danacioglu N (2015)
-<doi:10.1080/02664763.2014.1001330>.
+<doi:10.1080/02664763.2014.1001330>. The link to the package is
+<https://CRAN.R-project.org/package=onlineBcp>.
 
 %prep
 %setup -q -c -n %{packname}

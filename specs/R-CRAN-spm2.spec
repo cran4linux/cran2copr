@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spm2
-%global packver   1.1.0
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Predictive Modeling
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-gbm
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-e1071 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-gbm
 Requires:         R-stats 
 Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-fields 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-e1071 
@@ -44,16 +46,16 @@ Requires:         R-CRAN-e1071
 %description
 An updated and extended version of 'spm' package, by introducing some
 further novel functions for modern statistical methods (i.e., generalised
-linear models, glmnet, generalised least squares), support vector machine,
-kriging methods (i.e., simple kriging, universal kriging, block kriging,
-kriging with an external drift), and novel hybrid methods (228 hybrids
-plus numerous variants) of modern statistical methods or machine learning
-methods with mathematical and/or univariate geostatistical methods for
-spatial predictive modelling. For each method, two functions are provided,
-with one function for assessing the predictive errors and accuracy of the
-method based on cross-validation, and the other for generating spatial
-predictions. It also contains a couple of functions for data preparation
-and predictive accuracy assessment.
+linear models, glmnet, generalised least squares), thin plate splines,
+support vector machine, kriging methods (i.e., simple kriging, universal
+kriging, block kriging, kriging with an external drift), and novel hybrid
+methods (228 hybrids plus numerous variants) of modern statistical methods
+or machine learning methods with mathematical and/or univariate
+geostatistical methods for spatial predictive modelling. For each method,
+two functions are provided, with one function for assessing the predictive
+errors and accuracy of the method based on cross-validation, and the other
+for generating spatial predictions. It also contains a couple of functions
+for data preparation and predictive accuracy assessment.
 
 %prep
 %setup -q -c -n %{packname}

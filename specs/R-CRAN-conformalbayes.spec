@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dipm
-%global packver   1.6
+%global packname  conformalbayes
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Depth Importance in Precision Medicine (DIPM) Method
+Summary:          Jackknife(+) Predictive Intervals for Bayesian Models
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-partykit >= 1.2.6
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-Requires:         R-CRAN-partykit >= 1.2.6
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rstantools 
+BuildRequires:    R-CRAN-loo 
+BuildRequires:    R-CRAN-matrixStats 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rstantools 
+Requires:         R-CRAN-loo 
+Requires:         R-CRAN-matrixStats 
 
 %description
-An implementation of the Depth Importance in Precision Medicine (DIPM)
-method in Chen and Zhang (2020) <doi:10.1093/biostatistics/kxaa021> and
-Chen and Zhang (2020) <doi:10.1007/978-3-030-46161-4_16>. The DIPM method
-is a classification tree that searches for subgroups with especially poor
-or strong performance in a given treatment group.
+Provides functions to construct finite-sample calibrated predictive
+intervals for Bayesian models, following the approach in Barber et al.
+(2021) <doi:10.1214/20-AOS1965>. These intervals are calculated
+efficiently using importance sampling for the leave-one-out residuals. By
+default, the intervals will also reflect the relative uncertainty in the
+Bayesian model, using the locally-weighted conformal methods of Lei et al.
+(2018) <doi:10.1080/01621459.2017.1307116>.
 
 %prep
 %setup -q -c -n %{packname}
