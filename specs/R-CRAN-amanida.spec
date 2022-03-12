@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  amanida
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Meta-Analysis for Non-Integral Data
 
@@ -53,7 +53,8 @@ size only. P-values and fold-change are combined to obtain a global
 significance on each metabolite. Produces a volcano plot summarising the
 relevant results from meta-analysis. Vote-counting reports for
 metabolites. And explore plot to detect discrepancies between studies at a
-first glance.
+first glance. Methodology is described in the Llambrich et al. (2021)
+<doi:10.1093/bioinformatics/btab591>.
 
 %prep
 %setup -q -c -n %{packname}

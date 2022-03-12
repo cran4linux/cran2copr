@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  quickcheck
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Property Based Testing
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-testthat >= 3.0.0
 BuildRequires:    R-CRAN-hedgehog 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-hms 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-testthat >= 3.0.0
 Requires:         R-CRAN-hedgehog 
 Requires:         R-CRAN-purrr 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-hms 
 Requires:         R-stats 
+Requires:         R-CRAN-magrittr 
 
 %description
 Property based testing, inspired by the original 'QuickCheck'. This

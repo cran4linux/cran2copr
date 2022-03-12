@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cat2cat
-%global packver   0.3.1
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unify a Categorical Variable in a Panel Dataset
 
@@ -16,17 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-assertthat 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-progress 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-assertthat 
 
 %description

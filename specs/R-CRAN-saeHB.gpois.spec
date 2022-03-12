@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RConics
-%global packver   1.1.1
+%global packname  saeHB.gpois
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Computations on Conics
+Summary:          SAE using HB Method under Generalized Poisson Distribution
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,12 +16,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-base 
-Requires:         R-base 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-rjags 
+Requires:         R-stats 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 
 %description
-Solve some conic related problems (intersection of conics with lines and
-conics, arc length of an ellipse, polar lines, etc.).
+We designed this package to provide function for area level of Small Area
+Estimation using Hierarchical Bayesian (HB) method under Generalized
+Poisson Distribution. This package provides model using Univariate
+Generalized Poisson Distribution for variable of interest. Some datasets
+simulated by a data generation are also provided. The 'rjags' package is
+employed to obtain parameter estimates. Model-based estimators involves
+the HB estimators which include the mean and the variation of mean. For
+the reference, see Rao and Molina (2015) <doi:10.1002/9781118735855>, Wang
+(2021) <doi:10.1016/j.ecoinf.2021.101301> and Ntzoufras (2009)
+<doi:10.1002/9780470434567>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  git4r
-%global packver   0.1.2
+%global packname  RSDK
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Git for R
+Summary:          Sudoku with R
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,18 +16,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-git2r 
-BuildRequires:    R-CRAN-diffr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-git2r 
-Requires:         R-CRAN-diffr 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-testthat >= 3.0.0
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyWidgets 
+BuildRequires:    R-CRAN-keys 
+Requires:         R-CRAN-testthat >= 3.0.0
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyWidgets 
+Requires:         R-CRAN-keys 
 
 %description
-An interactive git user interface from the R command line. Intuitive tools
-to make commits, branches, remotes, and diffs an integrated part of R
-coding. Built on git2r, a system installation of git is not required and
-has default on-premises remote option.
+This is a sudoku game package with a shiny application for playing .
 
 %prep
 %setup -q -c -n %{packname}

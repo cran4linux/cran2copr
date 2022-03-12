@@ -1,33 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  git4r
-%global packver   0.1.2
+%global packname  cpop
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Git for R
+Summary:          Detection of Multiple Changes in Slope in Univariate Time-Series
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-git2r 
-BuildRequires:    R-CRAN-diffr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-git2r 
-Requires:         R-CRAN-diffr 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.13
+BuildRequires:    R-CRAN-crops 
+BuildRequires:    R-CRAN-pacman 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-mathjaxr 
+Requires:         R-CRAN-Rcpp >= 0.12.13
+Requires:         R-CRAN-crops 
+Requires:         R-CRAN-pacman 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-methods 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-mathjaxr 
 
 %description
-An interactive git user interface from the R command line. Intuitive tools
-to make commits, branches, remotes, and diffs an integrated part of R
-coding. Built on git2r, a system installation of git is not required and
-has default on-premises remote option.
+Detects multiple changes in slope using the CPOP dynamic programming
+approach of Fearnhead, Maidstone, and Letchford (2018)
+<doi:10.1080/10618600.2018.1512868>. This method finds the best continuous
+piecewise linear fit to data under a criterion that measures fit to data
+using the residual sum of squares, but penalizes complexity based on an L0
+penalty on changes in slope.
 
 %prep
 %setup -q -c -n %{packname}

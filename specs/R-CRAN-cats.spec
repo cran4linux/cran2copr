@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  IDConverter
-%global packver   0.3.0
+%global packname  cats
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Identifiers in Biological Databases
+Summary:          Cohort Platform Trial Simulation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,17 +16,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-epitools 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-tidyr 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-epitools 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Identifiers in biological databases connect different levels of metadata,
-phenotype data or genotype data. This tool is designed to easily convert
-identifiers within or between different biological databases.
+Cohort plAtform Trial Simulation whereby every cohort consists of two
+arms, control and experimental treatment. Endpoints are co-primary binary
+endpoints and decisions are made using either Bayesian or frequentist
+decision rules. Realistic trial trajectories are simulated and the
+operating characteristics of the designs are calculated.
 
 %prep
 %setup -q -c -n %{packname}

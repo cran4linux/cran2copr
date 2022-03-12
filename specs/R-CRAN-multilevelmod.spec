@@ -1,33 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  git4r
-%global packver   0.1.2
+%global packname  multilevelmod
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Git for R
+Summary:          Model Wrappers for Multi-Level Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-git2r 
-BuildRequires:    R-CRAN-diffr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-git2r 
-Requires:         R-CRAN-diffr 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-parsnip >= 0.2.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-parsnip >= 0.2.0
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-withr 
 
 %description
-An interactive git user interface from the R command line. Intuitive tools
-to make commits, branches, remotes, and diffs an integrated part of R
-coding. Built on git2r, a system installation of git is not required and
-has default on-premises remote option.
+Bindings for hierarchical regression models for use with the 'parsnip'
+package. Models include longitudinal generalized linear models (Liang and
+Zeger, 1986) <doi:10.1093/biomet/73.1.13>, and mixed-effect models
+(Pinheiro and Bates) <doi:10.1007/978-1-4419-0318-1_1>.
 
 %prep
 %setup -q -c -n %{packname}

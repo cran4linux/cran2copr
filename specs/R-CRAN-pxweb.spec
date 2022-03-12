@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pxweb
-%global packver   0.12.0
+%global packver   0.13.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.0
+Version:          0.13.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to PXWEB APIs
 
@@ -29,8 +29,8 @@ used by organizations such as Statistics Sweden and Statistics Finland to
 disseminate data. The R package can interact with all PX-Web/PC-Axis APIs
 to fetch information about the data hierarchy, extract metadata and
 extract and parse statistics to R data.frame format. PX-Web is a solution
-to disseminate PC-Axis data files in dynamic tables on the web. Since 2013
-PX-Web contains an API to disseminate PC-Axis files.
+to disseminate PC-Axis data files in dynamic tables on the web.  Since
+2013 PX-Web contains an API to disseminate PC-Axis files.
 
 %prep
 %setup -q -c -n %{packname}

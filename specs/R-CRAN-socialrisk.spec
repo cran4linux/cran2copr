@@ -1,37 +1,52 @@
 %global __brp_check_rpaths %{nil}
-%global packname  schtools
-%global packver   0.1.1
+%global packname  socialrisk
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Schloss Lab Tools for Reproducible Microbiome Research
+Summary:          Identifying Patient Social Risk from Administrative Health Care Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-formatR 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-devtools 
+Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-formatR 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-tidyr 
+Requires:         R-stats 
+Requires:         R-CRAN-devtools 
 
 %description
-A collection of useful functions and example code created and used by the
-Schloss Lab for reproducible microbiome research. Perform common tasks
-like read files created by mothur <https://mothur.org/>, tidy up your
-microbiome data, and format R Markdown documents for publication.  See the
-website <http://www.schlosslab.org/schtools/> for more information,
-documentation, and examples.
+Social risks are increasingly becoming a critical component of health care
+research. One of the most common ways to identify social needs is by using
+ICD-10-CM "Z-codes." This package identifies social risks using varying
+taxonomies of ICD-10-CM Z-codes from administrative health care data. The
+conceptual taxonomies come from: Centers for Medicare and Medicaid
+Services (2021)
+<https://www.cms.gov/files/document/zcodes-infographic.pdf>, Reidhead
+(2018)
+<https://www.mhanet.com/mhaimages/Policy_Briefs/PolicyBrief_SDOH.pdf>, A
+Arons, S DeSilvey, C Fichtenberg, L Gottlieb (2018)
+<https://sirenetwork.ucsf.edu/tools-resources/resources/compendium-medical-terminology-codes-social-risk-factors>.
 
 %prep
 %setup -q -c -n %{packname}

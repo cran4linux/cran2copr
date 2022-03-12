@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  taxa
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classes for Storing and Manipulating Taxonomic Data
 
@@ -17,34 +17,24 @@ BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lazyeval 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lazyeval 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 Requires:         R-CRAN-pillar 
 Requires:         R-methods 

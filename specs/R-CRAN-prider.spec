@@ -1,33 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  git4r
-%global packver   0.1.2
+%global packname  prider
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Git for R
+Summary:          Multiplexed Primer Design by Linear Set Coverage Approximation
 
-License:          MIT + file LICENSE
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-git2r 
-BuildRequires:    R-CRAN-diffr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-git2r 
-Requires:         R-CRAN-diffr 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-blaster 
+BuildRequires:    R-CRAN-gplots 
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-blaster 
+Requires:         R-CRAN-gplots 
 
 %description
-An interactive git user interface from the R command line. Intuitive tools
-to make commits, branches, remotes, and diffs an integrated part of R
-coding. Built on git2r, a system installation of git is not required and
-has default on-premises remote option.
+Implementation of an oligonucleotide primer and probe design algorithm
+using a linearly scaling approximation of set coverage. A detailed
+description available at Smolander and Tamminen, 2021;
+<doi:10.1101/2021.09.06.459073>.
 
 %prep
 %setup -q -c -n %{packname}

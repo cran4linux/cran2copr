@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  InSilicoVA
-%global packver   1.3.4
+%global packver   1.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Probabilistic Verbal Autopsy Coding with 'InSilicoVA' Algorithm
 
@@ -32,7 +32,7 @@ Computes individual causes of death and population cause-specific
 mortality fractions using the 'InSilicoVA' algorithm from McCormick et al.
 (2016) <DOI:10.1080/01621459.2016.1152191>. It uses data derived from
 verbal autopsy (VA) interviews, in a format similar to the input of the
-widely used 'InterVA4' method. This package provides general model fitting
+widely used 'InterVA' method. This package provides general model fitting
 and customization for 'InSilicoVA' algorithm and basic graphical
 visualization of the output.
 

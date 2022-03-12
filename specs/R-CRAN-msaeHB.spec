@@ -1,33 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  git4r
-%global packver   0.1.2
+%global packname  msaeHB
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Git for R
+Summary:          Multivariate Small Area Estimation using Hierarchical Bayesian Method
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-git2r 
-BuildRequires:    R-CRAN-diffr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-git2r 
-Requires:         R-CRAN-diffr 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-coda 
+Requires:         R-CRAN-rjags 
+Requires:         R-CRAN-coda 
 
 %description
-An interactive git user interface from the R command line. Intuitive tools
-to make commits, branches, remotes, and diffs an integrated part of R
-coding. Built on git2r, a system installation of git is not required and
-has default on-premises remote option.
+Implements area level of multivariate small area estimation using
+Hierarchical Bayesian method under Normal and T distribution. The 'rjags'
+package is employed to obtain parameter estimates. For the reference, see
+Rao and Molina (2015) <doi:10.1002/9781118735855>.
 
 %prep
 %setup -q -c -n %{packname}

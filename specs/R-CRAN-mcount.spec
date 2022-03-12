@@ -1,33 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  git4r
-%global packver   0.1.2
+%global packname  mcount
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Git for R
+Summary:          Marginalized Count Regression Models
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-git2r 
-BuildRequires:    R-CRAN-diffr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-git2r 
-Requires:         R-CRAN-diffr 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-bbmle 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-bbmle 
+Requires:         R-stats 
 
 %description
-An interactive git user interface from the R command line. Intuitive tools
-to make commits, branches, remotes, and diffs an integrated part of R
-coding. Built on git2r, a system installation of git is not required and
-has default on-premises remote option.
+Implementation of marginalized models for zero-inflated count data. This
+package provides a tool to implement an estimation algorithm for the
+marginalized count models, which directly makes inference on the effect of
+each covariate on the marginal mean of the outcome. The method involves
+the marginalized zero-inflated Poisson model described in Long et al.
+(2014) <doi:10.1002/sim.6293>.
 
 %prep
 %setup -q -c -n %{packname}

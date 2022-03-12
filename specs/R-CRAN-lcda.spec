@@ -1,33 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  git4r
-%global packver   0.1.2
+%global packname  lcda
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Git for R
+Summary:          Latent Class Discriminant Analysis
 
-License:          MIT + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.6.0
+Requires:         R-core >= 2.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-git2r 
-BuildRequires:    R-CRAN-diffr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-git2r 
-Requires:         R-CRAN-diffr 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-poLCA 
+Requires:         R-CRAN-poLCA 
 
 %description
-An interactive git user interface from the R command line. Intuitive tools
-to make commits, branches, remotes, and diffs an integrated part of R
-coding. Built on git2r, a system installation of git is not required and
-has default on-premises remote option.
+Providing a method for Local Discrimination via Latent Class Models. The
+approach is described in
+<https://www.r-project.org/conferences/useR-2009/abstracts/pdf/Bucker.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

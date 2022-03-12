@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sjSDM
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scalable Joint Species Distribution Modeling
 
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-crayon
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-mathjaxr 
+BuildRequires:    R-CRAN-ggtern 
 Requires:         R-CRAN-reticulate 
 Requires:         R-stats 
 Requires:         R-CRAN-mvtnorm 
@@ -50,6 +51,7 @@ Requires:         R-CRAN-crayon
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-mathjaxr 
+Requires:         R-CRAN-ggtern 
 
 %description
 A scalable method to estimate joint Species Distribution Models (jSDMs)

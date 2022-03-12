@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  IFAA
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Inference for Absolute Abundance in Microbiome Analysis
 
@@ -20,7 +20,6 @@ BuildRequires:    R-methods >= 3.3.0
 BuildRequires:    R-parallel >= 3.3.0
 BuildRequires:    R-CRAN-foreach >= 1.4.3
 BuildRequires:    R-CRAN-Matrix >= 1.4.0
-BuildRequires:    R-CRAN-picasso >= 1.2.0
 BuildRequires:    R-CRAN-future >= 1.12.0
 BuildRequires:    R-CRAN-HDCI >= 1.0.2
 BuildRequires:    R-CRAN-doParallel >= 1.0.11
@@ -34,7 +33,6 @@ Requires:         R-methods >= 3.3.0
 Requires:         R-parallel >= 3.3.0
 Requires:         R-CRAN-foreach >= 1.4.3
 Requires:         R-CRAN-Matrix >= 1.4.0
-Requires:         R-CRAN-picasso >= 1.2.0
 Requires:         R-CRAN-future >= 1.12.0
 Requires:         R-CRAN-HDCI >= 1.0.2
 Requires:         R-CRAN-doParallel >= 1.0.11
@@ -46,7 +44,7 @@ Requires:         R-CRAN-glmnet
 Requires:         R-stats 
 
 %description
-A novel approach to make inference on the association of covariates with
+A robust approach to make inference on the association of covariates with
 the absolute abundance (AA) of 'microbiome' in an ecosystem. It can be
 also directly applied to relative abundance (RA) data to make inference on
 AA (even if AA data is not available) because the ratio of two RA is equal
@@ -54,9 +52,8 @@ ratio of their AA. This algorithm can estimate and test the associations
 of interest while adjusting for potential 'confounders'. The estimates of
 this method have easy interpretation like a typical regression analysis.
 High-dimensional covariates are handled with regularization and it is
-implemented by parallel computing. This algorithm finds optimal reference
-'taxa/OTU (Operational Taxonomic Unit)/ASV (Amplicon Sequence Bariant)'
-and uses permutation to control FDR (False Discovery Rate).
+implemented by parallel computing. False discovery rate is automatically
+controlled by this approach.
 
 %prep
 %setup -q -c -n %{packname}

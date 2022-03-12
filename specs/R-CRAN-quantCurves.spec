@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  git4r
-%global packver   0.1.2
+%global packname  quantCurves
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Git for R
+Summary:          Estimate Quantiles Curves
 
-License:          MIT + file LICENSE
+License:          CeCILL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,18 +16,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-git2r 
-BuildRequires:    R-CRAN-diffr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-git2r 
-Requires:         R-CRAN-diffr 
-Requires:         R-utils 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-KernSmooth 
+BuildRequires:    R-CRAN-locpol 
+BuildRequires:    R-CRAN-np 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-quantregGrowth 
+BuildRequires:    R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-KernSmooth 
+Requires:         R-CRAN-locpol 
+Requires:         R-CRAN-np 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-quantregGrowth 
+Requires:         R-stats 
 
 %description
-An interactive git user interface from the R command line. Intuitive tools
-to make commits, branches, remotes, and diffs an integrated part of R
-coding. Built on git2r, a system installation of git is not required and
-has default on-premises remote option.
+Non-parametric methods as local normal regression, polynomial local
+regression and penalized cubic B-splines regression are used to estimate
+quantiles curves. See Fan and Gijbels (1996) <doi:10.1201/9780203748725>
+and Perperoglou et al.(2019) <doi:10.1186/s12874-019-0666-3>.
 
 %prep
 %setup -q -c -n %{packname}

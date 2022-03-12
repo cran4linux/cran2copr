@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ChemoSpec
-%global packver   6.1.2
+%global packver   6.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.1.2
+Version:          6.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploratory Chemometrics for Spectroscopy
 
