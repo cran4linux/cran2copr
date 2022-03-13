@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
 %global packname  TreeDimensionTest
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Trajectory Presence and Heterogeneity in Multivariate Data
 
-License:          GPL (>= 2)
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -31,14 +31,15 @@ Requires:         R-CRAN-RColorBrewer
 Requires:         R-CRAN-Rdpack 
 
 %description
-Testing on multivariate data for trajectory presence and heterogeneity.
-Two statistical methods (Tenha & Song, provisionally accepted) are
-implemented. The tree dimension test quantifies the statistical evidence
-for trajectory presence. The subset specificity measure summarizes pattern
-heterogeneity using the minimum subtree cover. There is no user tunable
-parameters for either method. Examples are included to illustrate how to
-use the methods on single-cell data for studying gene and pathway
-expression dynamics and pathway expression specificity.
+Testing for trajectory presence and heterogeneity on multivariate data.
+Two statistical methods (Tenha & Song 2022)
+<doi:10.1371/journal.pcbi.1009829> are implemented. The tree dimension
+test quantifies the statistical evidence for trajectory presence. The
+subset specificity measure summarizes pattern heterogeneity using the
+minimum subtree cover. There is no user tunable parameters for either
+method. Examples are included to illustrate how to use the methods on
+single-cell data for studying gene and pathway expression dynamics and
+pathway expression specificity.
 
 %prep
 %setup -q -c -n %{packname}

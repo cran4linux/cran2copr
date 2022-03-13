@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  WebAnalytics
-%global packver   0.9.1
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Web Server Log Analysis
 
@@ -16,22 +16,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.3
 BuildRequires:    R-CRAN-xtable >= 1.7.3
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-brew 
-BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-digest 
+Requires:         R-CRAN-ggplot2 >= 3.3
 Requires:         R-CRAN-xtable >= 1.7.3
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-scales 
 Requires:         R-utils 
-Requires:         R-CRAN-digest 
 Requires:         R-CRAN-brew 
-Requires:         R-CRAN-testthat 
 Requires:         R-CRAN-fs 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-digest 
 
 %description
 Provides Apache and IIS log analytics for transaction performance, client

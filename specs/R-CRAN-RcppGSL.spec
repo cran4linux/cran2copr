@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RcppGSL
-%global packver   0.3.10
+%global packver   0.3.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
+Version:          0.3.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Rcpp' Integration for 'GNU GSL' Vectors and Matrices
 
