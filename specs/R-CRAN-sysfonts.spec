@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sysfonts
-%global packver   0.8.5
+%global packver   0.8.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.5
+Version:          0.8.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Loading Fonts into R
 

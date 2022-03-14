@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ctrdata
-%global packver   1.8.0
+%global packver   1.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.0
+Version:          1.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve and Analyze Clinical Trials in Public Registers
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nodbi >= 0.5.0
+BuildRequires:    R-CRAN-nodbi >= 0.7.0
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-curl 
@@ -24,7 +24,9 @@ BuildRequires:    R-CRAN-clipr
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-nodbi >= 0.5.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-nodbi >= 0.7.0
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-curl 
@@ -32,20 +34,22 @@ Requires:         R-CRAN-clipr
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
 
 %description
-Provides functions for querying, retrieving and analyzing protocol- and
-results-related information on clinical trials from two public registers,
-the 'European Union Clinical Trials Register' ('EUCTR',
+A system for querying, retrieving and analyzing protocol- and
+results-related information on clinical trials from three public
+registers, the 'European Union Clinical Trials Register' ('EUCTR',
 <https://www.clinicaltrialsregister.eu/>), 'ClinicalTrials.gov' ('CTGOV',
 <https://clinicaltrials.gov/>) and the 'ISRCTN'
 (<http://www.isrctn.com/>). Trial information is downloaded, converted and
-stored in a database ('SQLite' or 'MongoDB', via 'nodbi'). Functions are
-provided to identify de-duplicated records, to easily find and extract
-variables (fields) of interest even from complex nesting as used by the
-registers, and to update previous queries that users retrieved in a
-database. The package can be used for meta analysis and trend-analysis of
-the design and conduct as well as results of clinical trials.
+stored in a database ('PostgreSQL', 'SQLite' or 'MongoDB'; via package
+'nodbi'). Functions are included to identify de-duplicated records, to
+easily find and extract variables (fields) of interest even from complex
+nesting as used by the registers, and to update previous queries. The
+package can be used for meta-analysis and trend-analysis of the design and
+conduct as well as for results of clinical trials.
 
 %prep
 %setup -q -c -n %{packname}

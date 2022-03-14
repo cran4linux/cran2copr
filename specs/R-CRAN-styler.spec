@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  styler
-%global packver   1.6.2
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Invasive Pretty Printing of R Code
 
@@ -13,34 +13,28 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.1.1
 BuildRequires:    R-CRAN-rematch2 >= 2.0.1
 BuildRequires:    R-CRAN-magrittr >= 2.0.0
 BuildRequires:    R-CRAN-tibble >= 1.4.2
-BuildRequires:    R-CRAN-backports >= 1.1.0
-BuildRequires:    R-CRAN-cli >= 1.1.0
 BuildRequires:    R-CRAN-rprojroot >= 1.1
 BuildRequires:    R-CRAN-withr >= 1.0.0
 BuildRequires:    R-CRAN-purrr >= 0.2.3
 BuildRequires:    R-CRAN-R.cache >= 0.15.0
 BuildRequires:    R-CRAN-rlang >= 0.1.1
-BuildRequires:    R-CRAN-xfun >= 0.1
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-tools 
+Requires:         R-CRAN-cli >= 3.1.1
 Requires:         R-CRAN-rematch2 >= 2.0.1
 Requires:         R-CRAN-magrittr >= 2.0.0
 Requires:         R-CRAN-tibble >= 1.4.2
-Requires:         R-CRAN-backports >= 1.1.0
-Requires:         R-CRAN-cli >= 1.1.0
 Requires:         R-CRAN-rprojroot >= 1.1
 Requires:         R-CRAN-withr >= 1.0.0
 Requires:         R-CRAN-purrr >= 0.2.3
 Requires:         R-CRAN-R.cache >= 0.15.0
 Requires:         R-CRAN-rlang >= 0.1.1
-Requires:         R-CRAN-xfun >= 0.1
-Requires:         R-CRAN-glue 
 Requires:         R-tools 
 
 %description

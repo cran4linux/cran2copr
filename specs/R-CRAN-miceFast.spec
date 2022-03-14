@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  miceFast
-%global packver   0.7.1
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Imputations Using 'Rcpp' and 'Armadillo'
 
@@ -18,22 +18,10 @@ Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-UpSetR 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-methods 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-UpSetR 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-assertthat 
 
 %description
 Fast imputations under the object-oriented programming paradigm. Moreover

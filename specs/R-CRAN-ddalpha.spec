@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ddalpha
-%global packver   1.3.11
+%global packver   1.3.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.11
-Release:          3%{?dist}%{?buildtag}
+Version:          1.3.12
+Release:          1%{?dist}%{?buildtag}
 Summary:          Depth-Based Classification and Calculation of Data Depth
 
 License:          GPL-2
@@ -20,8 +20,8 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-MASS 
-BuildRequires:    R-class 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-class 
 BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-CRAN-sfsmisc 
 BuildRequires:    R-CRAN-geometry 
@@ -31,8 +31,8 @@ Requires:         R-stats
 Requires:         R-utils 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-MASS 
-Requires:         R-class 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-class 
 Requires:         R-CRAN-robustbase 
 Requires:         R-CRAN-sfsmisc 
 Requires:         R-CRAN-geometry 
@@ -51,6 +51,15 @@ and Dyckerhoff, 2019 <doi:10.18637/jss.v091.i05>).
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -58,19 +67,10 @@ and Dyckerhoff, 2019 <doi:10.18637/jss.v091.i05>).
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

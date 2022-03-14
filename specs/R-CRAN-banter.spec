@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  banter
-%global packver   0.9.4
+%global packver   0.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          0.9.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          BioAcoustic EveNT ClassifiER
+Summary:          BioAcoustic eveNT classifiER
 
 License:          GNU General Public License
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,7 +19,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-randomForest >= 4.6
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.3
 BuildRequires:    R-CRAN-tibble >= 3.1.2
-BuildRequires:    R-CRAN-rfPermute >= 2.5
+BuildRequires:    R-CRAN-rfPermute >= 2.5.1
 BuildRequires:    R-CRAN-gridExtra >= 2.3
 BuildRequires:    R-CRAN-swfscMisc >= 1.5
 BuildRequires:    R-CRAN-tidyr >= 1.1.1
@@ -32,7 +32,7 @@ BuildRequires:    R-stats
 Requires:         R-CRAN-randomForest >= 4.6
 Requires:         R-CRAN-ggplot2 >= 3.3.3
 Requires:         R-CRAN-tibble >= 3.1.2
-Requires:         R-CRAN-rfPermute >= 2.5
+Requires:         R-CRAN-rfPermute >= 2.5.1
 Requires:         R-CRAN-gridExtra >= 2.3
 Requires:         R-CRAN-swfscMisc >= 1.5
 Requires:         R-CRAN-tidyr >= 1.1.1
