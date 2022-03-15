@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rules
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Wrappers for Rule-Based Models
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-parsnip >= 0.1.4
+BuildRequires:    R-CRAN-parsnip >= 0.2.0
 BuildRequires:    R-CRAN-generics >= 0.1.0
 BuildRequires:    R-CRAN-modeldata 
 BuildRequires:    R-CRAN-dials 
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-parsnip >= 0.1.4
+Requires:         R-CRAN-parsnip >= 0.2.0
 Requires:         R-CRAN-generics >= 0.1.0
 Requires:         R-CRAN-modeldata 
 Requires:         R-CRAN-dials 

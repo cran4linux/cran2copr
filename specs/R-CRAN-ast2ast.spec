@@ -1,44 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gstat
-%global packver   2.0-9
+%global packname  ast2ast
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.9
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial and Spatio-Temporal Geostatistical Modelling, Prediction and Simulation
+Summary:          Translates a R Function into an External Pointer to a C++ Function
 
-License:          GPL (>= 2.0)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-spacetime >= 1.0.0
-BuildRequires:    R-CRAN-sp >= 0.9.72
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-FNN 
-Requires:         R-CRAN-spacetime >= 1.0.0
-Requires:         R-CRAN-sp >= 0.9.72
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-FNN 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-RcppXPtrUtils 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.4
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-RcppXPtrUtils 
+Requires:         R-CRAN-RcppArmadillo 
 
 %description
-Variogram modelling; simple, ordinary and universal point or block
-(co)kriging; spatio-temporal kriging; sequential Gaussian or indicator
-(co)simulation; variogram and variogram map plotting utility functions;
-supports sf and stars.
+Enable translation of a tiny subset of R to C++. The user has to define a
+R function which gets translated. For a full list of possible functions
+check the documentation. After translation an external pointer to the C++
+function is returned to the user. The intention of the package is to
+generate fast functions which can be used as ode-system or during
+optimization.
 
 %prep
 %setup -q -c -n %{packname}

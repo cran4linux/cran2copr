@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dbnR
-%global packver   0.7.1
+%global packver   0.7.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.7.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Bayesian Network Learning and Inference
 
@@ -33,9 +33,12 @@ Learning and inference over dynamic Bayesian networks of arbitrary
 Markovian order. Extends some of the functionality offered by the
 'bnlearn' package to learn the networks from data and perform exact
 inference. It offers three structure learning algorithms for dynamic
-Bayesian networks and the possibility to perform forecasts of arbitrary
-length. A tool for visualizing the structure of the net is also provided
-via the 'visNetwork' package.
+Bayesian networks: Trabelsi G. (2013) <doi:10.1007/978-3-642-41398-8_34>,
+Santos F.P. and Maciel C.D. (2014) <doi:10.1109/BRC.2014.6880957>, Quesada
+D., Bielza C. and Larrañaga P. (2021) <doi:10.1007/978-3-030-86271-8_14>.
+It also offers the possibility to perform forecasts of arbitrary length. A
+tool for visualizing the structure of the net is also provided via the
+'visNetwork' package.
 
 %prep
 %setup -q -c -n %{packname}

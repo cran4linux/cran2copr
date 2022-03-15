@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rvinecopulib
-%global packver   0.6.1.1.1
+%global packver   0.6.1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1.1.1
+Version:          0.6.1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Performance Algorithms for Vine Copula Modeling
 
@@ -13,8 +13,9 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildRequires:    R-CRAN-RcppThread >= 2.1.2
 BuildRequires:    R-CRAN-kde1d >= 1.0.2
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-CRAN-assertthat 
@@ -25,7 +26,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-RcppThread 
 BuildRequires:    R-CRAN-wdm 
 Requires:         R-CRAN-kde1d >= 1.0.2
 Requires:         R-CRAN-Rcpp >= 0.12.12

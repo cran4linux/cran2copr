@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fHMM
-%global packver   0.3.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting Hidden Markov Models to Financial Data
 
@@ -13,23 +13,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-tseries 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-progress 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-tseries 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-foreach 
 
 %description
-Fitting (hierarchical) hidden Markov models to daily share prices provided
-by <https://finance.yahoo.com/>. See
-<https://github.com/loelschlaeger/fHMM#readme> for documentation and
-examples.
+Fitting (hierarchical) hidden Markov models to financial data via maximum
+likelihood estimation. See Oelschläger, L. and Adam, T. "Detecting bearish
+and bullish markets in financial time series using hierarchical hidden
+Markov models" (2021, Statistical Modelling) for a reference.
 
 %prep
 %setup -q -c -n %{packname}
@@ -39,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

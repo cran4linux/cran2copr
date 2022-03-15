@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mkin
-%global packver   1.0.5
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kinetic Evaluation of Chemical Degradation Data
 
@@ -17,7 +17,8 @@ BuildRequires:    R-devel >= 2.15.1
 Requires:         R-core >= 2.15.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-nlme >= 3.1.151
-BuildRequires:    R-CRAN-inline >= 0.3.17
+BuildRequires:    R-CRAN-saemix >= 3.0
+BuildRequires:    R-CRAN-inline >= 0.3.19
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
@@ -29,7 +30,8 @@ BuildRequires:    R-CRAN-lmtest
 BuildRequires:    R-CRAN-pkgbuild 
 BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-nlme >= 3.1.151
-Requires:         R-CRAN-inline >= 0.3.17
+Requires:         R-CRAN-saemix >= 3.0
+Requires:         R-CRAN-inline >= 0.3.19
 Requires:         R-parallel 
 Requires:         R-stats 
 Requires:         R-graphics 
@@ -47,8 +49,13 @@ Includes a function for conveniently defining differential equation
 models, model solution based on eigenvalues if possible or using numerical
 solvers.  If a C compiler (on windows: 'Rtools') is installed,
 differential equation models are solved using automatically generated C
-functions.  Please note that no warranty is implied for correctness of
-results or fitness for a particular purpose.
+functions. Heteroscedasticity can be taken into account using variance by
+variable or two-component error models as described by Ranke and Meinecke
+(2018) <doi:10.3390/environments6120124>.  Interfaces to several nonlinear
+mixed-effects model packages are available, some of which are described by
+Ranke et al. (2021) <doi:10.3390/environments8080071>.  Please note that
+no warranty is implied for correctness of results or fitness for a
+particular purpose.
 
 %prep
 %setup -q -c -n %{packname}

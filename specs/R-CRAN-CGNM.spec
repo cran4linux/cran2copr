@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  CGNM
-%global packver   0.1.1
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cluster Gauss-Newton Method
 
@@ -18,8 +18,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-stats 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-MASS 
 
 %description
 Find multiple solutions of a nonlinear least squares problem.  Cluster

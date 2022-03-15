@@ -1,44 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gstat
-%global packver   2.0-9
+%global packname  bspline
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.9
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial and Spatio-Temporal Geostatistical Modelling, Prediction and Simulation
+Summary:          B-Spline Interpolation and Regression
 
-License:          GPL (>= 2.0)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-spacetime >= 1.0.0
-BuildRequires:    R-CRAN-sp >= 0.9.72
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-FNN 
-Requires:         R-CRAN-spacetime >= 1.0.0
-Requires:         R-CRAN-sp >= 0.9.72
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-FNN 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-nlsic 
+BuildRequires:    R-CRAN-arrApply 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-nlsic 
+Requires:         R-CRAN-arrApply 
 
 %description
-Variogram modelling; simple, ordinary and universal point or block
-(co)kriging; spatio-temporal kriging; sequential Gaussian or indicator
-(co)simulation; variogram and variogram map plotting utility functions;
-supports sf and stars.
+Build and use B-splines for interpolation and regression. In case of
+regression, equality constraints as well as monotonicity requirement can
+be imposed. Moreover, knot positions (not only spline coefficients) can be
+part of optimized parameters too. User is provided with functions
+calculating spline values at arbitrary points. This functions can be
+differentiated to obtain B-splines calculating derivatives at any point.
+B-splines of this package can simultaneously operate on a series of curves
+sharing the same set of knots. 'bspline' is written with concern about
+computing performance that's why the basis calculation is implemented in
+C++. The rest is implemented in R but without notable impact on computing
+speed.
 
 %prep
 %setup -q -c -n %{packname}

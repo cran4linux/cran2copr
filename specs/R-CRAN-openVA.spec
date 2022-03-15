@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  openVA
-%global packver   1.0.13
+%global packver   1.0.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.13
+Version:          1.0.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Method for Verbal Autopsy
 

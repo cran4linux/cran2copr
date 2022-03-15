@@ -1,44 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gstat
-%global packver   2.0-9
+%global packname  maple
+%global packver   0.99.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.9
+Version:          0.99.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial and Spatio-Temporal Geostatistical Modelling, Prediction and Simulation
+Summary:          Bayesian Analysis of Multi-Sample Spatial Transcriptomics Experiments
 
-License:          GPL (>= 2.0)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-spacetime >= 1.0.0
-BuildRequires:    R-CRAN-sp >= 0.9.72
-BuildRequires:    R-utils 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-spruce 
+BuildRequires:    R-CRAN-Seurat 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-FNN 
-Requires:         R-CRAN-spacetime >= 1.0.0
-Requires:         R-CRAN-sp >= 0.9.72
-Requires:         R-utils 
+BuildRequires:    R-CRAN-dbarts 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggalluvial 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-spruce 
+Requires:         R-CRAN-Seurat 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-FNN 
+Requires:         R-CRAN-dbarts 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggalluvial 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-rlang 
 
 %description
-Variogram modelling; simple, ordinary and universal point or block
-(co)kriging; spatio-temporal kriging; sequential Gaussian or indicator
-(co)simulation; variogram and variogram map plotting utility functions;
-supports sf and stars.
+Allows for robust probabilistic analysis of multi-sample spatial
+transcriptomics experiments (Allen et. al, 2021
+<doi:10.1101/2021.06.23.449615>).
 
 %prep
 %setup -q -c -n %{packname}

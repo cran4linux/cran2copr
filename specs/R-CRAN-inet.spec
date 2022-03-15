@@ -1,44 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gstat
-%global packver   2.0-9
+%global packname  inet
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial and Spatio-Temporal Geostatistical Modelling, Prediction and Simulation
+Summary:          Performing Inference on Networks with Regularization
 
-License:          GPL (>= 2.0)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-spacetime >= 1.0.0
-BuildRequires:    R-CRAN-sp >= 0.9.72
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-FNN 
-Requires:         R-CRAN-spacetime >= 1.0.0
-Requires:         R-CRAN-sp >= 0.9.72
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-FNN 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-hdi 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-hdi 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-MASS 
 
 %description
-Variogram modelling; simple, ordinary and universal point or block
-(co)kriging; spatio-temporal kriging; sequential Gaussian or indicator
-(co)simulation; variogram and variogram map plotting utility functions;
-supports sf and stars.
+Performs inference with the lasso in Gaussian Graphical Models. The
+package consists of wrappers for functions from the 'hdi' package.
 
 %prep
 %setup -q -c -n %{packname}

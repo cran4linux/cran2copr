@@ -1,54 +1,67 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SimplyAgree
-%global packver   0.0.3
+%global packname  CSHShydRology
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Flexible and Robust Agreement and Reliability Analyses
+Summary:          Canadian Hydrological Analyses
 
-License:          GPL (>= 3)
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-Kendall 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-CRAN-timeDate 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-emmeans 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-ggspatial 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-here 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-jmvcore 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-tidyhydat 
+BuildRequires:    R-CRAN-whitebox 
+BuildRequires:    R-CRAN-plotKML 
+BuildRequires:    R-datasets 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-Kendall 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-plotrix 
+Requires:         R-CRAN-timeDate 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-emmeans 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-boot 
+Requires:         R-CRAN-ggspatial 
 Requires:         R-stats 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-here 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sp 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-jmvcore 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-tidyhydat 
+Requires:         R-CRAN-whitebox 
+Requires:         R-CRAN-plotKML 
+Requires:         R-datasets 
 
 %description
-Reliability and agreement analyses often have limited software support.
-Therefore, this package was created to make agreement and reliability
-analyses easier for the average researcher. The functions within this
-package include simple tests of agreement, agreement analysis for nested
-and replicate data, and provide robust analyses of reliability. In
-addition, this package contains a set of functions to help when planning
-studies looking to assess measurement agreement. For robust analyses of
-agreement, limits of agreement through a bootstrap method can also be
-calculated.
+A collection of user submitted functions to aid in the analysis of
+hydrological data.
 
 %prep
 %setup -q -c -n %{packname}
