@@ -1,31 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  AnalyzeFMRI
-%global packver   1.1-24
+%global packname  adaptr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.24
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Analysis of fMRI Datasets Stored in the ANALYZE or NIFTI Format
+Summary:          Adaptive Trial Simulator
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-R.matlab 
-BuildRequires:    R-CRAN-fastICA 
-BuildRequires:    R-tcltk 
-Requires:         R-CRAN-R.matlab 
-Requires:         R-CRAN-fastICA 
-Requires:         R-tcltk 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-parallel 
+BuildRequires:    R-utils 
+Requires:         R-stats 
+Requires:         R-parallel 
+Requires:         R-utils 
 
 %description
-Functions for I/O, visualisation and analysis of functional Magnetic
-Resonance Imaging (fMRI) datasets stored in the ANALYZE or NIFTI format.
-Note that the latest version of XQuartz seems to be necessary under MacOS.
+Package that simulates adaptive clinical trials using adaptive stopping,
+adaptive arm dropping, and/or adaptive randomisation. Developed as part of
+the INCEPT (Intensive Care Platform Trial) project (<https://incept.dk/>),
+which is primarily supported by a grant from Sygeforsikringen "danmark"
+(<https://www.sygeforsikring.dk/>).
 
 %prep
 %setup -q -c -n %{packname}

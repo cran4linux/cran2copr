@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  surveyCV
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cross Validation Based on Survey Design
 
@@ -22,15 +22,15 @@ Requires:         R-CRAN-survey >= 4.1
 Requires:         R-CRAN-magrittr >= 2.0
 
 %description
-Functions to generate test error estimates using cross validation, based
-on how a survey design is constructed (SRS, clustering, stratification,
-and/or unequal sampling weights). You can input linear and logistic
-regression models, along with data and a type of survey design in order to
-get an output that can help you determine which model best fits the data
-using K-fold cross validation. Our draft paper on "K-Fold Cross-Validation
-for Complex Sample Surveys" (under review; a copy is in the 'data-raw'
-folder of our GitHub repo) explains why differing how we take folds based
-on survey design is useful.
+Functions to generate K-fold cross validation (CV) folds and CV test error
+estimates that take into account how a survey dataset's sampling design
+was constructed (SRS, clustering, stratification, and/or unequal sampling
+weights). You can input linear and logistic regression models, along with
+data and a type of survey design in order to get an output that can help
+you determine which model best fits the data using K-fold cross
+validation. Our paper on "K-Fold Cross-Validation for Complex Sample
+Surveys" by Wieczorek, Guerin, and McMahon (2022) <doi:10.1002/sta4.454>
+explains why differing how we take folds based on survey design is useful.
 
 %prep
 %setup -q -c -n %{packname}

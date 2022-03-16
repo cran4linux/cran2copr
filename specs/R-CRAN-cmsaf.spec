@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cmsaf
-%global packver   3.4.0
+%global packver   3.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.0
+Version:          3.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Toolbox for CM SAF NetCDF Data
 
@@ -35,6 +35,7 @@ BuildRequires:    R-CRAN-rworldxtra >= 1.01
 BuildRequires:    R-CRAN-colourpicker >= 1.0
 BuildRequires:    R-CRAN-maptools >= 0.9
 BuildRequires:    R-CRAN-shinyFiles >= 0.8.0
+BuildRequires:    R-CRAN-shinyWidgets >= 0.6
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-SearchTrees 
 BuildRequires:    R-CRAN-xml2 
@@ -57,6 +58,7 @@ Requires:         R-CRAN-rworldxtra >= 1.01
 Requires:         R-CRAN-colourpicker >= 1.0
 Requires:         R-CRAN-maptools >= 0.9
 Requires:         R-CRAN-shinyFiles >= 0.8.0
+Requires:         R-CRAN-shinyWidgets >= 0.6
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-SearchTrees 
 Requires:         R-CRAN-xml2 

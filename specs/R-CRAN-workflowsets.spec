@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  workflowsets
-%global packver   0.1.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create a Collection of 'tidymodels' Workflows
 
@@ -13,13 +13,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-lifecycle >= 1.0.0
-BuildRequires:    R-CRAN-workflows >= 0.2.3
+BuildRequires:    R-CRAN-workflows >= 0.2.4
 BuildRequires:    R-CRAN-hardhat >= 0.1.6
 BuildRequires:    R-CRAN-tune >= 0.1.3
 BuildRequires:    R-CRAN-rsample >= 0.0.9
@@ -36,7 +36,7 @@ BuildRequires:    R-CRAN-withr
 Requires:         R-CRAN-tibble >= 3.1.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-lifecycle >= 1.0.0
-Requires:         R-CRAN-workflows >= 0.2.3
+Requires:         R-CRAN-workflows >= 0.2.4
 Requires:         R-CRAN-hardhat >= 0.1.6
 Requires:         R-CRAN-tune >= 0.1.3
 Requires:         R-CRAN-rsample >= 0.0.9

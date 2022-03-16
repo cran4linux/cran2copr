@@ -1,48 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  soilDB
-%global packver   2.6.14
+%global packname  survivalREC
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.14
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Soil Database Interface
+Summary:          Nonparametric Estimation of the Distribution of Gap Times for Recurrent Events
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-aqp 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-KernSmooth 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-DBI 
-Requires:         R-CRAN-aqp 
-Requires:         R-grDevices 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-KernSmooth 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-curl 
-Requires:         R-methods 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-DBI 
 
 %description
-A collection of functions for reading data from USDA-NCSS soil databases.
+Provides estimates for the bivariate and trivariate distribution functions
+and bivariate and trivariate survival functions for censored gap times.
+Two approaches, using existing methodologies, are considered: (i) the
+Lin's estimator, which is based on the extension the Kaplan-Meier
+estimator of the distribution function for the first event time and the
+Inverse Probability of Censoring Weights for the second time (Lin DY, Sun
+W, Ying Z (1999) <doi:10.1093/biomet/86.1.59> and (ii) another estimator
+based on Kaplan-Meier weights (Una-Alvarez J, Meira-Machado L (2008)
+<https://w3.math.uminho.pt/~lmachado/Biometria_conference.pdf>). The
+proposed methods are the landmark estimators based on subsampling
+approach, and the estimator based on weighted cumulative hazard estimator.
+The package also provides nonparametric estimator conditional to a given
+continuous covariate. All these methods have been submitted to be
+published.
 
 %prep
 %setup -q -c -n %{packname}

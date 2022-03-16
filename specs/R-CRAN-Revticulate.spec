@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Revticulate
-%global packver   0.3.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interaction with "RevBayes" in R
 
@@ -18,18 +18,20 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-comprehenr 
-BuildRequires:    R-CRAN-phytools 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-rstudioapi 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-knitr 
 Requires:         R-utils 
 Requires:         R-CRAN-comprehenr 
-Requires:         R-CRAN-phytools 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-rstudioapi 
 
 %description
 Interaction with "RevBayes" via R. Objects created in "RevBayes" can be

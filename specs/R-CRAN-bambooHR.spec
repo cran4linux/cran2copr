@@ -1,65 +1,61 @@
 %global __brp_check_rpaths %{nil}
-%global packname  margaret
-%global packver   0.1.2
+%global packname  bambooHR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Scientometric Analysis Minciencias
+Summary:          A Wrapper to the 'BambooHR' API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-usethis 
-BuildRequires:    R-CRAN-devtools 
-BuildRequires:    R-CRAN-SnowballC 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-scholar 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidytext 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-treemapify 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-widyr 
-BuildRequires:    R-CRAN-writexl 
-BuildRequires:    R-CRAN-igraph 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-fs 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-usethis 
-Requires:         R-CRAN-devtools 
-Requires:         R-CRAN-SnowballC 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-scholar 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidytext 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-treemapify 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-widyr 
-Requires:         R-CRAN-writexl 
-Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-testthat 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-fs 
 
 %description
-The target of 'margaret' is help to extract data from Minciencias to
-analyze scientific production in Colombia.
+Enables a user to consume the 'BambooHR' API endpoints using R. The actual
+URL of the API will depend on your company domain, and will be handled by
+the package automatically once you setup the config file. The API
+documentation can be found here <https://documentation.bamboohr.com/docs>.
 
 %prep
 %setup -q -c -n %{packname}

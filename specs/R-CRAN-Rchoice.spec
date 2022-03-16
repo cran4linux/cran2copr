@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Rchoice
-%global packver   0.3-3
+%global packver   0.3-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discrete Choice (Binary, Poisson and Ordered) Models with Random Parameters
 
