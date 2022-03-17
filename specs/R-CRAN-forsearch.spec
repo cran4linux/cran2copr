@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  forsearch
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Outlier Diagnostics for Some Linear Effects and Linear Mixed Effects Models
 
@@ -18,12 +18,12 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Hmisc >= 4.6.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
-BuildRequires:    R-CRAN-tibble >= 3.1.2
+BuildRequires:    R-CRAN-tibble >= 3.1.6
 BuildRequires:    R-CRAN-nlme >= 3.1.152
 BuildRequires:    R-CRAN-Cairo >= 1.5.14
 Requires:         R-CRAN-Hmisc >= 4.6.0
 Requires:         R-CRAN-ggplot2 >= 3.3.5
-Requires:         R-CRAN-tibble >= 3.1.2
+Requires:         R-CRAN-tibble >= 3.1.6
 Requires:         R-CRAN-nlme >= 3.1.152
 Requires:         R-CRAN-Cairo >= 1.5.14
 
@@ -31,9 +31,9 @@ Requires:         R-CRAN-Cairo >= 1.5.14
 Identifies potential data outliers and their impact on estimates and
 analyses. Uses the forward search approach of Atkinson and Riani, "Robust
 Diagnostic Regression Analysis", (2000,<ISBN: o-387-95017-6>) to prepare
-descriptive statistics of a dataset that is to be analyzed by stats::lm()
-or nlme::lme().  Includes graphics functions to display the descriptive
-statistics.
+descriptive statistics of a dataset that is to be analyzed by stats::lm(),
+stats::glm(), or nlme::lme().  Includes graphics functions to display the
+descriptive statistics.
 
 %prep
 %setup -q -c -n %{packname}

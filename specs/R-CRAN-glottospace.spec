@@ -1,35 +1,54 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidydr
-%global packver   0.0.4
+%global packname  glottospace
+%global packver   0.0.111
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.111
 Release:          1%{?dist}%{?buildtag}
-Summary:          Unify Dimensionality Reduction Results
+Summary:          Language Mapping and Geospatial Analysis of Linguistic and Cultural Data
 
-License:          Artistic-2.0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rnaturalearth 
+BuildRequires:    R-CRAN-rnaturalearthdata 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tmap 
+BuildRequires:    R-CRAN-units 
+BuildRequires:    R-CRAN-writexl 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
-Requires:         R-utils 
+Requires:         R-CRAN-rnaturalearth 
+Requires:         R-CRAN-rnaturalearthdata 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tmap 
+Requires:         R-CRAN-units 
+Requires:         R-CRAN-writexl 
 
 %description
-Dimensionality reduction (DR) is widely used in many domain for analyzing
-and visualizing high-dimensional data. 'tidydr' provides uniform output
-and is compatible with multiple methods, including 'prcomp', 'mds',
-'Rtsne'. etc.
+Streamlined workflows for geolinguistic analysis, including: accessing
+global linguistic and cultural databases, data import, data entry, data
+cleaning, data exploration, mapping, visualization and export.
 
 %prep
 %setup -q -c -n %{packname}

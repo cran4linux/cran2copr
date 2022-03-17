@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  xVA
-%global packver   0.8.5
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.5
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculates Credit Risk Valuation Adjustments
 
@@ -28,16 +28,22 @@ Calculates a number of valuation adjustments including CVA, DVA, FBA, FCA,
 MVA and KVA. A two-way margin agreement has been implemented. For the KVA
 calculation three regulatory frameworks are supported: CEM, (simplified)
 SA-CCR, OEM and IMM. The probability of default is implied through the
-credit spreads curve. Currently, only IRSwaps are supported. For more
-information, you can check one of the books regarding xVA:
-<http://www.cvacentral.com/books/credit-value-adjustment>.
+credit spreads curve. The package supports an exposure calculation based
+on SA-CCR which includes several trade types and a simulated path which is
+currently available only for IRSwaps.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -47,6 +53,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

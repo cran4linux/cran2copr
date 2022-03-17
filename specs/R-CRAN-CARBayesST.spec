@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  CARBayesST
-%global packver   3.2.1
+%global packver   3.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.1
+Version:          3.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatio-Temporal Generalised Linear Mixed Models for Areal Unit Data
 
@@ -18,6 +18,7 @@ Requires:         R-core >= 3.0.0
 BuildRequires:    R-CRAN-Rcpp >= 0.11.5
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-CARBayesdata 
+BuildRequires:    R-CRAN-cascsim 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-GGally 
@@ -32,12 +33,12 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-CRAN-spam 
 BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-truncdist 
 BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-Rcpp >= 0.11.5
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-CARBayesdata 
+Requires:         R-CRAN-cascsim 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-GGally 
@@ -52,7 +53,6 @@ Requires:         R-CRAN-sp
 Requires:         R-CRAN-spam 
 Requires:         R-CRAN-spdep 
 Requires:         R-stats 
-Requires:         R-CRAN-truncdist 
 Requires:         R-CRAN-truncnorm 
 Requires:         R-utils 
 
@@ -65,12 +65,12 @@ models only the binomial and Poisson data likelihoods are available. The
 spatio-temporal autocorrelation is modelled by random effects, which are
 assigned conditional autoregressive (CAR) style prior distributions. A
 number of different random effects structures are available, including
-models similar to Bernardinelli et al. (1995) <doi:10.1002/sim.4780142112>
-and Rushworth et al. (2014) <doi:10.1016/j.sste.2014.05.001>. Full details
-are given in the vignette accompanying this package. The creation and
-development of this package was supported by the Engineering and Physical
-Sciences Research Council (EPSRC) grants EP/J017442/1 and EP/T004878/1 and
-the Medical Research Council (MRC) grant MR/L022184/1.
+models similar to Rushworth et al. (2014)
+<doi:10.1016/j.sste.2014.05.001>. Full details are given in the vignette
+accompanying this package. The creation and development of this package
+was supported by the Engineering and Physical Sciences Research Council
+(EPSRC) grants EP/J017442/1 and EP/T004878/1 and the Medical Research
+Council (MRC) grant MR/L022184/1.
 
 %prep
 %setup -q -c -n %{packname}
@@ -80,6 +80,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

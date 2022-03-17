@@ -1,42 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  zdeskR
-%global packver   0.2.0
+%global packname  scapesClassification
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Connect to Your 'Zendesk' Data
+Summary:          User-Defined Classification of Raster Surfaces
 
-License:          CC0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plyr >= 1.8.6
-BuildRequires:    R-CRAN-jsonlite >= 1.6.1
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-httr >= 1.4.1
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-purrr >= 0.3.3
-Requires:         R-CRAN-plyr >= 1.8.6
-Requires:         R-CRAN-jsonlite >= 1.6.1
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-purrr >= 0.3.3
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-terra 
+Requires:         R-methods 
 
 %description
-Facilitates making a connection to the 'Zendesk' API and executing various
-queries. You can use it to get ticket data and ticket metrics. The
-'Zendesk' documentation is available at
-<https://developer.zendesk.com/rest_api /docs/support/introduction>. This
-package is not supported by 'Zendesk' (owner of the software).
+Series of algorithms to translate users' mental models of seascapes,
+landscapes and, more generally, of geographic features into computer
+representations (classifications). Spaces and geographic objects are
+classified with user-defined rules taking into account spatial data as
+well as spatial relationships among different classes and objects.
 
 %prep
 %setup -q -c -n %{packname}

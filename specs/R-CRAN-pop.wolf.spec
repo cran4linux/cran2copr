@@ -1,42 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  zdeskR
-%global packver   0.2.0
+%global packname  pop.wolf
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Connect to Your 'Zendesk' Data
+Summary:          Models for Simulating Wolf Populations
 
-License:          CC0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-plyr >= 1.8.6
-BuildRequires:    R-CRAN-jsonlite >= 1.6.1
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-httr >= 1.4.1
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-purrr >= 0.3.3
-Requires:         R-CRAN-plyr >= 1.8.6
-Requires:         R-CRAN-jsonlite >= 1.6.1
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-purrr >= 0.3.3
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-abind 
+Requires:         R-parallel 
+Requires:         R-CRAN-abind 
 
 %description
-Facilitates making a connection to the 'Zendesk' API and executing various
-queries. You can use it to get ticket data and ticket metrics. The
-'Zendesk' documentation is available at
-<https://developer.zendesk.com/rest_api /docs/support/introduction>. This
-package is not supported by 'Zendesk' (owner of the software).
+Simulate the dynamic of wolf populations using a specific Individual-Based
+Model (IBM) compiled in C, see Chapron et al. (2016)
+<doi:10.1016/j.ecolmodel.2016.08.012>.
 
 %prep
 %setup -q -c -n %{packname}

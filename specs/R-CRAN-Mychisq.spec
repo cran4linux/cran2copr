@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Mychisq
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Chi-Squared Test for Goodness of Fit and Independence Test
 
@@ -17,7 +17,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
 Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
 The chi-squared test for goodness of fit and independence test.

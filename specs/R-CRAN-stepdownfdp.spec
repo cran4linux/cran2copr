@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  zdeskR
-%global packver   0.2.0
+%global packname  stepdownfdp
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Connect to Your 'Zendesk' Data
+Summary:          A Step-Down Procedure to Control the False Discovery Proportion
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,27 +16,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plyr >= 1.8.6
-BuildRequires:    R-CRAN-jsonlite >= 1.6.1
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-httr >= 1.4.1
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-purrr >= 0.3.3
-Requires:         R-CRAN-plyr >= 1.8.6
-Requires:         R-CRAN-jsonlite >= 1.6.1
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-purrr >= 0.3.3
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-pracma 
+Requires:         R-stats 
 
 %description
-Facilitates making a connection to the 'Zendesk' API and executing various
-queries. You can use it to get ticket data and ticket metrics. The
-'Zendesk' documentation is available at
-<https://developer.zendesk.com/rest_api /docs/support/introduction>. This
-package is not supported by 'Zendesk' (owner of the software).
+Provides a step-down procedure for controlling the False Discovery
+Proportion (FDP) in a competition-based setup, implementing Dong et al.
+(2020) <arXiv:2011.11939>. Such setups include target-decoy competition
+(TDC) in computational mass spectrometry and the knockoff construction in
+linear regression.
 
 %prep
 %setup -q -c -n %{packname}

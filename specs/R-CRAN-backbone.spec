@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  backbone
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extracts the Backbone from Graphs
 
@@ -19,6 +19,7 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-network 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-PoissonBinomial 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Rcpp 
@@ -27,6 +28,7 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-network 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-PoissonBinomial 
 Requires:         R-stats 
 Requires:         R-CRAN-Rcpp 

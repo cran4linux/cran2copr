@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SWMPrExtension
-%global packver   2.1.1
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Analyzing and Plotting Estuary Monitoring Data
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-RColorBrewer
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-ggimage 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggthemes 
 BuildRequires:    R-grDevices 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-RColorBrewer
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-ggimage 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggthemes 
 Requires:         R-grDevices 

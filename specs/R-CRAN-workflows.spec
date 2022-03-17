@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  workflows
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modeling Workflows
 
@@ -17,24 +17,22 @@ BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 2.0.0
-BuildRequires:    R-CRAN-tidyselect >= 1.1.0
+BuildRequires:    R-CRAN-tidyselect >= 1.1.2
+BuildRequires:    R-CRAN-rlang >= 1.0.1
 BuildRequires:    R-CRAN-lifecycle >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 0.4.1
-BuildRequires:    R-CRAN-vctrs >= 0.3.6
-BuildRequires:    R-CRAN-ellipsis >= 0.2.0
-BuildRequires:    R-CRAN-hardhat >= 0.1.6
-BuildRequires:    R-CRAN-parsnip >= 0.1.5
-BuildRequires:    R-CRAN-generics >= 0.1.0
+BuildRequires:    R-CRAN-vctrs >= 0.3.8
+BuildRequires:    R-CRAN-hardhat >= 0.2.0
+BuildRequires:    R-CRAN-parsnip >= 0.2.0
+BuildRequires:    R-CRAN-generics >= 0.1.2
 BuildRequires:    R-CRAN-glue 
 Requires:         R-CRAN-cli >= 2.0.0
-Requires:         R-CRAN-tidyselect >= 1.1.0
+Requires:         R-CRAN-tidyselect >= 1.1.2
+Requires:         R-CRAN-rlang >= 1.0.1
 Requires:         R-CRAN-lifecycle >= 1.0.0
-Requires:         R-CRAN-rlang >= 0.4.1
-Requires:         R-CRAN-vctrs >= 0.3.6
-Requires:         R-CRAN-ellipsis >= 0.2.0
-Requires:         R-CRAN-hardhat >= 0.1.6
-Requires:         R-CRAN-parsnip >= 0.1.5
-Requires:         R-CRAN-generics >= 0.1.0
+Requires:         R-CRAN-vctrs >= 0.3.8
+Requires:         R-CRAN-hardhat >= 0.2.0
+Requires:         R-CRAN-parsnip >= 0.2.0
+Requires:         R-CRAN-generics >= 0.1.2
 Requires:         R-CRAN-glue 
 
 %description

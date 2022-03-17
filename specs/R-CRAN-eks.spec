@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  eks
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy and Geospatial Kernel Smoothing
 
@@ -18,14 +18,12 @@ Requires:         R-core >= 2.10.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-isoband 
 BuildRequires:    R-CRAN-ks 
 BuildRequires:    R-CRAN-mapsf 
 BuildRequires:    R-CRAN-sf 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-isoband 
 Requires:         R-CRAN-ks 
 Requires:         R-CRAN-mapsf 
@@ -33,7 +31,8 @@ Requires:         R-CRAN-sf
 
 %description
 Extensions of the kernel smoothing functions from the 'ks' package for
-compatibility with the tidyverse and geospatial ecosystems.
+compatibility with the tidyverse and geospatial ecosystems
+<doi:10.48550/arXiv.2203.01686>.
 
 %prep
 %setup -q -c -n %{packname}
