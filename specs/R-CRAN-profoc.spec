@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  profoc
-%global packver   0.9.1
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Probabilistic Forecast Combination Using CRPS Learning
 
@@ -29,7 +29,8 @@ Requires:         R-methods
 
 %description
 Combine probabilistic forecasts using CRPS learning algorithms proposed in
-Berrisch, Ziel (2021) <arXiv:2102.00968>. The package implements multiple
+Berrisch, Ziel (2021) <arXiv:2102.00968>
+<doi:10.1016/j.jeconom.2021.11.008>. The package implements multiple
 online learning algorithms like Bernstein online aggregation; see
 Wintenberger (2014) <arXiv:1404.1356>. Quantile regression is also
 implemented for comparison purposes. Model parameters can be tuned

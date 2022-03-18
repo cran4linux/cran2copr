@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  robmed
-%global packver   0.10.0
+%global packver   0.10.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.10.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          (Robust) Mediation Analysis
 

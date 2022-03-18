@@ -1,28 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gmp
-%global packver   0.6-5
+%global packname  sftime
+%global packver   0.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiple Precision Arithmetic
+Summary:          Classes and Methods for Simple Feature Objects that Have a Time Column
 
-License:          GPL (>= 2)
+License:          Apache License
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel >= 4.2.3
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-sf >= 1.0.7
 BuildRequires:    R-methods 
+Requires:         R-CRAN-sf >= 1.0.7
 Requires:         R-methods 
 
 %description
-Multiple Precision Arithmetic (big integers and rationals, prime number
-tests, matrix computation), "arithmetic without limitations" using the C
-library GMP (GNU Multiple Precision Arithmetic).
+Classes and methods for spatial objects that have a registered time
+column, in particular for irregular spatiotemporal data. The time column
+can be of any type, but needs to be ordinal. Regularly laid out
+spatiotemporal data (vector or raster data cubes) are handled by package
+'stars'.
 
 %prep
 %setup -q -c -n %{packname}

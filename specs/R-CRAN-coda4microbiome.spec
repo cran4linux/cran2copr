@@ -1,28 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gmp
-%global packver   0.6-5
+%global packname  coda4microbiome
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiple Precision Arithmetic
+Summary:          Compositional Data Analysis for Microbiome Studies
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel >= 4.2.3
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-corrplot 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-corrplot 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Multiple Precision Arithmetic (big integers and rationals, prime number
-tests, matrix computation), "arithmetic without limitations" using the C
-library GMP (GNU Multiple Precision Arithmetic).
+Functions for microbiome data analysis that take into account its
+compositional nature. Performs variable selection through penalized
+regression for both, cross-sectional and longitudinal studies, and for
+binary and continuous outcomes.
 
 %prep
 %setup -q -c -n %{packname}

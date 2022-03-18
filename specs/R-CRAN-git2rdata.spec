@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  git2rdata
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Store and Retrieve Data.frames in a Git Repository
 
@@ -44,7 +44,7 @@ mercurial.  3) git2rdata is a useful tool in a reproducible and traceable
 workflow.  vignette("workflow", package = "git2rdata") gives a toy
 example.  4) vignette("efficiency", package = "git2rdata") provides some
 insight into the efficiency of file storage, git repository size and speed
-for writing and reading.  Please cite using <doi:10.5281/zenodo.1485309>.
+for writing and reading.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,6 +54,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

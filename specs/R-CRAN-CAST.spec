@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  CAST
-%global packver   0.5.1
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'caret' Applications for Spatial-Temporal Models
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-stats 
@@ -46,16 +46,16 @@ Requires:         R-CRAN-lattice
 %description
 Supporting functionality to run 'caret' with spatial or spatial-temporal
 data. 'caret' is a frequently used package for model training and
-prediction using machine learning. This package includes functions to
-improve spatial-temporal modelling tasks using 'caret'. It prepares data
-for Leave-Location-Out and Leave-Time-Out cross-validation which are
-target-oriented validation strategies for spatial-temporal models. To
-decrease overfitting and improve model performances, the package
+prediction using machine learning. CAST includes functions to improve
+spatial or spatial-temporal modelling tasks using 'caret'. To decrease
+spatial overfitting and to improve model performances, the package
 implements a forward feature selection that selects suitable predictor
-variables in view to their contribution to the target-oriented
-performance. CAST further includes functionality to estimate the (spatial)
-area of applicability of prediction models by analysing the similarity
-between new data and training data.
+variables in view to their contribution to spatial or spatial-temporal
+model performance. CAST further includes functionality to estimate the
+(spatial) area of applicability of prediction models. Methods are
+described in Meyer et al. (2018) <doi:10.1016/j.envsoft.2017.12.001>;
+Meyer et al. (2019) <doi:10.1016/j.ecolmodel.2019.108815>; Meyer and
+Pebesma (2021) <doi:10.1111/2041-210X.13650>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -65,6 +65,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

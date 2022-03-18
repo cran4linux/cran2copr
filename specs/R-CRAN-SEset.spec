@@ -1,28 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gmp
-%global packver   0.6-5
+%global packname  SEset
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiple Precision Arithmetic
+Summary:          Computing Statistically-Equivalent Path Models
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel >= 4.2.3
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-combinat 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-combinat 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-stats 
 
 %description
-Multiple Precision Arithmetic (big integers and rationals, prime number
-tests, matrix computation), "arithmetic without limitations" using the C
-library GMP (GNU Multiple Precision Arithmetic).
+Tools to compute and analyze the set of statistically-equivalent
+(Gaussian, linear) path models which generate the input precision or
+(partial) correlation matrix. This procedure is useful for understanding
+how statistical network models such as the Gaussian Graphical Model (GGM)
+perform as causal discovery tools. The statistical-equivalence set of a
+given GGM expresses the uncertainty we have about the sign, size and
+direction of directed relationships based on the weights matrix of the GGM
+alone. The derivation of the equivalence set and its use for understanding
+GGMs as causal discovery tools is described by Ryan, O., Bringmann, L.F.,
+& Schuurman, N.K. (2022) <doi: 10.31234/osf.io/ryg69>.
 
 %prep
 %setup -q -c -n %{packname}

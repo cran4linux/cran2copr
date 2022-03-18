@@ -1,28 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gmp
-%global packver   0.6-5
+%global packname  fixedincome
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiple Precision Arithmetic
+Summary:          Fixed Income Models, Calculations, Data Structures and Instruments
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel >= 4.2.3
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-bizdays >= 1.0.0
 BuildRequires:    R-methods 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-bizdays >= 1.0.0
 Requires:         R-methods 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-grDevices 
+Requires:         R-utils 
 
 %description
-Multiple Precision Arithmetic (big integers and rationals, prime number
-tests, matrix computation), "arithmetic without limitations" using the C
-library GMP (GNU Multiple Precision Arithmetic).
+Fixed income mathematics made easy. A rich set of functions that helps
+with calculations of interest rates and fixed income. It has objects that
+abstract interest rates, compounding factors, day count rules, forward
+rates and term structure of interest rates. Many interpolation methods and
+parametric curve models commonly used by practitioners are implemented.
 
 %prep
 %setup -q -c -n %{packname}

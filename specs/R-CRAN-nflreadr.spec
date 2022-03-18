@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  nflreadr
-%global packver   1.1.3
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download 'nflverse' Data
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-cachem >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-rappdirs >= 0.3.0
 BuildRequires:    R-CRAN-qs >= 0.24.0
+BuildRequires:    R-utils 
 Requires:         R-CRAN-RcppParallel >= 5.1.4
 Requires:         R-CRAN-curl >= 4.3.0
 Requires:         R-CRAN-cli >= 3.0.0
@@ -38,6 +39,7 @@ Requires:         R-CRAN-cachem >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-rappdirs >= 0.3.0
 Requires:         R-CRAN-qs >= 0.24.0
+Requires:         R-utils 
 
 %description
 A minimal package for downloading data from 'GitHub' repositories of the

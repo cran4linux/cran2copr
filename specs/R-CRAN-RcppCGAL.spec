@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RcppCGAL
-%global packver   5.3.1.1
+%global packver   5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.3.1.1
+Version:          5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rcpp Integration for CGAL
 
@@ -28,8 +28,7 @@ uses for the software such as Hilbert sorting, KDtree nearest neighbors,
 and convex hull algorithms. There is only one R function in this package,
 which returns the current version of the CGAL library included. For more
 information about how to use the header files, see the CGAL documentation
-at <https://www.cgal.org>. Currently includes the CGAL 5.3.1 stable
-release.
+at <https://www.cgal.org>. Currently includes the CGAL 5.4 stable release.
 
 %prep
 %setup -q -c -n %{packname}

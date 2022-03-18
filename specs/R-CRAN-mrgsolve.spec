@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mrgsolve
-%global packver   1.0.0
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate from ODE-Based Models
 
@@ -15,23 +15,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.2
 Requires:         R-core >= 3.1.2
-BuildRequires:    R-CRAN-tibble >= 2.1.1
-BuildRequires:    R-CRAN-BH >= 1.62.0.1
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-dplyr >= 0.8.1
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.7.900.2.0
-BuildRequires:    R-CRAN-rlang >= 0.3.4
-BuildRequires:    R-CRAN-tidyselect >= 0.2.5
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-CRAN-tibble >= 3.1.6
+BuildRequires:    R-CRAN-magrittr >= 2.0.1
+BuildRequires:    R-CRAN-BH >= 1.75.0.0
+BuildRequires:    R-CRAN-tidyselect >= 1.1.1
+BuildRequires:    R-CRAN-dplyr >= 1.0.8
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-rlang >= 1.0.1
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.10.7.3.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-tibble >= 2.1.1
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-dplyr >= 0.8.1
-Requires:         R-CRAN-rlang >= 0.3.4
-Requires:         R-CRAN-tidyselect >= 0.2.5
-Requires:         R-CRAN-Rcpp >= 0.12.12
+Requires:         R-CRAN-tibble >= 3.1.6
+Requires:         R-CRAN-magrittr >= 2.0.1
+Requires:         R-CRAN-tidyselect >= 1.1.1
+Requires:         R-CRAN-dplyr >= 1.0.8
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-rlang >= 1.0.1
 Requires:         R-methods 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-glue 

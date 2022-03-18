@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  LMMstar
-%global packver   0.5.2
+%global packver   0.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Repeated Measurement Models for Discrete Times
 
@@ -40,13 +40,13 @@ Companion R package for the course "Statistical analysis of correlated and
 repeated measurements for health science researchers" taught by the
 section of Biostatistics of the University of Copenhagen. It implements
 linear mixed models where the model for the variance-covariance of the
-residuals is specified via patterns (compound symmetry, unstructured).
-Statistical inference for mean, variance, and correlation parameters is
-performed based on the observed information and a Satterthwaite degrees of
-freedom. Normalized residuals are provided to assess model
+residuals is specified via patterns (compound symmetry, unstructured,
+...). Statistical inference for mean, variance, and correlation parameters
+is performed based on the observed information and a Satterthwaite degrees
+of freedom. Normalized residuals are provided to assess model
 misspecification. Statistical inference can be performed for arbitrary
-linear combination(s) of model coefficients. Predictions can be computed
-conditional to covariates only or also to outcome values.
+linear or non-linear combination(s) of model coefficients. Predictions can
+be computed conditional to covariates only or also to outcome values.
 
 %prep
 %setup -q -c -n %{packname}

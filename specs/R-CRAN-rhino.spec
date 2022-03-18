@@ -1,62 +1,55 @@
 %global __brp_check_rpaths %{nil}
-%global packname  parsnip
-%global packver   0.2.1
+%global packname  rhino
+%global packver   0.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.6.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Common API to Modeling and Analysis Functions
+Summary:          A Framework for Enterprise Shiny Applications
 
-License:          MIT + file LICENSE
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 2.1.1
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.0.1
-BuildRequires:    R-CRAN-rlang >= 0.3.1
-BuildRequires:    R-CRAN-vctrs >= 0.2.0
-BuildRequires:    R-CRAN-hardhat >= 0.1.6.9001
-BuildRequires:    R-CRAN-generics >= 0.1.0.9000
+BuildRequires:    R-CRAN-testthat >= 3.0.0
+BuildRequires:    R-CRAN-lintr >= 2.0.0
+BuildRequires:    R-CRAN-box 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-globals 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-prettyunits 
+BuildRequires:    R-CRAN-logger 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-renv 
+BuildRequires:    R-CRAN-sass 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-styler 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-tibble >= 2.1.1
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.8.0.1
-Requires:         R-CRAN-rlang >= 0.3.1
-Requires:         R-CRAN-vctrs >= 0.2.0
-Requires:         R-CRAN-hardhat >= 0.1.6.9001
-Requires:         R-CRAN-generics >= 0.1.0.9000
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-testthat >= 3.0.0
+Requires:         R-CRAN-lintr >= 2.0.0
+Requires:         R-CRAN-box 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-globals 
+Requires:         R-CRAN-fs 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-prettyunits 
+Requires:         R-CRAN-logger 
 Requires:         R-CRAN-purrr 
-Requires:         R-stats 
+Requires:         R-CRAN-renv 
+Requires:         R-CRAN-sass 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-styler 
 Requires:         R-utils 
 Requires:         R-CRAN-withr 
+Requires:         R-CRAN-yaml 
 
 %description
-A common interface is provided to allow users to specify a model without
-having to remember the different argument names across different functions
-or computational engines (e.g. 'R', 'Spark', 'Stan', etc).
+A framework that supports creating and extending enterprise Shiny
+applications using best practices.
 
 %prep
 %setup -q -c -n %{packname}
