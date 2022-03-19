@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Rvcg
-%global packver   0.20.2
+%global packver   0.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20.2
+Version:          0.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manipulations of Triangular Meshes Based on the 'VCGLIB' API
 

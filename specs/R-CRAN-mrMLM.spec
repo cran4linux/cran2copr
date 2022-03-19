@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mrMLM
-%global packver   4.0.2
+%global packver   5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.2
+Version:          5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multi-Locus Random-SNP-Effect Mixed Linear Model Tools for Genome-Wide Association Study
+Summary:          Multi-Locus Random-SNP-Effect Mixed Linear Model Tools for GWAS
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-sampling
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-sbl 
+BuildRequires:    R-CRAN-BEDMatrix 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-coin >= 1.1.0
 Requires:         R-CRAN-Rcpp >= 0.12.14
@@ -36,6 +37,7 @@ Requires:         R-CRAN-sampling
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-sbl 
+Requires:         R-CRAN-BEDMatrix 
 
 %description
 Conduct multi-locus genome-wide association study under the framework of
@@ -43,10 +45,16 @@ multi-locus random-SNP-effect mixed linear model (mrMLM). First, each
 marker on the genome is scanned. Bonferroni correction is replaced by a
 less stringent selection criterion for significant test. Then, all the
 markers that are potentially associated with the trait are included in a
-multi-locus genetic model, their effects are estimated by empirical Bayes
+multi-locus genetic model, their effects are estimated by empirical Bayes,
 and all the nonzero effects were further identified by likelihood ratio
-test for true QTL. Wen YJ, Zhang H, Ni YL, Huang B, Zhang J, Feng JY, Wang
-SB, Dunwell JM, Zhang YM, Wu R (2018) <doi:10.1093/bib/bbw145>.
+test for significant QTL. The program may run on a desktop or laptop
+computers. If marker genotypes in association mapping population are
+almost homozygous, these methods in this software are very effective. If
+there are many heterozygous marker genotypes, the IIIVmrMLM software is
+recommended. Wen YJ, Zhang H, Ni YL, Huang B, Zhang J, Feng JY, Wang SB,
+Dunwell JM, Zhang YM, Wu R (2018, <doi:10.1093/bib/bbw145>), and Li M,
+Zhang YW, Zhang ZC, Xiang Y, Liu MH, Zhou YH, Zuo JF, Zhang HQ, Chen Y,
+Zhang YM (2022, <doi:10.1016/j.molp.2022.02.012>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -56,6 +64,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

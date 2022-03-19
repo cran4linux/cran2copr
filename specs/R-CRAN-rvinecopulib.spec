@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rvinecopulib
-%global packver   0.6.1.1.2
+%global packver   0.6.1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1.1.2
+Version:          0.6.1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Performance Algorithms for Vine Copula Modeling
 

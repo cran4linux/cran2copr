@@ -1,39 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  forsearch
-%global packver   2.1.0
+%global packname  safedata
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Outlier Diagnostics for Some Linear Effects and Linear Mixed Effects Models
+Summary:          Interface to Data from the SAFE Project
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Hmisc >= 4.6.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
-BuildRequires:    R-CRAN-tibble >= 3.1.6
-BuildRequires:    R-CRAN-nlme >= 3.1.152
-BuildRequires:    R-CRAN-Cairo >= 1.5.14
-Requires:         R-CRAN-Hmisc >= 4.6.0
-Requires:         R-CRAN-ggplot2 >= 3.3.5
-Requires:         R-CRAN-tibble >= 3.1.6
-Requires:         R-CRAN-nlme >= 3.1.152
-Requires:         R-CRAN-Cairo >= 1.5.14
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-chron 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-igraph 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-chron 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-igraph 
 
 %description
-Identifies potential data outliers and their impact on estimates and
-analyses. Uses the forward search approach of Atkinson and Riani, "Robust
-Diagnostic Regression Analysis", (2000,<ISBN: o-387-95017-6>) to prepare
-descriptive statistics of a dataset that is to be analyzed by stats::lm(),
-stats::glm(), or nlme::lme().  Includes graphics functions to display the
-descriptive statistics.
+The SAFE Project (<https://www.safeproject.net/>) is a large scale
+ecological experiment in Malaysian Borneo that explores the impact of
+habitat fragmentation and conversion on ecosystem function and services.
+Data collected at the SAFE Project is made available under a common format
+through the Zenodo data repository and this package makes it easy to
+discover and load that data into R.
 
 %prep
 %setup -q -c -n %{packname}

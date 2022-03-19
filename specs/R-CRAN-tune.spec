@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tune
-%global packver   0.1.6
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Tuning Tools
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.1.0
 BuildRequires:    R-CRAN-cli >= 2.0.0
@@ -23,14 +23,14 @@ BuildRequires:    R-CRAN-lifecycle >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-purrr >= 0.3.2
 BuildRequires:    R-CRAN-vctrs >= 0.3.0
-BuildRequires:    R-CRAN-workflows >= 0.2.3
-BuildRequires:    R-CRAN-hardhat >= 0.1.6
-BuildRequires:    R-CRAN-parsnip >= 0.1.4
-BuildRequires:    R-CRAN-recipes >= 0.1.15
-BuildRequires:    R-CRAN-generics >= 0.1.0
-BuildRequires:    R-CRAN-dials >= 0.0.9
+BuildRequires:    R-CRAN-workflows >= 0.2.5
+BuildRequires:    R-CRAN-hardhat >= 0.2.0
+BuildRequires:    R-CRAN-parsnip >= 0.2.0
+BuildRequires:    R-CRAN-recipes >= 0.2.0
+BuildRequires:    R-CRAN-generics >= 0.1.2
 BuildRequires:    R-CRAN-rsample >= 0.0.9
 BuildRequires:    R-CRAN-yardstick >= 0.0.7
+BuildRequires:    R-CRAN-dials >= 0.0.10
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
@@ -44,14 +44,14 @@ Requires:         R-CRAN-lifecycle >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-purrr >= 0.3.2
 Requires:         R-CRAN-vctrs >= 0.3.0
-Requires:         R-CRAN-workflows >= 0.2.3
-Requires:         R-CRAN-hardhat >= 0.1.6
-Requires:         R-CRAN-parsnip >= 0.1.4
-Requires:         R-CRAN-recipes >= 0.1.15
-Requires:         R-CRAN-generics >= 0.1.0
-Requires:         R-CRAN-dials >= 0.0.9
+Requires:         R-CRAN-workflows >= 0.2.5
+Requires:         R-CRAN-hardhat >= 0.2.0
+Requires:         R-CRAN-parsnip >= 0.2.0
+Requires:         R-CRAN-recipes >= 0.2.0
+Requires:         R-CRAN-generics >= 0.1.2
 Requires:         R-CRAN-rsample >= 0.0.9
 Requires:         R-CRAN-yardstick >= 0.0.7
+Requires:         R-CRAN-dials >= 0.0.10
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 

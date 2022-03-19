@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RMaCzek
-%global packver   1.3.5
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.5
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Czekanowski's Diagrams
 
@@ -17,15 +17,17 @@ BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-GA >= 3.2
+BuildRequires:    R-CRAN-seriation >= 1.3.4
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-seriation 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-GA >= 3.2
+Requires:         R-CRAN-seriation >= 1.3.4
 Requires:         R-graphics 
 Requires:         R-methods 
-Requires:         R-CRAN-seriation 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Allows for production of Czekanowski's Diagrams. See K. Bartoszek, A.
@@ -39,6 +41,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

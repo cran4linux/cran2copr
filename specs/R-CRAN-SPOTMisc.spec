@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SPOTMisc
-%global packver   1.2.18
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.18
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Misc Extensions for the 'SPOT' Package
 
@@ -24,15 +24,19 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-keras 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-mlr 
+BuildRequires:    R-CRAN-OpenML 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-rpart.plot 
 BuildRequires:    R-CRAN-sensitivity 
-BuildRequires:    R-CRAN-SimInf 
 BuildRequires:    R-CRAN-smoof 
 BuildRequires:    R-CRAN-SPOT 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tensorflow 
+BuildRequires:    R-CRAN-tfdatasets 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-benchmarkme 
 Requires:         R-CRAN-callr 
@@ -42,15 +46,19 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-keras 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-mlr 
+Requires:         R-CRAN-OpenML 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-rpart.plot 
 Requires:         R-CRAN-sensitivity 
-Requires:         R-CRAN-SimInf 
 Requires:         R-CRAN-smoof 
 Requires:         R-CRAN-SPOT 
 Requires:         R-stats 
+Requires:         R-CRAN-tensorflow 
+Requires:         R-CRAN-tfdatasets 
 Requires:         R-utils 
 
 %description

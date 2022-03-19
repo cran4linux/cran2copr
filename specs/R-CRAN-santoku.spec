@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  santoku
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Versatile Cutting Tool
 
@@ -17,18 +17,22 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-vctrs 
 
 %description
 A tool for cutting data into intervals. Allows singleton intervals. Always
 includes the whole range of data by default. Flexible labelling.
-Convenience functions for cutting by quantiles etc. Handles dates and
-times.
+Convenience functions for cutting by quantiles etc. Handles dates, times,
+units and other vectors.
 
 %prep
 %setup -q -c -n %{packname}

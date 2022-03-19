@@ -1,34 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  PPTcirc
-%global packver   0.2.1
+%global packname  stablelearner
+%global packver   0.1-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Projected Polya Tree for Circular Data
+Summary:          Stability Assessment of Statistical Learning Methods
 
-License:          GPL-3
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-circular 
-BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-progress 
-Requires:         R-CRAN-circular 
-Requires:         R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-partykit 
+BuildRequires:    R-CRAN-party 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-ranger 
 Requires:         R-graphics 
-Requires:         R-CRAN-progress 
+Requires:         R-methods 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-partykit 
+Requires:         R-CRAN-party 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-ranger 
 
 %description
-Provides functionality for the prior and posterior projected Polya tree
-for the analysis of circular data (Nieto-Barajas and Nunez-Antonio (2019)
-<arXiv:1902.06020>).
+Graphical and computational methods that can be used to assess the
+stability of results from supervised statistical learning.
 
 %prep
 %setup -q -c -n %{packname}

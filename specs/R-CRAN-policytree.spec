@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  policytree
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Policy Learning via Doubly Robust Empirical Welfare Maximization over Trees
 
@@ -23,10 +23,9 @@ Requires:         R-CRAN-Rcpp
 
 %description
 Learn optimal policies via doubly robust empirical welfare maximization
-over trees. This package implements the multi-action doubly robust
-approach of Zhou, Athey and Wager (2018) <arXiv:1810.04778> in the case
-where we want to learn policies that belong to the class of depth k
-decision trees.
+over trees. Given doubly robust reward estimates, this package finds a
+rule-based treatment prescription policy, where the policy takes the form
+of a shallow decision tree that is globally (or close to) optimal.
 
 %prep
 %setup -q -c -n %{packname}
@@ -36,6 +35,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
