@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  microeco
-%global packver   0.6.5
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Microbial Community Ecology Data Analysis
 
@@ -49,9 +49,9 @@ Requires:         R-CRAN-reshape2
 A series of statistical and plotting approaches in microbial community
 ecology based on the R6 class. The classes are designed for data
 preprocessing, taxa abundance plotting, alpha diversity statistics, beta
-diversity statistics, differential abundance test and indicator taxon
-analysis, environmental data analysis, null model analysis, network
-analysis and functional analysis.
+diversity statistics, differential abundance test, environmental data
+analysis, null model analysis, network analysis, machine learning and
+functional analysis.
 
 %prep
 %setup -q -c -n %{packname}

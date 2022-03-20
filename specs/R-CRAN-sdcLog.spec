@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sdcLog
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Statistical Disclosure Control in Research Data Centers
 
@@ -17,16 +17,16 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-crayon >= 1.3.4
 BuildRequires:    R-CRAN-data.table >= 1.12.8
 BuildRequires:    R-CRAN-broom >= 0.5.5
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-mathjaxr 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-crayon >= 1.3.4
 Requires:         R-CRAN-data.table >= 1.12.8
 Requires:         R-CRAN-broom >= 0.5.5
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-mathjaxr 
 Requires:         R-stats 
 Requires:         R-utils 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tidymodels
-%global packver   0.1.4
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Install and Load the 'Tidymodels' Packages
 
@@ -13,51 +13,51 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
-BuildRequires:    R-CRAN-tibble >= 3.1.5
-BuildRequires:    R-CRAN-cli >= 3.0.1
-BuildRequires:    R-CRAN-tidyr >= 1.1.4
-BuildRequires:    R-CRAN-dplyr >= 1.0.7
-BuildRequires:    R-CRAN-conflicted >= 1.0.4
+BuildRequires:    R-CRAN-cli >= 3.2.0
+BuildRequires:    R-CRAN-tibble >= 3.1.6
+BuildRequires:    R-CRAN-tidyr >= 1.2.0
+BuildRequires:    R-CRAN-conflicted >= 1.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.8
+BuildRequires:    R-CRAN-rlang >= 1.0.2
 BuildRequires:    R-CRAN-infer >= 1.0.0
-BuildRequires:    R-CRAN-broom >= 0.7.9
-BuildRequires:    R-CRAN-rlang >= 0.4.11
+BuildRequires:    R-CRAN-broom >= 0.7.12
 BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-CRAN-workflows >= 0.2.3
+BuildRequires:    R-CRAN-workflows >= 0.2.5
+BuildRequires:    R-CRAN-parsnip >= 0.2.1
+BuildRequires:    R-CRAN-workflowsets >= 0.2.1
+BuildRequires:    R-CRAN-hardhat >= 0.2.0
+BuildRequires:    R-CRAN-recipes >= 0.2.0
+BuildRequires:    R-CRAN-tune >= 0.2.0
 BuildRequires:    R-CRAN-rstudioapi >= 0.13
-BuildRequires:    R-CRAN-parsnip >= 0.1.7
-BuildRequires:    R-CRAN-hardhat >= 0.1.6
-BuildRequires:    R-CRAN-tune >= 0.1.6
-BuildRequires:    R-CRAN-recipes >= 0.1.17
 BuildRequires:    R-CRAN-modeldata >= 0.1.1
-BuildRequires:    R-CRAN-rsample >= 0.1.0
-BuildRequires:    R-CRAN-workflowsets >= 0.1.0
-BuildRequires:    R-CRAN-yardstick >= 0.0.8
-BuildRequires:    R-CRAN-dials >= 0.0.10
+BuildRequires:    R-CRAN-rsample >= 0.1.1
+BuildRequires:    R-CRAN-dials >= 0.1.0
+BuildRequires:    R-CRAN-yardstick >= 0.0.9
 Requires:         R-CRAN-ggplot2 >= 3.3.5
-Requires:         R-CRAN-tibble >= 3.1.5
-Requires:         R-CRAN-cli >= 3.0.1
-Requires:         R-CRAN-tidyr >= 1.1.4
-Requires:         R-CRAN-dplyr >= 1.0.7
-Requires:         R-CRAN-conflicted >= 1.0.4
+Requires:         R-CRAN-cli >= 3.2.0
+Requires:         R-CRAN-tibble >= 3.1.6
+Requires:         R-CRAN-tidyr >= 1.2.0
+Requires:         R-CRAN-conflicted >= 1.1.0
+Requires:         R-CRAN-dplyr >= 1.0.8
+Requires:         R-CRAN-rlang >= 1.0.2
 Requires:         R-CRAN-infer >= 1.0.0
-Requires:         R-CRAN-broom >= 0.7.9
-Requires:         R-CRAN-rlang >= 0.4.11
+Requires:         R-CRAN-broom >= 0.7.12
 Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-workflows >= 0.2.3
+Requires:         R-CRAN-workflows >= 0.2.5
+Requires:         R-CRAN-parsnip >= 0.2.1
+Requires:         R-CRAN-workflowsets >= 0.2.1
+Requires:         R-CRAN-hardhat >= 0.2.0
+Requires:         R-CRAN-recipes >= 0.2.0
+Requires:         R-CRAN-tune >= 0.2.0
 Requires:         R-CRAN-rstudioapi >= 0.13
-Requires:         R-CRAN-parsnip >= 0.1.7
-Requires:         R-CRAN-hardhat >= 0.1.6
-Requires:         R-CRAN-tune >= 0.1.6
-Requires:         R-CRAN-recipes >= 0.1.17
 Requires:         R-CRAN-modeldata >= 0.1.1
-Requires:         R-CRAN-rsample >= 0.1.0
-Requires:         R-CRAN-workflowsets >= 0.1.0
-Requires:         R-CRAN-yardstick >= 0.0.8
-Requires:         R-CRAN-dials >= 0.0.10
+Requires:         R-CRAN-rsample >= 0.1.1
+Requires:         R-CRAN-dials >= 0.1.0
+Requires:         R-CRAN-yardstick >= 0.0.9
 
 %description
 The tidy modeling "verse" is a collection of packages for modeling and

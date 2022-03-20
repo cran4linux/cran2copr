@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  speechbr
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access the Speechs and Speaker's Informations of House of Representatives of Brazil
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-rvest
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httptest 
 Requires:         R-CRAN-abjutils 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
@@ -44,6 +45,7 @@ Requires:         R-CRAN-rvest
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httptest 
 
 %description
 Scrap speech text and speaker informations of speeches of House of
