@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gmpoly
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Polynomials with Rational Coefficients
 
@@ -19,9 +19,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-gmp 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-mvp 
+BuildRequires:    R-CRAN-english 
 Requires:         R-CRAN-gmp 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-mvp 
+Requires:         R-CRAN-english 
 
 %description
 Symbolic calculation (addition or multiplication) and evaluation of

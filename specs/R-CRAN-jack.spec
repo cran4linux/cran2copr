@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  jack
-%global packver   2.0.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Jack, Zonal, and Schur Polynomials
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-mvp
 BuildRequires:    R-CRAN-multicool 
 BuildRequires:    R-CRAN-JuliaConnectoR 
 BuildRequires:    R-CRAN-Ryacas 
+BuildRequires:    R-CRAN-gmpoly 
 Requires:         R-CRAN-partitions 
 Requires:         R-CRAN-DescTools 
 Requires:         R-CRAN-gmp 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-mvp
 Requires:         R-CRAN-multicool 
 Requires:         R-CRAN-JuliaConnectoR 
 Requires:         R-CRAN-Ryacas 
+Requires:         R-CRAN-gmpoly 
 
 %description
 Symbolic calculation and evaluation of the Jack polynomials, zonal

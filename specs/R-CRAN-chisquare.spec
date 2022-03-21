@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  chisquare
-%global packver   0.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Chi-Square Test of Independence
+Summary:          Chi-Square and G-Square Test of Independence and Measures of Categorical Association
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,16 +16,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-formattable >= 0.2.1
-Requires:         R-CRAN-formattable >= 0.2.1
+BuildRequires:    R-CRAN-gt >= 0.3.1
+Requires:         R-CRAN-gt >= 0.3.1
 
 %description
-Provides the facility to perform the chi-square test of independence,
-calculates permutation-based p value, and provides coefficients of
-association such as Phi, adjusted contingency coefficient, Cramer's V,
-bias-corrected Cramer's V, Cohen's w, Goodman-Kruskal's lambda and gamma.
-It also calculates standardized and adjusted standardized residuals.
-Different outputs are returned in nicely formatted tables.
+Provides the facility to perform the chi-square and G-square test of
+independence, calculates permutation-based p value, and provides measures
+of association such as Phi, odds ratio with 95 percent CI and p value,
+adjusted contingency coefficient, Cramer's V, bias-corrected Cramer's V,
+Cohen's w, Goodman-Kruskal's lambda, gamma, and tau, Cohen's k. It also
+calculates standardized and adjusted standardized residuals, and their
+significance. Different outputs are returned in nicely formatted tables.
 
 %prep
 %setup -q -c -n %{packname}

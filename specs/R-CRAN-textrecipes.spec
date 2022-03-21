@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  textrecipes
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extra 'Recipes' for Text Processing
 
@@ -13,10 +13,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildRequires:    R-CRAN-recipes >= 0.1.15
 BuildRequires:    R-CRAN-generics >= 0.1.0
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-Matrix 
@@ -28,8 +29,10 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tokenizers 
 BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-glue 
 Requires:         R-CRAN-recipes >= 0.1.15
 Requires:         R-CRAN-generics >= 0.1.0
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-Matrix 
@@ -41,6 +44,7 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tokenizers 
 Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-glue 
 
 %description
 Converting text to numerical features requires specifically created
