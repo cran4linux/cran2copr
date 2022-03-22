@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  TreeTools
-%global packver   1.6.0
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create, Modify and Analyse Phylogenetic Trees
 
@@ -16,19 +16,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-ape >= 5.6
+BuildRequires:    R-CRAN-Rdpack >= 2.2
 BuildRequires:    R-CRAN-fastmatch >= 1.1.3
-BuildRequires:    R-CRAN-Rdpack >= 0.7
 BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R.cache 
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-ape >= 5.6
+Requires:         R-CRAN-Rdpack >= 2.2
 Requires:         R-CRAN-fastmatch >= 1.1.3
-Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-CRAN-bit64 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-colorspace 
+Requires:         R-methods 
 Requires:         R-CRAN-R.cache 
 
 %description
@@ -41,7 +43,7 @@ support; plotting the position of rogue taxa (Klopfstein & Spasojevic
 ancestor-descendant relationships, of 'stemwardness' (Asher & Smith, 2021)
 <doi:10.1093/sysbio/syab072>, and of tree balance (Mir et al. 2013)
 <doi:10.1016/j.mbs.2012.10.005>; artificial extinction (Asher & Smith,
-2021) <doi:10.1093/sysbio/syab072>; import and export of trees from
+2022) <doi:10.1093/sysbio/syab072>; import and export of trees from
 Newick, Nexus (Maddison et al. 1997) <doi:10.1093/sysbio/46.4.590>, and
 TNT <http://www.lillo.org.ar/phylogeny/tnt/> formats; and analysis of
 splits and cladistic information.

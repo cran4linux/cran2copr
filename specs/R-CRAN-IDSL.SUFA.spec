@@ -1,46 +1,26 @@
 %global __brp_check_rpaths %{nil}
-%global packname  spatialwarnings
-%global packver   3.0.3
+%global packname  IDSL.SUFA
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Early Warning Signals of Ecosystem Degradation
+Summary:          Simplified UFA
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-gsl 
-BuildRequires:    R-CRAN-segmented 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-plyr 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-gsl 
-Requires:         R-CRAN-segmented 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
 
 %description
-Tools to compute and assess significance of early-warnings signals (EWS)
-of ecosystem degradation on raster data sets. EWS are metrics derived from
-the observed spatial structure of an ecosystem -- e.g. spatial
-autocorrelation -- that increase before an ecosystem undergoes a
-non-linear transition (Genin et al. (2018) <doi:10.1111/2041-210X.13058>).
+A simplified version of the 'IDSL.UFA' package to calculate isotopic
+profiles and adduct formulas from molecular formulas with no dependency on
+other R packages for online tools.
 
 %prep
 %setup -q -c -n %{packname}

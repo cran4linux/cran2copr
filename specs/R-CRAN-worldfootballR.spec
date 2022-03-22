@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  worldfootballR
-%global packver   0.4.10
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.10
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Extract and Clean World Football (Soccer) Data
 
@@ -16,6 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tidyr >= 1.2.0
+BuildRequires:    R-CRAN-rvest >= 1.0.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-janitor 
@@ -27,14 +29,15 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-qdapRegex 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-tidyr >= 1.2.0
+Requires:         R-CRAN-rvest >= 1.0.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-janitor 
@@ -46,23 +49,24 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-qdapRegex 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
 Requires:         R-stats 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-tibble 
 
 %description
 A set of functions to allow users to obtain clean and tidy football
 (soccer) game, team and player data. Data is collected from a number of
 popular sites, including 'FBref'<https://fbref.com/en/>, transfer and
 valuations data from 'Transfermarkt'<https://www.transfermarkt.com/> and
-shooting location data from 'Understat'<https://understat.com/>. It gives
-users the ability to access data more efficiently, rather than having to
-export data tables to files before being able to complete their analysis.
+shooting location and other match stats data from
+'Understat'<https://understat.com/> and 'fotmob'<https://www.fotmob.com/>.
+It gives users the ability to access data more efficiently, rather than
+having to export data tables to files before being able to complete their
+analysis.
 
 %prep
 %setup -q -c -n %{packname}

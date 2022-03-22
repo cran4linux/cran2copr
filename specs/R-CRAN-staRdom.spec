@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  staRdom
-%global packver   1.1.23
+%global packver   1.1.25
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.23
+Version:          1.1.25
 Release:          1%{?dist}%{?buildtag}
 Summary:          PARAFAC Analysis of EEMs from DOM
 
@@ -20,22 +20,22 @@ BuildRequires:    R-parallel >= 4.0
 BuildRequires:    R-graphics >= 4.0
 BuildRequires:    R-CRAN-gtools >= 3.9
 BuildRequires:    R-CRAN-R.matlab >= 3.6.2
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
-BuildRequires:    R-CRAN-tibble >= 3.1.3
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
+BuildRequires:    R-CRAN-tibble >= 3.1.6
 BuildRequires:    R-CRAN-drc >= 3.0.1
 BuildRequires:    R-CRAN-pracma >= 2.3.3
 BuildRequires:    R-CRAN-GGally >= 2.1.2
-BuildRequires:    R-CRAN-readr >= 2.0
+BuildRequires:    R-CRAN-readr >= 2.1.2
 BuildRequires:    R-CRAN-zoo >= 1.8.9
 BuildRequires:    R-CRAN-foreach >= 1.5.1
 BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-tidyr >= 1.1.3
-BuildRequires:    R-CRAN-dplyr >= 1.0.7
+BuildRequires:    R-CRAN-tidyr >= 1.2.0
+BuildRequires:    R-CRAN-data.table >= 1.14.2
+BuildRequires:    R-CRAN-dplyr >= 1.0.8
 BuildRequires:    R-CRAN-multiway >= 1.0.6
 BuildRequires:    R-CRAN-doParallel >= 1.0.16
 BuildRequires:    R-CRAN-eemR >= 1.0.1
-BuildRequires:    R-CRAN-matrixStats >= 0.60.1
+BuildRequires:    R-CRAN-matrixStats >= 0.61.0
 BuildRequires:    R-CRAN-viridisLite >= 0.4
 BuildRequires:    R-CRAN-cdom >= 0.1.0
 BuildRequires:    R-CRAN-MBA >= 0.0.9
@@ -43,22 +43,22 @@ Requires:         R-parallel >= 4.0
 Requires:         R-graphics >= 4.0
 Requires:         R-CRAN-gtools >= 3.9
 Requires:         R-CRAN-R.matlab >= 3.6.2
-Requires:         R-CRAN-ggplot2 >= 3.3.2
-Requires:         R-CRAN-tibble >= 3.1.3
+Requires:         R-CRAN-ggplot2 >= 3.3.5
+Requires:         R-CRAN-tibble >= 3.1.6
 Requires:         R-CRAN-drc >= 3.0.1
 Requires:         R-CRAN-pracma >= 2.3.3
 Requires:         R-CRAN-GGally >= 2.1.2
-Requires:         R-CRAN-readr >= 2.0
+Requires:         R-CRAN-readr >= 2.1.2
 Requires:         R-CRAN-zoo >= 1.8.9
 Requires:         R-CRAN-foreach >= 1.5.1
 Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-tidyr >= 1.1.3
-Requires:         R-CRAN-dplyr >= 1.0.7
+Requires:         R-CRAN-tidyr >= 1.2.0
+Requires:         R-CRAN-data.table >= 1.14.2
+Requires:         R-CRAN-dplyr >= 1.0.8
 Requires:         R-CRAN-multiway >= 1.0.6
 Requires:         R-CRAN-doParallel >= 1.0.16
 Requires:         R-CRAN-eemR >= 1.0.1
-Requires:         R-CRAN-matrixStats >= 0.60.1
+Requires:         R-CRAN-matrixStats >= 0.61.0
 Requires:         R-CRAN-viridisLite >= 0.4
 Requires:         R-CRAN-cdom >= 0.1.0
 Requires:         R-CRAN-MBA >= 0.0.9

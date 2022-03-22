@@ -1,40 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tmbstan
-%global packver   1.0.4
+%global packname  Tushare
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          MCMC Sampling from 'TMB' Model Object using 'Stan'
+Summary:          Interface to 'Tushare Pro' API
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-TMB >= 1.7.12
-BuildRequires:    R-CRAN-rstan 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-StanHeaders 
-BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-TMB >= 1.7.12
-Requires:         R-CRAN-rstan 
-Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rstantools
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-data.table 
 
 %description
-Enables all 'rstan' functionality for a 'TMB' model object, in particular
-MCMC sampling and chain visualization. Sampling can be performed with or
-without Laplace approximation for the random effects. This is demonstrated
-in Monnahan & Kristensen (2018) <DOI:10.1371/journal.pone.0197954>.
+Helps the R users to get data from 'Tushare Pro'<https://tushare.pro>.
+'Tushare Pro' is a platform as well as a community with a lot of staffs
+working in financial area. We support financial data such as stock price,
+financial report statements and digital coins data.
 
 %prep
 %setup -q -c -n %{packname}

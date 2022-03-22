@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fstcore
-%global packver   0.9.8
+%global packver   0.9.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.8
+Version:          0.9.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Bindings to the 'Fstlib' Library
 

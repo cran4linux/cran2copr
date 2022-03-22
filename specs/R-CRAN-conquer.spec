@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  conquer
-%global packver   1.2.2
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convolution-Type Smoothed Quantile Regression
 
@@ -31,9 +31,9 @@ using a convolution smoothed approach. In the low-dimensional setting,
 efficient gradient-based methods are employed for fitting both a single
 model and a regression process over a quantile range. Normal-based and
 (multiplier) bootstrap confidence intervals for all slope coefficients are
-constructed. In high dimensions, the conquer methods complemented with
-l_1-penalization and iteratively reweighted l_1-penalization are used to
-fit sparse models.
+constructed. In high dimensions, the conquer method is complemented with
+flexible types of penalties (Lasso, elastic-net, group lasso, sparse group
+lasso, scad and mcp) to deal with complex low-dimensional structures.
 
 %prep
 %setup -q -c -n %{packname}

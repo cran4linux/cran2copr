@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MetBrewer
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Color Palettes Inspired by Works at the Metropolitan Museum of Art
 
@@ -16,12 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Palettes Inspired by Works at the Metropolitan Museum of Art in New York.
-Currently contains 50 color schemes and checks for colorblind-friendliness
-of palettes. Colorblind accessibility checked using Jakub Nowosad's
-package 'colorblindcheck'<https://nowosad.github.io/colorblindcheck/>.
+Currently contains over 50 color schemes and checks for
+colorblind-friendliness of palettes. Colorblind accessibility checked
+using the '{colorblindcheck} package by Jakub
+Nowosad'<https://jakubnowosad.com/colorblindcheck/>.
 
 %prep
 %setup -q -c -n %{packname}

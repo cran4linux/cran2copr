@@ -1,40 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tmbstan
-%global packver   1.0.4
+%global packname  caviarpd
+%global packver   0.2.28
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.2.28
 Release:          1%{?dist}%{?buildtag}
-Summary:          MCMC Sampling from 'TMB' Model Object using 'Stan'
+Summary:          Cluster Analysis via Random Partition Distributions
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE | Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-TMB >= 1.7.12
-BuildRequires:    R-CRAN-rstan 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-StanHeaders 
-BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-TMB >= 1.7.12
-Requires:         R-CRAN-rstan 
-Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rstantools
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 
 %description
-Enables all 'rstan' functionality for a 'TMB' model object, in particular
-MCMC sampling and chain visualization. Sampling can be performed with or
-without Laplace approximation for the random effects. This is demonstrated
-in Monnahan & Kristensen (2018) <DOI:10.1371/journal.pone.0197954>.
+Cluster analysis is performed using pairwise distance information and a
+random partition distribution. The method is implemented for two random
+partition distributions. It draws samples and then obtains and plots
+clustering estimates. An implementation of a selection algorithm is
+provided for the mass parameter of the partition distribution. Since
+pairwise distances are the principal input to this procedure, it is most
+comparable to the hierarchical and k-medoids clustering methods. The
+method is currently under peer review at a journal.
 
 %prep
 %setup -q -c -n %{packname}

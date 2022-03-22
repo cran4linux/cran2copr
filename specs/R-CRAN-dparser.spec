@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dparser
-%global packver   1.3.1-4
+%global packver   1.3.1-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1.4
+Version:          1.3.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Port of 'Dparser' Package
 
@@ -26,9 +26,9 @@ A Scannerless GLR parser/parser generator.  Note that GLR standing for
 "rightmost (derivation)".  For more information see
 <https://en.wikipedia.org/wiki/GLR_parser>. This parser is based on the
 Tomita (1987) algorithm. (Paper can be found at
-<https://www.aclweb.org/anthology/P84-1073.pdf>). The original 'dparser'
-package documentation can be found at <http://dparser.sourceforge.net/>.
-This allows you to add mini-languages to R (like RxODE's ODE mini-language
+<https://aclanthology.org/P84-1073.pdf>). The original 'dparser' package
+documentation can be found at <http://dparser.sourceforge.net/>.  This
+allows you to add mini-languages to R (like RxODE's ODE mini-language
 Wang, Hallow, and James 2015 <DOI:10.1002/psp4.12052>) or to parse other
 languages like 'NONMEM' to automatically translate them to R code.  To use
 this in your code, add a LinkingTo dparser in your DESCRIPTION file and
@@ -48,6 +48,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

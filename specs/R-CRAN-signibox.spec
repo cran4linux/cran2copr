@@ -1,40 +1,25 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tmbstan
-%global packver   1.0.4
+%global packname  signibox
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          MCMC Sampling from 'TMB' Model Object using 'Stan'
+Summary:          Statistical Significance Marks on Boxplots
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-TMB >= 1.7.12
-BuildRequires:    R-CRAN-rstan 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-StanHeaders 
-BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-TMB >= 1.7.12
-Requires:         R-CRAN-rstan 
-Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rstantools
+BuildArch:        noarch
 
 %description
-Enables all 'rstan' functionality for a 'TMB' model object, in particular
-MCMC sampling and chain visualization. Sampling can be performed with or
-without Laplace approximation for the random effects. This is demonstrated
-in Monnahan & Kristensen (2018) <DOI:10.1371/journal.pone.0197954>.
+Add significance marks to any R Boxplot, including a given significance
+niveau.
 
 %prep
 %setup -q -c -n %{packname}

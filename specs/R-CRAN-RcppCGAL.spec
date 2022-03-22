@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RcppCGAL
-%global packver   5.4
+%global packver   5.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.4
+Version:          5.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rcpp Integration for CGAL
 

@@ -1,46 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  spatialwarnings
-%global packver   3.0.3
+%global packname  statgenMPP
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Early Warning Signals of Ecosystem Degradation
+Summary:          QTL Mapping for Multi Parent Populations
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
+BuildRequires:    R-CRAN-statgenGWAS >= 1.0.8
+BuildRequires:    R-CRAN-statgenIBD >= 1.0.4
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-gsl 
-BuildRequires:    R-CRAN-segmented 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-LMMsolver 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-statgenGWAS >= 1.0.8
+Requires:         R-CRAN-statgenIBD >= 1.0.4
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-plyr 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-gsl 
-Requires:         R-CRAN-segmented 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-LMMsolver 
+Requires:         R-CRAN-scales 
 
 %description
-Tools to compute and assess significance of early-warnings signals (EWS)
-of ecosystem degradation on raster data sets. EWS are metrics derived from
-the observed spatial structure of an ecosystem -- e.g. spatial
-autocorrelation -- that increase before an ecosystem undergoes a
-non-linear transition (Genin et al. (2018) <doi:10.1111/2041-210X.13058>).
+For Multi Parent Populations (MPP) Identity By Descend (IBD) probabilities
+are computed using Hidden Markov Models. These probabilities are then used
+in a mixed model approach for QTL Mapping as described in Li et al.
+(<doi:10.1007/s00122-021-03919-7>).
 
 %prep
 %setup -q -c -n %{packname}

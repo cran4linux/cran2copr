@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  occCite
-%global packver   0.5.3
+%global packver   0.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Querying and Managing Large Biodiversity Occurrence Datasets
 

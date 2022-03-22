@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  diseasemapping
-%global packver   1.5.1
+%global packname  tailTransform
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modelling Spatial Variation in Disease Risk for Areal Data
+Summary:          Symmetric Transformation of Tails for Plotting Differences
 
-License:          GPL
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,20 +17,16 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-graphics 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-sp 
-Requires:         R-methods 
-Requires:         R-CRAN-rgeos 
+Requires:         R-graphics 
 
 %description
-Formatting of population and case data, calculation of Standardized
-Incidence Ratios, and fitting the BYM model using 'INLA'. For details see
-Brown (2015) <doi:10.18637/jss.v063.i12>.
+When plotting treated-minus-control differences, after-minus-before
+changes, or difference-in-differences, the ttrans() function symmetrically
+transforms the positive and negative tails to aid plotting.  The package
+includes an observational study with three control groups and an
+unaffected outcome; see Rosenbaum (2020) <doi:10.1111/biom.13558>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,46 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  spatialwarnings
-%global packver   3.0.3
+%global packname  LBPG
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.3
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Early Warning Signals of Ecosystem Degradation
+Summary:          The Length-Biased Power Garima Distribution
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-CRAN-gsl 
-BuildRequires:    R-CRAN-segmented 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-plyr 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-future.apply 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-gsl 
-Requires:         R-CRAN-segmented 
+Requires:         R-stats 
 
 %description
-Tools to compute and assess significance of early-warnings signals (EWS)
-of ecosystem degradation on raster data sets. EWS are metrics derived from
-the observed spatial structure of an ecosystem -- e.g. spatial
-autocorrelation -- that increase before an ecosystem undergoes a
-non-linear transition (Genin et al. (2018) <doi:10.1111/2041-210X.13058>).
+The Length-Biased Power Garima distribution for computes the probability
+density, the cumulative density distribution and the quantile function of
+the distribution, and generates sample values with random variables based
+on Kittipong and Sirinapa(2021)<DOI: 10.14456/sjst-psu.2021.89>.
 
 %prep
 %setup -q -c -n %{packname}
