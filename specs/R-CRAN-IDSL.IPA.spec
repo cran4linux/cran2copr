@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  IDSL.MXP
-%global packver   1.1
+%global packname  IDSL.IPA
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          mzML and mzXML Parser
+Summary:          Intrinsic Peak Analysis (IPA) for HRMS Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,14 +16,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-IDSL.MXP 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-png 
+Requires:         R-CRAN-IDSL.MXP 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-base64enc 
+Requires:         R-grid 
+Requires:         R-CRAN-readxl 
+Requires:         R-parallel 
+Requires:         R-CRAN-doSNOW 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-png 
 
 %description
-A tiny parser to extract mass spectra data and metadata from mzML and
-mzXML files.
+A sophisticated pipeline for processing high-resolution LC/MS data to
+extract signals of organic compounds. The package performs isotope
+pairing, peak detection, alignment, RT correction, gap filling, peak
+annotation and visualization of extracted ion chromatograms and total ion
+chromatograms.
 
 %prep
 %setup -q -c -n %{packname}

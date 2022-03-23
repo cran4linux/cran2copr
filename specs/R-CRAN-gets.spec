@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gets
-%global packver   0.29
+%global packver   0.35
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.29
+Version:          0.35
 Release:          1%{?dist}%{?buildtag}
 Summary:          General-to-Specific (GETS) Modelling and Indicator Saturation Methods
 

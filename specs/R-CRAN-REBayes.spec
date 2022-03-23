@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  REBayes
-%global packver   2.50
+%global packver   2.51
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.50
+Version:          2.51
 Release:          1%{?dist}%{?buildtag}
 Summary:          Empirical Bayes Estimation and Inference
 
@@ -19,12 +19,10 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-reliaR 
 BuildRequires:    R-CRAN-lattice 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-utils 
-Requires:         R-CRAN-reliaR 
 Requires:         R-CRAN-lattice 
 
 %description

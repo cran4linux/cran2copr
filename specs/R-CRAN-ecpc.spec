@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ecpc
-%global packver   2.0
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Co-Data Learning for High-Dimensional Prediction
 
@@ -25,6 +25,10 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-CRAN-CVXR 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-JOPS 
+BuildRequires:    R-CRAN-quadprog 
 Requires:         R-CRAN-multiridge >= 1.5
 Requires:         R-CRAN-glmnet 
 Requires:         R-stats 
@@ -34,6 +38,10 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-CRAN-CVXR 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-JOPS 
+Requires:         R-CRAN-quadprog 
 
 %description
 Fit linear, logistic and Cox survival regression models penalised with
@@ -41,11 +49,12 @@ adaptive multi-group ridge penalties. The multi-group penalties correspond
 to groups of covariates defined by (multiple) co-data sources. Group
 hyperparameters are estimated with an empirical Bayes method of moments,
 penalised with an extra level of hyper shrinkage. Various types of hyper
-shrinkage may be used for various co-data. The method accommodates
-inclusion of unpenalised covariates, posterior selection of covariates and
-multiple data types. The model fit is used to predict for new samples. The
-name 'ecpc' stands for Empirical Bayes, Co-data learnt, Prediction and
-Covariate selection. See Van Nee et al. (2020) <arXiv:2005.04010>.
+shrinkage may be used for various co-data. Co-data may be continuous or
+categorical. The method accommodates inclusion of unpenalised covariates,
+posterior selection of covariates and multiple data types. The model fit
+is used to predict for new samples. The name 'ecpc' stands for Empirical
+Bayes, Co-data learnt, Prediction and Covariate selection. See Van Nee et
+al. (2020) <arXiv:2005.04010>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,6 +64,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

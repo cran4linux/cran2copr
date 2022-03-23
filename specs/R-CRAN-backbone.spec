@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  backbone
-%global packver   2.0.2
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extracts the Backbone from Graphs
 
@@ -36,14 +36,12 @@ Requires:         R-utils
 
 %description
 An implementation of methods for extracting an unweighted unipartite graph
-(i.e. a backbone) from an unweighted unipartite graph (Hamann et al., 2016
-<doi:10.1007/s13278-016-0332-2>), a weighted unipartite graph (Serrano et
-al., 2009 <doi:10.1073/pnas.0808904106>), the projection of an unweighted
-bipartite graph (Neal et al., <doi:10.1038/s41598-021-03238-3>, or the
-projection of a weighted bipartite graph (Neal, 2017
-<doi:10.1177/0308518X16631339>). It also provides utility functions to
-generate random binary matrices with (a) given density, (b) given row and
-column marginals, and (c) given row and column marginal distributions.
+(i.e. a backbone) from an unweighted unipartite graph (e.g., Hamann et
+al., 2016 <doi:10.1007/s13278-016-0332-2>), a weighted unipartite graph
+(e.g., Serrano et al., 2009 <doi:10.1073/pnas.0808904106>), the projection
+of an unweighted bipartite graph (e.g., Neal et al.,
+<doi:10.1038/s41598-021-03238-3>, or the projection of a weighted
+bipartite graph (e.g., Neal, 2017 <doi:10.1177/0308518X16631339>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dagwood
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          DAGs with Omitted Objects Displayed (DAGWOOD)
 
@@ -23,7 +23,7 @@ Requires:         R-CRAN-dagitty
 DAGs With Omitted Objects Displayed (DAGWOOD) is a framework to help
 reveal key hidden assumptions in a causal DAG. This package provides an
 implementation of the DAGWOOD algorithm. Further description can be found
-in the preprint on Haber et al (2021) <arXiv:2004.04251>.
+in Haber et al (2022) <DOI:10.1016/j.annepidem.2022.01.001>.
 
 %prep
 %setup -q -c -n %{packname}

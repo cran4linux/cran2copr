@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  abess
-%global packver   0.4.0
+%global packver   0.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Best Subset Selection
 
@@ -34,11 +34,11 @@ sequencing-and-splicing technique to guarantee exact support recovery and
 globally optimal solution in polynomial times for linear model. It also
 supports best subset selection for logistic regression, Poisson
 regression, Cox proportional hazard model, Gamma regression,
-multiple-response regression, multinomial logistic regression,
-(sequential) principal component analysis, and robust principal component
-analysis. The other valuable features such as the best subset of group
-selection <arXiv:2104.12576> and sure independence screening
-<doi:10.1111/j.1467-9868.2008.00674.x> are also provided.
+multiple-response regression, multinomial logistic regression, ordinal
+regression, (sequential) principal component analysis, and robust
+principal component analysis. The other valuable features such as the best
+subset of group selection <arXiv:2104.12576> and sure independence
+screening <doi:10.1111/j.1467-9868.2008.00674.x> are also provided.
 
 %prep
 %setup -q -c -n %{packname}

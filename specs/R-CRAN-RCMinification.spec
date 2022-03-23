@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RCMinification
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Random Coefficient Minification Time Series Models
 
@@ -19,14 +19,7 @@ BuildArch:        noarch
 
 %description
 Functions and data sets for simulating and fitting minification and random
-coefficient minification time series models. The nth term in the model
-X[n] is a nonnegative random variable defined as A[n]*min(X[n-1], Y[n]),
-where the A's and Y's are sequences of independent random variables.
-Example data sets are provided where this kind of model can be justified
-on physical grounds and fits well.  Functions for simulating minification
-time series and for maximum likelihood estimation are included. More
-information can be found in Han, Braun and Loeppky (2018)
-<doi:10.1007/s00362-018-1000-6>.
+coefficient minification modelling.
 
 %prep
 %setup -q -c -n %{packname}
@@ -36,6 +29,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

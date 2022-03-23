@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  TreeSearch
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Phylogenetic Analysis with Morphological Data
 
@@ -18,9 +18,8 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ape >= 5.6
 BuildRequires:    R-CRAN-cli >= 3.0
 BuildRequires:    R-CRAN-TreeDist >= 2.3.0
-BuildRequires:    R-CRAN-phangorn >= 2.2.1
+BuildRequires:    R-CRAN-TreeTools >= 1.7.0
 BuildRequires:    R-CRAN-shiny >= 1.6.0
-BuildRequires:    R-CRAN-TreeTools >= 1.6.0
 BuildRequires:    R-CRAN-fastmatch >= 1.1.3
 BuildRequires:    R-CRAN-Rdpack >= 0.7
 BuildRequires:    R-CRAN-Rogue > 2.0.0
@@ -34,9 +33,8 @@ BuildRequires:    R-stats
 Requires:         R-CRAN-ape >= 5.6
 Requires:         R-CRAN-cli >= 3.0
 Requires:         R-CRAN-TreeDist >= 2.3.0
-Requires:         R-CRAN-phangorn >= 2.2.1
+Requires:         R-CRAN-TreeTools >= 1.7.0
 Requires:         R-CRAN-shiny >= 1.6.0
-Requires:         R-CRAN-TreeTools >= 1.6.0
 Requires:         R-CRAN-fastmatch >= 1.1.3
 Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-CRAN-Rogue > 2.0.0

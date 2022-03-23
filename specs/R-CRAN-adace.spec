@@ -1,29 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cubature
-%global packver   2.0.4.4
+%global packname  adace
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4.4
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adaptive Multivariate Integration over Hypercubes
+Summary:          Estimator of the Adherer Average Causal Effect
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-pracma 
 
 %description
-R wrappers around the cubature C library of Steven G. Johnson for adaptive
-multivariate integration over hypercubes and the Cuba C library of Thomas
-Hahn for deterministic and Monte Carlo integration. Scalar and vector
-interfaces for cubature and Cuba routines are provided; the vector
-interfaces are highly recommended as demonstrated in the package vignette.
+Estimate the causal treatment effect for subjects that can adhere to one
+or both of the treatments. Given longitudinal data with missing
+observations, consistent causal effects are calculated. Unobserved
+potential outcomes are estimated through direct integration as described
+in: Qu et al., (2019) <doi:10.1080/19466315.2019.1700157> and Zhang et.
+al., (2021) <doi:10.1080/19466315.2021.1891965>.
 
 %prep
 %setup -q -c -n %{packname}

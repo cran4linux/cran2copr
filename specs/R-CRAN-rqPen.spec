@@ -1,29 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cubature
-%global packver   2.0.4.4
+%global packname  rqPen
+%global packver   2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4.4
+Version:          2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adaptive Multivariate Integration over Hypercubes
+Summary:          Penalized Quantile Regression
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-quantreg 
+Requires:         R-methods 
 
 %description
-R wrappers around the cubature C library of Steven G. Johnson for adaptive
-multivariate integration over hypercubes and the Cuba C library of Thomas
-Hahn for deterministic and Monte Carlo integration. Scalar and vector
-interfaces for cubature and Cuba routines are provided; the vector
-interfaces are highly recommended as demonstrated in the package vignette.
+Performs penalized quantile regression for LASSO, SCAD and MCP functions
+including group penalties. Provides a function that automatically
+generates lambdas and evaluates different models with cross validation or
+BIC, including a large p version of BIC.
 
 %prep
 %setup -q -c -n %{packname}

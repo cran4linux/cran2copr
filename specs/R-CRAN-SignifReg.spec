@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SignifReg
-%global packver   4.2
+%global packver   4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2
+Version:          4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Consistent Significance Controlled Variable Selection in Generalized Linear Regression
 
@@ -25,7 +25,8 @@ different directions (forward, backward, stepwise) based on diverse
 criteria (AIC, BIC, adjusted r-square, PRESS, or p-value). The algorithm
 selects a final model with only significant variables defined as those
 with significant p-values after multiple testing correction such as
-Bonferroni, False Discovery Rate, etc.
+Bonferroni, False Discovery Rate, etc. See Zambom and Kim (2018)
+<doi:10.1002/sta4.210>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  IDSL.MXP
-%global packver   1.1
+%global packname  spldv
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          mzML and mzXML Parser
+Summary:          Spatial Models for Limited Dependent Variables
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,14 +16,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-base64enc 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-base64enc 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-maxLik 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-sphet 
+BuildRequires:    R-CRAN-memisc 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-maxLik 
+Requires:         R-stats 
+Requires:         R-CRAN-sphet 
+Requires:         R-CRAN-memisc 
+Requires:         R-CRAN-car 
+Requires:         R-methods 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-MASS 
 
 %description
-A tiny parser to extract mass spectra data and metadata from mzML and
-mzXML files.
+The current version of this package estimates spatial autoregressive
+models for binary dependent variables using GMM estimators. It supports
+one-step (Pinkse and Slade, 1998) <doi:10.1016/S0304-4076(97)00097-3> and
+two-step GMM estimator along with the linearized GMM estimator proposed by
+Klier and McMillen (2008) <doi:10.1198/073500107000000188>. It also allows
+for either Probit or Logit model and compute the average marginal effects.
 
 %prep
 %setup -q -c -n %{packname}

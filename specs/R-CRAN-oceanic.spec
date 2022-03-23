@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  oceanic
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Location Identify Tool
 
@@ -36,8 +36,9 @@ Requires:         R-CRAN-spData
 %description
 Determine the sea area where the fishing boat operates. The latitude and
 longitude of geographic coordinates are used to match oceanic areas and
-economic sea areas. You can plot the eez map with eezplot function. Please
-refer to Flanders Marine Institute (2020) <doi:10.14284/403>.
+economic sea areas. You can plot the distribution map with dotplot
+function. Please refer to Flanders Marine Institute (2020)
+<doi:10.14284/403>.
 
 %prep
 %setup -q -c -n %{packname}

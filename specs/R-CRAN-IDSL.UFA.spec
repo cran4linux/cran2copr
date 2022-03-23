@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  IDSL.MXP
+%global packname  IDSL.UFA
 %global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          mzML and mzXML Parser
+Summary:          United Formula Annotation (UFA) for HRMS Data Processing
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,14 +16,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-IDSL.IPA >= 1.4
+BuildRequires:    R-CRAN-IDSL.MXP 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-stats 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-GA 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+Requires:         R-CRAN-IDSL.IPA >= 1.4
+Requires:         R-CRAN-IDSL.MXP 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-base64enc 
+Requires:         R-stats 
+Requires:         R-grid 
+Requires:         R-CRAN-readxl 
+Requires:         R-parallel 
+Requires:         R-CRAN-doSNOW 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-GA 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
 
 %description
-A tiny parser to extract mass spectra data and metadata from mzML and
-mzXML files.
+A pipeline to annotate peaklists from the IDSL.IPA package with molecular
+formula using an isotopic profile matching approach.
 
 %prep
 %setup -q -c -n %{packname}

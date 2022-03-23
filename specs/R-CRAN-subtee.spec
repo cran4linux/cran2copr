@@ -1,35 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  limonaid
-%global packver   0.1.3
+%global packname  subtee
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Working with 'LimeSurvey' Surveys and Responses
+Summary:          Subgroup Treatment Effect Estimation in Clinical Trials
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 2.4
-BuildRequires:    R-CRAN-jsonlite >= 1.7
-BuildRequires:    R-CRAN-httr >= 1.4
-Requires:         R-CRAN-R6 >= 2.4
-Requires:         R-CRAN-jsonlite >= 1.7
-Requires:         R-CRAN-httr >= 1.4
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-matrixStats 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-matrixStats 
 
 %description
-'LimeSurvey' is Free/Libre Open Source Software for the development and
-administrations of online studies, using sophisticated tailoring
-capabilities to support multiple study designs (see
-<https://www.limesurvey.org>). This package supports programmatic creation
-of surveys that can then be imported into 'LimeSurvey', as well as user
-friendly import of responses from 'LimeSurvey' studies.
+Naive and adjusted treatment effect estimation for subgroups. Model
+averaging (Bornkamp et.al, 2016 <doi:10.1002/pst.1796>) and bagging
+(Rosenkranz, 2016 <doi:10.1002/bimj.201500147>) are proposed to address
+the problem of selection bias in treatment effect estimates for subgroups.
+The package can be used for all commonly encountered type of outcomes in
+clinical trials (continuous, binary, survival, count). Additional
+functions are provided to build the subgroup variables to be used and to
+plot the results using forest plots. For details, see Ballarini et.al.
+(2021) <doi:10.18637/jss.v099.i14>.
 
 %prep
 %setup -q -c -n %{packname}
