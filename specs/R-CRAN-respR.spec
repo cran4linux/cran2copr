@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  respR
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import, Process, Analyse, and Calculate Rates from Respirometry Data
 
@@ -24,7 +24,6 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-marelac 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-roll 
@@ -41,7 +40,6 @@ Requires:         R-grDevices
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-marelac 
-Requires:         R-methods 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-roll 

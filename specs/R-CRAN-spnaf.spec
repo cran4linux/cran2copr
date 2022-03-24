@@ -1,46 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  officer
-%global packver   0.4.2
+%global packname  spnaf
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulation of Microsoft Word and PowerPoint Documents
+Summary:          Spatial Network Autocorrelation for Flow Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-zip >= 2.1.0
-BuildRequires:    R-CRAN-xml2 >= 1.1.0
-BuildRequires:    R-CRAN-uuid >= 0.1.4
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-zip >= 2.1.0
-Requires:         R-CRAN-xml2 >= 1.1.0
-Requires:         R-CRAN-uuid >= 0.1.4
-Requires:         R-CRAN-R6 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tmap 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tmap 
 
 %description
-Access and manipulate 'Microsoft Word' and 'Microsoft PowerPoint'
-documents from R. The package focuses on tabular and graphical reporting
-from R; it also provides two functions that let users get document content
-into data objects. A set of functions lets add and remove images, tables
-and paragraphs of text in new or existing documents. The package does not
-require any installation of Microsoft products to be able to write
-Microsoft files.
+Identify statistically significant flow clusters using the local spatial
+network autocorrelation statistic G_ij* proposed by 'Berglund' and
+'Karlström' (1999) <doi:10.1007/s101090050013>. The metric, an extended
+statistic of 'Getis/Ord' G ('Getis' and 'Ord' 1992)
+<doi:10.1111/j.1538-4632.1992.tb00261.x>, detects a group of flows having
+similar traits in terms of directionality. You provide OD data and the
+associated polygon to get results with several parameters, some of which
+are defined by spdep package.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spaMM
-%global packver   3.10.0
+%global packver   3.11.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.10.0
+Version:          3.11.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mixed-Effect Models, with or without Spatial Random Effects
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildRequires:    R-CRAN-gmp >= 0.6.0
+BuildRequires:    R-CRAN-geometry >= 0.4.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.10
 BuildRequires:    R-methods 
@@ -32,6 +33,7 @@ BuildRequires:    R-CRAN-crayon
 BuildRequires:    R-CRAN-ROI 
 BuildRequires:    R-CRAN-boot 
 Requires:         R-CRAN-gmp >= 0.6.0
+Requires:         R-CRAN-geometry >= 0.4.0
 Requires:         R-CRAN-Rcpp >= 0.12.10
 Requires:         R-methods 
 Requires:         R-stats 

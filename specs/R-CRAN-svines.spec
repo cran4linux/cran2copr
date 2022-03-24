@@ -1,46 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  officer
-%global packver   0.4.2
+%global packname  svines
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulation of Microsoft Word and PowerPoint Documents
+Summary:          Stationary Vine Copula Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-zip >= 2.1.0
-BuildRequires:    R-CRAN-xml2 >= 1.1.0
-BuildRequires:    R-CRAN-uuid >= 0.1.4
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-zip >= 2.1.0
-Requires:         R-CRAN-xml2 >= 1.1.0
-Requires:         R-CRAN-uuid >= 0.1.4
-Requires:         R-CRAN-R6 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-rvinecopulib >= 0.6.1.1.2
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-univariateML 
+BuildRequires:    R-CRAN-wdm 
+BuildRequires:    R-CRAN-fGarch 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-RcppThread 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-rvinecopulib >= 0.6.1.1.2
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-univariateML 
+Requires:         R-CRAN-wdm 
+Requires:         R-CRAN-fGarch 
 
 %description
-Access and manipulate 'Microsoft Word' and 'Microsoft PowerPoint'
-documents from R. The package focuses on tabular and graphical reporting
-from R; it also provides two functions that let users get document content
-into data objects. A set of functions lets add and remove images, tables
-and paragraphs of text in new or existing documents. The package does not
-require any installation of Microsoft products to be able to write
-Microsoft files.
+Provides functionality to fit and simulate from stationary vine copula
+models for time series, see Nagler et al. (2022)
+<doi:10.1016/j.jeconom.2021.11.015>.
 
 %prep
 %setup -q -c -n %{packname}

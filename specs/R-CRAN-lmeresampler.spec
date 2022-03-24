@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DVHmetrics
-%global packver   0.4.2
+%global packname  lmeresampler
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyze Dose-Volume Histograms and Check Constraints
+Summary:          Bootstrap Methods for Nested Linear Mixed-Effects Models
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,31 +16,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 0.8.0
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-nlmeU 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-KernSmooth 
+BuildRequires:    R-CRAN-ggdist 
+BuildRequires:    R-CRAN-HLMdiag 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr >= 0.8.0
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-nlmeU 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-KernSmooth 
+Requires:         R-CRAN-ggdist 
+Requires:         R-CRAN-HLMdiag 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-forcats 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-statmod 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
 
 %description
-Functionality for analyzing dose-volume histograms (DVH) in radiation
-oncology: Read DVH text files, calculate DVH metrics as well as
-generalized equivalent uniform dose (gEUD), biologically effective dose
-(BED), equivalent dose in 2 Gy fractions (EQD2), normal tissue
-complication probability (NTCP), and tumor control probability (TCP). Show
-DVH diagrams, check and visualize quality assurance constraints for the
-DVH. Includes web-based graphical user interface.
+Bootstrap routines for nested linear mixed effects models fit using either
+'lme4' or 'nlme'. The provided 'bootstrap()' function implements the
+parametric, residual, cases, random effect block (REB), and wild bootstrap
+procedures. An overview of these procedures can be found in Van der Leeden
+et al. (2008) <doi: 10.1007/978-0-387-73186-5_11>, Carpenter, Goldstein &
+Rasbash (2003) <doi: 10.1111/1467-9876.00415>, and Chambers & Chandra
+(2013) <doi: 10.1080/10618600.2012.681216>.
 
 %prep
 %setup -q -c -n %{packname}

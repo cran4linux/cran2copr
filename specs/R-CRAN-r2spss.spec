@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  r2spss
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Format R Output to Look Like SPSS
 
@@ -18,13 +18,11 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-car 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-graphics 
-Requires:         R-grDevices 
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-CRAN-car 

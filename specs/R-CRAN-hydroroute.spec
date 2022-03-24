@@ -1,63 +1,56 @@
 %global __brp_check_rpaths %{nil}
-%global packname  moodleR
-%global packver   1.0.0
+%global packname  hydroroute
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions to Work with 'Moodle' Data
+Summary:          Trace Longitudinal Hydropeaking Waves
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggpmisc 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tidytext 
-BuildRequires:    R-CRAN-ggwordcloud 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-hydropeak 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-RMariaDB 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-config 
-BuildRequires:    R-CRAN-anytime 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-usethis 
-BuildRequires:    R-CRAN-RPostgres 
-Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggpmisc 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tidytext 
-Requires:         R-CRAN-ggwordcloud 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-hydropeak 
+Requires:         R-CRAN-lubridate 
+Requires:         R-parallel 
+Requires:         R-CRAN-reshape2 
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-RMariaDB 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-config 
-Requires:         R-CRAN-anytime 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-usethis 
-Requires:         R-CRAN-RPostgres 
 
 %description
-A collection of functions to connect to a 'Moodle' database, cache
-relevant tables locally and generate learning analytics. 'Moodle' is an
-open source Learning Management System (LMS) developed by MoodleHQ. For
-more information about Moodle, visit <https://moodle.org>.
+Implements an empirical approach referred to as PeakTrace which uses
+multiple hydrographs to detect and follow hydropower plant-specific
+hydropeaking waves at the sub-catchment scale and to describe how
+hydropeaking flow parameters change along the longitudinal flow path. The
+method is based on the identification of associated events and uses
+(linear) regression models to describe translation and retention processes
+between neighboring hydrographs. Several regression model results are
+combined to arrive at a power plant-specific model. The approach is
+proposed and validated in Greimel et al. (2022, accepted with minor
+revisions). The identification of associated events is based on the event
+detection implemented in 'hydropeak'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,46 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  officer
-%global packver   0.4.2
+%global packname  DBR
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulation of Microsoft Word and PowerPoint Documents
+Summary:          Discrete Beta Regression
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-zip >= 2.1.0
-BuildRequires:    R-CRAN-xml2 >= 1.1.0
-BuildRequires:    R-CRAN-uuid >= 0.1.4
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-zip >= 2.1.0
-Requires:         R-CRAN-xml2 >= 1.1.0
-Requires:         R-CRAN-uuid >= 0.1.4
-Requires:         R-CRAN-R6 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-MfUSampler 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-MfUSampler 
+Requires:         R-methods 
 
 %description
-Access and manipulate 'Microsoft Word' and 'Microsoft PowerPoint'
-documents from R. The package focuses on tabular and graphical reporting
-from R; it also provides two functions that let users get document content
-into data objects. A set of functions lets add and remove images, tables
-and paragraphs of text in new or existing documents. The package does not
-require any installation of Microsoft products to be able to write
-Microsoft files.
+Bayesian Beta Regression, adapted for bounded discrete responses, commonly
+seen in survey responses. Estimation is done via Markov Chain Monte Carlo
+sampling, using a Gibbs wrapper around univariate slice sampler (Neal
+(2003) <DOI:10.1214/aos/1056562461>), as implemented in the R package
+MfUSampler (Mahani and Sharabiani (2017) <DOI: 10.18637/jss.v078.c01>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,46 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  officer
-%global packver   0.4.2
+%global packname  scquantum
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulation of Microsoft Word and PowerPoint Documents
+Summary:          Estimate Ploidy and Absolute Copy Number from Single Cell Sequencing
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-zip >= 2.1.0
-BuildRequires:    R-CRAN-xml2 >= 1.1.0
-BuildRequires:    R-CRAN-uuid >= 0.1.4
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-zip >= 2.1.0
-Requires:         R-CRAN-xml2 >= 1.1.0
-Requires:         R-CRAN-uuid >= 0.1.4
-Requires:         R-CRAN-R6 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-utils 
 
 %description
-Access and manipulate 'Microsoft Word' and 'Microsoft PowerPoint'
-documents from R. The package focuses on tabular and graphical reporting
-from R; it also provides two functions that let users get document content
-into data objects. A set of functions lets add and remove images, tables
-and paragraphs of text in new or existing documents. The package does not
-require any installation of Microsoft products to be able to write
-Microsoft files.
+Given bincount data from single-cell copy number profiling (segmented or
+unsegmented), estimates ploidy, and uses the ploidy estimate to scale the
+data to absolute copy numbers. Uses the modular quantogram proposed by
+Kendall (1986) <doi:10.1002/0471667196.ess2129.pub2>, modified by
+weighting segments according to confidence, and quantifying confidence in
+the estimate using a theoretical quantogram. Includes optional fused-lasso
+segmentation with the algorithm in Johnson (2013)
+<doi:10.1080/10618600.2012.681238>, using the implementation from glmgen
+by Arnold, Sadhanala, and Tibshirani.
 
 %prep
 %setup -q -c -n %{packname}

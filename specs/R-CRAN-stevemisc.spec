@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  stevemisc
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Steve's Miscellaneous Functions
 
@@ -19,7 +19,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-broom.mixed 
 BuildRequires:    R-CRAN-labelled 
 BuildRequires:    R-CRAN-arm 
 BuildRequires:    R-parallel 
@@ -34,10 +33,10 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-bib2df 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-stats 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-broom.mixed 
 Requires:         R-CRAN-labelled 
 Requires:         R-CRAN-arm 
 Requires:         R-parallel 
@@ -52,6 +51,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-bib2df 
 
 %description
 These are miscellaneous functions that I find useful for my research and

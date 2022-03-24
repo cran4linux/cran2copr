@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Compositional
-%global packver   5.4
+%global packver   5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.4
+Version:          5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 
@@ -91,7 +91,10 @@ without zero values. Journal of Data Science, 17(1): 219--238.
 A folded model for compositional data analysis. Australian and New Zealand
 Journal of Statistics, 62(2):249--277. <doi:10.1111/anzs.12289>. j)
 Tsagris M., Alenazi A. and Stewart C. (2021). Non-parametric regression
-models for compositional data. <arXiv:2002.05137>. We further include
+models for compositional data. <arXiv:2002.05137>. k) Alenazi A. (2021).
+Alenazi, A. (2021). A review of compositional data analysis and recent
+advances. Communications in Statistics-Theory and Methods (Accepted for
+publication). <doi:10.1080/03610926.2021.2014890>. We further include
 functions for percentages (or proportions).
 
 %prep
