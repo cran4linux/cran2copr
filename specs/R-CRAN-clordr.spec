@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  clordr
-%global packver   1.6.0
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Composite Likelihood Inference and Diagnostics for Replicated Spatial Ordinal Data
 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-pbivnorm >= 0.6.0
 BuildRequires:    R-parallel 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ttutils 
 Requires:         R-CRAN-MASS >= 7.3.45
 Requires:         R-CRAN-rootSolve >= 1.7
 Requires:         R-CRAN-foreach >= 1.2.0
@@ -35,7 +34,6 @@ Requires:         R-CRAN-pbivnorm >= 0.6.0
 Requires:         R-parallel 
 Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-CRAN-ttutils 
 
 %description
 Composite likelihood parameter estimate and asymptotic covariance matrix
@@ -59,6 +57,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

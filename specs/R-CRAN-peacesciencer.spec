@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  peacesciencer
-%global packver   0.7.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Various Tools and Data for Quantitative Peace Science
+Summary:          Tools and Data for Quantitative Peace Science Research
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,7 +17,6 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-stevemisc >= 1.3.0
-BuildRequires:    R-CRAN-bib2df 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-geosphere 
@@ -26,7 +25,6 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-stevemisc >= 1.3.0
-Requires:         R-CRAN-bib2df 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-geosphere 

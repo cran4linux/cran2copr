@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  hsrecombi
-%global packver   0.3.4
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of Recombination Rate and Maternal LD in Half-Sibs
 
@@ -40,10 +40,11 @@ can be considered. For parameter estimation, at least one sire has to be
 double heterozygous at the investigated pairs of SNPs. Based on
 recombination rates, genetic distances between markers can be estimated.
 Markers with unusually large recombination rate to markers in close
-proximity can be discarded in this derivation. *A pipeline is available at
-github* <https://github.com/wittenburg/hsrecombi> Hampel, Teuscher,
-Gomez-Raya, Doschoris, Wittenburg (2018) "Estimation of recombination rate
-and maternal linkage disequilibrium in half-sibs"
+proximity (i.e. putatively misplaced markers) shall be discarded in this
+derivation. A workflow description is attached as vignette. *A pipeline is
+available at GitHub* <https://github.com/wittenburg/hsrecombi> Hampel,
+Teuscher, Gomez-Raya, Doschoris, Wittenburg (2018) "Estimation of
+recombination rate and maternal linkage disequilibrium in half-sibs"
 <doi:10.3389/fgene.2018.00186>. Gomez-Raya (2012) "Maximum likelihood
 estimation of linkage disequilibrium in half-sib families"
 <doi:10.1534/genetics.111.137521>.
@@ -56,6 +57,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,50 +1,55 @@
 %global __brp_check_rpaths %{nil}
-%global packname  PNSIBGE
-%global packver   0.1.7
+%global packname  finetune
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Downloading, Reading and Analyzing PNS Microdata
+Summary:          Additional Functions for Model Tuning
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
+BuildRequires:    R-CRAN-workflows >= 0.2.6
+BuildRequires:    R-CRAN-tune >= 0.2.0
+BuildRequires:    R-CRAN-dials >= 0.1.0
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-projmgr 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-timeDate 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-workflows >= 0.2.6
+Requires:         R-CRAN-tune >= 0.2.0
+Requires:         R-CRAN-dials >= 0.1.0
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-projmgr 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-survey 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-timeDate 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
+Requires:         R-CRAN-vctrs 
 
 %description
-Provides tools for downloading, reading and analyzing the PNS, a household
-survey from Brazilian Institute of Geography and Statistics - IBGE. The
-data must be downloaded from the official website
-<https://www.ibge.gov.br/>. Further analysis must be made using package
-'survey'.
+The ability to tune models is important. 'finetune' enhances the 'tune'
+package by providing more specialized methods for finding reasonable
+values of model tuning parameters.  Two racing methods described by Kuhn
+(2014) <arXiv:1405.6974> are included. An iterative search method using
+generalized simulated annealing (Bohachevsky, Johnson and Stein, 1986)
+<doi:10.1080/00401706.1986.10488128> is also included.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  segmented
-%global packver   1.4-1
+%global packname  LocKer
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regression Models with Break-Points / Change-Points Estimation
+Summary:          Locally Sparse Estimator of Generalized Varying Coefficient Model for Asynchronous Longitudinal Data
 
-License:          GPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,18 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-fda 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-splines 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-fda 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-psych 
+Requires:         R-splines 
+Requires:         R-stats 
 
 %description
-Given a regression model, segmented `updates' it by adding one or more
-segmented (i.e., piece-wise linear) relationships. Several variables with
-multiple breakpoints are allowed. The estimation method is discussed in
-Muggeo (2003, <doi:10.1002/sim.1545>) and illustrated in Muggeo (2008,
-<https://www.r-project.org/doc/Rnews/Rnews_2008-1.pdf>). An approach for
-hypothesis testing is presented in Muggeo (2016,
-<doi:10.1080/00949655.2016.1149855>), and interval estimation for the
-breakpoint is discussed in Muggeo (2017, <doi:10.1111/anzs.12200>).
+Locally sparse estimator of generalized varying coefficient model for
+asynchronous longitudinal data by kernel-weighted estimating equation.
 
 %prep
 %setup -q -c -n %{packname}

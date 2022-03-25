@@ -1,33 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  segmented
-%global packver   1.4-1
+%global packname  ag5Tools
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regression Models with Break-Points / Change-Points Estimation
+Summary:          Toolbox for Downloading and Extracting Copernicus AgERA5 Data
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-fs 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-fs 
 
 %description
-Given a regression model, segmented `updates' it by adding one or more
-segmented (i.e., piece-wise linear) relationships. Several variables with
-multiple breakpoints are allowed. The estimation method is discussed in
-Muggeo (2003, <doi:10.1002/sim.1545>) and illustrated in Muggeo (2008,
-<https://www.r-project.org/doc/Rnews/Rnews_2008-1.pdf>). An approach for
-hypothesis testing is presented in Muggeo (2016,
-<doi:10.1080/00949655.2016.1149855>), and interval estimation for the
-breakpoint is discussed in Muggeo (2017, <doi:10.1111/anzs.12200>).
+Tools for downloading and extracting data from the Copernicus
+"Agrometeorological indicators from 1979 to present derived from
+reanalysis"
+<https://cds.climate.copernicus.eu/cdsapp#!/dataset/sis-agrometeorological-indicators?tab=overview>
+(AgERA5).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  segmented
-%global packver   1.4-1
+%global packname  cplots
+%global packver   0.5-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regression Models with Break-Points / Change-Points Estimation
+Summary:          Plots for Circular Data
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,18 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-circular 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-circular 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-Given a regression model, segmented `updates' it by adding one or more
-segmented (i.e., piece-wise linear) relationships. Several variables with
-multiple breakpoints are allowed. The estimation method is discussed in
-Muggeo (2003, <doi:10.1002/sim.1545>) and illustrated in Muggeo (2008,
-<https://www.r-project.org/doc/Rnews/Rnews_2008-1.pdf>). An approach for
-hypothesis testing is presented in Muggeo (2016,
-<doi:10.1080/00949655.2016.1149855>), and interval estimation for the
-breakpoint is discussed in Muggeo (2017, <doi:10.1111/anzs.12200>).
+Provides functions to produce some circular plots for circular data, in a
+height- or area-proportional manner. They include bar plots, smooth
+density plots, stacked dot plots, histograms, multi-class stacked smooth
+density plots, and multi-class stacked histograms.
 
 %prep
 %setup -q -c -n %{packname}

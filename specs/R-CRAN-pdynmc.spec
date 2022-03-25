@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pdynmc
-%global packver   0.9.6
+%global packver   0.9.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          0.9.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Moment Condition Based Estimation of Linear Dynamic Panel Data Models
 
@@ -22,14 +22,14 @@ BuildRequires:    R-CRAN-optimx >= 2018.07.10
 BuildRequires:    R-CRAN-Matrix >= 1.2.17
 BuildRequires:    R-CRAN-data.table >= 1.12.2
 BuildRequires:    R-CRAN-qlcMatrix >= 0.9.7
-BuildRequires:    R-CRAN-Rdpack >= 0.11.0
+BuildRequires:    R-CRAN-Rdpack >= 0.11
 Requires:         R-CRAN-MASS >= 7.3.51.4
 Requires:         R-stats >= 3.6.0
 Requires:         R-CRAN-optimx >= 2018.07.10
 Requires:         R-CRAN-Matrix >= 1.2.17
 Requires:         R-CRAN-data.table >= 1.12.2
 Requires:         R-CRAN-qlcMatrix >= 0.9.7
-Requires:         R-CRAN-Rdpack >= 0.11.0
+Requires:         R-CRAN-Rdpack >= 0.11
 
 %description
 Linear dynamic panel data modeling based on linear and nonlinear moment
@@ -40,17 +40,19 @@ conditions as proposed by Holtz-Eakin, Newey, and Rosen (1988)
 relies on the Generalized Method of Moments (GMM), numerical optimization
 (when nonlinear moment conditions are employed) and the computation of
 closed form solutions (when estimation is based on linear moment
-conditions). One-step, two-step and iterated estimation is available. of
-closed form solutions. For inference and specification testing, Windmeijer
-(2005) <doi:10.1016/j.jeconom.2004.02.005> and doubly corrected standard
-errors (Hwang, Kang, Lee, 2021 <doi:10.1016/j.jeconom.2020.09.010>) are
+conditions). One-step, two-step and iterated estimation is available. For
+inference and specification testing, Windmeijer (2005)
+<doi:10.1016/j.jeconom.2004.02.005> and doubly corrected standard errors
+(Hwang, Kang, Lee, 2021 <doi:10.1016/j.jeconom.2020.09.010>) are
 available. Additionally, serial correlation tests, tests for
 overidentification, and Wald tests are provided. Functions for visualizing
 panel data structures and modeling results obtained from GMM estimation
 are also available. The plot methods include functions to plot unbalanced
 panel structure, coefficient ranges and coefficient paths across GMM
 iterations (the latter is implemented according to the plot shown in
-Hansen and Lee, 2021 <doi:10.3982/ECTA16274>).
+Hansen and Lee, 2021 <doi:10.3982/ECTA16274>). For a more detailed
+description of the functionality, please see Fritsch, Pua, Schnurbus
+(2021) <doi:10.32614/RJ-2021-035>.
 
 %prep
 %setup -q -c -n %{packname}

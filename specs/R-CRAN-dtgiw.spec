@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dtgiw
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discrete Transmuted Generalized Inverse Weibull Distribution
 
@@ -17,7 +17,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
 Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
 The Discrete Transmuted Generalized Inverse Weibull (DTGIW) distribution

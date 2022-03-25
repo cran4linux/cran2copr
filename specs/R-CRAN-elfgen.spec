@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  elfgen
-%global packver   2.2.3
+%global packver   2.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.3
+Version:          2.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ecological Limit Function Model Generation, Analysis, and Visualization using 'ggplot2' and Statistical Methods
 
@@ -25,6 +25,8 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-testit 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sqldf 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-httr 
 Requires:         R-utils 
 Requires:         R-CRAN-RJSONIO 
 Requires:         R-CRAN-stringr 
@@ -34,6 +36,8 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-testit 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sqldf 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-httr 
 
 %description
 A toolset for generating Ecological Limit Function (ELF) models and

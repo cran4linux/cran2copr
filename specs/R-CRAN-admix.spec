@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  admix
-%global packver   0.3.2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Package Admix for Admixture (aka Contamination) Models
 
@@ -48,12 +48,12 @@ components must belong to the same family). Estimation methods depend on
 the assumptions made on the unknown component density (see Bordes and
 Vandekerkhove (2010) <doi:10.3103/S1066530710010023>; Patra and Sen (2016)
 <doi:10.1111/rssb.12148>); Milhaud, Pommeret, Salhi and Vandekerkhove
-(2021) <https://hal.archives-ouvertes.fr/hal-03201760>). In practice, one
-can estimate both the mixture weight and the unknown component density in
-a wide variety of frameworks. On top of that, hypothesis tests can be
-performed in one and two-samples contexts to test the unknown component
-density. Finally, clustering of unknown mixture components is also
-feasible in a K-samples setting.
+(2021) <doi:10.1016/j.jspi.2021.05.010>). In practice, one can estimate
+both the mixture weight and the unknown component density in a wide
+variety of frameworks. On top of that, hypothesis tests can be performed
+in one and two-samples contexts to test the unknown component density.
+Finally, clustering of unknown mixture components is also feasible in a
+K-samples setting.
 
 %prep
 %setup -q -c -n %{packname}
@@ -63,6 +63,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

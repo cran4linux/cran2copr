@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  segmented
-%global packver   1.4-1
+%global packname  sistmr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regression Models with Break-Points / Change-Points Estimation
+Summary:          A Collection of Utility Function from the Inserm/Inria SISTM Team
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,18 +16,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-BlandAltmanLeh 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggbeeswarm 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-BlandAltmanLeh 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggbeeswarm 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-stats 
 
 %description
-Given a regression model, segmented `updates' it by adding one or more
-segmented (i.e., piece-wise linear) relationships. Several variables with
-multiple breakpoints are allowed. The estimation method is discussed in
-Muggeo (2003, <doi:10.1002/sim.1545>) and illustrated in Muggeo (2008,
-<https://www.r-project.org/doc/Rnews/Rnews_2008-1.pdf>). An approach for
-hypothesis testing is presented in Muggeo (2016,
-<doi:10.1080/00949655.2016.1149855>), and interval estimation for the
-breakpoint is discussed in Muggeo (2017, <doi:10.1111/anzs.12200>).
+Functions common to members of the SISTM team.
 
 %prep
 %setup -q -c -n %{packname}

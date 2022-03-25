@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  envi
-%global packver   0.1.11
+%global packver   0.1.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.11
+Version:          0.1.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Environmental Interpolation using Spatial Kernel Density Estimation
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-future
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pls 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-rgeos 
@@ -33,7 +34,6 @@ BuildRequires:    R-CRAN-ROCR
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-sparr 
 BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.random 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-concaveman 
 Requires:         R-CRAN-cvAUC 
@@ -45,6 +45,7 @@ Requires:         R-CRAN-future
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-iterators 
+Requires:         R-methods 
 Requires:         R-CRAN-pls 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-rgeos 
@@ -52,7 +53,6 @@ Requires:         R-CRAN-ROCR
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-sparr 
 Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.random 
 Requires:         R-stats 
 
 %description
