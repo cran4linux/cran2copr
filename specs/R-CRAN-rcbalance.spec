@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rcbalance
-%global packver   1.8.6
+%global packver   1.8.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.6
+Version:          1.8.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Large, Sparse Optimal Matching with Refined Covariate Balance
 
@@ -18,8 +18,10 @@ Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-rlemon 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-rlemon 
 
 %description
 Tools for large, sparse optimal matching of treated units and control
@@ -28,9 +30,10 @@ balance constraints, which include fine and near-fine balance as special
 cases.  Matches are optimal in the sense that they are computed as
 solutions to network optimization problems rather than greedy algorithms.
 See Pimentel, et al.(2015) <doi:10.1080/01621459.2014.997879> and Pimentel
-(2016), Obs. Studies 2(1):4-23.  The optmatch package, which is useful for
-running many of the provided functions, may be downloaded from Github at
-<https://github.com/markmfredrickson/optmatch> if not available on CRAN.
+(2016), Obs. Studies 2(1):4-23. The rrelaxiv package, which provides an
+alternative solver for the underlying network flow problems, carries an
+academic license and is not available on CRAN, but may be downloaded from
+Github at <https://github.com/josherrickson/rrelaxiv/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  uniset
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Settings File
 
@@ -16,7 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.2
 Requires:         R-core >= 3.3.2
 BuildArch:        noarch
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-easycsv 
+Requires:         R-methods 
 Requires:         R-CRAN-easycsv 
 
 %description

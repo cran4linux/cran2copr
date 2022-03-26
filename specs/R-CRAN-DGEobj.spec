@@ -1,34 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rsoi
-%global packver   0.5.5
+%global packname  DGEobj
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Import Various Northern and Southern Hemisphere Climate Indices
+Summary:          Differential Gene Expression (DGE) Analysis Results Data Object
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-memoise 
-Requires:         R-stats 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-stringr 
 Requires:         R-utils 
 
 %description
-Downloads Southern Oscillation Index, Oceanic Nino Index, North Pacific
-Gyre Oscillation data, North Atlantic Oscillation and Arctic Oscillation.
-Data sources are described in the help files for each function.
+Provides a flexible container to manage and annotate Differential Gene
+Expression (DGE) analysis results (Smythe et. al (2015)
+<doi:10.1093/nar/gkv007>). The DGEobj has data slots for row (gene), col
+(samples), assays (matrix n-rows by m-samples dimensions) and metadata
+(not keyed to row, col, or assays). A set of accessory functions to
+deposit, query and retrieve subsets of a data workflow has been provided.
+Attributes are used to capture metadata such as species and gene model,
+including reproducibility information such that a 3rd party can access a
+DGEobj history to see how each data object was created or modified.  Since
+the DGEobj is customizable and extensible it is not limited to RNA-seq
+analysis types of workflows -- it can accommodate nearly any data analysis
+workflow that starts from a matrix of assays (rows) by samples (columns).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  httk
-%global packver   2.0.4
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Throughput Toxicokinetics
 
@@ -27,6 +27,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-deSolve 
 Requires:         R-CRAN-msm 
 Requires:         R-CRAN-data.table 
@@ -39,12 +40,13 @@ Requires:         R-utils
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
 Requires:         R-methods 
+Requires:         R-CRAN-Rdpack 
 
 %description
 Generic models and chemical-specific data for simulation and statistical
 analysis of chemical toxicokinetics ("TK") as described by Pearce et al.
 (2017) <doi:10.18637/jss.v079.i04>. Chemical-specific in vitro data have
-been obtained from relatively high throughput experiments. Both
+been obtained from relatively high-throughput experiments. Both
 physiologically-based ("PBTK") and empirical (for example, one
 compartment) "TK" models can be parameterized with the data provided for
 thousands of chemicals, multiple exposure routes, and various species. The
@@ -55,7 +57,7 @@ et al., 2017 <doi:10.1016/j.envint.2017.06.004>) and propagating parameter
 uncertainty. Calibrated methods are included for predicting tissue:plasma
 partition coefficients and volume of distribution (Pearce et al., 2017
 <doi:10.1007/s10928-017-9548-7>). These functions and data provide a set
-of tools for in vitro-in vivo extrapolation ("IVIVE") of high throughput
+of tools for in vitro-in vivo extrapolation ("IVIVE") of high-throughput
 screening data (for example, Tox21, ToxCast) to real-world exposures via
 reverse dosimetry (also known as "RTK") (Wetmore et al., 2015
 <doi:10.1093/toxsci/kfv171>).
@@ -68,6 +70,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

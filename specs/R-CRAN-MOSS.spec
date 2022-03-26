@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MOSS
-%global packver   0.2.0
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Omic Integration via Sparse Singular Value Decomposition
 
@@ -34,7 +34,7 @@ combined omics, b. imposing sparsity constraints at both subjects (rows)
 and features (columns) levels using Elastic Net type of shrinkage, and c.
 allowing both linear and non-linear projections (via t-Stochastic Neighbor
 Embedding) of the omic data to detect clusters in very convoluted data
-(Gonzalez-Reymundez & Vazquez, 2020) <doi:10.1038/s41598-020-65119-5>.
+(Gonzalez-Reymundez et. al, 2022) <doi:10.1093/bioinformatics/btac179>.
 
 %prep
 %setup -q -c -n %{packname}

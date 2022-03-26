@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  greybox
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Toolbox for Model Building and Forecasting
 
@@ -19,7 +19,6 @@ BuildRequires:    R-CRAN-generics >= 0.1.2
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lamW 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-statmod 
@@ -31,7 +30,6 @@ Requires:         R-CRAN-generics >= 0.1.2
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-utils 
-Requires:         R-CRAN-lamW 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-statmod 

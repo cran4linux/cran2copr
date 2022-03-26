@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  catlearn
-%global packver   0.9
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Formal Psychological Models of Categorization and Learning
 

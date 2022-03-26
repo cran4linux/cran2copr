@@ -1,26 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ukbabynames
-%global packver   0.3.0
+%global packname  rcbsubset
+%global packver   1.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          UK Baby Names Data
+Summary:          Optimal Subset Matching with Refined Covariate Balance
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-rcbalance 
+BuildRequires:    R-CRAN-rlemon 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-rcbalance 
+Requires:         R-CRAN-rlemon 
 
 %description
-Full listing of UK baby names occurring more than three times per year
-between 1974 and 2020, and rankings of baby name popularity by decade from
-1904 to 1994.
+Tools for optimal subset matching of treated units and control units in
+observational studies, with support for refined covariate balance
+constraints, (including fine and near-fine balance as special cases). A
+close relative is the 'rcbalance' package.  See Pimentel, et al.(2015)
+<doi:10.1080/01621459.2014.997879> and Pimentel and Kelz (2020)
+<doi:10.1080/01621459.2020.1720693>. The rrelaxiv package, which provides
+an alternative solver for the underlying network flow problems, carries an
+academic license and is not available on CRAN, but may be downloaded from
+Github at <https://github.com/josherrickson/rrelaxiv/>.
 
 %prep
 %setup -q -c -n %{packname}
