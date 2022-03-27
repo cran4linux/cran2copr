@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  QWDAP
-%global packver   1.1.12
+%global packver   1.1.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.12
+Version:          1.1.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantum Walk-Based Data Analysis and Prediction
 
@@ -15,17 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-StepReg 
 BuildRequires:    R-CRAN-MTS 
 BuildRequires:    R-CRAN-pls 
 BuildRequires:    R-CRAN-CORElearn 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-StepReg 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-MTS 
 Requires:         R-CRAN-pls 
 Requires:         R-CRAN-CORElearn 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-methods 
 
 %description
 Modeling and predicting time series based on continuous time quantum.This

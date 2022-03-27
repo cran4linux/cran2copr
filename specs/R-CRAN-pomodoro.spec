@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pomodoro
-%global packver   3.3.0
+%global packver   3.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.0
+Version:          3.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Predictive Power of Linear and Tree Modeling
 
@@ -17,8 +17,6 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-gbm 
 BuildRequires:    R-stats 
@@ -26,8 +24,6 @@ BuildRequires:    R-CRAN-randomForest
 BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-ipred 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-gbm 
 Requires:         R-stats 

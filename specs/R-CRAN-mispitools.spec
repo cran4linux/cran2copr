@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mispitools
-%global packver   0.1.9
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Missing Person Identification Tools
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-DirichletReg 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-forrel 
 Requires:         R-CRAN-pedtools 
 Requires:         R-CRAN-plotly 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-DirichletReg 
 Requires:         R-stats 
+Requires:         R-CRAN-purrr 
 
 %description
 Open-source software for computing Likelihood ratios thresholds and error
