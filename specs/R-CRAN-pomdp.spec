@@ -1,32 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  selfmade
-%global packver   0.1
+%global packname  pomdp
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Selective Inference for Mixed and Additive Model Estimators
+Summary:          Infrastructure for Partially Observable Markov Decision Processes (POMDP)
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-mgcv 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-mgcv 
+BuildRequires:    R-CRAN-pomdpSolve 
+BuildRequires:    R-CRAN-igraph 
+Requires:         R-CRAN-pomdpSolve 
+Requires:         R-CRAN-igraph 
 
 %description
-Calculates Monte Carlo approximations to conduct selective inference for
-mixed and additive regression models after model selection as proposed by
-Ruegamer, Baumann and Greven (2020) <arXiv:2007.07930>.
+Provides the infrastructure to define and analyze the solutions of
+Partially Observable Markov Decision Process (POMDP) models. Interfaces
+for various exact and approximate solution algorithms are available
+including value iteration, point-based value iteration and SARSOP.
+Smallwood and Sondik (1973) <doi:10.1287/opre.21.5.1071>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -36,6 +36,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

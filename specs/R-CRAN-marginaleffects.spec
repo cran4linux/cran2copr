@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  marginaleffects
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Marginal Effects, Marginal Means, Predictions, and Contrasts
 
@@ -16,11 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.14.5
+BuildRequires:    R-CRAN-insight >= 0.16.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-insight >= 0.14.5
+Requires:         R-CRAN-insight >= 0.16.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-generics 
 Requires:         R-methods 

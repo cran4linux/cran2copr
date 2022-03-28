@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  distr6
-%global packver   1.6.8
+%global packver   1.6.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.8
+Version:          1.6.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Complete R6 Probability Distributions Interface
 
