@@ -1,32 +1,26 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tzdb
-%global packver   0.3.0
+%global packname  phreeqc
+%global packver   3.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          3.7.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time Zone Database Information
+Summary:          R Interface to Geochemical Modeling Software
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-cpp11 >= 0.4.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 
 %description
-Provides an up-to-date copy of the Internet Assigned Numbers Authority
-(IANA) Time Zone Database. It is updated periodically to reflect changes
-made by political bodies to time zone boundaries, UTC offsets, and
-daylight saving time rules. Additionally, this package provides a C++
-interface for working with the 'date' library. 'date' provides
-comprehensive support for working with dates and date-times, which this
-package exposes to make it easier for other R packages to utilize. Headers
-are provided for calendar specific calculations, along with a limited
-interface for time zone manipulations.
+A geochemical modeling program developed by the US Geological Survey that
+is designed to perform a wide variety of aqueous geochemical calculations,
+including speciation, batch-reaction, one-dimensional reactive-transport,
+and inverse geochemical calculations.
 
 %prep
 %setup -q -c -n %{packname}

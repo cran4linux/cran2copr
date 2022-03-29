@@ -1,32 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tzdb
-%global packver   0.3.0
+%global packname  SheetReader
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time Zone Database Information
+Summary:          Parse xlsx Files
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-cpp11 >= 0.4.2
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-Rcpp >= 1.0.5
 
 %description
-Provides an up-to-date copy of the Internet Assigned Numbers Authority
-(IANA) Time Zone Database. It is updated periodically to reflect changes
-made by political bodies to time zone boundaries, UTC offsets, and
-daylight saving time rules. Additionally, this package provides a C++
-interface for working with the 'date' library. 'date' provides
-comprehensive support for working with dates and date-times, which this
-package exposes to make it easier for other R packages to utilize. Headers
-are provided for calendar specific calculations, along with a limited
-interface for time zone manipulations.
+Uses C++ via the 'Rcpp' package to parse modern Excel files ('.xlsx').
+Memory usage is kept minimal by decompressing only parts of the file at a
+time, while employing multiple threads to achieve significant runtime
+reduction. Uses <https://github.com/richgel999/miniz>,
+<https://github.com/ebiggers/libdeflate>, and
+<https://github.com/lemire/fast_double_parser>.
 
 %prep
 %setup -q -c -n %{packname}

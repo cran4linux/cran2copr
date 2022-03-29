@@ -1,47 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  conText
-%global packver   1.0.0
+%global packname  bate
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'a la Carte' on Text (ConText) Embedding Regression
+Summary:          Computes Bias-Adjusted Treatment Effect
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-quanteda >= 3.0.0
-BuildRequires:    R-CRAN-fastDummies >= 1.6.3
-BuildRequires:    R-CRAN-reshape2 >= 1.4.4
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-Matrix >= 1.3.2
-BuildRequires:    R-CRAN-text2vec >= 0.6
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-quanteda >= 3.0.0
-Requires:         R-CRAN-fastDummies >= 1.6.3
-Requires:         R-CRAN-reshape2 >= 1.4.4
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-Matrix >= 1.3.2
-Requires:         R-CRAN-text2vec >= 0.6
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-concaveman 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-latex2exp 
+BuildRequires:    R-CRAN-vtable 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
+Requires:         R-CRAN-concaveman 
+Requires:         R-CRAN-dplyr 
+Requires:         R-stats 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-latex2exp 
+Requires:         R-CRAN-vtable 
 
 %description
-A fast, flexible and transparent framework to estimate context-specific
-word and short document embeddings using the 'a la carte' embeddings
-approach developed by Khodak et al. (2018) <arXiv:1805.05388> and evaluate
-hypotheses about covariate effects on embeddings using the regression
-framework developed by Rodriguez et al.
-(2021)<https://github.com/prodriguezsosa/EmbeddingRegression>.
+Compute bounds for the treatment effect after adjusting for the presence
+of omitted variables in linear econometric models, according to the method
+of Basu (2022) <arXiv:2203.12431>. You supply the data, identify the
+outcome and treatment variables and additional regressors. The main
+functions will compute bounds for the bias-adjusted treatment effect. Many
+plot functions allow easy visualization of results.
 
 %prep
 %setup -q -c -n %{packname}

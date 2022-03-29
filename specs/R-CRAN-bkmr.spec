@@ -1,32 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tzdb
-%global packver   0.3.0
+%global packname  bkmr
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time Zone Database Information
+Summary:          Bayesian Kernel Machine Regression
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-cpp11 >= 0.4.2
+BuildRequires:    R-devel >= 3.1.2
+Requires:         R-core >= 3.1.2
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-tmvtnorm 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-tmvtnorm 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides an up-to-date copy of the Internet Assigned Numbers Authority
-(IANA) Time Zone Database. It is updated periodically to reflect changes
-made by political bodies to time zone boundaries, UTC offsets, and
-daylight saving time rules. Additionally, this package provides a C++
-interface for working with the 'date' library. 'date' provides
-comprehensive support for working with dates and date-times, which this
-package exposes to make it easier for other R packages to utilize. Headers
-are provided for calendar specific calculations, along with a limited
-interface for time zone manipulations.
+Implementation of a statistical approach for estimating the joint health
+effects of multiple concurrent exposures, as described in Bobb et al
+(2015) <doi:10.1093/biostatistics/kxu058>.
 
 %prep
 %setup -q -c -n %{packname}

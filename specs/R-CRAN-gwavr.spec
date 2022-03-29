@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gwavr
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get Water Attributes Visually in R
 
@@ -33,6 +33,9 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-promises 
+BuildRequires:    R-CRAN-elevatr 
+BuildRequires:    R-CRAN-whitebox 
+BuildRequires:    R-CRAN-terra 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
@@ -50,6 +53,9 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-units 
 Requires:         R-utils 
 Requires:         R-CRAN-promises 
+Requires:         R-CRAN-elevatr 
+Requires:         R-CRAN-whitebox 
+Requires:         R-CRAN-terra 
 
 %description
 Provides methods to Get Water Attributes Visually in R ('gwavr'). This

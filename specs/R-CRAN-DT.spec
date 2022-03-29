@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DT
-%global packver   0.21
+%global packver   0.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.21
+Version:          0.22
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Wrapper of the JavaScript Library 'DataTables'
 

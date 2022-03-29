@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spqdep
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Testing for Structure of Qualitative Data in Spatial Cross Sectional Panels
+Summary:          Testing for Spatial Independence of Qualitative Data in Cross Section
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -32,9 +32,9 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.2
 BuildRequires:    R-CRAN-sf >= 0.9.3
 BuildRequires:    R-CRAN-broom >= 0.7.2
 BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-CRAN-bookdown >= 0.24
 BuildRequires:    R-CRAN-lwgeom >= 0.2.8
 BuildRequires:    R-CRAN-gt >= 0.2.2
+BuildRequires:    R-CRAN-rgeoda >= 0.0.8.6
 BuildRequires:    R-CRAN-rsample >= 0.0.8
 Requires:         R-CRAN-gtools >= 3.8.2
 Requires:         R-methods >= 3.5
@@ -52,16 +52,17 @@ Requires:         R-CRAN-dplyr >= 1.0.2
 Requires:         R-CRAN-sf >= 0.9.3
 Requires:         R-CRAN-broom >= 0.7.2
 Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-bookdown >= 0.24
 Requires:         R-CRAN-lwgeom >= 0.2.8
 Requires:         R-CRAN-gt >= 0.2.2
+Requires:         R-CRAN-rgeoda >= 0.0.8.6
 Requires:         R-CRAN-rsample >= 0.0.8
 
 %description
-Testing for spatial structure of qualitative data in cross section. The
-list of functions includes join-count test, Q test, scan test, similarity
-test and spatial runs test. The methodology of these models can be found
-in <doi:10.1007/s10109-009-0100-1> and <doi:10.1080/13658816.2011.586327>.
+Testing for Spatial Dependence of Qualitative Data in Cross Section. The
+list of functions includes join-count tests, Q test, spatial scan test,
+similarity test and spatial runs test. The methodology of these models can
+be found in <doi:10.1007/s10109-009-0100-1> and
+<doi:10.1080/13658816.2011.586327>.
 
 %prep
 %setup -q -c -n %{packname}

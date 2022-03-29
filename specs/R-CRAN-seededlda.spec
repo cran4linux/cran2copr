@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  seededlda
-%global packver   0.8.0
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Seeded-LDA for Topic Modeling
 
@@ -18,11 +18,13 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.7.600.1.0
 BuildRequires:    R-CRAN-quanteda > 2.0
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-proxyC 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppParallel 
 Requires:         R-CRAN-quanteda > 2.0
 Requires:         R-methods 
+Requires:         R-CRAN-proxyC 
 Requires:         R-CRAN-Matrix 
 
 %description

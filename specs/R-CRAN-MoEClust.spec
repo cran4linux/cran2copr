@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MoEClust
-%global packver   1.4.2
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gaussian Parsimonious Clustering Models with Covariates and a Noise Component
 

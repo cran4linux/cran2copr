@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  PRSim
-%global packver   1.3-1
+%global packver   1.4-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stochastic Simulation of Streamflow Time Series using Phase Randomization
 
@@ -15,22 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-homtest 
-BuildRequires:    R-CRAN-goftest 
-BuildRequires:    R-CRAN-wavScalogram 
-BuildRequires:    R-CRAN-splus2R 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-lmomco 
 BuildRequires:    R-CRAN-mev 
-Requires:         R-CRAN-homtest 
-Requires:         R-CRAN-goftest 
-Requires:         R-CRAN-wavScalogram 
-Requires:         R-CRAN-splus2R 
+BuildRequires:    R-CRAN-homtest 
+BuildRequires:    R-CRAN-goftest 
+BuildRequires:    R-CRAN-wavScalogram 
+BuildRequires:    R-CRAN-splus2R 
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-lmomco 
 Requires:         R-CRAN-mev 
+Requires:         R-CRAN-homtest 
+Requires:         R-CRAN-goftest 
+Requires:         R-CRAN-wavScalogram 
+Requires:         R-CRAN-splus2R 
 
 %description
 Provides a simulation framework to simulate streamflow time series with
@@ -41,14 +41,17 @@ is based on the randomization of the phases of the Fourier transform or
 the phases of the wavelet transform. The function prsim() is applicable to
 single site simulation and uses the Fourier transform. The function
 prsim.wave() extends the approach to multiple sites and is based on the
-complex wavelet transform. We further use the flexible four-parameter
-Kappa distribution, which allows for the extrapolation to yet unobserved
-low and high flows. Alternatively, the empirical or any other distribution
-can be used. A detailed description of the simulation approach for single
-sites and an application example can be found in
-<https://hess.copernicus.org/articles/23/3175/2019/>. A detailed
-description and evaluation of the wavelet-based multi-site approach can be
-found in <https://hess.copernicus.org/articles/24/3967/2020/>.
+complex wavelet transform. The function prsim.weather() extends the
+approach to multiple variables for weather generation. We further use the
+flexible four-parameter Kappa distribution, which allows for the
+extrapolation to yet unobserved low and high flows. Alternatively, the
+empirical or any other distribution can be used. A detailed description of
+the simulation approach for single sites and an application example can be
+found in <doi:10.5194/hess-23-3175-2019>. A detailed description and
+evaluation of the wavelet-based multi-site approach can be found in
+<doi:10.5194/hess-24-3967-2020>. A detailed description and evaluation of
+the multi-variable and multi-site weather generator can be found in
+<doi:10.5194/esd-12-621-2021>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -58,6 +61,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

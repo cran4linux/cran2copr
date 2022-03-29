@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  match2C
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Match One Sample using Two Criteria
 
@@ -34,10 +34,11 @@ to construct treated and control groups that have similar distribution of
 observed covariates and 2. to produce matched pairs or sets that are
 homogeneous in a few priority variables. This packages implements a
 network-flow-based method built around a tripartite graph that can
-simultaneously achieve both goals. A detailed explanation of the workflow
-and numerous examples are given in the vignette. The 'optmatch' package,
-which is useful for running many functionalities, can be downloaded at
-<https://github.com/markmfredrickson/optmatch>.
+simultaneously achieve both goals. The package also implements a template
+matching algorithm using a variant of the tripartite graph design. A brief
+description of the workflow and some examples are given in the vignette. A
+more elaborated tutorial can be found at
+<https://www.researchgate.net/publication/359513837_Tutorial_for_R_Package_match2C>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  LIC
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          The LIC Criterion for Optimal Subset Selection
 
@@ -22,8 +22,8 @@ Requires:         R-stats
 %description
 The LIC criterion is to determine the most informative subsets so that the
 subset can retain most of the information contained in the complete data.
-The philosophy of the package is described in Guo G. (2020) <doi:
-10.1007/s00180-020-00974-4>.
+The philosophy of the package is described in Guo G. (2022)
+<doi:10.1080/02664763.2022.2053949>.
 
 %prep
 %setup -q -c -n %{packname}

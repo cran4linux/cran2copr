@@ -1,32 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tzdb
-%global packver   0.3.0
+%global packname  massiveGST
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time Zone Database Information
+Summary:          Competitive Gene Sets Test with the Mann-Whitney-Wilcoxon Test
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-cpp11 >= 0.4.2
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-msigdbr >= 7.4.0
+BuildRequires:    R-CRAN-WriteXLS >= 6.3.0
+BuildRequires:    R-CRAN-visNetwork >= 2.0.9
+BuildRequires:    R-CRAN-igraph >= 1.2.6
+BuildRequires:    R-CRAN-formattable >= 0.2.1
+Requires:         R-CRAN-msigdbr >= 7.4.0
+Requires:         R-CRAN-WriteXLS >= 6.3.0
+Requires:         R-CRAN-visNetwork >= 2.0.9
+Requires:         R-CRAN-igraph >= 1.2.6
+Requires:         R-CRAN-formattable >= 0.2.1
 
 %description
-Provides an up-to-date copy of the Internet Assigned Numbers Authority
-(IANA) Time Zone Database. It is updated periodically to reflect changes
-made by political bodies to time zone boundaries, UTC offsets, and
-daylight saving time rules. Additionally, this package provides a C++
-interface for working with the 'date' library. 'date' provides
-comprehensive support for working with dates and date-times, which this
-package exposes to make it easier for other R packages to utilize. Headers
-are provided for calendar specific calculations, along with a limited
-interface for time zone manipulations.
+Friendly implementation of the Mann-Whitney-Wilcoxon test for competitive
+gene set enrichment analysis.
 
 %prep
 %setup -q -c -n %{packname}
