@@ -1,38 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  insight
-%global packver   0.17.0
+%global packname  KoboconnectR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Access to Model Information for Various Model Objects
+Summary:          Download Data from Kobotoolbox to R
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-mime 
+BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-mime 
+Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-R6 
 Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-dplyr 
 
 %description
-A tool to provide an easy, intuitive and consistent access to information
-contained in various R models, like model formulas, model terms,
-information about random effects, data that was used to fit the model or
-data from response variables. 'insight' mainly revolves around two types
-of functions: Functions that find (the names of) information, starting
-with 'find_', and functions that get the underlying data, starting with
-'get_'.  The package has a consistent syntax and works with many different
-model objects, where otherwise functions to access these information are
-missing.
+Wrapper for 'Kobotoolbox' APIs ver 2 mentioned at
+<https://support.kobotoolbox.org/api.html>, to download data from
+'Kobotoolbox' to R. Small and simple package that adds immense convenience
+for the data professionals using 'Kobotoolbox'.
 
 %prep
 %setup -q -c -n %{packname}

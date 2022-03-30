@@ -1,38 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  insight
-%global packver   0.17.0
+%global packname  rfvimptest
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Access to Model Information for Various Model Objects
+Summary:          Sequential Permutation Testing of Random Forest Variable Importance Measures
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-party 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-permimp 
+Requires:         R-CRAN-party 
+Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-permimp 
 
 %description
-A tool to provide an easy, intuitive and consistent access to information
-contained in various R models, like model formulas, model terms,
-information about random effects, data that was used to fit the model or
-data from response variables. 'insight' mainly revolves around two types
-of functions: Functions that find (the names of) information, starting
-with 'find_', and functions that get the underlying data, starting with
-'get_'.  The package has a consistent syntax and works with many different
-model objects, where otherwise functions to access these information are
-missing.
+Sequential permutation testing for statistical significance of predictors
+in random forests. The main function of the package is rfvimptest(), which
+allows to test for the statistical significance of predictors in random
+forests using different (sequential) permutation test strategies. The
+advantage of sequential over conventional permutation tests is that they
+are computationally considerably less intensive, as the sequential
+procedure is stopped as soon as there is sufficient evidence for either
+the null or the alternative hypothesis.
 
 %prep
 %setup -q -c -n %{packname}

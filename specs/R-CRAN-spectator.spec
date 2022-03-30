@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spectator
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'Spectator Earth' API
 
@@ -26,13 +26,13 @@ Requires:         R-CRAN-sf
 %description
 Provides interface to the 'Spectator Earth' API
 <https://api.spectator.earth/>, mainly for obtaining the acquisition plans
-and satellite overpasses for Sentinel-1, Sentinel-2 and Landsat-8
-satellites. Current position and trajectory can also be obtained for a
-much larger set of satellites. It is also possible to search the archive
-for available images over the area of interest for a given (past) period,
-get the URL links to download the whole image tiles, or alternatively to
-download the image for just the area of interest based on selected
-spectral bands.
+and satellite overpasses for Sentinel-1, Sentinel-2, Landsat-8 and
+Landsat-9 satellites. Current position and trajectory can also be obtained
+for a much larger set of satellites. It is also possible to search the
+archive for available images over the area of interest for a given (past)
+period, get the URL links to download the whole image tiles, or
+alternatively to download the image for just the area of interest based on
+selected spectral bands.
 
 %prep
 %setup -q -c -n %{packname}

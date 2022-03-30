@@ -1,32 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  purrrlyr
-%global packver   0.0.8
+%global packname  RGAN
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools at the Intersection of 'purrr' and 'dplyr'
+Summary:          Generative Adversarial Nets (GAN) in R
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-dplyr >= 0.8.0
-BuildRequires:    R-CRAN-purrr >= 0.2.2
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-dplyr >= 0.8.0
-Requires:         R-CRAN-purrr >= 0.2.2
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-torch 
+BuildRequires:    R-CRAN-viridis 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-torch 
+Requires:         R-CRAN-viridis 
 
 %description
-Some functions at the intersection of 'dplyr' and 'purrr' that formerly
-lived in 'purrr'.
+An easy way to get started with Generative Adversarial Nets (GAN) in R.
+The GAN algorithm was initially described by Goodfellow et al. 2014
+<https://proceedings.neurips.cc/paper/2014/file/5ca3e9b122f61f8f06494c97b1afccf3-Paper.pdf>.
+A GAN can be used to learn the joint distribution of complex data by
+comparison. A GAN consists of two neural networks a Generator and a
+Discriminator, where the two neural networks play an adversarial minimax
+game. Built-in GAN models make the training of GANs in R possible in one
+line and make it easy to experiment with different design choices (e.g.
+different network architectures, value functions, optimizers). The
+built-in GAN models work with tabular data (e.g. to produce synthetic
+data) and image data. Methods to post-process the output of GAN models to
+enhance the quality of samples are available.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  evalITR
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evaluating Individualized Treatment Rules
 
@@ -16,7 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS >= 7.0
+BuildRequires:    R-CRAN-quadprog >= 1.0
+BuildRequires:    R-CRAN-Matrix >= 1.0
+BuildRequires:    R-CRAN-dplyr >= 1.0
 BuildRequires:    R-stats 
+Requires:         R-CRAN-MASS >= 7.0
+Requires:         R-CRAN-quadprog >= 1.0
+Requires:         R-CRAN-Matrix >= 1.0
+Requires:         R-CRAN-dplyr >= 1.0
 Requires:         R-stats 
 
 %description

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gert
-%global packver   1.5.0
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Git Client for R
 
@@ -30,11 +30,11 @@ Requires:         R-CRAN-askpass
 Requires:         R-CRAN-sys 
 
 %description
-Simple git client for R based on 'libgit2' with support for SSH and HTTPS
-remotes. All functions in 'gert' use basic R data types (such as vectors
-and data-frames) for their arguments and return values. User credentials
-are shared with command line 'git' through the git-credential store and
-ssh keys stored on disk or ssh-agent.
+Simple git client for R based on 'libgit2' <https://libgit2.org> with
+support for SSH and HTTPS remotes. All functions in 'gert' use basic R
+data types (such as vectors and data-frames) for their arguments and
+return values. User credentials are shared with command line 'git' through
+the git-credential store and ssh keys stored on disk or ssh-agent.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,38 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  insight
-%global packver   0.17.0
+%global packname  diemr
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Access to Model Information for Various Model Objects
+Summary:          Diagnostic Index Expectation Maximisation in R
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-zoo 
 
 %description
-A tool to provide an easy, intuitive and consistent access to information
-contained in various R models, like model formulas, model terms,
-information about random effects, data that was used to fit the model or
-data from response variables. 'insight' mainly revolves around two types
-of functions: Functions that find (the names of) information, starting
-with 'find_', and functions that get the underlying data, starting with
-'get_'.  The package has a consistent syntax and works with many different
-model objects, where otherwise functions to access these information are
-missing.
+Likelihood-based genome polarisation finds which alleles of genomic
+markers belong to which side of the barrier. Co-estimates which
+individuals belong to either side of the barrier and barrier strength.
+Uses expectation maximisation in likelihood framework.
 
 %prep
 %setup -q -c -n %{packname}

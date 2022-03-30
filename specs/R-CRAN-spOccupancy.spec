@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spOccupancy
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Single-Species, Multi-Species, and Integrated Spatial Occupancy Models
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-lme4
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-spBayes 
+BuildRequires:    R-methods 
 Requires:         R-stats 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-abind 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-lme4
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-spBayes 
+Requires:         R-methods 
 
 %description
 Fits single-species, multi-species, and integrated non-spatial and spatial

@@ -1,38 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  insight
-%global packver   0.17.0
+%global packname  i18n
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Access to Model Information for Various Model Objects
+Summary:          Internationalization Data from the 'Unicode CLDR' in Tabular Form
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-magrittr 
 
 %description
-A tool to provide an easy, intuitive and consistent access to information
-contained in various R models, like model formulas, model terms,
-information about random effects, data that was used to fit the model or
-data from response variables. 'insight' mainly revolves around two types
-of functions: Functions that find (the names of) information, starting
-with 'find_', and functions that get the underlying data, starting with
-'get_'.  The package has a consistent syntax and works with many different
-model objects, where otherwise functions to access these information are
-missing.
+Up-to-date data from the 'Unicode CLDR Project' (where 'CLDR' stands for
+'Common Locale Data Repository') are available here as a series of
+easy-to-parse datasets. Several functions are provided for extracting key
+elements from the tabular datasets.
 
 %prep
 %setup -q -c -n %{packname}

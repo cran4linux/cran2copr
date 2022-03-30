@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spdep
-%global packver   1.2-2
+%global packver   1.2-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Dependence: Weighting Schemes, Statistics
 
@@ -64,7 +64,8 @@ local 'Moran's I' ('Bivand et al.' 2009) <doi:10.1016/j.csda.2008.07.021>
 and 'LOSH' local indicators of spatial heteroscedasticity ('Ord' and
 'Getis') <doi:10.1007/s00168-011-0492-y>. The implementation of most of
 the measures is described in 'Bivand' and 'Wong' (2018)
-<doi:10.1007/s11749-018-0599-x>. From 'spdep' and 'spatialreg' versions >=
+<doi:10.1007/s11749-018-0599-x>, with further extensions in 'Bivand'
+(2022) <doi:10.1111/gean.12319>. From 'spdep' and 'spatialreg' versions >=
 1.2-1, the model fitting functions previously present in this package are
 defunct in 'spdep' and may be found in 'spatialreg'.
 

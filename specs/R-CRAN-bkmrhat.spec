@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  spatstat.data
-%global packver   2.1-4
+%global packname  bkmrhat
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Datasets for 'spatstat' Family
+Summary:          Parallel Chain Tools for Bayesian Kernel Machine Regression
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,13 +16,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat.utils >= 2.1.0
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-spatstat.utils >= 2.1.0
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-bkmr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-bkmr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-rstan 
+Requires:         R-CRAN-rstantools
 
 %description
-Contains all the datasets for the 'spatstat' family of packages.
+Bayesian kernel machine regression (from the 'bkmr' package) is a Bayesian
+semi-parametric generalized linear model approach under identity and
+probit links. There are a number of functions in this package that extend
+Bayesian kernel machine regression fits to allow multiple-chain inference
+and diagnostics, which leverage functions from the 'future', 'rstan', and
+'coda' packages.  Reference: Bobb, J. F., Henn, B. C., Valeri, L., &
+Coull, B. A. (2018). Statistical software for analyzing the health effects
+of multiple concurrent exposures via Bayesian kernel machine regression. ;
+<doi:10.1186/s12940-018-0413-y>.
 
 %prep
 %setup -q -c -n %{packname}

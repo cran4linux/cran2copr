@@ -1,38 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  insight
-%global packver   0.17.0
+%global packname  saeMSPE
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Access to Model Information for Various Model Objects
+Summary:          Compute MSPE Estimates for the Fay Herriot Model and Nested Error Regression Model
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
-BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-smallarea 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-smallarea 
 
 %description
-A tool to provide an easy, intuitive and consistent access to information
-contained in various R models, like model formulas, model terms,
-information about random effects, data that was used to fit the model or
-data from response variables. 'insight' mainly revolves around two types
-of functions: Functions that find (the names of) information, starting
-with 'find_', and functions that get the underlying data, starting with
-'get_'.  The package has a consistent syntax and works with many different
-model objects, where otherwise functions to access these information are
-missing.
+We describe a new R package entitled 'saeMSPE' for the well-known Fay
+Herriot model and nested error regression model in small area estimation.
+Based on this package, it is possible to easily compute various common
+mean squared predictive error (MSPE) estimators, as well as several
+existing variance component predictors as a byproduct, for these two
+models.
 
 %prep
 %setup -q -c -n %{packname}

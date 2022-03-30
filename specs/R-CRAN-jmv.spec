@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  jmv
-%global packver   2.0
+%global packver   2.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          The 'jamovi' Analyses
 
@@ -17,8 +17,8 @@ BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-car >= 3.0.0
+BuildRequires:    R-CRAN-jmvcore >= 2.3.4
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
-BuildRequires:    R-CRAN-jmvcore >= 1.8
 BuildRequires:    R-CRAN-psych >= 1.7.5
 BuildRequires:    R-CRAN-emmeans >= 1.4.2
 BuildRequires:    R-CRAN-afex >= 0.28.0
@@ -36,9 +36,12 @@ BuildRequires:    R-CRAN-ggridges
 BuildRequires:    R-CRAN-ROCR 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-car >= 3.0.0
+Requires:         R-CRAN-jmvcore >= 2.3.4
 Requires:         R-CRAN-ggplot2 >= 2.2.1
-Requires:         R-CRAN-jmvcore >= 1.8
 Requires:         R-CRAN-psych >= 1.7.5
 Requires:         R-CRAN-emmeans >= 1.4.2
 Requires:         R-CRAN-afex >= 0.28.0
@@ -56,6 +59,9 @@ Requires:         R-CRAN-ggridges
 Requires:         R-CRAN-ROCR 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
 
 %description
 A suite of common statistical methods such as descriptives, t-tests,

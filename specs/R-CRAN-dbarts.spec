@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dbarts
-%global packver   0.9-20
+%global packver   0.9-22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.20
+Version:          0.9.22
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discrete Bayesian Additive Regression Trees Sampler
 
