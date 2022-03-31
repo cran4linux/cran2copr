@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  apcf
-%global packver   0.1.7
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adapted Pair Correlation Function
 
@@ -17,18 +17,17 @@ BuildRequires:    gdal-devel >= 2.0.0
 BuildRequires:    geos-devel >= 3.4.0
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-wk >= 0.6.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12
-BuildRequires:    R-graphics 
+Requires:         R-CRAN-wk >= 0.6.0
 Requires:         R-CRAN-Rcpp >= 0.12
-Requires:         R-graphics 
 
 %description
 The adapted pair correlation function transfers the concept of the pair
 correlation function from point patterns to patterns of objects of finite
 size and irregular shape (e.g. lakes within a country). This is a
 reimplementation of the method suggested by Nuske et al. (2009)
-<doi:10.1016/j.foreco.2009.09.050> using the libraries 'GEOS' and 'GDAL'
-directly instead of through 'PostGIS'.
+<doi:10.1016/j.foreco.2009.09.050> using the library 'GEOS'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,37 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  scCAN
-%global packver   1.0.3
+%global packname  flimo
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Single-Cell Clustering using Autoencoder and Network Fusion
+Summary:          Fixed Landscape Inference MethOd
 
-License:          LGPL
+License:          CeCILL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-scDHA 
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-scDHA 
-Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-purrr 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-JuliaConnectoR 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-JuliaConnectoR 
 
 %description
-A single-cell Clustering method using 'Autoencoder' and Network fusion
-('scCAN') for segregating the cells from the high-dimensional 'scRNA-Seq'
-data. The software automatically determines the optimal number of clusters
-and then partitions the cells in a way such that the results are robust to
-noise and dropouts. 'scCAN' is fast and it supports Windows, Linux, and
-Mac OS.
+Likelihood-free inference method for stochastic models. Uses a
+deterministic optimizer on simple simulations of the model that are
+performed with a prior drawn randomness by applying the inverse transform
+method. Is designed to work on its own and also by using the Julia package
+Jflimo. See the git page of the project :
+<https://metabarcoding.org/flimo>.
 
 %prep
 %setup -q -c -n %{packname}

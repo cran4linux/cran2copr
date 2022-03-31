@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  scCAN
-%global packver   1.0.3
+%global packname  DOEM
+%global packver   0.0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Single-Cell Clustering using Autoencoder and Network Fusion
+Summary:          The Distributed Online Expectation Maximization Algorithms to Solve Parameters of Poisson Mixture Models
 
-License:          LGPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,22 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-scDHA 
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-scDHA 
-Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-purrr 
 Requires:         R-stats 
 
 %description
-A single-cell Clustering method using 'Autoencoder' and Network fusion
-('scCAN') for segregating the cells from the high-dimensional 'scRNA-Seq'
-data. The software automatically determines the optimal number of clusters
-and then partitions the cells in a way such that the results are robust to
-noise and dropouts. 'scCAN' is fast and it supports Windows, Linux, and
-Mac OS.
+The distributed online expectation maximization algorithms are used to
+solve parameters of Poisson mixture models. The philosophy of the package
+is described in Guo, G. (2022) <doi:10.1080/02664763.2022.2053949>.
 
 %prep
 %setup -q -c -n %{packname}

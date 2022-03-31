@@ -1,37 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  scCAN
-%global packver   1.0.3
+%global packname  semicmprskcoxmsm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Single-Cell Clustering using Autoencoder and Network Fusion
+Summary:          Use Inverse Probability Weighting to Estimate Treatment Effect for Semi Competing Risks Data
 
-License:          LGPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-scDHA 
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-scDHA 
-Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-twang 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-fastGHQuad 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-survival 
 Requires:         R-stats 
+Requires:         R-CRAN-twang 
+Requires:         R-graphics 
+Requires:         R-CRAN-fastGHQuad 
+Requires:         R-CRAN-Rcpp 
 
 %description
-A single-cell Clustering method using 'Autoencoder' and Network fusion
-('scCAN') for segregating the cells from the high-dimensional 'scRNA-Seq'
-data. The software automatically determines the optimal number of clusters
-and then partitions the cells in a way such that the results are robust to
-noise and dropouts. 'scCAN' is fast and it supports Windows, Linux, and
-Mac OS.
+Use inverse probability weighting methods to estimate treatment effect
+under marginal structure model for the transition hazard of semi competing
+risk data, i.e. illness death model. We implement two specific such
+models, the usual Markov illness death structural model and the general
+Markov illness death structural model. We also provide the estimates of
+three cumulative incidence function of the potential outcomes.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  regtools
-%global packver   1.1.0
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
-Release:          3%{?dist}%{?buildtag}
+Version:          1.7.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Regression and Classification Tools
 
 License:          GPL (>= 2)
@@ -17,13 +17,29 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-dummies 
 BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-rje 
+BuildRequires:    R-CRAN-text2vec 
+BuildRequires:    R-CRAN-polyreg 
 Requires:         R-CRAN-FNN 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-dummies 
 Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-rje 
+Requires:         R-CRAN-text2vec 
+Requires:         R-CRAN-polyreg 
 
 %description
 Tools for linear, nonlinear and nonparametric regression and
@@ -40,6 +56,15 @@ Learning", N. Matloff, 2017, CRC, ISBN 9781498710916.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -49,18 +74,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/images
-%doc %{rlibdir}/%{packname}/README
-%doc %{rlibdir}/%{packname}/vn.save
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

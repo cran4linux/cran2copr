@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rbcb
-%global packver   0.1.10
+%global packname  CondCopulas
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to Brazilian Central Bank Web Services
+Summary:          Estimation and Inference for Conditional Copula Models
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,30 +16,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-xml2 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-VineCopula 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-ordinalNet 
+BuildRequires:    R-CRAN-tree 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-data.tree 
+BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-pcaPP 
+Requires:         R-CRAN-VineCopula 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-ordinalNet 
+Requires:         R-CRAN-tree 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-data.tree 
+Requires:         R-CRAN-statmod 
+Requires:         R-CRAN-pcaPP 
 
 %description
-The Brazilian Central Bank API delivers many datasets which regard
-economic activity, regional economy, international economy, public
-finances, credit indicators and many more. For more information please see
-<http://dadosabertos.bcb.gov.br/>. These datasets can be accessed through
-'rbcb' functions and can be obtained in different data structures common
-to R ('tibble', 'data.frame', 'xts', ...).
+Provides functions for the estimation of conditional copulas models,
+various estimators of conditional Kendall's tau (proposed in Derumigny and
+Fermanian (2019a, 2019b, 2020) <doi:10.1515/demo-2019-0016>,
+<doi:10.1016/j.csda.2019.01.013>, <doi:10.1016/j.jmva.2020.104610>), and
+test procedures for the simplifying assumption (proposed in Derumigny and
+Fermanian (2017) <doi:10.1515/demo-2017-0011> and Derumigny, Fermanian and
+Min (2020) <arXiv:2008.09498>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  irtplay
-%global packver   1.6.3
+%global packver   1.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.3
+Version:          1.6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unidimensional Item Response Theory Modeling
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-janitor 
 Requires:         R-stats 
 Requires:         R-CRAN-statmod 
 Requires:         R-utils 
@@ -40,6 +41,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-gridExtra 
 Requires:         R-parallel 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-janitor 
 
 %description
 Fit unidimensional item response theory (IRT) models to a mixture of
@@ -47,7 +49,7 @@ dichotomous and polytomous data, calibrate online item parameters (i.e.,
 pretest and operational items), estimate examinees' abilities, and examine
 the IRT model-data fit on item-level in different ways as well as provide
 useful functions related to unidimensional IRT models. For the item
-parameter estimation, marginal maximum likelihood estimation via
+parameter estimation, the marginal maximum likelihood estimation via the
 expectation-maximization (MMLE-EM) algorithm (Bock & Aitkin (1981)
 <doi:10.1007/BF02294168>) is used. For the online calibration, the fixed
 item parameter calibration method (Kim (2006)

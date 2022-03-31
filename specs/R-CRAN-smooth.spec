@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  smooth
-%global packver   3.1.5
+%global packver   3.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.5
+Version:          3.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forecasting Using State Space Models
 
@@ -15,9 +15,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-greybox >= 1.0.0
+BuildRequires:    R-CRAN-greybox >= 1.0.5
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.8.100.0.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.3
+BuildRequires:    R-CRAN-generics >= 0.1.2
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
@@ -27,8 +28,9 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-greybox >= 1.0.0
+Requires:         R-CRAN-greybox >= 1.0.5
 Requires:         R-CRAN-Rcpp >= 0.12.3
+Requires:         R-CRAN-generics >= 0.1.2
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 

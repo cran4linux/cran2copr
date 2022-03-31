@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RALSA
-%global packver   1.1.0
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Analyzer for Large-Scale Assessments
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mvpd
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Product Distributions for Elliptically Contoured Distributions
 
@@ -16,12 +16,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-invgamma 
-Requires:         R-CRAN-invgamma 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-stabledist 
+BuildRequires:    R-CRAN-libstableR 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-stabledist 
+Requires:         R-CRAN-libstableR 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-stats 
+Requires:         R-CRAN-cubature 
+Requires:         R-CRAN-Matrix 
 
 %description
-Generates elliptically contoured multivariate random variables using
-product distribution theory.
+Estimates multivariate subgaussian stable densities and probabilities as
+well as generates random variates using product distribution theory.  A
+function for estimating the parameters from data to fit a distribution to
+data is also provided, using the method from Nolan (2013)
+<DOI:10.1007/s00180-013-0396-7>.
 
 %prep
 %setup -q -c -n %{packname}

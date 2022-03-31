@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mvgb
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Probabilities via the Genz and Bretz (2002) Formulation
+Summary:          Multivariate Probabilities of Scale Mixtures of Multivariate Normal Distributions via the Genz and Bretz (2002) QRSVN Method
 
 License:          LGPL (>= 2.1)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,14 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-mvtnorm 
 
 %description
-Generates multivariate student-t distributions using the formulation in
-Genz and Bretz (2002) <DOI:10.1198/106186002394> by sampling gamma
-variates not chi/sqrt(nu).
+Generates multivariate subgaussian stable probabilities using the QRSVN
+algorithm as detailed in Genz and Bretz (2002) <DOI:10.1198/106186002394>
+but by sampling positive stable variates not chi/sqrt(nu).
 
 %prep
 %setup -q -c -n %{packname}

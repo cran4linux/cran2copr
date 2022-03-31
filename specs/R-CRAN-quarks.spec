@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  quarks
-%global packver   1.0.11
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.11
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Methods for Calculating Value at Risk and Expected Shortfall
+Summary:          Simple Methods for Calculating and Backtesting Value at Risk and Expected Shortfall
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,11 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rugarch 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-rugarch 
+BuildRequires:    R-CRAN-smoots 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-rugarch 
 Requires:         R-graphics 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-rugarch 
+Requires:         R-CRAN-smoots 
 Requires:         R-stats 
 
 %description
@@ -29,8 +33,12 @@ Enables the user to calculate Value at Risk (VaR) and Expected Shortfall
 age-, volatility-weighted- and filtered historical simulation are
 implemented in this package. Volatility weighting can be carried out via
 an exponentially weighted moving average model (EWMA) or other GARCH-type
-models. The methods of the package are described in Gurrola-Perez, P. and
-Murphy, D. (2015) <https://EconPapers.repec.org/RePEc:boe:boeewp:0525>.
+models. The performance can be assessed via Traffic Light Test, Coverage
+Tests and Loss Functions. The methods of the package are described in
+Gurrola-Perez, P. and Murphy, D. (2015)
+<https://EconPapers.repec.org/RePEc:boe:boeewp:0525> as well as McNeil,
+J., Frey, R., and Embrechts, P. (2015)
+<https://ideas.repec.org/b/pup/pbooks/10496.html>.
 
 %prep
 %setup -q -c -n %{packname}

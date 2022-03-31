@@ -1,37 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  scCAN
-%global packver   1.0.3
+%global packname  tstools
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Single-Cell Clustering using Autoencoder and Network Fusion
+Summary:          A Time Series Toolbox for Official Statistics
 
-License:          LGPL
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-scDHA 
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-zoo >= 1.7.12
+BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-scDHA 
-Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-zoo >= 1.7.12
+Requires:         R-CRAN-xts 
 Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-yaml 
 
 %description
-A single-cell Clustering method using 'Autoencoder' and Network fusion
-('scCAN') for segregating the cells from the high-dimensional 'scRNA-Seq'
-data. The software automatically determines the optimal number of clusters
-and then partitions the cells in a way such that the results are robust to
-noise and dropouts. 'scCAN' is fast and it supports Windows, Linux, and
-Mac OS.
+Plot official statistics' time series conveniently: automatic legends,
+highlight windows, stacked bar chars with positive and negative
+contributions, sum-as-line option, two y-axes with automatic horizontal
+grids that fit both axes and other popular chart types. 'tstools' comes
+with a plethora of defaults to let you plot without setting an abundance
+of parameters first, but gives you the flexibility to tweak the defaults.
+In addition to charts, 'tstools' provides a super fast, 'data.table'
+backed time series I/O that allows the user to export / import long
+format, wide format and transposed wide format data to various file types.
 
 %prep
 %setup -q -c -n %{packname}

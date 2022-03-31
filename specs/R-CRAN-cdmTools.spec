@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cdmTools
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Useful Tools for Cognitive Diagnosis Modeling
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-GPArotation >= 2014.11.1
 BuildRequires:    R-CRAN-GDINA >= 2.8.0
 BuildRequires:    R-CRAN-psych >= 1.9.12
+BuildRequires:    R-CRAN-NPCD >= 1.0.11
 BuildRequires:    R-CRAN-combinat >= 0.0.8
 Requires:         R-CRAN-sirt >= 3.9.4
 Requires:         R-parallel >= 3.6.3
@@ -31,6 +32,7 @@ Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-GPArotation >= 2014.11.1
 Requires:         R-CRAN-GDINA >= 2.8.0
 Requires:         R-CRAN-psych >= 1.9.12
+Requires:         R-CRAN-NPCD >= 1.0.11
 Requires:         R-CRAN-combinat >= 0.0.8
 
 %description
@@ -54,6 +56,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

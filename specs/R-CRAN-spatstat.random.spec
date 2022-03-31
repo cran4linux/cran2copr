@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spatstat.random
-%global packver   2.1-0
+%global packver   2.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Random Generation Functionality for the 'spatstat' Family
 
@@ -15,14 +15,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-spatstat.geom >= 2.3.0
+BuildRequires:    R-CRAN-spatstat.geom >= 2.4.0
 BuildRequires:    R-CRAN-spatstat.utils >= 2.2.0
 BuildRequires:    R-CRAN-spatstat.data >= 2.1.0
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-spatstat.geom >= 2.3.0
+Requires:         R-CRAN-spatstat.geom >= 2.4.0
 Requires:         R-CRAN-spatstat.utils >= 2.2.0
 Requires:         R-CRAN-spatstat.data >= 2.1.0
 Requires:         R-stats 
