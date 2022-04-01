@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  migraph
-%global packver   0.8.13
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.13
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multimodal and Multilevel Network Analysis
 
@@ -16,46 +16,46 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-concaveman 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-ggdendro 
-BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-ggraph 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-network 
 BuildRequires:    R-CRAN-oaqc 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sna 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidygraph 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-concaveman 
-BuildRequires:    R-CRAN-ggforce 
-BuildRequires:    R-CRAN-readxl 
+Requires:         R-CRAN-concaveman 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-generics 
 Requires:         R-CRAN-ggdendro 
-Requires:         R-CRAN-ggraph 
+Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-ggraph 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-network 
 Requires:         R-CRAN-oaqc 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sna 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidygraph 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-concaveman 
-Requires:         R-CRAN-ggforce 
-Requires:         R-CRAN-readxl 
 
 %description
 A set of tools that extend common social network analysis packages for

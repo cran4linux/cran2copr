@@ -1,34 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  errorlocate
-%global packver   1.0.0
+%global packname  elbird
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Locate Errors with Validation Rules
+Summary:          Blazing Fast Morphological Analyzer Based on Kiwi(Korean Intelligent Word Identifier)
 
-License:          GPL-3
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-validate 
-BuildRequires:    R-CRAN-lpSolveAPI 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-validate 
-Requires:         R-CRAN-lpSolveAPI 
-Requires:         R-methods 
-Requires:         R-parallel 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-R6 >= 2.4.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-vroom 
+BuildRequires:    R-CRAN-matchr 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-R6 >= 2.4.0
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-vroom 
+Requires:         R-CRAN-matchr 
 
 %description
-Errors in data can be located and removed using validation rules from
-package 'validate'. See also Van der Loo and De Jonge (2018)
-<doi:10.1002/9781118897126>, chapter 7.
+This is the R wrapper package Kiwi(Korean Intelligent Word Identifier), a
+blazing fast speed morphological analyzer for Korean. It supports
+configuration of user dictionary and detection of unregistered nouns based
+on frequency.
 
 %prep
 %setup -q -c -n %{packname}

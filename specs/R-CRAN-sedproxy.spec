@@ -1,34 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  quantdr
-%global packver   1.2.1
+%global packname  sedproxy
+%global packver   0.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.7.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dimension Reduction Techniques for Conditional Quantiles
+Summary:          Simulation of Sediment Archived Climate Proxy Records
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dr 
-BuildRequires:    R-CRAN-KernSmooth 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-quantreg 
-Requires:         R-CRAN-dr 
-Requires:         R-CRAN-KernSmooth 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-stats 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
 
 %description
-An implementation of dimension reduction techniques for conditional
-quantiles. Nonparametric estimation of conditional quantiles is also
-available.
+Proxy forward modelling for sediment archived climate proxies such as
+Mg/Ca, d18O or Alkenones. The user provides a hypothesised "true" past
+climate, such as output from a climate model, and details of the
+sedimentation rate and sampling scheme of a sediment core. Sedproxy
+returns simulated proxy records. Implements the methods described in
+Dolman and Laepple (2018) <doi:10.5194/cp-14-1851-2018>.
 
 %prep
 %setup -q -c -n %{packname}

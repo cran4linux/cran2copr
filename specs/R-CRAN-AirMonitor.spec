@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  metacore
-%global packver   0.0.4
+%global packname  AirMonitor
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Centralized Metadata Object Focus on Clinical Trial Data Programming Workflows
+Summary:          Air Quality Data Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,33 +16,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-MazamaCoreUtils >= 0.4.10
+BuildRequires:    R-CRAN-MazamaTimeSeries >= 0.2.1
+BuildRequires:    R-CRAN-rlang >= 0.1.2
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-dygraphs 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-xts 
+Requires:         R-CRAN-MazamaCoreUtils >= 0.4.10
+Requires:         R-CRAN-MazamaTimeSeries >= 0.2.1
+Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-dygraphs 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-xts 
 
 %description
-Create an immutable container holding metadata for the purpose of better
-enabling programming activities and functionality of other packages within
-the clinical programming workflow.
+Utilities for working with hourly air quality monitoring data with a focus
+on small particulates (PM2.5). A compact data model is structured as a
+list with two dataframes. A 'meta' dataframe contains spatial and
+measuring device metadata associated with deployments at known locations.
+A 'data' dataframe contains a 'datetime' column followed by columns of
+measurements associated with each "device-deployment". Algorithms to
+calculate NowCast and the associated Air Quality Index (AQI) are defined
+at the US Environmental Projection Agency AirNow program:
+<https://www.airnow.gov/sites/default/files/2020-05/aqi-technical-assistance-document-sept2018.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

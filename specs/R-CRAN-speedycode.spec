@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  speedycode
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automate Code for Adding Labels, Renaming Variables, and Converting ASCII Files
+Summary:          Automate Code for Adding Labels, Recoding and Renaming Variables, and Converting ASCII Files
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,12 +24,13 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-purrr 
 
 %description
-Label, rename, and convert datasets and ASCII files more efficiently.
-'speedycode' automates the code necessary for labeling variables with the
-'labelled' package, renaming variables with 'dplyr' syntax, and converting
-ASCII files with the 'readroper' package. Most functions require only the
-name of the dataset and the code will be automatically written. Some
-convenience functions useful for converting ASCII files are also included.
+Label, recode, rename, and convert datasets and ASCII files more
+efficiently. 'speedycode' automates the code necessary for labeling
+variables with the 'labelled' package, recoding and renaming variables
+with 'dplyr' syntax, and converting ASCII files with the 'readroper'
+package. Most functions require only the name of the dataset and the code
+will be automatically written. Some convenience functions useful for
+converting ASCII files are also included.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  polyreg
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Polynomial Regression
 
@@ -17,12 +17,10 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-dummies 
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-dummies 
 Requires:         R-parallel 
 Requires:         R-stats 
 Requires:         R-utils 

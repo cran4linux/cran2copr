@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  npreg
-%global packver   1.0-7
+%global packver   1.0-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Regression via Smoothing Splines
 
@@ -22,8 +22,9 @@ Multiple and generalized nonparametric regression using smoothing spline
 ANOVA models and generalized additive models, as described in Helwig
 (2020) <doi:10.4135/9781526421036885885>. Includes support for Gaussian
 and non-Gaussian responses, smoothers for multiple types of predictors,
-interactions between smoothers of mixed types, and eight different methods
-for smoothing parameter selection.
+interactions between smoothers of mixed types, eight different methods for
+smoothing parameter selection, and flexible tools for prediction and
+inference.
 
 %prep
 %setup -q -c -n %{packname}

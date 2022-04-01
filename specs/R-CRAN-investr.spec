@@ -1,34 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  errorlocate
-%global packver   1.0.0
+%global packname  investr
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Locate Errors with Validation Rules
+Summary:          Inverse Estimation/Calibration Functions
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-validate 
-BuildRequires:    R-CRAN-lpSolveAPI 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-validate 
-Requires:         R-CRAN-lpSolveAPI 
-Requires:         R-methods 
-Requires:         R-parallel 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-CRAN-nlme 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Errors in data can be located and removed using validation rules from
-package 'validate'. See also Van der Loo and De Jonge (2018)
-<doi:10.1002/9781118897126>, chapter 7.
+Functions to facilitate inverse estimation (e.g., calibration) in linear,
+generalized linear, nonlinear, and (linear) mixed-effects models. A
+generic function is also provided for plotting fitted regression models
+with or without confidence/prediction bands that may be of use to the
+general user. For a general overview of these methods, see Greenwell and
+Schubert Kabban (2014) <doi:10.32614/RJ-2014-009>.
 
 %prep
 %setup -q -c -n %{packname}

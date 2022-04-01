@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  stan4bart
-%global packver   0.0-2
+%global packver   0.0-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Additive Regression Trees with Stan-Sampled Parametric Extensions
 
@@ -18,14 +18,14 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.1.1
 BuildRequires:    R-CRAN-BH >= 1.72.0.3
 BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-dbarts >= 0.9.20
+BuildRequires:    R-CRAN-dbarts >= 0.9.21
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.7.0
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-parallel 
 Requires:         R-CRAN-RcppParallel >= 5.1.1
-Requires:         R-CRAN-dbarts >= 0.9.20
+Requires:         R-CRAN-dbarts >= 0.9.21
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-CRAN-Matrix 

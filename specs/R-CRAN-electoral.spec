@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  electoral
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
-Release:          3%{?dist}%{?buildtag}
+Version:          0.1.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          Allocating Seats Methods and Party System Scores
 
 License:          GPL-3
@@ -36,20 +36,28 @@ number of parties, party nationalization score, party system
 nationalization score and volatility. References: Gallagher (1991)
 <doi:10.1016/0261-3794(91)90004-C>. Norris (2004, ISBN:0-521-82977-1).
 Consejo Nacional Electoral del Ecuador
-(2014)<http://cne.gob.ec/documents/Estadisticas/Atlas/ATLAS/CAPITULO%206%20web.pdf>.
+(2014)<http://cne.gob.ec/documents/Estadisticas/Atlas/ATLAS/CAPITULO%%206%%20web.pdf>.
 Laakso & Taagepera (1979)
-<http://journals.sagepub.com/doi/pdf/10.1177/001041407901200101>. Jones &
+<https://journals.sagepub.com/doi/pdf/10.1177/001041407901200101>. Jones &
 Mainwaring (2003)
 <https://kellogg.nd.edu/sites/default/files/old_files/documents/304_0.pdf>.
-Pedersen (1979) <http://janda.org/c24/Readings/Pedersen/Pedersen.htm>.
-Golosov (2010) <http://ppq.sagepub.com/content/16/2/171.abstract>. Golosov
-(2014)
-<http://ppq.sagepub.com/content/early/2014/09/08/1354068814549342.abstract>.
+Pedersen (1979) <https://janda.org/c24/Readings/Pedersen/Pedersen.htm>.
+Golosov (2010) <https://ppq.sagepub.com/content/16/2/171.abstract>.
+Golosov (2014)
+<https://ppq.sagepub.com/content/early/2014/09/08/1354068814549342.abstract>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -57,16 +65,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RcppAlgos
-%global packver   2.5.0
+%global packver   2.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          2.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Performance Tools for Combinatorics and Computational Mathematics
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-gmp 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-cpp11 
 Requires:         R-CRAN-gmp 
 Requires:         R-methods 
 

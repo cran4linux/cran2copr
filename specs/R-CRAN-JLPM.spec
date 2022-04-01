@@ -1,40 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  beyondWhittle
-%global packver   1.1.2
+%global packname  JLPM
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Spectral Inference for Stationary Time Series
+Summary:          Joint Latent Process Models
 
-License:          GPL (>= 3)
+License:          GPL (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-ltsa >= 1.4.6
-BuildRequires:    R-CRAN-Rcpp >= 0.12.5
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-MTS 
-BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-ltsa >= 1.4.6
-Requires:         R-CRAN-Rcpp >= 0.12.5
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-MTS 
-Requires:         R-CRAN-forecast 
+BuildRequires:    R-devel >= 2.14.0
+Requires:         R-core >= 2.14.0
+BuildRequires:    R-CRAN-survival >= 2.37.2
+BuildRequires:    R-CRAN-marqLevAlg >= 2.0.6
+BuildRequires:    R-CRAN-randtoolbox 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-survival >= 2.37.2
+Requires:         R-CRAN-marqLevAlg >= 2.0.6
+Requires:         R-CRAN-randtoolbox 
+Requires:         R-CRAN-stringr 
 
 %description
-Implementations of Bayesian parametric, nonparametric and semiparametric
-procedures for univariate and multivariate time series. The package is
-based on the methods presented in C. Kirch et al (2018)
-<doi:10.1214/18-BA1126> and A. Meier (2018)
-<https://opendata.uni-halle.de//handle/1981185920/13470>. It was supported
-by DFG grant KI 1443/3-1.
+Estimation of extended joint models with shared random effects.
+Longitudinal data are handled in latent process models for continuous
+(Gaussian or curvilinear) and ordinal outcomes while proportional hazard
+models are used for the survival part. We propose a frequentist approach
+using maximum likelihood estimation. See Saulnier et al, 2021
+<arXiv:2110.02612>.
 
 %prep
 %setup -q -c -n %{packname}

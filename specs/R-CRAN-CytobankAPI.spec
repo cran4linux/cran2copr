@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  CytobankAPI
-%global packver   1.4.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cytobank API Wrapper for R
 
@@ -13,25 +13,30 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl >= 2.7
 BuildRequires:    R-CRAN-httr >= 1.2.1
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-aws.s3 
+BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-jose 
 Requires:         R-CRAN-curl >= 2.7
 Requires:         R-CRAN-httr >= 1.2.1
 Requires:         R-CRAN-jsonlite 
 Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-CRAN-aws.s3 
+Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-jose 
 
 %description
-Tools to interface with Cytobank's API via R, organized by various
-endpoints that represent various areas of Cytobank functionality. Learn
-more about Cytobank at
-<https://www.beckman.com/flow-cytometry/software/cytobank-premium>.
+Tools to interface with Cytobank's API via R, organized by endpoints that
+represent various areas of Cytobank functionality. Learn more about
+Cytobank at <https://www.beckman.com/flow-cytometry/software>.
 
 %prep
 %setup -q -c -n %{packname}

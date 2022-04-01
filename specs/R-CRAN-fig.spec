@@ -1,41 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  QWDAP
-%global packver   1.1.16
+%global packname  fig
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.16
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quantum Walk-Based Data Analysis and Prediction
+Summary:          A Config Package with No "Con"
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-MTS 
-BuildRequires:    R-CRAN-pls 
-BuildRequires:    R-CRAN-CORElearn 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-MTS 
-Requires:         R-CRAN-pls 
-Requires:         R-CRAN-CORElearn 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-R6 
 
 %description
-Modeling and predicting time series based on continuous time quantum.This
-package can be divided into three parts: Basis Generation, Data Modeling
-and Prediction, and Model Evaluation according to the analysis process of
-time series. 'Basis Generation' has realized the continuous time quantum
-walk simulation for generating modes as the basis. Some regression methods
-are used to model the observed time series and predict in 'Data Modeling
-and Prediction', and 'Model Evaluation' can be used to evaluate the data
-correspondence between two series.
+Work with configs with a source precedence. Either create own R6 instance
+or work with convenient functions at a package level.
 
 %prep
 %setup -q -c -n %{packname}

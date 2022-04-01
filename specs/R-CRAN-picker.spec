@@ -1,34 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  errorlocate
-%global packver   1.0.0
+%global packname  picker
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Locate Errors with Validation Rules
+Summary:          Pick Data Points from a Deck.gl Scatterplot
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-validate 
-BuildRequires:    R-CRAN-lpSolveAPI 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-validate 
-Requires:         R-CRAN-lpSolveAPI 
-Requires:         R-methods 
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-htmlwidgets >= 1.5.3
+Requires:         R-CRAN-htmlwidgets >= 1.5.3
 
 %description
-Errors in data can be located and removed using validation rules from
-package 'validate'. See also Van der Loo and De Jonge (2018)
-<doi:10.1002/9781118897126>, chapter 7.
+Performant interactive scatterplot for ~ 1 million points. Zoom, pan, and
+pick points. Includes tooltips, labels, a grid overlay, legend, and
+coupled interactions across multiple plots.
 
 %prep
 %setup -q -c -n %{packname}
