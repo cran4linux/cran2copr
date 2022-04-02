@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spatstat
-%global packver   2.3-3
+%global packver   2.3-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.3
+Version:          2.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Point Pattern Analysis, Model-Fitting, Simulation, Tests
 
@@ -16,19 +16,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat.core >= 2.4.0
-BuildRequires:    R-CRAN-spatstat.geom >= 2.3.2
+BuildRequires:    R-CRAN-spatstat.core >= 2.4.1
+BuildRequires:    R-CRAN-spatstat.geom >= 2.4.0
 BuildRequires:    R-CRAN-spatstat.linnet >= 2.3.2
 BuildRequires:    R-CRAN-spatstat.utils >= 2.3.0
+BuildRequires:    R-CRAN-spatstat.random >= 2.2.0
 BuildRequires:    R-CRAN-spatstat.data >= 2.1.2
-BuildRequires:    R-CRAN-spatstat.random >= 2.1.0
 BuildRequires:    R-utils 
-Requires:         R-CRAN-spatstat.core >= 2.4.0
-Requires:         R-CRAN-spatstat.geom >= 2.3.2
+Requires:         R-CRAN-spatstat.core >= 2.4.1
+Requires:         R-CRAN-spatstat.geom >= 2.4.0
 Requires:         R-CRAN-spatstat.linnet >= 2.3.2
 Requires:         R-CRAN-spatstat.utils >= 2.3.0
+Requires:         R-CRAN-spatstat.random >= 2.2.0
 Requires:         R-CRAN-spatstat.data >= 2.1.2
-Requires:         R-CRAN-spatstat.random >= 2.1.0
 Requires:         R-utils 
 
 %description

@@ -1,38 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dail
-%global packver   1.3
+%global packname  pop.lion
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data from Access to Information Law
+Summary:          Models for Simulating Lion Populations
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stopwords 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidytext 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stopwords 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidytext 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-abind 
+Requires:         R-parallel 
+Requires:         R-CRAN-abind 
 
 %description
-Downloads the public data available from the Brazilian Access to
-Information Law and and performs a search on information requests and
-appeals made since 2015.
+Simulate the dynamic of lion populations using a specific Individual-Based
+Model (IBM) compiled in C.
 
 %prep
 %setup -q -c -n %{packname}

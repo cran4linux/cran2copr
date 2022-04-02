@@ -1,38 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dail
-%global packver   1.3
+%global packname  iq
+%global packver   1.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.9.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data from Access to Information Law
+Summary:          Protein Quantification in Mass Spectrometry-Based Proteomics
 
-License:          MIT + file LICENSE
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stopwords 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidytext 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stopwords 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidytext 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.5
 
 %description
-Downloads the public data available from the Brazilian Access to
-Information Law and and performs a search on information requests and
-appeals made since 2015.
+An implementation of the maximal peptide ratio extraction module of the
+MaxLFQ algorithm by Cox et al. (2014) <doi:10.1074/mcp.M113.031591> in a
+complete pipeline for processing proteomics data in data-independent
+acquisition mode (Pham et al. 2020 <doi:10.1093/bioinformatics/btz961>).
+It offers additional options for protein quantification using the N most
+intense fragment ions, using all fragment ions, and a wrapper for the
+median polish algorithm by Tukey (1977, ISBN:0201076160).
 
 %prep
 %setup -q -c -n %{packname}

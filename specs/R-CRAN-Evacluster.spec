@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dail
-%global packver   1.3
+%global packname  Evacluster
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data from Access to Information Law
+Summary:          Evaluation Clustering Methods for Disease Subtypes Diagnosis
 
-License:          MIT + file LICENSE
+License:          LGPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,23 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stopwords 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidytext 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stopwords 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidytext 
 
 %description
-Downloads the public data available from the Brazilian Access to
-Information Law and and performs a search on information requests and
-appeals made since 2015.
+Contains a set of clustering methods and evaluation metrics to select the
+best number of the clusters based on clustering stability. Two references
+describe the methodology: Fahimeh Nezhadmoghadam, and Jose Tamez-Pena
+(2021)<doi:10.1016/j.compbiomed.2021.104753>, and Fahimeh Nezhadmoghadam,
+et al.(2021)<doi:10.2174/1567205018666210831145825>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dail
-%global packver   1.3
+%global packname  hyperbrick
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data from Access to Information Law
+Summary:          Accessory Tools for Preprocessing Hyper-Spectral Images
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,23 +16,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stopwords 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidytext 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stopwords 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidytext 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-OpenImageR 
+BuildRequires:    R-CRAN-caTools 
+BuildRequires:    R-CRAN-dfoptim 
+BuildRequires:    R-CRAN-pbapply 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-OpenImageR 
+Requires:         R-CRAN-caTools 
+Requires:         R-CRAN-dfoptim 
+Requires:         R-CRAN-pbapply 
 
 %description
-Downloads the public data available from the Brazilian Access to
-Information Law and and performs a search on information requests and
-appeals made since 2015.
+Read and execute preprocessing procedures on hyper-spectral images. These
+type of sensor data are usually recorded in a raw format. This package
+contains some easy-to-use functions to promptly build the image with some
+basic radiometric calibrations, setting up the geographic information.
+Geometric correction can be done with band-to-band registration
+(translation and rotation). Further functionalities allow to compute
+sliding windows statistics over the image.
 
 %prep
 %setup -q -c -n %{packname}

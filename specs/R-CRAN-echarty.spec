@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  echarty
-%global packver   1.4.3
+%global packver   1.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Minimal R/Shiny Interface to JavaScript Library 'ECharts'
 
@@ -17,21 +17,22 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.7.0
+BuildRequires:    R-CRAN-data.tree >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-htmltools >= 0.5.0
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-shiny >= 1.7.0
+Requires:         R-CRAN-data.tree >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-htmltools >= 0.5.0
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-jsonlite 
 
 %description
-The goal is to deliver the full functionality of 'ECharts' with minimal
-overhead. 'ECharts' is based on data structures and 'echarty' users build
-R lists for these same data structures. One to three 'echarty' commands
-are usually sufficient to produce any chart.
+Deliver the full functionality of 'ECharts' with minimal overhead.
+'echarty' users build R lists for 'ECharts' API. Lean set of powerful
+commands.
 
 %prep
 %setup -q -c -n %{packname}

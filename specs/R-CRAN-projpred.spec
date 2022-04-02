@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
 %global packname  projpred
-%global packver   2.0.2
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Projection Predictive Feature Selection
 
-License:          GPL-3
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,44 +17,40 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-loo >= 2.0.0
 BuildRequires:    R-CRAN-rstantools >= 2.0.0
-BuildRequires:    R-CRAN-rngtools >= 1.2
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-optimx 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-gamm4 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-loo >= 2.0.0
 Requires:         R-CRAN-rstantools >= 2.0.0
-Requires:         R-CRAN-rngtools >= 1.2
 Requires:         R-methods 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-optimx 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-utils 
-Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-gamm4 
+Requires:         R-CRAN-rlang 
 
 %description
 Performs projection predictive feature selection for generalized linear
-models and generalized linear and additive multilevel models (see,
-Piironen, Paasiniemi and Vehtari, 2020,
-<https://projecteuclid.org/euclid.ejs/1589335310>, Catalina, Bürkner and
-Vehtari, 2020, <arXiv:2010.06994>). The package is compatible with the
-'rstanarm' and 'brms' packages, but other reference models can also be
-used. See the package vignette for more information and examples.
+models and generalized linear and additive multilevel models (see
+Piironen, Paasiniemi and Vehtari, 2020, <doi:10.1214/20-EJS1711>;
+Catalina, Bürkner and Vehtari, 2020, <arXiv:2010.06994>). The package is
+compatible with the 'rstanarm' and 'brms' packages, but other reference
+models can also be used. See the documentation as well as the package
+vignette for more information and examples.
 
 %prep
 %setup -q -c -n %{packname}
@@ -64,6 +60,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

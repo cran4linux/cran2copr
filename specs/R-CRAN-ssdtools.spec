@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ssdtools
-%global packver   0.3.7
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Species Sensitivity Distributions
 
@@ -15,44 +15,64 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
-BuildRequires:    R-CRAN-chk 
-BuildRequires:    R-CRAN-fitdistrplus 
+BuildRequires:    R-CRAN-TMB >= 1.7.20
+BuildRequires:    R-CRAN-chk >= 0.7.0
 BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-actuar 
+BuildRequires:    R-CRAN-doFuture 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-goftest 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-chk 
-Requires:         R-CRAN-fitdistrplus 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-ssddata 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-universals 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-VGAM 
+Requires:         R-CRAN-TMB >= 1.7.20
+Requires:         R-CRAN-chk >= 0.7.0
 Requires:         R-CRAN-abind 
-Requires:         R-CRAN-actuar 
+Requires:         R-CRAN-doFuture 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-generics 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-goftest 
 Requires:         R-graphics 
 Requires:         R-grid 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
-Requires:         R-CRAN-scales 
-Requires:         R-stats 
-Requires:         R-CRAN-VGAM 
+Requires:         R-parallel 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-ssddata 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-universals 
+Requires:         R-utils 
+Requires:         R-CRAN-VGAM 
 
 %description
 Species sensitivity distributions are cumulative probability distributions
 which are fitted to toxicity concentrations for different species as
-described by Posthuma et al.(2001) <isbn:9781566705783>. The ssdtools
-package uses Maximum Likelihood to fit distributions such as the
-log-normal, gamma, log-logistic, log-Gumbel, Gompertz and Weibull. The
-user can provide custom distributions. Multiple distributions can be
-averaged using Information Criteria. Confidence intervals on hazard
-concentrations and proportions are produced by parametric bootstrapping.
+described by Posthuma et al.(2001) <isbn:9781566705783>.  The ssdtools
+package uses Maximum Likelihood to fit distributions such as the gamma,
+log-logistic, log-normal and Weibull to censored and/or weighted data.
+Multiple distributions can be averaged using Akaike Information Criteria.
+Confidence intervals on hazard concentrations and proportions are produced
+by parametric bootstrapping.
 
 %prep
 %setup -q -c -n %{packname}

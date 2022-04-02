@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  future.callr
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Future API for Parallel Processing using 'callr'
 
@@ -17,9 +17,9 @@ BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-callr >= 2.0.3
-BuildRequires:    R-CRAN-future >= 1.22.1
+BuildRequires:    R-CRAN-future >= 1.23.0
 Requires:         R-CRAN-callr >= 2.0.3
-Requires:         R-CRAN-future >= 1.22.1
+Requires:         R-CRAN-future >= 1.23.0
 
 %description
 Implementation of the Future API on top of the 'callr' package.  This

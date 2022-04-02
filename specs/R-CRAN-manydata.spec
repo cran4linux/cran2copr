@@ -1,38 +1,58 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dail
-%global packver   1.3
+%global packname  manydata
+%global packver   0.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.7.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data from Access to Information Law
+Summary:          A Portal for Global Governance Data
 
-License:          MIT + file LICENSE
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-covr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stopwords 
+BuildRequires:    R-CRAN-messydates 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-pkgdown 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-roxygen2 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidytext 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-remotes 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-covr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stopwords 
+Requires:         R-CRAN-messydates 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-pkgdown 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-roxygen2 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidytext 
+Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-remotes 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Downloads the public data available from the Brazilian Access to
-Information Law and and performs a search on information requests and
-appeals made since 2015.
+This is the core package for the many packages universe. It includes
+functions to help researchers work with and contribute to event datasets
+on global governance.
 
 %prep
 %setup -q -c -n %{packname}

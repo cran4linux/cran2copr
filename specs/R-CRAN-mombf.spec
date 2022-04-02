@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mombf
-%global packver   3.0.7
+%global packver   3.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.7
+Version:          3.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Model Selection and Averaging for Non-Local and Local Priors
 
@@ -20,16 +20,22 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-ncvreg 
 BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-sgd 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.16
 Requires:         R-methods 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-ncvreg 
 Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-sgd 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-pracma 
 
 %description
 Bayesian model selection and averaging for regression and mixtures for

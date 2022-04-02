@@ -1,38 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dail
-%global packver   1.3
+%global packname  PKPDsim
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data from Access to Information Law
+Summary:          Tools for Performing Pharmacokinetic-Pharmacodynamic Simulations
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stopwords 
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildRequires:    R-CRAN-Rcpp >= 0.12.9
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidytext 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stopwords 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-randtoolbox 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-stats 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-Rcpp >= 0.12.9
+Requires:         R-CRAN-BH 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidytext 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-randtoolbox 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-stats 
+Requires:         R-parallel 
+Requires:         R-CRAN-magrittr 
 
 %description
-Downloads the public data available from the Brazilian Access to
-Information Law and and performs a search on information requests and
-appeals made since 2015.
+Simulate dose regimens for pharmacokinetic-pharmacodynamic (PK-PD) models
+described by differential equation (DE) systems. Simulation using
+ADVAN-style analytical equations is also supported (Abuhelwa et al. (2015)
+<doi:10.1016/j.vascn.2015.03.004>).
 
 %prep
 %setup -q -c -n %{packname}

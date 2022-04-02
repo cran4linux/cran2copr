@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tpn
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Truncated Positive Normal Model and Extensions
 
@@ -18,14 +18,21 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-skewMLRM 
+BuildRequires:    R-CRAN-moments 
+BuildRequires:    R-CRAN-VGAM 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-skewMLRM 
+Requires:         R-CRAN-moments 
+Requires:         R-CRAN-VGAM 
 
 %description
 Provide data generation and estimation tools for the truncated positive
 normal model discussed in Gomez, Olmos, Varela and Bolfarine (2018)
 <doi:10.1007/s11766-018-3354-x>, the slash truncated positive normal
-distribution and the bimodal truncated positive normal distribution.
+distribution discussed in Gomez, Gallardo and Santoro (2021)
+<doi:10.3390/sym13112164>, the bimodal truncated positive normal
+distribution discussed in Gomez et al. (2022) <doi:10.3390/sym14040665>
+and the flexible truncated positive normal model.
 
 %prep
 %setup -q -c -n %{packname}

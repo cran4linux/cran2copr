@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spatstat.local
-%global packver   4.1-4
+%global packver   4.1-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.4
+Version:          4.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extension to 'spatstat' for Local Composite Likelihood
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat.core >= 2.4.0
+BuildRequires:    R-CRAN-spatstat.core >= 2.4.2
 BuildRequires:    R-CRAN-spatstat.geom >= 2.3.2
 BuildRequires:    R-CRAN-spatstat.sparse >= 2.1.0
 BuildRequires:    R-CRAN-spatstat.random >= 2.1.0
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-spatstat >= 2.0
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-tensor 
-Requires:         R-CRAN-spatstat.core >= 2.4.0
+Requires:         R-CRAN-spatstat.core >= 2.4.2
 Requires:         R-CRAN-spatstat.geom >= 2.3.2
 Requires:         R-CRAN-spatstat.sparse >= 2.1.0
 Requires:         R-CRAN-spatstat.random >= 2.1.0

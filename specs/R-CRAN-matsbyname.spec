@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  matsbyname
-%global packver   0.4.25
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.25
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Implementation of Matrix Mathematics
 
@@ -18,19 +18,19 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-RCLabels 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-RCLabels 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-tibble 
 
 %description
