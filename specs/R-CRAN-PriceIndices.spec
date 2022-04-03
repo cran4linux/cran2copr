@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  PriceIndices
-%global packver   0.0.6
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculating Bilateral and Multilateral Price Indexes
 
@@ -38,9 +38,9 @@ Requires:         R-CRAN-strex
 %description
 Preparing a scanner data set for price dynamics calculations (data
 selecting, data classification, data matching, data filtering). Computing
-bilateral and multilateral indexes. For details on these methods see: de
-Haan and Krsinich (2017) <doi:10.1111/roiw.12304> and Diewert and Fox
-(2020) <doi:10.1080/07350015.2020.1816176>.
+bilateral and multilateral indexes. For details on these methods see:
+Diewert and Fox (2020) <doi:10.1080/07350015.2020.1816176>, Białek (2019)
+<doi:10.2478/jos-2019-0014> or Białek (2020) <doi:10.2478/jos-2020-0037>.
 
 %prep
 %setup -q -c -n %{packname}

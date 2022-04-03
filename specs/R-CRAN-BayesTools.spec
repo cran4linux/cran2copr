@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BayesTools
-%global packver   0.1.3
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Bayesian Analyses
 
@@ -19,6 +19,7 @@ BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-runjags 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-bridgesampling 
@@ -28,6 +29,7 @@ BuildRequires:    R-CRAN-Rdpack
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-extraDistr 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-runjags 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-bridgesampling 

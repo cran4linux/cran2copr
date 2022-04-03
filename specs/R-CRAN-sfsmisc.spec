@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sfsmisc
-%global packver   1.1-12
+%global packver   1.1-13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.12
+Version:          1.1.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities from 'Seminar fuer Statistik' ETH Zurich
 
@@ -17,12 +17,10 @@ BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 Requires:         R-grDevices 
-Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-tools 
