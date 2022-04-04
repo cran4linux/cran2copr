@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  scan
-%global packver   0.54
+%global packver   0.54.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.54
+Version:          0.54.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Single-Case Data Analyses for Single and Multiple Baseline Designs
 

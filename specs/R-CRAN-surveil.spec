@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  surveil
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series Models for Disease Surveillance
 
@@ -50,18 +50,18 @@ Requires:         R-CRAN-rstantools
 %description
 Fits time series models for routine disease surveillance tasks and returns
 probability distributions for a variety of quantities of interest,
-including measures of health inequality, period and cumulative percent
-change, and age-standardized rates. Calculates Theil's index to measure
+including age-standardized rates, period and cumulative percent change,
+and measures of health inequality. Calculates Theil's index to measure
 inequality among multiple groups, and can be extended to measure
 inequality across multiple groups nested within geographies. Inference is
 completed using Markov chain Monte Carlo via the Stan modeling language.
-The models are appropriate for rare disease incidence and mortality data,
-employing a Poisson likelihood and first-difference (random-walk) prior
-for unknown risk, and optional covariance matrix for multiple correlated
-time series models. References: Brandt and Williams (2007,
-ISBN:978-1-4129-0656-2); Clayton (1996, ISBN-13:978-0-412-05551-5); Stan
-Development Team (2021) <https://mc-stan.org>; Theil (1972,
-ISBN:0-444-10378-3).
+The models are appropriate for count data such as disease incidence and
+mortality data, employing a Poisson or binomial likelihood and the
+first-difference (random-walk) prior for unknown risk. Optionally add a
+covariance matrix for multiple, correlated time series models. References:
+Brandt and Williams (2007, ISBN:978-1-4129-0656-2); Clayton (1996,
+ISBN-13:978-0-412-05551-5); Stan Development Team (2021)
+<https://mc-stan.org>; Theil (1972, ISBN:0-444-10378-3).
 
 %prep
 %setup -q -c -n %{packname}

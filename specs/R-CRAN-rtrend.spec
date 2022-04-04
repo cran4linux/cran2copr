@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rtrend
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Trend Estimating Tools
 
@@ -20,6 +20,8 @@ BuildRequires:    R-CRAN-fftwtools
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
@@ -27,6 +29,8 @@ Requires:         R-CRAN-fftwtools
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-ggplot2 
 
 %description

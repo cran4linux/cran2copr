@@ -1,23 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global packname  norm
-%global packver   1.0-9.5
+%global packver   1.0-10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9.5
+Version:          1.0.10.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of multivariate normal datasets with missing values
+Summary:          Analysis of Multivariate Normal Datasets with Missing Values
 
-License:          file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Analysis of multivariate normal datasets with missing values
+An integrated set of functions for the analysis of multivariate normal
+datasets with missing values, including implementation of the EM
+algorithm, data augmentation, and multiple imputation.
 
 %prep
 %setup -q -c -n %{packname}
