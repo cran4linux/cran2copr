@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  klausuR
-%global packver   0.12-13
+%global packver   0.12-14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.13
+Version:          0.12.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Choice Test Evaluation
 

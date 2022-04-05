@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mlr3viz
-%global packver   0.5.7
+%global packver   0.5.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.7
+Version:          0.5.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizations for 'mlr3'
 
@@ -20,12 +20,16 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-mlr3misc >= 0.7.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-viridis 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-mlr3misc >= 0.7.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-scales 
 Requires:         R-utils 
+Requires:         R-CRAN-viridis 
 
 %description
 Provides visualizations for 'mlr3' objects such as tasks, predictions,

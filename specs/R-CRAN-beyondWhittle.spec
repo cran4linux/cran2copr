@@ -1,33 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  drtmle
-%global packver   1.1.0
+%global packname  beyondWhittle
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Doubly-Robust Nonparametric Estimation and Inference
+Summary:          Bayesian Spectral Inference for Stationary Time Series
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-SuperLearner 
-BuildRequires:    R-CRAN-np 
-BuildRequires:    R-CRAN-future.apply 
-Requires:         R-CRAN-SuperLearner 
-Requires:         R-CRAN-np 
-Requires:         R-CRAN-future.apply 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-ltsa >= 1.4.6
+BuildRequires:    R-CRAN-Rcpp >= 0.12.5
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-ltsa >= 1.4.6
+Requires:         R-CRAN-Rcpp >= 0.12.5
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-forecast 
 
 %description
-Targeted minimum loss-based estimators of counterfactual means and causal
-effects that are doubly-robust with respect both to consistency and
-asymptotic normality (Benkeser et al (2017), <doi:10.1093/biomet/asx053>;
-MJ van der Laan (2014), <doi:10.1515/ijb-2012-0038>).
+Implementations of Bayesian parametric, nonparametric and semiparametric
+procedures for univariate and multivariate time series. The package is
+based on the methods presented in C. Kirch et al (2018)
+<doi:10.1214/18-BA1126> and A. Meier (2018)
+<https://opendata.uni-halle.de//handle/1981185920/13470>. It was supported
+by DFG grant KI 1443/3-1.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

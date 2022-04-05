@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Julia
-%global packver   1.3.1
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fractal Image Data Generator
 
@@ -19,7 +19,8 @@ BuildArch:        noarch
 
 %description
 Generates image data for fractals (Julia and Mandelbrot sets) on the
-complex plane in the given region and resolution.
+complex plane in the given region and resolution. Benoit B Mandelbrot
+(1982).
 
 %prep
 %setup -q -c -n %{packname}

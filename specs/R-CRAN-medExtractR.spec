@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  medExtractR
-%global packver   0.3
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extraction of Medication Information from Clinical Text
 
@@ -26,10 +26,12 @@ Function and support for medication and dosing information extraction from
 free-text clinical notes. Medication entities for the basic medExtractR
 implementation that can be extracted include drug name, strength, dose
 amount, dose, frequency, intake time, dose change, and time of last dose.
-The extended medExtractR_tapering implementation is intended to extract
-dosing information for more tapering schedules, which are far more
-complex. The tapering extension allows for the extraction of additional
-entities including dispense amount, refills, dose schedule, time keyword,
+The basic medExtractR is outlined in Weeks, Beck, McNeer, Williams, Bejan,
+Denny, Choi (2020) <doi: 10.1093/jamia/ocz207>. The extended
+medExtractR_tapering implementation is intended to extract dosing
+information for more tapering schedules, which are far more complex. The
+tapering extension allows for the extraction of additional entities
+including dispense amount, refills, dose schedule, time keyword,
 transition, and preposition.
 
 %prep
@@ -40,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Rsagacmd
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linking R with the Open-Source 'SAGA-GIS' Software
 
@@ -16,10 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-terra >= 1.5.21
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-stars 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
@@ -30,10 +30,10 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-rvest 
+Requires:         R-CRAN-terra >= 1.5.21
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-terra 
 Requires:         R-CRAN-stars 
 Requires:         R-tools 
 Requires:         R-utils 

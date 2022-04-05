@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  s2dverification
-%global packver   2.10.1
+%global packver   2.10.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.10.1
+Version:          2.10.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Set of Common Tools for Forecast Verification
 

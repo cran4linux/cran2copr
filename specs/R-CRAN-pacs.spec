@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pacs
-%global packver   0.4.3
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Supplementary Tools for R Packages Developers
 
@@ -16,18 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-renv 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-renv 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-stringi 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-stringi 
 
 %description
 Supplementary utils for CRAN maintainers and R packages developers.

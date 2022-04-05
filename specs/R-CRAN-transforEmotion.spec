@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  transforEmotion
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sentiment Analysis for Text and Qualitative Data
 
@@ -18,17 +18,30 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-osfr 
+BuildRequires:    R-CRAN-LSAfun 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-remotes 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-osfr 
+Requires:         R-CRAN-LSAfun 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-remotes 
 
 %description
-Implements sentiment analysis using Facebook's BART Large zero-shot
-classification model <https://huggingface.co/facebook/bart-large-mnli>
-trained on the Multi-Genre Natural Language Inference dataset
-<https://huggingface.co/datasets/multi_nli>. Using similar models,
-zero-shot classification transformers have demonstrated superior
-performance relative to other natural language processing models
-<arXiv:1909.00161>.
+Implements sentiment analysis using huggingface <https://huggingface.co>
+transformer zero-shot classification model pipelines. The default pipeline
+is Cross-Encoder's DistilRoBERTa
+<https://huggingface.co/cross-encoder/nli-distilroberta-base> trained on
+the Stanford Natural Language Inference
+<https://nlp.stanford.edu/projects/snli/> and Multi-Genre Natural Language
+Inference <https://huggingface.co/datasets/multi_nli> datasets. Using
+similar models, zero-shot classification transformers have demonstrated
+superior performance relative to other natural language processing models
+<arXiv:1909.00161>. All other zero-shot classification model pipelines can
+be implemented using their model name from
+<https://huggingface.co/models?pipeline_tag=zero-shot-classification>}.
 
 %prep
 %setup -q -c -n %{packname}

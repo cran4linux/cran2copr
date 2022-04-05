@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  stppSim
-%global packver   1.2.1
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatiotemporal Point Patterns Simulation
 
@@ -37,6 +37,9 @@ BuildRequires:    R-CRAN-chron
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-gstat 
 Requires:         R-CRAN-splancs 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
@@ -58,6 +61,9 @@ Requires:         R-CRAN-chron
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-leaflet 
+Requires:         R-methods 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-gstat 
 
 %description
 Generates artificial spatiotemporal (ST) point patterns through the

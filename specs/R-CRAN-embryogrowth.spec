@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  embryogrowth
-%global packver   8.3-4
+%global packver   8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.3.4
+Version:          8.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Analyze the Thermal Reaction Norm of Embryo Growth
 
