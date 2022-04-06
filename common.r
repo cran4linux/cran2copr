@@ -481,26 +481,15 @@ get_chroots <- function() {
 }
 
 get_monitor <- function() {
-  stopifnot(requireNamespace("XML", quietly=TRUE))
-  url <- paste(get_url_copr(), "monitor", "detailed?page=", sep="/")
-  url <- paste0(url, seq_len(ceiling(length(list_pkgs()) / 50)))
-  content <- .read_urls(url)
-  while(length(empty <- which(sapply(content, length) == 0)))
-    content[empty] <- .read_urls(url[empty])
-  df <- do.call(rbind, lapply(content, function(i) XML::readHTMLTable(i)[[1]]))
-  colnames(df) <- c("Package", get_chroots())
-  na.omit(df)
-}
-
-get_monitor_new <- function() {
   out <- copr_call("monitor", "--output-format=text-row", getOption("copr.repo"))
-  out <- read.delim(textConnection(out), col.names=c("Package", "chroot", "id", "status"))
-  out$status <- paste(out$id, out$status)
-  out$id <- NULL
+  out <- read.delim(textConnection(out),
+                    col.names=c("Package", "chroot", "id", "status", "version"))
+  out$status <- with(out, paste(id, status, version))
+  out$id <- out$version <- NULL
   out <- reshape(out, idvar="Package", timevar="chroot", direction="wide")
   out <- out[, sort(colnames(out))]
   colnames(out) <- sub("status.", "", colnames(out))
-  out
+  merge(out, data.frame(Package=setdiff(list_pkgs(), out$Package)), all=TRUE)
 }
 
 get_builds <- function() {
