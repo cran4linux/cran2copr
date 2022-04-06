@@ -1,37 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rbioapi
-%global packver   0.7.6
+%global packname  timbeR
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.6
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          User-Friendly R Interface to Biologic Web Services' API
+Summary:          Calculate Wood Volumes from Taper Functions
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-lazyeval 
+BuildRequires:    R-CRAN-miniUI 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-lazyeval 
+Requires:         R-CRAN-miniUI 
+Requires:         R-CRAN-shiny 
 
 %description
-Currently fully supports Enrichr, JASPAR, miEAA, PANTHER, Reactome,
-STRING, and UniProt! The goal of rbioapi is to provide a user-friendly and
-consistent interface to biological databases and services: In a way that
-insulates the user from technicalities of using web services API and
-creates a unified and easy-to-use interface to biological and medical web
-services. This an ongoing project; New databases and services will be
-added periodically. Feel free to suggest any databases or services you
-often use.
+Functions for estimation of wood volumes, number of logs, diameters along
+the stem and heights at which certain diameters occur, based on taper
+functions and other parameters. References: McTague, J. P., & Weiskittel,
+A. (2021). <doi:10.1139/cjfr-2020-0326>.
 
 %prep
 %setup -q -c -n %{packname}

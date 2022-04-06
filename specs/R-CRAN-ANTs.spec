@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ANTs
-%global packver   0.0.14
+%global packver   0.0.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.14
+Version:          0.0.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Animal Network Toolkit Software
 
@@ -19,6 +19,7 @@ BuildRequires:    R-CRAN-lme4
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Kendall 
 BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
@@ -26,6 +27,7 @@ Requires:         R-CRAN-lme4
 Requires:         R-methods 
 Requires:         R-CRAN-Kendall 
 Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-rstudioapi 
 
 %description
 How animals interact and develop social relationships in face of

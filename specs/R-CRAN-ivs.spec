@@ -1,37 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rbioapi
-%global packver   0.7.6
+%global packname  ivs
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          User-Friendly R Interface to Biologic Web Services' API
+Summary:          Interval Vectors
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-glue >= 1.6.2
+BuildRequires:    R-CRAN-rlang >= 1.0.2
+BuildRequires:    R-CRAN-vctrs >= 0.4.0
+Requires:         R-CRAN-glue >= 1.6.2
+Requires:         R-CRAN-rlang >= 1.0.2
+Requires:         R-CRAN-vctrs >= 0.4.0
 
 %description
-Currently fully supports Enrichr, JASPAR, miEAA, PANTHER, Reactome,
-STRING, and UniProt! The goal of rbioapi is to provide a user-friendly and
-consistent interface to biological databases and services: In a way that
-insulates the user from technicalities of using web services API and
-creates a unified and easy-to-use interface to biological and medical web
-services. This an ongoing project; New databases and services will be
-added periodically. Feel free to suggest any databases or services you
-often use.
+Provides a library for generic interval manipulations using a new interval
+vector class. Capabilities include: locating various kinds of
+relationships between two interval vectors, merging overlaps within a
+single interval vector, splitting an interval vector on its overlapping
+endpoints, and applying set theoretical operations on interval vectors.
+Many of the operations in this package were inspired by James Allen's
+interval algebra, Allen (1983) <doi:10.1145/182.358434>.
 
 %prep
 %setup -q -c -n %{packname}

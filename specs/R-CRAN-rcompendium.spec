@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rcompendium
-%global packver   0.5.1
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create a Package or Research Compendium Structure
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-devtools
 BuildRequires:    R-CRAN-gert 
 BuildRequires:    R-CRAN-gh 
 BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-renv 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-stringr 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-devtools
 Requires:         R-CRAN-gert 
 Requires:         R-CRAN-gh 
 Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-renv 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-stringr 
@@ -61,6 +63,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

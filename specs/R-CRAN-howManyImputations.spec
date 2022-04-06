@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MCMChybridGP
-%global packver   5.4
+%global packname  howManyImputations
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.4
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hybrid Markov Chain Monte Carlo using Gaussian Processes
+Summary:          Calculate How many Imputations are Needed for Multiple Imputation
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-MASS 
+BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mice 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-mice 
 
 %description
-Hybrid Markov chain Monte Carlo (MCMC) to simulate from a multimodal
-target distribution.  A Gaussian process approximation makes this possible
-when derivatives are unknown. The Package serves to minimize the number of
-function evaluations in Bayesian calibration of computer models using
-parallel tempering.  It allows replacement of the true target distribution
-in high temperature chains, or complete replacement of the target.
-Methods used are described in, "Efficient MCMC schemes for computationally
-expensive posterior distributions", Fielding et al. (2011)
-<doi:10.1198/TECH.2010.09195>. The research presented in this work was
-carried out as part of the Singapore-Delft Water Alliance Multi-Objective
-Multi-Reservoir Management research programme (R-264-001-272).
+When performing multiple imputations, while 5-10 imputations are
+sufficient for obtaining point estimates, a larger number of imputations
+are needed for proper standard error estimates. This package allows you to
+calculate how many imputations are needed, following the work of von
+Hippel 2018 <doi:10.1177/0049124117747303>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -39,6 +38,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

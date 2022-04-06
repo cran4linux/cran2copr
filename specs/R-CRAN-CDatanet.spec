@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  CDatanet
-%global packver   0.0.1
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modeling Count Data with Peer Effects
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-ddpcr
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppProgress 
+BuildRequires:    R-CRAN-RcppDist 
 Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-formula.tools 
@@ -32,7 +33,7 @@ Requires:         R-CRAN-Matrix
 Likelihood-based estimation and data generation from a class of models
 used to estimate peer effects on count data by controlling for the network
 endogeneity. This class includes count data models with social
-interactions (Houndetoungan 2020; <doi:10.2139/ssrn.3721250>), spatial
+interactions (Houndetoungan 2022; <doi:10.2139/ssrn.3721250>), spatial
 tobit models (Xu and Lee 2015; <doi:10.1016/j.jeconom.2015.05.004>), and
 spatial linear-in-means models (Lee 2004;
 <doi:10.1111/j.1468-0262.2004.00558.x>).
@@ -45,6 +46,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

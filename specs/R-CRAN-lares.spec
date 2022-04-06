@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  lares
-%global packver   5.1.1
+%global packver   5.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.1
+Version:          5.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analytics & Machine Learning Sidekick
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-h2o
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-pROC 
@@ -39,7 +38,6 @@ Requires:         R-CRAN-h2o
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-pROC 
@@ -54,9 +52,9 @@ Requires:         R-CRAN-yaml
 %description
 Auxiliary package for better/faster analytics, visualization, data mining,
 and machine learning tasks. With a wide variety of family functions, like
-Machine Learning, Data Wrangling, Exploratory, and Scrapper, it helps the
-analyst or data scientist to get quick and robust results, without the
-need of repetitive coding or extensive programming skills.
+Machine Learning, Data Wrangling, Exploratory, API, and Scrapper, it helps
+the analyst or data scientist to get quick and robust results, without the
+need of repetitive coding or extensive R programming skills.
 
 %prep
 %setup -q -c -n %{packname}

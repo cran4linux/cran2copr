@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rbioapi
-%global packver   0.7.6
+%global packname  ACV
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.6
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          User-Friendly R Interface to Biologic Web Services' API
+Summary:          Optimal Out-of-Sample Forecast Evaluation and Testing under Stationarity
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,22 +16,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Currently fully supports Enrichr, JASPAR, miEAA, PANTHER, Reactome,
-STRING, and UniProt! The goal of rbioapi is to provide a user-friendly and
-consistent interface to biological databases and services: In a way that
-insulates the user from technicalities of using web services API and
-creates a unified and easy-to-use interface to biological and medical web
-services. This an ongoing project; New databases and services will be
-added periodically. Feel free to suggest any databases or services you
-often use.
+Package 'ACV' (short for Affine Cross-Validation) offers an improved
+time-series cross-validation loss estimator which utilizes both in-sample
+and out-of-sample forecasting performance via a carefully constructed
+affine weighting scheme. Under the assumption of stationarity, the
+estimator is the best linear unbiased estimator of the out-of-sample loss.
+Besides that, the package also offers improved versions of Diebold-Mariano
+and Ibragimov-Muller tests of equal predictive ability which deliver more
+power relative to their conventional counterparts. For more information,
+see the accompanying article Stanek (2021) <doi:10.2139/ssrn.3996166>.
 
 %prep
 %setup -q -c -n %{packname}

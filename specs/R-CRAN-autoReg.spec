@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  autoReg
-%global packver   0.1.0
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Linear and Logistic Regression and Survival Analysis
 
@@ -13,14 +13,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-moonBook >= 0.3.0
 BuildRequires:    R-CRAN-nortest 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-survival 
@@ -32,12 +32,15 @@ BuildRequires:    R-CRAN-patchwork
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-cmprsk 
+BuildRequires:    R-CRAN-tidycmprsk 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-maxstat 
+BuildRequires:    R-CRAN-pammtools 
 Requires:         R-CRAN-moonBook >= 0.3.0
 Requires:         R-CRAN-nortest 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-survival 
@@ -49,7 +52,10 @@ Requires:         R-CRAN-patchwork
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-broom 
-Requires:         R-CRAN-cmprsk 
+Requires:         R-CRAN-tidycmprsk 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-maxstat 
+Requires:         R-CRAN-pammtools 
 
 %description
 Make summary tables for descriptive statistics and select explanatory

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rdacca.hp
-%global packver   1.0-7
+%global packver   1.0-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical and Variation Partitioning for Canonical Analysis
 
@@ -29,7 +29,7 @@ variation (R-square and adjusted R-square) on canonical analysis (RDA,CCA
 and db-RDA), applying the algorithm of Lai J.,Zou Y., Zhang J.,Peres-Neto
 P.(2022) Generalizing hierarchical and variation partitioning in multiple
 regression and canonical analyses using the rdacca.hp R package.Methods in
-Ecology and Evolution,<DOI:10.1111/2041-210X.13800>.
+Ecology and Evolution,13: 782-788 <DOI:10.1111/2041-210X.13800>.
 
 %prep
 %setup -q -c -n %{packname}

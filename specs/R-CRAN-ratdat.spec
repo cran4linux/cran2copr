@@ -1,37 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rbioapi
-%global packver   0.7.6
+%global packname  ratdat
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          User-Friendly R Interface to Biologic Web Services' API
+Summary:          Portal Project Teaching Database
 
-License:          GPL-3
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-utils 
 
 %description
-Currently fully supports Enrichr, JASPAR, miEAA, PANTHER, Reactome,
-STRING, and UniProt! The goal of rbioapi is to provide a user-friendly and
-consistent interface to biological databases and services: In a way that
-insulates the user from technicalities of using web services API and
-creates a unified and easy-to-use interface to biological and medical web
-services. This an ongoing project; New databases and services will be
-added periodically. Feel free to suggest any databases or services you
-often use.
+A simplified version of the Portal Project Database designed for teaching.
+It provides a real world example of life-history, population, and
+ecological data, with sufficient complexity to teach many aspects of data
+analysis and management, but with many complexities removed to allow
+students to focus on the core ideas and skills being taught. The full
+database (which should be used for research) is available at
+<https://github.com/weecology/PortalData>.
 
 %prep
 %setup -q -c -n %{packname}

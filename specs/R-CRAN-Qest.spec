@@ -1,37 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rbioapi
-%global packver   0.7.6
+%global packname  Qest
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          User-Friendly R Interface to Biologic Web Services' API
+Summary:          Quantile-Based Estimator
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-pch 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-pch 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-methods 
 Requires:         R-utils 
 
 %description
-Currently fully supports Enrichr, JASPAR, miEAA, PANTHER, Reactome,
-STRING, and UniProt! The goal of rbioapi is to provide a user-friendly and
-consistent interface to biological databases and services: In a way that
-insulates the user from technicalities of using web services API and
-creates a unified and easy-to-use interface to biological and medical web
-services. This an ongoing project; New databases and services will be
-added periodically. Feel free to suggest any databases or services you
-often use.
+Quantile-based estimators (Q-estimators) can be used to fit any parametric
+distribution, using its quantile function. Q-estimators are usually more
+robust than standard maximum likelihood estimators. The method is
+described in: Sottile G. and Frumento P. (2022). Robust estimation and
+regression with parametric quantile functions.
+<doi:10.1016/j.csda.2022.107471>.
 
 %prep
 %setup -q -c -n %{packname}

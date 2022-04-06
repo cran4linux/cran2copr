@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  NCA
-%global packver   3.1.1
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Necessary Condition Analysis
 
@@ -13,12 +13,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-gplots 
 BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-CRAN-sfa 
 BuildRequires:    R-CRAN-KernSmooth 
 BuildRequires:    R-CRAN-lpSolve 
 BuildRequires:    R-CRAN-ggplot2 
@@ -28,7 +27,6 @@ BuildRequires:    R-CRAN-iterators
 BuildRequires:    R-CRAN-plotly 
 Requires:         R-CRAN-gplots 
 Requires:         R-CRAN-quantreg 
-Requires:         R-CRAN-sfa 
 Requires:         R-CRAN-KernSmooth 
 Requires:         R-CRAN-lpSolve 
 Requires:         R-CRAN-ggplot2 
@@ -65,6 +63,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

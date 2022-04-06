@@ -1,37 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  scCAN
-%global packver   1.0.4
+%global packname  SpatialGEV
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Single-Cell Clustering using Autoencoder and Network Fusion
+Summary:          Fit Spatial Generalized Extreme Value Models
 
-License:          LGPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-scDHA 
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-TMB >= 1.7.16
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-evd 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-scDHA 
-Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-TMB >= 1.7.16
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-evd 
 Requires:         R-stats 
 
 %description
-A single-cell Clustering method using 'Autoencoder' and Network fusion
-('scCAN') for segregating the cells from the high-dimensional 'scRNA-Seq'
-data. The software automatically determines the optimal number of clusters
-and then partitions the cells in a way such that the results are robust to
-noise and dropouts. 'scCAN' is fast and it supports Windows, Linux, and
-Mac OS.
+Fit latent variable models with the GEV distribution as the data
+likelihood and the GEV parameters following latent Gaussian processes. The
+models in this package are built using the template model builder 'TMB' in
+R, which has the fast ability to integrate out the latent variables using
+Laplace approximation. This package allows the users to choose in the fit
+function which GEV parameter(s) is considered as a spatially varying
+random effect following a Gaussian process, so the users can fit spatial
+GEV models with different complexities to their dataset without having to
+write the models in 'TMB' by themselves. This package also offers methods
+to sample from both fixed and random effects posteriors as well as the
+posterior predictive distributions at different spatial locations. Methods
+for fitting this class of models are described in Chen, Ramezan, and Lysy
+(2021) <arXiv:2110.07051>.
 
 %prep
 %setup -q -c -n %{packname}

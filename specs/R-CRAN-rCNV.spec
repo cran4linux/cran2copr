@@ -1,37 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rbioapi
-%global packver   0.7.6
+%global packname  rCNV
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          User-Friendly R Interface to Biologic Web Services' API
+Summary:          Detect Copy Number Variants from SNPs Data
 
-License:          GPL-3
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-qgraph 
+Requires:         R-CRAN-data.table 
+Requires:         R-graphics 
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-qgraph 
 
 %description
-Currently fully supports Enrichr, JASPAR, miEAA, PANTHER, Reactome,
-STRING, and UniProt! The goal of rbioapi is to provide a user-friendly and
-consistent interface to biological databases and services: In a way that
-insulates the user from technicalities of using web services API and
-creates a unified and easy-to-use interface to biological and medical web
-services. This an ongoing project; New databases and services will be
-added periodically. Feel free to suggest any databases or services you
-often use.
+Functions in this package will import filtered variant call format (VCF)
+files of SNPs data and generate data sets to detect copy number variants,
+visualize them and do downstream analyses with copy number variants(e.g.
+Environmental association analyses).
 
 %prep
 %setup -q -c -n %{packname}

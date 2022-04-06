@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  scCAN
-%global packver   1.0.4
+%global packname  ggcorset
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Single-Cell Clustering using Autoencoder and Network Fusion
+Summary:          The Corset Plot
 
-License:          LGPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,22 +16,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-scDHA 
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-scDHA 
-Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-purrr 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gghalves 
+BuildRequires:    R-CRAN-ggstance 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gghalves 
+Requires:         R-CRAN-ggstance 
 
 %description
-A single-cell Clustering method using 'Autoencoder' and Network fusion
-('scCAN') for segregating the cells from the high-dimensional 'scRNA-Seq'
-data. The software automatically determines the optimal number of clusters
-and then partitions the cells in a way such that the results are robust to
-noise and dropouts. 'scCAN' is fast and it supports Windows, Linux, and
-Mac OS.
+Corset plots are a new visualization technique, which are used strictly to
+visualize repeat measures at 2 time points (such as pre- and post- data).
+The distribution of measurements at each time point are visualized using
+half violins, whilst the trajectories of individual change are visualized
+via spaghetti plots by connecting these two points linearly. These lines
+can be coloured to represent percent change or other user-defined value.
+This method of visualization is ideal for showing the heterogeneity of
+data, including differences by sub-groups. The package relies on 'ggplot2'
+allowing for easy integration so that users can customize their
+visualizations as required. Users can create corset plots using data in
+either wide or long format using the functions gg_corset() or
+gg_corset_elongated(), respectively.
 
 %prep
 %setup -q -c -n %{packname}

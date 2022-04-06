@@ -1,47 +1,49 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MazamaTimeSeries
-%global packver   0.2.5
+%global packname  conText
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Core Functionality for Environmental Time Series
+Summary:          'a la Carte' on Text (ConText) Embedding Regression
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MazamaCoreUtils >= 0.4.10
+BuildRequires:    R-CRAN-quanteda >= 3.0.0
+BuildRequires:    R-CRAN-fastDummies >= 1.6.3
+BuildRequires:    R-CRAN-reshape2 >= 1.4.4
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-Matrix >= 1.3.2
+BuildRequires:    R-CRAN-tidyr >= 1.1.3
+BuildRequires:    R-CRAN-text2vec >= 0.6
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-geodist 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-MazamaCoreUtils >= 0.4.10
+Requires:         R-CRAN-quanteda >= 3.0.0
+Requires:         R-CRAN-fastDummies >= 1.6.3
+Requires:         R-CRAN-reshape2 >= 1.4.4
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-Matrix >= 1.3.2
+Requires:         R-CRAN-tidyr >= 1.1.3
+Requires:         R-CRAN-text2vec >= 0.6
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-geodist 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
 
 %description
-Utility functions for working with environmental time series data from
-known locations. The compact data model is structured as a list with two
-dataframes. A 'meta' dataframe contains spatial and measuring device
-metadata associated with deployments at known locations. A 'data'
-dataframe contains a 'datetime' column followed by columns of measurements
-associated with each "device-deployment". Ephemerides calculations are
-based on code originally found in NOAA's "Solar Calculator"
-<https://gml.noaa.gov/grad/solcalc/>.
+A fast, flexible and transparent framework to estimate context-specific
+word and short document embeddings using the 'a la carte' embeddings
+approach developed by Khodak et al. (2018) <arXiv:1805.05388> and evaluate
+hypotheses about covariate effects on embeddings using the regression
+framework developed by Rodriguez et al.
+(2021)<https://github.com/prodriguezsosa/EmbeddingRegression>.
 
 %prep
 %setup -q -c -n %{packname}

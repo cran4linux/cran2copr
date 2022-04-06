@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  trtf
-%global packver   0.3-9
+%global packver   0.4-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.9
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transformation Trees and Forests
 
@@ -16,8 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mlt >= 1.3.2
+BuildRequires:    R-CRAN-mlt >= 1.4.1
 BuildRequires:    R-CRAN-partykit >= 1.2.1
+BuildRequires:    R-CRAN-tram 
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-grid 
@@ -25,8 +26,10 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-variables 
 BuildRequires:    R-CRAN-libcoin 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-mlt >= 1.3.2
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-mlt >= 1.4.1
 Requires:         R-CRAN-partykit >= 1.2.1
+Requires:         R-CRAN-tram 
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-sandwich 
 Requires:         R-grid 
@@ -34,6 +37,7 @@ Requires:         R-stats
 Requires:         R-CRAN-variables 
 Requires:         R-CRAN-libcoin 
 Requires:         R-utils 
+Requires:         R-grDevices 
 
 %description
 Recursive partytioning of transformation models with corresponding random

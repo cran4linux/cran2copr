@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  TT
-%global packver   0.92
+%global packver   0.98
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.92
+Version:          0.98
 Release:          1%{?dist}%{?buildtag}
 Summary:          Display Tree Structured Data using Datatable Widget (DT)
 

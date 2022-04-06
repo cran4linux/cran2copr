@@ -1,50 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  aba
-%global packver   0.0.9
+%global packname  MPI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automated Biomarker Analysis
+Summary:          Computation of Multidimensional Poverty Index (MPI)
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-generics 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
-Requires:         R-stats 
-Requires:         R-CRAN-generics 
+Requires:         R-utils 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-purrr 
 
 %description
-A tool to fit clinical prediction models and plan clinical trials using
-biomarker data across multiple analysis factors (groups, outcomes,
-predictors).
+Computing package for Multidimensional Poverty Index (MPI) using
+Alkire-Foster method. Given N individuals, each person has D indicators of
+deprivation, the package compute MPI value to represent the degree of
+poverty in a population. The inputs are 1) an N by D matrix, which has the
+element (i,j) represents whether an individual i is deprived in an
+indicator j (1 is deprived and 0 is not deprived), and 2) the deprivation
+threshold.  The main output is the MPI value, which has the range between
+zero and one. MPI value is approaching one if almost all people are
+deprived in all indicators, and it is approaching zero if almost no people
+are deprived in any indicator.  Please see Alkire S., Chatterjee, M.,
+Conconi, A., Seth, S. and Ana Vaz (2014)
+<doi:10.35648/20.500.12413/11781/ii039> for The Alkire-Foster methodology.
 
 %prep
 %setup -q -c -n %{packname}

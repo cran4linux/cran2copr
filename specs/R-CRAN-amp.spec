@@ -1,48 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  physx
-%global packver   1.0
+%global packname  amp
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Scientific Computations
+Summary:          Statistical Test for the Multivariate Point Null Hypotheses
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-celestial 
-BuildRequires:    R-CRAN-docore 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-utils 
+BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-cubature 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-celestial 
-Requires:         R-CRAN-docore 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-pracma 
-Requires:         R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-SuperLearner 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-cubature 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
+Requires:         R-CRAN-SuperLearner 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tidyr 
 
 %description
-Collection of auxiliary routines for efficient scientific computations in
-physics and astrophysics. These routines can be used for random number
-generation (e.g. from spherical and custom distributions), information and
-entropy analysis (e.g. used in Obreschkow et al. (2020)
-<doi:10.1093/mnras/staa445>), spatial statistics, such as special DFTs and
-Landy-Szalay estimators (Landy & Szalay (1993) <doi:10.1086/172900>),
-binning/gridding of point sets and 2D interpolation, Monte Carlo
-integration, vector arithmetics, coordinate transformations, unit
-conversions and cosmological distance calculations. Also includes a list
-of important physical constants, particularly useful in astrophysics.
+A testing framework for testing the multivariate point null hypothesis. A
+testing framework described in Elder et al. (2022) <arXiv:2203.01897> to
+test the multivariate point null hypothesis.  After the user selects a
+parameter of interest and defines the assumed data generating mechanism,
+this information should be encoded in functions for the parameter
+estimator and its corresponding influence curve. Some parameter and data
+generating mechanism combinations have codings in this package, and are
+explained in detail in the article.
 
 %prep
 %setup -q -c -n %{packname}

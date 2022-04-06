@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  densEstBayes
-%global packver   1.0-2
+%global packver   1.0-2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Density Estimation via Bayesian Inference Engines
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-nlme
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-CRAN-rstantools 
 BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-nlme
 Requires:         R-CRAN-Rcpp 
 Requires:         R-methods 
 Requires:         R-CRAN-rstan 
+Requires:         R-CRAN-rstantools 
 Requires:         R-CRAN-rstantools
 
 %description

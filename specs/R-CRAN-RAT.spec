@@ -1,46 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  GBcurves
-%global packver   0.1.6
+%global packname  RAT
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Yield Curves of Brazil, China, and Russia
+Summary:          Research Assessment Tools
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-functional 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-mapproj 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-xts 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-functional 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rvest 
+BuildRequires:    R-CRAN-wosr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
+Requires:         R-CRAN-mapproj 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-xts 
+Requires:         R-CRAN-wosr 
 
 %description
-Downloads the Brazilian, Chinese, and Russian yield curves from
-<https://www.b3.com.br/>, <https://www.chinabond.com.cn/>, and
-<https://www.cbr.ru/>, respectively.
+Includes algorithms to assess research productivity and patterns, such as
+the h-index and i-index. Cardoso et al. (subm.) Quantifying the
+international collaboration of researchers and research institutions.
 
 %prep
 %setup -q -c -n %{packname}

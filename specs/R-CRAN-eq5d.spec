@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  eq5d
-%global packver   0.10.1
+%global packver   0.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.1
+Version:          0.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Analysing 'EQ-5D' Data and Calculating 'EQ-5D' Index Scores
 
@@ -34,12 +34,13 @@ health surveys. The eq5d package provides methods to calculate index
 scores from a subject's dimension scores. 29 TTO and 11 VAS EQ-5D-3L value
 sets including those for countries in Szende et al (2007)
 <doi:10.1007/1-4020-5511-0> and Szende et al (2014)
-<doi:10.1007/978-94-007-7596-1>, 29 EQ-5D-5L EQ-VT value sets from the
+<doi:10.1007/978-94-007-7596-1>, 33 EQ-5D-5L EQ-VT value sets from the
 EuroQol website, the EQ-5D-5L crosswalk value sets developed by van Hout
 et al. (2012) <doi:10.1016/j.jval.2012.02.008>, the crosswalk value set
-for Russia and reverse crosswalk value sets. Two EQ-5D-Y value sets are
-also included. Methods are also included for the analysis of EQ-5D
-profiles along with a shiny web tool to enable the calculation,
+for Russia and reverse crosswalk value sets. Three EQ-5D-Y value sets are
+also included as are the NICE 'DSU' age-sex based EQ-5D-3L to EQ-5D-5L and
+EQ-5D-5L to EQ-5D-3L mappings. Methods are also included for the analysis
+of EQ-5D profiles along with a shiny web tool to enable the calculation,
 visualisation and automated statistical analysis of EQ-5D data via a web
 browser using EQ-5D dimension scores stored in CSV or Excel files.
 
