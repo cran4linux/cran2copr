@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rnmamod
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Network Meta-Analysis with Missing Participants
 
@@ -32,8 +32,6 @@ BuildRequires:    R-CRAN-pcnetmeta
 BuildRequires:    R-CRAN-R2jags 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-writexl 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-dplyr 
@@ -51,8 +49,6 @@ Requires:         R-CRAN-pcnetmeta
 Requires:         R-CRAN-R2jags 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-scales 
-Requires:         R-stats 
-Requires:         R-utils 
 Requires:         R-CRAN-writexl 
 
 %description

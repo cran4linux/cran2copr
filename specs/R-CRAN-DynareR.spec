@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DynareR
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Seamless Integration of 'R' and 'Dynare'
 
@@ -20,21 +20,27 @@ BuildRequires:    R-CRAN-knitr >= 1.20
 Requires:         R-CRAN-knitr >= 1.20
 
 %description
-It allows running 'Dynare' program from R Markdown. 'Dynare' is a software
-platform for handling a wide class of economic models, in particular
-dynamic stochastic general equilibrium ('DSGE') and overlapping
-generations ('OLG') models.  This package serves as a 'Dynare' Knit-Engine
-for 'knitr' package. The package requires 'Dynare' 4.6.1
-(<https://www.dynare.org/>) and 'Octave' 5.2.0
+It allows running 'Dynare' program from base R and R Markdown. 'Dynare' is
+a software platform for handling a wide class of economic models, in
+particular dynamic stochastic general equilibrium ('DSGE') and overlapping
+generations ('OLG') models.  This package does not only integrate R and
+Dynare but also serves as a 'Dynare' Knit-Engine for 'knitr' package. The
+package requires 'Dynare' (<https://www.dynare.org/>) and 'Octave'
 (<https://www.gnu.org/software/octave/download.html>).  Write all your
-'Dynare' commands in R Markdown chunk.
+'Dynare' commands in R or R Markdown chunk.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -44,6 +50,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

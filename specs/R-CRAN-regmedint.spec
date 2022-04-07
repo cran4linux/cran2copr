@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  regmedint
-%global packver   0.2.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regression-Based Causal Mediation Analysis with an Interaction Term
+Summary:          Regression-Based Causal Mediation Analysis with Interaction and Effect Modification Terms
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -30,14 +30,17 @@ Requires:         R-CRAN-sandwich
 Requires:         R-CRAN-survival 
 
 %description
-'R' implementation of the regression-based causal mediation analysis with
-a treatment-mediator interaction term, as originally implemented in the
-'SAS' macro by Valeri and VanderWeele (2013) <doi:10.1037/a0031034> and
-Valeri and VanderWeele (2015) <doi:10.1097/EDE.0000000000000253>. Linear
-and logistic models are supported for the mediator model. Linear,
-logistic, loglinear, Poisson, negative binomial, Cox, and accelerated
-failure time (exponential and Weibull) models are supported for the
-outcome model.
+This is an extension of the regression-based causal mediation analysis
+first proposed by Valeri and VanderWeele (2013) <doi:10.1037/a0031034> and
+Valeri and VanderWeele (2015) <doi:10.1097/EDE.0000000000000253>). It
+supports including effect measure modification by
+covariates(treatment-covariate and mediator-covariate product terms in
+mediator and outcome regression models). It also accommodates the original
+'SAS' macro and 'PROC CAUSALMED' procedure in 'SAS' when there is no
+effect measure modification. Linear and logistic models are supported for
+the mediator model. Linear, logistic, loglinear, Poisson, negative
+binomial, Cox, and accelerated failure time (exponential and Weibull)
+models are supported for the outcome model.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +50,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

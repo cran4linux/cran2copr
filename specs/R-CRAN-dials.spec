@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dials
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Creating Tuning Parameter Values
 
@@ -13,30 +13,30 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 1.0.1
 BuildRequires:    R-CRAN-dplyr >= 0.8.5
-BuildRequires:    R-CRAN-vctrs >= 0.3.1
-BuildRequires:    R-CRAN-hardhat >= 0.1.6.9000
+BuildRequires:    R-CRAN-vctrs >= 0.3.8
+BuildRequires:    R-CRAN-hardhat >= 0.2.0
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-DiceDesign 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-rlang >= 1.0.1
 Requires:         R-CRAN-dplyr >= 0.8.5
-Requires:         R-CRAN-vctrs >= 0.3.1
-Requires:         R-CRAN-hardhat >= 0.1.6.9000
+Requires:         R-CRAN-vctrs >= 0.3.8
+Requires:         R-CRAN-hardhat >= 0.2.0
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-DiceDesign 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 Requires:         R-CRAN-withr 

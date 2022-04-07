@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RXshrink
-%global packver   2.0
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Maximum Likelihood Shrinkage using Generalized Ridge or Least Angle Regression
 
@@ -22,22 +22,22 @@ Requires:         R-CRAN-lars
 Requires:         R-CRAN-ellipse 
 
 %description
-Functions are provided to calculate and display ridge TRACE diagnostics
-for a wide variety of alternative shrinkage Paths. While all methods focus
-on Maximum Likelihood estimation of unknown true effects under
+Functions are provided to calculate and display ridge TRACE Diagnostics
+for a variety of alternative Shrinkage Paths. While all methods focus on
+Maximum Likelihood estimation of unknown true effects under
 Normal-distribution theory, some estimates are modified to be Unbiased or
 to have "Correct Range" when estimating either [1] the noncentrality of
 the F-ratio for testing that true Beta coefficients are Zeros or [2] the
 "relative" MSE Risk (i.e. MSE divided by true sigma-square, where the
 "relative" variance of OLS is known.) The eff.ridge() function implements
-the "Efficient Shrinkage Path" introduced in Obenchain (2021)
-<arXiv:2103.05161>. This new "p-Parameter" Shrinkage-Path always passes
-through the vector of regression coefficient estimates Most-Likely to
-achieve the overall Optimal Variance-Bias Trade-Off and is the shortest
-Path with this property. Functions eff.aug() and eff.biv() augment the
-calculations made by eff.ridge() to provide plots of the bivariate
-confidence ellipses corresponding to any of the p*(p-1) possible ordered
-pairs of shrunken regression coefficients.
+the "Efficient Shrinkage Path" introduced in Obenchain (2022) <Open
+Statistics>. This new "p-Parameter" Shrinkage-Path always passes through
+the vector of regression coefficient estimates Most-Likely to achieve the
+overall Optimal Variance-Bias Trade-Off and is the shortest Path with this
+property. Functions eff.aug() and eff.biv() augment the calculations made
+by eff.ridge() to provide plots of the bivariate confidence ellipses
+corresponding to any of the p*(p-1) possible ordered pairs of shrunken
+regression coefficients.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +47,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

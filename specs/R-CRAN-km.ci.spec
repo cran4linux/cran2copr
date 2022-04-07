@@ -1,35 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global packname  km.ci
-%global packver   0.5-2
+%global packver   0.5-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
-Release:          3%{?dist}%{?buildtag}
-Summary:          Confidence intervals for the Kaplan-Meier estimator
+Version:          0.5.6
+Release:          1%{?dist}%{?buildtag}
+Summary:          Confidence Intervals for the Kaplan-Meier Estimator
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 1.8.0
-Requires:         R-core >= 1.8.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-survival 
 BuildRequires:    R-stats 
-Requires:         R-survival 
+BuildRequires:    R-CRAN-survival 
 Requires:         R-stats 
+Requires:         R-CRAN-survival 
 
 %description
 Computes various confidence intervals for the Kaplan-Meier estimator,
-namely: Petos CI, Rothman CI, CI's based on Greenwoods variance, Thomas
+namely: Peto's CI, Rothman CI, CI's based on Greenwood's variance, Thomas
 and Grunkemeier CI and the simultaneous confidence bands by Nair and Hall
 and Wellner.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -39,14 +48,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

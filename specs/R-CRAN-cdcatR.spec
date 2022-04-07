@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cdcatR
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cognitive Diagnostic Computerized Adaptive Testing
 
@@ -18,6 +18,7 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-GDINA >= 2.2.0
+BuildRequires:    R-CRAN-cdmTools >= 1.0.1
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doSNOW 
@@ -25,6 +26,7 @@ BuildRequires:    R-CRAN-NPCD
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-GDINA >= 2.2.0
+Requires:         R-CRAN-cdmTools >= 1.0.1
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doSNOW 

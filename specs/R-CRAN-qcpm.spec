@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  qcpm
-%global packver   0.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantile Composite Path Modeling
 
@@ -26,12 +26,12 @@ Requires:         R-CRAN-broom
 %description
 Implements the Quantile Composite-based Path Modeling approach (Davino and
 Vinzi, 2016 <doi:10.1007/s11634-015-0231-9>; Dolce et al., 2021
-<doi:10.1007/s11634-021-00469-0>). The method complement the traditional
+<doi:10.1007/s11634-021-00469-0>). The method complements the traditional
 PLS Path Modeling approach, analyzing the entire distribution of outcome
-variables and, thus, overcoming the classical exploration of only average
-effects. It exploits quantile regression to investigate changes in the
-relationships among constructs and and between constructs and observed
-variables according to the analyzed quantile of interest.
+variables and, therefore, overcoming the classical exploration of only
+average effects. It exploits quantile regression to investigate changes in
+the relationships among constructs and between constructs and observed
+variables.
 
 %prep
 %setup -q -c -n %{packname}

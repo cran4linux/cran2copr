@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  behaviorchange
-%global packver   0.4.3
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Behavior Change Researchers and Professionals
 
@@ -55,10 +55,10 @@ analysing interventions (for example, using Acyclic Behavior Change
 Diagrams), and reporting about intervention effectiveness (for example,
 using the Numbers Needed for Change, see Gruijters & Peters (2017)
 <doi:10.31234/osf.io/2bau7>), and computing the required sample size
-(using the Meaningful Change Definition, see Gruijters & Peters (2019)
-<doi:10.31234/osf.io/jc295>). This package is especially useful for
-researchers in the field of behavior change or health psychology and to
-behavior change professionals such as intervention developers and
+(using the Meaningful Change Definition, see Gruijters & Peters (2020)
+<doi:10.1080/08870446.2020.1841762>). This package is especially useful
+for researchers in the field of behavior change or health psychology and
+to behavior change professionals such as intervention developers and
 prevention workers.
 
 %prep

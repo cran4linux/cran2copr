@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  stabiliser
-%global packver   0.1.2
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stabilising Variable Selection
 
@@ -45,9 +45,9 @@ Requires:         R-CRAN-knitr
 
 %description
 A stable approach to variable selection through stability selection and
-the use of an objective threshold based on a model from permuted data.
-Lima et al (2021) <doi:10.1038/s41598-020-79317-8>, Meinshausen and
-Buhlmann (2010) <doi:10.1111/j.1467-9868.2010.00740.x>.
+the use of a permutation-based objective stability threshold. Lima et al
+(2021) <doi:10.1038/s41598-020-79317-8>, Meinshausen and Buhlmann (2010)
+<doi:10.1111/j.1467-9868.2010.00740.x>.
 
 %prep
 %setup -q -c -n %{packname}

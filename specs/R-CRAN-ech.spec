@@ -1,64 +1,64 @@
 %global __brp_check_rpaths %{nil}
-%global packname  emayili
-%global packver   0.7.9
+%global packname  ech
+%global packver   0.1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.9
+Version:          0.1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Send Email Messages
+Summary:          Toolbox for ECH with R
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl >= 4.0
-BuildRequires:    R-CRAN-magrittr >= 2.0.1
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-commonmark 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-haven >= 2.3.0
+BuildRequires:    R-CRAN-survey >= 1.2.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-srvyr >= 0.4.0
+BuildRequires:    R-CRAN-geouy >= 0.2.3
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-logger 
-BuildRequires:    R-CRAN-mime 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-labelled 
+BuildRequires:    R-CRAN-laeken 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-statar 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-urltools 
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-curl >= 4.0
-Requires:         R-CRAN-magrittr >= 2.0.1
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-commonmark 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-haven >= 2.3.0
+Requires:         R-CRAN-survey >= 1.2.0
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-srvyr >= 0.4.0
+Requires:         R-CRAN-geouy >= 0.2.3
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-fs 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-logger 
-Requires:         R-CRAN-mime 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-labelled 
+Requires:         R-CRAN-laeken 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-statar 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-urltools 
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-xml2 
+Requires:         R-utils 
 
 %description
-A light, simple tool for sending emails with minimal dependencies.
+R toolbox for the processing of the Encuesta Continua de Hogares (ECH)
+from Uruguay at <http://www.ine.gub.uy/encuesta-continua-de-hogares1>
+conducted by the Instituto Nacional de Estadistica (INE).
 
 %prep
 %setup -q -c -n %{packname}
