@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ds4psy
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Science for Psychologists
 
@@ -24,7 +24,7 @@ Requires:         R-CRAN-unikn
 %description
 All datasets and functions required for the examples and exercises of the
 book "Data Science for Psychologists" (by Hansjoerg Neth, Konstanz
-University, 2021), available at <https://bookdown.org/hneth/ds4psy/>. The
+University, 2022), available at <https://bookdown.org/hneth/ds4psy/>. The
 book and course introduce principles and methods of data science to
 students of psychology and other biological or social sciences. The
 'ds4psy' package primarily provides datasets, but also functions for data
@@ -41,6 +41,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

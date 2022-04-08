@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  chngpt
-%global packver   2022.3-15
+%global packver   2022.4-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2022.3.15
+Version:          2022.4.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation and Hypothesis Testing for Threshold Regression
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  did2s
-%global packver   0.4.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Two-Stage Difference-in-Differences Following Gardner (2021)
 
@@ -15,7 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-fixest >= 0.9.0
+BuildRequires:    R-CRAN-fixest >= 0.10.1
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ggplot2 
@@ -24,7 +25,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-rsample 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-cli 
@@ -35,9 +35,10 @@ BuildRequires:    R-CRAN-broom
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-staggered 
 BuildRequires:    R-CRAN-didimputation 
-BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-fixest >= 0.9.0
+Requires:         R-CRAN-fixest >= 0.10.1
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ggplot2 
@@ -46,7 +47,6 @@ Requires:         R-stats
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-rsample 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-cli 
@@ -57,7 +57,7 @@ Requires:         R-CRAN-broom
 Requires:         R-methods 
 Requires:         R-CRAN-staggered 
 Requires:         R-CRAN-didimputation 
-Requires:         R-CRAN-gt 
+Requires:         R-CRAN-boot 
 
 %description
 Estimates Two-way Fixed Effects difference-in-differences/event-study

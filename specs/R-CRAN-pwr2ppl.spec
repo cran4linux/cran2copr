@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pwr2ppl
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Analyses for Common Designs (Power to the People)
 
@@ -31,6 +31,8 @@ BuildRequires:    R-CRAN-semTools >= 0.5
 BuildRequires:    R-CRAN-ez >= 0.4.3
 BuildRequires:    R-CRAN-afex >= 0.22.1
 BuildRequires:    R-CRAN-phia >= 0.2.0
+BuildRequires:    R-CRAN-lmPerm 
+BuildRequires:    R-CRAN-pls 
 Requires:         R-CRAN-MASS >= 7.3.51
 Requires:         R-CRAN-quantreg >= 5.50
 Requires:         R-CRAN-MBESS >= 4.5.0
@@ -46,6 +48,8 @@ Requires:         R-CRAN-semTools >= 0.5
 Requires:         R-CRAN-ez >= 0.4.3
 Requires:         R-CRAN-afex >= 0.22.1
 Requires:         R-CRAN-phia >= 0.2.0
+Requires:         R-CRAN-lmPerm 
+Requires:         R-CRAN-pls 
 
 %description
 Statistical power analysis for designs including t-tests, correlations,

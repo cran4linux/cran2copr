@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BIOMASS
-%global packver   2.1.7
+%global packver   2.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.7
+Version:          2.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating Aboveground Biomass and Its Uncertainty in Tropical Forests
 
@@ -47,7 +47,7 @@ construct height-diameter models, (4) manage tree and plot coordinates,
 (5) estimate the aboveground biomass/carbon at the stand level with
 associated uncertainty. To cite 'BIOMASS', please use citation("BIOMASS").
 See more in the article of Réjou-Méchain et al. (2017)
-<doi:10.1111/2041-210X.12753>.
+<https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12753>.
 
 %prep
 %setup -q -c -n %{packname}

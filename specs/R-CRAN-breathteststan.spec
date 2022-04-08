@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  breathteststan
-%global packver   0.8.0
+%global packver   0.8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.8.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stan-Based Fit to Gastric Emptying Curves
 
@@ -14,29 +14,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 Requires:         pandoc
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-rstan >= 2.21.1
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
+BuildRequires:    R-CRAN-rstan >= 2.21.2
 BuildRequires:    R-CRAN-rstantools >= 2.1.1
 BuildRequires:    R-CRAN-BH >= 1.72
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-Rcpp >= 1.0.6
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-StanHeaders 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-rstan >= 2.21.1
+Requires:         R-CRAN-rstan >= 2.21.2
 Requires:         R-CRAN-rstantools >= 2.1.1
-Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-Rcpp >= 1.0.6
 Requires:         R-methods 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-rstantools
 

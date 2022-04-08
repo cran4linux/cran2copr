@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  CINNA
-%global packver   1.1.55
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.55
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Deciphering Central Informative Nodes in Network Analysis
 
@@ -53,7 +53,7 @@ Requires:         R-CRAN-intergraph
 
 %description
 Functions for computing, comparing and demonstrating top informative
-centrality measures within a network.
+centrality measures within a network <doi:10.1093/bioinformatics/bty819>.
 
 %prep
 %setup -q -c -n %{packname}
