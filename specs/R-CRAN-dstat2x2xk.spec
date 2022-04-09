@@ -1,38 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rrMixture
-%global packver   0.1-2
+%global packname  dstat2x2xk
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reduced-Rank Mixture Models
+Summary:          Demonstrated Insensitivity to Bias in 2x2xK Contingency Tables
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-matrixcalc 
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.8
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-matrixcalc 
-Requires:         R-CRAN-gtools 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-BiasedUrn 
+Requires:         R-stats 
+Requires:         R-CRAN-BiasedUrn 
 
 %description
-We implement full-ranked, rank-penalized, and adaptive nuclear norm
-penalized estimation methods using multivariate mixture models proposed by
-Kang, Chen, and Yao (2022+).
+For an observational study with binary treatment, binary outcome and K
+strata, implements a d-statistic that uses those strata most insensitive
+to unmeasured bias in treatment assignment.<doi:10.1093/biomet/asaa032>
+The package has one function, dstat2x2xk.
 
 %prep
 %setup -q -c -n %{packname}

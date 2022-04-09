@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cthist
-%global packver   0.1.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clinical Trial Registry History
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-polite 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rvest 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-polite 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rvest 

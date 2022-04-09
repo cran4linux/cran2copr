@@ -1,38 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rrMixture
-%global packver   0.1-2
+%global packname  lite
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reduced-Rank Mixture Models
+Summary:          Likelihood-Based Inference for Time Series Extremes
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-matrixcalc 
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.8
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-matrixcalc 
-Requires:         R-CRAN-gtools 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-chandwich 
+BuildRequires:    R-CRAN-exdex 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-revdbayes 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-chandwich 
+Requires:         R-CRAN-exdex 
+Requires:         R-graphics 
+Requires:         R-CRAN-revdbayes 
+Requires:         R-CRAN-sandwich 
+Requires:         R-stats 
 
 %description
-We implement full-ranked, rank-penalized, and adaptive nuclear norm
-penalized estimation methods using multivariate mixture models proposed by
-Kang, Chen, and Yao (2022+).
+Performs likelihood-based inference for stationary time series extremes.
+The general approach follows Fawcett and Walshaw (2012)
+<doi:10.1002/env.2133>.  Marginal extreme value inferences are adjusted
+for cluster dependence in the data using the methodology in Chandler and
+Bate (2007) <doi:10.1093/biomet/asm015>, producing an adjusted
+log-likelihood for the model parameters.  A log-likelihood for the
+extremal index is produced using the K-gaps model of Suveges and Davison
+(2010) <doi:10.1214/09-AOAS292>. These log-likelihoods are combined to
+make inferences about return levels.
 
 %prep
 %setup -q -c -n %{packname}

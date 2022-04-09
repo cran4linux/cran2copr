@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  AutoScore
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Interpretable Machine Learning-Based Automatic Clinical Score Generator
 
@@ -20,11 +20,13 @@ BuildRequires:    R-CRAN-tableone
 BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-knitr 
 Requires:         R-CRAN-tableone 
 Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-knitr 
 
 %description
@@ -47,6 +49,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

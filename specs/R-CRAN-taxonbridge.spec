@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  taxonbridge
-%global packver   1.0.5
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Custom Taxonomies Based on the NCBI Taxonomy and GBIF Backbone Taxonomy
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-rje 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-vroom 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-rje 
 Requires:         R-CRAN-withr 
 Requires:         R-utils 
+Requires:         R-CRAN-stringr 
 
 %description
 The NCBI taxonomy is a popular resource for taxonomic studies but it only

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rstanarm
-%global packver   2.21.1
+%global packver   2.21.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.21.1
+Version:          2.21.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Applied Regression Modeling via Stan
 

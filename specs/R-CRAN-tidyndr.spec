@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tidyndr
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of the Nigeria National Data Repository (NDR)
 
@@ -45,7 +45,7 @@ Requires:         R-CRAN-tidyselect
 
 %description
 The goal is to simplify routine analysis of the Nigeria National Data
-Repository (NDR) <https://ndr.shieldnigeriaproject.com> using the PEPFAR
+Repository (NDR) <https://ndr.phis3project.org.ng> using the PEPFAR
 Monitoring, Evaluation, and Reporting (MER) indicators (see
 <https://datim.zendesk.com/hc/en-us/articles/360000084446-MER-Indicator-Reference-Guides>).
 It is designed to import in to R patient-level line-list downloaded as

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pkgdepends
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Package Dependency Resolution and Downloads
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-processx >= 3.4.2
 BuildRequires:    R-CRAN-callr >= 3.3.1
@@ -32,8 +32,8 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lpSolve 
 BuildRequires:    R-CRAN-ps 
-BuildRequires:    R-CRAN-rprojroot 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rprojroot 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-processx >= 3.4.2
@@ -52,8 +52,8 @@ Requires:         R-CRAN-glue
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lpSolve 
 Requires:         R-CRAN-ps 
-Requires:         R-CRAN-rprojroot 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rprojroot 
 Requires:         R-stats 
 Requires:         R-utils 
 

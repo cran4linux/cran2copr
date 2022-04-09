@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dragon
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Deep Time Redox Analysis of the Geobiology Ontology Network
 
@@ -19,12 +19,12 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
 BuildRequires:    R-CRAN-visNetwork >= 2.0.9
 BuildRequires:    R-CRAN-colorspace >= 1.4
+BuildRequires:    R-CRAN-igraph >= 1.3.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-cowplot >= 1.0.0
 BuildRequires:    R-CRAN-colourpicker >= 1.0
 BuildRequires:    R-CRAN-broom >= 0.5.6
-BuildRequires:    R-CRAN-igraph >= 0.4
 BuildRequires:    R-CRAN-golem >= 0.2.1
 BuildRequires:    R-CRAN-DT >= 0.14
 BuildRequires:    R-CRAN-config 
@@ -52,12 +52,12 @@ BuildRequires:    R-CRAN-tidyselect
 Requires:         R-CRAN-ggplot2 >= 3.3.5
 Requires:         R-CRAN-visNetwork >= 2.0.9
 Requires:         R-CRAN-colorspace >= 1.4
+Requires:         R-CRAN-igraph >= 1.3.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-cowplot >= 1.0.0
 Requires:         R-CRAN-colourpicker >= 1.0
 Requires:         R-CRAN-broom >= 0.5.6
-Requires:         R-CRAN-igraph >= 0.4
 Requires:         R-CRAN-golem >= 0.2.1
 Requires:         R-CRAN-DT >= 0.14
 Requires:         R-CRAN-config 
@@ -96,6 +96,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

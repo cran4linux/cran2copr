@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mboost
-%global packver   2.9-5
+%global packver   2.9-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.5
+Version:          2.9.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model-Based Boosting
 
@@ -49,8 +49,8 @@ Functional gradient descent algorithm (boosting) for optimizing general
 risk functions utilizing component-wise (penalised) least squares
 estimates or regression trees as base-learners for fitting generalized
 linear, additive and interaction models to potentially high-dimensional
-data. Models and algorithms are described in doi{10.1214/07-STS242}, a
-hands-on tutorial is available from doi{10.1007/s00180-012-0382-5}. The
+data. Models and algorithms are described in <doi:10.1214/07-STS242>, a
+hands-on tutorial is available from <doi:10.1007/s00180-012-0382-5>. The
 package allows user-specified loss functions and base-learners.
 
 %prep
@@ -61,6 +61,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

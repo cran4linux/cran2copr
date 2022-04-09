@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  corporaexplorer
-%global packver   0.8.4
+%global packver   0.8.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          0.8.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'Shiny' App for Exploration of Text Collections
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-padr 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-re2 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-scales 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-padr 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-re2 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-scales 
@@ -74,6 +76,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

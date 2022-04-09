@@ -1,42 +1,59 @@
 %global __brp_check_rpaths %{nil}
-%global packname  smacpod
-%global packver   2.4.1
+%global packname  agroclim
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Methods for the Analysis of Case-Control Point Data
+Summary:          Climatic Indices for Agriculture
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.random 
-BuildRequires:    R-CRAN-spatstat.core 
-BuildRequires:    R-CRAN-smerc 
-BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-reshape 
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-CRAN-easyNCDF 
 BuildRequires:    R-CRAN-sp 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.random 
-Requires:         R-CRAN-spatstat.core 
-Requires:         R-CRAN-smerc 
-Requires:         R-CRAN-plotrix 
+BuildRequires:    R-CRAN-multiApply 
+BuildRequires:    R-tools 
+Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gtable 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-abind 
-Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-reshape 
+Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-ncdf4 
+Requires:         R-CRAN-easyNCDF 
 Requires:         R-CRAN-sp 
+Requires:         R-CRAN-multiApply 
+Requires:         R-tools 
 
 %description
-Statistical methods for analyzing case-control point data.  Methods
-include the ratio of kernel densities, the difference in K Functions, the
-spatial scan statistic, and q nearest neighbors of cases.
+Collection of functions to compute agroclimatic indices useful to zoning
+areas based on climatic variables and to evaluate the importance of
+temperature and precipitation for individual crops, or in general for
+agricultural lands.
 
 %prep
 %setup -q -c -n %{packname}

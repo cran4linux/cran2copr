@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  saeHB
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Small Area Estimation using Hierarchical Bayesian Method
 
@@ -20,20 +20,20 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-rjags 
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-nimble 
 BuildRequires:    R-CRAN-CARBayesdata 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-rjags 
 Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-graphics 
 Requires:         R-CRAN-nimble 
 Requires:         R-CRAN-CARBayesdata 
 Requires:         R-CRAN-MASS 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 
 %description
 Provides several functions for area level of small area estimation using

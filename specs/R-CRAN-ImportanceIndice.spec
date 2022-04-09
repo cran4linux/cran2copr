@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MuChPoint
-%global packver   0.6.3
+%global packname  ImportanceIndice
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiple Change Point
+Summary:          Analyzing Data Through of Percentage of Importance Indice and Its Derivations
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-capushe 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-capushe 
-Requires:         R-CRAN-shiny 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-crayon 
+Requires:         R-CRAN-crayon 
 
 %description
-Nonparametric approach to estimate the location of block boundaries
-(change-points) of non-overlapping blocks in a random symmetric matrix
-which consists of random variables whose distribution changes from block
-to block. BRAULT Vincent, OUADAH Sarah, SANSONNET Laure and LEVY-LEDUC
-Celine (2017) <doi:10.1016/j.jmva.2017.12.005>.
+The Percentage of Importance Indice (Percentage_I.I.) bases in magnitudes,
+frequencies, and distributions of occurrence of an event (DEMOLIN-LEITE,
+2021) <http://scielo.sld.cu/pdf/cjas/v55n2/2079-3480-cjas-55-02-e10.pdf>.
+This index can detect the key loss sources (L.S) and solution sources
+(S.S.), classifying them according to their importance in terms of loss or
+income gain, on the productive system. The Percentage_I.I. = [(ks1 x c1 x
+ds1)/SUM (ks1 x c1 x ds1) + (ks2 x c2 x ds2) + (ksn x cn x dsn)] x 100.
+key source (ks) is obtained using simple regression analysis and magnitude
+(abundance). Constancy (c) is SUM of occurrence of L.S. or S.S. on the
+samples (absence = 0 or presence = 1), and distribution source (ds) is
+obtained using chi-square test. This index has derivations: i.e., i) Loss
+estimates and solutions effectiveness and ii) Attention and non-attention
+levels (DEMOLIN-LEITE,2024) <DOI: 10.1590/1519-6984.253215>.
 
 %prep
 %setup -q -c -n %{packname}

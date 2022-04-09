@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  deepgp
-%global packver   0.3.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sequential Design for Deep Gaussian Processes using MCMC
+Summary:          Deep Gaussian Processes using MCMC
 
 License:          LGPL
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,29 +21,39 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-GpGp 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-BH 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-parallel 
+Requires:         R-CRAN-GpGp 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-FNN 
 
 %description
-Performs model fitting and sequential design for deep Gaussian processes
-following Sauer, Gramacy, and Higdon (2020) <arXiv:2012.08015>. Models
-extend up to three layers deep; a one layer model is equivalent to typical
-Gaussian process regression.  Covariance kernel options are Matern
-(default) and squared exponential.  Sequential design criteria include
-integrated mean-squared error (IMSE), active learning Cohn (ALC), and
-expected improvement (EI).  Applicable to both noisy and deterministic
-functions.  Incorporates SNOW parallelization and utilizes C and C++ under
-the hood.
+Performs posterior inference for deep Gaussian processes following Sauer,
+Gramacy, and Higdon (2020) <arXiv:2012.08015>.  Models are trained through
+MCMC including elliptical slice sampling of latent Gaussian layers and
+Metropolis-Hastings sampling of kernel hyperparameters.
+Vecchia-approximation for faster computation is implemented following
+Sauer, Cooper, and Gramacy (2022) <arXiv:2204.02904>.  Downstream tasks
+include sequential design through active learning Cohn/integrated mean
+squared error (ALC/IMSE; Sauer, Gramacy, and Higdon, 2020) and
+optimization through expected improvement (EI; Gramacy, Sauer, and Wycoff,
+2021 <arXiv:2112.07457>).  Models extend up to three layers deep; a one
+layer model is equivalent to typical Gaussian process regression.
+Covariance kernel options are matern (default) and squared exponential.
+Applicable to both noisy and deterministic functions. Incorporates SNOW
+parallelization and utilizes C and C++ under the hood.
 
 %prep
 %setup -q -c -n %{packname}

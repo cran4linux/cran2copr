@@ -1,43 +1,26 @@
 %global __brp_check_rpaths %{nil}
-%global packname  safedata
-%global packver   1.1.0
+%global packname  hilbert
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to Data from the SAFE Project
+Summary:          Coordinate Indexing on Hilbert Curves
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-chron 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-igraph 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-chron 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-igraph 
+BuildRequires:    R-CRAN-cpp11 
 
 %description
-The SAFE Project (<https://www.safeproject.net/>) is a large scale
-ecological experiment in Malaysian Borneo that explores the impact of
-habitat fragmentation and conversion on ecosystem function and services.
-Data collected at the SAFE Project is made available under a common format
-through the Zenodo data repository and this package makes it easy to
-discover and load that data into R.
+Provides utilities for encoding and decoding coordinates to/from Hilbert
+curves based on the iterative encoding implementation described in Chen et
+al. (2006) <doi:10.1002/spe.793>.
 
 %prep
 %setup -q -c -n %{packname}

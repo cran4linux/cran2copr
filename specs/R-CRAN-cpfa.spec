@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cpfa
-%global packver   1.0-0
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classification with Parallel Factor Analysis
 
@@ -22,21 +22,26 @@ BuildRequires:    R-CRAN-e1071
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-nnet 
 Requires:         R-CRAN-multiway 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-nnet 
 
 %description
 Classification using Richard A. Harshman's Parallel Factors (Parafac)
-model fit to a 3-way or 4-way data array. Uses Parafac factor weights from
-one mode of this model as predictors to tune parameters for one or more
-classification methods. Supports binary and multiclass classification.
-Predicts class labels or probabilities and calculates multiple
-classification performance measures. Parallel computing is implemented via
-the 'parallel' and 'doParallel' packages.
+model fit to a 3-way or 4-way data array/tensor. See Harshman (1994)
+<doi:10.1016/0167-9473(94)90132-5>. Uses Parafac factor weights from one
+mode of this model as predictors to tune parameters for one or more
+classification methods. Supports penalized logistic regression, support
+vector machine, random forest, and feed-forward neural network. Supports
+binary and multiclass classification. Predicts class labels or class
+probabilities and calculates multiple classification performance measures.
+Parallel computing is implemented via the 'parallel' and 'doParallel'
+packages.
 
 %prep
 %setup -q -c -n %{packname}

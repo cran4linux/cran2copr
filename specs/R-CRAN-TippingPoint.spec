@@ -1,29 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ospsuite.utils
+%global packname  TippingPoint
 %global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utility Functions for Open Systems Pharmacology R Packages
+Summary:          Enhanced Tipping Point Displays the Results of Sensitivity Analysis for Missing Data
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-CRAN-ggplot2 >= 2.0.0
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-reshape2 
 
 %description
-A collection of utility functions for R packages in the Open Systems
-Pharmacology ecosystem. Contains helper functions for working with R6
-objects, enumerated lists, and text formatting. Additionally, it provides
-functions to validate argument inputs.
+Using the idea of "tipping point" (proposed in Gregory Campbell, Gene
+Pennello and Lilly Yue(2011) <DOI:10.1080/10543406.2011.550094>) to
+visualize the results of sensitivity analysis for missing data, the
+package provides a set of functions to list out all the possible
+combinations of missing values in two treatment arms, calculate
+corresponding estimated treatment effects and p values, and draw a colored
+heat-map. It could deal with randomized experiments with a binary outcome
+or a continuous outcome. In addition, the package provides a visualized
+method to compare various imputation methods by adding the rectangles or
+convex hulls on the basic plot.
 
 %prep
 %setup -q -c -n %{packname}

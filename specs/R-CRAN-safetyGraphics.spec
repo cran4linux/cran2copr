@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  safetyGraphics
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Graphics for Monitoring Clinical Trial Safety
 
@@ -23,13 +23,14 @@ BuildRequires:    R-CRAN-jsonlite >= 1.7.0
 BuildRequires:    R-CRAN-shiny >= 1.6.0
 BuildRequires:    R-CRAN-htmlwidgets >= 1.5.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-tidyr >= 1.2.0
 BuildRequires:    R-CRAN-datamods >= 1.1.5
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-safetyData >= 1.0.0
 BuildRequires:    R-CRAN-sortable >= 0.4.4
 BuildRequires:    R-CRAN-rlang >= 0.4.11
 BuildRequires:    R-CRAN-purrr >= 0.3.0
-BuildRequires:    R-CRAN-safetyCharts >= 0.2
+BuildRequires:    R-CRAN-safetyCharts >= 0.3
 BuildRequires:    R-CRAN-DT >= 0.19
 BuildRequires:    R-CRAN-rclipboard >= 0.1.3
 Requires:         R-CRAN-yaml >= 2.2.1
@@ -39,13 +40,14 @@ Requires:         R-CRAN-jsonlite >= 1.7.0
 Requires:         R-CRAN-shiny >= 1.6.0
 Requires:         R-CRAN-htmlwidgets >= 1.5.0
 Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-tidyr >= 1.2.0
 Requires:         R-CRAN-datamods >= 1.1.5
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-safetyData >= 1.0.0
 Requires:         R-CRAN-sortable >= 0.4.4
 Requires:         R-CRAN-rlang >= 0.4.11
 Requires:         R-CRAN-purrr >= 0.3.0
-Requires:         R-CRAN-safetyCharts >= 0.2
+Requires:         R-CRAN-safetyCharts >= 0.3
 Requires:         R-CRAN-DT >= 0.19
 Requires:         R-CRAN-rclipboard >= 0.1.3
 
