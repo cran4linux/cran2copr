@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tabxplor
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          User-Friendly Tables with Color Helpers for Data Exploration
 
@@ -25,8 +25,8 @@ BuildRequires:    R-CRAN-stringi >= 1.4.6
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-crayon >= 1.3.0
 BuildRequires:    R-CRAN-kableExtra >= 1.3.0
+BuildRequires:    R-CRAN-tidyr >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.3
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyselect >= 1.0.0
 BuildRequires:    R-CRAN-DescTools >= 0.99.0
 BuildRequires:    R-CRAN-forcats >= 0.5.0
@@ -42,8 +42,8 @@ Requires:         R-CRAN-stringi >= 1.4.6
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-crayon >= 1.3.0
 Requires:         R-CRAN-kableExtra >= 1.3.0
+Requires:         R-CRAN-tidyr >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.3
-Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-DescTools >= 0.99.0
 Requires:         R-CRAN-forcats >= 0.5.0

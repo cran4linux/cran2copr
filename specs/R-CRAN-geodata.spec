@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  geodata
-%global packver   0.3-5
+%global packver   0.4-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.4.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Geographic Data
 
@@ -20,9 +20,10 @@ BuildRequires:    R-CRAN-terra
 Requires:         R-CRAN-terra 
 
 %description
-Functions for downloading of geographic data for use in spatial data
-analysis and mapping. The package facilitates access to climate,
-elevation, soil, species occurrence, and administrative boundary data.
+Functions for downloading of geographic data for use in spatial analysis
+and mapping. The package facilitates access to climate, elevation, land
+use, soil, species occurrence, accessibility, administrative boundaries
+and other data.
 
 %prep
 %setup -q -c -n %{packname}

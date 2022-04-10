@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spaMM
-%global packver   3.11.3
+%global packver   3.11.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.11.3
+Version:          3.11.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mixed-Effect Models, with or without Spatial Random Effects
 
