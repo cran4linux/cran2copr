@@ -1,39 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  aRtsy
-%global packver   0.1.7
+%global packname  randomGLM
+%global packver   1.10-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          1.10.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generative Art with 'ggplot2'
+Summary:          Random General Linear Model Prediction
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-ambient 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-kknn 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-ambient 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-kknn 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-geometry 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-geometry 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-parallel 
 
 %description
-Provides algorithms for creating artworks in the 'ggplot2' language that
-incorporate some form of randomness.
+A bagging predictor based on generalized linear models (GLMs) is
+implemented. The method is published in Song, Langfelder and Horvath
+(2013) <doi:10.1186/1471-2105-14-5>.
 
 %prep
 %setup -q -c -n %{packname}

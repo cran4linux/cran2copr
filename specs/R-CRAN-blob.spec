@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  blob
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Simple S3 Class for Representing Vectors of Binary Data ('BLOBS')
 
@@ -24,7 +24,7 @@ Requires:         R-methods
 Requires:         R-CRAN-rlang 
 
 %description
-R's raw vector is useful for storing a single binary object.  What if you
+R's raw vector is useful for storing a single binary object. What if you
 want to put a vector of them in a data frame? The 'blob' package provides
 the blob object, a list of raw vectors, suitable for use as a column in
 data frame.

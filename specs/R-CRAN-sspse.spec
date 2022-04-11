@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sspse
-%global packver   0.6
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
-Release:          3%{?dist}%{?buildtag}
-Summary:          Estimating Hidden Population Size using Respondent DrivenSampling Data
+Version:          1.0.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          Estimating Hidden Population Size using Respondent Driven Sampling Data
 
 License:          GPL-3 + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,11 +18,13 @@ Requires:         R-core
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-RDS 
+BuildRequires:    R-CRAN-KernSmooth 
 BuildRequires:    R-CRAN-scam 
 BuildRequires:    R-CRAN-coda 
 Requires:         R-methods 
 Requires:         R-parallel 
 Requires:         R-CRAN-RDS 
+Requires:         R-CRAN-KernSmooth 
 Requires:         R-CRAN-scam 
 Requires:         R-CRAN-coda 
 
@@ -36,6 +38,15 @@ and Mar (2014) <doi:10.1214/14-EJS923> and Handcock, Gile and Mar (2015)
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -43,19 +54,10 @@ and Mar (2014) <doi:10.1214/14-EJS923> and Handcock, Gile and Mar (2015)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}
