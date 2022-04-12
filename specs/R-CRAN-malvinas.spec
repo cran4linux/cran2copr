@@ -1,43 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  timbeR
-%global packver   2.0.1
+%global packname  malvinas
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Wood Volumes from Taper Functions
+Summary:          Islas Malvinas, Georgias Del Sur y Sándwich Del Sur
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-miniUI 
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-miniUI 
-Requires:         R-CRAN-shiny 
 
 %description
-Functions for estimation of wood volumes, number of logs, diameters along
-the stem and heights at which certain diameters occur, based on taper
-functions and other parameters. References: McTague, J. P., & Weiskittel,
-A. (2021). <doi:10.1139/cjfr-2020-0326>.
+Data sets related to the Islas Malvinas /// Sets de datos relacionados a
+las Islas Malvinas - La Nación Argentina ratifica su legítima e
+imprescriptible soberanía sobre las islas Malvinas, Georgias del Sur y
+Sándwich del Sur y los espacios marítimos e insulares correspondientes,
+por ser parte integrante del territorio nacional. La recuperación de
+dichos territorios y el ejercicio pleno de la soberanía, respetando el
+modo de vida de sus habitantes y conforme a los principios del Derecho
+Internacional, constituyen un objetivo permanente e irrenunciable del
+pueblo argentino.
 
 %prep
 %setup -q -c -n %{packname}

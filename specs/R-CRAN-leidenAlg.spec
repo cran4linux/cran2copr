@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  leidenAlg
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Implements the Leiden Algorithm via an R Interface
 
@@ -17,9 +17,9 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.5
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-Matrix.utils 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-sccore 
@@ -28,9 +28,9 @@ BuildRequires:    R-CRAN-RcppArmadillo
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.0.5
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-igraph 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-Matrix.utils 
 Requires:         R-parallel 
 Requires:         R-CRAN-sccore 

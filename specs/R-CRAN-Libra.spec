@@ -1,43 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  timbeR
-%global packver   2.0.1
+%global packname  Libra
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Wood Volumes from Taper Functions
+Summary:          Linearized Bregman Algorithms for Generalized Linear Models
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-miniUI 
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-miniUI 
-Requires:         R-CRAN-shiny 
+BuildRequires:    gsl-devel
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
+BuildRequires:    R-CRAN-nnls 
+Requires:         R-CRAN-nnls 
 
 %description
-Functions for estimation of wood volumes, number of logs, diameters along
-the stem and heights at which certain diameters occur, based on taper
-functions and other parameters. References: McTague, J. P., & Weiskittel,
-A. (2021). <doi:10.1139/cjfr-2020-0326>.
+Efficient procedures for fitting the regularization path for linear,
+binomial, multinomial, Ising and Potts models with lasso, group lasso or
+column lasso(only for multinomial) penalty. The package uses Linearized
+Bregman Algorithm to solve the regularization path through iterations.
+Bregman Inverse Scale Space Differential Inclusion solver is also provided
+for linear model with lasso penalty.
 
 %prep
 %setup -q -c -n %{packname}

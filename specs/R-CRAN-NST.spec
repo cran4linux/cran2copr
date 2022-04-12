@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  NST
-%global packver   3.0.6
+%global packver   3.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.6
+Version:          3.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Normalized Stochasticity Ratio
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-parallel 
@@ -22,12 +22,14 @@ BuildRequires:    R-CRAN-permute
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-bigmemory 
 BuildRequires:    R-CRAN-iCAMP 
+BuildRequires:    R-CRAN-DirichletReg 
 Requires:         R-CRAN-vegan 
 Requires:         R-parallel 
 Requires:         R-CRAN-permute 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-bigmemory 
 Requires:         R-CRAN-iCAMP 
+Requires:         R-CRAN-DirichletReg 
 
 %description
 To estimate ecological stochasticity in community assembly. Understanding
@@ -50,7 +52,7 @@ is a special case of NST, used in some recent or upcoming publications,
 e.g. Liang et al (2020) <doi:10.1016/j.soilbio.2020.108023>. SES is
 calculated as described in Kraft et al (2011)
 <doi:10.1126/science.1208584>. RC is calculated as reported by Chase et al
-(2011) <doi:10.1890/es10-00117.1> and Stegen et al (2013)
+(2011) <doi:10.1890/ES10-00117.1> and Stegen et al (2013)
 <doi:10.1038/ismej.2013.93>. Version 3 added NST based on phylogenetic
 beta diversity, used by Ning et al (2020)
 <doi:10.1038/s41467-020-18560-z>.
@@ -63,6 +65,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

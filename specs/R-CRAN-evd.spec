@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  evd
-%global packver   2.3-4
+%global packver   2.3-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.4
+Version:          2.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Extreme Value Distributions
 

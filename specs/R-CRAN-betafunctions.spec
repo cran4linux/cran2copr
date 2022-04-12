@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  betafunctions
-%global packver   1.6.1
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Working with Two- And Four-Parameter Beta Probability Distributions
 
@@ -19,15 +19,17 @@ BuildArch:        noarch
 
 %description
 Package providing a number of functions for working with Two- and
-Four-parameter Beta and closely related distributions (i.e., the Gamma and
-Binomial distributions), including parameterization in terms of moments,
-and fitting of Beta distributions to vectors of values. Also includes
-functions for estimating classification accuracy, diagnostic performance,
-and consistency, making use of what is generally known as the 'Livingston
-and Lewis approach' in the psychometric literature as the foundational
-method, which makes extensive use of the Beta distribution. A shiny app is
-available, providing a GUI for the Livingston and Lewis approach for
-binary classifications. For link, see documentation for the LL.CA()
+Four-parameter Beta and closely related distributions (i.e., the Gamma-
+Binomial-, and Beta-Binomial distributions), including parameterization in
+terms of moments, and fitting of Beta distributions to vectors of values.
+Includes d/p/r- and a function and for calculating moments of
+Beta-Binomial distributions. Also includes functions for estimating
+classification accuracy, diagnostic performance, and consistency, making
+use of what is generally known as the 'Livingston and Lewis approach' in
+the psychometric literature which models observed-score distributions in
+terms of the Beta- Binomial distribution. A shiny app is available,
+providing a GUI for the Livingston and Lewis approach when used for binary
+classifications. For url to the app, see documentation for the LL.CA()
 function. Livingston and Lewis (1995)
 <doi:10.1111/j.1745-3984.1995.tb00462.x>. Lord (1965)
 <doi:10.1007/BF02289490>. Hanson (1991)

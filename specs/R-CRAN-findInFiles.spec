@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  findInFiles
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Find Pattern in Files
 
@@ -22,18 +22,21 @@ BuildRequires:    R-CRAN-crayon
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-shiny 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-shiny 
 
 %description
 Creates a HTML widget which displays the results of searching for a
 pattern in files in a given folder. The results can be viewed in the
 'RStudio' viewer pane, included in a 'R Markdown' document or in a 'Shiny'
-app.
+app. Also provides a 'Shiny' application allowing to run the widget and to
+navigate in the results.
 
 %prep
 %setup -q -c -n %{packname}
