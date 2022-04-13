@@ -1,16 +1,17 @@
 %global __brp_check_rpaths %{nil}
 %global packname  extrafont
-%global packver   0.17
+%global packver   0.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17
-Release:          3%{?dist}%{?buildtag}
-Summary:          Tools for using fonts
+Version:          0.18
+Release:          1%{?dist}%{?buildtag}
+Summary:          Tools for Using Fonts
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
 
 BuildRequires:    R-devel >= 2.15
 Requires:         R-core >= 2.15
@@ -30,28 +31,31 @@ package makes it easy to use system TrueType fonts and with PDF or
 PostScript output files, and with bitmap output files in Windows.
 extrafont can also be used with fonts packaged specifically to be used
 with, such as the fontcm package, which has Computer Modern PostScript
-fonts with math symbols. See https://github.com/wch/extrafont for
-instructions and examples.
+fonts with math symbols.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
 %install
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

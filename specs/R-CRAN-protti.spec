@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  protti
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bottom-Up Proteomics and LiP-MS Quality Control and Data Analysis Tools
 
@@ -36,6 +36,7 @@ BuildRequires:    R-CRAN-curl
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
@@ -56,6 +57,7 @@ Requires:         R-CRAN-curl
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-httr 
+Requires:         R-methods 
 
 %description
 Useful functions and workflows for proteomics quality control and data

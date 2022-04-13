@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  hutilscpp
-%global packver   0.8.1
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions in C++
 
@@ -16,12 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-hutils 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-glue 
 Requires:         R-CRAN-hutils 
 Requires:         R-CRAN-magrittr 
 Requires:         R-utils 

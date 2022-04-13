@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tramME
-%global packver   0.1.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transformation Models with Mixed Effects
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-mgcv >= 1.8.34
 BuildRequires:    R-CRAN-TMB >= 1.7.15
 BuildRequires:    R-CRAN-lme4 >= 1.1.19
 BuildRequires:    R-CRAN-mlt >= 1.1.0
@@ -26,11 +27,11 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-coneproj 
 BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-mgcv >= 1.8.34
 Requires:         R-CRAN-TMB >= 1.7.15
 Requires:         R-CRAN-lme4 >= 1.1.19
 Requires:         R-CRAN-mlt >= 1.1.0
@@ -42,14 +43,13 @@ Requires:         R-CRAN-Matrix
 Requires:         R-methods 
 Requires:         R-CRAN-nlme 
 Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-coneproj 
 
 %description
 Likelihood-based estimation of mixed-effects transformation models using
-the Template Model Builder (TMB, Kristensen et al., 2016,
+the Template Model Builder ('TMB', Kristensen et al., 2016,
 <doi:10.18637/jss.v070.i05>). The technical details of transformation
 models are given in Hothorn et al. (2018, <doi:10.1111/sjos.12291>).
 Likelihood contributions of exact, randomly censored (left, right,
@@ -57,7 +57,8 @@ interval) and truncated observations are supported. The random effects are
 assumed to be normally distributed on the scale of the transformation
 function, the marginal likelihood is evaluated using the Laplace
 approximation, and the gradients are calculated with automatic
-differentiation (AD).
+differentiation (Tamasi and Hothorn, 2021, <doi:10.32614/RJ-2021-075>).
+Penalized smooth shift terms can be defined using 'mgcv'.
 
 %prep
 %setup -q -c -n %{packname}

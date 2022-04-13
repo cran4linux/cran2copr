@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  text2map
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Tools for Text Matrices, Embeddings, and Networks
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-qgraph >= 1.6
+BuildRequires:    R-CRAN-qgraph >= 1.6.9
 BuildRequires:    R-CRAN-igraph >= 1.2.6
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-Matrix 
@@ -33,7 +33,7 @@ BuildRequires:    R-CRAN-mlpack
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-qgraph >= 1.6
+Requires:         R-CRAN-qgraph >= 1.6.9
 Requires:         R-CRAN-igraph >= 1.2.6
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-Matrix 

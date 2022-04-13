@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  VennDiagram
-%global packver   1.7.1
+%global packver   1.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1
+Version:          1.7.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate High-Resolution Venn and Euler Plots
 
@@ -18,8 +18,10 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-grid >= 2.14.1
 BuildRequires:    R-CRAN-futile.logger 
+BuildRequires:    R-methods 
 Requires:         R-grid >= 2.14.1
 Requires:         R-CRAN-futile.logger 
+Requires:         R-methods 
 
 %description
 A set of functions to generate high-resolution Venn and Euler plots.

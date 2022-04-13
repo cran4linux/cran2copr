@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  locStra
-%global packver   1.8
+%global packver   1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Implementation of (Local) Population Stratification Methods
 
@@ -19,11 +19,13 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.13
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-bigsnpr 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 0.12.13
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-bigsnpr 
 
 %description
 Fast implementations to compute the genetic covariance matrix, the Jaccard
@@ -39,8 +41,9 @@ function to compute sliding windows, and a function to invert minor
 alleles and to select those variants/loci exceeding a minimal cutoff
 value. New functionality in locStra allows one to extract the k leading
 eigenvectors of the genetic covariance matrix, Jaccard similarity matrix,
-s-matrix, and genomic relationship matrix without actually computing the
-similarity matrices.
+s-matrix, and genomic relationship matrix via fast PCA without actually
+computing the similarity matrices. The fast PCA to compute the k leading
+eigenvectors can now also be run directly from 'bed'+'bim'+'fam' files.
 
 %prep
 %setup -q -c -n %{packname}

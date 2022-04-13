@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  glottospace
-%global packver   0.0.111
+%global packver   0.0.112
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.111
+Version:          0.0.112
 Release:          1%{?dist}%{?buildtag}
 Summary:          Language Mapping and Geospatial Analysis of Linguistic and Cultural Data
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  nzilbb.labbcat
-%global packver   1.0-1
+%global packver   1.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accessing Data Stored in 'LaBB-CAT' Instances
 
@@ -32,7 +32,7 @@ Requires:         R-CRAN-rstudioapi
 the New Zealand Institute of Language, Brain and Behaviour (NZILBB) - see
 <https://labbcat.canterbury.ac.nz>. This package defines functions for
 accessing corpus data in a 'LaBB-CAT' instance. You must have at least
-version 20210601.1528 of 'LaBB-CAT' to use this package. For more
+version 20220401.1842 of 'LaBB-CAT' to use this package. For more
 information about 'LaBB-CAT', see Robert Fromont and Jennifer Hay (2008)
 <doi:10.3366/E1749503208000142> or Robert Fromont (2017)
 <doi:10.1016/j.csl.2017.01.004>.
@@ -45,6 +45,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

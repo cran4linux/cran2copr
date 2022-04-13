@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  POT
-%global packver   1.1-8
+%global packver   1.1-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.8
+Version:          1.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Pareto Distribution and Peaks Over Threshold
 
@@ -19,7 +19,7 @@ Requires:         R-core >= 3.0.0
 %description
 Some functions useful to perform a Peak Over Threshold analysis in
 univariate and bivariate cases, see Beirlant et al. (2004)
-<doi:10.1002/0470012382>. A users guide is available in the vignette.
+<doi:10.1002/0470012382>. A user guide is available in the vignette.
 
 %prep
 %setup -q -c -n %{packname}

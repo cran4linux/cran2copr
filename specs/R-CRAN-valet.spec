@@ -1,27 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  parallelPlot
-%global packver   0.2.0
+%global packname  valet
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Htmlwidget' for a Parallel Coordinates Plot
+Summary:          Provide R Client to the Bank of Canada's Valet API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmlwidgets 
-Requires:         R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Create a parallel coordinates plot, using 'htmlwidgets' package and
-'d3.js'.
+The Bank of Canada updated their Valet API
+<https://www.bankofcanada.ca/valet/docs>, and no R client currently
+exists. This provides access to all of Valet's endpoints and serves
+responses in wide format easy for researchers to handle but also provides
+tools to access API responses as a list.
 
 %prep
 %setup -q -c -n %{packname}

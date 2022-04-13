@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  parallelPlot
-%global packver   0.2.0
+%global packname  Linkage
+%global packver   0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Htmlwidget' for a Parallel Coordinates Plot
+Summary:          Clustering Communication Networks Using the Stochastic Topic Block Model Through Linkage.fr
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,12 +16,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmlwidgets 
-Requires:         R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-sna 
+BuildRequires:    R-CRAN-network 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-sna 
+Requires:         R-CRAN-network 
 
 %description
-Create a parallel coordinates plot, using 'htmlwidgets' package and
-'d3.js'.
+It allows to cluster communication networks using the Stochastic Topic
+Block Model <doi:10.1007/s11222-016-9713-7> by posting jobs through the
+API of the linkage.fr server, which implements the clustering method. The
+package also allows to visualize the clustering results returned by the
+server.
 
 %prep
 %setup -q -c -n %{packname}
