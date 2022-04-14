@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  embed
-%global packver   0.1.5
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extra Recipes for Encoding Predictors
 
@@ -13,12 +13,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang >= 0.4.10
 BuildRequires:    R-CRAN-recipes >= 0.1.17
 BuildRequires:    R-CRAN-generics >= 0.1.0
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-keras 
 BuildRequires:    R-CRAN-lifecycle 
@@ -34,6 +35,7 @@ BuildRequires:    R-CRAN-withr
 Requires:         R-CRAN-rlang >= 0.4.10
 Requires:         R-CRAN-recipes >= 0.1.17
 Requires:         R-CRAN-generics >= 0.1.0
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-keras 
 Requires:         R-CRAN-lifecycle 

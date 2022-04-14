@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  declared
-%global packver   0.13
+%global packver   0.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13
+Version:          0.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Declare Missing Values
 
@@ -15,14 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-admisc > 0.25
-Requires:         R-CRAN-admisc > 0.25
 
 %description
 A set of functions to declare labels and missing values, coupled with
 associated functions to create (weighted) tables of frequencies and
-various other summary measures.
+various other summary measures. Various base functions are rewritten to
+make use of the specific information about the missing values, most
+importantly to distinguish between empty and declared missing values. Many
+functions have a similar functionality with the corresponding functions
+from packages "haven" and "labelled". A lot of effort was spent to ensure
+as much compatibility as possible with these packages, with the intention
+to offer a complementary alternative for the objects of class "declared".
 
 %prep
 %setup -q -c -n %{packname}

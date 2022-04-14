@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dlstats
-%global packver   0.1.5
+%global packname  UNF
+%global packver   2.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          2.0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Stats of R Packages
+Summary:          Tools for Creating Universal Numeric Fingerprints for Data
 
-License:          Artistic-2.0
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-stats 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-digest 
 Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-tools 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-digest 
 
 %description
-Monthly download stats of 'CRAN' and 'Bioconductor' packages. Download
-stats of 'CRAN' packages is from the 'RStudio' 'CRAN mirror', see
-<https://cranlogs.r-pkg.org:443>. 'Bioconductor' package download stats is
-at <https://bioconductor.org/packages/stats/>.
+Computes a 'universal numeric fingerprint' ('UNF') for an R data object.
+'UNF' is a hash or signature that can be used to uniquely identify (a
+version of) a rectangular dataset, or a subset thereof. 'UNF' can be used,
+in tandem with a 'DOI', to form a persistent citation to a versioned
+dataset.
 
 %prep
 %setup -q -c -n %{packname}

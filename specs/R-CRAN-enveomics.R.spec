@@ -1,39 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dlstats
-%global packver   0.1.5
+%global packname  enveomics.R
+%global packver   1.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Stats of R Packages
+Summary:          Various Utilities for Microbial Genomics and Metagenomics
 
 License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 2.9
+Requires:         R-core >= 2.9
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-scales 
-Requires:         R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-fitdistrplus 
+BuildRequires:    R-CRAN-sn 
+BuildRequires:    R-CRAN-investr 
+Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-parallel 
+Requires:         R-CRAN-fitdistrplus 
+Requires:         R-CRAN-sn 
+Requires:         R-CRAN-investr 
 
 %description
-Monthly download stats of 'CRAN' and 'Bioconductor' packages. Download
-stats of 'CRAN' packages is from the 'RStudio' 'CRAN mirror', see
-<https://cranlogs.r-pkg.org:443>. 'Bioconductor' package download stats is
-at <https://bioconductor.org/packages/stats/>.
+A collection of functions for microbial ecology and other applications of
+genomics and metagenomics. Companion package for the Enveomics Collection
+(Rodriguez-R, L.M. and Konstantinidis, K.T., 2016
+<DOI:10.7287/peerj.preprints.1900v1>).
 
 %prep
 %setup -q -c -n %{packname}

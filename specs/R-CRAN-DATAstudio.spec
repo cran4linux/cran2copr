@@ -1,39 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dlstats
-%global packver   0.1.5
+%global packname  DATAstudio
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Stats of R Packages
+Summary:          The Research Data Warehouse of Miguel de Carvalho
 
-License:          Artistic-2.0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-scales 
-Requires:         R-utils 
 
 %description
-Monthly download stats of 'CRAN' and 'Bioconductor' packages. Download
-stats of 'CRAN' packages is from the 'RStudio' 'CRAN mirror', see
-<https://cranlogs.r-pkg.org:443>. 'Bioconductor' package download stats is
-at <https://bioconductor.org/packages/stats/>.
+Pulls together a collection of datasets from Miguel de Carvalho research
+papers. Including, - de Carvalho (2012) <doi:10.1016/j.jspi.2011.08.016>;
+- de Carvalho et al (2012) <doi:10.1080/03610926.2012.709905>; - de
+Carvalho et al (2012) <doi:10.1016/j.econlet.2011.09.007>); - de Carvalho
+and Davison (2014) <doi:10.1080/01621459.2013.872651>; - de Carvalho and
+Rua (2017) <doi:10.1016/j.ijforecast.2015.09.004>.
 
 %prep
 %setup -q -c -n %{packname}

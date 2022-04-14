@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  brms
-%global packver   2.16.3
+%global packver   2.17.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.16.3
+Version:          2.17.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Regression Models using 'Stan'
 

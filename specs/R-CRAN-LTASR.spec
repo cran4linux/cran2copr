@@ -1,39 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dlstats
-%global packver   0.1.5
+%global packname  LTASR
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Stats of R Packages
+Summary:          Functions to Replicate the Center for Disease Control and Prevention's 'LTAS' Software in R
 
-License:          Artistic-2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-scales 
-Requires:         R-utils 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-zoo 
 
 %description
-Monthly download stats of 'CRAN' and 'Bioconductor' packages. Download
-stats of 'CRAN' packages is from the 'RStudio' 'CRAN mirror', see
-<https://cranlogs.r-pkg.org:443>. 'Bioconductor' package download stats is
-at <https://bioconductor.org/packages/stats/>.
+A suite of functions for reading in a rate file in XML format, stratify a
+cohort, and calculate 'SMRs' from the stratified cohort and rate file.
 
 %prep
 %setup -q -c -n %{packname}

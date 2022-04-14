@@ -1,39 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dlstats
-%global packver   0.1.5
+%global packname  svines
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Stats of R Packages
+Summary:          Stationary Vine Copula Models
 
-License:          Artistic-2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-scales 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-rvinecopulib >= 0.6.1.1.2
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-univariateML 
+BuildRequires:    R-CRAN-wdm 
+BuildRequires:    R-CRAN-fGarch 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-RcppThread 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-rvinecopulib >= 0.6.1.1.2
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-univariateML 
+Requires:         R-CRAN-wdm 
+Requires:         R-CRAN-fGarch 
 
 %description
-Monthly download stats of 'CRAN' and 'Bioconductor' packages. Download
-stats of 'CRAN' packages is from the 'RStudio' 'CRAN mirror', see
-<https://cranlogs.r-pkg.org:443>. 'Bioconductor' package download stats is
-at <https://bioconductor.org/packages/stats/>.
+Provides functionality to fit and simulate from stationary vine copula
+models for time series, see Nagler et al. (2022)
+<doi:10.1016/j.jeconom.2021.11.015>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ReDaMoR
-%global packver   0.5.2
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Relational Data Modeler
 
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-visNetwork 
@@ -50,6 +51,7 @@ Requires:         R-CRAN-igraph
 Requires:         R-utils 
 Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-CRAN-Matrix 
 
 %description
 The aim of this package is to manipulate relational data models in R. It

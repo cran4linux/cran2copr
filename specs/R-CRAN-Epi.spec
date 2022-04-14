@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Epi
-%global packver   2.44
+%global packver   2.46
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.44
+Version:          2.46
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Analysis in Epidemiology
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-etm
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-Matrix 
@@ -29,13 +28,13 @@ BuildRequires:    R-CRAN-numDeriv
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-utils 
 Requires:         R-CRAN-cmprsk 
 Requires:         R-CRAN-etm 
 Requires:         R-splines 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-survival 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-Matrix 
@@ -43,16 +42,17 @@ Requires:         R-CRAN-numDeriv
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-magrittr 
 
 %description
 Functions for demographic and epidemiological analysis in the Lexis
-diagram, i.e. register and cohort follow-up data, in particular
-representation, manipulation and simulation of multistate data - the Lexis
-suite of functions, which includes interfaces to 'mstate', 'etm' and
-'cmprsk' packages. Also contains functions for Age-Period-Cohort and
-Lee-Carter modeling and a function for interval censored data and some
-useful functions for tabulation and plotting, as well as a number of
-epidemiological data sets.
+diagram, i.e. register and cohort follow-up data. In particular
+representation, manipulation, rate estimation and simulation for
+multistate data - the Lexis suite of functions, which includes interfaces
+to 'mstate', 'etm' and 'cmprsk' packages. Contains functions for
+Age-Period-Cohort and Lee-Carter modeling and a function for interval
+censored data and some useful functions for tabulation and plotting, as
+well as a number of epidemiological data sets.
 
 %prep
 %setup -q -c -n %{packname}
@@ -62,6 +62,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

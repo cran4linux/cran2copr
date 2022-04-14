@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ROpenCVLite
-%global packver   4.52.1
+%global packver   4.55.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.52.1
+Version:          4.55.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helper Package for Installing OpenCV with R
 

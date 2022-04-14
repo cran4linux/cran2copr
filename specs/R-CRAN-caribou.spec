@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  caribou
-%global packver   1.1
+%global packver   1.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
-Release:          3%{?dist}%{?buildtag}
-Summary:          Estimation of caribou abundance based on large scaleaggregations monitored by radio telemetry
+Version:          1.1.1
+Release:          1%{?dist}%{?buildtag}
+Summary:          Estimation of Caribou Abundance Based on Radio Telemetry Data
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,16 +18,25 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-This is a package for estimating the population size of migratory caribou
-herds based on large scale aggregations monitored by radio telemetry. It
-implements the methodology found in the article by Rivest et al. (1998)
-about caribou abundance estimation. It also includes a function based on
-the Lincoln-Petersen Index as applied to radio telemetry data by White and
+Estimation of population size of migratory caribou herds based on large
+scale aggregations monitored by radio telemetry. It implements the
+methodology found in the article by Rivest et al. (1998) about caribou
+abundance estimation. It also includes a function based on the
+Lincoln-Petersen Index as applied to radio telemetry data by White and
 Garrott (1990).
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -37,15 +46,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/NEWS.Rd
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
