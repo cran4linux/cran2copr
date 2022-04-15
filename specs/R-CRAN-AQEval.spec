@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  pks
-%global packver   0.5-0
+%global packname  AQEval
+%global packver   0.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.4.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Probabilistic Knowledge Structures
+Summary:          Air Quality Evaluation
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,18 +16,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-openair 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-loa 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-strucchange 
+BuildRequires:    R-CRAN-segmented 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-sets 
-BuildRequires:    R-graphics 
+Requires:         R-CRAN-openair 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-loa 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-strucchange 
+Requires:         R-CRAN-segmented 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-ggtext 
 Requires:         R-stats 
-Requires:         R-CRAN-sets 
-Requires:         R-graphics 
 
 %description
-Fitting and testing probabilistic knowledge structures, especially the
-basic local independence model (BLIM, Doignon & Flamagne, 1999), using the
-minimum discrepancy maximum likelihood (MDML) method (Heller &
-Wickelmaier, 2013 <doi:10.1016/j.endm.2013.05.145>).
+Developed for use by those tasked with the routine detection,
+characterisation and quantification of discrete changes in air quality
+time-series, such as identifying the impacts of air quality policy
+interventions. The main functions use signal isolation then
+break-point/segment (BP/S) methods based on 'strucchange' and 'segmented'
+methods detect and quantify change events (Ropkins & Tate, 2021,
+<doi:10.1016/j.scitotenv.2020.142374>).
 
 %prep
 %setup -q -c -n %{packname}

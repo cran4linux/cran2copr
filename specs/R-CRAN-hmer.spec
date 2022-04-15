@@ -1,52 +1,56 @@
 %global __brp_check_rpaths %{nil}
-%global packname  biometryassist
-%global packver   1.1.0
+%global packname  hmer
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions to Assist Design and Analysis of Agronomic Experiments
+Summary:          History Matching and Emulation Package
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-agricolae 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-farver 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-interp 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-multcompView 
-BuildRequires:    R-CRAN-predictmeans 
+BuildRequires:    R-CRAN-lhs 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-GGally 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-agricolae 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-farver 
+BuildRequires:    R-CRAN-isoband 
+BuildRequires:    R-CRAN-mclust 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-interp 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-multcompView 
-Requires:         R-CRAN-predictmeans 
+Requires:         R-CRAN-lhs 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-GGally 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-isoband 
+Requires:         R-CRAN-mclust 
 
 %description
-Provides functions to aid in the design and analysis of agronomic and
-agricultural experiments through easy access to documentation and helper
-functions, especially for users who are learning these concepts.
+A set of objects and functions for Bayes Linear emulation and history
+matching. Core functionality includes automated training of emulators to
+data, diagnostic functions to ensure suitability, and a variety of
+proposal methods for generating 'waves' of points. For details on the
+mathematical background, there are many papers available on the topic (see
+references attached to function help files); for details of the functions
+in this package, consult the manual or help files.
 
 %prep
 %setup -q -c -n %{packname}

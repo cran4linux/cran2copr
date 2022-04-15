@@ -1,30 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BDgraph
-%global packver   2.66
+%global packname  pald
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.66
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Structure Learning in Graphical Models using Birth-Death MCMC
+Summary:          Partitioned Local Depths for Community Structure in Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
+BuildArch:        noarch
 BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-glue 
 Requires:         R-CRAN-igraph 
+Requires:         R-graphics 
+Requires:         R-CRAN-glue 
 
 %description
-Statistical tools for Bayesian structure learning in undirected graphical
-models for continuous, discrete, and mixed data. The package is
-implemented the recent improvements in the Bayesian graphical models'
-literature, including Mohammadi and Wit (2015) <doi:10.1214/14-BA889>,
-Mohammadi et al. (2021) <doi:10.1080/01621459.2021.1996377>, and Mohammadi
-and Wit (2019) <doi:10.18637/jss.v089.i03>.
+Implementation of the Partitioned Local Depths (PaLD) approach which
+provides a measure of local depth and the cohesion of a point to another
+which (together with a universal threshold for distinguishing strong and
+weak ties) may be used to reveal local and global structure in data, based
+on methods described in Berenhaut, Moore, and Melvin (2022)
+<doi:10.1073/pnas.2003634119>. No extraneous inputs, distributional
+assumptions, iterative procedures nor optimization criteria are employed.
+This package includes functions for computing local depths and cohesion as
+well as flexible functions for plotting community networks and displays of
+cohesion against distance.
 
 %prep
 %setup -q -c -n %{packname}

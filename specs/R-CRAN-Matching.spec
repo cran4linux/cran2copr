@@ -1,30 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BDgraph
-%global packver   2.66
+%global packname  Matching
+%global packver   4.10-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.66
+Version:          4.10.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Structure Learning in Graphical Models using Birth-Death MCMC
+Summary:          Multivariate and Propensity Score Matching with Balance Optimization
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-igraph 
-Requires:         R-CRAN-igraph 
+BuildRequires:    R-devel >= 2.6.0
+Requires:         R-core >= 2.6.0
+BuildRequires:    R-CRAN-MASS >= 7.2.1
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-MASS >= 7.2.1
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-stats 
 
 %description
-Statistical tools for Bayesian structure learning in undirected graphical
-models for continuous, discrete, and mixed data. The package is
-implemented the recent improvements in the Bayesian graphical models'
-literature, including Mohammadi and Wit (2015) <doi:10.1214/14-BA889>,
-Mohammadi et al. (2021) <doi:10.1080/01621459.2021.1996377>, and Mohammadi
-and Wit (2019) <doi:10.18637/jss.v089.i03>.
+Provides functions for multivariate and propensity score matching and for
+finding optimal balance based on a genetic search algorithm. A variety of
+univariate and multivariate metrics to determine if balance has been
+obtained are also provided. For details, see the paper by Jasjeet Sekhon
+(2007, <doi:10.18637/jss.v042.i07>).
 
 %prep
 %setup -q -c -n %{packname}

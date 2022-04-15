@@ -1,30 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BDgraph
-%global packver   2.66
+%global packname  Rpolyhedra
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.66
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Structure Learning in Graphical Models using Birth-Death MCMC
+Summary:          Polyhedra Database
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-igraph 
-Requires:         R-CRAN-igraph 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-geometry 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-futile.logger 
+BuildRequires:    R-CRAN-git2r 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-geometry 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-futile.logger 
+Requires:         R-CRAN-git2r 
 
 %description
-Statistical tools for Bayesian structure learning in undirected graphical
-models for continuous, discrete, and mixed data. The package is
-implemented the recent improvements in the Bayesian graphical models'
-literature, including Mohammadi and Wit (2015) <doi:10.1214/14-BA889>,
-Mohammadi et al. (2021) <doi:10.1080/01621459.2021.1996377>, and Mohammadi
-and Wit (2019) <doi:10.18637/jss.v089.i03>.
+A polyhedra database scraped from various sources as R6 objects and 'rgl'
+visualizing capabilities.
 
 %prep
 %setup -q -c -n %{packname}

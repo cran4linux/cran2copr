@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mirai
-%global packver   0.2.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Minimalist Async Evaluation Framework for R
 
@@ -15,8 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.4
 Requires:         R-core >= 2.4
-BuildRequires:    R-CRAN-nanonext >= 0.3.0
-Requires:         R-CRAN-nanonext >= 0.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-nanonext >= 0.4.0
+Requires:         R-CRAN-nanonext >= 0.4.0
 
 %description
 Extremely simple and lightweight method for concurrent / parallel code

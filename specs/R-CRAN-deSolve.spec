@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  deSolve
-%global packver   1.31
+%global packver   1.32
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.31
+Version:          1.32
 Release:          1%{?dist}%{?buildtag}
 Summary:          Solvers for Initial Value Problems of Differential Equations ('ODE', 'DAE', 'DDE')
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 

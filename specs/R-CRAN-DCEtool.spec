@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DCEtool
-%global packver   0.3.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create, Survey and Analyse Discrete Choice Experiments
+Summary:          Efficient and Accessible Discrete Choice Experiments
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,48 +16,66 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-shinyBS 
+BuildRequires:    R-CRAN-shinycssloaders 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinythemes 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-idefix 
+BuildRequires:    R-CRAN-shinyWidgets 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-writexl 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-shinyhelper 
-BuildRequires:    R-CRAN-shinycssloaders 
-BuildRequires:    R-CRAN-shinyglide 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-commonmark 
-BuildRequires:    R-CRAN-bslib 
-BuildRequires:    R-CRAN-mlogit 
 BuildRequires:    R-CRAN-readxl 
-Requires:         R-CRAN-DT 
+BuildRequires:    R-CRAN-idefix 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-mlogit 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-fastDummies 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-dfidx 
+BuildRequires:    R-CRAN-adjustedcranlogs 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-rlist 
+BuildRequires:    R-CRAN-remotes 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-shinyBS 
+Requires:         R-CRAN-shinycssloaders 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinythemes 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-idefix 
+Requires:         R-CRAN-shinyWidgets 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-DT 
 Requires:         R-CRAN-writexl 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
-Requires:         R-CRAN-shinyhelper 
-Requires:         R-CRAN-shinycssloaders 
-Requires:         R-CRAN-shinyglide 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-commonmark 
-Requires:         R-CRAN-bslib 
-Requires:         R-CRAN-mlogit 
 Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-idefix 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-mlogit 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-fastDummies 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-dfidx 
+Requires:         R-CRAN-adjustedcranlogs 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-rlist 
+Requires:         R-CRAN-remotes 
 
 %description
-This app is intended to be a complete package for creating, surveying, and
-analysing discrete choice experiments. Although all these functionalities
-are available, the app can also be used only to obtain the design of a
-discrete choice experiment. Reference: Perez-Troncoso, D. (2021)
+Design, conduct and analyze 'DCEs' from a virtual interface in shiny.
+Reference: Perez-Troncoso, D. (2022)
 <https://github.com/danielpereztr/DCEtool>.
 
 %prep

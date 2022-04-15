@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RestRserve
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Framework for Building HTTP API
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-Rserve >= 1.7.3
 BuildRequires:    R-CRAN-jsonlite >= 1.6
 BuildRequires:    R-CRAN-Rcpp >= 1.0.3
 BuildRequires:    R-CRAN-mime >= 0.7
+BuildRequires:    R-CRAN-digest >= 0.6.29
 BuildRequires:    R-CRAN-uuid >= 0.1.2
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-Rserve >= 1.7.3
 Requires:         R-CRAN-jsonlite >= 1.6
 Requires:         R-CRAN-Rcpp >= 1.0.3
 Requires:         R-CRAN-mime >= 0.7
+Requires:         R-CRAN-digest >= 0.6.29
 Requires:         R-CRAN-uuid >= 0.1.2
 Requires:         R-methods 
 Requires:         R-parallel 
