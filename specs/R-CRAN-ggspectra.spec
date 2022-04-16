@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ggspectra
-%global packver   0.3.7
+%global packver   0.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          0.3.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extensions to 'ggplot2' for Radiation Spectra
 
@@ -16,24 +16,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
-BuildRequires:    R-CRAN-tibble >= 3.0.3
-BuildRequires:    R-CRAN-lubridate >= 1.7.9
-BuildRequires:    R-CRAN-scales >= 1.1.1
-BuildRequires:    R-CRAN-dplyr >= 1.0.2
-BuildRequires:    R-CRAN-tidyr >= 1.0.2
-BuildRequires:    R-CRAN-ggrepel >= 0.8.2
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.4
+BuildRequires:    R-CRAN-tibble >= 3.1.5
+BuildRequires:    R-CRAN-lubridate >= 1.8.0
+BuildRequires:    R-CRAN-scales >= 1.2.0
+BuildRequires:    R-CRAN-tidyr >= 1.2.0
+BuildRequires:    R-CRAN-tidyselect >= 1.1.2
+BuildRequires:    R-CRAN-ggrepel >= 0.9.1
 BuildRequires:    R-CRAN-photobiologyWavebands >= 0.4.3
-BuildRequires:    R-CRAN-photobiology >= 0.10.5
-Requires:         R-CRAN-ggplot2 >= 3.3.2
-Requires:         R-CRAN-tibble >= 3.0.3
-Requires:         R-CRAN-lubridate >= 1.7.9
-Requires:         R-CRAN-scales >= 1.1.1
-Requires:         R-CRAN-dplyr >= 1.0.2
-Requires:         R-CRAN-tidyr >= 1.0.2
-Requires:         R-CRAN-ggrepel >= 0.8.2
+BuildRequires:    R-CRAN-photobiology >= 0.10.10
+Requires:         R-CRAN-ggplot2 >= 3.3.4
+Requires:         R-CRAN-tibble >= 3.1.5
+Requires:         R-CRAN-lubridate >= 1.8.0
+Requires:         R-CRAN-scales >= 1.2.0
+Requires:         R-CRAN-tidyr >= 1.2.0
+Requires:         R-CRAN-tidyselect >= 1.1.2
+Requires:         R-CRAN-ggrepel >= 0.9.1
 Requires:         R-CRAN-photobiologyWavebands >= 0.4.3
-Requires:         R-CRAN-photobiology >= 0.10.5
+Requires:         R-CRAN-photobiology >= 0.10.10
 
 %description
 Additional annotations, stats, geoms and scales for plotting "light"
@@ -51,6 +51,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

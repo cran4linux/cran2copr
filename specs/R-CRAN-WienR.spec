@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  WienR
-%global packver   0.3-0
+%global packver   0.3-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Derivatives of the First-Passage Time Density and Cumulative Distribution Function, and Random Sampling from the (Truncated) First-Passage Time Distribution
 

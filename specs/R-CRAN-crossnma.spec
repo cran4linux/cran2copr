@@ -1,44 +1,48 @@
 %global __brp_check_rpaths %{nil}
-%global packname  overviewR
-%global packver   0.0.10
+%global packname  crossnma
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.10
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Extracting Information About Your Data
+Summary:          Cross-Design & Cross-Format Network Meta-Analysis and Regression
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
-BuildRequires:    R-CRAN-tibble >= 3.0.1
-BuildRequires:    R-CRAN-data.table >= 1.14.2
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-ggrepel >= 0.8.2
-BuildRequires:    R-CRAN-ggvenn >= 0.1.8
+BuildRequires:    R-CRAN-netmeta 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 >= 3.3.2
-Requires:         R-CRAN-tibble >= 3.0.1
-Requires:         R-CRAN-data.table >= 1.14.2
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-ggrepel >= 0.8.2
-Requires:         R-CRAN-ggvenn >= 0.1.8
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-netmeta 
+Requires:         R-CRAN-rjags 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Makes it easy to display descriptive information on a data set.  Getting
-an easy overview of a data set by displaying and visualizing sample
-information in different tables (e.g., time and scope conditions).  The
-package also provides publishable 'LaTeX' code to present the sample
-information.
+Network meta-analysis and meta-regression (allows including up to 3
+covariates) for individual participant data, aggregate data, and mixtures
+of both formats using the three-level hierarchical model. Each format can
+come from randomized controlled trials or non-randomized studies or
+mixtures of both. Estimates are generated in a Bayesian framework using
+JAGS. The implemented models are described by Hamza et al. 2022
+<DOI:10.48550/arXiv.2203.06350>.
 
 %prep
 %setup -q -c -n %{packname}

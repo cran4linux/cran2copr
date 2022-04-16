@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  haven
-%global packver   2.4.3
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.3
+Version:          2.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import and Export 'SPSS', 'Stata' and 'SAS' Files
 
@@ -13,22 +13,26 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
+BuildRequires:    R-CRAN-cli >= 3.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-vctrs >= 0.3.0
 BuildRequires:    R-CRAN-forcats >= 0.2.0
 BuildRequires:    R-CRAN-readr >= 0.1.0
 BuildRequires:    R-CRAN-hms 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-vctrs >= 0.3.0
 Requires:         R-CRAN-forcats >= 0.2.0
 Requires:         R-CRAN-readr >= 0.1.0
 Requires:         R-CRAN-hms 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-methods 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyselect 

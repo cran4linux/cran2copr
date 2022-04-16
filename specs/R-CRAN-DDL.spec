@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  frequentistSSD
-%global packver   0.1.1
+%global packname  DDL
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Screened Selection Design with Survival Endpoints
+Summary:          Doubly Debiased Lasso (DDL)
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,22 +16,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-stats 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-Matrix 
 
 %description
-A study based on the screened selection design (SSD) is an exploratory
-phase II randomized trial with two or more arms but without concurrent
-control. The primary aim of the SSD trial is to pick a desirable treatment
-arm (e.g., in terms of the median survival time) to recommend to the
-subsequent randomized phase IIb (with the concurrent control) or phase
-III. Though The survival endpoint is often encountered in phase II trials,
-the existing SSD methods cannot deal with the survival endpoint.
-Furthermore, the existing SSD won’t control the type I error rate.  The
-proposed designs can “partially” control or provide the empirical type I
-error/false positive rate by an optimal algorithm (implemented by the
-optimal() function) for each arm. All the design needed components (sample
-size, operating characteristics) are supported.
+Statistical inference for the regression coefficients in high-dimensional
+linear models with hidden confounders. The Doubly Debiased Lasso method
+was proposed in <arXiv:2004.03758>.
 
 %prep
 %setup -q -c -n %{packname}

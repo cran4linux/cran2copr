@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gjam
-%global packver   2.5.2
+%global packver   2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.2
+Version:          2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Joint Attribute Modeling
 

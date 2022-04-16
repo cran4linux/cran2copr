@@ -1,37 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  frequentistSSD
-%global packver   0.1.1
+%global packname  success
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Screened Selection Design with Survival Endpoints
+Summary:          Survival Control Charts Estimation Software
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-survival 
 
 %description
-A study based on the screened selection design (SSD) is an exploratory
-phase II randomized trial with two or more arms but without concurrent
-control. The primary aim of the SSD trial is to pick a desirable treatment
-arm (e.g., in terms of the median survival time) to recommend to the
-subsequent randomized phase IIb (with the concurrent control) or phase
-III. Though The survival endpoint is often encountered in phase II trials,
-the existing SSD methods cannot deal with the survival endpoint.
-Furthermore, the existing SSD won’t control the type I error rate.  The
-proposed designs can “partially” control or provide the empirical type I
-error/false positive rate by an optimal algorithm (implemented by the
-optimal() function) for each arm. All the design needed components (sample
-size, operating characteristics) are supported.
+Quality control charts for survival outcomes. Allows users to construct
+the Continuous Time Generalized Rapid Response CUSUM (CGR-CUSUM), the
+Biswas & Kalbfleisch (2008) <doi:10.1002/sim.3216> CUSUM, the Bernoulli
+CUSUM and the risk-adjusted funnel plot for survival data. These
+procedures can be used to monitor survival processes for a change in the
+failure rate.
 
 %prep
 %setup -q -c -n %{packname}
