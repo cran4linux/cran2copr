@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  exdex
-%global packver   1.1.1
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of the Extremal Index
 
@@ -39,15 +39,17 @@ Northrop (2015) <doi:10.1007/s10687-015-0221-5> and Berghaus and Bucher
 increase precision of estimation. A graphical block size diagnostic is
 provided.  The other type of methodology uses a model for the distribution
 of threshold inter-exceedance times (Ferro and Segers (2003)
-<doi:10.1111/1467-9868.00401>). Two versions of this type of approach are
-provided: the iterated weight least squares approach of Suveges (2007)
-<doi:10.1007/s10687-007-0034-2> and the K-gaps model of Suveges and
-Davison (2010) <doi:10.1214/09-AOAS292>. For the K-gaps model this package
-allows missing values in the data, can accommodate independent subsets of
-data, such as monthly or seasonal time series from different years, and
-can incorporate information from censored inter-exceedance times.  A
-graphical diagnostic for the threshold level and the runs parameter K is
-provided.
+<doi:10.1111/1467-9868.00401>). Three versions of this type of approach
+are provided: the iterated weight least squares approach of Suveges (2007)
+<doi:10.1007/s10687-007-0034-2>, the K-gaps model of Suveges and Davison
+(2010) <doi:10.1214/09-AOAS292> and a similar approach of Holesovsky, J.
+and Fusek, M. (2020) <doi:10.1007/s10687-020-00374-3> that we refer to as
+D-gaps. For the K-gaps and D-gaps models this package allows missing
+values in the data, can accommodate independent subsets of data, such as
+monthly or seasonal time series from different years, and can incorporate
+information from right-censored inter-exceedance times. Graphical
+diagnostics for the threshold level and the respective tuning parameters K
+and D are provided.
 
 %prep
 %setup -q -c -n %{packname}

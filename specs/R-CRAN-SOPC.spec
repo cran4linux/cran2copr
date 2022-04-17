@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SOPC
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Sparse Online Principal Component Estimation Algorithm
 
@@ -22,10 +22,10 @@ Requires:         R-CRAN-elasticnet
 Requires:         R-stats 
 
 %description
-The sparse online principal component can not only process the real-time
-updated data set and stream data set, but also obtain the sparse solution
-of the updated data set. The philosophy of the package is described in Guo
-G. (2018) <doi:10.1080/10485252.2018.1531130>.
+The sparse online principal component can not only process the online data
+set, but also obtain a sparse solution of the online data set. The
+philosophy of the package is described in Guo G. (2018)
+<doi:10.1080/10485252.2018.1531130>.
 
 %prep
 %setup -q -c -n %{packname}

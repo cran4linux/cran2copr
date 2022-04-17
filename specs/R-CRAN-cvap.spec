@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cvap
-%global packver   0.0.3
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Citizen Voting Age Population
 
@@ -21,7 +21,9 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-censable 
@@ -29,16 +31,20 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 
 %description
 Works with the Citizen Voting Age Population special tabulation from the
-US Census Bureau. Provides tools to download and process raw data. Also
-provides a downloading interface to processed data. Implements a very
-basic approach to estimate block level citizen voting age population from
-block group data.
+US Census Bureau
+<https://www.census.gov/programs-surveys/decennial-census/about/voting-rights/cvap.html>.
+Provides tools to download and process raw data. Also provides a
+downloading interface to processed data. Implements a very basic approach
+to estimate block level citizen voting age population from block group
+data.
 
 %prep
 %setup -q -c -n %{packname}
