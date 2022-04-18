@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  zebu
-%global packver   0.1.3.0
+%global packver   0.2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3.0
+Version:          0.2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Local Association Measures
 
@@ -15,28 +15,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-iterators 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-plyr 
 Requires:         R-utils 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Implements the estimation of local (and global) association measures:
-Ducher's Z, pointwise mutual information, normalized pointwise mutual
-information and chi-squared residuals. The significance of local (and
-global) association is accessed using p-values estimated by permutations.
-Finally, using local association subgroup analysis, it identifies if the
-association between variables is dependent on the value of another
-variable.
+Lewontin's D, Ducher's Z, pointwise mutual information, normalized
+pointwise mutual information and chi-squared residuals. The significance
+of local (and global) association is accessed using p-values estimated by
+permutations.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,6 +41,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

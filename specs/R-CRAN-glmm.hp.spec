@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  glmm.hp
-%global packver   0.0-2
+%global packver   0.0-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Partitioning of Marginal R2 for Generalized Mixed-Effect Models
 
@@ -30,7 +30,7 @@ model based on output of r.squaredGLMM() in 'MuMIn', applying the
 algorithm of Lai J.,Zou Y., Zhang J.,Peres-Neto P.(2022) Generalizing
 hierarchical and variation partitioning in multiple regression and
 canonical analyses using the rdacca.hp R package.Methods in Ecology and
-Evolution,<DOI:10.1111/2041-210X.13800>.
+Evolution,13:782-788<DOI:10.1111/2041-210X.13800>.
 
 %prep
 %setup -q -c -n %{packname}

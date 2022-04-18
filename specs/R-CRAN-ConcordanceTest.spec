@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ConcordanceTest
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Alternative to the Kruskal-Wallis Based on the Kendall Tau Distance
 
@@ -27,7 +27,7 @@ Requires:         R-graphics
 The Concordance Test is a non-parametric method for testing whether two o
 more samples originate from the same distribution. It extends the Kendall
 Tau correlation coefficient when there are only two groups. For details,
-see Monge (2019) <arXiv:1912.12880v1>.
+see Monge (2020) <arXiv:1912.12880v2>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +37,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
