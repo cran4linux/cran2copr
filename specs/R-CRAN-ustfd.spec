@@ -1,47 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  popRF
-%global packver   1.0.0
+%global packname  ustfd
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Random Forest-Informed Population Disaggregation
+Summary:          API Client for US Treasury Fiscal Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-gdalUtils 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-quantregForest 
-BuildRequires:    R-CRAN-plyr 
-Requires:         R-CRAN-doParallel 
-Requires:         R-parallel 
-Requires:         R-CRAN-raster 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-gdalUtils 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-quantregForest 
-Requires:         R-CRAN-plyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
 
 %description
-Disaggregating census-based areal population counts to finer gridded
-population surfaces using Random Forest algorithm to determine the target
-area weights (see _Stevens, et al._ (2015)
-<doi:10.1371/journal.pone.0107042>).
+Make requests from the US Treasury Fiscal Data API endpoints.
 
 %prep
 %setup -q -c -n %{packname}

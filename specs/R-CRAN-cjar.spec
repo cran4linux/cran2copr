@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cjar
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Client for 'Customer Journey Analytics' ('CJA') API
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-jose 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-jose 

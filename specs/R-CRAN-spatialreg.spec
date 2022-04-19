@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spatialreg
-%global packver   1.2-1
+%global packver   1.2-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Regression Analysis
 
@@ -61,9 +61,9 @@ determinant term in maximum likelihood and MCMC fitting are compared by
 'Bivand et al.' (2013) <doi:10.1111/gean.12008>, and model fitting methods
 by 'Bivand' and 'Piras' (2015) <doi:10.18637/jss.v063.i18>; both of these
 articles include extensive lists of references. 'spatialreg' >= 1.1-*
-correspond to 'spdep' >= 1.1-1, in which the model fitting functions are
-deprecated and pass through to 'spatialreg', but will mask those in
-'spatialreg'. From versions 1.2-*, the functions will be made defunct in
+corresponded to 'spdep' >= 1.1-1, in which the model fitting functions
+were deprecated and passed through to 'spatialreg', but masked those in
+'spatialreg'. From versions 1.2-*, the functions have been made defunct in
 'spdep'.
 
 %prep
