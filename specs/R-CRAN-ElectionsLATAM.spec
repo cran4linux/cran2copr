@@ -1,35 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cdfquantreg
-%global packver   1.3.1
+%global packname  ElectionsLATAM
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quantile Regression for Random Variables on the Unit Interval
+Summary:          Statistics Methods for Applying in LATAM Elections
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pracma >= 2.3
-BuildRequires:    R-CRAN-Formula >= 1.2
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-pracma >= 2.3
-Requires:         R-CRAN-Formula >= 1.2
-Requires:         R-stats 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-lgr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-foreign 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-networkD3 
+BuildRequires:    R-CRAN-webshot 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-lgr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-foreign 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-networkD3 
+Requires:         R-CRAN-webshot 
+Requires:         R-CRAN-testthat 
 
 %description
-Employs a two-parameter family of distributions for modelling random
-variables on the (0, 1) interval by applying the cumulative distribution
-function (cdf) of one parent distribution to the quantile function of
-another.
+Is intended for applying reproducible research on statistical methods for
+latinamerican (& others) elections.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ade4
-%global packver   1.7-18
+%global packver   1.7-19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.18
+Version:          1.7.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Ecological Data: Exploratory and Euclidean Methods in Environmental Sciences
 

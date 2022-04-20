@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cdfquantreg
-%global packver   1.3.1
+%global packname  FisPro
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quantile Regression for Random Variables on the Unit Interval
+Summary:          Fuzzy Inference System Design and Optimization
 
-License:          GPL-3
+License:          CeCILL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-pracma >= 2.3
-BuildRequires:    R-CRAN-Formula >= 1.2
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-pracma >= 2.3
-Requires:         R-CRAN-Formula >= 1.2
-Requires:         R-stats 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Employs a two-parameter family of distributions for modelling random
-variables on the (0, 1) interval by applying the cumulative distribution
-function (cdf) of one parent distribution to the quantile function of
-another.
+Fuzzy inference systems are based on fuzzy rules, which have a good
+capability for managing progressive phenomenons. This package is a basic
+implementation of the main functions to use a Fuzzy Inference System (FIS)
+provided by the open source software 'FisPro' <https://www.fispro.org>.
+'FisPro' allows to create fuzzy inference systems and to use them for
+reasoning purposes, especially for simulating a physical or biological
+system.
 
 %prep
 %setup -q -c -n %{packname}

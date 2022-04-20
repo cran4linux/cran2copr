@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cdfquantreg
-%global packver   1.3.1
+%global packname  predieval
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quantile Regression for Random Variables on the Unit Interval
+Summary:          Assessing Performance of Prediction Models for Predicting Patient-Level Treatment Benefit
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pracma >= 2.3
-BuildRequires:    R-CRAN-Formula >= 1.2
+BuildRequires:    R-CRAN-MASS >= 7.3
+BuildRequires:    R-CRAN-Hmisc >= 4.6.0
+BuildRequires:    R-CRAN-Matching >= 4.10.2
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-pracma >= 2.3
-Requires:         R-CRAN-Formula >= 1.2
+Requires:         R-CRAN-MASS >= 7.3
+Requires:         R-CRAN-Hmisc >= 4.6.0
+Requires:         R-CRAN-Matching >= 4.10.2
+Requires:         R-CRAN-ggplot2 >= 3.3.5
 Requires:         R-stats 
-Requires:         R-CRAN-MASS 
 
 %description
-Employs a two-parameter family of distributions for modelling random
-variables on the (0, 1) interval by applying the cumulative distribution
-function (cdf) of one parent distribution to the quantile function of
-another.
+Methods for assessing the performance of a prediction model with respect
+to identifying patient-level treatment benefit. All methods are applicable
+for continuous and binary outcomes, and for any type of statistical or
+machine-learning prediction model as long as it uses baseline covariates
+to predict outcomes under treatment and control.
 
 %prep
 %setup -q -c -n %{packname}

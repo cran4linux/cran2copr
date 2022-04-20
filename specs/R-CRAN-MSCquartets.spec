@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MSCquartets
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzing Gene Tree Quartets under the Multi-Species Coalescent
 
@@ -25,6 +25,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-ape >= 5.0
 Requires:         R-CRAN-phangorn 
 Requires:         R-CRAN-RandomFieldsUtils 
@@ -34,6 +35,7 @@ Requires:         R-stats
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
+Requires:         R-methods 
 
 %description
 Methods for analyzing and using quartets displayed on a collection of gene
@@ -57,6 +59,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

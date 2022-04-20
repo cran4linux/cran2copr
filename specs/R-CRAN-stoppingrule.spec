@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cdfquantreg
-%global packver   1.3.1
+%global packname  stoppingrule
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quantile Regression for Random Variables on the Unit Interval
+Summary:          Create and Evaluate Stopping Rules
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pracma >= 2.3
-BuildRequires:    R-CRAN-Formula >= 1.2
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-pracma >= 2.3
-Requires:         R-CRAN-Formula >= 1.2
+BuildRequires:    R-utils 
 Requires:         R-stats 
-Requires:         R-CRAN-MASS 
+Requires:         R-utils 
 
 %description
-Employs a two-parameter family of distributions for modelling random
-variables on the (0, 1) interval by applying the cumulative distribution
-function (cdf) of one parent distribution to the quantile function of
-another.
+Provides functions for creating, displaying, and evaluating stopping rules
+for safety monitoring in clinical studies. Implements stopping rule
+methods described in Goldman (1987) <doi:10.1016/0197-2456(87)90153-X>,
+Geller et al. (2003, ISBN:9781135524388), Ivanova, Qaqish, and Schell
+(2005) <doi:10.1111/j.1541-0420.2005.00311.x>, and Kulldorff et al. (2011)
+<doi:10.1080/07474946.2011.539924>.
 
 %prep
 %setup -q -c -n %{packname}

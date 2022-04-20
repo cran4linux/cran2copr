@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rhino
-%global packver   0.6.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Framework for Enterprise Shiny Applications
 
@@ -13,18 +13,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-testthat >= 3.0.0
 BuildRequires:    R-CRAN-lintr >= 2.0.0
 BuildRequires:    R-CRAN-box 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-config 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-logger 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-renv 
+BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-sass 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-styler 
@@ -35,11 +37,13 @@ Requires:         R-CRAN-testthat >= 3.0.0
 Requires:         R-CRAN-lintr >= 2.0.0
 Requires:         R-CRAN-box 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-config 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-logger 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-renv 
+Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-sass 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-styler 

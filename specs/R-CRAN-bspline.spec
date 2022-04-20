@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bspline
-%global packver   1.0.2
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          B-Spline Interpolation and Regression
 
@@ -16,25 +16,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-nlsic 
+BuildRequires:    R-CRAN-nlsic >= 1.0.2
 BuildRequires:    R-CRAN-arrApply 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-nlsic 
+Requires:         R-CRAN-nlsic >= 1.0.2
 Requires:         R-CRAN-arrApply 
 
 %description
 Build and use B-splines for interpolation and regression. In case of
-regression, equality constraints as well as monotonicity requirement can
-be imposed. Moreover, knot positions (not only spline coefficients) can be
-part of optimized parameters too. User is provided with functions
-calculating spline values at arbitrary points. This functions can be
-differentiated to obtain B-splines calculating derivatives at any point.
+regression, equality constraints as well as monotonicity and/or positivity
+of B-spline weights can be imposed. Moreover, knot positions (not only
+spline weights) can be part of optimized parameters too. For this end,
+'bspline' is able to calculate Jacobian of basis vectors as function of
+knot positions. User is provided with functions calculating spline values
+at arbitrary points. These functions can be differentiated and integrated
+to obtain B-splines calculating derivatives/integrals at any point.
 B-splines of this package can simultaneously operate on a series of curves
 sharing the same set of knots. 'bspline' is written with concern about
-computing performance that's why the basis calculation is implemented in
-C++. The rest is implemented in R but without notable impact on computing
-speed.
+computing performance that's why the basis and Jacobian calculation is
+implemented in C++. The rest is implemented in R but without notable
+impact on computing speed.
 
 %prep
 %setup -q -c -n %{packname}

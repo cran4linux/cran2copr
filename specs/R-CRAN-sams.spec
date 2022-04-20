@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sams
-%global packver   0.4.2
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Merge-Split Samplers for Conjugate Bayesian Nonparametric Models
 
@@ -27,8 +27,9 @@ Bayesian nonparametric mixture models. Functionality is provided for Gibbs
 sampling as in Algorithm 3 of Neal (2000)
 <DOI:10.1080/10618600.2000.10474879>, restricted Gibbs merge-split
 sampling as described in Jain & Neal (2004) <DOI:10.1198/1061860043001>,
-and sequentially-allocated merge-split sampling, as well as summary and
-utility functions.
+and sequentially-allocated merge-split sampling
+<DOI:10.1080/00949655.2021.1998502>, as well as summary and utility
+functions.
 
 %prep
 %setup -q -c -n %{packname}
@@ -38,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
