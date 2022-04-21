@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  hdImpute
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Batch Process for High Dimensional Imputation
 
@@ -23,9 +23,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-missForest 
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-missRanger 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-purrr 
@@ -33,9 +31,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-missForest 
-Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-cli 
 
 %description
 A correlation-based batch process for fast imputation for high dimensional

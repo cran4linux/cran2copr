@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MFSIS
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Moder-Free Sure Independent Screening Procedures
 
@@ -54,7 +54,9 @@ procedures including SIS (Fan and Lv (2008)
 <doi:10.1080/01621459.2020.1783274>), WLS (Zhong et al.(2021)
 <doi:10.1080/01621459.2021.1918554>), Kfilter (Mai and Zou (2015)
 <doi:10.1214/14-AOS1303>), MVSIS (Cui et al. (2015)
-<doi:10.1080/01621459.2014.920256>) and CSIS.
+<doi:10.1080/01621459.2014.920256>), PSIS (Pan et al. (2016)
+<doi:10.1080/01621459.2014.998760>), CAS (Xie et al. (2020)
+<doi:10.1080/01621459.2019.1573734>), CSIS and CI-SIS.
 
 %prep
 %setup -q -c -n %{packname}

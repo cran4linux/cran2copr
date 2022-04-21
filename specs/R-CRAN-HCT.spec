@@ -1,35 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gretlR
-%global packver   0.1.1
+%global packname  HCT
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Seamless Integration of 'Gretl' and 'R'
+Summary:          Calculates Significance Criteria and Power for a Single Arm Trial
 
-License:          GPL
+License:          GNU General Public License
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.20
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-kableExtra 
-Requires:         R-CRAN-knitr >= 1.20
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-rstan 
+Requires:         R-CRAN-rstantools
 
 %description
-It allows running 'gretl' (<http://gretl.sourceforge.net/index.html>)
-program from R, R Markdown and Quarto. 'gretl' ('Gnu' Regression,
-'Econometrics', and Time-series Library) is a statistical software for
-Econometric analysis.  This package does not only integrate 'gretl' and
-'R' but also serves as a 'gretl' Knit-Engine for 'knitr' package. Write
-all your 'gretl' commands in 'R', R Markdown chunk.
+Given a database of previous treatment/placebo estimates, their standard
+errors and sample sizes, the program calculates a significance criteria
+and power estimate that takes into account the among trial variation.
 
 %prep
 %setup -q -c -n %{packname}

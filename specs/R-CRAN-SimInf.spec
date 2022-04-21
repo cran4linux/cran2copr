@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SimInf
-%global packver   8.4.0
+%global packver   9.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.4.0
+Version:          9.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Framework for Data-Driven Stochastic Disease Spread Simulations
 

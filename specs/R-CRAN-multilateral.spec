@@ -1,45 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  AMAPVox
-%global packver   0.10.0
+%global packname  multilateral
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          LiDAR Data Voxelisation
+Summary:          Generalised Function to Calculate a Variety of Multilateral Price Index Methods
 
-License:          CeCILL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-assertive 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-fastmatch 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-MatrixModels 
+Requires:         R-CRAN-assertive 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
-Requires:         R-methods 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
-Requires:         R-utils 
+Requires:         R-CRAN-fastmatch 
+Requires:         R-parallel 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-MatrixModels 
 
 %description
-Read, manipulate and write voxel spaces. Voxel spaces are read from
-text-based output files of the 'AMAPVox' software. 'AMAPVox' is a LiDAR
-point cloud voxelisation software that aims at estimating leaf area
-through several theoretical/numerical approaches. See more in the article
-Vincent et al. (2017) <doi:10.23708/1AJNMP> and the technical note Vincent
-et al. (2021) <doi:10.23708/1AJNMP>.
+A flexible, efficient implementation of multilateral price index
+calculations. Includes common methods focused on time product dummy
+regression and GEKS variations. Allows for extension of the methods
+through automatic window splicing. See Krsinich (2016) <doi:
+10.1515/jos-2016-0021>.
 
 %prep
 %setup -q -c -n %{packname}

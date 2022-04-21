@@ -1,35 +1,48 @@
 %global __brp_check_rpaths %{nil}
-%global packname  comtradr
-%global packver   0.3.0
+%global packname  MLFS
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface with the United Nations Comtrade API
+Summary:          Machine Learning Forest Simulator
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
+BuildRequires:    R-CRAN-pscl >= 1.5.5
 BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-reshape2 >= 1.4.4
+BuildRequires:    R-CRAN-tidyr >= 1.1.3
+BuildRequires:    R-CRAN-tidyselect >= 1.0.0
+BuildRequires:    R-CRAN-naivebayes >= 0.9.7
+BuildRequires:    R-CRAN-dplyr >= 0.7.0
+BuildRequires:    R-CRAN-brnn >= 0.6
+BuildRequires:    R-CRAN-ranger >= 0.13.1
+Requires:         R-CRAN-pscl >= 1.5.5
 Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-reshape2 >= 1.4.4
+Requires:         R-CRAN-tidyr >= 1.1.3
+Requires:         R-CRAN-tidyselect >= 1.0.0
+Requires:         R-CRAN-naivebayes >= 0.9.7
+Requires:         R-CRAN-dplyr >= 0.7.0
+Requires:         R-CRAN-brnn >= 0.6
+Requires:         R-CRAN-ranger >= 0.13.1
 
 %description
-Interface with and extract data from the United Nations Comtrade API
-<https://comtrade.un.org/data/>. Comtrade provides country level shipping
-data for a variety of commodities, these functions allow for easy API
-query and data returned as a tidy data frame.
+Climate-sensitive forest simulator based on the principles of machine
+learning. It stimulates all key processes in the forest: radial growth,
+height growth, mortality, crown recession, regeneration and harvesting.
+The method for predicting tree heights was described by Skudnik and
+Jevšenak (2022) <doi:10.1016/j.foreco.2022.120017>, while the method for
+predicting basal area increments (BAI) was described by Jevšenak and
+Skudnik (2021) <doi:10.1016/j.foreco.2020.118601>.
 
 %prep
 %setup -q -c -n %{packname}

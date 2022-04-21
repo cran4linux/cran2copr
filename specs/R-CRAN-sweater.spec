@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sweater
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Speedy Word Embedding Association Test and Extras Using R
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-LiblineaR
 BuildRequires:    R-CRAN-proxy 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-combinat 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-quanteda 
@@ -29,6 +30,7 @@ Requires:         R-CRAN-LiblineaR
 Requires:         R-CRAN-proxy 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-combinat 
 
 %description
 Conduct various tests for evaluating implicit biases in word embeddings:

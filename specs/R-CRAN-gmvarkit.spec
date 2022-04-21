@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gmvarkit
-%global packver   2.0.2
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Gaussian and Student's t Mixture Vector Autoregressive Models
 
@@ -20,6 +20,7 @@ BuildRequires:    R-parallel >= 3.0.0
 BuildRequires:    R-stats >= 3.0.0
 BuildRequires:    R-graphics >= 3.0.0
 BuildRequires:    R-grDevices >= 3.0.0
+BuildRequires:    R-methods >= 3.0.0
 BuildRequires:    R-CRAN-gsl >= 2.1.6
 BuildRequires:    R-CRAN-pbapply >= 1.4.2
 BuildRequires:    R-CRAN-Brobdingnag >= 1.2.4
@@ -28,6 +29,7 @@ Requires:         R-parallel >= 3.0.0
 Requires:         R-stats >= 3.0.0
 Requires:         R-graphics >= 3.0.0
 Requires:         R-grDevices >= 3.0.0
+Requires:         R-methods >= 3.0.0
 Requires:         R-CRAN-gsl >= 2.1.6
 Requires:         R-CRAN-pbapply >= 1.4.2
 Requires:         R-CRAN-Brobdingnag >= 1.2.4

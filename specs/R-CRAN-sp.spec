@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sp
-%global packver   1.4-6
+%global packver   1.4-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.6
+Version:          1.4.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classes and Methods for Spatial Data
 

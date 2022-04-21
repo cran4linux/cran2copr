@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  naturaList
-%global packver   0.4.2
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classify Occurrences by Confidence Levels in the Species ID
 
@@ -53,7 +53,7 @@ Requires:         R-CRAN-rlang
 
 %description
 Classify occurrence records based on confidence levels of species
-identification. In addition, implement tools to filter occurrence inside
+identification. In addition, implement tools to filter occurrences inside
 grid cells and to manually check for possibles errors with an interactive
 shiny application.
 

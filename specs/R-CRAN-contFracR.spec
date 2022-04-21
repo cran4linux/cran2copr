@@ -1,45 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  AMAPVox
-%global packver   0.10.0
+%global packname  contFracR
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          LiDAR Data Voxelisation
+Summary:          Continued Fraction Generators and Evaluators
 
-License:          CeCILL (>= 2)
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Rmpfr 
+BuildRequires:    R-CRAN-go2bigq 
+BuildRequires:    R-CRAN-gmp 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-Rmpfr 
+Requires:         R-CRAN-go2bigq 
+Requires:         R-CRAN-gmp 
 Requires:         R-methods 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
-Requires:         R-utils 
 
 %description
-Read, manipulate and write voxel spaces. Voxel spaces are read from
-text-based output files of the 'AMAPVox' software. 'AMAPVox' is a LiDAR
-point cloud voxelisation software that aims at estimating leaf area
-through several theoretical/numerical approaches. See more in the article
-Vincent et al. (2017) <doi:10.23708/1AJNMP> and the technical note Vincent
-et al. (2021) <doi:10.23708/1AJNMP>.
+This library provides functions to convert numbers to continued fractions
+and back again.
 
 %prep
 %setup -q -c -n %{packname}

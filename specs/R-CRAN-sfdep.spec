@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MLVSBM
-%global packver   0.2.3
+%global packname  sfdep
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Stochastic Block Model for Multilevel Networks
+Summary:          Spatial Dependence for Simple Features
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,25 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-blockmodels 
-BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-cluster 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-blockmodels 
-Requires:         R-CRAN-ape 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-spdep 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-cluster 
+Requires:         R-stats 
+Requires:         R-CRAN-rlang 
 
 %description
-Simulation, inference and clustering of multilevel networks using a
-Stochastic Block Model framework as described in Chabert-Liddell,
-Barbillon, Donnet and Lazega (2021) <doi:10.1016/j.csda.2021.107179>. A
-multilevel network is defined as the junction of two interaction networks,
-the upper level or inter-organizational level and the lower level or
-inter-individual level. The inter-level represents an affiliation
-relationship.
+An interface to 'spdep' to integrate with 'sf' objects and the
+'tidyverse'.
 
 %prep
 %setup -q -c -n %{packname}
