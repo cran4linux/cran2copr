@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  saeME
-%global packver   1.2.4
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Small Area Estimation with Measurement Error
 
@@ -16,16 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ClusterR 
-Requires:         R-CRAN-expm 
 Requires:         R-CRAN-MASS 
 Requires:         R-stats 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ClusterR 
 
 %description
 A set of functions and datasets implementation of small area estimation
@@ -42,6 +36,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

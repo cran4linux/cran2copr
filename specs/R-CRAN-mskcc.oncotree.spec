@@ -1,35 +1,48 @@
 %global __brp_check_rpaths %{nil}
-%global packname  NSAE
-%global packver   0.3.0
+%global packname  mskcc.oncotree
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonstationary Small Area Estimation
+Summary:          Interface to the 'OncoTree' API
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlist 
-Requires:         R-CRAN-rlist 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyjson 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyjson 
+Requires:         R-CRAN-tidyr 
 
 %description
-Executes spatial nonstationary Fay-Herriot models for small area
-estimation.The empirical best linear unbiased predictor (EBLUP) under
-stationary and nonstationary Fay-Herriot models along with the mean
-squared error estimation are included. EBLUP for prediction of non-sample
-area is also included under both stationary and nonstationary Fay-Herriot
-models. This extension to the Fay-Herriot model that accounts for the
-presence of spatial nonstationarity was developed by Hukum Chandra, Nicola
-Salvati and Ray Chambers (2015) <doi:10.1093/jssam/smu026>. This package
-is dedicated to the memory of Dr. Hukum Chandra who passed away while the
-package creation was in progress.
+Programmatic access to 'OncoTree' API <http://oncotree.mskcc.org/>. Get
+access to tumor main types, identifiers and utility routines to map across
+to other tumor classification systems.
 
 %prep
 %setup -q -c -n %{packname}

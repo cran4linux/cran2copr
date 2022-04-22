@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BrainCon
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inference the Partial Correlations Based on Time Series Data
 
@@ -23,12 +23,15 @@ Requires:         R-CRAN-MASS
 
 %description
 A statistical tool to inference the multi-level partial correlations based
-on multi-subject time series data. It combines both individual and
-population level inference by using the methods of Qiu and Zhou.
-(2021)<DOI: 10.1080/01621459.2021.1917417> and Genovese and Wasserman.
-(2006)<DOI: 10.1198/016214506000000339>. It can be used to identify
-nonzero individual- or population-level partial correlations, and find out
-unequal partial correlation coefficients between two populations.
+on multi-subject time series data, especially for brain functional
+connectivity. It combines both individual and population level inference
+by using the methods of Qiu and Zhou. (2021)<DOI:
+10.1080/01621459.2021.1917417> and Genovese and Wasserman. (2006)<DOI:
+10.1198/016214506000000339>. It realizes two reliable estimation methods
+of partial correlation coefficients, using scaled lasso and lasso. It can
+be used to estimate individual- or population-level partial correlations,
+identify nonzero ones, and find out unequal partial correlation
+coefficients between two populations.
 
 %prep
 %setup -q -c -n %{packname}
