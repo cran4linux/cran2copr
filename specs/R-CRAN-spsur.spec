@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spsur
-%global packver   1.0.2.0
+%global packver   1.0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2.0
+Version:          1.0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Seemingly Unrelated Regression Models
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS >= 7.3.54
+BuildRequires:    R-CRAN-MASS >= 7.3.56
 BuildRequires:    R-methods >= 4.1
 BuildRequires:    R-stats >= 4.1
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
@@ -24,18 +24,19 @@ BuildRequires:    R-CRAN-car >= 3.0.12
 BuildRequires:    R-CRAN-numDeriv >= 2016.8.1.1
 BuildRequires:    R-CRAN-gridExtra >= 2.3
 BuildRequires:    R-CRAN-gmodels >= 2.18.1
-BuildRequires:    R-CRAN-rmarkdown >= 2.11
-BuildRequires:    R-CRAN-Rdpack >= 2.1.2
-BuildRequires:    R-CRAN-knitr >= 1.36
-BuildRequires:    R-CRAN-Matrix >= 1.3.4
+BuildRequires:    R-CRAN-rmarkdown >= 2.12
+BuildRequires:    R-CRAN-Rdpack >= 2.1
+BuildRequires:    R-CRAN-sphet >= 2.0
+BuildRequires:    R-CRAN-Matrix >= 1.4.0
+BuildRequires:    R-CRAN-knitr >= 1.37
 BuildRequires:    R-CRAN-Formula >= 1.2.4
 BuildRequires:    R-CRAN-minqa >= 1.2.4
-BuildRequires:    R-CRAN-spatialreg >= 1.2.1
-BuildRequires:    R-CRAN-spdep >= 1.1.12
-BuildRequires:    R-CRAN-lmtest >= 0.9.39
-BuildRequires:    R-CRAN-rlang >= 0.4.12
+BuildRequires:    R-CRAN-spatialreg >= 1.2.3
+BuildRequires:    R-CRAN-spdep >= 1.2.2
+BuildRequires:    R-CRAN-rlang >= 1.0.1
+BuildRequires:    R-CRAN-lmtest >= 0.9.40
 BuildRequires:    R-CRAN-sparseMVN >= 0.2.2
-Requires:         R-CRAN-MASS >= 7.3.54
+Requires:         R-CRAN-MASS >= 7.3.56
 Requires:         R-methods >= 4.1
 Requires:         R-stats >= 4.1
 Requires:         R-CRAN-ggplot2 >= 3.3.5
@@ -43,16 +44,17 @@ Requires:         R-CRAN-car >= 3.0.12
 Requires:         R-CRAN-numDeriv >= 2016.8.1.1
 Requires:         R-CRAN-gridExtra >= 2.3
 Requires:         R-CRAN-gmodels >= 2.18.1
-Requires:         R-CRAN-rmarkdown >= 2.11
-Requires:         R-CRAN-Rdpack >= 2.1.2
-Requires:         R-CRAN-knitr >= 1.36
-Requires:         R-CRAN-Matrix >= 1.3.4
+Requires:         R-CRAN-rmarkdown >= 2.12
+Requires:         R-CRAN-Rdpack >= 2.1
+Requires:         R-CRAN-sphet >= 2.0
+Requires:         R-CRAN-Matrix >= 1.4.0
+Requires:         R-CRAN-knitr >= 1.37
 Requires:         R-CRAN-Formula >= 1.2.4
 Requires:         R-CRAN-minqa >= 1.2.4
-Requires:         R-CRAN-spatialreg >= 1.2.1
-Requires:         R-CRAN-spdep >= 1.1.12
-Requires:         R-CRAN-lmtest >= 0.9.39
-Requires:         R-CRAN-rlang >= 0.4.12
+Requires:         R-CRAN-spatialreg >= 1.2.3
+Requires:         R-CRAN-spdep >= 1.2.2
+Requires:         R-CRAN-rlang >= 1.0.1
+Requires:         R-CRAN-lmtest >= 0.9.40
 Requires:         R-CRAN-sparseMVN >= 0.2.2
 
 %description
@@ -67,9 +69,10 @@ SUR-SDEM), SUR with Spatial Autoregressive terms and Spatial
 Autoregressive Disturbances (called SUR-SARAR), SUR-SARAR with Spatial Lag
 of X regressors (called SUR-GNM) and SUR with Spatially Independent Model
 (called SUR-SIM). The methodology of these models can be found in next
-references Mur, J., Lopez, F., and Herrera, M. (2010)
-<doi:10.1080/17421772.2010.516443> Lopez, F.A., Mur, J., and Angulo, A.
-(2014) <doi:10.1007/s00168-014-0624-2>.
+references: Mur, J., Lopez, F., and Herrera, M. (2010)
+<doi:10.1080/17421772.2010.516443>; Lopez, F.A., Mur, J., and Angulo, A.
+(2014) <doi:10.1007/s00168-014-0624-2> and Lopez, F.A., Minguez, R. and
+Mur, J. (2020) <doi:10.1007/s00168-019-00914-1>.
 
 %prep
 %setup -q -c -n %{packname}

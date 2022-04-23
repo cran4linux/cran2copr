@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  prettymapr
-%global packver   0.2.3
+%global packname  toRvik
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Scale Bar, North Arrow, and Pretty Margins in R
+Summary:          Scrape Tidy Men's College Basketball Data from Barttorvik
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,21 +16,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-plyr 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-rjson 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-withr 
 
 %description
-Automates the process of creating a scale bar and north arrow in any
-package that uses base graphics to plot in R. Bounding box tools help find
-and manipulate extents. Finally, there is a function to automate the
-process of setting margins, plotting the map, scale bar, and north arrow,
-and resetting graphic parameters upon completion.
+A suite of functions to quickly scrape and tidy advanced metrics, detailed
+player and game statistics, team and coach histories, and more from
+Barttorvik<https://barttorvik.com/>.
 
 %prep
 %setup -q -c -n %{packname}

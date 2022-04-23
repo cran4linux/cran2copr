@@ -1,45 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  coalescentMCMC
-%global packver   0.4-4
+%global packname  time.slots
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          MCMC Algorithms for the Coalescent
+Summary:          Display Data in a Weekly Calendar View
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-phangorn 
-BuildRequires:    R-splines 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-phangorn 
-Requires:         R-splines 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggfittext 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggfittext 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-scales 
 
 %description
-Flexible framework for coalescent analyses in R. It includes a main
-function running the MCMC algorithm, auxiliary functions for tree
-rearrangement, and some functions to compute population genetic
-parameters. Extended description can be found in Paradis (2020)
-<doi:10.1201/9780429466700>. For details on the MCMC algorithm, see Kuhner
-et al. (1995) <doi:10.1093/genetics/140.4.1421> and Drummond et al. (2002)
-<doi:10.1093/genetics/161.3.1307>.
+Generate weekly timetables as a ggplot2 layer. Add informative timeslots
+with elements such as title, key-value pairs, or colour to reveal trends.
 
 %prep
 %setup -q -c -n %{packname}

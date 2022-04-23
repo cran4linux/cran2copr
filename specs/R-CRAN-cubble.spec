@@ -1,49 +1,63 @@
 %global __brp_check_rpaths %{nil}
-%global packname  broom.helpers
-%global packver   1.7.0
+%global packname  cubble
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helpers for Model Coefficients Tibbles
+Summary:          A Vector Spatio-Temporal Data Structure for Data Analysis
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.0.1
-BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-clipr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-labelled 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-styler 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-rlang >= 1.0.1
-Requires:         R-CRAN-broom 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-tsibble 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-whisker 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-clipr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-labelled 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-purrr 
-Requires:         R-stats 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-ncdf4 
+Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-styler 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-tsibble 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-whisker 
 
 %description
-Provides suite of functions to work with regression model 'broom::tidy()'
-tibbles.  The suite includes functions to group regression model terms by
-variable, insert reference and header rows for categorical variables, add
-variable labels, and more.
+A spatiotemperal data object in a relational data structure to separate
+the recording of time variant/ invariant variables.
 
 %prep
 %setup -q -c -n %{packname}

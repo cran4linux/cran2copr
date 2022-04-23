@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  VisitorCounts
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modeling and Forecasting Visitor Counts Using Social Media
 
@@ -17,14 +17,8 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Rssa 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggthemes 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-Rssa 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggthemes 
-Requires:         R-CRAN-tibble 
 Requires:         R-methods 
 
 %description

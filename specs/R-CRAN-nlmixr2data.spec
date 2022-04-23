@@ -1,45 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  coalescentMCMC
-%global packver   0.4-4
+%global packname  nlmixr2data
+%global packver   2.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          2.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          MCMC Algorithms for the Coalescent
+Summary:          Nonlinear Mixed Effects Models in Population PK/PD, Data
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-phangorn 
-BuildRequires:    R-splines 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-phangorn 
-Requires:         R-splines 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 
 %description
-Flexible framework for coalescent analyses in R. It includes a main
-function running the MCMC algorithm, auxiliary functions for tree
-rearrangement, and some functions to compute population genetic
-parameters. Extended description can be found in Paradis (2020)
-<doi:10.1201/9780429466700>. For details on the MCMC algorithm, see Kuhner
-et al. (1995) <doi:10.1093/genetics/140.4.1421> and Drummond et al. (2002)
-<doi:10.1093/genetics/161.3.1307>.
+Datasets for 'nlmixr2' and 'rxode2'. 'nlmixr2' is used for fitting and
+comparing nonlinear mixed-effects models in differential equations with
+flexible dosing information commonly seen in pharmacokinetics and
+pharmacodynamics (Almquist, Leander, and Jirstrand 2015
+<doi:10.1007/s10928-015-9409-1>). Differential equation solving is by
+compiled C code provided in the 'rxode2' package (Wang, Hallow, and James
+2015 <doi:10.1002/psp4.12052>).
 
 %prep
 %setup -q -c -n %{packname}

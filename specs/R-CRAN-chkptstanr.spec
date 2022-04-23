@@ -1,47 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BayesRGMM
-%global packver   2.1
+%global packname  chkptstanr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Robust Generalized Mixed Models for Longitudinal Data
+Summary:          Checkpoint MCMC Sampling with 'Stan'
 
-License:          GPL-2
+License:          Apache License 2.0 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-batchmeans 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-brms >= 2.16.1
 BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-reshape 
-BuildRequires:    R-CRAN-msm 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppDist 
-Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-batchmeans 
+BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-brms >= 2.16.1
 Requires:         R-CRAN-abind 
-Requires:         R-CRAN-reshape 
-Requires:         R-CRAN-msm 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-plyr 
+Requires:         R-methods 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-rstan 
+Requires:         R-CRAN-rstantools
 
 %description
-To perform model estimation using MCMC algorithms with Bayesian methods
-for incomplete longitudinal studies on binary and ordinal outcomes that
-are measured repeatedly on subjects over time with drop-outs. Details
-about the method can be found in the vignette or
-<https://sites.google.com/view/kuojunglee/r-packages/bayesrgmm>.
+Fit Bayesian models in Stan <doi: 10.18637/jss.v076.i01> with
+checkpointing, that is, the ability to stop the MCMC sampler at will, and
+then pick right back up where the MCMC sampler left off. Custom 'Stan'
+models can be fitted, or the popular package 'brms' <doi:
+10.18637/jss.v080.i01> can be used to generate the 'Stan' code. This
+package is fully compatible with the R packages 'brms', 'posterior',
+'cmdstanr', and 'bayesplot'.
 
 %prep
 %setup -q -c -n %{packname}

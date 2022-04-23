@@ -1,45 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  coalescentMCMC
-%global packver   0.4-4
+%global packname  thaipdf
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          MCMC Algorithms for the Coalescent
+Summary:          R Markdown to PDF in Thai Language
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-phangorn 
-BuildRequires:    R-splines 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-phangorn 
-Requires:         R-splines 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
+BuildArch:        noarch
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rmarkdown 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rmarkdown 
 
 %description
-Flexible framework for coalescent analyses in R. It includes a main
-function running the MCMC algorithm, auxiliary functions for tree
-rearrangement, and some functions to compute population genetic
-parameters. Extended description can be found in Paradis (2020)
-<doi:10.1201/9780429466700>. For details on the MCMC algorithm, see Kuhner
-et al. (1995) <doi:10.1093/genetics/140.4.1421> and Drummond et al. (2002)
-<doi:10.1093/genetics/161.3.1307>.
+Provide R Markdown templates and LaTeX preamble which are necessary for
+creating PDF from R Markdown documents in Thai language.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bdc
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Biodiversity Data Cleaning
 
@@ -60,17 +60,18 @@ Requires:         R-CRAN-tidyselect
 %description
 The bdc package brings together several aspects of biodiversity
 data-cleaning in one place. It is organized in thematic modules related to
-different biodiversity dimensions, including 1) Standardization and
-integration of different datasets; 2) Pre-filter: flagging and removal of
-invalid or non-interpretable information, followed by data amendments; 3)
-Taxonomy: cleaning, parsing, and harmonization of scientific names from
-several taxonomic groups against taxonomic databases locally stored
-through the application of exact and partial matching algorithms; 4)
-Space: flagging of erroneous, suspect, and low-precision geographic
-coordinates; and 5) Time: flagging and, whenever possible, correction of
-inconsistent collection date. In addition, the package contains features
-to visualize, document, and report data quality – which is essential for
-making data quality assessment transparent and reproducible.
+different biodiversity dimensions, including 1) Merge datasets:
+standardization and integration of different datasets; 2) Pre-filter:
+flagging and removal of invalid or non-interpretable information, followed
+by data amendments; 3) Taxonomy: cleaning, parsing, and harmonization of
+scientific names from several taxonomic groups against taxonomic databases
+locally stored through the application of exact and partial matching
+algorithms; 4) Space: flagging of erroneous, suspect, and low-precision
+geographic coordinates; and 5) Time: flagging and, whenever possible,
+correction of inconsistent collection date. In addition, the package
+contains features to visualize, document, and report data quality – which
+is essential for making data quality assessment transparent and
+reproducible.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,45 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  coalescentMCMC
-%global packver   0.4-4
+%global packname  shadowr
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          MCMC Algorithms for the Coalescent
+Summary:          Selenium Plugin to Manage Multi Level Shadow Elements on Web Page
 
-License:          GPL (>= 2)
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-phangorn 
-BuildRequires:    R-splines 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-phangorn 
-Requires:         R-splines 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-RSelenium >= 1.7.7
+BuildRequires:    R-methods 
+Requires:         R-CRAN-RSelenium >= 1.7.7
+Requires:         R-methods 
 
 %description
-Flexible framework for coalescent analyses in R. It includes a main
-function running the MCMC algorithm, auxiliary functions for tree
-rearrangement, and some functions to compute population genetic
-parameters. Extended description can be found in Paradis (2020)
-<doi:10.1201/9780429466700>. For details on the MCMC algorithm, see Kuhner
-et al. (1995) <doi:10.1093/genetics/140.4.1421> and Drummond et al. (2002)
-<doi:10.1093/genetics/161.3.1307>.
+Shadow Document Object Model is a web standard that offers component style
+and markup encapsulation. It is a critically important piece of the Web
+Components story as it ensures that a component will work in any
+environment even if other CSS or JavaScript is at play on the page. Custom
+HTML tags can't be directly identified with selenium tools, because
+Selenium doesn't provide any way to deal with shadow elements. Using this
+plugin you can handle any custom HTML tags.
 
 %prep
 %setup -q -c -n %{packname}

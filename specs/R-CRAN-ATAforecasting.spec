@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ATAforecasting
-%global packver   0.0.56
+%global packver   0.0.57
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.56
+Version:          0.0.57
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Time Series Analysis and Forecasting using the Ata Method
 

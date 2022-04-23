@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MatTransMix
-%global packver   0.1.15
+%global packname  inters
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.15
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clustering with Matrix Gaussian and Matrix Transformation Mixture Models
+Summary:          Flexible Tools for Estimating Interactions
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,14 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-mvtnorm 
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-fixest 
+BuildRequires:    R-CRAN-glmnet 
+Requires:         R-stats 
+Requires:         R-CRAN-fixest 
+Requires:         R-CRAN-glmnet 
 
 %description
-Provides matrix Gaussian mixture models, matrix transformation mixture
-models and their model-based clustering results. The parsimonious models
-of the mean matrices and variance covariance matrices are implemented with
-a total of 196 variations.
+A set of functions to estimate interactions flexibly in the face of
+possibly many controls. Implements the procedures described in Blackwell
+and Olson (2022) <doi:10.1093/restud/rdt044>.
 
 %prep
 %setup -q -c -n %{packname}

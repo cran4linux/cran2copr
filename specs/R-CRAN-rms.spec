@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rms
-%global packver   6.2-0
+%global packver   6.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.2.0
+Version:          6.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Modeling Strategies
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Hmisc >= 4.3.0
+BuildRequires:    R-CRAN-Hmisc >= 4.7.0
 BuildRequires:    R-CRAN-nlme >= 3.1.123
 BuildRequires:    R-CRAN-survival >= 3.1.12
 BuildRequires:    R-CRAN-ggplot2 >= 2.2
@@ -31,7 +31,7 @@ BuildRequires:    R-CRAN-htmltools
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-Hmisc >= 4.3.0
+Requires:         R-CRAN-Hmisc >= 4.7.0
 Requires:         R-CRAN-nlme >= 3.1.123
 Requires:         R-CRAN-survival >= 3.1.12
 Requires:         R-CRAN-ggplot2 >= 2.2
@@ -71,6 +71,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

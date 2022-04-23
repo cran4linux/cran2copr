@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  FLSSS
-%global packver   8.6.6
+%global packver   9.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.6.6
+Version:          9.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mining Rigs for Specialized Subset Sum, Multi-Subset Sum, Multidimensional Subset Sum, Multidimensional Knapsack, Generalized Assignment Problems
 
@@ -22,10 +22,10 @@ Requires:         R-CRAN-RcppParallel
 
 %description
 Specialized solvers for combinatorial optimization problems in the Subset
-Sum family. These solvers differ from the mainstream in the options of (i)
+Sum family. The solvers differ from the mainstream in the options of (i)
 restricting subset size, (ii) bounding subset elements, (iii) mining
-real-value sets with predefined subset sum errors, and (iv) finding one or
-more subsets in limited time. A novel algorithm for mining the
+real-value multisets with predefined subset sum errors, (iv) finding one
+or more subsets in limited time. A novel algorithm for mining the
 one-dimensional Subset Sum induced algorithms for the multi-Subset Sum and
 the multidimensional Subset Sum. The multi-threaded framework for the
 latter offers exact algorithms to the multidimensional Knapsack and the
@@ -34,24 +34,31 @@ implementation of the multi-Subset Sum, multidimensional Knapsack and
 Generalized Assignment solvers; (b) availability of bounding solution
 space in the multidimensional Subset Sum; (c) fundamental data structure
 and architectural changes for enhanced cache locality and better chance of
-SIMD vectorization; (d) an option of mapping real-domain problems to the
-integer domain with user-controlled precision loss, and those integers are
-further zipped non-uniformly in 64-bit buffers. Arithmetic on compressed
-integers is done by bit-manipulation and the design has virtually zero
-speed lag relative to normal integer arithmetic. Reduction in
-dimensionality from the compression may yield substantial acceleration;
-(e) distributed computing infrastructure for multidimensional subset sum.
-Compilation with g++ '-Ofast' is recommended. See package vignette
-(<arXiv:1612.04484v3>) for details. Functions prefixed with 'aux'
-(auxiliary) are or will be implementations of existing foundational or
-cutting-edge algorithms for solving optimization problems of interest.
+SIMD vectorization; (d) option of mapping floating-point instance to
+compressed 64-bit integer instance with user-controlled precision loss,
+which could yield substantial speedup due to the dimension reduction and
+efficient compressed integer arithmetic via bit-manipulations; (e)
+distributed computing infrastructure for multidimensional subset sum; (f)
+arbitrary-precision zero-margin-of-error multidimensional Subset Sum
+accelerated by a simplified Bloom filter. The package contains a copy of
+xxHash from <https://github.com/Cyan4973/xxHash>. Package vignette
+(<arXiv:1612.04484v3>) detailed a few historical updates. Functions
+prefixed with 'aux' (auxiliary) are independent implementations of
+published algorithms for solving optimization problems less relevant to
+Subset Sum.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -61,6 +68,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
