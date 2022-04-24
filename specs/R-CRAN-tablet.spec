@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tablet
-%global packver   0.4.9
+%global packver   0.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.9
+Version:          0.5.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tabulate Descriptive Statistics in Multiple Formats
 
@@ -22,12 +22,16 @@ BuildRequires:    R-CRAN-spork >= 0.2.2
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-fs 
 Requires:         R-CRAN-dplyr >= 1.0.2
 Requires:         R-CRAN-kableExtra >= 0.9.0
 Requires:         R-CRAN-spork >= 0.2.2
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-DT 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-fs 
 
 %description
 Creates a table of descriptive statistics for factor and numeric columns

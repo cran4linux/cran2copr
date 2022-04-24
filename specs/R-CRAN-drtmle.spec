@@ -1,31 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  missSOM
-%global packver   1.0.0
+%global packname  drtmle
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Self-Organizing Maps with Built-in Missing Data Imputation
+Summary:          Doubly-Robust Nonparametric Estimation and Inference
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-kpodclustr 
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-kpodclustr 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-SuperLearner 
+BuildRequires:    R-CRAN-np 
+BuildRequires:    R-CRAN-future.apply 
+Requires:         R-CRAN-SuperLearner 
+Requires:         R-CRAN-np 
+Requires:         R-CRAN-future.apply 
 
 %description
-The Self-Organizing Maps with Built-in Missing Data Imputation. Missing
-values are imputed and regularly updated during the online Kohonen
-algorithm. Our method can be used for data visualisation, clustering or
-imputation of missing data. It is an extension of the online algorithm of
-the 'kohonen' package.
+Targeted minimum loss-based estimators of counterfactual means and causal
+effects that are doubly-robust with respect both to consistency and
+asymptotic normality (Benkeser et al (2017), <doi:10.1093/biomet/asx053>;
+MJ van der Laan (2014), <doi:10.1515/ijb-2012-0038>).
 
 %prep
 %setup -q -c -n %{packname}

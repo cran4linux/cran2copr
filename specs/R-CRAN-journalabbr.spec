@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  journalabbr
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Journal Abbreviations for BibTeX Documents
 
@@ -16,8 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 2.7
-BuildRequires:    R-CRAN-knitr >= 1.33
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-dplyr 
@@ -26,8 +25,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-rmarkdown >= 2.7
-Requires:         R-CRAN-knitr >= 1.33
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-dplyr 
@@ -55,6 +53,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
