@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dfadjust
-%global packver   1.0.4
+%global packname  windAC
+%global packver   1.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.2.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Degrees of Freedom Adjustment for Robust Standard Errors
+Summary:          Area Correction Methods
 
-License:          MIT + file LICENSE
+License:          GNU General Public License
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,12 +16,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Computes small-sample degrees of freedom adjustment for heteroskedasticity
-robust standard errors, and for clustered standard errors in linear
-regression. See Imbens and Kolesár (2016) <doi:10.1162/REST_a_00552> for a
-discussion of these adjustments.
+Post-construction fatality monitoring studies at wind facilities are based
+on data from searches for bird and bat carcasses in plots beneath
+turbines. Bird and bat carcasses can fall outside of the search plot. Bird
+and bat carcasses from wind turbines often fall outside of the searched
+area. To compensate, area correction (AC) estimations are calculated to
+estimate the percentage of fatalities that fall within the searched area
+versus those that fall outside of it. This package provides two likelihood
+based methods and one physics based method (Hull and Muir (2010)
+<doi:10.1080/14486563.2010.9725253>, Huso and Dalthorp (2014)
+<doi:10.1002/jwmg.663>) to estimate the carcass fall distribution. There
+are also functions for calculating the proportion of area searched within
+one unit annuli, log logistic distribution functions, and truncated
+distribution functions.
 
 %prep
 %setup -q -c -n %{packname}

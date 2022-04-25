@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  forsearch
-%global packver   2.2.0
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Outlier Diagnostics for Some Linear Effects and Linear Mixed Effects Models
 
@@ -30,7 +30,7 @@ Requires:         R-CRAN-Cairo >= 1.5.14
 %description
 Identifies potential data outliers and their impact on estimates and
 analyses. Uses the forward search approach of Atkinson and Riani, "Robust
-Diagnostic Regression Analysis", (2000,<ISBN: o-387-95017-6>) to prepare
+Diagnostic Regression Analysis", 2000,<ISBN: o-387-95017-6>) to prepare
 descriptive statistics of a dataset that is to be analyzed by stats::lm(),
 stats::glm(), or nlme::lme().  Includes graphics functions to display the
 descriptive statistics.

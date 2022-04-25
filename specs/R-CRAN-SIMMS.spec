@@ -1,35 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gretlR
-%global packver   0.1.2
+%global packname  SIMMS
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Seamless Integration of 'Gretl' and 'R'
+Summary:          Subnetwork Integration for Multi-Modal Signatures
 
-License:          GPL
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.20
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-kableExtra 
-Requires:         R-CRAN-knitr >= 1.20
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-MASS >= 7.3.12
+BuildRequires:    R-CRAN-randomForestSRC >= 2.9.1
+BuildRequires:    R-CRAN-survival >= 2.36.2
+BuildRequires:    R-CRAN-glmnet >= 1.9.8
+BuildRequires:    R-CRAN-foreach >= 1.4.3
+BuildRequires:    R-CRAN-doParallel >= 1.0.10
+Requires:         R-CRAN-MASS >= 7.3.12
+Requires:         R-CRAN-randomForestSRC >= 2.9.1
+Requires:         R-CRAN-survival >= 2.36.2
+Requires:         R-CRAN-glmnet >= 1.9.8
+Requires:         R-CRAN-foreach >= 1.4.3
+Requires:         R-CRAN-doParallel >= 1.0.10
 
 %description
-It allows running 'gretl' (<http://gretl.sourceforge.net/index.html>)
-program from R, R Markdown and Quarto. 'gretl' ('Gnu' Regression,
-'Econometrics', and Time-series Library) is a statistical software for
-Econometric analysis.  This package does not only integrate 'gretl' and
-'R' but also serves as a 'gretl' Knit-Engine for 'knitr' package. Write
-all your 'gretl' commands in 'R', R Markdown chunk.
+Algorithms to create prognostic biomarkers using biological genesets or
+networks.
 
 %prep
 %setup -q -c -n %{packname}

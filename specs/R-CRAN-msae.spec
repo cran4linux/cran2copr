@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  msae
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Fay Herriot Models for Small Area Estimation
 

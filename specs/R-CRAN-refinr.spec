@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  refinr
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
-Release:          3%{?dist}%{?buildtag}
+Version:          0.3.2
+Release:          1%{?dist}%{?buildtag}
 Summary:          Cluster and Merge Similar Values Within a Character Vector
 
 License:          GPL-3
@@ -27,13 +27,22 @@ These functions take a character vector as input, identify and cluster
 similar values, and then merge clusters together so their values become
 identical. The functions are an implementation of the key collision and
 ngram fingerprint algorithms from the open source tool Open Refine
-<http://openrefine.org/>. More info on key collision and ngram fingerprint
-can be found here
-<https://github.com/OpenRefine/OpenRefine/wiki/Clustering-In-Depth>.
+<https://openrefine.org/>. More info on key collision and ngram
+fingerprint can be found here
+<https://docs.openrefine.org/next/technical-reference/clustering-in-depth/>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -41,19 +50,10 @@ can be found here
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

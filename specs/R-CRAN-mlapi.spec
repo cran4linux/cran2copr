@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mlapi
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
-Release:          3%{?dist}%{?buildtag}
+Version:          0.1.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Abstract Classes for Building 'scikit-learn' Like API
 
 License:          MIT + file LICENSE
@@ -17,21 +17,30 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 >= 2.2.1
-BuildRequires:    R-Matrix >= 1.1
+BuildRequires:    R-CRAN-Matrix >= 1.1
 BuildRequires:    R-methods 
 Requires:         R-CRAN-R6 >= 2.2.1
-Requires:         R-Matrix >= 1.1
+Requires:         R-CRAN-Matrix >= 1.1
 Requires:         R-methods 
 
 %description
 Provides 'R6' abstract classes for building machine learning models with
-'scikit-learn' like API. <http://scikit-learn.org/> is a popular module
+'scikit-learn' like API. <https://scikit-learn.org/> is a popular module
 for 'Python' programming language which design became de facto a standard
 in industry for machine learning tasks.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -41,15 +50,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%license %{rlibdir}/%{packname}/LICENSE
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}
