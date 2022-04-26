@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  AssetAllocation
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Backtesting Simple Asset Allocation Strategies
 
@@ -18,12 +18,18 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-PerformanceAnalytics 
 BuildRequires:    R-CRAN-quantmod 
+BuildRequires:    R-CRAN-RiskPortfolios 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-NMOF 
+BuildRequires:    R-CRAN-riskParityPortfolio 
 Requires:         R-CRAN-PerformanceAnalytics 
 Requires:         R-CRAN-quantmod 
+Requires:         R-CRAN-RiskPortfolios 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-NMOF 
+Requires:         R-CRAN-riskParityPortfolio 
 
 %description
 Easy and quick testing of customizable asset allocation strategies. Users

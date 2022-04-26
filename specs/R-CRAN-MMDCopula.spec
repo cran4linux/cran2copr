@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MMDCopula
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Estimation of Copulas by Maximum Mean Discrepancy
 
@@ -18,20 +18,20 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-VineCopula 
 BuildRequires:    R-CRAN-cubature 
-BuildRequires:    R-CRAN-pcaPP 
 BuildRequires:    R-CRAN-randtoolbox 
 BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-wdm 
 Requires:         R-CRAN-VineCopula 
 Requires:         R-CRAN-cubature 
-Requires:         R-CRAN-pcaPP 
 Requires:         R-CRAN-randtoolbox 
 Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-wdm 
 
 %description
 Provides functions for the robust estimation of parametric families of
 copulas using minimization of the Maximum Mean Discrepancy, following the
-article Alquier, Chérief-Abdellatif, Derumigny and Fermanian (2020)
-<arXiv:2010.00408>.
+article Alquier, Chérief-Abdellatif, Derumigny and Fermanian (2022)
+<doi:10.1080/01621459.2021.2024836>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  happign
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'IGN' Web Services
 
@@ -13,20 +13,24 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stars 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stars 

@@ -1,47 +1,26 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ibawds
-%global packver   0.4.0
+%global packname  qoi
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions and Datasets for the Data Science Course at IBAW
+Summary:          Read and Write QOI Images
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dslabs 
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-remotes 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-dslabs 
-Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-remotes 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 
 %description
-A collection of useful functions and datasets for the Data Science Course
-at IBAW in Lucerne.
+The new QOI file format offers a very simple but efficient image
+compression algorithm. This package provides an easy and simple way to
+read, write and display bitmap images stored in the QOI (Quite Ok Image)
+format. It can read and write both files and in-memory raw vectors.
 
 %prep
 %setup -q -c -n %{packname}

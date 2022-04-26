@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  NORMT3
-%global packver   1.0-3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
-Release:          3%{?dist}%{?buildtag}
-Summary:          Evaluates complex erf, erfc, Faddeeva, and density of sum ofGaussian and Student's t
+Version:          1.0.4
+Release:          1%{?dist}%{?buildtag}
+Summary:          Evaluates Complex Erf, Erfc, Faddeeva, and Density of Sum of Gaussian and Student's t
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,13 +19,22 @@ Requires:         R-core >= 2.0
 %description
 Evaluates the probability density function of the sum of the Gaussian and
 Student's t density on 3 degrees of freedom. Evaluates the p.d.f. of the
-sphered Student's t density function.  Also evaluates the erf, and erfc
+sphered Student's t density function. Also evaluates the erf, and erfc
 functions on complex-valued arguments. Thanks to Krishna Myneni the
 function is calculates the Faddeeva function also!
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -33,17 +42,10 @@ function is calculates the Faddeeva function also!
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
-%{rlibdir}/%{packname}/libs
+%{rlibdir}/%{packname}

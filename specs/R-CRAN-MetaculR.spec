@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MetaculR
-%global packver   0.2.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze Metaculus Predictions and Questions
 
@@ -25,6 +25,11 @@ BuildRequires:    R-CRAN-progress
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-verification 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-clipr 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-cowplot 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
@@ -34,6 +39,11 @@ Requires:         R-CRAN-progress
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-verification 
 Requires:         R-stats 
+Requires:         R-CRAN-clipr 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-cowplot 
 
 %description
 Login, download, and analyze questions predicted by you and/or the

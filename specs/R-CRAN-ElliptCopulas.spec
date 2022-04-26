@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ElliptCopulas
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inference of Elliptical Distributions and Copulas
 
@@ -17,12 +17,12 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Runuran 
-BuildRequires:    R-CRAN-pcaPP 
+BuildRequires:    R-CRAN-wdm 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-Rmpfr 
 BuildRequires:    R-CRAN-pbapply 
 Requires:         R-CRAN-Runuran 
-Requires:         R-CRAN-pcaPP 
+Requires:         R-CRAN-wdm 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-Rmpfr 
 Requires:         R-CRAN-pbapply 

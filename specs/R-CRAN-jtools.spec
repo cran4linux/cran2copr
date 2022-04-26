@@ -1,20 +1,20 @@
 %global __brp_check_rpaths %{nil}
 %global packname  jtools
-%global packver   2.1.4
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis and Presentation of Social Scientific Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.50
+Requires:         R-core >= 3.50
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-rlang >= 0.3.0
@@ -34,11 +34,11 @@ Requires:         R-CRAN-pkgconfig
 Requires:         R-CRAN-tibble 
 
 %description
-This is a collection of tools that the author (Jacob) has written for the
-purpose of more efficiently understanding and sharing the results of
-(primarily) regression analyses. There are also a number of miscellaneous
-functions for statistical and programming purposes. Just about everything
-supports models from the survey package.
+This is a collection of tools for more efficiently understanding and
+sharing the results of (primarily) regression analyses. There are also a
+number of miscellaneous functions for statistical and programming
+purposes. Support for models produced by the survey and lme4 packages are
+points of emphasis.
 
 %prep
 %setup -q -c -n %{packname}

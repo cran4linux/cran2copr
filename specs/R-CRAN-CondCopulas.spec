@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  CondCopulas
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation and Inference for Conditional Copula Models
 
@@ -24,7 +24,7 @@ BuildRequires:    R-CRAN-tree
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-data.tree 
 BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-CRAN-pcaPP 
+BuildRequires:    R-CRAN-wdm 
 Requires:         R-CRAN-VineCopula 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-glmnet 
@@ -33,7 +33,7 @@ Requires:         R-CRAN-tree
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-data.tree 
 Requires:         R-CRAN-statmod 
-Requires:         R-CRAN-pcaPP 
+Requires:         R-CRAN-wdm 
 
 %description
 Provides functions for the estimation of conditional copulas models,

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  TESS
-%global packver   2.1.1
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diversification Rate Estimation and Fast Simulation of Reconstructed Phylogenetic Trees under Tree-Wide Time-Heterogeneous Birth-Death Processes Including Mass-Extinction Events
 
@@ -19,10 +19,12 @@ BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-deSolve 
+Requires:         R-methods 
 
 %description
 Simulation of reconstructed phylogenetic trees under tree-wide

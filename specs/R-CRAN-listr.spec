@@ -1,47 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ibawds
-%global packver   0.4.0
+%global packname  listr
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions and Datasets for the Data Science Course at IBAW
+Summary:          Tools for Lists
 
-License:          MIT + file LICENSE
+License:          EUPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dslabs 
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-remotes 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-dslabs 
-Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-methods 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-remotes 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
 
 %description
-A collection of useful functions and datasets for the Data Science Course
-at IBAW in Lucerne.
+Tools for common operations on lists. Provided are short-cuts to
+operations like selecting and merging data stored in lists. The functions
+in this package are designed to be used with pipes.
 
 %prep
 %setup -q -c -n %{packname}

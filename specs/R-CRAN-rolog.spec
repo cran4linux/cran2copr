@@ -1,47 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ibawds
-%global packver   0.4.0
+%global packname  rolog
+%global packver   0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions and Datasets for the Data Science Course at IBAW
+Summary:          Query 'SWI'-'Prolog' from R
 
-License:          MIT + file LICENSE
+License:          FreeBSD
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dslabs 
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-remotes 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-dslabs 
-Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-remotes 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-Rcpp >= 1.0.7
 
 %description
-A collection of useful functions and datasets for the Data Science Course
-at IBAW in Lucerne.
+This R package embeds 'SWI'-'Prolog', <https://www.swi-prolog.org/>, so
+that R can send deterministic and non-deterministic queries to 'prolog'
+('consult', 'query'/'submit', 'once', 'findall').
 
 %prep
 %setup -q -c -n %{packname}

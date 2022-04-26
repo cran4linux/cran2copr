@@ -1,57 +1,63 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Rwtss
-%global packver   0.9.2
+%global packname  ir
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for Web Time-Series Service
+Summary:          Functions to Handle and Preprocess Infrared Spectra
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-ChemoSpec >= 5.2.12
+BuildRequires:    R-CRAN-hyperSpec >= 0.99.20200527
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-assertthat 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-units 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-baseline 
+Requires:         R-CRAN-ChemoSpec >= 5.2.12
+Requires:         R-CRAN-hyperSpec >= 0.99.20200527
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-httr 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-signal 
+Requires:         R-grDevices 
+Requires:         R-CRAN-rlang 
+Requires:         R-methods 
+Requires:         R-CRAN-units 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-magrittr 
+Requires:         R-stats 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-baseline 
 
 %description
-Allows remote access to satellite image time series provided by the web
-time series service (WTSS) available at servers such as
-<https://brazildatacube.dpi.inpe.br/wtss/>. The functions include listing
-the data sets available in WTSS servers, describing the contents of a data
-set, and retrieving a time series based on spatial location and temporal
-filters.
+Functions to import and handle infrared spectra (import from '.csv' and
+Thermo Galactic's '.spc', baseline correction, binning, clipping,
+interpolating, smoothing, averaging, adding, subtracting, dividing,
+multiplying, plotting).
 
 %prep
 %setup -q -c -n %{packname}

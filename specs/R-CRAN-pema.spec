@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pema
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Penalized Meta-Analysis
 
@@ -24,6 +24,8 @@ BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-sn 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-rstan >= 2.18.1
@@ -31,6 +33,8 @@ Requires:         R-CRAN-rstantools >= 2.1.1
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-methods 
 Requires:         R-CRAN-sn 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rstantools
 
 %description

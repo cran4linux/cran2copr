@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  datamods
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modules to Import and Manipulate Data in 'Shiny'
 
@@ -19,9 +19,9 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.5.0
 BuildRequires:    R-CRAN-shinyWidgets >= 0.5.3
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-phosphoricons 
+BuildRequires:    R-CRAN-reactable 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rio 
 BuildRequires:    R-CRAN-rlang 
@@ -30,9 +30,9 @@ BuildRequires:    R-tools
 Requires:         R-CRAN-shiny >= 1.5.0
 Requires:         R-CRAN-shinyWidgets >= 0.5.3
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-DT 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-phosphoricons 
+Requires:         R-CRAN-reactable 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rio 
 Requires:         R-CRAN-rlang 

@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  crestr
-%global packver   1.0.0
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Probabilistic Approach to Reconstruct Past Climates Using Biological Climate Proxies
+Summary:          A Probabilistic Approach to Reconstruct Past Climates Using Palaeoecological Datasets
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -46,7 +46,8 @@ Applies the CREST climate reconstruction method. It can be used using the
 calibration data that can be obtained through the package or by importing
 private data. An ensemble of graphical outputs were designed to facilitate
 the use of the package and the interpretation of the results. More
-information can be found form Chevalier (2021) <doi:10.5194/cp-2021-153>.
+information can be obtained from Chevalier (2022)
+<doi:10.5194/cp-18-821-2022>.
 
 %prep
 %setup -q -c -n %{packname}

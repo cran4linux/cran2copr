@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ORKM
-%global packver   0.0.0.3
+%global packver   0.0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.0.3
+Version:          0.0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Online Regularized K-Means Clustering Algorithm
 
@@ -18,8 +18,10 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
+Requires:         R-stats 
 
 %description
 Algorithm of online regularized k-means to deal with online multi(single)

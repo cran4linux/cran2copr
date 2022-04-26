@@ -1,47 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ibawds
-%global packver   0.4.0
+%global packname  eBsc
+%global packver   4.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          4.14
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions and Datasets for the Data Science Course at IBAW
+Summary:          "Empirical Bayes Smoothing Splines with Correlated Errors"
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dslabs 
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-remotes 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-dslabs 
-Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-remotes 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Brobdingnag 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Brobdingnag 
+Requires:         R-parallel 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MASS 
+Requires:         R-splines 
+Requires:         R-CRAN-Rcpp 
 
 %description
-A collection of useful functions and datasets for the Data Science Course
-at IBAW in Lucerne.
+Presents a statistical method that uses a recursive algorithm for signal
+extraction. The method handles a non-parametric estimation for the
+correlation of the errors. See "Serra", "Krivobokova" and "Rosales" (2018)
+<arXiv:1812.06948> for details.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  paramhetero
-%global packver   1.0.0
+%global packname  torchopt
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Numeric and Visual Comparisons of Heterogeneity in Parametric Models
+Summary:          Advanced Optimizers for Torch
 
-License:          GPL-3
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,18 +16,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-torch 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-stats 
+Requires:         R-CRAN-torch 
 
 %description
-Performs statistical tests to compare coefficients and residual variance
-across models. Also provides graphical methods for assessing heterogeneity
-in coefficients and residuals. Currently supports linear and generalized
-linear models.
+Optimizers for 'torch' deep learning library. These functions include
+recent results published in the literature and are not part of the
+optimizers offered in 'torch'. Prospective users should test these
+optimizers with their data, since performance depends on the specific
+problem being solved.  The packages includes the following optimizers: (a)
+'adabelief' by Zhuang et al (2020), <arXiv:2010.07468>; (b) 'adabound' by
+Luo et al.(2019), <arXiv:1902.09843>; (c) 'adamw' by Loshchilov & Hutter
+(2019), <arXiv:1711.05101>; (d) 'madgrad' by Defazio and Jelassi (2021),
+<arXiv:2101.11075>; (e) 'nadam' by Dozat (2019),
+<https://openreview.net/pdf/OM0jvwB8jIp57ZJjtNEZ.pdf>; (f) 'qhadam' by Ma
+and Yarats(2019), <arXiv:1810.06801>; (g) 'radam' by Liu et al. (2019),
+<arXiv:1908.03265>; (h) 'swats' by Shekar and Sochee (2018),
+<arXiv:1712.07628>; (i) 'yogi' by Zaheer et al.(2019),
+<https:://papers.nips.cc/paper/8186-adaptive-methods-for-nonconvex-optimization>.
 
 %prep
 %setup -q -c -n %{packname}

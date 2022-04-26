@@ -1,59 +1,68 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gtsummary
-%global packver   1.6.0
+%global packname  expstudy
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Presentation-Ready Data Summary and Analytic Result Tables
+Summary:          Experience Study Tools for Analytics and Communications
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.1.6
-BuildRequires:    R-CRAN-cli >= 3.1.1
-BuildRequires:    R-CRAN-broom.helpers >= 1.7.0
+BuildRequires:    R-CRAN-magrittr >= 2.0.1
+BuildRequires:    R-CRAN-pillar >= 1.6.4
 BuildRequires:    R-CRAN-glue >= 1.6.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-knitr >= 1.37
+BuildRequires:    R-CRAN-dtplyr >= 1.2.0
+BuildRequires:    R-CRAN-data.table >= 1.14.2
 BuildRequires:    R-CRAN-tidyr >= 1.1.4
+BuildRequires:    R-CRAN-tidyselect >= 1.1.1
 BuildRequires:    R-CRAN-dplyr >= 1.0.7
 BuildRequires:    R-CRAN-lifecycle >= 1.0.1
-BuildRequires:    R-CRAN-broom >= 0.8.0
-BuildRequires:    R-CRAN-forcats >= 0.5.1
-BuildRequires:    R-CRAN-gt >= 0.5.0
-BuildRequires:    R-CRAN-rlang >= 0.4.12
+BuildRequires:    R-CRAN-rlang >= 0.4.11
 BuildRequires:    R-CRAN-purrr >= 0.3.4
+BuildRequires:    R-CRAN-assertthat >= 0.2.1
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-tibble >= 3.1.6
-Requires:         R-CRAN-cli >= 3.1.1
-Requires:         R-CRAN-broom.helpers >= 1.7.0
+Requires:         R-CRAN-magrittr >= 2.0.1
+Requires:         R-CRAN-pillar >= 1.6.4
 Requires:         R-CRAN-glue >= 1.6.0
 Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-knitr >= 1.37
+Requires:         R-CRAN-dtplyr >= 1.2.0
+Requires:         R-CRAN-data.table >= 1.14.2
 Requires:         R-CRAN-tidyr >= 1.1.4
+Requires:         R-CRAN-tidyselect >= 1.1.1
 Requires:         R-CRAN-dplyr >= 1.0.7
 Requires:         R-CRAN-lifecycle >= 1.0.1
-Requires:         R-CRAN-broom >= 0.8.0
-Requires:         R-CRAN-forcats >= 0.5.1
-Requires:         R-CRAN-gt >= 0.5.0
-Requires:         R-CRAN-rlang >= 0.4.12
+Requires:         R-CRAN-rlang >= 0.4.11
 Requires:         R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-assertthat >= 0.2.1
+Requires:         R-CRAN-checkmate 
+Requires:         R-methods 
+Requires:         R-utils 
 
 %description
-Creates presentation-ready tables summarizing data sets, regression
-models, and more. The code to create the tables is concise and highly
-customizable. Data frames can be summarized with any function, e.g.
-mean(), median(), even user-written functions. Regression models are
-summarized and include the reference rows for categorical variables.
-Common regression models, such as logistic regression and Cox proportional
-hazards regression, are automatically identified and the tables are
-pre-filled with appropriate column headers.
+Provides a data class of 'tbl_es' to help aid in the formation and
+analyses of recurrent or novel experience studies. A 'tbl_es' has
+attributes which identify the key variables used for calculating metrics
+under an actuarial perspective. Common metrics (such as actual-to-expected
+analysis) can be quickly generated in aggregate or according to different
+qualitative factors. If multiple factors are of interest, grouped metrics
+can be automatically computed for each factor individually as well as for
+all possible combinations. All resulting output can then be formatted for
+presentations or left unformatted for subsequent analyses. Ultimately,
+this package aims to reduce time spent completing repetitive code
+therefore increasing time for analysis and insight.
 
 %prep
 %setup -q -c -n %{packname}

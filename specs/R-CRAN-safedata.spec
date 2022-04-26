@@ -1,47 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ibawds
-%global packver   0.4.0
+%global packname  safedata
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions and Datasets for the Data Science Course at IBAW
+Summary:          Interface to Data from the SAFE Project
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dslabs 
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-remotes 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-dslabs 
-Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-remotes 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-chron 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-igraph 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-chron 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-igraph 
 
 %description
-A collection of useful functions and datasets for the Data Science Course
-at IBAW in Lucerne.
+The SAFE Project (<https://www.safeproject.net/>) is a large scale
+ecological experiment in Malaysian Borneo that explores the impact of
+habitat fragmentation and conversion on ecosystem function and services.
+Data collected at the SAFE Project is made available under a common format
+through the Zenodo data repository and this package makes it easy to
+discover and load that data into R.
 
 %prep
 %setup -q -c -n %{packname}
