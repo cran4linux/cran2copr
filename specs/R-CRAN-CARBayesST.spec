@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  CARBayesST
-%global packver   3.2.2
+%global packver   3.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.2
+Version:          3.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatio-Temporal Generalised Linear Mixed Models for Areal Unit Data
 
@@ -18,7 +18,6 @@ Requires:         R-core >= 3.0.0
 BuildRequires:    R-CRAN-Rcpp >= 0.11.5
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-CARBayesdata 
-BuildRequires:    R-CRAN-cascsim 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-GGally 
@@ -33,12 +32,12 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-CRAN-spam 
 BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-truncdist 
 BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-Rcpp >= 0.11.5
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-CARBayesdata 
-Requires:         R-CRAN-cascsim 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-GGally 
@@ -53,6 +52,7 @@ Requires:         R-CRAN-sp
 Requires:         R-CRAN-spam 
 Requires:         R-CRAN-spdep 
 Requires:         R-stats 
+Requires:         R-CRAN-truncdist 
 Requires:         R-CRAN-truncnorm 
 Requires:         R-utils 
 

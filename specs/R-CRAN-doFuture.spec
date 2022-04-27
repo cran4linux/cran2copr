@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  doFuture
-%global packver   0.12.1
+%global packver   0.12.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.1
+Version:          0.12.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Universal Foreach Parallel Adapter using the Future API of the 'future' Package
 

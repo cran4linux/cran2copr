@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dmbc
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Based Clustering of Binary Dissimilarity Measurements
 
@@ -18,9 +18,9 @@ Requires:         R-core >= 3.6.0
 BuildRequires:    R-parallel >= 3.6.1
 BuildRequires:    R-stats4 >= 3.6.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.2.1
-BuildRequires:    R-CRAN-pcaPP >= 1.9.73
 BuildRequires:    R-CRAN-bayesplot >= 1.7.0
 BuildRequires:    R-CRAN-MCMCpack >= 1.4.4
+BuildRequires:    R-CRAN-robustX >= 1.2.5
 BuildRequires:    R-CRAN-robustbase >= 0.93.5
 BuildRequires:    R-CRAN-ggrepel >= 0.8.1
 BuildRequires:    R-CRAN-modeltools >= 0.2.22
@@ -37,9 +37,9 @@ BuildRequires:    R-CRAN-RcppProgress
 Requires:         R-parallel >= 3.6.1
 Requires:         R-stats4 >= 3.6.0
 Requires:         R-CRAN-ggplot2 >= 3.2.1
-Requires:         R-CRAN-pcaPP >= 1.9.73
 Requires:         R-CRAN-bayesplot >= 1.7.0
 Requires:         R-CRAN-MCMCpack >= 1.4.4
+Requires:         R-CRAN-robustX >= 1.2.5
 Requires:         R-CRAN-robustbase >= 0.93.5
 Requires:         R-CRAN-ggrepel >= 0.8.1
 Requires:         R-CRAN-modeltools >= 0.2.22

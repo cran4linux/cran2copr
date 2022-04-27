@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  NeuralSens
-%global packver   0.2.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sensitivity Analysis of Neural Networks
 
@@ -47,7 +47,7 @@ Functions are available for calculating and plotting the inputs importance
 and obtaining the activation function of each neuron layer and its
 derivatives. The importance of a given input is defined as the
 distribution of the derivatives of the output with respect to that input
-in each training data point.
+in each training data point <doi:10.18637/jss.v102.i07>.
 
 %prep
 %setup -q -c -n %{packname}

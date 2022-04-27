@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dispRity
-%global packver   1.6.8
+%global packver   1.6.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.8
+Version:          1.6.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Measuring Disparity
 
@@ -20,11 +20,11 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-ade4 
 BuildRequires:    R-CRAN-castor 
 BuildRequires:    R-CRAN-Claddis 
-BuildRequires:    R-CRAN-geiger 
 BuildRequires:    R-CRAN-geometry 
 BuildRequires:    R-CRAN-geoscale 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mnormt 
 BuildRequires:    R-parallel 
@@ -38,11 +38,11 @@ Requires:         R-stats
 Requires:         R-CRAN-ade4 
 Requires:         R-CRAN-castor 
 Requires:         R-CRAN-Claddis 
-Requires:         R-CRAN-geiger 
 Requires:         R-CRAN-geometry 
 Requires:         R-CRAN-geoscale 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-MASS 
 Requires:         R-methods 
 Requires:         R-CRAN-mnormt 
 Requires:         R-parallel 

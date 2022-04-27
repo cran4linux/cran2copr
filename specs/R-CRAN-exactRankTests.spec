@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  exactRankTests
-%global packver   0.8-34
+%global packver   0.8-35
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.34
+Version:          0.8.35
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exact Distributions for Rank and Permutation Tests
 

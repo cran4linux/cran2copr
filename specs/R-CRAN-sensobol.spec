@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sensobol
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computation of Variance-Based Sensitivity Indices
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
-BuildRequires:    R-CRAN-Rdpack >= 2.1.2
+BuildRequires:    R-CRAN-Rdpack >= 2.1
 BuildRequires:    R-CRAN-Rfast >= 2.0.1
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-stringr >= 1.4.0
@@ -33,7 +33,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-ggplot2 >= 3.1.0
-Requires:         R-CRAN-Rdpack >= 2.1.2
+Requires:         R-CRAN-Rdpack >= 2.1
 Requires:         R-CRAN-Rfast >= 2.0.1
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringr >= 1.4.0
@@ -56,10 +56,8 @@ total-order estimators. Sobol' indices can be computed either for models
 that yield a scalar as a model output or for systems of differential
 equations. The package also provides a suit of benchmark tests functions
 and several options to obtain publication-ready figures of the model
-output uncertainty and sensitivity-related analysis. An overview of
-Sobol'-based sensitivity indices can be found in Saltelli et al. (2008,
-ISBN:9780470059975) and in Puy, Lo Piano, Saltelli, and Levin (2021)
-<arXiv:2101.10103>.
+output uncertainty and sensitivity-related analysis. An overview of the
+package can be found in Puy et al. (2022) <doi:10.18637/jss.v102.i05>.
 
 %prep
 %setup -q -c -n %{packname}

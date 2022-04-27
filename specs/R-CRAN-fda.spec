@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fda
-%global packver   5.5.1
+%global packver   6.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.5.1
+Version:          6.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Data Analysis
 
@@ -17,11 +17,9 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-fds 
 BuildRequires:    R-CRAN-deSolve 
 Requires:         R-splines 
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-fds 
 Requires:         R-CRAN-deSolve 
 

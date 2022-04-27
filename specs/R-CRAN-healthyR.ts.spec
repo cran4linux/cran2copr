@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  healthyR.ts
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Time Series Modeling Companion to 'healthyR'
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-timetk 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyquant 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-ggplot2 
@@ -36,12 +35,12 @@ BuildRequires:    R-CRAN-stringi
 BuildRequires:    R-CRAN-parsnip 
 BuildRequires:    R-CRAN-workflowsets 
 BuildRequires:    R-CRAN-earth 
+BuildRequires:    R-CRAN-hardhat 
 Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-timetk 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyquant 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-ggplot2 
@@ -56,6 +55,7 @@ Requires:         R-CRAN-stringi
 Requires:         R-CRAN-parsnip 
 Requires:         R-CRAN-workflowsets 
 Requires:         R-CRAN-earth 
+Requires:         R-CRAN-hardhat 
 
 %description
 Hospital time series data analysis workflow tools, modeling, and

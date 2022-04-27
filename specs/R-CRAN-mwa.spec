@@ -1,32 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  iq
-%global packver   1.9.6
+%global packname  mwa
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.6
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Protein Quantification in Mass Spectrometry-Based Proteomics
+Summary:          Causal Inference in Spatiotemporal Event Data
 
-License:          BSD_3_clause + file LICENSE
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppEigen 
+Requires:         java
+BuildRequires:    R-devel >= 2.6
+Requires:         R-core >= 2.6
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS >= 7.0
+BuildRequires:    R-CRAN-cem >= 1.1
+BuildRequires:    R-CRAN-rJava >= 0.9
+Requires:         R-CRAN-MASS >= 7.0
+Requires:         R-CRAN-cem >= 1.1
+Requires:         R-CRAN-rJava >= 0.9
 
 %description
-An implementation of the MaxLFQ algorithm by Cox et al. (2014)
-<doi:10.1074/mcp.M113.031591> in a comprehensive pipeline for processing
-proteomics data in data-independent acquisition mode (Pham et al. 2020
-<doi:10.1093/bioinformatics/btz961>). It offers additional options for
-protein quantification using the N most intense fragment ions, using all
-fragment ions, and a wrapper for the median polish algorithm by Tukey
-(1977, ISBN:0201076160). In general, the tool can be used to integrate
-multiple proportional observations into a single quantitative value.
+Implementation of Matched Wake Analysis (mwa) for studying causal
+relationships in spatiotemporal event data, introduced by Schutte and
+Donnay (2014) <doi:10.1016/j.polgeo.2014.03.001>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  PosRatioDist
-%global packver   1.0.1
+%global packname  ggRandomForests
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quotient of Random Variables Conditioned to the Positive Quadrant
+Summary:          Visually Exploring Random Forests
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,19 +16,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BMS 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-NORMT3 
-Requires:         R-CRAN-BMS 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-stats 
-Requires:         R-CRAN-NORMT3 
+BuildRequires:    R-CRAN-randomForestSRC >= 1.5.5
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-randomForest 
+Requires:         R-CRAN-randomForestSRC >= 1.5.5
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-survival 
+Requires:         R-parallel 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-randomForest 
 
 %description
-Computes the exact probability density function of X/Y conditioned on
-positive quadrant for series of bivariate distributions,for more details
-see Nadarajah,Song and Si (2019) <DOI:10.1080/03610926.2019.1576893>.
+Graphic elements for exploring Random Forests using the 'randomForest' or
+'randomForestSRC' package for survival, regression and classification
+forests and 'ggplot2' package plotting.
 
 %prep
 %setup -q -c -n %{packname}

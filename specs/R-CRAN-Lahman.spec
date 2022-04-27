@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Lahman
-%global packver   9.0-0
+%global packver   10.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          9.0.0
+Version:          10.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sean 'Lahman' Baseball Database
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-dplyr 
@@ -22,8 +22,8 @@ Requires:         R-CRAN-dplyr
 %description
 Provides the tables from the 'Sean Lahman Baseball Database' as a set of R
 data.frames. It uses the data on pitching, hitting and fielding
-performance and other tables from 1871 through 2019, as recorded in the
-2020 version of the database. Documentation examples show how many
+performance and other tables from 1871 through 2021, as recorded in the
+2022 version of the database. Documentation examples show how many
 baseball questions can be investigated.
 
 %prep
@@ -34,6 +34,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

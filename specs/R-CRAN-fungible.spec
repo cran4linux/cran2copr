@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fungible
-%global packver   2.0
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Psychometric Functions from the Waller Lab
 
@@ -17,6 +17,8 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-clue 
+BuildRequires:    R-CRAN-CVXR 
+BuildRequires:    R-CRAN-DEoptim 
 BuildRequires:    R-CRAN-GPArotation 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-MASS 
@@ -29,6 +31,8 @@ BuildRequires:    R-utils
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 Requires:         R-CRAN-clue 
+Requires:         R-CRAN-CVXR 
+Requires:         R-CRAN-DEoptim 
 Requires:         R-CRAN-GPArotation 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-MASS 

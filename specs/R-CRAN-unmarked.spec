@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  unmarked
-%global packver   1.1.1
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Models for Data from Unmarked Animals
 
@@ -18,29 +18,29 @@ Requires:         R-core >= 2.12.0
 BuildRequires:    R-CRAN-TMB >= 1.7.18
 BuildRequires:    R-CRAN-Rcpp >= 0.8.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen
+BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-TMB >= 1.7.18
 Requires:         R-CRAN-Rcpp >= 0.8.0
 Requires:         R-methods 
-Requires:         R-CRAN-lattice 
 Requires:         R-graphics 
+Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
 Requires:         R-parallel 
+Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-raster 
 Requires:         R-stats 
 Requires:         R-utils 
 
@@ -59,6 +59,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

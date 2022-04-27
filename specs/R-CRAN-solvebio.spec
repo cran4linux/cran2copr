@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  solvebio
-%global packver   2.12.1
+%global packver   2.13.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.12.1
+Version:          2.13.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Official SolveBio API Client
 
@@ -16,11 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 0.5.0
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-mime 
-Requires:         R-CRAN-dplyr >= 0.5.0
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-mime 
