@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SimEngine
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Open-Source Framework for Statistical Simulations in R
+Summary:          A Modular Framework for Statistical Simulations in R
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}

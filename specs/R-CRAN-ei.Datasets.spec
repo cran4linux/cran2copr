@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ei.Datasets
-%global packver   0.0.1-1
+%global packver   0.0.1-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.1
+Version:          0.0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Real Datasets for Assessing Ecological Inference Algorithms
 
@@ -25,7 +25,8 @@ data sets includes aggregate party and candidate outcomes at the voting
 unit (polling stations) level and two-way cross-tabulated results at the
 district level. These data sets can be used to assess ecological inference
 algorithms devised for estimating RxC (global) ecological contingency
-tables using exclusively aggregate results from voting units.
+tables using exclusively aggregate results from voting units. Reference:
+Pavía (2022) <doi:10.1177/08944393211040808>.
 
 %prep
 %setup -q -c -n %{packname}

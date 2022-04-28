@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  maic
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Matching-Adjusted Indirect Comparison
 
@@ -25,8 +25,8 @@ Requires:         R-CRAN-weights
 
 %description
 A generalised workflow for generation of subject weights to be used in
-Matching-Adjusted Indirect Comparison (MAIC) per Signorovitch et al (2012)
-<doi:10.1016/j.jval.2012.05.004>, Signorovitch et al (2010)
+Matching-Adjusted Indirect Comparison (MAIC) per Signorovitch et al.
+(2012) <doi:10.1016/j.jval.2012.05.004>, Signorovitch et al (2010)
 <doi:10.2165/11538370-000000000-00000>. In MAIC, unbiased comparison
 between outcomes of two trials is facilitated by weighting the
 subject-level outcomes of one trial with weights derived such that the
@@ -48,6 +48,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

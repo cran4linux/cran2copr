@@ -1,29 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fauxnaif
-%global packver   0.7.0
+%global packname  CircularSilhouette
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Values to NA
+Summary:          Fast Silhouette on Circular or Linear Data Clusters
 
-License:          MIT + file LICENSE
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-cli 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-OptCirClust 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-OptCirClust 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Provides a replacement for dplyr::na_if().  Allows you to specify multiple
-values to be replaced with NA using a single function.
+Calculating silhouette information for clusters on circular or linear data
+using fast algorithms. These algorithms run in linear time on sorted data,
+in contrast to quadratic time by the definition of silhouette. When used
+together with the fast and optimal circular clustering method FOCC
+(Debnath & Song 2021) <doi:10.1109/TCBB.2021.3077573> implemented in R
+package 'OptCirClust', circular silhouette can be maximized to find the
+optimal number of circular clusters; it can also be used to estimate the
+period of noisy periodical data.
 
 %prep
 %setup -q -c -n %{packname}

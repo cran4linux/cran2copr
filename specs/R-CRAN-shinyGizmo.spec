@@ -1,29 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fauxnaif
-%global packver   0.7.0
+%global packname  shinyGizmo
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Values to NA
+Summary:          Custom Components for Shiny Applications
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyWidgets 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyWidgets 
 
 %description
-Provides a replacement for dplyr::na_if().  Allows you to specify multiple
-values to be replaced with NA using a single function.
+Provides useful UI components and input widgets for 'Shiny' applications.
+The offered components allow to apply non-standard operations and view to
+your 'Shiny' application, but also help to overcome common performance
+issues.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,29 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fauxnaif
-%global packver   0.7.0
+%global packname  ggtrendline
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Values to NA
+Summary:          Add Trendline and Confidence Interval to 'ggplot'
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.2
+Requires:         R-core >= 3.5.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-cli 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Provides a replacement for dplyr::na_if().  Allows you to specify multiple
-values to be replaced with NA using a single function.
+Add trendline and confidence interval of linear or nonlinear regression
+model and show equation to 'ggplot' as simple as possible. For a general
+overview of the methods used in this package, see Ritz and Streibig (2008)
+<doi:10.1007/978-0-387-09616-2> and Greenwell and Schubert Kabban (2014)
+<doi:10.32614/RJ-2014-009>.
 
 %prep
 %setup -q -c -n %{packname}

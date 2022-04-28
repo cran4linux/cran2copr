@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  econet
-%global packver   0.1.94
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.94
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of Parameter-Dependent Network Centrality Measures
 
@@ -61,7 +61,8 @@ the explanatory power of parameter-dependent network centrality measures
 with those of standard measures of network centrality. Benefits and
 features of the 'econet' package are illustrated using data from
 Battaglini and Patacchini (2018) and Battaglini, Patacchini, and Leone
-Sciabolazza (2020). For additional details, see the vignette.
+Sciabolazza (2020). For additional details, see the vignette
+<doi:10.18637/jss.v102.i08>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -71,6 +72,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

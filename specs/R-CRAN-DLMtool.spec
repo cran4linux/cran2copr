@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DLMtool
-%global packver   6.0.3
+%global packver   6.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.3
+Version:          6.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data-Limited Methods Toolkit
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-TMB >= 1.7.22
 BuildRequires:    R-CRAN-MSEtool 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
@@ -22,6 +23,8 @@ BuildRequires:    R-graphics
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-TMB >= 1.7.22
 Requires:         R-CRAN-MSEtool 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 

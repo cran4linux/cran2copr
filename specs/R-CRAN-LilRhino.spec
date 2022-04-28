@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  LilRhino
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          For Implementation of Feed Reduction, Learning Examples, NLP and Code Management
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-keras
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-textclean 
 BuildRequires:    R-CRAN-tm 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-SnowballC 
@@ -39,7 +38,6 @@ Requires:         R-CRAN-keras
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-readr 
 Requires:         R-parallel 
-Requires:         R-CRAN-textclean 
 Requires:         R-CRAN-tm 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-SnowballC 

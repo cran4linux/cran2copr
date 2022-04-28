@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  varycoef
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modeling Spatially Varying Coefficients
 
@@ -20,24 +20,24 @@ BuildRequires:    R-CRAN-optimParallel >= 0.8.1
 BuildRequires:    R-CRAN-spam 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-lhs 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mlr 
 BuildRequires:    R-CRAN-mlrMBO 
 BuildRequires:    R-CRAN-RandomFields 
 BuildRequires:    R-CRAN-ParamHelpers 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-smoof 
-BuildRequires:    R-CRAN-sp 
 Requires:         R-CRAN-optimParallel >= 0.8.1
 Requires:         R-CRAN-spam 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-lhs 
+Requires:         R-methods 
 Requires:         R-CRAN-mlr 
 Requires:         R-CRAN-mlrMBO 
 Requires:         R-CRAN-RandomFields 
 Requires:         R-CRAN-ParamHelpers 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-smoof 
-Requires:         R-CRAN-sp 
 
 %description
 Implements a maximum likelihood estimation (MLE) method for estimation and
@@ -46,7 +46,8 @@ models (Dambon et al. (2021a) <doi:10.1016/j.spasta.2020.100470>).
 Covariance tapering (Furrer et al. (2006) <doi:10.1198/106186006X132178>)
 can be applied such that the method scales to large data. Further, it
 implements a joint variable selection of the fixed and random effects
-(Dambon et al. (2021b) <arXiv:2101.01932>).
+(Dambon et al. (2021b) <arXiv:2101.01932>). The package and its
+capabilities are described in (Dambon et al. (2021c) <arXiv:2106.02364>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -56,6 +57,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

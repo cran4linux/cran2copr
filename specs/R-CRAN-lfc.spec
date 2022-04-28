@@ -1,29 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fauxnaif
-%global packver   0.7.0
+%global packname  lfc
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Values to NA
+Summary:          Log Fold Change Distribution Tools for Working with Ratios of Counts
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-cli 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Provides a replacement for dplyr::na_if().  Allows you to specify multiple
-values to be replaced with NA using a single function.
+Ratios of count data such as obtained from RNA-seq are modelled using
+Bayesian statistics to derive posteriors for effects sizes. This approach
+is described in Erhard & Zimmer (2015) <doi:10.1093/nar/gkv696> and Erhard
+(2018) <doi:10.1093/bioinformatics/bty471>.
 
 %prep
 %setup -q -c -n %{packname}

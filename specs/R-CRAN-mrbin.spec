@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mrbin
-%global packver   1.6.3
+%global packver   1.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.3
+Version:          1.6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Magnetic Resonance Binning, Integration and Normalization
 

@@ -1,29 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fauxnaif
-%global packver   0.7.0
+%global packname  oottest
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Values to NA
+Summary:          Out-of-Treatment Testing
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-cli 
 
 %description
-Provides a replacement for dplyr::na_if().  Allows you to specify multiple
-values to be replaced with NA using a single function.
+Implements the out-of-treatment testing from Kuelpmann and Kuzmics (2020)
+<doi:10.2139/ssrn.3441675> based on the Vuong Test introduced in Vuong
+(1989) <doi:10.2307/1912557>. Out-of treatment testing allows for a
+direct, pairwise likelihood comparison of theories, calibrated with
+pre-existing data.
 
 %prep
 %setup -q -c -n %{packname}

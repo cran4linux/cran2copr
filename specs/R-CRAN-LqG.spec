@@ -1,29 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fauxnaif
-%global packver   0.7.0
+%global packname  LqG
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Values to NA
+Summary:          Robust Group Variable Screening Based on Maximum Lq-Likelihood Estimation
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-cli 
+BuildRequires:    R-base 
+Requires:         R-base 
 
 %description
-Provides a replacement for dplyr::na_if().  Allows you to specify multiple
-values to be replaced with NA using a single function.
+Produces a group screening procedure that is based on maximum
+Lq-likelihood estimation, to simultaneously account for the group
+structure and data contamination in variable screening. The methods are
+described in Li, Y., Li, R., Qin, Y., Lin, C., & Yang, Y. (2021) Robust
+Group Variable Screening Based on Maximum Lq-likelihood Estimation.
+Statistics in Medicine, 40:6818-6834.<doi:10.1002/sim.9212>.
 
 %prep
 %setup -q -c -n %{packname}

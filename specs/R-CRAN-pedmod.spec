@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pedmod
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pedigree Models
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -19,6 +19,7 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-psqn 
 Requires:         R-CRAN-Rcpp 
 
 %description
@@ -27,8 +28,9 @@ pedigree data like in <doi:10.1002/sim.1603>. The models are also commonly
 called liability threshold models. The approximation is based on direct
 log marginal likelihood approximations like the randomized Quasi-Monte
 Carlo suggested by <doi:10.1198/106186002394> with a similar procedure to
-approximate the derivatives. Graph-based methods are also provided that
-can be used to simplify pedigrees.
+approximate the derivatives. The minimax tilting method suggested by
+<doi:10.1111/rssb.12162> is also supported. Graph-based methods are also
+provided that can be used to simplify pedigrees.
 
 %prep
 %setup -q -c -n %{packname}

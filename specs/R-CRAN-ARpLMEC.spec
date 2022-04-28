@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ARpLMEC
-%global packver   2.2
+%global packver   2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Censored Mixed-Effects Models with Different Correlation Structures
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-lmec
 BuildRequires:    R-CRAN-mnormt 
 BuildRequires:    R-CRAN-MomTrunc 
 BuildRequires:    R-CRAN-TTmoment 
+BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-CRAN-relliptical 
 Requires:         R-CRAN-Matrix 
 Requires:         R-stats4 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-lmec
 Requires:         R-CRAN-mnormt 
 Requires:         R-CRAN-MomTrunc 
 Requires:         R-CRAN-TTmoment 
+Requires:         R-CRAN-expm 
 Requires:         R-CRAN-relliptical 
 
 %description

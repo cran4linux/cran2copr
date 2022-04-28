@@ -1,41 +1,55 @@
 %global __brp_check_rpaths %{nil}
-%global packname  twn
-%global packver   0.2.2
+%global packname  shinytest2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Taxa Waterbeheer Nederland voor R
+Summary:          Testing for Shiny Applications
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-testthat >= 3.1.2
+BuildRequires:    R-CRAN-R6 >= 2.4.0
+BuildRequires:    R-CRAN-checkmate >= 2.0.0
+BuildRequires:    R-CRAN-rlang >= 0.3.0
+BuildRequires:    R-CRAN-chromote >= 0.1.0
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ellipsis 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-pingr 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-testthat >= 3.1.2
+Requires:         R-CRAN-R6 >= 2.4.0
+Requires:         R-CRAN-checkmate >= 2.0.0
+Requires:         R-CRAN-rlang >= 0.3.0
+Requires:         R-CRAN-chromote >= 0.1.0
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-callr 
 Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-stats 
+Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-pingr 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-withr 
 
 %description
-The TWN-list (Taxa Waterbeheer Nederland) is the Dutch standard for naming
-taxons in Dutch Watermanagement. This package makes it easier to use the
-TWN-list for ecological analyses. It consists of two parts. First it makes
-the TWN-list itself available in R. Second, it has a few functions that
-make it easy to perform some basic and often recurring tasks for checking
-and consulting taxonomic data from the TWN-list.
+Automated unit testing of Shiny applications through a headless 'Chromium'
+browser.
 
 %prep
 %setup -q -c -n %{packname}
