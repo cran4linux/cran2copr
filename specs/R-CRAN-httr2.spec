@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  httr2
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Perform HTTP Requests and Process the Responses
 
@@ -17,22 +17,22 @@ BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.0.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-cli >= 3.0.0
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-withr 
 
 %description

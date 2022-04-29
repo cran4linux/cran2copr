@@ -1,41 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidytable
-%global packver   0.7.2
+%global packname  guix.install
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Interface to 'data.table'
+Summary:          Install R Packages with GNU Guix
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr >= 2.0.3
-BuildRequires:    R-CRAN-pillar >= 1.5.0
-BuildRequires:    R-CRAN-glue >= 1.4.0
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-tidyselect >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-vctrs >= 0.4.1
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-Requires:         R-CRAN-magrittr >= 2.0.3
-Requires:         R-CRAN-pillar >= 1.5.0
-Requires:         R-CRAN-glue >= 1.4.0
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-tidyselect >= 1.1.0
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-vctrs >= 0.4.1
-Requires:         R-CRAN-lifecycle >= 0.2.0
+BuildRequires:    R-CRAN-RUnit 
+Requires:         R-CRAN-RUnit 
 
 %description
-A tidy interface to 'data.table' that is 'rlang' compatible, giving users
-the speed of 'data.table' with the clean syntax of the tidyverse.
+This 'R' package provides a single procedure guix.install(), which allows
+users to install 'R' packages via 'Guix' right from within their running
+'R' session.  If the requested 'R' package does not exist in 'Guix' at
+this time, the package and all its missing dependencies will be imported
+recursively and the generated package definitions will be written to
+~/.Rguix/packages.scm.  This record of imported packages can be used later
+to reproduce the environment, and to add the packages in question to a
+proper 'Guix' channel (or 'Guix' itself). guix.install() not only supports
+installing packages from CRAN, but also from Bioconductor or even
+arbitrary 'git' or 'mercurial' repositories, replacing the need for
+installation via 'devtools'.
 
 %prep
 %setup -q -c -n %{packname}

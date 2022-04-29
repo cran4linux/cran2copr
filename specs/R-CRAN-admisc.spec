@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  admisc
-%global packver   0.26
+%global packver   0.27
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.26
+Version:          0.27
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adrian Dusa's Miscellaneous
 
@@ -19,13 +19,13 @@ BuildRequires:    R-methods
 Requires:         R-methods 
 
 %description
-Contains functions used across packages 'declared', 'DDIwR', 'mixed',
-'QCA' and 'venn'. Interprets and translates, factorizes and negates SOP -
-Sum of Products expressions, for both binary and multi-value crisp sets,
-and extracts information (set names, set values) from those expressions.
-Other functions perform various other checks if possibly numeric (even if
-all numbers reside in a character vector) and coerce to numeric, or check
-if the numbers are whole. It also offers, among many others, a highly
+Contains functions used across packages 'DDIwR', 'QCA' and 'venn'.
+Interprets and translates, factorizes and negates SOP - Sum of Products
+expressions, for both binary and multi-value crisp sets, and extracts
+information (set names, set values) from those expressions. Other
+functions perform various other checks if possibly numeric (even if all
+numbers reside in a character vector) and coerce to numeric, or check if
+the numbers are whole. It also offers, among many others, a highly
 versatile recoding routine and a more flexible alternative to the base
 function 'with()'. Some of the functions in this package use related
 functions from package 'QCA'. Users are encouraged to install that package

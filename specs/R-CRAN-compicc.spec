@@ -1,41 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidytable
-%global packver   0.7.2
+%global packname  compicc
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Interface to 'data.table'
+Summary:          Calculate the Confidence Interval for the Difference of ICCs
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr >= 2.0.3
-BuildRequires:    R-CRAN-pillar >= 1.5.0
-BuildRequires:    R-CRAN-glue >= 1.4.0
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-tidyselect >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-vctrs >= 0.4.1
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-Requires:         R-CRAN-magrittr >= 2.0.3
-Requires:         R-CRAN-pillar >= 1.5.0
-Requires:         R-CRAN-glue >= 1.4.0
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-tidyselect >= 1.1.0
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-vctrs >= 0.4.1
-Requires:         R-CRAN-lifecycle >= 0.2.0
+BuildRequires:    R-CRAN-irr 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-irr 
+Requires:         R-stats 
 
 %description
-A tidy interface to 'data.table' that is 'rlang' compatible, giving users
-the speed of 'data.table' with the clean syntax of the tidyverse.
+Contains functions to calculate the confidence interval for the difference
+between the intraclass correlation coefficients (ICCs) of two datasets.
+The package contains two functions: one for two dependent datasets and one
+for two independent datasets. The method for calculating the confidence
+intervals is found in Ramasundarahettige et al. (2009) <DOI:
+10.1002/sim.3523>.
 
 %prep
 %setup -q -c -n %{packname}

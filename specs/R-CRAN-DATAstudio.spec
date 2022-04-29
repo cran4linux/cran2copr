@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DATAstudio
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Research Data Warehouse of Miguel de Carvalho
 
@@ -16,16 +16,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-scales 
 
 %description
 Pulls together a collection of datasets from Miguel de Carvalho research
-papers. Including, - de Carvalho (2012) <doi:10.1016/j.jspi.2011.08.016>;
-- de Carvalho et al (2012) <doi:10.1080/03610926.2012.709905>; - de
-Carvalho et al (2012) <doi:10.1016/j.econlet.2011.09.007>); - de Carvalho
-and Davison (2014) <doi:10.1080/01621459.2013.872651>; - de Carvalho and
-Rua (2017) <doi:10.1016/j.ijforecast.2015.09.004>.
+articles. Including, for example: - de Carvalho (2012)
+<doi:10.1016/j.jspi.2011.08.016>; - de Carvalho et al (2012)
+<doi:10.1080/03610926.2012.709905>; - de Carvalho et al (2012)
+<doi:10.1016/j.econlet.2011.09.007>); - de Carvalho and Davison (2014)
+<doi:10.1080/01621459.2013.872651>; - de Carvalho and Rua (2017)
+<doi:10.1016/j.ijforecast.2015.09.004>.
 
 %prep
 %setup -q -c -n %{packname}

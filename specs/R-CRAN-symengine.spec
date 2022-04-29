@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  symengine
-%global packver   0.1.6
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'SymEngine' Library
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    cmake
 BuildRequires:    gmp-devel
 BuildRequires:    mpfr-devel
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-methods 

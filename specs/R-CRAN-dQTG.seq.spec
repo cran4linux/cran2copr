@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dQTG.seq
-%global packver   1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A BSA Software for Detecting All Types of QTLs in BC, DH, RIL and F2
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-openxlsx
 BuildRequires:    R-CRAN-qtl 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-writexl 
+BuildRequires:    R-CRAN-vroom 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-foreach 
 Requires:         R-CRAN-BB 
@@ -32,6 +33,7 @@ Requires:         R-CRAN-openxlsx
 Requires:         R-CRAN-qtl 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-writexl 
+Requires:         R-CRAN-vroom 
 Requires:         R-parallel 
 Requires:         R-CRAN-foreach 
 
@@ -45,7 +47,9 @@ extreme low and high pools are used in existing methods to identify
 trait-related genes, while the numbers of marker alleles and genotypes in
 extreme low and high pools are used in the new methods to construct a new
 statistic Gw for identifying trait-related genes. dQTG-seq2 is feasible to
-identify extremely over-dominant and small-effect genes in F2.
+identify extremely over-dominant and small-effect genes in F2. Li P, Li G,
+Zhang YW, Zuo JF, Liu JY, Zhang YM (2022, <doi:
+10.1016/j.xplc.2022.100319>).
 
 %prep
 %setup -q -c -n %{packname}

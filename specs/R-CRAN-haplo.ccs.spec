@@ -1,41 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidytable
-%global packver   0.7.2
+%global packname  haplo.ccs
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Interface to 'data.table'
+Summary:          Estimate Haplotype Relative Risks in Case-Control Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.13.0
+Requires:         R-core >= 2.13.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr >= 2.0.3
-BuildRequires:    R-CRAN-pillar >= 1.5.0
-BuildRequires:    R-CRAN-glue >= 1.4.0
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-tidyselect >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-vctrs >= 0.4.1
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-Requires:         R-CRAN-magrittr >= 2.0.3
-Requires:         R-CRAN-pillar >= 1.5.0
-Requires:         R-CRAN-glue >= 1.4.0
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-tidyselect >= 1.1.0
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-vctrs >= 0.4.1
-Requires:         R-CRAN-lifecycle >= 0.2.0
+BuildRequires:    R-CRAN-haplo.stats 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-haplo.stats 
+Requires:         R-CRAN-survival 
 
 %description
-A tidy interface to 'data.table' that is 'rlang' compatible, giving users
-the speed of 'data.table' with the clean syntax of the tidyverse.
+Haplotype and covariate relative risks in case-control data are estimated
+by weighted logistic regression. Diplotype probabilities, which are
+estimated by EM computation with progressive insertion of loci, are
+utilized as weights. French et al. (2006) <doi:10.1002/gepi.20161>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,31 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  StepBeta
+%global packname  tesselle
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Stepwise Procedure for Beta Regression Models
+Summary:          Easily Install and Load 'tesselle' Packages
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-betareg 
-Requires:         R-CRAN-glue 
-Requires:         R-stats 
-Requires:         R-CRAN-betareg 
+BuildRequires:    R-CRAN-khroma >= 1.8.0
+BuildRequires:    R-CRAN-tabula >= 1.6.1
+BuildRequires:    R-CRAN-folio >= 1.0.0
+BuildRequires:    R-CRAN-kairos >= 1.0.0
+BuildRequires:    R-CRAN-arkhe >= 0.4.0
+BuildRequires:    R-CRAN-dimensio >= 0.2.2
+Requires:         R-CRAN-khroma >= 1.8.0
+Requires:         R-CRAN-tabula >= 1.6.1
+Requires:         R-CRAN-folio >= 1.0.0
+Requires:         R-CRAN-kairos >= 1.0.0
+Requires:         R-CRAN-arkhe >= 0.4.0
+Requires:         R-CRAN-dimensio >= 0.2.2
 
 %description
-Starting from a Beta Regression Model, it provides a stepwise procedure to
-select the linear predictor.
+Easy install and load key packages from the 'tesselle' suite in a single
+step. The 'tesselle' suite is a collection of packages for research and
+teaching in archaeology. These packages focus on quantitative analysis
+methods developed for archaeology. The 'tesselle' packages are designed to
+work seamlessly together and to complement general-purpose and other
+specialized statistical packages. These packages can be used to explore
+and analyze common data types in archaeology: count data, compositional
+data and chronological data. Learn more about 'tesselle' at
+<https://www.tesselle.org>.
 
 %prep
 %setup -q -c -n %{packname}
