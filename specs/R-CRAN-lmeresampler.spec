@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  lmeresampler
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bootstrap Methods for Nested Linear Mixed-Effects Models
 
@@ -28,6 +28,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-dplyr >= 0.8.0
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-nlmeU 
@@ -40,6 +41,7 @@ Requires:         R-stats
 Requires:         R-CRAN-statmod 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tibble 
 
 %description
 Bootstrap routines for nested linear mixed effects models fit using either

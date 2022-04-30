@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Rpadrino
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interact with the 'PADRINO' IPM Database
 
@@ -13,11 +13,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang >= 0.3.0
-BuildRequires:    R-CRAN-ipmr >= 0.0.4
+BuildRequires:    R-CRAN-ipmr >= 0.0.5
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-mvtnorm 
@@ -27,7 +27,7 @@ BuildRequires:    R-tools
 BuildRequires:    R-CRAN-truncdist 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-rlang >= 0.3.0
-Requires:         R-CRAN-ipmr >= 0.0.4
+Requires:         R-CRAN-ipmr >= 0.0.5
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-mvtnorm 

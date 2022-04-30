@@ -1,40 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BiodiversityR
-%global packver   2.14-2
+%global packname  numberofalleles
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.14.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package for Community Ecology and Suitability Analysis
+Summary:          Compute the Probability Distribution of the Number of Alleles in a DNA Mixture
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.2
-Requires:         R-core >= 3.2.2
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.3
-BuildRequires:    R-CRAN-Rcmdr >= 2.7.0
-BuildRequires:    R-CRAN-vegan >= 2.5.1
-BuildRequires:    R-tcltk 
-Requires:         R-CRAN-ggplot2 >= 3.3.3
-Requires:         R-CRAN-Rcmdr >= 2.7.0
-Requires:         R-CRAN-vegan >= 2.5.1
-Requires:         R-tcltk 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-pedtools 
+BuildRequires:    R-CRAN-ribd 
+BuildRequires:    R-CRAN-partitions 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-pedtools 
+Requires:         R-CRAN-ribd 
+Requires:         R-CRAN-partitions 
+Requires:         R-methods 
 
 %description
-Graphical User Interface (via the R-Commander) and utility functions
-(often based on the vegan package) for statistical analysis of
-biodiversity and ecological communities, including species accumulation
-curves, diversity indices, Renyi profiles, GLMs for analysis of species
-abundance and presence-absence, distance matrices, Mantel tests, and
-cluster, constrained and unconstrained ordination analysis. A book on
-biodiversity and community ecology analysis is available for free download
-from the website. In 2012, methods for (ensemble) suitability modelling
-and mapping were expanded in the package.
+The number of distinct alleles observed in a DNA mixture is informative of
+the number of contributors to the mixture. The package provides methods
+for computing the probability distribution of the number of distinct
+alleles in a mixture for a given set of allele frequencies. The mixture
+contributors may be related according to a provided pedigree.
 
 %prep
 %setup -q -c -n %{packname}

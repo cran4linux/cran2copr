@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  traineR
-%global packver   1.7.3
+%global packver   1.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.3
+Version:          1.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Predictive Models Homologator
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-randomForest >= 4.6.14
 BuildRequires:    R-CRAN-rpart >= 4.1.13
 BuildRequires:    R-CRAN-ada >= 2.0.5
 BuildRequires:    R-CRAN-e1071 >= 1.7.0.1
-BuildRequires:    R-CRAN-dummies >= 1.5.6
 BuildRequires:    R-CRAN-neuralnet >= 1.44.2
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-kknn >= 1.3.1
@@ -41,7 +40,6 @@ Requires:         R-CRAN-randomForest >= 4.6.14
 Requires:         R-CRAN-rpart >= 4.1.13
 Requires:         R-CRAN-ada >= 2.0.5
 Requires:         R-CRAN-e1071 >= 1.7.0.1
-Requires:         R-CRAN-dummies >= 1.5.6
 Requires:         R-CRAN-neuralnet >= 1.44.2
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-kknn >= 1.3.1

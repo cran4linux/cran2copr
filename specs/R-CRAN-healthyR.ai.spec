@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  healthyR.ai
-%global packver   0.0.6
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Machine Learning and AI Modeling Companion to 'healthyR'
 
@@ -17,6 +17,7 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang >= 0.1.2
+BuildRequires:    R-CRAN-yardstick >= 0.0.8
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-broom 
@@ -30,7 +31,13 @@ BuildRequires:    R-CRAN-recipes
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-h2o 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dials 
+BuildRequires:    R-CRAN-parsnip 
+BuildRequires:    R-CRAN-tune 
+BuildRequires:    R-CRAN-workflows 
+BuildRequires:    R-CRAN-modeltime 
 Requires:         R-CRAN-rlang >= 0.1.2
+Requires:         R-CRAN-yardstick >= 0.0.8
 Requires:         R-CRAN-magrittr 
 Requires:         R-utils 
 Requires:         R-CRAN-broom 
@@ -44,6 +51,11 @@ Requires:         R-CRAN-recipes
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-h2o 
 Requires:         R-stats 
+Requires:         R-CRAN-dials 
+Requires:         R-CRAN-parsnip 
+Requires:         R-CRAN-tune 
+Requires:         R-CRAN-workflows 
+Requires:         R-CRAN-modeltime 
 
 %description
 Hospital machine learning and ai data analysis workflow tools, modeling,

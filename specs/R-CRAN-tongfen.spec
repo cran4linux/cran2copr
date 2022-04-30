@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tongfen
-%global packver   0.3.3
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Make Data Based on Different Geographies Comparable
 
@@ -18,7 +18,6 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.0
 BuildRequires:    R-CRAN-tidyr >= 1.0
-BuildRequires:    R-CRAN-PROJ 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rlang 
@@ -29,7 +28,6 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-dplyr >= 1.0
 Requires:         R-CRAN-tidyr >= 1.0
-Requires:         R-CRAN-PROJ 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rlang 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SEMsens
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Tool for Sensitivity Analysis in Structural Equation Modeling
 
@@ -25,13 +25,15 @@ Requires:         R-stats
 Perform sensitivity analysis in structural equation modeling using
 meta-heuristic optimization methods (e.g., ant colony optimization and
 others). The references for the proposed methods are: (1) Leite, W., &
-Shen, Z., Marcoulides, K., Fish, C., & Harring, J. (in press).
+Shen, Z., Marcoulides, K., Fish, C., & Harring, J. (2022).
 <doi:10.1080/10705511.2021.1881786> (2) Harring, J. R., McNeish, D. M., &
-Hancock, G. R. (2017) <doi:10.1080/10705511.2018.1506925>; (3) Socha, K.,
-& Dorigo, M. (2008) <doi:10.1016/j.ejor.2006.06.046>. We also thank Dr.
-Krzysztof Socha for sharing his research on ant colony optimization
-algorithm with continuous domains and associated R code, which provided
-the base for the development of this package.
+Hancock, G. R. (2017) <doi:10.1080/10705511.2018.1506925>; (3) Fisk, C.,
+Harring, J., Shen, Z., Leite, W., Suen, K., & Marcoulides, K. (2022).
+<doi:10.1177/00131644211073121>; (4) Socha, K., & Dorigo, M. (2008)
+<doi:10.1016/j.ejor.2006.06.046>. We also thank Dr. Krzysztof Socha for
+sharing his research on ant colony optimization algorithm with continuous
+domains and associated R code, which provided the base for the development
+of this package.
 
 %prep
 %setup -q -c -n %{packname}

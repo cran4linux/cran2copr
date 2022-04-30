@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  semicmprskcoxmsm
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Use Inverse Probability Weighting to Estimate Treatment Effect for Semi Competing Risks Data
 
@@ -33,11 +33,12 @@ Requires:         R-CRAN-Rcpp
 
 %description
 Use inverse probability weighting methods to estimate treatment effect
-under marginal structure model for the transition hazard of semi competing
-risk data, i.e. illness death model. We implement two specific such
-models, the usual Markov illness death structural model and the general
-Markov illness death structural model. We also provide the estimates of
-three cumulative incidence function of the potential outcomes.
+under marginal structure model (MSM) for the transition hazard of semi
+competing risk data, i.e. illness death model. We implement two specific
+such models, the usual Markov illness death structural model and the
+general Markov illness death structural model. We also provide the
+predicted three risks functions from the marginal structure models. Zhang,
+Y. and Xu, R. (2022) <arXiv:2204.10426>.
 
 %prep
 %setup -q -c -n %{packname}

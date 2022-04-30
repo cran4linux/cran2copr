@@ -1,40 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BiodiversityR
-%global packver   2.14-2
+%global packname  haarfisz
+%global packver   4.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.14.2
+Version:          4.5.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package for Community Ecology and Suitability Analysis
+Summary:          Software to Perform Haar Fisz Transforms
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.2
-Requires:         R-core >= 3.2.2
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.3
-BuildRequires:    R-CRAN-Rcmdr >= 2.7.0
-BuildRequires:    R-CRAN-vegan >= 2.5.1
-BuildRequires:    R-tcltk 
-Requires:         R-CRAN-ggplot2 >= 3.3.3
-Requires:         R-CRAN-Rcmdr >= 2.7.0
-Requires:         R-CRAN-vegan >= 2.5.1
-Requires:         R-tcltk 
+BuildRequires:    R-CRAN-wavethresh 
+Requires:         R-CRAN-wavethresh 
 
 %description
-Graphical User Interface (via the R-Commander) and utility functions
-(often based on the vegan package) for statistical analysis of
-biodiversity and ecological communities, including species accumulation
-curves, diversity indices, Renyi profiles, GLMs for analysis of species
-abundance and presence-absence, distance matrices, Mantel tests, and
-cluster, constrained and unconstrained ordination analysis. A book on
-biodiversity and community ecology analysis is available for free download
-from the website. In 2012, methods for (ensemble) suitability modelling
-and mapping were expanded in the package.
+A Haar-Fisz algorithm for Poisson intensity estimation. Will denoise
+Poisson distributed sequences where underlying intensity is not constant.
+Uses the multiscale variance-stabilization method called the Haar-Fisz
+transform. Contains functions to carry out the forward and inverse
+Haar-Fisz transform and denoising on near-Gaussian sequences. Can also
+carry out cycle-spinning. Main reference: Fryzlewicz, P. and Nason, G.P.
+(2004) "A Haar-Fisz algorithm for Poisson intensity estimation." Journal
+of Computational and Graphical Statistics, 13, 621-638.
+<doi:10.1198/106186004X2697>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BiodiversityR
-%global packver   2.14-2
+%global packname  SCIBER
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.14.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package for Community Ecology and Suitability Analysis
+Summary:          Single-Cell Integrator and Batch Effect Remover
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.2
-Requires:         R-core >= 3.2.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.3
-BuildRequires:    R-CRAN-Rcmdr >= 2.7.0
-BuildRequires:    R-CRAN-vegan >= 2.5.1
-BuildRequires:    R-tcltk 
-Requires:         R-CRAN-ggplot2 >= 3.3.3
-Requires:         R-CRAN-Rcmdr >= 2.7.0
-Requires:         R-CRAN-vegan >= 2.5.1
-Requires:         R-tcltk 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-parallel 
+Requires:         R-stats 
 
 %description
-Graphical User Interface (via the R-Commander) and utility functions
-(often based on the vegan package) for statistical analysis of
-biodiversity and ecological communities, including species accumulation
-curves, diversity indices, Renyi profiles, GLMs for analysis of species
-abundance and presence-absence, distance matrices, Mantel tests, and
-cluster, constrained and unconstrained ordination analysis. A book on
-biodiversity and community ecology analysis is available for free download
-from the website. In 2012, methods for (ensemble) suitability modelling
-and mapping were expanded in the package.
+Remove batch effects by projecting query batches into the reference batch
+space.
 
 %prep
 %setup -q -c -n %{packname}

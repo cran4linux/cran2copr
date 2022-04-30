@@ -1,53 +1,48 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BayesLN
-%global packver   0.2.3
+%global packname  lmfor
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Inference for Log-Normal Data
+Summary:          Functions for Forest Biometrics
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.17
-BuildRequires:    R-CRAN-optimx 
-BuildRequires:    R-CRAN-ghyp 
-BuildRequires:    R-CRAN-fAsianOptions 
-BuildRequires:    R-CRAN-coda 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-spatstat 
+BuildRequires:    R-stats4 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-magic 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 0.12.17
-Requires:         R-CRAN-optimx 
-Requires:         R-CRAN-ghyp 
-Requires:         R-CRAN-fAsianOptions 
-Requires:         R-CRAN-coda 
+BuildRequires:    R-CRAN-spatstat.geom 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-spatstat 
+Requires:         R-stats4 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-CRAN-magic 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
+Requires:         R-CRAN-spatstat.geom 
 
 %description
-Bayesian inference under log-normality assumption must be performed very
-carefully. In fact, under the common priors for the variance, useful
-quantities in the original data scale (like mean and quantiles) do not
-have posterior moments that are finite (Fabrizi et al. 2012
-<doi:10.1214/12-BA733>). This package allows to easily carry out a proper
-Bayesian inferential procedure by fixing a suitable distribution (the
-generalized inverse Gaussian) as prior for the variance. Functions to
-estimate several kind of means (unconditional, conditional and conditional
-under a mixed model) and quantiles (unconditional and conditional) are
-provided.
+Functions for different purposes related to forest biometrics, including
+illustrative graphics, numerical computation, modeling height-diameter
+relationships, prediction of tree volumes, modelling of diameter
+distributions and estimation off stand density using ITD. Several
+empirical datasets are also included.
 
 %prep
 %setup -q -c -n %{packname}

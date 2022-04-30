@@ -1,40 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BiodiversityR
-%global packver   2.14-2
+%global packname  metabolomicsR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.14.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package for Community Ecology and Suitability Analysis
+Summary:          Tools for Metabolomics Data
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.2
-Requires:         R-core >= 3.2.2
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.3
-BuildRequires:    R-CRAN-Rcmdr >= 2.7.0
-BuildRequires:    R-CRAN-vegan >= 2.5.1
-BuildRequires:    R-tcltk 
-Requires:         R-CRAN-ggplot2 >= 3.3.3
-Requires:         R-CRAN-Rcmdr >= 2.7.0
-Requires:         R-CRAN-vegan >= 2.5.1
-Requires:         R-tcltk 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-plotROC 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+Requires:         R-methods 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-plotROC 
+Requires:         R-utils 
+Requires:         R-stats 
 
 %description
-Graphical User Interface (via the R-Commander) and utility functions
-(often based on the vegan package) for statistical analysis of
-biodiversity and ecological communities, including species accumulation
-curves, diversity indices, Renyi profiles, GLMs for analysis of species
-abundance and presence-absence, distance matrices, Mantel tests, and
-cluster, constrained and unconstrained ordination analysis. A book on
-biodiversity and community ecology analysis is available for free download
-from the website. In 2012, methods for (ensemble) suitability modelling
-and mapping were expanded in the package.
+Tools to preprocess, analyse, and visualize metabolomics data. We included
+a set of functions for sample and metabolite quality control, outlier
+detection, missing value imputation, dimensional reduction, normalization,
+data integration, regression, metabolite annotation, enrichment analysis,
+and visualization of data and results. The package is designed to be a
+comprehensive R package that can be easily used by researchers with basic
+R programming skills. The framework designed here is versatile and is
+extensible to other various methods.
 
 %prep
 %setup -q -c -n %{packname}
