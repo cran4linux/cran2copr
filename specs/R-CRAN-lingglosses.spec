@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  lingglosses
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linguistic Examples and Abbreviation Lists Generation
+Summary:          Interlinear Glossed Linguistic Examples and Abbreviation Lists Generation
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -26,9 +26,10 @@ Requires:         R-CRAN-rmarkdown
 Requires:         R-utils 
 
 %description
-Helps to render glossed linguistic examples in html 'rmarkdown' documents
-and then semi-automatically compiles the glosses list at the end of the
-document. It also provides a database of linguistic glosses.
+Helps to render interlinear glossed linguistic examples in html
+'rmarkdown' documents and then semi-automatically compiles the list of
+glosses at the end of the document. It also provides a database of
+linguistic glosses.
 
 %prep
 %setup -q -c -n %{packname}

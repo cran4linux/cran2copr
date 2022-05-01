@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  piar
-%global packver   0.3.2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Price Index Aggregation
 
@@ -17,11 +17,9 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-gpindex >= 0.4.2
-BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-gpindex >= 0.4.2
-Requires:         R-parallel 
 Requires:         R-stats 
 Requires:         R-utils 
 

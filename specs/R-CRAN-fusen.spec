@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fusen
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Build a Package from Rmarkdown File
 
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-roxygen2 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-tools 
@@ -43,7 +43,7 @@ Requires:         R-CRAN-glue
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-roxygen2 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-tools 
