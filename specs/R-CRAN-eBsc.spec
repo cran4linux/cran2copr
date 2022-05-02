@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  eBsc
-%global packver   4.14
+%global packver   4.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.14
+Version:          4.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          "Empirical Bayes Smoothing Splines with Correlated Errors"
 
@@ -34,8 +34,8 @@ Requires:         R-CRAN-Rcpp
 %description
 Presents a statistical method that uses a recursive algorithm for signal
 extraction. The method handles a non-parametric estimation for the
-correlation of the errors. See "Serra", "Krivobokova" and "Rosales" (2018)
-<arXiv:1812.06948> for details.
+correlation of the errors. See "Krivobokova", "Serra", "Rosales" and
+"Klockmann" (2021) <arXiv:1812.06948> for details.
 
 %prep
 %setup -q -c -n %{packname}

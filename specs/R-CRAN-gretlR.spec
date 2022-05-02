@@ -1,44 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  lcc
-%global packver   1.1.3
+%global packname  gretlR
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Longitudinal Concordance Correlation
+Summary:          A Seamless Integration of 'Gretl' and 'R'
 
-License:          GPL (>= 2)
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nlme >= 3.1.124
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
-BuildRequires:    R-CRAN-hnp 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doSNOW 
-BuildRequires:    R-CRAN-doRNG 
-BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-nlme >= 3.1.124
-Requires:         R-CRAN-ggplot2 >= 2.2.1
-Requires:         R-CRAN-hnp 
-Requires:         R-parallel 
-Requires:         R-CRAN-doSNOW 
-Requires:         R-CRAN-doRNG 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-CRAN-knitr >= 1.20
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-knitr >= 1.20
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-magrittr 
 
 %description
-Estimates the longitudinal concordance correlation to access the
-longitudinal agreement profile. The estimation approach implemented is
-variance components approach based on polynomial mixed effects regression
-model, as proposed by Oliveira, Hinde and Zocchi (2018)
-<doi:10.1007/s13253-018-0321-1>.  In addition, non-parametric confidence
-intervals were implemented using percentile method or normal-approximation
-based on Fisher Z-transformation.
+It allows running 'gretl' (<http://gretl.sourceforge.net/index.html>)
+program from R, R Markdown and Quarto. 'gretl' ('Gnu' Regression,
+'Econometrics', and Time-series Library) is a statistical software for
+Econometric analysis.  This package does not only integrate 'gretl' and
+'R' but also serves as a 'gretl' Knit-Engine for 'knitr' package. Write
+all your 'gretl' commands in 'R', R Markdown chunk.
 
 %prep
 %setup -q -c -n %{packname}

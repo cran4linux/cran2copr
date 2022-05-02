@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  conjurer
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Parametric Method for Generating Synthetic Data
 
@@ -16,6 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite >= 1.8.0
+BuildRequires:    R-CRAN-httr >= 1.4.2
+BuildRequires:    R-methods 
+Requires:         R-CRAN-jsonlite >= 1.8.0
+Requires:         R-CRAN-httr >= 1.4.2
+Requires:         R-methods 
 
 %description
 Builds synthetic data applicable across multiple domains. This package

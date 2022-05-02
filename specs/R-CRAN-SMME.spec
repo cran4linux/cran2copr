@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SMME
-%global packver   1.0.1
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Soft Maximin Estimation for Large Scale Heterogeneous Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -21,8 +21,8 @@ Requires:         R-CRAN-Rcpp >= 0.12.12
 
 %description
 Efficient procedure for solving the soft maximin problem for large scale
-heterogeneous data, see Lund, Mogensen and Hansen (2021)
-<arXiv:1805.02407>. Currently Lasso and SCAD penalized estimation is
+heterogeneous data, see Lund, Mogensen and Hansen (2022)
+<doi:10.1111/sjos.12580>. Currently Lasso and SCAD penalized estimation is
 implemented. Note this package subsumes and replaces the SMMA package.
 
 %prep

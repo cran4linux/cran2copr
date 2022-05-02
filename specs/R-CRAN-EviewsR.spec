@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  EviewsR
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Seamless Integration of 'Eviews' and R
 
@@ -22,11 +22,12 @@ Requires:         R-CRAN-knitr >= 1.20
 Requires:         R-CRAN-magrittr 
 
 %description
-It allows running 'EViews'(<https://eviews.com>) program from R and R
-Markdown. 'EViews' (Econometric Views) is a statistical software for
-Econometric analysis.  This package integrates 'EViews' and R and also
-serves as an 'EViews' Knit-Engine for 'knitr' package. Write all your
-'EViews' commands in R or R Markdown chunk.
+It allows running 'EViews'(<https://eviews.com>) program from R, R
+Markdown and Quarto documents. 'EViews' (Econometric Views) is a
+statistical software for Econometric analysis.  This package integrates
+'EViews' and R and also serves as an 'EViews' Knit-Engine for 'knitr'
+package. Write all your 'EViews' commands in R, R Markdown or Quarto
+documents.
 
 %prep
 %setup -q -c -n %{packname}

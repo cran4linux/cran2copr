@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  powerly
-%global packver   1.7.2
+%global packver   1.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.2
+Version:          1.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sample Size Analysis for Psychological Networks and More
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-bootnet
 BuildRequires:    R-CRAN-qgraph 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-patchwork 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-progress 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-bootnet
 Requires:         R-CRAN-qgraph 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-patchwork 
 
 %description
