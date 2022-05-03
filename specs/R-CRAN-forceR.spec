@@ -1,49 +1,50 @@
 %global __brp_check_rpaths %{nil}
-%global packname  winRatioAnalysis
-%global packver   0.1.1
+%global packname  forceR
+%global packver   1.0.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.13
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimates the Win-Ratio as a Function of Time
+Summary:          Force Measurement Analyses
 
-License:          GNU Affero General Public License
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-pssm 
-BuildRequires:    R-CRAN-MLEcens 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-JM 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-pssm 
-Requires:         R-CRAN-MLEcens 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-filesstrings 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-roll 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-graphics 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-JM 
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-grDevices 
+Requires:         R-CRAN-filesstrings 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-roll 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 
 %description
-Fits a model to data separately for each treatment group and then
-calculates the win-Ratio as a function of follow-up time.
+For cleaning and analyses of animal closing force measurements. 'forceR'
+was initially written and optimized to deal with insect bite force
+measurements, but can be used for any time series. Includes a full
+workflow to load, plot and crop data, correct amplifier and baseline
+drifts, identify individual peak shapes (bites), rescale (normalize) peak
+curves, and find best polynomial fits to describe and analyze force curve
+shapes.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  LearnPCA
-%global packver   0.1.4
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions, Data Sets and Vignettes to Aid in Learning Principal Components Analysis (PCA)
 
@@ -16,6 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-markdown 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-markdown 
+Requires:         R-CRAN-shiny 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
 Principal component analysis (PCA) is one of the most widely used data

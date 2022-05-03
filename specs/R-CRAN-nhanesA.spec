@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  nhanesA
-%global packver   0.6.5.3
+%global packver   0.6.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5.3
+Version:          0.6.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          NHANES Data Retrieval
 
@@ -16,14 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Hmisc >= 3.17.1
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-foreign 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-plyr 
-Requires:         R-CRAN-Hmisc >= 3.17.1
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-foreign 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-xml2 
@@ -42,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

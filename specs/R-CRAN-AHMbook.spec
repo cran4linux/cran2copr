@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  AHMbook
-%global packver   0.2.3
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions and Data for the Book 'Applied Hierarchical Modeling in Ecology' Vols 1 and 2
 
@@ -44,12 +44,15 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-CRAN-spdep 
 
 %description
-Provides functions and data sets to accompany the two volume publication
-'Applied Hierarchical Modeling in Ecology: Analysis of distribution,
-abundance and species richness in R and BUGS' by Marc Kéry and Andy Royle:
-volume 1 (2016, ISBN: 978-0-12-801378-6) and volume 2 (2021, ISBN:
-978-0-12-809585-0),
-<https://www.mbr-pwrc.usgs.gov/pubanalysis/keryroylebook/>.
+Provides functions to simulate data sets from hierarchical ecological
+models, including all the simulations described in the two volume
+publication 'Applied Hierarchical Modeling in Ecology: Analysis of
+distribution, abundance and species richness in R and BUGS' by Marc Kéry
+and Andy Royle: volume 1 (2016, ISBN: 978-0-12-801378-6) and volume 2
+(2021, ISBN: 978-0-12-809585-0),
+<https://www.mbr-pwrc.usgs.gov/pubanalysis/keryroylebook/>. It also has
+all the utility functions and data sets needed to replicate the analyses
+shown in the books.
 
 %prep
 %setup -q -c -n %{packname}
@@ -59,6 +62,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

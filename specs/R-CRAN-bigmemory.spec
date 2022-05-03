@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bigmemory
-%global packver   4.6.0
+%global packver   4.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6.0
+Version:          4.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manage Massive Matrices with Shared Memory and Memory-Mapped Files
 

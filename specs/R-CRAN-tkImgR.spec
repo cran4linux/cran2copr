@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  support
-%global packver   0.1.5
+%global packname  tkImgR
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Support Points
+Summary:          Simple Image Viewer for R Using the 'tcltk' Package
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,24 +15,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.4
-BuildRequires:    R-CRAN-randtoolbox 
-BuildRequires:    R-CRAN-MHadaptive 
-BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 0.12.4
-Requires:         R-CRAN-randtoolbox 
-Requires:         R-CRAN-MHadaptive 
-Requires:         R-CRAN-nloptr 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tkRplotR 
+BuildRequires:    R-tcltk 
+Requires:         R-CRAN-tkRplotR 
+Requires:         R-tcltk 
 
 %description
-Provides functions sp() and sp_seq() for computing the support points in
-Mak and Joseph (2018) <DOI:10.1214/17-AOS1629>. Support points can be used
-as a representative sample of a desired distribution, or a representative
-reduction of a big dataset (e.g., an "optimal" thinning of Markov-chain
-Monte Carlo sample chains). This work was supported by USARO grant
-W911NF-14-1-0024 and NSF DMS grant 1712642.
+A 'Tcl/Tk' Graphical User Interface (GUI) to display images than can be
+zoomed and panned using the mouse and keyboard shortcuts. 'tkImgR' can
+also read and write different image formats (PPM/PGM, PNG and GIF) using
+the standard 'Tcl/Tk' distribution (>=8.6), but other formats (JPEG, TIFF,
+CR2) can be handled using the the 'TK Img' package (by Jan Nijtmans and
+maintained by Paul Obermeier).
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,6 +37,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

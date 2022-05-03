@@ -1,29 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  intRvals
-%global packver   1.0.1
+%global packname  seas
+%global packver   0.6-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Time-Ordered Event Data with Missed Observations
+Summary:          Seasonal Analysis and Graphics, Especially for Climatology
 
-License:          GNU General Public License
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-lme4 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-lme4 
+BuildRequires:    R-devel >= 2.15.0
+Requires:         R-core >= 2.15.0
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-MASS 
 
 %description
-Calculates event rates and compares means and variances of groups of
-interval data corrected for missed arrival observations.
+Capable of deriving seasonal statistics, such as "normals", and analysis
+of seasonal data, such as departures. This package also has graphics
+capabilities for representing seasonal data, including boxplots for
+seasonal parameters, and bars for summed normals. There are many specific
+functions related to climatology, including precipitation normals,
+temperature normals, cumulative precipitation departures and precipitation
+interarrivals. However, this package is designed to represent any
+time-varying parameter with a discernible seasonal signal, such as found
+in hydrology and ecology.
 
 %prep
 %setup -q -c -n %{packname}

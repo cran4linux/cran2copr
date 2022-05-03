@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  quantreg
-%global packver   5.88
+%global packver   5.93
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.88
+Version:          5.93
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantile Regression
 
@@ -13,20 +13,24 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6
-Requires:         R-core >= 2.6
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-SparseM 
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-MatrixModels 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-stats 
 Requires:         R-CRAN-SparseM 
 Requires:         R-methods 
 Requires:         R-graphics 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-MatrixModels 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-MASS 
 
 %description
 Estimation and inference methods for models of conditional quantiles:

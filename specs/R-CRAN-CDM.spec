@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  CDM
-%global packver   7.6-11
+%global packver   8.0-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.6.11
+Version:          8.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cognitive Diagnosis Modeling
 

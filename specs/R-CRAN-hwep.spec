@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  hwep
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hardy-Weinberg Equilibrium in Polyploids
 
@@ -39,7 +39,7 @@ loci. For autopolyploid populations in equilibrium, methods are available
 to estimate the degree of double reduction. We also provide functions to
 calculate genotype frequencies at equilibrium, or after one or several
 rounds of random mating, given rates of double reduction. The main
-function is `hwefit()`. This material is based upon work supported by the
+function is hwefit(). This material is based upon work supported by the
 National Science Foundation under Grant No. 2132247. The opinions,
 findings, and conclusions or recommendations expressed are those of the
 author and do not necessarily reflect the views of the National Science

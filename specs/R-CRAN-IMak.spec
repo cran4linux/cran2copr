@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  IMak
-%global packver   2.0.2
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Item Maker
 
@@ -19,11 +19,11 @@ BuildArch:        noarch
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-imager 
+BuildRequires:    R-CRAN-png 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-utils 
-Requires:         R-CRAN-imager 
+Requires:         R-CRAN-png 
 
 %description
 This is an Automatic Item Generator for Psychological Assessment. Items

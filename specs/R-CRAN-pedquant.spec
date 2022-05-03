@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pedquant
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Public Economic Data and Quantitative Analysis
 
@@ -25,14 +25,12 @@ BuildRequires:    R-CRAN-xml2
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-webdriver 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-echarts4r 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-TTR 
 Requires:         R-CRAN-zoo 
@@ -42,14 +40,12 @@ Requires:         R-CRAN-xml2
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-webdriver 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-echarts4r 
 
 %description
 Provides an interface to access public economic and financial data for

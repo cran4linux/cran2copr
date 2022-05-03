@@ -1,39 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mcGlobaloptim
-%global packver   0.1
+%global packname  mod2rm
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Global optimization using Monte Carlo and Quasi Monte Carlo simulation
+Summary:          Moderation Analysis for Two-Instance Repeated Measures Designs
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.12.1
-Requires:         R-core >= 2.12.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-randtoolbox 
-BuildRequires:    R-CRAN-snow 
-Requires:         R-utils 
-Requires:         R-CRAN-randtoolbox 
-Requires:         R-CRAN-snow 
 
 %description
-The package performs global optimization combining Monte Carlo and Quasi
-Monte Carlo simulation with a local search. n The local searches can be
-easily speeded-up by using a network of local workstations.
+Moderation analysis for two-instance repeated measures designs, including
+simple slopes and conditional effects at values of the moderator. Based on
+Montoya, A. K. (2018) "Moderation analysis in two-instance repeated
+measures designs: Probing methods and multiple moderator models"
+<doi:10.3758/s13428-018-1088-6> .
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -43,6 +45,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

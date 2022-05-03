@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RISCA
-%global packver   0.9
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Inference and Prediction in Cohort-Based Analyses
 
@@ -13,12 +13,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-relsurv 
+BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-date 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-nlme 
@@ -33,9 +34,24 @@ BuildRequires:    R-CRAN-kernlab
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-SuperLearner 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-flexsurv 
+BuildRequires:    R-CRAN-randomForestSRC 
+BuildRequires:    R-CRAN-survivalmodels 
+BuildRequires:    R-CRAN-prodlim 
+BuildRequires:    R-CRAN-hdnom 
+BuildRequires:    R-CRAN-glmnetUtils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dvmisc 
+BuildRequires:    R-CRAN-mosaic 
+BuildRequires:    R-CRAN-mosaicCalc 
+BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-CRAN-timeROC 
+BuildRequires:    R-CRAN-rpart 
 Requires:         R-splines 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-relsurv 
+Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-date 
 Requires:         R-graphics 
 Requires:         R-CRAN-nlme 
@@ -50,27 +66,35 @@ Requires:         R-CRAN-kernlab
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-SuperLearner 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-flexsurv 
+Requires:         R-CRAN-randomForestSRC 
+Requires:         R-CRAN-survivalmodels 
+Requires:         R-CRAN-prodlim 
+Requires:         R-CRAN-hdnom 
+Requires:         R-CRAN-glmnetUtils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dvmisc 
+Requires:         R-CRAN-mosaic 
+Requires:         R-CRAN-mosaicCalc 
+Requires:         R-CRAN-cubature 
+Requires:         R-CRAN-timeROC 
+Requires:         R-CRAN-rpart 
 
 %description
-We propose numerous functions for cohort-based analyses, either for
-prediction or causal inference. For causal inference, it includes Inverse
-Probability Weighting and G-computation for marginal estimation of an
-exposure effect when confounders are expected. We deal with binary
-outcomes, times-to-events (Le Borgne, 2016, <doi:10.1002/sim.6777>),
-competing events (Trebern-Launay, 2018, <doi: 10.1007/s10654-017-0322-3>),
-and multi-state data (Gillaizeau, 2018, <doi: 10.1002/sim.7550>). For
-multistate data, semi-Markov model with interval censoring (Foucher, 2008,
-<doi: 10.1177/0962280208093889>) may be considered and we propose the
-possibility to consider the excess of mortality related to the disease
-compared to reference lifetime tables (Gillaizeau, 2017, <doi:
-10.1177/0962280215586456>). For predictive studies, we propose a set of
-functions to estimate time-dependent receiver operating characteristic
-(ROC) curves with the possible consideration of right-censoring
-times-to-events or the presence of confounders (Le Borgne, 2018, <doi:
-10.1177/0962280217702416>). Finally, several functions are available to
-assess time-dependent ROC curves (Combescure, 2017, <doi:
-10.1177/0962280212464542>) or survival curves (Combescure, 2014, <doi:
-10.1002/sim.6111>) from aggregated data.
+Numerous functions for cohort-based analyses, either for prediction or
+causal inference. For causal inference, it includes Inverse Probability
+Weighting and G-computation for marginal estimation of an exposure effect
+when confounders are expected. We deal with binary outcomes,
+times-to-events, competing events, and multi-state data. For multistate
+data, semi-Markov model with interval censoring may be considered, and we
+propose the possibility to consider the excess of mortality related to the
+disease compared to reference lifetime tables. For predictive studies, we
+propose a set of functions to estimate time-dependent receiver operating
+characteristic (ROC) curves with the possible consideration of
+right-censoring times-to-events or the presence of confounders. Finally,
+several functions are available to assess time-dependent ROC curves or
+survival curves from aggregated data.
 
 %prep
 %setup -q -c -n %{packname}
@@ -80,6 +104,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

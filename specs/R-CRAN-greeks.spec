@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  greeks
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sensitivities of Prices of Financial Options and Implied Volatilites
 
@@ -23,18 +23,18 @@ Requires:         R-CRAN-dqrng
 Requires:         R-CRAN-Rcpp 
 
 %description
-Methods to compute sensitivities of financial option prices for European,
-Asian, American and Digital options in the Black Scholes model, and in
-more general jump diffusion models. Furthermore, methods to compute
-implied volatilities are provided for a wide range of option types and
-custom payoff functions. Classical formulas are implemented for European
-options in the Black Scholes Model, as is presented in Hull, J. C. (2017).
-Options, Futures, and Other Derivatives, Global Edition (9th Edition).
-Pearson. In the case of Asian options, Malliavin Monte Carlo Greeks are
-implemented, see Hudde, A. & Rüschendorf, L. (2016). European and Asian
-Greeks for exponential Lévy processes. <arXiv:1603.00920>. For American
-options, the Binomial Tree Method is implemented, as is presented in Hull,
-J. C. (2017).
+Methods to calculate sensitivities of financial option prices for
+European, Asian, American and Digital Options options in the Black Scholes
+model, and in more general jump diffusion models. Furthermore, methods to
+compute implied volatilities are provided for a wide range of option types
+and custom payoff functions. Classical formulas are implemented for
+European options in the Black Scholes Model, as is presented in Hull, J.
+C. (2017). Options, Futures, and Other Derivatives, Global Edition (9th
+Edition). Pearson. In the case of Asian options, Malliavin Monte Carlo
+Greeks are implemented, see Hudde, A. & Rüschendorf, L. (2016). European
+and Asian Greeks for exponential Lévy processes. <arXiv:1603.00920>. For
+American options, the Binomial Tree Method is implemented, as is presented
+in Hull, J. C. (2017).
 
 %prep
 %setup -q -c -n %{packname}

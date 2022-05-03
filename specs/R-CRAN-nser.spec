@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  nser
-%global packver   1.4.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bhavcopy and Live Market Data from National Stock Exchange (NSE) & Bombay Stock Exchange (BSE) India for Equities and Equity Derivatives (F&O)
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-googleVis
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-curl 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-readr 
@@ -42,6 +43,7 @@ Requires:         R-CRAN-googleVis
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-curl 
 
 %description
 Download Present & Historical Bhavcopy. Get Live Market data from NSE

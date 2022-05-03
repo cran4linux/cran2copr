@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fuzzySim
-%global packver   3.7
+%global packver   4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7
+Version:          4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fuzzy Similarity in Species Distributions
 
@@ -28,9 +28,9 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Functions to calculate fuzzy versions of species' occurrence patterns
-based on presence-absence data (including inverse distance interpolation,
-trend surface analysis and prevalence-independent favourability GLM), and
+Functions to calculate fuzzy versions of species occurrence patterns based
+on presence-absence data (including inverse distance interpolation, trend
+surface analysis and prevalence-independent favourability GLM), and
 pair-wise fuzzy similarity (based on fuzzy versions of commonly used
 similarity indices) among those occurrence patterns. Includes also
 functions for model comparison (overlap and fuzzy similarity, loss or

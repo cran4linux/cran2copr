@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  geosapi
-%global packver   0.5-1
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          GeoServer REST API R Interface
 
@@ -21,11 +21,13 @@ BuildRequires:    R-CRAN-openssl
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-keyring 
+BuildRequires:    R-CRAN-readr 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-XML 
 Requires:         R-CRAN-keyring 
+Requires:         R-CRAN-readr 
 
 %description
 Provides an R interface to the GeoServer REST API, allowing to upload and

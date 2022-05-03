@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  multid
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Difference Between Two Groups
 
@@ -35,8 +35,8 @@ Requires:         R-CRAN-lavaan >= 0.6.9
 Estimation of multivariate differences between two groups (e.g.,
 multivariate sex differences) with regularized regression methods and
 predictive approach. See Lönnqvist & Ilmarinen (2021)
-<doi:10.1007/s11109-021-09681-2> and Ilmarinen et al. (2021)
-<doi:10.31234/osf.io/j59bs>.
+<doi:10.1007/s11109-021-09681-2> and Ilmarinen et al. (2022)
+<doi:10.1177/08902070221088155>.
 
 %prep
 %setup -q -c -n %{packname}

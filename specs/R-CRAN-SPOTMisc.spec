@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SPOTMisc
-%global packver   1.7.0
+%global packver   1.18.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          1.18.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Misc Extensions for the 'SPOT' Package
 
@@ -16,21 +16,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-benchmarkme 
 BuildRequires:    R-CRAN-callr 
-BuildRequires:    R-CRAN-emoa 
-BuildRequires:    R-CRAN-ggsci 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-GGally 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-keras 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-mlr 
+BuildRequires:    R-CRAN-Metrics 
 BuildRequires:    R-CRAN-OpenML 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rpart.plot 
+BuildRequires:    R-CRAN-rsample 
 BuildRequires:    R-CRAN-sensitivity 
 BuildRequires:    R-CRAN-smoof 
 BuildRequires:    R-CRAN-SPOT 
@@ -38,21 +40,23 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-tensorflow 
 BuildRequires:    R-CRAN-tfdatasets 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-benchmarkme 
 Requires:         R-CRAN-callr 
-Requires:         R-CRAN-emoa 
-Requires:         R-CRAN-ggsci 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-GGally 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-keras 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-mlr 
+Requires:         R-CRAN-Metrics 
 Requires:         R-CRAN-OpenML 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rpart.plot 
+Requires:         R-CRAN-rsample 
 Requires:         R-CRAN-sensitivity 
 Requires:         R-CRAN-smoof 
 Requires:         R-CRAN-SPOT 

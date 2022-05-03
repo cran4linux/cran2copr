@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  plsRbeta
-%global packver   0.2.9
+%global packname  BayesLN
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Partial Least Squares Regression for Beta Regression Models
+Summary:          Bayesian Inference for Log-Normal Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,28 +15,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-Rcpp >= 0.12.17
+BuildRequires:    R-CRAN-optimx 
+BuildRequires:    R-CRAN-GeneralizedHyperbolic 
+BuildRequires:    R-CRAN-gsl 
+BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-plsRglm 
-BuildRequires:    R-CRAN-betareg 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-Formula 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 0.12.17
+Requires:         R-CRAN-optimx 
+Requires:         R-CRAN-GeneralizedHyperbolic 
+Requires:         R-CRAN-gsl 
+Requires:         R-CRAN-coda 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-plsRglm 
-Requires:         R-CRAN-betareg 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 
 %description
-Provides Partial least squares Regression for (weighted) beta regression
-models (Bertrand 2013, <http://journal-sfds.fr/article/view/215>) and
-k-fold cross-validation of such models using various criteria. It allows
-for missing data in the explanatory variables. Bootstrap confidence
-intervals constructions are also available.
+Bayesian inference under log-normality assumption must be performed very
+carefully. In fact, under the common priors for the variance, useful
+quantities in the original data scale (like mean and quantiles) do not
+have posterior moments that are finite (Fabrizi et al. 2012
+<doi:10.1214/12-BA733>). This package allows to easily carry out a proper
+Bayesian inferential procedure by fixing a suitable distribution (the
+generalized inverse Gaussian) as prior for the variance. Functions to
+estimate several kind of means (unconditional, conditional and conditional
+under a mixed model) and quantiles (unconditional and conditional) are
+provided.
 
 %prep
 %setup -q -c -n %{packname}

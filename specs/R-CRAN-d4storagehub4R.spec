@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  d4storagehub4R
-%global packver   0.2
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'D4Science' 'StorageHub' API
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-R6
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-keyring 
 BuildRequires:    R-tools 
 Requires:         R-methods 
@@ -28,6 +29,7 @@ Requires:         R-CRAN-R6
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-XML 
+Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-keyring 
 Requires:         R-tools 
 

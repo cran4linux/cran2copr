@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  replicateBE
-%global packver   1.1.1
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Average Bioequivalence with Expanding Limits (ABEL)
 
@@ -33,12 +33,12 @@ Requires:         R-grDevices
 
 %description
 Performs comparative bioavailability calculations for Average
-Bioequivalence with Expanding Limits (ABEL). Implemented are 'Method A'
-and 'Method B' and the detection of outliers. If the design allows,
-assessment of the empiric Type I Error and iteratively adjusting alpha to
-control the consumer risk. Average Bioequivalence - optionally with a
-tighter (narrow therapeutic index drugs) or wider acceptance range (Gulf
-Cooperation Council, South Africa: Cmax) - is implemented as well.
+Bioequivalence with Expanding Limits (ABEL). Implemented are 'Method A' /
+'Method B' and the detection of outliers. If the design allows, assessment
+of the empiric Type I Error and iteratively adjusting alpha to control the
+consumer risk. Average Bioequivalence - optionally with a tighter (narrow
+therapeutic index drugs) or wider acceptance range (South Africa: Cmax) -
+is implemented as well.
 
 %prep
 %setup -q -c -n %{packname}

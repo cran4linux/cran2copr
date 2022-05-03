@@ -1,46 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fMRIscrub
-%global packver   0.8.6
+%global packname  SecDim
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.6
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Scrubbing and Other Data Cleaning Routines for fMRI
+Summary:          The Second Dimension of Spatial Associations
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-pesel 
-BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-pesel 
-Requires:         R-CRAN-robustbase 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppArmadillo 
 
 %description
-Data-driven fMRI denoising with projection scrubbing (Pham et al (2021)
-<arXiv:2108.00319>). Also includes routines for DVARS (Derivatives
-VARianceS) (Afyouni and Nichols (2018)
-<doi:10.1016/j.neuroimage.2017.12.098>), motion scrubbing (Power et al
-(2012) <doi:10.1016/j.neuroimage.2011.10.018>), aCompCor (anatomical
-Components Correction) (Muschelli et al (2014)
-<doi:10.1016/j.neuroimage.2014.03.028>), detrending, and nuisance
-regression. Projection scrubbing and DVARS are also applicable to other
-outlier detection tasks involving high-dimensional data.
+Most of the current methods explore spatial associations using
+observations at sample locations, which are defined as the first dimension
+of spatial associations (FDA). The proposed concept of the second
+dimension of spatial associations (SDA) aims to extract in-depth
+information about the geographical environment from locations outside
+sample locations for exploring spatial associations.
 
 %prep
 %setup -q -c -n %{packname}
