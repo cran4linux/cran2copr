@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  LabourMarketAreas
-%global packver   3.3
+%global packver   3.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3
+Version:          3.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identification, Tuning, Visualisation and Analysis of Labour Market Areas
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-rgdal
 BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-tmap 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-maptools 
 Requires:         R-CRAN-data.table 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-rgdal
 Requires:         R-CRAN-rgeos 
 Requires:         R-CRAN-spdep 
 Requires:         R-methods 
+Requires:         R-CRAN-tmap 
 
 %description
 Produces Labour Market Areas from commuting flows available at elementary

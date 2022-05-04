@@ -1,29 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  datefixR
-%global packver   0.1.6
+%global packname  DanielBiostatistics10th
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fix Really Messy Dates
+Summary:          Functions for Wayne W. Daniel's Biostatistics, Tenth Edition
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-raster 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-raster 
 
 %description
-Fixes messy dates in data frames such as those entered via text boxes.
-Standardizes / - and whitespace separation, month abbreviations, and year
-first or day first by converting to R's built-in Date class. Imputes
-missing date or month using user-provided values.
+Functions to accompany Wayne W. Daniel's Biostatistics: A Foundation for
+Analysis in the Health Sciences, Tenth Edition.
 
 %prep
 %setup -q -c -n %{packname}

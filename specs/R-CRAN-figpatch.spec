@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  figpatch
-%global packver   0.1.0.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Arrange External Figures with Patchwork Alongside 'ggplot2' Figures
 
@@ -18,9 +18,13 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-patchwork 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magick 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
 Requires:         R-CRAN-patchwork 
 
 %description

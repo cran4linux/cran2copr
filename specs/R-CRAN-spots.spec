@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  datefixR
-%global packver   0.1.6
+%global packname  spots
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fix Really Messy Dates
+Summary:          Spatial Component Analysis
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,14 +16,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-tools 
+Requires:         R-utils 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Fixes messy dates in data frames such as those entered via text boxes.
-Standardizes / - and whitespace separation, month abbreviations, and year
-first or day first by converting to R's built-in Date class. Imputes
-missing date or month using user-provided values.
+The spots package is designed for spatial omics (10x Visium, etc.) data
+analysis. It performs various statistical analyses and tests, including
+spatial component analysis (SCA), both global and local spatial
+statistics, such as univariate and bivariate Moran's I, Getis-Ord Gi*
+statistics, etc. See Integrated protein and transcriptome high-throughput
+spatial profiling (2022) <doi:10.1101/2022.03.15.484516> for more details.
 
 %prep
 %setup -q -c -n %{packname}

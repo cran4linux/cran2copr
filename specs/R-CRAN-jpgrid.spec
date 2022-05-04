@@ -1,45 +1,53 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gmGeostats
-%global packver   0.11.1
+%global packname  jpgrid
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geostatistics for Compositional Analysis
+Summary:          Functions for the Grid Square Codes in Japan
 
-License:          CC BY-SA 4.0 | GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-compositions >= 2.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-gstat 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-foreach 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 0.8.0
+BuildRequires:    R-CRAN-purrr >= 0.3.0
+BuildRequires:    R-CRAN-rlang >= 0.3.0
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-stars 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-units 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RColorBrewer 
-Requires:         R-CRAN-compositions >= 2.0
-Requires:         R-methods 
-Requires:         R-CRAN-gstat 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-dplyr >= 0.8.0
+Requires:         R-CRAN-purrr >= 0.3.0
+Requires:         R-CRAN-rlang >= 0.3.0
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-stars 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-units 
 Requires:         R-utils 
-Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-vctrs 
 
 %description
-Support for geostatistical analysis of multivariate data, in particular
-data with restrictions, e.g. positive amounts data, compositional data,
-distributional data, microstructural data, etc. It includes descriptive
-analysis and modelling for such data, both from a two-point Gaussian
-perspective and multipoint perspective. The methods mainly follow
-Tolosana-Delgado, Mueller and van den Boogaart (2018)
-<doi:10.1007/s11004-018-9769-3>.
+Provides functions for grid square codes in Japan
+(<https://www.stat.go.jp/english/data/mesh/index.html>). Generates the
+grid square codes from longitude/latitude, geometries, and the grid square
+codes of different scales, and vice versa.
 
 %prep
 %setup -q -c -n %{packname}

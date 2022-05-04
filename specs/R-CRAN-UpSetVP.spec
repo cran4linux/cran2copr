@@ -1,29 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  datefixR
-%global packver   0.1.6
+%global packname  UpSetVP
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fix Really Messy Dates
+Summary:          An Alternative Visualization of VPA and HP in Canonical Analysis
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-rdacca.hp 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-rdacca.hp 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-patchwork 
+Requires:         R-grDevices 
 
 %description
-Fixes messy dates in data frames such as those entered via text boxes.
-Standardizes / - and whitespace separation, month abbreviations, and year
-first or day first by converting to R's built-in Date class. Imputes
-missing date or month using user-provided values.
+Using matrix layout to visualize the unique, common, or individual
+contribution of each predictor (or matrix of predictors) towards explained
+variation on canonical analysis. These contributions were derived from
+variance partitioning analysis (VPA) and hierarchical partitioning (HP),
+applying the algorithm of Lai J., Zou Y., Zhang J., Peres-Neto P. (2022)
+Generalizing hierarchical and variation partitioning in multiple
+regression and canonical analyses using the rdacca.hp R package.Methods in
+Ecology and Evolution, 13: 782-788 <doi:10.1111/2041-210X.13800>.
 
 %prep
 %setup -q -c -n %{packname}

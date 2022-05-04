@@ -1,47 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ElectionsLATAM
-%global packver   0.1.1
+%global packname  svyweight
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistics Methods for Applying in LATAM Elections
+Summary:          Quick and Flexible Survey Weighting
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.00
+Requires:         R-core >= 3.5.00
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lgr 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-foreign 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-networkD3 
-BuildRequires:    R-CRAN-webshot 
-BuildRequires:    R-CRAN-testthat 
-Requires:         R-CRAN-lgr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-foreign 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-networkD3 
-Requires:         R-CRAN-webshot 
-Requires:         R-CRAN-testthat 
+BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-gdata 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-survey 
+Requires:         R-CRAN-gdata 
+Requires:         R-stats 
 
 %description
-Is intended for applying reproducible research on statistical methods for
-latinamerican (& others) elections.
+Quickly and flexibly calculates weights for survey data, in order to
+correct for survey non-response or other sampling issues. Uses rake
+weighting, a common technique also know as rim weighting or iterative
+proportional fitting.  This technique allows for weighting on multiple
+variables, even when the interlocked distribution of the two variables is
+not known. Interacts with Thomas Lumley's 'survey' package, as described
+in Lumley, Thomas (2011, ISBN:978-1-118-21093-2). Adds additional
+functionality, more adaptable syntax, and error-checking to the base
+weighting functionality in 'survey.'
 
 %prep
 %setup -q -c -n %{packname}

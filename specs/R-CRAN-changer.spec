@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  changer
-%global packver   0.0.4-1
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4.1
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Change R Package Name
 

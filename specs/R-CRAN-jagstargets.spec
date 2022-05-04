@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  jagstargets
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Targets for JAGS Workflows
 
@@ -23,12 +23,12 @@ BuildRequires:    R-CRAN-posterior >= 1.0.1
 BuildRequires:    R-CRAN-fst >= 0.9.2
 BuildRequires:    R-CRAN-digest >= 0.6.25
 BuildRequires:    R-CRAN-R2jags >= 0.6.1
-BuildRequires:    R-CRAN-targets >= 0.6.0
+BuildRequires:    R-CRAN-tarchetypes >= 0.6.0
 BuildRequires:    R-CRAN-rlang >= 0.4.10
 BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-qs >= 0.23.2
 BuildRequires:    R-CRAN-coda >= 0.19.4
-BuildRequires:    R-CRAN-tarchetypes >= 0.0.1
+BuildRequires:    R-CRAN-targets >= 0.12.0
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
@@ -39,12 +39,12 @@ Requires:         R-CRAN-posterior >= 1.0.1
 Requires:         R-CRAN-fst >= 0.9.2
 Requires:         R-CRAN-digest >= 0.6.25
 Requires:         R-CRAN-R2jags >= 0.6.1
-Requires:         R-CRAN-targets >= 0.6.0
+Requires:         R-CRAN-tarchetypes >= 0.6.0
 Requires:         R-CRAN-rlang >= 0.4.10
 Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-qs >= 0.23.2
 Requires:         R-CRAN-coda >= 0.19.4
-Requires:         R-CRAN-tarchetypes >= 0.0.1
+Requires:         R-CRAN-targets >= 0.12.0
 Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-utils 

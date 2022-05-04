@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bssm
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Inference of Non-Linear and Non-Gaussian State Space Models
 
@@ -38,13 +38,15 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-tidyr 
 
 %description
-Efficient methods for Bayesian inference of state space models via
-particle Markov chain Monte Carlo (MCMC) and MCMC based on parallel
-importance sampling type weighted estimators (Vihola, Helske, and Franks,
-2020, <doi:10.1111/sjos.12492>). Gaussian, Poisson, binomial, negative
-binomial, and Gamma observation densities and basic stochastic volatility
-models with linear-Gaussian state dynamics, as well as general non-linear
-Gaussian models and discretised diffusion models are supported.
+Efficient methods for Bayesian inference of state space models via Markov
+chain Monte Carlo (MCMC) based on parallel importance sampling type
+weighted estimators (Vihola, Helske, and Franks, 2020,
+<doi:10.1111/sjos.12492>), particle MCMC, and its delayed acceptance
+version. Gaussian, Poisson, binomial, negative binomial, and Gamma
+observation densities and basic stochastic volatility models with
+linear-Gaussian state dynamics, as well as general non-linear Gaussian
+models and discretised diffusion models are supported. See Helske and
+Vihola (2021, <doi:10.32614/RJ-2021-103>) for details.
 
 %prep
 %setup -q -c -n %{packname}

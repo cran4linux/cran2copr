@@ -1,29 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  datefixR
-%global packver   0.1.6
+%global packname  accessrmd
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fix Really Messy Dates
+Summary:          Improving the Accessibility of 'rmarkdown' Documents
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlist 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-RCurl 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlist 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-RCurl 
 
 %description
-Fixes messy dates in data frames such as those entered via text boxes.
-Standardizes / - and whitespace separation, month abbreviations, and year
-first or day first by converting to R's built-in Date class. Imputes
-missing date or month using user-provided values.
+Provides a simple method to improve the accessibility of 'rmarkdown'
+documents. The package provides functions for creating or modifying
+'rmarkdown' documents, resolving known errors and alerts that result in
+accessibility issues for screen reader users.
 
 %prep
 %setup -q -c -n %{packname}
