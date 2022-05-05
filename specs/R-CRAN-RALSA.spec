@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RALSA
-%global packver   1.1.5
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Analyzer for Large-Scale Assessments
 
@@ -16,30 +16,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-foreign 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-foreign 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyFiles 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-foreign 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-DT 
-Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-foreign 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-methods 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyFiles 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringr 
 
 %description
 Prepare and analyze data from large-scale assessments and surveys with

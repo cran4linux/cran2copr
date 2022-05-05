@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pcmabc
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Approximate Bayesian Computations for Phylogenetic Comparative Methods
 
@@ -17,8 +17,6 @@ BuildRequires:    R-devel >= 2.9.1
 Requires:         R-core >= 2.9.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ape >= 3.0.6
-BuildRequires:    R-CRAN-distory 
-BuildRequires:    R-CRAN-geiger 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mvSLOUCH 
@@ -28,8 +26,6 @@ BuildRequires:    R-CRAN-TreeSim
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-yuima 
 Requires:         R-CRAN-ape >= 3.0.6
-Requires:         R-CRAN-distory 
-Requires:         R-CRAN-geiger 
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-CRAN-mvSLOUCH 
@@ -45,6 +41,12 @@ phylogeny and evolution of a suite of traits following the tree. The user
 may define an arbitrary Markov process for the trait and phylogeny.
 Importantly, trait-dependent speciation models are handled and fitted to
 data. See K. Bartoszek, P. Lio' (2019) <doi:10.5506/APhysPolBSupp.12.25>.
+The suggested geiger package can be obtained from CRAN's archive
+<https://cran.r-project.org/src/contrib/Archive/geiger/>, suggested to
+take latest version. Otherwise its required code is present in the pcmabc
+package. The suggested distory package can be obtained from CRAN's archive
+<https://cran.r-project.org/src/contrib/Archive/distory/>, suggested to
+take latest version.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,6 +56,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cvCovEst
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cross-Validated Covariance Matrix Estimation
 
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-RSpectra
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-RMTstat 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-Matrix 
 Requires:         R-stats 
@@ -50,6 +51,7 @@ Requires:         R-CRAN-RSpectra
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-RMTstat 
 
 %description
 An efficient cross-validated approach for covariance matrix estimation,

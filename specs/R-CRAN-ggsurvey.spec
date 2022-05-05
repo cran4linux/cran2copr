@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  EgoCor
-%global packver   0.1.0
+%global packname  ggsurvey
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Presentation of Estimated Exponential Semi-Variograms
+Summary:          Simplifying 'ggplot2' for Survey Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,34 +16,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-geoR 
-BuildRequires:    R-CRAN-SpatialTools 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-hexbin 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-geoR 
-Requires:         R-CRAN-SpatialTools 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-survey 
+Requires:         R-CRAN-hexbin 
+Requires:         R-CRAN-dplyr 
 Requires:         R-stats 
-Requires:         R-CRAN-lme4 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-Rdpack 
 
 %description
-User friendly interface based on the R package 'geoR' to fit exponential
-parametric models to empirical semi-variograms in order to model the
-spatial correlation structure of health data. Geo-located health outcomes
-of survey participants may be used to model spatial effects on health in
-an ego-centred approach. The package contains a range of functions to help
-explore the spatial structure of the data as well as visualize the fit of
-exponential models for various metaparameter combinations with respect to
-the number of lag intervals and maximal distance. Furthermore, the outcome
-of interest can be adjusted for covariates by fitting a linear regression
-in a preliminary step before the semi-variogram fitting process.
+Functions for survey data including svydesign objects from the 'survey'
+package that call 'ggplot2' to make bar charts, histograms, boxplots, and
+hexplots of survey data.
 
 %prep
 %setup -q -c -n %{packname}

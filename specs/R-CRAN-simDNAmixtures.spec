@@ -1,33 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  LS2Wstat
-%global packver   2.1-3
+%global packname  simDNAmixtures
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Multiscale Test of Spatial Stationarity for LS2W Processes
+Summary:          Simulate Forensic DNA Mixtures
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-LS2W >= 1.3.1
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-CRAN-RandomFields 
-Requires:         R-CRAN-LS2W >= 1.3.1
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-spdep 
-Requires:         R-CRAN-RandomFields 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-pedtools 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-pedtools 
 
 %description
-Wavelet-based methods for testing stationarity and quadtree segmenting of
-images, see Taylor et al (2014) <doi:10.1080/00401706.2013.823890>.
+Mixed DNA profiles can be sampled according to models for probabilistic
+genotyping. Peak height variability is modelled using a log normal
+distribution or a gamma distribution. Sample contributors may be related
+according to a pedigree.
 
 %prep
 %setup -q -c -n %{packname}

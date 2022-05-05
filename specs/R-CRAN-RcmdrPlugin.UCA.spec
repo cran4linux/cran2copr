@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RcmdrPlugin.UCA
-%global packver   4.5-1
+%global packver   5.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.5.1
+Version:          5.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          UCA Rcmdr Plug-in
 

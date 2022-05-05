@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  furrr
-%global packver   0.2.3
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Apply Mapping Functions in Parallel using Futures
 
@@ -13,23 +13,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-future >= 1.19.1
-BuildRequires:    R-CRAN-lifecycle >= 1.0.0
-BuildRequires:    R-CRAN-vctrs >= 0.3.2
-BuildRequires:    R-CRAN-purrr >= 0.3.0
-BuildRequires:    R-CRAN-rlang >= 0.3.0
-BuildRequires:    R-CRAN-globals >= 0.13.1
-BuildRequires:    R-CRAN-ellipsis 
-Requires:         R-CRAN-future >= 1.19.1
-Requires:         R-CRAN-lifecycle >= 1.0.0
-Requires:         R-CRAN-vctrs >= 0.3.2
-Requires:         R-CRAN-purrr >= 0.3.0
-Requires:         R-CRAN-rlang >= 0.3.0
-Requires:         R-CRAN-globals >= 0.13.1
-Requires:         R-CRAN-ellipsis 
+BuildRequires:    R-CRAN-future >= 1.25.0
+BuildRequires:    R-CRAN-rlang >= 1.0.2
+BuildRequires:    R-CRAN-lifecycle >= 1.0.1
+BuildRequires:    R-CRAN-vctrs >= 0.4.1
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+BuildRequires:    R-CRAN-globals >= 0.14.0
+Requires:         R-CRAN-future >= 1.25.0
+Requires:         R-CRAN-rlang >= 1.0.2
+Requires:         R-CRAN-lifecycle >= 1.0.1
+Requires:         R-CRAN-vctrs >= 0.4.1
+Requires:         R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-globals >= 0.14.0
 
 %description
 Implementations of the family of map() functions from 'purrr' that can be
@@ -44,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

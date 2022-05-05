@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  spc4sts
-%global packver   0.5.5
+%global packname  partialised
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Process Control for Stochastic Textured Surfaces
+Summary:          Partialised Functions
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,26 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-LS2Wstat 
-BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-LS2Wstat 
-Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-vctrs 
 
 %description
-Provides statistical process control tools for stochastic textured
-surfaces. The current version supports the following tools: (1) generic
-modeling of stochastic textured surfaces. (2) local defect monitoring and
-diagnostics in stochastic textured surfaces, which was proposed by Bui and
-Apley (2018a) <doi:10.1080/00401706.2017.1302362>. (3) global change
-monitoring in the nature of stochastic textured surfaces, which was
-proposed by Bui and Apley (2018b) <doi:10.1080/00224065.2018.1507559>. (4)
-computation of dissimilarity matrix of stochastic textured surface images,
-which was proposed by Bui and Apley (2019b)
-<doi:10.1016/j.csda.2019.01.019>.
+Provides a 'partialised' class that extends the partialising function of
+'purrr' by making it easier to change the arguments. This is similar to
+the function-like object in 'Julia'
+(<https://docs.julialang.org/en/v1/manual/methods/#Function-like-objects>).
 
 %prep
 %setup -q -c -n %{packname}

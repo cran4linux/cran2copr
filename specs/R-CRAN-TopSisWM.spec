@@ -1,45 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  spagmix
-%global packver   0.3-5
+%global packname  TopSisWM
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Artificial Spatial and Spatio-Temporal Densities on Bounded Windows
+Summary:          Multi-Criteria Method for Decision (TOPSIS)
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat >= 2.0.0
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.core 
-BuildRequires:    R-CRAN-spatstat.linnet 
-BuildRequires:    R-CRAN-spatstat.random 
-BuildRequires:    R-CRAN-RandomFields 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-sparr 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-spatstat >= 2.0.0
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.core 
-Requires:         R-CRAN-spatstat.linnet 
-Requires:         R-CRAN-spatstat.random 
-Requires:         R-CRAN-RandomFields 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-sparr 
-Requires:         R-CRAN-mvtnorm 
 
 %description
-A utility package containing some simple tools to design and generate
-density functions on bounded regions in space and space-time, and simulate
-independent, identically distributed data therefrom. See Davies & Lawson
-(2019) <doi:10.1080/00949655.2019.1575066> for example.
+Assists in the TOPSIS analysis process, designed to return at the end of
+the answer of the TOPSIS multicriteria analysis, a ranking table with the
+best option as the analysis proposes. TOPSIS is basically a technique
+developed by Hwang and Yoon in 1981, starting from the point that the best
+alternative should be closest to the positive ideal solution and farthest
+from the negative one, based on several criteria to result in the best
+benefit. (LIU, H. et al., 2019) <doi:10.1016/j.agwat.2019.105787>.
 
 %prep
 %setup -q -c -n %{packname}

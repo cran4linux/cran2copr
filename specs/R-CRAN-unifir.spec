@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cdfquantreg
-%global packver   1.3.1
+%global packname  unifir
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quantile Regression for Random Variables on the Unit Interval
+Summary:          A Unifying API for Calling the 'Unity' '3D' Video Game Engine
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,20 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pracma >= 2.3
-BuildRequires:    R-CRAN-Formula >= 1.2
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-pracma >= 2.3
-Requires:         R-CRAN-Formula >= 1.2
-Requires:         R-stats 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-proceduralnames 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-glue 
+Requires:         R-methods 
+Requires:         R-CRAN-proceduralnames 
+Requires:         R-CRAN-R6 
+Requires:         R-utils 
 
 %description
-Employs a two-parameter family of distributions for modelling random
-variables on the (0, 1) interval by applying the cumulative distribution
-function (cdf) of one parent distribution to the quantile function of
-another.
+Functions for the creation and manipulation of scenes and objects within
+the 'Unity' '3D' video game engine (<https://unity.com/>). Specific
+focuses include the creation and import of terrain data and 'GameObjects'
+as well as scene management.
 
 %prep
 %setup -q -c -n %{packname}

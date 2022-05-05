@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  immunarch
-%global packver   0.6.7
+%global packver   0.6.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.7
+Version:          0.6.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bioinformatics Analysis of T-Cell and B-Cell Immune Repertoires
 
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
 BuildRequires:    R-CRAN-reshape2 >= 1.4.2
 BuildRequires:    R-CRAN-UpSetR >= 1.4.0
 BuildRequires:    R-CRAN-shiny >= 1.4.0
-BuildRequires:    R-CRAN-dbplyr >= 1.4.0
 BuildRequires:    R-CRAN-readxl >= 1.3.1
 BuildRequires:    R-CRAN-data.table >= 1.12.6
 BuildRequires:    R-CRAN-factoextra >= 1.0.4
@@ -43,18 +42,28 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-rlist 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-phangorn 
+BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-stringi 
 Requires:         R-CRAN-MASS >= 7.3
 Requires:         R-CRAN-ggplot2 >= 3.1.0
 Requires:         R-CRAN-reshape2 >= 1.4.2
 Requires:         R-CRAN-UpSetR >= 1.4.0
 Requires:         R-CRAN-shiny >= 1.4.0
-Requires:         R-CRAN-dbplyr >= 1.4.0
 Requires:         R-CRAN-readxl >= 1.3.1
 Requires:         R-CRAN-data.table >= 1.12.6
 Requires:         R-CRAN-factoextra >= 1.0.4
@@ -77,12 +86,23 @@ Requires:         R-CRAN-magrittr
 Requires:         R-methods 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringdist 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-rlist 
+Requires:         R-utils 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-phangorn 
+Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-stringi 
 
 %description
 A comprehensive framework for bioinformatics exploratory analysis of bulk

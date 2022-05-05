@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  familial
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Tests of Familial Hypotheses
 
@@ -26,8 +26,8 @@ Requires:         R-CRAN-DepthProc
 Requires:         R-CRAN-matrixStats 
 
 %description
-Provides functionality for testing familial hypotheses. Currently supports
-tests of the Huber family of centers. Testing is carried out using the
+Provides functionality for testing familial hypotheses. Supports testing
+centers belonging to the Huber family. Testing is carried out using the
 Bayesian bootstrap. One- and two-sample tests are supported, as are
 directional tests. Methods for visualizing output are provided.
 
