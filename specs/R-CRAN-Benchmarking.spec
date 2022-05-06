@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Benchmarking
-%global packver   0.29
+%global packver   0.30
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.29
+Version:          0.30
 Release:          1%{?dist}%{?buildtag}
 Summary:          Benchmark and Frontier Analysis Using DEA and SFA
 
@@ -42,7 +42,7 @@ optimal cost, revenue and profit can be calculated. Evaluation of mergers
 is also supported.  Methods for graphing the technology sets are also
 included. There is also support for comparative methods based on
 Stochastic Frontier Analyses (SFA) and for convex nonparametric least
-squares for convex functions (StoNED). In general, the methods can be used
+squares of convex functions (STONED). In general, the methods can be used
 to solve not only standard models, but also many other model variants. It
 complements the book, Bogetoft and Otto, Benchmarking with DEA, SFA, and
 R, Springer-Verlag, 2011, but can of course also be used as a stand-alone
@@ -51,9 +51,15 @@ package.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -63,6 +69,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

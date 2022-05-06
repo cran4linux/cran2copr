@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  r2dii.analysis
-%global packver   0.1.12
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.12
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Measure Climate Scenario Alignment of Corporate Loans
 
@@ -19,6 +19,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 0.8.5
 BuildRequires:    R-CRAN-rlang >= 0.1.2
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-r2dii.data 
 BuildRequires:    R-CRAN-tidyr 
@@ -27,6 +28,7 @@ BuildRequires:    R-CRAN-zoo
 Requires:         R-CRAN-dplyr >= 0.8.5
 Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-r2dii.data 
 Requires:         R-CRAN-tidyr 

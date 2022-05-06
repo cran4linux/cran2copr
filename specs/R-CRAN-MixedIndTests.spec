@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MixedIndTests
-%global packver   0.8.0
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tests of Randomness and Tests of Independence
 
@@ -36,8 +36,8 @@ arbitrary distribution (discrete, continuous, mixture of both types) and
 for testing independence between random variables with arbitrary
 distributions. The test statistics are based on the multilinear empirical
 copula and multipliers are used to compute P-values. The test of
-independence between random variables appeared in
-<doi:10.1093/biomet/asy059>.
+independence between random variables appeared in Genest, Nešlehová,
+Rémillard & Murphy (2019).
 
 %prep
 %setup -q -c -n %{packname}

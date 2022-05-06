@@ -1,31 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  trimr
-%global packver   1.1.1
+%global packname  riot
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Implementation of Common Response Time Trimming Methods
+Summary:          R Inputs/Outputs for Tractography
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-stats 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
 
 %description
-Provides various commonly-used response time trimming methods, including
-the recursive / moving-criterion methods reported by Van Selst and
-Jolicoeur (1994). By passing trimming functions raw data files, the
-package will return trimmed data ready for inferential testing.
+An input-output interface for reading in and writing out common VTK
+formats that store tractography data. This data comes in the form of 3D
+polygons with possibly attributes at each point. These are obtained via
+tracking algorithms from diffusion MRI and are a non-invasive way of
+studying brain structural connectivity.
 
 %prep
 %setup -q -c -n %{packname}

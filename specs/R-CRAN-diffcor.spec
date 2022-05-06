@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  diffcor
-%global packver   0.7.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fisher's z-Tests Concerning Difference of Correlations
 
@@ -19,18 +19,17 @@ BuildArch:        noarch
 
 %description
 Computations of Fisher's z-tests concerning differences between
-correlations. diffcor.one() could be used to test for differences
-regarding an expected value, e.g., in construct validation. diffcor.two()
-may be useful in replication studies, to test if the original study and
-the replication study differed in terms of effects. diffcor.dep() can be
-applied to check if the correlation between one construct with another one
-(r12) is significantly different/higher/smaller than the correlation of
-one of the constructs with a third construct (r13), given the correlation
-of the constructs that are compared (r23). The outputs for all the three
-functions provide the compared correlations, test statistic in z-units,
-and p-values. For diffcor.one() and diffcor.two(), the output further
-provides confidence intervals of the empirical correlations and the effect
-size Cohens q. According to Cohen (1988), q = |.10|, |.30| and |.50| are
+correlations. diffcor.one() can be used to test whether an expected value
+differs from an observed value, for example, in construct validation.
+diffcor.two() can be used to test if the correlation between two
+constructs differed between two studies. diffcor.dep() can be applied to
+check if the correlation between two constructs (r12) is significantly
+different from the correlation of the first construct with a third one
+(r13), given the intercorrelation of the compared constructs (r23). All
+outputs provide the compared correlations, test statistic in z-units, and
+p-values. For diffcor.one() and diffcor.two(), the output further provides
+confidence intervals of the empirical correlations and the effect size
+Cohens q. According to Cohen (1988), q = |.10|, |.30| and |.50| are
 considered small, moderate, and large differences, respectively.
 
 %prep
@@ -41,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  r2dii.plot
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualize the Climate Scenario Alignment of a Financial Portfolio
 
@@ -24,7 +24,9 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-r2dii.data 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
@@ -33,7 +35,9 @@ Requires:         R-CRAN-glue
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-r2dii.data 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Create plots to visualize the alignment of a corporate lending financial

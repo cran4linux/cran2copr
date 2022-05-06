@@ -1,31 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  trimr
-%global packver   1.1.1
+%global packname  lpcde
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Implementation of Common Response Time Trimming Methods
+Summary:          Boundary Adaptive Local Polynomial Conditional Density Estimator
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.8
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.8
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-stats 
-Requires:         R-CRAN-dplyr 
 
 %description
-Provides various commonly-used response time trimming methods, including
-the recursive / moving-criterion methods reported by Van Selst and
-Jolicoeur (1994). By passing trimming functions raw data files, the
-package will return trimmed data ready for inferential testing.
+Tools for estimation and inference of conditional densities, derivatives
+and functions. This is the companion software for Cattaneo, Chandak,
+Jansson and Ma (2022).
 
 %prep
 %setup -q -c -n %{packname}

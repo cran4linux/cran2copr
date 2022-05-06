@@ -1,45 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  optiRum
-%global packver   0.41.1
+%global packname  bivariatemaps
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.41.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Financial Functions & More
+Summary:          Creates Bivariate Maps
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.9.6
-BuildRequires:    R-CRAN-AUC 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-CRAN-data.table >= 1.9.6
-Requires:         R-CRAN-AUC 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-XML 
+BuildRequires:    R-CRAN-classInt 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-rgeos 
+BuildRequires:    R-CRAN-sp 
+Requires:         R-CRAN-classInt 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-rgeos 
+Requires:         R-CRAN-sp 
 
 %description
-This fills the gaps credit analysts and loan modellers at Optimum Credit
-identify in the existing R code body.  It allows for the production of
-documentation with less coding, replicates a number of Microsoft Excel
-functions useful for modelling loans (without rounding), and other helpful
-functions for producing charts and tables.  It also has some additional
-scales for use, including a GBP scale.
+Contains functions to plot bivariate maps and to generate grids from
+shapefiles based on area coverage. For more info, see: Hidasi-Neto, J
+(2015)
+<https://rfunctions.blogspot.com/2015/03/bivariate-maps-bivariatemap-function.html>,
+Hidasi-Neto, J (2014)
+<https://rfunctions.blogspot.com/2014/12/gridfilter-intersect-grid-with-shape.html>.
 
 %prep
 %setup -q -c -n %{packname}

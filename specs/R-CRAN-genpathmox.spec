@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global packname  genpathmox
-%global packver   0.7
+%global packver   0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Pathmox Approach Segmentation Tree Analysis
+Summary:          Pathmox Approach Segmentation Tree Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-cSEM 
 BuildRequires:    R-CRAN-diagram 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-utils 
+Requires:         R-CRAN-cSEM 
 Requires:         R-CRAN-diagram 
 Requires:         R-methods 
-Requires:         R-CRAN-quantreg 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
 It provides an interesting solution for handling a high number of
@@ -38,8 +36,9 @@ modeling. The package implements the "Pathmox" algorithm (Lamberti,
 Sanchez, and Aluja,(2016)<doi:10.1002/asmb.2168>) including the
 F-coefficient test (Lamberti, Sanchez, and
 Aluja,(2017)<doi:10.1002/asmb.2270>) to detect the path coefficients
-responsible for the identified differences), the hybrid multi-group
-approach (Lamberti (2021) <doi:10.1007/s11135-021-01096-9>).
+responsible for the identified differences). The package also allows
+running the hybrid multi-group approach (Lamberti (2021)
+<doi:10.1007/s11135-021-01096-9>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,31 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  trimr
-%global packver   1.1.1
+%global packname  missSOM
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Implementation of Common Response Time Trimming Methods
+Summary:          Self-Organizing Maps with Built-in Missing Data Imputation
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-stats 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-kpodclustr 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-kpodclustr 
 
 %description
-Provides various commonly-used response time trimming methods, including
-the recursive / moving-criterion methods reported by Van Selst and
-Jolicoeur (1994). By passing trimming functions raw data files, the
-package will return trimmed data ready for inferential testing.
+The Self-Organizing Maps with Built-in Missing Data Imputation. Missing
+values are imputed and regularly updated during the online Kohonen
+algorithm. Our method can be used for data visualisation, clustering or
+imputation of missing data. It is an extension of the online algorithm of
+the 'kohonen' package. The method is described in the article
+"Self-Organizing Maps for Exploration of Partially Observed Data and
+Imputation of Missing Values" by S. Rejeb, C. Duveau, T. Rebafka (2022)
+<arXiv:2202.07963>.
 
 %prep
 %setup -q -c -n %{packname}

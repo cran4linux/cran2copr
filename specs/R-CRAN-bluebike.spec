@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  metaumbrella
-%global packver   1.0.2
+%global packname  bluebike
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Umbrella Review Package for R
+Summary:          Blue Bike Comprehensive Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,30 +16,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-meta 
-BuildRequires:    R-CRAN-powerSurvEpi 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-tcltk 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-writexl 
-BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-meta 
-Requires:         R-CRAN-powerSurvEpi 
-Requires:         R-CRAN-readxl 
-Requires:         R-tcltk 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-writexl 
-Requires:         R-CRAN-xtable 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
 
 %description
-A comprehensive range of facilities to perform umbrella reviews with
-stratification of the evidence in R. The package accomplishes this aim by
-building on three core functions that: (i) automatically perform all
-required calculations in an umbrella review (including but not limited to
-meta-analyses), (ii) stratify evidence according to various classification
-criteria, and (iii) generate a visual representation of the results. Note
-that if you are not familiar with R, the core features of this package are
-available from a web browser (<https://www.metaumbrella.org/>).
+Facilitates the importation of the Boston Blue Bike trip data since 2015.
+Functions include the computation of trip distances of given trip data. It
+can also map the location of stations within a given radius and calculate
+the distance to nearby stations. Data is from
+<https://www.bluebikes.com/system-data>.
 
 %prep
 %setup -q -c -n %{packname}

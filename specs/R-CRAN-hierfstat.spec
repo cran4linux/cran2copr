@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  hierfstat
-%global packver   0.5-10
+%global packver   0.5-11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.10
+Version:          0.5.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation and Tests of Hierarchical F-Statistics
 
@@ -32,11 +32,12 @@ Estimates hierarchical F-statistics from haploid or diploid genetic data
 with any numbers of levels in the hierarchy, following the algorithm of
 Yang (Evolution(1998), 52:950). Tests via randomisations the significance
 of each F and variance components, using the likelihood-ratio statistics G
-(Goudet et al. (1996) <https://www.genetics.org/content/144/4/1933>).
-Estimates genetic diversity statistics for haploid and diploid genetic
-datasets in various formats, including inbreeding and coancestry
-coefficients, and population specific F-statistics following Weir and
-Goudet (2017) <https://www.genetics.org/content/206/4/2085>.
+(Goudet et al. (1996)
+<https://academic.oup.com/genetics/article/144/4/1933/6017091>). Estimates
+genetic diversity statistics for haploid and diploid genetic datasets in
+various formats, including inbreeding and coancestry coefficients, and
+population specific F-statistics following Weir and Goudet (2017)
+<https://academic.oup.com/genetics/article/206/4/2085/6072590>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  terrainr
-%global packver   0.6.1
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Landscape Visualizations in R and 'Unity'
 
@@ -19,25 +19,25 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-magick >= 2.5.0
 BuildRequires:    R-CRAN-sf >= 1.0.5
 BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-unifir 
 BuildRequires:    R-CRAN-units 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-magick >= 2.5.0
 Requires:         R-CRAN-sf >= 1.0.5
 Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rgdal 
 Requires:         R-methods 
 Requires:         R-CRAN-png 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-unifir 
 Requires:         R-CRAN-units 
-Requires:         R-grDevices 
-Requires:         R-CRAN-ggplot2 
 
 %description
 Functions for the retrieval, manipulation, and visualization of

@@ -1,41 +1,55 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tipr
-%global packver   0.4.1
+%global packname  rb3
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tipping Point Analyses
+Summary:          Download and Parse Public Data Released by B3 Exchange
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-bizdays 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-proto 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-sensemakr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-ascii 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-digest 
+Requires:         R-CRAN-bizdays 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-proto 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-sensemakr 
+Requires:         R-CRAN-ascii 
+Requires:         R-CRAN-rlang 
+Requires:         R-methods 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-digest 
 
 %description
-The strength of evidence provided by epidemiological and observational
-studies is inherently limited by the potential for unmeasured confounding.
-We focus on three key quantities: the observed bound of the confidence
-interval closest to the null, a plausible residual effect size for an
-unmeasured continuous or binary confounder, and a realistic mean
-difference or prevalence difference for this hypothetical confounder.
-Building on the methods put forth by Lin, Psaty, & Kronmal (1998)
-<doi:10.2307/2533848>, we can use these quantities to assess how an
-unmeasured confounder may tip our result to insignificance, rendering the
-study inconclusive.
+Download and parse public files released by B3 and convert them into
+useful formats and data structures common to data analysis practitioners.
 
 %prep
 %setup -q -c -n %{packname}
