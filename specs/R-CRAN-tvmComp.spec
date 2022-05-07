@@ -1,40 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  moranajp
-%global packver   0.9.4
+%global packname  tvmComp
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Morphological Analysis for Japanese
+Summary:          Discounting and Compounding Calculations for Various Scenarios
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Supports morphological analysis for Japanese by using 'MeCab'. Can input
-data.frame and obtain all results of 'MeCab' and row number of original
-data.frame as a text id.
+Functions for compounding and discounting calculations included here serve
+as a complete reference for various scenarios of time value of money.
+Raymond M. Brooks (“Financial Management,” 2018, ISBN: 9780134730417).
+Sheridan Titman, Arthur J. Keown, John D. Martin (“Financial Management:
+Principles and Applications,” 2017, ISBN: 9780134417219). Jonathan Berk,
+Peter DeMarzo, David Stangeland, Andras Marosi (“Fundamentals of Corporate
+Finance,” 2019, ISBN: 9780134735313). S. A. Hummelbrunner, Kelly Halliday,
+Ali R. Hassanlou (“Contemporary Business Mathematics with Canadian
+Applications,” 2020, ISBN: 9780135285015).
 
 %prep
 %setup -q -c -n %{packname}

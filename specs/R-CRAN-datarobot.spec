@@ -1,40 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  moranajp
-%global packver   0.9.4
+%global packname  datarobot
+%global packver   2.18.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          2.18.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Morphological Analysis for Japanese
+Summary:          'DataRobot' Predictive Modeling API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-yaml >= 2.1.19
+BuildRequires:    R-CRAN-httr >= 1.2.0
+BuildRequires:    R-CRAN-jsonlite >= 1.0
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-yaml >= 2.1.19
+Requires:         R-CRAN-httr >= 1.2.0
+Requires:         R-CRAN-jsonlite >= 1.0
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Supports morphological analysis for Japanese by using 'MeCab'. Can input
-data.frame and obtain all results of 'MeCab' and row number of original
-data.frame as a text id.
+For working with the 'DataRobot' predictive modeling platform's API
+<https://www.datarobot.com/>.
 
 %prep
 %setup -q -c -n %{packname}

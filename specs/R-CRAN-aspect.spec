@@ -1,40 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  moranajp
-%global packver   0.9.4
+%global packname  aspect
+%global packver   1.0-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Morphological Analysis for Japanese
+Summary:          A General Framework for Multivariate Analysis with Optimal Scaling
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-Supports morphological analysis for Japanese by using 'MeCab'. Can input
-data.frame and obtain all results of 'MeCab' and row number of original
-data.frame as a text id.
+Contains various functions for optimal scaling. One function performs
+optimal scaling by maximizing an aspect (i.e. a target function such as
+the sum of eigenvalues, sum of squared correlations, squared multiple
+correlations, etc.) of the corresponding correlation matrix. Another
+function performs implements the LINEALS approach for optimal scaling by
+minimization of an aspect based on pairwise correlations and correlation
+ratios. The resulting correlation matrix and category scores can be used
+for further multivariate methods such as structural equation models.
 
 %prep
 %setup -q -c -n %{packname}

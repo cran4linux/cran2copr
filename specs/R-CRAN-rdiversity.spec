@@ -1,40 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  moranajp
-%global packver   0.9.4
+%global packname  rdiversity
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Morphological Analysis for Japanese
+Summary:          Measurement and Partitioning of Similarity-Sensitive Biodiversity
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-utils 
+Requires:         R-methods 
+Requires:         R-CRAN-reshape2 
+Requires:         R-stats 
+Requires:         R-CRAN-stringdist 
+Requires:         R-utils 
 
 %description
-Supports morphological analysis for Japanese by using 'MeCab'. Can input
-data.frame and obtain all results of 'MeCab' and row number of original
-data.frame as a text id.
+Provides a framework for the measurement and partitioning of the
+(similarity-sensitive) biodiversity of a metacommunity and its constituent
+subcommunities. Richard Reeve, et al. (2016) <arXiv:1404.6520v3>.
 
 %prep
 %setup -q -c -n %{packname}

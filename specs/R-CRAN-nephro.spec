@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  nephro
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
-Release:          3%{?dist}%{?buildtag}
+Version:          1.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Nephrology
 
 License:          GPL (>= 3)
@@ -18,17 +18,27 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Set of functions to estimate renal function and other phenotypes of
+Set of functions to estimate kidney function and other phenotypes of
 interest in nephrology based on different biomechimal traits. MDRD,
 CKD-EPI, and Virga equations are compared in Pattaro (2013)
 <doi:10.1159/000351043>, where the respective references are given. In
 addition, the software includes Stevens (2008)
 <doi:10.1053/j.ajkd.2007.11.018> and Cockroft (1976)
-<doi:10.1159/000180580> formulas.
+<doi:10.1159/000180580> formulas. The race-free CKD-EPI equations (2021)
+<doi:10.1056/NEJMoa2102953> are also implemented from ver.1.3.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -36,16 +46,10 @@ addition, the software includes Stevens (2008)
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

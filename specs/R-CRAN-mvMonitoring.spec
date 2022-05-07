@@ -1,40 +1,50 @@
 %global __brp_check_rpaths %{nil}
-%global packname  moranajp
-%global packver   0.9.4
+%global packname  mvMonitoring
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Morphological Analysis for Japanese
+Summary:          Multi-State Adaptive Dynamic Principal Component Analysis for Multivariate Process Monitoring
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-lazyeval 
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-lazyeval 
+Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-robustbase 
+Requires:         R-graphics 
 
 %description
-Supports morphological analysis for Japanese by using 'MeCab'. Can input
-data.frame and obtain all results of 'MeCab' and row number of original
-data.frame as a text id.
+Use multi-state splitting to apply Adaptive-Dynamic PCA (ADPCA) to data
+generated from a continuous-time multivariate industrial or natural
+process. Employ PCA-based dimension reduction to extract linear
+combinations of relevant features, reducing computational burdens. For a
+description of ADPCA, see <doi:10.1007/s00477-016-1246-2>, the 2016 paper
+from Kazor et al. The multi-state application of ADPCA is from a
+manuscript under current revision entitled "Multi-State Multivariate
+Statistical Process Control" by Odom, Newhart, Cath, and Hering, and is
+expected to appear in Q1 of 2018.
 
 %prep
 %setup -q -c -n %{packname}

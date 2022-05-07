@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  GenericML
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generic Machine Learning Inference
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-lmtest
 BuildRequires:    R-CRAN-splitstackshape 
 BuildRequires:    R-stats 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-abind 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-mlr3 
 Requires:         R-CRAN-mlr3learners 
@@ -32,6 +33,7 @@ Requires:         R-CRAN-lmtest
 Requires:         R-CRAN-splitstackshape 
 Requires:         R-stats 
 Requires:         R-parallel 
+Requires:         R-CRAN-abind 
 
 %description
 Generic Machine Learning Inference on heterogeneous treatment effects in

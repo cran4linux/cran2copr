@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rim
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          R's Interface to Maxima, Bringing Symbolic Computation into R
 
@@ -19,15 +19,11 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-GlobalOptions 
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-GlobalOptions 
 
 %description

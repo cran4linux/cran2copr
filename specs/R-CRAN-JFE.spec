@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  JFE
-%global packver   2.5.2
+%global packver   2.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.2
+Version:          2.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools and GUI for Analyzing Time Series Data of Just Finance and Econometrics
 
@@ -14,27 +14,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    xorg-x11-server-Xvfb
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-fPortfolio 
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-tcltk 
 BuildRequires:    R-CRAN-tcltk2 
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-fPortfolio 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-magrittr 
 Requires:         R-tcltk 
 Requires:         R-CRAN-tcltk2 
 Requires:         R-CRAN-zoo 
 
 %description
 Support the analysis of financial and econometric time series, including
-recursive forecasts for machine learning.
+data download.
 
 %prep
 %setup -q -c -n %{packname}

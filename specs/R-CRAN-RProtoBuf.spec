@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RProtoBuf
-%global packver   0.4.18
+%global packver   0.4.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.18
+Version:          0.4.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to the 'Protocol Buffers' 'API' (Version 2 or 3)
 
@@ -33,8 +33,9 @@ Protocol Buffers are a way of encoding structured data in an efficient yet
 extensible format. Google uses Protocol Buffers for almost all of its
 internal 'RPC' protocols and file formats.  Additional documentation is
 available in two included vignettes one of which corresponds to our 'JSS'
-paper (2016, <doi:10.18637/jss.v071.i02>. Either version 2 or 3 of the
-'Protocol Buffers' 'API' is supported.
+paper (2016, <doi:10.18637/jss.v071.i02>. A sufficiently recent version of
+'Protocol Buffers' library is required; currently version 3.3.0 from 2017
+is the stated minimum.
 
 %prep
 %setup -q -c -n %{packname}

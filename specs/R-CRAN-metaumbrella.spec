@@ -1,41 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  pandocfilters
-%global packver   0.1-5
+%global packname  metaumbrella
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pandoc Filters for R
+Summary:          Umbrella Review Package for R
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         pandoc
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-meta 
+BuildRequires:    R-CRAN-powerSurvEpi 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-tcltk 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-writexl 
+BuildRequires:    R-CRAN-xtable 
+Requires:         R-CRAN-meta 
+Requires:         R-CRAN-powerSurvEpi 
+Requires:         R-CRAN-readxl 
+Requires:         R-tcltk 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-writexl 
+Requires:         R-CRAN-xtable 
 
 %description
-The document converter 'pandoc' <https://pandoc.org/> is widely used in
-the R community. One feature of 'pandoc' is that it can produce and
-consume JSON-formatted abstract syntax trees (AST). This allows to
-transform a given source document into JSON-formatted AST, alter it by so
-called filters and pass the altered JSON-formatted AST back to 'pandoc'.
-This package provides functions which allow to write such filters in
-native R code. Although this package is inspired by the Python package
-'pandocfilters' <https://github.com/jgm/pandocfilters/>, it provides
-additional convenience functions which make it simple to use the
-'pandocfilters' package as a report generator. Since 'pandocfilters'
-inherits most of it's functionality from 'pandoc' it can create documents
-in many formats (for more information see <https://pandoc.org/>) but is
-also bound to the same limitations as 'pandoc'.
+A comprehensive range of facilities to perform umbrella reviews with
+stratification of the evidence in R. The package accomplishes this aim by
+building on three core functions that: (i) automatically perform all
+required calculations in an umbrella review (including but not limited to
+meta-analyses), (ii) stratify evidence according to various classification
+criteria, and (iii) generate a visual representation of the results. Note
+that if you are not familiar with R, the core features of this package are
+available from a web browser (<https://www.metaumbrella.org/>).
 
 %prep
 %setup -q -c -n %{packname}
