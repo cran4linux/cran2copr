@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  LA
-%global packver   0.1.3
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lioness Algorithm (LA)
 
@@ -15,13 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-LHD >= 1.3.3
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-LHD >= 1.3.3
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Contains Lioness Algorithm (LA) for finding optimal designs over

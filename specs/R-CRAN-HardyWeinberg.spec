@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  HardyWeinberg
-%global packver   1.7.4
+%global packver   1.7.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.4
+Version:          1.7.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Tests and Graphics for Hardy-Weinberg Equilibrium
 
@@ -26,23 +26,22 @@ Requires:         R-CRAN-Rcpp
 
 %description
 Contains tools for exploring Hardy-Weinberg equilibrium (Hardy, 1908;
-Weinberg, 1908) <doi:10.1126/science.28.706.49> for bi and multi-allelic
-genetic marker data. All classical tests (chi-square, exact,
-likelihood-ratio and permutation tests) with bi-allelic variants are
-included in the package, as well as functions for power computation and
-for the simulation of marker data under equilibrium and disequilibrium.
-Routines for dealing with markers on the X-chromosome are included
-(Graffelman & Weir, 2016) <doi: 10.1038/hdy.2016.20>, including Bayesian
-procedures. Some exact and permutation procedures also work with
-multi-allelic variants. Special test procedures that jointly address
-Hardy-Weinberg equilibrium and equality of allele frequencies in both
-sexes are supplied, for the bi and multi-allelic case. Functions for
-testing equilibrium in the presence of missing data by using multiple
-imputation are also provided. Implements several graphics for exploring
-the equilibrium status of a large set of bi-allelic markers: ternary plots
-with acceptance regions, log-ratio plots and Q-Q plots. The functionality
-of the package is explained in detail in a related JSS paper
-<doi:10.18637/jss.v064.i03>.
+Weinberg, 1908) for bi and multi-allelic genetic marker data. All
+classical tests (chi-square, exact, likelihood-ratio and permutation
+tests) with bi-allelic variants are included in the package, as well as
+functions for power computation and for the simulation of marker data
+under equilibrium and disequilibrium. Routines for dealing with markers on
+the X-chromosome are included (Graffelman & Weir, 2016)
+<doi:10.1038/hdy.2016.20>, including Bayesian procedures. Some exact and
+permutation procedures also work with multi-allelic variants. Special test
+procedures that jointly address Hardy-Weinberg equilibrium and equality of
+allele frequencies in both sexes are supplied, for the bi and
+multi-allelic case. Functions for testing equilibrium in the presence of
+missing data by using multiple imputation are also provided. Implements
+several graphics for exploring the equilibrium status of a large set of
+bi-allelic markers: ternary plots with acceptance regions, log-ratio plots
+and Q-Q plots. The functionality of the package is explained in detail in
+a related JSS paper <doi:10.18637/jss.v064.i03>.
 
 %prep
 %setup -q -c -n %{packname}

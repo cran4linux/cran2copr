@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  GSODR
-%global packver   3.1.4
+%global packver   3.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.4
+Version:          3.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Global Surface Summary of the Day ('GSOD') Weather Data Client
 

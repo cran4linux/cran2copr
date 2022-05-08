@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  GPFDA
-%global packver   3.1.1
+%global packver   3.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          3.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gaussian Process for Functional Data Analysis
 

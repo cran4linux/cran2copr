@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tscopula
-%global packver   0.2.1
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series Copula Models
 
@@ -20,32 +20,35 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
+BuildRequires:    R-stats4 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-FKF 
 BuildRequires:    R-CRAN-ltsa 
 BuildRequires:    R-CRAN-rvinecopulib 
-BuildRequires:    R-CRAN-FitAR 
 BuildRequires:    R-CRAN-arfima 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-kdensity 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-utils 
+Requires:         R-stats4 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-FKF 
 Requires:         R-CRAN-ltsa 
 Requires:         R-CRAN-rvinecopulib 
-Requires:         R-CRAN-FitAR 
 Requires:         R-CRAN-arfima 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-kdensity 
 
 %description
 Functions for the analysis of time series using copula models. The package
 is based on methodology described in the following references. McNeil,
-A.J. (2021) <doi:10.3390/risks9010014>, Bladt, M., & McNeil, A.J. (2020)
-<arXiv:2006.11088>.
+A.J. (2021) <doi:10.3390/risks9010014>, Bladt, M., & McNeil, A.J. (2021)
+<doi:10.1016/j.ecosta.2021.07.004>, Bladt, M., & McNeil, A.J. (2021)
+<arXiv:2107.00960>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -55,6 +58,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
