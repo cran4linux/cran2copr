@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tensorTS
-%global packver   0.1.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Factor and Autoregressive Models for Tensor Time Series
 
@@ -41,8 +41,9 @@ Requires:         R-graphics
 Factor and autoregressive models for matrix and tensor valued time series.
 We provide functions for estimation, simulation and prediction. The models
 are discussed in Li et al (2021) <arXiv:2110.00928>, Chen et al (2020)
-<DOI:10.1016/j.jeconom.2020.07.015>, Chen et al (2020) <arXiv:1905.07530>,
-and Xiao et al (2020) <arXiv:2006.02611>.
+<DOI:10.1080/01621459.2021.1912757>, Chen et al (2020)
+<DOI:10.1016/j.jeconom.2020.07.015>, and Xiao et al (2020)
+<arXiv:2006.02611>.
 
 %prep
 %setup -q -c -n %{packname}
