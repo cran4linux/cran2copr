@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ggRandomForests
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visually Exploring Random Forests
 
@@ -17,17 +17,17 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-randomForestSRC >= 1.5.5
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-randomForestSRC >= 1.5.5
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-survival 
 Requires:         R-parallel 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Graphic elements for exploring Random Forests using the 'randomForest' or

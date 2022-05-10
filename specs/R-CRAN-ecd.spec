@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ecd
-%global packver   0.9.2.2
+%global packver   0.9.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2.2
+Version:          0.9.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Elliptic Lambda Distribution and Option Pricing Model
 
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-Rmpfr >= 0.6.0
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-gsl 
-BuildRequires:    R-CRAN-RcppFaddeeva 
 BuildRequires:    R-CRAN-polynom 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-zoo 
@@ -40,7 +39,6 @@ Requires:         R-CRAN-Rmpfr >= 0.6.0
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-gsl 
-Requires:         R-CRAN-RcppFaddeeva 
 Requires:         R-CRAN-polynom 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-zoo 

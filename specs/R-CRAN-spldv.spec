@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spldv
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Models for Limited Dependent Variables
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-car
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-spatialreg 
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-maxLik 
@@ -36,6 +37,7 @@ Requires:         R-CRAN-car
 Requires:         R-methods 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-spatialreg 
 
 %description
 The current version of this package estimates spatial autoregressive

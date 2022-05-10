@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  betaBayes
-%global packver   1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Beta Regression
 
@@ -17,14 +17,10 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.4.300.0
 BuildRequires:    R-CRAN-Rcpp >= 0.11.1
-BuildRequires:    R-splines 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-betareg 
 Requires:         R-CRAN-Rcpp >= 0.11.1
-Requires:         R-splines 
 Requires:         R-methods 
-Requires:         R-CRAN-coda 
 Requires:         R-CRAN-betareg 
 
 %description
@@ -36,9 +32,8 @@ function. When the response support is known to be (0,1), the above class
 of models reduce to traditional (0,1) supported beta regression models.
 Model choice is carried out via the logarithm of the pseudo marginal
 likelihood (LPML), the deviance information criterion (DIC), and the
-Watanabe-Akaike information criterion (WAIC). See Zhou and Huang (2021,
-"Bayesian beta regression for bounded responses with unknown supports")
-<https://sites.google.com/view/haimingzhou/research>.
+Watanabe-Akaike information criterion (WAIC). See Zhou and Huang (2022)
+<doi:10.1016/j.csda.2021.107345>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,6 +43,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

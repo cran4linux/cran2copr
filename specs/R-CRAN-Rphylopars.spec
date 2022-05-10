@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Rphylopars
-%global packver   0.3.2
+%global packver   0.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Phylogenetic Comparative Tools for Missing Data and Within-Species Variation
 
@@ -18,20 +18,20 @@ Requires:         R-core
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-doBy 
-BuildRequires:    R-CRAN-geiger 
 BuildRequires:    R-CRAN-phylolm 
 BuildRequires:    R-CRAN-phytools 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-doBy 
-Requires:         R-CRAN-geiger 
 Requires:         R-CRAN-phylolm 
 Requires:         R-CRAN-phytools 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-numDeriv 
 
 %description
 Tools for performing phylogenetic comparative methods for datasets with
@@ -50,6 +50,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

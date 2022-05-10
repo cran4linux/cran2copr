@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  openeo
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Client Interface for 'openEO' Servers
 
@@ -16,18 +16,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 >= 0.2.0
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-IRdisplay 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-httr2 >= 0.2.0
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
 Requires:         R-methods 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-IRdisplay 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-rlang 
 
 %description
 Access data and processing functionalities of 'openEO' compliant back-ends

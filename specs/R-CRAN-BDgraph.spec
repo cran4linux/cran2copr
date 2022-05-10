@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BDgraph
-%global packver   2.66
+%global packver   2.67
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.66
+Version:          2.67
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Structure Learning in Graphical Models using Birth-Death MCMC
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-CRAN-igraph 
 Requires:         R-CRAN-igraph 
 

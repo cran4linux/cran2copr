@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RRphylo
-%global packver   2.6.0
+%global packver   2.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.0
+Version:          2.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Phylogenetic Ridge Regression Methods for Comparative Studies
 
@@ -19,7 +19,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-emmeans >= 1.4.3
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-phytools 
-BuildRequires:    R-CRAN-geiger 
 BuildRequires:    R-stats4 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
@@ -27,14 +26,13 @@ BuildRequires:    R-parallel
 Requires:         R-CRAN-emmeans >= 1.4.3
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-phytools 
-Requires:         R-CRAN-geiger 
 Requires:         R-stats4 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 
 
 %description
-Functions for phylogenetic analysis (Castiglione et al, 2018
+Functions for phylogenetic analysis (Castiglione et al., 2018
 <doi:10.1111/2041-210X.12954>). The functions perform the estimation of
 phenotypic evolutionary rates, identification of phenotypic evolutionary
 rate shifts, quantification of direction and size of evolutionary change

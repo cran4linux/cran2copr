@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  plpoisson
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prediction Limits for Poisson Distribution
 
@@ -21,7 +21,8 @@ Prediction limits for the Poisson distribution are produced from both
 frequentist and Bayesian viewpoints. Limiting results are provided in a
 Bayesian setting with uniform, Jeffreys and gamma as prior distributions.
 More details on the methodology are discussed in Bejleri and Nandram
-(2018) <doi:10.1080/03610926.2017.1373814>.
+(2018) <doi:10.1080/03610926.2017.1373814> and Bejleri, Sartore and
+Nandram (2021) <doi:10.1007/s42952-021-00157-x>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -31,6 +32,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

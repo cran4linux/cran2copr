@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  StratigrapheR
-%global packver   1.2.4
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integrated Stratigraphy
 
@@ -43,10 +43,10 @@ base graphics, interval management functions and svg importation functions
 among others. Also include stereographic projection functions, and other
 functions made to deal with large datasets while keeping options to get
 into the details of the data. When using for publication please cite
-Wouters, S., Da Silva, A.-C., Boulvain, F., and Devleeschouwer, X.. In
-press. StratigrapheR: Concepts for Litholog Generation in R. The R
-Journal. The palaeomagnetism functions are based on: Tauxe, L., 2010.
-Essentials of Paleomagnetism. University of California Press.
+Sebastien Wouters, Anne-Christine Da Silva, Frederic Boulvain and Xavier
+Devleeschouwer, 2021. The R Journal 13:2, 153-178. The palaeomagnetism
+functions are based on: Tauxe, L., 2010. Essentials of Paleomagnetism.
+University of California Press.
 <https://earthref.org/MagIC/books/Tauxe/Essentials/>; Allmendinger, R. W.,
 Cardozo, N. C., and Fisher, D., 2013, Structural Geology Algorithms:
 Vectors & Tensors: Cambridge, England, Cambridge University Press, 289

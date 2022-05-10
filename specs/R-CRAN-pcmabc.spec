@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pcmabc
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Approximate Bayesian Computations for Phylogenetic Comparative Methods
 
@@ -22,7 +22,6 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-mvSLOUCH 
 BuildRequires:    R-CRAN-phangorn 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-TreeSim 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-yuima 
 Requires:         R-CRAN-ape >= 3.0.6
@@ -31,7 +30,6 @@ Requires:         R-methods
 Requires:         R-CRAN-mvSLOUCH 
 Requires:         R-CRAN-phangorn 
 Requires:         R-stats 
-Requires:         R-CRAN-TreeSim 
 Requires:         R-utils 
 Requires:         R-CRAN-yuima 
 

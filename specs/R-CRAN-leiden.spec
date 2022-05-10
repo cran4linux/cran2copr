@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  leiden
-%global packver   0.3.10
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Implementation of Leiden Clustering Algorithm
 
@@ -16,14 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-igraph >= 1.2.7
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-igraph 
+Requires:         R-CRAN-igraph >= 1.2.7
 Requires:         R-methods 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-igraph 
 
 %description
 Implements the 'Python leidenalg' module to be called in R. Enables

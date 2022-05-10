@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  domir
-%global packver   0.3.0
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Support Relative Importance Analysis
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sentopics
-%global packver   0.6.2
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Joint Sentiment and Topic Analysis of Textual Data
 
@@ -13,16 +13,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-quanteda >= 3.2.0
 BuildRequires:    R-CRAN-data.table >= 1.13.6
 BuildRequires:    R-CRAN-Rcpp >= 1.0.4.6
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-doFuture 
-BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-RcppHungarian 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppProgress 
@@ -30,10 +26,6 @@ Requires:         R-CRAN-quanteda >= 3.2.0
 Requires:         R-CRAN-data.table >= 1.13.6
 Requires:         R-CRAN-Rcpp >= 1.0.4.6
 Requires:         R-methods 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-doFuture 
-Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-RcppHungarian 
 
 %description

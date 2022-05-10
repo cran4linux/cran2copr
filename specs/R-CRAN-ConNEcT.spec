@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ConNEcT
-%global packver   0.7.26
+%global packver   0.7.27
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.26
+Version:          0.7.27
 Release:          1%{?dist}%{?buildtag}
 Summary:          Contingency Measure-Based Networks for Binary Time Series
 
@@ -17,11 +17,9 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-qgraph 
-BuildRequires:    R-CRAN-Rlab 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 Requires:         R-CRAN-qgraph 
-Requires:         R-CRAN-Rlab 
 Requires:         R-stats 
 Requires:         R-graphics 
 
@@ -44,7 +42,7 @@ the prevalence. The association strength between the variables defines the
 undirected (concurrent) or directed (temporal sequenced) links between the
 nodes. The results of the non-parametric significance test can be included
 by depicting either all links or only the significant ones. Tutorial see
-Bodner et al.(2021) <doi: 10.31234/osf.io/2w864>.
+Bodner et al.(2021) <doi:10.3758/s13428-021-01760-w>.
 
 %prep
 %setup -q -c -n %{packname}
