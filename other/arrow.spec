@@ -48,7 +48,7 @@ Summary:	Apache Arrow is a data processing library for analysis
 
 License:	ASL 2.0
 URL:		https://arrow.apache.org/
-Source0:	https://dist.apache.org/repos/dist/release/%{name}/%{name}-%{version}/apache-%{name}-%{version}.tar.gz
+Source0:	https://github.com/apache/arrow/archive/refs/tags/apache-%{name}-%{version}.tar.gz
 
 BuildRequires:	meson
 BuildRequires:	bison
@@ -106,13 +106,13 @@ BuildRequires:	gtk-doc
 Apache Arrow is a data processing library for analysis.
 
 %prep
-%setup -q -n apache-%{name}-%{version}
+%setup -q -n arrow-apache-%{name}-%{version}
 
 %build
 cpp_build_type=release
 mkdir cpp/build
 cd cpp/build
-%cmake3 .. \
+%cmake3 -S .. \
   -DARROW_CSV=ON \
   -DARROW_DATASET=ON \
 %if %{use_flight}

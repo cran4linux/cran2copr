@@ -13,7 +13,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    arrow-dataset-devel
+BuildRequires:    libarrow-dataset-devel
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildRequires:    R-CRAN-tidyselect >= 1.0.0
