@@ -1,38 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  PHInfiniteEstimates
+%global packname  BayesRGMM
 %global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Inference in the Presence of a Monotone Likelihood
+Summary:          Bayesian Robust Generalized Mixed Models for Longitudinal Data
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Rdpack >= 0.7
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-lpSolve 
-BuildRequires:    R-CRAN-mlogit 
-BuildRequires:    R-CRAN-coxphf 
-Requires:         R-CRAN-Rdpack >= 0.7
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-lpSolve 
-Requires:         R-CRAN-mlogit 
-Requires:         R-CRAN-coxphf 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-batchmeans 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-reshape 
+BuildRequires:    R-CRAN-msm 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppDist 
+Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-batchmeans 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-reshape 
+Requires:         R-CRAN-msm 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Proportional hazards estimation in the presence of a partially monotone
-likelihood has difficulties, in that finite estimators do not exist.
-These difficulties are related to those arising from logistic and
-multinomial regression.  References for methods are given in the separate
-function documents.  Supported by grant NSF DMS 1712839.
+To perform model estimation using MCMC algorithms with Bayesian methods
+for incomplete longitudinal studies on binary and ordinal outcomes that
+are measured repeatedly on subjects over time with drop-outs. Details
+about the method can be found in the vignette or
+<https://sites.google.com/view/kuojunglee/r-packages/bayesrgmm>.
 
 %prep
 %setup -q -c -n %{packname}

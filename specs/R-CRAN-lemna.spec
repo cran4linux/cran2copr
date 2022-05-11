@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  lemna
-%global packver   0.9.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lemna Ecotox Effect Model
 
@@ -23,12 +23,13 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-gridExtra 
 
 %description
-An implementation of model equations and default parameters for the
-toxicokinetic-toxicodynamic (TKTD) model of the Lemna (duckweed) aquatic
-plant. Lemna is a standard test macrophyte used in ecotox effect studies.
-The model was described and published by the SETAC Europe Interest Group
-Effect Modeling. It is a refined description of the Lemna TKTD model
-published by Schmitt et al. (2013) <doi:10.1016/j.ecolmodel.2013.01.017>.
+The reference implementation of model equations and default parameters for
+the toxicokinetic-toxicodynamic (TKTD) model of the Lemna (duckweed)
+aquatic plant. Lemna is a standard test macrophyte used in ecotox effect
+studies. The model was described and published by the SETAC Europe
+Interest Group Effect Modeling. It is a refined description of the Lemna
+TKTD model published by Schmitt et al. (2013)
+<doi:10.1016/j.ecolmodel.2013.01.017>.
 
 %prep
 %setup -q -c -n %{packname}

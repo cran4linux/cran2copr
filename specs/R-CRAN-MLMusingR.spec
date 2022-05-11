@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MLMusingR
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Practical Multilevel Modeling
 
@@ -20,10 +20,12 @@ BuildRequires:    R-CRAN-lme4
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-lme4 
 Requires:         R-stats 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
 
 %description
 Convenience functions and datasets to be used with Practical Multilevel
@@ -31,9 +33,10 @@ Modeling using R. The package includes functions for calculating group
 means, group mean centered variables, and displaying some basic missing
 data information. A function for computing robust standard errors for
 linear mixed models based on Liang and Zeger (1986)
-<doi:10.1093/biomet/73.1.13> is included as well as a function for
-checking for level-one homoskedasticity (Raudenbush & Bryk, 2002,
-ISBN:076191904X).
+<doi:10.1093/biomet/73.1.13> and Bell and 'McCaffrey' (2002)
+<https://www150.statcan.gc.ca/n1/en/pub/12-001-x/2002002/article/9058-eng.pdf?st=NxMjN1YZ>
+is included as well as a function for checking for level-one
+homoskedasticity (Raudenbush & Bryk, 2002, ISBN:076191904X).
 
 %prep
 %setup -q -c -n %{packname}

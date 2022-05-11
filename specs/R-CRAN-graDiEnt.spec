@@ -1,40 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  PL94171
-%global packver   1.0.2
+%global packname  graDiEnt
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tabulate P.L. 94-171 Redistricting Data Summary Files
+Summary:          Stochastic Quasi-Gradient Differential Evolution Optimization
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-tigris 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-tigris 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-doParallel 
+Requires:         R-stats 
+Requires:         R-CRAN-doParallel 
 
 %description
-Tools to process legacy format summary redistricting data files produced
-by the United States Census Bureau pursuant to P.L. 94-171. These files
-are generally available earlier but are difficult to work with as-is.
+An optim-style implementation of the Stochastic Quasi-Gradient
+Differential Evolution (SQG-DE) optimization algorithm first published by
+Sala, Baldanzini, and Pierini (2018; <doi:10.1007/978-3-319-72926-8_27>).
+This optimization algorithm fuses the robustness of the population-based
+global optimization algorithm "Differential Evolution" with the efficiency
+of gradient-based optimization. The derivative-free algorithm uses
+population members to build stochastic gradient estimates, without any
+additional objective function evaluations. Sala, Baldanzini, and Pierini
+argue this algorithm is useful for 'difficult optimization problems under
+a tight function evaluation budget.' This package can run SQG-DE in
+parallel and sequentially.
 
 %prep
 %setup -q -c -n %{packname}

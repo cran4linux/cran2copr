@@ -1,40 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  PL94171
-%global packver   1.0.2
+%global packname  COMIX
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tabulate P.L. 94-171 Redistricting Data Summary Files
+Summary:          Coarsened Mixtures of Hierarchical Skew Kernels
 
-License:          MIT + file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-tigris 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-tigris 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.12.18
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-RcppNumerical 
+Requires:         R-CRAN-Rcpp >= 0.12.18
 
 %description
-Tools to process legacy format summary redistricting data files produced
-by the United States Census Bureau pursuant to P.L. 94-171. These files
-are generally available earlier but are difficult to work with as-is.
+Bayesian fit of a Dirichlet Process Mixture with hierarchical multivariate
+skew normal kernels and coarsened posteriors. For more information, see
+Gorsky, Chan and Ma (2020) <arXiv:2001.06451>.
 
 %prep
 %setup -q -c -n %{packname}

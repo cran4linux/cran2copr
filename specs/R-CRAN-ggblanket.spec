@@ -1,48 +1,49 @@
 %global __brp_check_rpaths %{nil}
-%global packname  CCAMLRGIS
-%global packver   4.0.0
+%global packname  ggblanket
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Antarctic Spatial Data Manipulation
+Summary:          Wrappers to Make Beautiful 'ggplot2' Visualisation Simpler
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-snakecase 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-viridis 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-terra 
-Requires:         R-graphics 
-Requires:         R-CRAN-raster 
-Requires:         R-grDevices 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-snakecase 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-viridis 
 
 %description
-Loads and creates spatial data, including layers and tools that are
-relevant to the activities of the Commission for the Conservation of
-Antarctic Marine Living Resources. Provides two categories of functions:
-load functions and create functions. Load functions are used to import
-existing spatial layers from the online CCAMLR GIS such as the ASD
-boundaries. Create functions are used to create layers from user data such
-as polygons and grids.
+Wrapper functions around the amazing 'ggplot2' package with the objective
+to make beautiful 'ggplot2' visualisation simpler.
 
 %prep
 %setup -q -c -n %{packname}

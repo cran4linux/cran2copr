@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  riot
-%global packver   0.0.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Inputs/Outputs for Tractography
 
@@ -20,11 +20,13 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
 
 %description
 An input-output interface for reading in and writing out common VTK

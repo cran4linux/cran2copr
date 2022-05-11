@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  N2H4
-%global packver   0.6.1
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Handling Methods for Naver News Text Crawling
 
@@ -21,15 +21,15 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-urltools 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-urltools 
+Requires:         R-methods 
 
 %description
 Provides some functions to get Korean text sample from news articles in

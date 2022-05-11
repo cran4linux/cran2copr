@@ -1,45 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  regport
-%global packver   0.3.0
+%global packname  intccr
+%global packver   3.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          3.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regression Model Processing Port
+Summary:          Semiparametric Competing Risks Regression under Interval Censoring
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.4.11
-BuildRequires:    R-CRAN-broom.helpers 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forestploter 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-parameters 
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-alabama 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-splines2 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-rlang >= 0.4.11
-Requires:         R-CRAN-broom.helpers 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forestploter 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-parameters 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-alabama 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-MASS 
+Requires:         R-parallel 
+Requires:         R-CRAN-splines2 
 Requires:         R-stats 
-Requires:         R-CRAN-survival 
+Requires:         R-utils 
 
 %description
-Provides R6 classes, methods and utilities to construct, analyze,
-summarize, and visualize regression models.
+Semiparametric regression models on the cumulative incidence function for
+interval-censored competing risks data as described in Bakoyannis, Yu, &
+Yiannoutsos (2017) /doi{10.1002/sim.7350} and the models with missing
+event types as described in Park, Bakoyannis, Zhang, & Yiannoutsos (2021)
+doi{10.1093/biostatistics/kxaa052}. The proportional subdistribution
+hazards model (Fine-Gray model), the proportional odds model, and other
+models that belong to the class of semiparametric generalized odds rate
+transformation models.
 
 %prep
 %setup -q -c -n %{packname}

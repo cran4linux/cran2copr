@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  PhageCocktail
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Design of the Best Phage Cocktail
 
@@ -55,7 +55,12 @@ function has one phage per cluster, it calculates Phi. If the number of
 clusters is less than Phi number, it will be changed to obtain, as
 minimum, this quantity of candidates (phages). Then, it calculates the
 best combination of Phi phages using those selected during the clustering
-with Ward algorithm.
+with Ward algorithm. If you use PhageCocktail, please cite it as:
+"PhageCocktail: An R Package to Design Phage Cocktails from Experimental
+Phage-Bacteria Infection Networks". María Victoria Díaz-Galián, Miguel A.
+Vega-Rodríguez, Felipe Molina. Computer Methods and Programs in
+Biomedicine, 106865, Elsevier Ireland, Clare, Ireland, 2022, ISSN:
+0169-2607.
 
 %prep
 %setup -q -c -n %{packname}

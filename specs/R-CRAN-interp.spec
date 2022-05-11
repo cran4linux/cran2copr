@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  interp
-%global packver   1.1-1
+%global packver   1.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interpolation Methods
 
@@ -25,21 +25,21 @@ Requires:         R-CRAN-deldir
 Bivariate data interpolation on regular and irregular grids, either linear
 or using splines are the main part of this package.  It is intended to
 provide FOSS replacement functions for the ACM licensed akima::interp and
-tripack::tri.mesh functions. Currently the piecewise linear interpolation
-part of akima::interp (and also akima::interpp) is implemented in
-interp::interp, this corresponds to the call akima::interp(...,
-linear=TRUE) which is the default setting and covers most of akima::interp
-use cases in depending packages.  A re-implementation of Akimas spline
-interpolation (akima::interp(..., linear=FALSE)) is currently under
-development and will complete this package in a later version. Estimators
-for partial derivatives are already available, these are a prerequisite
-for the spline interpolation.  The basic part is currently a GPLed
-triangulation algorithm (sweep hull algorithm by David Sinclair) providing
-the starting point for the piecewise linear interpolator. As side effect
-this algorithm is also used to provide replacements for the basic
-functions of the tripack package which also suffer from the ACM
-restrictions.  All functions are designed to be backward compatible with
-their akima / tripack counterparts.
+tripack::tri.mesh functions. Linear interpolation is implemented in
+interp::interp(..., method="linear"), this corresponds to the call
+akima::interp(..., linear=TRUE) which is the default setting and covers
+most of akima::interp use cases in depending packages. A re-implementation
+of Akimas irregular grid spline interpolation (akima::interp(...,
+linear=FALSE)) is now also available via interp::interp(...,
+method="akima"). Estimators for partial derivatives are now also available
+in interp::locpoly(), these are a prerequisite for the spline
+interpolation. The basic part is a GPLed triangulation algorithm (sweep
+hull algorithm by David Sinclair) providing the starting point for the
+irregular grid interpolator. As side effect this algorithm is also used to
+provide replacements for almost all functions of the tripack package which
+also suffers from the same ACM license restrictions. All functions are
+designed to be backward compatible with their akima / tripack
+counterparts.
 
 %prep
 %setup -q -c -n %{packname}

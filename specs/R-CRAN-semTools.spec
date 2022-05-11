@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  semTools
-%global packver   0.5-5
+%global packver   0.5-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          0.5.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Useful Tools for Structural Equation Modeling
 
@@ -13,21 +13,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan >= 0.6.7
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-lavaan >= 0.6.11
 BuildRequires:    R-methods 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-pbivnorm 
-Requires:         R-CRAN-lavaan >= 0.6.7
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-lavaan >= 0.6.11
 Requires:         R-methods 
+Requires:         R-graphics 
 Requires:         R-CRAN-pbivnorm 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Provides tools for structural equation modeling, many of which extend the
@@ -42,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ergm
-%global packver   4.1.2
+%global packver   4.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.2
+Version:          4.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit, Simulate and Diagnose Exponential-Family Models for Networks
 
@@ -14,12 +14,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    openmpi-devel
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildRequires:    R-CRAN-MASS >= 7.3.53.1
 BuildRequires:    R-CRAN-lpSolveAPI >= 5.5.2.0.17.7
-BuildRequires:    R-CRAN-statnet.common >= 4.5.0
+BuildRequires:    R-CRAN-statnet.common >= 4.6.0
 BuildRequires:    R-CRAN-tibble >= 3.1.0
+BuildRequires:    R-CRAN-magrittr >= 2.0.1
 BuildRequires:    R-CRAN-memoise >= 2.0.0
 BuildRequires:    R-CRAN-Matrix >= 1.3.2
 BuildRequires:    R-CRAN-network >= 1.17.0
@@ -31,10 +32,14 @@ BuildRequires:    R-CRAN-coda >= 0.19.4
 BuildRequires:    R-CRAN-trust >= 0.1.8
 BuildRequires:    R-parallel 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-MASS >= 7.3.53.1
 Requires:         R-CRAN-lpSolveAPI >= 5.5.2.0.17.7
-Requires:         R-CRAN-statnet.common >= 4.5.0
+Requires:         R-CRAN-statnet.common >= 4.6.0
 Requires:         R-CRAN-tibble >= 3.1.0
+Requires:         R-CRAN-magrittr >= 2.0.1
 Requires:         R-CRAN-memoise >= 2.0.0
 Requires:         R-CRAN-Matrix >= 1.3.2
 Requires:         R-CRAN-network >= 1.17.0
@@ -46,6 +51,9 @@ Requires:         R-CRAN-coda >= 0.19.4
 Requires:         R-CRAN-trust >= 0.1.8
 Requires:         R-parallel 
 Requires:         R-methods 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-stringr 
 
 %description
 An integrated set of tools to analyze and simulate networks based on

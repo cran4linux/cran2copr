@@ -1,40 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  PL94171
-%global packver   1.0.2
+%global packname  onlineforecast
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tabulate P.L. 94-171 Redistricting Data Summary Files
+Summary:          Forecast Modelling for Online Applications
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-tigris 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-tigris 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-splines >= 3.1.1
+BuildRequires:    R-CRAN-R6 >= 2.2.2
+BuildRequires:    R-CRAN-Rcpp >= 0.12.18
+BuildRequires:    R-CRAN-pbs 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-splines >= 3.1.1
+Requires:         R-CRAN-R6 >= 2.2.2
+Requires:         R-CRAN-Rcpp >= 0.12.18
+Requires:         R-CRAN-pbs 
+Requires:         R-CRAN-digest 
 
 %description
-Tools to process legacy format summary redistricting data files produced
-by the United States Census Bureau pursuant to P.L. 94-171. These files
-are generally available earlier but are difficult to work with as-is.
+A framework for fitting adaptive forecasting models. Provides a way to use
+forecasts as input to models, e.g. weather forecasts for energy related
+forecasting. The models can be fitted recursively and can easily be setup
+for updating parameters when new data arrives. See the included vignettes,
+the website <https://onlineforecasting.org> and the pre-print paper
+"onlineforecast: An R package for adaptive and recursive forecasting"
+<arXiv:2109.12915>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  PL94171
-%global packver   1.0.2
+%global packname  independenceWeights
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tabulate P.L. 94-171 Redistricting Data Summary Files
+Summary:          Estimates Weights for Confounding Control for Continuous-Valued Exposures
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-tigris 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-tigris 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-osqp >= 0.6.0.3
+BuildRequires:    R-CRAN-locfit 
+Requires:         R-CRAN-osqp >= 0.6.0.3
+Requires:         R-CRAN-locfit 
 
 %description
-Tools to process legacy format summary redistricting data files produced
-by the United States Census Bureau pursuant to P.L. 94-171. These files
-are generally available earlier but are difficult to work with as-is.
+Estimates weights to make a continuous-valued exposure statistically
+independent of a vector of pre-treatment covariates using the method
+proposed in Huling, Greifer, and Chen (2021) <arxiv:2107.07086>.
 
 %prep
 %setup -q -c -n %{packname}

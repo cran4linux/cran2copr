@@ -1,40 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  PL94171
-%global packver   1.0.2
+%global packname  usincometaxes
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tabulate P.L. 94-171 Redistricting Data Summary Files
+Summary:          Calculate Federal and State Income Taxes in the United States
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-tigris 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-tigris 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-datasets 
+BuildRequires:    R-CRAN-vroom 
+Requires:         R-datasets 
+Requires:         R-CRAN-vroom 
 
 %description
-Tools to process legacy format summary redistricting data files produced
-by the United States Census Bureau pursuant to P.L. 94-171. These files
-are generally available earlier but are difficult to work with as-is.
+Calculates federal and state income taxes in the United States. It acts as
+a wrapper to the NBER's TAXSIM 35 (<http://taxsim.nber.org/taxsim35/>) tax
+simulator. TAXSIM 35 conducts the calculations, while `usincometaxes`
+prepares the data for TAXSIM 35, sends the data to TAXSIM 35's server,
+retrieves the data, and places it into a data frame. All without the user
+worrying about this process.
 
 %prep
 %setup -q -c -n %{packname}

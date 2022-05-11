@@ -1,48 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  CCAMLRGIS
-%global packver   4.0.0
+%global packname  nbc4va
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.0
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Antarctic Spatial Data Manipulation
+Summary:          Bayes Classifier for Verbal Autopsy Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-terra 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-shiny 
 Requires:         R-graphics 
-Requires:         R-CRAN-raster 
-Requires:         R-grDevices 
-Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-CRAN-shiny 
 
 %description
-Loads and creates spatial data, including layers and tools that are
-relevant to the activities of the Commission for the Conservation of
-Antarctic Marine Living Resources. Provides two categories of functions:
-load functions and create functions. Load functions are used to import
-existing spatial layers from the online CCAMLR GIS such as the ASD
-boundaries. Create functions are used to create layers from user data such
-as polygons and grids.
+An implementation of the Naive Bayes Classifier (NBC) algorithm used for
+Verbal Autopsy (VA) built on code from Miasnikof et al (2015)
+<DOI:10.1186/s12916-015-0521-2>.
 
 %prep
 %setup -q -c -n %{packname}
