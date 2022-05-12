@@ -1,43 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bbmle
-%global packver   1.0.25
+%global packname  maskRangeR
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.25
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for General Maximum Likelihood Estimation
+Summary:          Mask Species Geographic Ranges
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-stats4 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-bdsmatrix 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-stats4 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-sp 
 Requires:         R-stats 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-MASS 
-Requires:         R-methods 
-Requires:         R-CRAN-bdsmatrix 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-utils 
 
 %description
-Methods and functions for fitting maximum likelihood models in R. This
-package modifies and extends the 'mle' classes in the 'stats4' package.
+Mask ranges based on expert knowledge or remote sensing layers. These
+tools can be combined to quantitatively and reproducibly generate a new
+map or to update an existing map. Methods include expert opinion and
+data-driven tools to generate thresholds for binary masks.
 
 %prep
 %setup -q -c -n %{packname}

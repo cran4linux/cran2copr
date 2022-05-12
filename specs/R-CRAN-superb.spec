@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  superb
-%global packver   0.9.7.8
+%global packver   0.95.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7.8
+Version:          0.95.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Summary Plots with Adjusted Error Bars
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-plyr >= 1.8.4
 BuildRequires:    R-CRAN-Rdpack >= 0.7
 BuildRequires:    R-CRAN-lsr >= 0.5
 BuildRequires:    R-CRAN-foreign 
-BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
@@ -34,7 +33,6 @@ Requires:         R-CRAN-plyr >= 1.8.4
 Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-CRAN-lsr >= 0.5
 Requires:         R-CRAN-foreign 
-Requires:         R-CRAN-psych 
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
 Requires:         R-stats 

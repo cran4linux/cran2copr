@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  GeoWeightedModel
-%global packver   0.9.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          User-Friendly Interface for Geographically-Weighted Models
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-shinydashboard
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-spdep 
 Requires:         R-CRAN-beepr 
 Requires:         R-CRAN-cartography 
 Requires:         R-CRAN-dplyr 
@@ -46,6 +47,7 @@ Requires:         R-CRAN-shinydashboard
 Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-sp 
+Requires:         R-CRAN-spdep 
 
 %description
 Contains the development of a tool that provides a web-based graphical

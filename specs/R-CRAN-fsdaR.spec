@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fsdaR
-%global packver   0.6-5
+%global packver   0.7-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Data Analysis Through Monitoring and Dynamic Visualization
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,12 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rrcov 
 BuildRequires:    R-CRAN-rJava 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats4 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-rrcov 
 Requires:         R-CRAN-rJava 
 Requires:         R-methods 
 Requires:         R-stats4 

@@ -1,43 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bbmle
-%global packver   1.0.25
+%global packname  fitHeavyTail
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.25
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for General Maximum Likelihood Estimation
+Summary:          Mean and Covariance Matrix Estimation under Heavy Tails
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats4 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-bdsmatrix 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-ICSNP 
 BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-stats4 
-Requires:         R-stats 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-MASS 
-Requires:         R-methods 
-Requires:         R-CRAN-bdsmatrix 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-ghyp 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ICSNP 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-ghyp 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-stats 
 
 %description
-Methods and functions for fitting maximum likelihood models in R. This
-package modifies and extends the 'mle' classes in the 'stats4' package.
+Robust estimation methods for the mean vector, scatter matrix, and
+covariance matrix (if it exists) from data (possibly containing NAs) under
+multivariate heavy-tailed distributions such as angular Gaussian (via
+Tyler's method), Cauchy, and Student's t distributions. Additionally, a
+factor model structure can be specified for the covariance matrix. The
+latest revision also includes the multivariate skewed t distribution. The
+package is based on the papers: Sun, Babu, and Palomar (2014), Sun, Babu,
+and Palomar (2015), Liu and Rubin (1995), and Zhou, Liu, Kumar, and
+Palomar (2019).
 
 %prep
 %setup -q -c -n %{packname}

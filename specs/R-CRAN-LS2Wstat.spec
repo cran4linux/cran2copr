@@ -1,43 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bbmle
-%global packver   1.0.25
+%global packname  LS2Wstat
+%global packver   2.1-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.25
+Version:          2.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for General Maximum Likelihood Estimation
+Summary:          A Multiscale Test of Spatial Stationarity for LS2W Processes
 
-License:          GPL
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats4 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-bdsmatrix 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-stats4 
-Requires:         R-stats 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-MASS 
-Requires:         R-methods 
-Requires:         R-CRAN-bdsmatrix 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-LS2W >= 1.3.1
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-spdep 
+Requires:         R-CRAN-LS2W >= 1.3.1
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-spdep 
 
 %description
-Methods and functions for fitting maximum likelihood models in R. This
-package modifies and extends the 'mle' classes in the 'stats4' package.
+Wavelet-based methods for testing stationarity and quadtree segmenting of
+images, see Taylor et al (2014) <doi:10.1080/00401706.2013.823890>.
 
 %prep
 %setup -q -c -n %{packname}

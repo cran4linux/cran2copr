@@ -1,33 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SECP
-%global packver   0.1-4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
-Release:          3%{?dist}%{?buildtag}
-Summary:          Statistical Estimation of Cluster Parameters (SECP)
+Version:          0.1.5
+Release:          1%{?dist}%{?buildtag}
+Summary:          Statistical Estimation of Cluster Parameters
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SPSL >= 0.1.6
-Requires:         R-CRAN-SPSL >= 0.1.6
+BuildRequires:    R-CRAN-SPSL 
+Requires:         R-CRAN-SPSL 
 
 %description
-SECP package provides functionality for estimating parameters of site
-clusters on 2D & 3D square lattice with various lattice sizes, relative
-fractions of accessible sites (occupation probability), iso- & anisotropy,
-von Neumann & Moore (1,d)-neighborhoods
+Estimating parameters of site clusters on 2D & 3D square lattice with
+various lattice sizes, relative fractions of open sites (occupation
+probability), iso- & anisotropy, von Neumann & Moore (1,d)-neighborhoods,
+described by Moskalev P.V. et al. (2011) <arXiv:1105.2334v1>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -35,16 +44,10 @@ von Neumann & Moore (1,d)-neighborhoods
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

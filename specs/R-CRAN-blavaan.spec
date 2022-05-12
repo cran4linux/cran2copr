@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  blavaan
-%global packver   0.4-1
+%global packver   0.4-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Latent Variable Analysis
 
@@ -29,7 +29,6 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-MCMCpack 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-mnormt 
 BuildRequires:    R-CRAN-bayesplot 
@@ -48,7 +47,6 @@ Requires:         R-methods
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-graphics 
-Requires:         R-CRAN-MCMCpack 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-mnormt 
 Requires:         R-CRAN-bayesplot 

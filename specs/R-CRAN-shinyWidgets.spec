@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  shinyWidgets
-%global packver   0.6.4
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Custom Inputs Widgets for Shiny
 
@@ -22,12 +22,14 @@ BuildRequires:    R-CRAN-bslib
 BuildRequires:    R-CRAN-sass 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-shiny >= 1.6.0
 Requires:         R-CRAN-htmltools >= 0.5.1
 Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-sass 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-grDevices 
+Requires:         R-CRAN-rlang 
 
 %description
 Collection of custom input controls and user interface components for

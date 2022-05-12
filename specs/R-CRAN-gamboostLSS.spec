@@ -1,43 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bbmle
-%global packver   1.0.25
+%global packname  gamboostLSS
+%global packver   2.0-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.25
+Version:          2.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for General Maximum Likelihood Estimation
+Summary:          Boosting Methods for 'GAMLSS'
 
-License:          GPL
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 2.10.0
+Requires:         R-core >= 2.10.0
 BuildArch:        noarch
-BuildRequires:    R-stats4 
+BuildRequires:    R-CRAN-mboost >= 2.8.0
+BuildRequires:    R-CRAN-stabs >= 0.5.0
+BuildRequires:    R-parallel 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-bdsmatrix 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-stats4 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-mboost >= 2.8.0
+Requires:         R-CRAN-stabs >= 0.5.0
+Requires:         R-parallel 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-stats 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-MASS 
-Requires:         R-methods 
-Requires:         R-CRAN-bdsmatrix 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-utils 
 
 %description
-Methods and functions for fitting maximum likelihood models in R. This
-package modifies and extends the 'mle' classes in the 'stats4' package.
+Boosting models for fitting generalized additive models for location,
+shape and scale ('GAMLSS') to potentially high dimensional data.
 
 %prep
 %setup -q -c -n %{packname}

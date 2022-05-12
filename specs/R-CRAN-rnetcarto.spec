@@ -1,43 +1,26 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bbmle
-%global packver   1.0.25
+%global packname  rnetcarto
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.25
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for General Maximum Likelihood Estimation
+Summary:          Fast Network Modularity and Roles Computation by Simulated Annealing (Rgraph C Library Wrapper for R)
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildArch:        noarch
-BuildRequires:    R-stats4 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-bdsmatrix 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-stats4 
-Requires:         R-stats 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-MASS 
-Requires:         R-methods 
-Requires:         R-CRAN-bdsmatrix 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    gsl-devel
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-Methods and functions for fitting maximum likelihood models in R. This
-package modifies and extends the 'mle' classes in the 'stats4' package.
+Provides functions to compute the modularity and modularity-related roles
+in networks. It is a wrapper around the rgraph library (Guimera & Amaral,
+2005, <doi:10.1038/nature03288>).
 
 %prep
 %setup -q -c -n %{packname}

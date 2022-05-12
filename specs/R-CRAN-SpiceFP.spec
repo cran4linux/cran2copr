@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SpiceFP
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse Method to Identify Joint Effects of Functional Predictors
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-genlasso 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-gplots 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-stringr 
@@ -31,7 +30,6 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-genlasso 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-gplots 
 
 %description
 A set of functions allowing to implement the 'SpiceFP' approach which is
@@ -44,7 +42,6 @@ at each iteration. The approach is stopped when the maximal number of
 iterations is reached or when retained coefficients are zeros.
 Supplementary functions allow to get coefficients of any candidate matrix
 or mean of coefficients of many candidates.
-<https://hal.archives-ouvertes.fr/hal-03298977>.
 
 %prep
 %setup -q -c -n %{packname}

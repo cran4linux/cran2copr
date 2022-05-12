@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  corpustools
-%global packver   0.4.9
+%global packver   0.4.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.9
+Version:          0.4.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Managing, Querying and Analyzing Tokenized Text
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-CRAN-tokenbrowser >= 0.1.5
 BuildRequires:    R-CRAN-rsyntax >= 0.1.1
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-SnowballC 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-digest 
@@ -44,7 +43,6 @@ Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-CRAN-tokenbrowser >= 0.1.5
 Requires:         R-CRAN-rsyntax >= 0.1.1
 Requires:         R-methods 
-Requires:         R-CRAN-SnowballC 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-digest 
