@@ -1,27 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  sas7bdat
-%global packver   0.6
+%global packname  pbANOVA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          sas7bdat Reverse Engineering Documentation
+Summary:          Parametric Bootstrap for ANOVA Models
 
-License:          GPL (>= 2)
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Rmisc 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Rmisc 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-dplyr 
 
 %description
-Documentation and prototypes for the earliest (circa 2010) open-source
-effort to reverse engineer the sas7bdat file format. The package includes
-a prototype reader for sas7bdat files. However, newer packages (notably
-the haven package) contain more robust readers for sas7bdat files.
+Parametric bootstrap (PB) has been used for three-way ANOVA model with
+unequal group variances.
 
 %prep
 %setup -q -c -n %{packname}

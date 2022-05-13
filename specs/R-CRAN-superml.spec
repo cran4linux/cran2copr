@@ -1,27 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  sas7bdat
-%global packver   0.6
+%global packname  superml
+%global packver   0.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.5.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          sas7bdat Reverse Engineering Documentation
+Summary:          Build Machine Learning Models Like Using Python's Scikit-Learn Library in R
 
-License:          GPL (>= 2)
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-R6 >= 2.2
+BuildRequires:    R-CRAN-data.table >= 1.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0
+BuildRequires:    R-CRAN-assertthat >= 0.2
+BuildRequires:    R-CRAN-Metrics >= 0.1
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-R6 >= 2.2
+Requires:         R-CRAN-data.table >= 1.10
+Requires:         R-CRAN-Rcpp >= 1.0
+Requires:         R-CRAN-assertthat >= 0.2
+Requires:         R-CRAN-Metrics >= 0.1
 
 %description
-Documentation and prototypes for the earliest (circa 2010) open-source
-effort to reverse engineer the sas7bdat file format. The package includes
-a prototype reader for sas7bdat files. However, newer packages (notably
-the haven package) contain more robust readers for sas7bdat files.
+The idea is to provide a standard interface to users who use both R and
+Python for building machine learning models. This package provides a
+scikit-learn's fit, predict interface to train machine learning models in
+R.
 
 %prep
 %setup -q -c -n %{packname}

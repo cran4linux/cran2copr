@@ -1,47 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  immer
-%global packver   1.2-19
+%global packname  lba
+%global packver   2.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.19
+Version:          2.4.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Item Response Models for Multiple Ratings
+Summary:          Latent Budget Analysis for Compositional Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-CDM 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-psychotools 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-sirt 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-TAM 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-CDM 
-Requires:         R-CRAN-coda 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-psychotools 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-sirt 
-Requires:         R-stats 
-Requires:         R-CRAN-TAM 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-alabama 
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-CRAN-scatterplot3d 
+BuildRequires:    R-CRAN-rgl 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-alabama 
+Requires:         R-CRAN-plotrix 
+Requires:         R-CRAN-scatterplot3d 
+Requires:         R-CRAN-rgl 
 
 %description
-Implements some item response models for multiple ratings, including the
-hierarchical rater model, conditional maximum likelihood estimation of
-linear logistic partial credit model and a wrapper function to the
-commercial FACETS program. See Robitzsch and Steinfeld (2018) for a
-description of the functionality of the package. See Wang, Su and Qiu
-(2014; <doi:10.1111/jedm.12045>) for an overview of modeling alternatives.
+Latent budget analysis is a method for the analysis of a two-way
+contingency table with an exploratory variable and a response variable. It
+is specially designed for compositional data.
 
 %prep
 %setup -q -c -n %{packname}

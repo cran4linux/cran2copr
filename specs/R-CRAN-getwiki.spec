@@ -1,27 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  sas7bdat
-%global packver   0.6
+%global packname  getwiki
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          sas7bdat Reverse Engineering Documentation
+Summary:          R Wrapper for Wikipedia Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Documentation and prototypes for the earliest (circa 2010) open-source
-effort to reverse engineer the sas7bdat file format. The package includes
-a prototype reader for sas7bdat files. However, newer packages (notably
-the haven package) contain more robust readers for sas7bdat files.
+A simple wrapper for 'Wikipedia' data. Specifically, this package looks to
+fill a gap in retrieving text data in a tidy format that can be used for
+Natural Language Processing.
 
 %prep
 %setup -q -c -n %{packname}

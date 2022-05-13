@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  kmodR
-%global packver   0.2.0
+%global packname  APML
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          K-Means with Simultaneous Outlier Detection
+Summary:          An Approach for Machine-Learning Modelling
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,16 +16,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-h2o 
+BuildRequires:    R-CRAN-performanceEstimation 
+BuildRequires:    R-CRAN-fastDummies 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-pROC 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-h2o 
+Requires:         R-CRAN-performanceEstimation 
+Requires:         R-CRAN-fastDummies 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-pROC 
 
 %description
-An implementation of the 'k-means--' algorithm proposed by Chawla and
-Gionis, 2013 in their paper, "k-means-- : A unified approach to clustering
-and outlier detection. SIAM International Conference on Data Mining
-(SDM13)", <doi:10.1137/1.9781611972832.21> and using 'ordering' described
-by Howe, 2013 in the thesis, Clustering and anomaly detection in tropical
-cyclones". Useful for creating (potentially) tighter clusters than
-standard k-means and simultaneously finding outliers inexpensively in
-multidimensional space.
+We include 1) data cleaning including variable scaling, missing values and
+unbalanced variables identification and removing, and strategies for
+variable balance improving; 2) modeling based on random forest and
+gradient boosted model including feature selection, model training,
+cross-validation and external testing. For more information, please see
+Deng X (2021). <doi:10.1016/j.scitotenv.2020.144746>; H2O.ai (Oct. 2016).
+R Interface for H2O, R package version 3.10.0.8.
+<https://github.com/h2oai/h2o-3>; Zhang W (2016).
+<doi:10.1016/j.scitotenv.2016.02.023>.
 
 %prep
 %setup -q -c -n %{packname}

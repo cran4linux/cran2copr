@@ -1,46 +1,51 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rdnb
-%global packver   0.1-5
+%global packname  simer
+%global packver   0.9.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.9.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to the 'Deutsche Nationalbibliothek (German National Library) API'
+Summary:          Data Simulation for Life Science and Breeding
 
-License:          MIT + file LICENSE
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-brew 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-bigmemory 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-brew 
-Requires:         R-grDevices 
-Requires:         R-CRAN-httr 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-rMVP 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppProgress 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-bigmemory 
 Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-rMVP 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rjson 
+Requires:         R-CRAN-igraph 
 
 %description
-A wrapper for the 'Deutsche Nationalbibliothek (German National Library)
-API', available at <https://www.dnb.de/EN/Home/home_node.html>. The German
-National Library is the German central archival library, collecting,
-archiving, bibliographically classifying all German and German-language
-publications, foreign publications about Germany, translations of German
-works, and the works of German-speaking emigrants published abroad between
-1933 and 1945.
+Data simulator including genotype, phenotype, pedigree, selection and
+reproduction in R. It simulates most of reproduction process of animals or
+plants and provides data for GS (Genomic Selection), GWAS (Genome-Wide
+Association Study), and Breeding. For ADI model, please see Kao C and Zeng
+Z (2002) <doi:10.1093/genetics/160.3.1243>. For build.cov, please see B.
+D. Ripley (1987) <ISBN:9780470009604>.
 
 %prep
 %setup -q -c -n %{packname}

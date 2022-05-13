@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rTG
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods to Analyse Seasonal Radial Tree Growth Data
 
@@ -22,12 +22,14 @@ BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-knitr >= 1.19
 BuildRequires:    R-CRAN-brnn >= 0.6
 BuildRequires:    R-CRAN-dplyr >= 0.1.0
+BuildRequires:    R-methods 
 Requires:         R-CRAN-ggplot2 >= 2.2.0
 Requires:         R-CRAN-mgcv >= 1.8.34
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-knitr >= 1.19
 Requires:         R-CRAN-brnn >= 0.6
 Requires:         R-CRAN-dplyr >= 0.1.0
+Requires:         R-methods 
 
 %description
 Methods for comparing different regression algorithms for describing the

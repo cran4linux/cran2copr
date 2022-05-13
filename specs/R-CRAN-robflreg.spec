@@ -1,27 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  sas7bdat
-%global packver   0.6
+%global packname  robflreg
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          sas7bdat Reverse Engineering Documentation
+Summary:          Robust Functional Linear Regression
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-fda 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-CRAN-fda.usc 
+BuildRequires:    R-CRAN-goffda 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-pcaPP 
+BuildRequires:    R-CRAN-plot3D 
+Requires:         R-CRAN-fda 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-robustbase 
+Requires:         R-CRAN-expm 
+Requires:         R-CRAN-fda.usc 
+Requires:         R-CRAN-goffda 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-pcaPP 
+Requires:         R-CRAN-plot3D 
 
 %description
-Documentation and prototypes for the earliest (circa 2010) open-source
-effort to reverse engineer the sas7bdat file format. The package includes
-a prototype reader for sas7bdat files. However, newer packages (notably
-the haven package) contain more robust readers for sas7bdat files.
+Functions for implementing robust methods for functional linear
+regression. In the functional linear regression, we consider
+scalar-on-function linear regression and function-on-function linear
+regression. More details, see Beyaztas, U., and Shang, H. L. (2021)
+<arXiv:2111.01238> and Beyaztas, U., and Shang, H. L. (2022)
+<arXiv:2203.05065>.
 
 %prep
 %setup -q -c -n %{packname}

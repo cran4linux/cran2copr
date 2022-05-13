@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  PUPAIM
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
-Release:          3%{?dist}%{?buildtag}
+Version:          0.3.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Physical and Chemical Adsorption Isotherm Models
 
 License:          GPL-2
@@ -13,35 +13,36 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-nls2 
 BuildRequires:    R-CRAN-Metrics 
-BuildRequires:    R-CRAN-minpack.lm 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-nls2 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-nls2 
 Requires:         R-CRAN-Metrics 
-Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-nls2 
 
 %description
-Adsorption isotherm equations are linearized plots of different
-solid-liquid phase equilibria used in calculating different parameters
-related to the adsorption process. Isotherm equations deals with physical
-adsorption of gases and vapor and gives the most important characteristics
-of industrial adsorbents that include pore volume, pore size or energy
-distribution. PUPAIM has 28 documented adsorption isotherm models listed
-by Dabrowski (2001) <doi:10.1016/S0001-8686(00)00082-8> and Ayawei et
-al.(2017) <doi:10.1155/2017/3039817>. These models could be easily fitted
-in R using adsorption data (Ce and Qe) obtained from experiments.
+The PUPAIM R package can generally fit any adsorption experimental data to
+any of the 51 available adsorption isotherm models - 28 nonlinear models
+and 23 linear models. This package provides parameter estimation, model
+accuracy analysis, model error analysis, and adsorption plot created using
+the package 'ggplot2'. This package will help the users for a much easier
+way of adsorption model data fitting.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -49,17 +50,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

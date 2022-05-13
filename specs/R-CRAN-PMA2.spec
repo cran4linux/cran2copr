@@ -1,47 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  discnorm
-%global packver   0.2.0
+%global packname  PMA2
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Test for Discretized Normality in Ordinal Data
+Summary:          Penalized Multivariate Analysis
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan >= 0.6.10
-BuildRequires:    R-CRAN-arules 
-BuildRequires:    R-CRAN-sirt 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-pbivnorm 
-BuildRequires:    R-CRAN-cubature 
-BuildRequires:    R-CRAN-copula 
-BuildRequires:    R-CRAN-mnormt 
-BuildRequires:    R-CRAN-GoFKernel 
-Requires:         R-CRAN-lavaan >= 0.6.10
-Requires:         R-CRAN-arules 
-Requires:         R-CRAN-sirt 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-pbivnorm 
-Requires:         R-CRAN-cubature 
-Requires:         R-CRAN-copula 
-Requires:         R-CRAN-mnormt 
-Requires:         R-CRAN-GoFKernel 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 
 %description
-Tests whether multivariate ordinal data may stem from discretizing a
-multivariate normal distribution. The test is described by Foldnes and
-Grønneberg (2019) <doi:10.1080/10705511.2019.1673168>. In addition, an
-adjusted polychoric correlation estimator is provided that takes marginal
-knowledge into account, as described by Grønneberg and Foldnes (2022)
-<doi:10.1037/met0000495>.
+A modified version of PMA. The CCA() and CCA.permute() functions can also
+compute the component-wise standard deviations of estimated U and V
+through permutations in addition to standardize them. Furthermore, it
+computes the non-parametric p-values for each components. Performs
+Penalized Multivariate Analysis: a penalized matrix decomposition, sparse
+principal components analysis, and sparse canonical correlation analysis,
+described in Ali Mahzarnia, Alexander Badea (2022), "Joint Estimation of
+Vulnerable Brain Networks and Alzheimer’s Disease Risk Via Novel Extension
+of Sparse Canonical Correlation" at bioRxiv.
 
 %prep
 %setup -q -c -n %{packname}

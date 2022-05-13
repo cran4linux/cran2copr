@@ -1,27 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  sas7bdat
-%global packver   0.6
+%global packname  FloodFreqPlot
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          sas7bdat Reverse Engineering Documentation
+Summary:          Flood Probability Plotting and Graphical Frequency Analysis
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-Documentation and prototypes for the earliest (circa 2010) open-source
-effort to reverse engineer the sas7bdat file format. The package includes
-a prototype reader for sas7bdat files. However, newer packages (notably
-the haven package) contain more robust readers for sas7bdat files.
+Plotting flood quantiles and their corresponding probabilities (return
+periods) on the probability papers. The details of relevant methods are
+available in Chow et al (1988, ISBN: 007070242X, 9780070702424), and Bobee
+and Ashkar (1991, ISBN: 0918334683, 9780918334688).
 
 %prep
 %setup -q -c -n %{packname}

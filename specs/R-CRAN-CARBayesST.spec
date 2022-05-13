@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  CARBayesST
-%global packver   3.2.3
+%global packver   3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.3
+Version:          3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatio-Temporal Generalised Linear Mixed Models for Areal Unit Data
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 0.11.5
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-CARBayesdata 
@@ -27,8 +27,7 @@ BuildRequires:    R-CRAN-gtools
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-spam 
 BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-stats 
@@ -47,8 +46,7 @@ Requires:         R-CRAN-gtools
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-MCMCpack 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-spam 
 Requires:         R-CRAN-spdep 
 Requires:         R-stats 

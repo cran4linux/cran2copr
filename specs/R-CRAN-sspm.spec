@@ -1,58 +1,57 @@
 %global __brp_check_rpaths %{nil}
-%global packname  EPP
-%global packver   0.3.6.1
+%global packname  sspm
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6.1
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Evaluation of Proximity Programs
+Summary:          Spatial Surplus Production Model Framework for Northern Shrimp Populations
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-osrm >= 3.5.1
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-maptools 
-BuildRequires:    R-CRAN-flexclust 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-deldir 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-stats 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-units 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-leaflet.extras 
-BuildRequires:    R-CRAN-nngeo 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-assertthat 
-Requires:         R-CRAN-osrm >= 3.5.1
-Requires:         R-CRAN-sp 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-maptools 
-Requires:         R-CRAN-flexclust 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-deldir 
+Requires:         R-CRAN-mgcv 
+Requires:         R-stats 
 Requires:         R-methods 
+Requires:         R-CRAN-units 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-leaflet.extras 
-Requires:         R-CRAN-nngeo 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
 
 %description
-A toolbox for coverage evaluation of proximity programs.
+Implement a gam-based spatial surplus production model, aimed at modeling
+northern shrimp population in Atlantic Canada but potentially to any stock
+in any location. The package is opinionated in its implementation of SPMs
+as it internally makes the choice to use penalized spatial gams with time
+lags. However, it also aims to provide options for the user to customize
+their model.
 
 %prep
 %setup -q -c -n %{packname}

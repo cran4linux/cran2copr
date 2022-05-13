@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  CARBayes
-%global packver   5.2.5
+%global packver   5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.2.5
+Version:          5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Generalised Linear Mixed Models for Areal Unit Data
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 0.11.5
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-CARBayesdata 
@@ -23,8 +23,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-GGally 
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-spam 
 BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-stats 
@@ -38,8 +37,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-GGally 
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-MCMCpack 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-spam 
 Requires:         R-CRAN-spdep 
 Requires:         R-stats 
@@ -56,18 +54,17 @@ effects that are assigned a conditional autoregressive (CAR) prior
 distribution. A number of different models are available for univariate
 spatial data, including models with no random effects as well as random
 effects modelled by different types of CAR prior, including the BYM model
-(Besag et al. (1991) <doi:10.1007/BF00116466>), the Leroux model (Leroux
-et al. (2000) <doi:10.1007/978-1-4612-1284-3_4>) and the localised model
-(Lee et al. (2015) <doi:10.1002/env.2348>). Additionally, a multivariate
-CAR (MCAR) model for multivariate spatial data is available, as is a
-two-level hierarchical model for modelling data relating to individuals
-within areas. Full details are given in the vignette accompanying this
-package. The initial creation of this package was supported by the
-Economic and Social Research Council (ESRC) grant RES-000-22-4256, and
-on-going development has been supported by the Engineering and Physical
-Science Research Council (EPSRC) grant EP/J017442/1, ESRC grant
-ES/K006460/1, Innovate UK / Natural Environment Research Council (NERC)
-grant NE/N007352/1 and the TB Alliance.
+(Besag et al., 1991, <doi:10.1007/BF00116466>) and Leroux model (Leroux et
+al., 2000, <doi:10.1007/978-1-4612-1284-3_4>). Additionally, a
+multivariate CAR (MCAR) model for multivariate spatial data is available,
+as is a two-level hierarchical model for modelling data relating to
+individuals within areas. Full details are given in the vignette
+accompanying this package. The initial creation of this package was
+supported by the Economic and Social Research Council (ESRC) grant
+RES-000-22-4256, and on-going development has been supported by the
+Engineering and Physical Science Research Council (EPSRC) grant
+EP/J017442/1, ESRC grant ES/K006460/1, Innovate UK / Natural Environment
+Research Council (NERC) grant NE/N007352/1 and the TB Alliance.
 
 %prep
 %setup -q -c -n %{packname}

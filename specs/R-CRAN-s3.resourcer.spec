@@ -1,33 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  usincometaxes
-%global packver   0.2.0
+%global packname  s3.resourcer
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Federal and State Income Taxes in the United States
+Summary:          S3 Resource Resolver
 
-License:          MIT + file LICENSE
+License:          LGPL (>= 2.1)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-datasets 
-BuildRequires:    R-CRAN-vroom 
-Requires:         R-datasets 
-Requires:         R-CRAN-vroom 
+BuildRequires:    R-CRAN-resourcer >= 1.2
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-aws.s3 
+BuildRequires:    R-CRAN-sparklyr 
+Requires:         R-CRAN-resourcer >= 1.2
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-aws.s3 
+Requires:         R-CRAN-sparklyr 
 
 %description
-Calculates federal and state income taxes in the United States. It acts as
-a wrapper to the NBER's TAXSIM 35 (<http://taxsim.nber.org/taxsim35/>) tax
-simulator. TAXSIM 35 conducts the calculations, while `usincometaxes`
-prepares the data for TAXSIM 35, sends the data to TAXSIM 35's server,
-retrieves the data, and places it into a data frame. All without the user
-worrying about this process.
+Resources are files in tidy or R data format stored in a S3 compatible
+system, such as Amazon Web Services S3 or Minio object stores. Resources
+can also be Parquet files, accessed through an Apache Spark service.
 
 %prep
 %setup -q -c -n %{packname}

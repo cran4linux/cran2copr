@@ -1,46 +1,49 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rdnb
-%global packver   0.1-5
+%global packname  IPEDSuploadables
+%global packver   2.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          2.4.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to the 'Deutsche Nationalbibliothek (German National Library) API'
+Summary:          Transforms Institutional Data into Text Files for IPEDS Automated Import/Upload
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-brew 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-brew 
-Requires:         R-grDevices 
-Requires:         R-CRAN-httr 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-svDialogs 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-svDialogs 
+Requires:         R-utils 
 
 %description
-A wrapper for the 'Deutsche Nationalbibliothek (German National Library)
-API', available at <https://www.dnb.de/EN/Home/home_node.html>. The German
-National Library is the German central archival library, collecting,
-archiving, bibliographically classifying all German and German-language
-publications, foreign publications about Germany, translations of German
-works, and the works of German-speaking emigrants published abroad between
-1933 and 1945.
+Starting from user-supplied institutional data, these scripts transform,
+aggregate, and reshape the information to produce key-value pair data
+files that are able to be uploaded to IPEDS (Integrated Postsecondary
+Education Data System) through their submission portal
+<https://surveys.nces.ed.gov/ipeds/>. Starting data specifications can be
+found in the vignettes. Final files are saved locally to a location of the
+user's choice. User-friendly readable files can also be produced for
+purposes of data review and validation.
 
 %prep
 %setup -q -c -n %{packname}

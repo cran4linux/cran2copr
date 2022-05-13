@@ -1,49 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bdvis
-%global packver   0.2.28
+%global packname  FRESHD
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.28
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Biodiversity Data Visualizations
+Summary:          Fast Robust Estimation of Signals in Heterogeneous Data
 
-License:          GPL-3
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-sqldf 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-taxize 
-BuildRequires:    R-CRAN-treemap 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-chron 
-BuildRequires:    R-CRAN-leafletR 
-BuildRequires:    R-CRAN-rgdal 
-Requires:         R-CRAN-maps 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-sqldf 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-taxize 
-Requires:         R-CRAN-treemap 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-chron 
-Requires:         R-CRAN-leafletR 
-Requires:         R-CRAN-rgdal 
+BuildRequires:    R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-CRAN-glamlasso 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 0.12.12
+Requires:         R-CRAN-glamlasso 
 
 %description
-Provides a set of functions to create basic visualizations to quickly
-preview different aspects of biodiversity information such as inventory
-completeness, extent of coverage (taxonomic, temporal and geographic),
-gaps and biases.
+Procedure for solving the maximin problem for identical design across
+heterogeneous data groups. Particularly efficient when the design matrix
+is either orthogonal or has tensor structure. Orthogonal wavelets can be
+specified for 1d, 2d or 3d data simply by name. For tensor structured
+design the tensor components (two or three) may be supplied. The package
+also provides an efficient implementation of the generic magging
+estimator.
 
 %prep
 %setup -q -c -n %{packname}
@@ -53,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
