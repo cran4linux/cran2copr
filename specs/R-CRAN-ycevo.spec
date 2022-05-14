@@ -1,35 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  hglasso
-%global packver   1.3
+%global packname  ycevo
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Learning Graphical Models with Hubs
+Summary:          Nonparametric Estimation of the Yield Curve Evolution
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-glasso 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-fields 
-Requires:         R-CRAN-glasso 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-fields 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.18
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.18
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 
 %description
-Implements the hub graphical lasso and hub covariance graph proposal by
-Tan, KM., London, P., Mohan, K., Lee, S-I., Fazel, M., and Witten, D.
-(2014). Learning graphical models with hubs. Journal of Machine Learning
-Research 15(Oct):3297-3331.
+Nonparametric estimation of the discount rate and yield curve. Koo, B., La
+Vecchia, D., & Linton, O. B. (2021) <doi:10.1016/j.jeconom.2020.04.014>
+describe the application with the Center for Research in Security Prices
+(CRSP) Bond Data and document the methods of this package.
 
 %prep
 %setup -q -c -n %{packname}

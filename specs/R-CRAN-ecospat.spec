@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ecospat
-%global packver   3.2.1
+%global packver   3.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.1
+Version:          3.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Ecology Miscellaneous Methods
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-rms >= 4.5.0
 BuildRequires:    R-CRAN-Hmisc >= 4.4.2
 BuildRequires:    R-CRAN-gtools >= 3.4.1
 BuildRequires:    R-CRAN-ape >= 3.2
-BuildRequires:    R-CRAN-biomod2 >= 3.1.64
 BuildRequires:    R-methods >= 3.1.1
 BuildRequires:    R-CRAN-maps >= 3.0.0
 BuildRequires:    R-CRAN-raster >= 2.5.8
@@ -44,13 +43,13 @@ BuildRequires:    R-CRAN-nabor >= 0.5.0
 BuildRequires:    R-CRAN-adehabitatHR >= 0.4.11
 BuildRequires:    R-CRAN-adehabitatMA >= 0.3.8
 BuildRequires:    R-CRAN-classInt >= 0.1.23
+BuildRequires:    R-CRAN-biomod2 < 4.0
 BuildRequires:    R-parallel 
 Requires:         R-CRAN-randomForest >= 4.6.7
 Requires:         R-CRAN-rms >= 4.5.0
 Requires:         R-CRAN-Hmisc >= 4.4.2
 Requires:         R-CRAN-gtools >= 3.4.1
 Requires:         R-CRAN-ape >= 3.2
-Requires:         R-CRAN-biomod2 >= 3.1.64
 Requires:         R-methods >= 3.1.1
 Requires:         R-CRAN-maps >= 3.0.0
 Requires:         R-CRAN-raster >= 2.5.8
@@ -73,6 +72,7 @@ Requires:         R-CRAN-nabor >= 0.5.0
 Requires:         R-CRAN-adehabitatHR >= 0.4.11
 Requires:         R-CRAN-adehabitatMA >= 0.3.8
 Requires:         R-CRAN-classInt >= 0.1.23
+Requires:         R-CRAN-biomod2 < 4.0
 Requires:         R-parallel 
 
 %description

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  hglasso
-%global packver   1.3
+%global packname  linelist
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Learning Graphical Models with Hubs
+Summary:          Tagging and Validating Epidemiological Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,20 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glasso 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-fields 
-Requires:         R-CRAN-glasso 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-fields 
+BuildRequires:    R-CRAN-checkmate 
+Requires:         R-CRAN-checkmate 
 
 %description
-Implements the hub graphical lasso and hub covariance graph proposal by
-Tan, KM., London, P., Mohan, K., Lee, S-I., Fazel, M., and Witten, D.
-(2014). Learning graphical models with hubs. Journal of Machine Learning
-Research 15(Oct):3297-3331.
+Provides tools to help storing and handling case line list data. The
+'linelist' class adds a tagging system to classical 'data.frame' objects
+to identify key epidemiological data such as dates of symptom onset,
+epidemiological case definition, age, gender or disease outcome. Once
+tagged, these variables can be seamlessly used in downstream analyses,
+making data pipelines more robust and reliable.
 
 %prep
 %setup -q -c -n %{packname}

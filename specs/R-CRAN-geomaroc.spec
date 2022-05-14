@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  hglasso
-%global packver   1.3
+%global packname  geomaroc
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Learning Graphical Models with Hubs
+Summary:          Easily Visualize Geographic Data of Morocco
 
-License:          GPL (>= 2)
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,20 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glasso 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-fields 
-Requires:         R-CRAN-glasso 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-fields 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-sf 
 
 %description
-Implements the hub graphical lasso and hub covariance graph proposal by
-Tan, KM., London, P., Mohan, K., Lee, S-I., Fazel, M., and Witten, D.
-(2014). Learning graphical models with hubs. Journal of Machine Learning
-Research 15(Oct):3297-3331.
+Tools to easily visualize geographic data of Morocco. This package
+interacts with data available through the 'geomarocdata' package, which is
+available in a 'drat' repository.  The size of the 'geomarocdata' package
+is approximately 12 MB.
 
 %prep
 %setup -q -c -n %{packname}

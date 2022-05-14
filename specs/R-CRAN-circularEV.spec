@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  circularEV
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extreme Value Analysis for Circular Data
 
@@ -38,9 +38,9 @@ Requires:         R-stats
 %description
 General functions for performing extreme value analysis on a circular
 domain as part of the statistical methodology in the paper by Konzen, E.,
-Neves, C., and Jonathan, P. (2020+). Modelling non-stationary extremes of
-storm severity: comparing parametric and semi-parametric inference.
-Environmetrics (to appear).
+Neves, C., and Jonathan, P. (2021). Modeling nonstationary extremes of
+storm severity: Comparing parametric and semiparametric inference.
+Environmetrics, 32(4), e2667.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,6 +50,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

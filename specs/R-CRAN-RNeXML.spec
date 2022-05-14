@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RNeXML
-%global packver   2.4.6
+%global packver   2.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.6
+Version:          2.4.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Semantically Rich I/O for the 'NeXML' Format
 

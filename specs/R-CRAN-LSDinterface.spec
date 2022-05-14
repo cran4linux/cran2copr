@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  LSDinterface
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface Tools for LSD Simulation Results Files
 
@@ -36,8 +36,8 @@ multi-dimensional arrays in R. Supports multiple core parallel threads of
 multi-file data reading for increased performance. Also provides functions
 to extract basic information and statistics from data files. LSD
 (Laboratory for Simulation Development) is free software developed by
-Marco Valente (documentation and downloads available at
-<https://www.labsimdev.org/>).
+Marco Valente and Marcelo C. Pereira (documentation and downloads
+available at <https://www.labsimdev.org/>).
 
 %prep
 %setup -q -c -n %{packname}

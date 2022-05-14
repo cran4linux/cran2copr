@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  semtree
-%global packver   0.9.17
+%global packver   0.9.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.17
+Version:          0.9.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Recursive Partitioning for Structural Equation Models
 
@@ -35,6 +35,7 @@ BuildRequires:    R-CRAN-zoo
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-clisymbols 
 BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-rpart.plot >= 3.0.6
 Requires:         R-CRAN-OpenMx >= 2.6.9
 Requires:         R-CRAN-bitops 
@@ -54,6 +55,7 @@ Requires:         R-CRAN-zoo
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-clisymbols 
 Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-data.table 
 
 %description
 SEM Trees and SEM Forests -- an extension of model-based decision trees
@@ -65,8 +67,8 @@ ensembles of SEM trees each built on a random sample of the original data.
 By aggregating over a forest, we obtain measures of variable importance
 that are more robust than measures from single trees. A description of the
 method was published by Brandmaier, von Oertzen, McArdle, & Lindenberger
-(2013; <doi:10.1037/a0030001>) and Arnold, Voelkle, & Brandmaier (2020;
-<doi:10.3389/fpsyg.2020.564403>).
+(2013) <doi:10.1037/a0030001> and Arnold, Voelkle, & Brandmaier (2020)
+<doi:10.3389/fpsyg.2020.564403>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  hlaR
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for HLA Data
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-usethis 
@@ -30,6 +30,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-here 
 BuildRequires:    R-CRAN-readxlsb 
+BuildRequires:    R-CRAN-janitor 
 Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-usethis 
 Requires:         R-CRAN-tidyverse 
@@ -44,6 +45,7 @@ Requires:         R-utils
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-here 
 Requires:         R-CRAN-readxlsb 
+Requires:         R-CRAN-janitor 
 
 %description
 A streamlined tool for eplet analysis of donor and recipient HLA (human

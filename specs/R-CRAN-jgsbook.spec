@@ -1,35 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  hglasso
-%global packver   1.3
+%global packname  jgsbook
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Learning Graphical Models with Hubs
+Summary:          Package of the German Book "Statistik mit R und RStudio" by Joerg grosse Schlarmann
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glasso 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-fields 
-Requires:         R-CRAN-glasso 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-fields 
+BuildRequires:    R-CRAN-statip 
+Requires:         R-CRAN-statip 
 
 %description
-Implements the hub graphical lasso and hub covariance graph proposal by
-Tan, KM., London, P., Mohan, K., Lee, S-I., Fazel, M., and Witten, D.
-(2014). Learning graphical models with hubs. Journal of Machine Learning
-Research 15(Oct):3297-3331.
+All datasets and functions used in the german book "Statistik mit R und
+RStudio" by Joerg grosse Schlarmann. You can read it online at
+<https://www.produnis.de/R/> .
 
 %prep
 %setup -q -c -n %{packname}

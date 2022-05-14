@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  unifir
-%global packver   0.2.1
+%global packname  ParallelDSM
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Unifying API for Calling the 'Unity' '3D' Video Game Engine
+Summary:          Parallel Digital Soil Mapping using Machine Learning
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,22 +16,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-snowfall 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-proceduralnames 
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-pryr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-gstat 
+BuildRequires:    R-CRAN-quantregForest 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-snowfall 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-sp 
 Requires:         R-methods 
-Requires:         R-CRAN-proceduralnames 
-Requires:         R-CRAN-R6 
+Requires:         R-CRAN-pryr 
 Requires:         R-utils 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-gstat 
+Requires:         R-CRAN-quantregForest 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rgdal 
+Requires:         R-stats 
 
 %description
-Functions for the creation and manipulation of scenes and objects within
-the 'Unity' '3D' video game engine (<https://unity.com/>). Specific
-focuses include the creation and import of terrain data and 'GameObjects'
-as well as scene management.
+Parallel computing, multi-core CPU is used to efficiently compute and
+process multi-dimensional soil data.This package includes the parallelized
+'Quantile Regression Forests' algorithm for Digital Soil Mapping and is
+mainly dependent on the package 'quantregForest' and 'snowfall'. Detailed
+references to the R package and the web site are described in the methods,
+as detailed in the method documentation.
 
 %prep
 %setup -q -c -n %{packname}

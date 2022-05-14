@@ -1,35 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  hglasso
-%global packver   1.3
+%global packname  terminaldigits
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Learning Graphical Models with Hubs
+Summary:          Tests of Uniformity and Independence for Terminal Digits
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-glasso 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-fields 
-Requires:         R-CRAN-glasso 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-fields 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-discretefit 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-discretefit 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Implements the hub graphical lasso and hub covariance graph proposal by
-Tan, KM., London, P., Mohan, K., Lee, S-I., Fazel, M., and Witten, D.
-(2014). Learning graphical models with hubs. Journal of Machine Learning
-Research 15(Oct):3297-3331.
+Implements simulated tests for the hypothesis that terminal digits are
+uniformly distributed (chi-squared goodness-of-fit) and the hypothesis
+that terminal digits are independent from preceding digits (several tests
+of independence for r x c contingency tables). Also, for a number of
+distributions, implements Monte Carlo simulations for type I errors and
+power for the test of independence.
 
 %prep
 %setup -q -c -n %{packname}

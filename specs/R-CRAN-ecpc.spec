@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ecpc
-%global packver   3.0
+%global packver   3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0
+Version:          3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Co-Data Learning for High-Dimensional Prediction
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-mgcv
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-JOPS 
 BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-checkmate 
 Requires:         R-CRAN-multiridge >= 1.5
 Requires:         R-CRAN-glmnet 
 Requires:         R-stats 
@@ -42,6 +43,7 @@ Requires:         R-CRAN-mgcv
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-JOPS 
 Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-checkmate 
 
 %description
 Fit linear, logistic and Cox survival regression models penalised with

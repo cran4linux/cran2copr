@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  roxygen2
-%global packver   7.1.2
+%global packver   7.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.1.2
+Version:          7.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          In-Line Documentation for R
 
@@ -15,9 +15,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
+BuildRequires:    R-CRAN-cli >= 3.3.0
 BuildRequires:    R-CRAN-R6 >= 2.1.2
 BuildRequires:    R-CRAN-desc >= 1.2.0
 BuildRequires:    R-CRAN-pkgload >= 1.0.2
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-stringr >= 1.0.0
 BuildRequires:    R-CRAN-purrr >= 0.3.3
 BuildRequires:    R-CRAN-brew 
@@ -25,14 +27,16 @@ BuildRequires:    R-CRAN-commonmark
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-cli >= 3.3.0
 Requires:         R-CRAN-R6 >= 2.1.2
 Requires:         R-CRAN-desc >= 1.2.0
 Requires:         R-CRAN-pkgload >= 1.0.2
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-stringr >= 1.0.0
 Requires:         R-CRAN-purrr >= 0.3.3
 Requires:         R-CRAN-brew 
@@ -40,9 +44,9 @@ Requires:         R-CRAN-commonmark
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-knitr 
 Requires:         R-methods 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringi 
 Requires:         R-utils 
+Requires:         R-CRAN-withr 
 Requires:         R-CRAN-xml2 
 
 %description

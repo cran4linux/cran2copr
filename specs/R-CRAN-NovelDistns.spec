@@ -1,35 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  hglasso
-%global packver   1.3
+%global packname  NovelDistns
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Learning Graphical Models with Hubs
+Summary:          Computes PDF, CDF, Quantile, Random Numbers and Measures of Inference for 3 General Families of Distributions
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glasso 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-fields 
-Requires:         R-CRAN-glasso 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-fields 
+BuildRequires:    R-CRAN-AdequacyModel 
+BuildRequires:    R-CRAN-gsl 
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-AdequacyModel 
+Requires:         R-CRAN-gsl 
+Requires:         R-CRAN-rootSolve 
+Requires:         R-stats 
 
 %description
-Implements the hub graphical lasso and hub covariance graph proposal by
-Tan, KM., London, P., Mohan, K., Lee, S-I., Fazel, M., and Witten, D.
-(2014). Learning graphical models with hubs. Journal of Machine Learning
-Research 15(Oct):3297-3331.
+Computes the probability density function, the cumulative density
+function, quantile function, random numbers and measures of inference for
+the following families exponentiated generalized gull alpha power family,
+exponentiated gull alpha powerfamily, gull alpha power family.
 
 %prep
 %setup -q -c -n %{packname}

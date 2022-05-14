@@ -1,56 +1,59 @@
 %global __brp_check_rpaths %{nil}
-%global packname  unmarked
-%global packver   1.2.5
+%global packname  metaplus
+%global packver   1.0-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Models for Data from Unmarked Animals
+Summary:          Robust Meta-Analysis and Meta-Regression
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.12.0
-Requires:         R-core >= 2.12.0
-BuildRequires:    R-CRAN-TMB >= 1.7.18
-BuildRequires:    R-CRAN-Rcpp >= 0.8.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-bbmle 
+BuildRequires:    R-CRAN-metafor 
+BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-TMB >= 1.7.18
-Requires:         R-CRAN-Rcpp >= 0.8.0
+BuildRequires:    R-CRAN-fastGHQuad 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doRNG 
+Requires:         R-CRAN-bbmle 
+Requires:         R-CRAN-metafor 
+Requires:         R-CRAN-boot 
 Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
-Requires:         R-parallel 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-plyr 
+Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-fastGHQuad 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-Rfast 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doRNG 
 
 %description
-Fits hierarchical models of animal abundance and occurrence to data
-collected using survey methods such as point counts, site occupancy
-sampling, distance sampling, removal sampling, and double observer
-sampling. Parameters governing the state and observation processes can be
-modeled as functions of covariates. Reference: Fiske and Chandler (2011)
-<doi:10.18637/jss.v043.i10>.
+Performs meta-analysis and meta-regression using standard and robust
+methods with confidence intervals based on the profile likelihood. Robust
+methods are based on alternative distributions for the random effect,
+either the t-distribution (Lee and Thompson, 2008 <doi:10.1002/sim.2897>
+or Baker and Jackson, 2008 <doi:10.1007/s10729-007-9041-8>) or mixtures of
+normals (Beath, 2014 <doi:10.1002/jrsm.1114>).
 
 %prep
 %setup -q -c -n %{packname}

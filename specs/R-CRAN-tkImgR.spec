@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tkImgR
-%global packver   0.0.1
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Image Viewer for R Using the 'tcltk' Package
 
@@ -13,21 +13,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tkRplotR 
 BuildRequires:    R-tcltk 
-Requires:         R-CRAN-tkRplotR 
+BuildRequires:    R-CRAN-tkRplotR 
 Requires:         R-tcltk 
+Requires:         R-CRAN-tkRplotR 
 
 %description
 A 'Tcl/Tk' Graphical User Interface (GUI) to display images than can be
-zoomed and panned using the mouse and keyboard shortcuts. 'tkImgR' can
-also read and write different image formats (PPM/PGM, PNG and GIF) using
-the standard 'Tcl/Tk' distribution (>=8.6), but other formats (JPEG, TIFF,
-CR2) can be handled using the the 'TK Img' package (by Jan Nijtmans and
-maintained by Paul Obermeier).
+zoomed and panned using the mouse and keyboard shortcuts. 'tkImgR' read
+and write different image formats (PPM/PGM, PNG and GIF) using the
+standard 'Tcl/Tk' distribution (>=8.6), but other formats (JPEG, TIFF,
+CR2) can be handled using the 'tkImg' package for 'Tcl/Tk'.
 
 %prep
 %setup -q -c -n %{packname}
