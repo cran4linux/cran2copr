@@ -1,32 +1,26 @@
 %global __brp_check_rpaths %{nil}
-%global packname  pa
-%global packver   1.2-2
+%global packname  gsloid
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Performance Attribution for Equity Portfolios
+Summary:          Global Sea Level and Oxygen Isotope Data
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-BuildRequires:    R-grid 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-grid 
 
 %description
-It provides tools for conducting performance attribution for equity
-portfolios. The package uses two methods: the Brinson method and a
-regression-based analysis.
+Contains published data sets for global benthic d18O data for 0-5.3 Myr
+<doi:10.1029/2004PA001071> and global sea levels based on marine sediment
+core data for 0-800 ka <doi:10.5194/cp-12-1-2016>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  photobiologyInOut
-%global packver   0.4.23
+%global packver   0.4.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.23
+Version:          0.4.24
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read Spectral and Logged Data from Foreign Files
 
@@ -19,28 +19,28 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 2.1.3
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
 BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-colorSpec >= 1.4.0
 BuildRequires:    R-CRAN-readr >= 1.3.1
 BuildRequires:    R-CRAN-readxl >= 1.3.1
-BuildRequires:    R-CRAN-colorSpec >= 0.9.1
+BuildRequires:    R-CRAN-tidyselect >= 1.1.0
 BuildRequires:    R-CRAN-tidyr >= 0.8.3
 BuildRequires:    R-CRAN-dplyr >= 0.8.1
 BuildRequires:    R-CRAN-anytime >= 0.3.9
-BuildRequires:    R-CRAN-lazyeval >= 0.2.2
-BuildRequires:    R-CRAN-photobiology >= 0.10.6
+BuildRequires:    R-CRAN-photobiology >= 0.10.9
 BuildRequires:    R-methods 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-colorSpec >= 1.4.0
 Requires:         R-CRAN-readr >= 1.3.1
 Requires:         R-CRAN-readxl >= 1.3.1
-Requires:         R-CRAN-colorSpec >= 0.9.1
+Requires:         R-CRAN-tidyselect >= 1.1.0
 Requires:         R-CRAN-tidyr >= 0.8.3
 Requires:         R-CRAN-dplyr >= 0.8.1
 Requires:         R-CRAN-anytime >= 0.3.9
-Requires:         R-CRAN-lazyeval >= 0.2.2
-Requires:         R-CRAN-photobiology >= 0.10.6
+Requires:         R-CRAN-photobiology >= 0.10.9
 Requires:         R-methods 
 Requires:         R-tools 
 Requires:         R-utils 

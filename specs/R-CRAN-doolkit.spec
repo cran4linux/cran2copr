@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  doolkit
-%global packver   1.0.1
+%global packver   1.42.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.42.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploration of Dental Surface Topography
 
@@ -16,28 +16,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-concaveman 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Morpho 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-Rvcg 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-tis 
-Requires:         R-CRAN-concaveman 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-concaveman 
+BuildRequires:    R-CRAN-usethis 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-MASS 
-Requires:         R-methods 
 Requires:         R-CRAN-Morpho 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-Rvcg 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-tis 
+Requires:         R-methods 
+Requires:         R-CRAN-concaveman 
+Requires:         R-CRAN-usethis 
 
 %description
 Tools for exploring the topography of 3d triangle meshes. The functions

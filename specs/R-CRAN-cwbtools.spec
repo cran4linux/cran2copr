@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cwbtools
-%global packver   0.3.4
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Create, Modify and Manage 'CWB' Corpora
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RcppCWB >= 0.2.8
+BuildRequires:    R-CRAN-RcppCWB >= 0.5.2
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-xml2 
@@ -32,7 +32,7 @@ BuildRequires:    R-CRAN-rstudioapi
 BuildRequires:    R-CRAN-zen4R 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-fs 
-Requires:         R-CRAN-RcppCWB >= 0.2.8
+Requires:         R-CRAN-RcppCWB >= 0.5.2
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-xml2 
@@ -50,7 +50,7 @@ Requires:         R-CRAN-lifecycle
 Requires:         R-CRAN-fs 
 
 %description
-The 'Corpus Workbench' ('CWB', <http://cwb.sourceforge.net/>) offers a
+The 'Corpus Workbench' ('CWB', <https://cwb.sourceforge.io/>) offers a
 classic and mature approach for working with large, linguistically and
 structurally annotated corpora. The 'CWB' is memory efficient and its
 design makes running queries fast (Evert and Hardie 2011,
@@ -74,6 +74,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

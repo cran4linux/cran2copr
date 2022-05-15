@@ -1,32 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  HDPenReg
-%global packver   0.94.8
+%global packname  TAM
+%global packver   4.0-16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.94.8
+Version:          4.0.16
 Release:          1%{?dist}%{?buildtag}
-Summary:          High-Dimensional Penalized Regression
+Summary:          Test Analysis Modules
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-rtkore >= 1.5.5
+BuildRequires:    R-devel >= 2.15.1
+Requires:         R-core >= 2.15.1
+BuildRequires:    R-CRAN-CDM >= 6.4.19
+BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-rtkore >= 1.5.5
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-CDM >= 6.4.19
+Requires:         R-graphics 
 Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Algorithms for lasso and fused-lasso problems: implementation of the lars
-algorithm for lasso and fusion penalization and EM-based algorithms for
-(logistic) lasso and fused-lasso penalization.
+Includes marginal maximum likelihood estimation and joint maximum
+likelihood estimation for unidimensional and multidimensional item
+response models. The package functionality covers the Rasch model, 2PL
+model, 3PL model, generalized partial credit model, multi-faceted Rasch
+model, nominal item response model, structured latent class model, mixture
+distribution IRT models, and located latent class models. Latent
+regression models and plausible value imputation are also supported. For
+details see Adams, Wilson and Wang, 1997 <doi:10.1177/0146621697211001>,
+Adams, Wilson and Wu, 1997 <doi:10.3102/10769986022001047>, Formann, 1982
+<doi:10.1002/bimj.4710240209>, Formann, 1992
+<doi:10.1080/01621459.1992.10475229>.
 
 %prep
 %setup -q -c -n %{packname}

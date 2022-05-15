@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DEM
-%global packver   0.0.0.1
+%global packver   0.0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.0.1
+Version:          0.0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Distributed EM Algorithms in Multivariate Gaussian Mixture Models
 
