@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  attachment
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Deal with Dependencies
 
@@ -22,18 +22,22 @@ BuildRequires:    R-CRAN-glue >= 1.3.0
 BuildRequires:    R-CRAN-knitr >= 1.20
 BuildRequires:    R-CRAN-desc >= 1.2.0
 BuildRequires:    R-CRAN-rmarkdown >= 1.10
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-roxygen2 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringr >= 1.3.1
 Requires:         R-CRAN-glue >= 1.3.0
 Requires:         R-CRAN-knitr >= 1.20
 Requires:         R-CRAN-desc >= 1.2.0
 Requires:         R-CRAN-rmarkdown >= 1.10
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-roxygen2 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-withr 
 
 %description
 Tools to help manage dependencies during package development.  This can

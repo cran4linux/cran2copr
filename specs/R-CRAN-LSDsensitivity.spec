@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  LSDsensitivity
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sensitivity Analysis Tools for LSD Simulations
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-LSDinterface >= 1.2.0
+BuildRequires:    R-CRAN-LSDinterface >= 1.2.1
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
@@ -31,7 +31,7 @@ BuildRequires:    R-CRAN-randtoolbox
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-rgenoud 
 BuildRequires:    R-CRAN-DiceKriging 
-Requires:         R-CRAN-LSDinterface >= 1.2.0
+Requires:         R-CRAN-LSDinterface >= 1.2.1
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-graphics 
@@ -55,8 +55,8 @@ Saltelli et al. (2008) ISBN:9780470725177). A Kriging or polynomial
 meta-model (Kleijnen (2009) <doi:10.1016/j.ejor.2007.10.013>) is estimated
 using the simulation data to provide the data required by the Sobol
 decomposition. LSD (Laboratory for Simulation Development) is free
-software developed by Marco Valente (documentation and downloads available
-at <https://www.labsimdev.org/>).
+software developed by Marco Valente and Marcelo C. Pereira (documentation
+and downloads available at <https://www.labsimdev.org/>).
 
 %prep
 %setup -q -c -n %{packname}

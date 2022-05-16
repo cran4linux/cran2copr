@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  whitebox
-%global packver   2.1.2
+%global packver   2.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          'WhiteboxTools' R Frontend
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 
 %description

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rmangal
-%global packver   2.1.0
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Mangal' Client
 
@@ -18,16 +18,14 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite >= 1.5
 BuildRequires:    R-CRAN-httr >= 1.3.1
-BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-igraph >= 1.2.1
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-jsonlite >= 1.5
 Requires:         R-CRAN-httr >= 1.3.1
-Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-igraph >= 1.2.1
 Requires:         R-CRAN-memoise 
 Requires:         R-methods 
-Requires:         R-CRAN-purrr 
 
 %description
 An interface to the 'Mangal' database - a collection of ecological

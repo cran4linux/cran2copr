@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  L2DensityGoFtest
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Density Goodness-of-Fit Test
 
@@ -17,11 +17,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-fGarch 
-BuildRequires:    R-CRAN-kedd 
 BuildRequires:    R-CRAN-nor1mix 
 BuildRequires:    R-CRAN-boot 
 Requires:         R-CRAN-fGarch 
-Requires:         R-CRAN-kedd 
 Requires:         R-CRAN-nor1mix 
 Requires:         R-CRAN-boot 
 
