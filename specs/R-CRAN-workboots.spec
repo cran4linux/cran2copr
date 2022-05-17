@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  workboots
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate Bootstrap Prediction Intervals from a 'tidymodels' Workflow
 
@@ -19,6 +19,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-Metrics 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
@@ -31,6 +32,7 @@ BuildRequires:    R-CRAN-workflows
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-generics 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-Metrics 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 

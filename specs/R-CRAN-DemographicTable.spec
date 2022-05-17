@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DemographicTable
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creating Demographic Table
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-e1071 
@@ -23,13 +23,12 @@ Requires:         R-CRAN-e1071
 
 %description
 Functions for creating demographic table with simple summary statistics,
-with optional comparison(s) over one or more groups.  Numeric variables
-are summarized in means, standard deviations, medians,
-inter-quartile-ranges (IQR), skewness, Shapiro-Wilk normality test and
-ranges, and compared using two-sample t-test, Wilcoxon test, ANOVA and/or
-Kruskal-Wallis test.  Logical and factor variables are summarized in
-counts and percentages and compared using chi-squared test and/or Fisher's
-exact test.
+with optional comparison(s) over one or more groups. Numeric variables are
+summarized in means, standard deviations, medians, inter-quartile-ranges
+(IQR), skewness, Shapiro-Wilk normality test and ranges, and compared
+using two-sample t-test, Wilcoxon test, ANOVA and/or Kruskal-Wallis test.
+Logical and factor variables are summarized in counts and percentages and
+compared using chi-squared test and/or Fisher's exact test.
 
 %prep
 %setup -q -c -n %{packname}

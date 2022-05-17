@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fdaPOIFD
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Partially Observed Integrated Functional Depth
 
@@ -36,11 +36,11 @@ Requires:         R-CRAN-FastGP
 Requires:         R-stats 
 
 %description
-Integrated Depths for Partially Observed Functional Data (POFD).
 Applications to visualization, outlier detection and classification.
 Software companion for Elías, Antonio, Jiménez, Raúl, Paganoni, Anna M.
-and Sangalli, Laura M., (2020), "Integrated Depth for Partially Observed
-Functional Data".
+and Sangalli, Laura M., (2022), "Integrated Depth for Partially Observed
+Functional Data". Journal of Computational and Graphical Statistics.
+<doi:10.1080/10618600.2022.2070171>.
 
 %prep
 %setup -q -c -n %{packname}

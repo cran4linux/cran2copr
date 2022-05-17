@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  riAFTBART
-%global packver   0.3.0
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Flexible Approach for Causal Inference with Multiple Treatments and Clustered Survival Outcomes
 
@@ -32,7 +32,6 @@ BuildRequires:    R-CRAN-cowplot
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-twang 
 BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-RISCA 
 BuildRequires:    R-CRAN-RRF 
 BuildRequires:    R-CRAN-randomForest 
 Requires:         R-CRAN-MASS 
@@ -51,7 +50,6 @@ Requires:         R-CRAN-cowplot
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-twang 
 Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-RISCA 
 Requires:         R-CRAN-RRF 
 Requires:         R-CRAN-randomForest 
 

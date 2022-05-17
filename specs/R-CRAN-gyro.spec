@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gyro
-%global packver   0.2.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Three-Dimensional Hyperbolic Geometry
+Summary:          Hyperbolic Geometry
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,8 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 BuildRequires:    R-CRAN-cxhull >= 0.3.0
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-Rvcg 
 BuildRequires:    R-CRAN-Morpho 
@@ -24,7 +24,14 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-clipr 
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-randomcoloR 
+BuildRequires:    R-CRAN-RcppCGAL 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-cxhull >= 0.3.0
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-Rvcg 
 Requires:         R-CRAN-Morpho 
@@ -32,12 +39,19 @@ Requires:         R-CRAN-purrr
 Requires:         R-grDevices 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-clipr 
+Requires:         R-CRAN-plotrix 
+Requires:         R-graphics 
+Requires:         R-CRAN-randomcoloR 
 
 %description
-Hyperbolic geometry in the hyperboloid model, with emphasis on the 3D
-case. The methods are based on the gyrovector space theory developed by A.
-A. Ungar that can be found in the book 'Analytic Hyperbolic Geometry:
-Mathematical Foundations And Applications' <doi:10.1142/5914>.
+Hyperbolic geometry in the hyperboloid model and the Poincaré model. The
+methods are based on the gyrovector space theory developed by A. A. Ungar
+that can be found in the book 'Analytic Hyperbolic Geometry: Mathematical
+Foundations And Applications' <doi:10.1142/5914>. The package provides
+functions to plot three-dimensional hyperbolic polyhedra, to plot
+hyperbolic tilings of the Poincaré disk, and to construct and plot
+Delaunay hyperbolic triangulations of the Poincaré disk. They are
+constructed with the help of the C++ library 'CGAL'.
 
 %prep
 %setup -q -c -n %{packname}

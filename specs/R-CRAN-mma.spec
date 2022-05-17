@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mma
-%global packver   10.5-1
+%global packver   10.6-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          10.5.1
+Version:          10.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Mediation Analysis
 
@@ -22,19 +22,20 @@ BuildRequires:    R-CRAN-survival
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-gplots 
 BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-gbm 
 Requires:         R-splines 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-gplots 
 Requires:         R-CRAN-lattice 
+Requires:         R-methods 
 
 %description
 Used for general multiple mediation analysis. The analysis method is
-described in Yu et al. (2014) <doi:10.4172/2155-6180.1000189> "General
-Multiple Mediation Analysis With an Application to Explore Racial
-Disparity in Breast Cancer Survival", published on Journal of Biometrics &
-Biostatistics, 5(2):189; and Yu et al.(2017)
+described in Yu and Li (2022) (ISBN: 9780367365479) "Statistical Methods
+for Mediation, Confounding and Moderation Analysis Using R and SAS",
+published by Chapman and Hall/CRC; and Yu et al.(2017)
 <DOI:10.1016/j.sste.2017.02.001> "Exploring racial disparity in obesity: a
 mediation analysis considering geo-coded environmental factors", published
 on Spatial and Spatio-temporal Epidemiology, 21, 13-23.

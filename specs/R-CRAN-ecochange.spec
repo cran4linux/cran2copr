@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ecochange
-%global packver   2.8
+%global packver   2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8
+Version:          2.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integrating Ecosystem Remote Sensing Products to Derive EBV Indicators
 
@@ -18,8 +18,9 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-rasterVis 
+BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-landscapemetrics 
 BuildRequires:    R-CRAN-tibble 
@@ -31,11 +32,11 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-rasterDT 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rasterVis 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-rgdal 
 Requires:         R-parallel 
+Requires:         R-CRAN-rasterVis 
+Requires:         R-CRAN-sp 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-landscapemetrics 
 Requires:         R-CRAN-tibble 
@@ -47,7 +48,6 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-rasterDT 
 Requires:         R-stats 
-Requires:         R-CRAN-rasterVis 
 
 %description
 Essential Biodiversity Variables (EBV) are state variables with dimensions

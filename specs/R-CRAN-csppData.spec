@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  csppData
-%global packver   0.2.51
+%global packver   0.2.61
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.51
+Version:          0.2.61
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Only: The Correlates of State Policy Project Dataset
 

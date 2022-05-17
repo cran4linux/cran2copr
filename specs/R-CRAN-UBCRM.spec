@@ -1,31 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  CallEshotgun
-%global packver   0.2.0
+%global packname  UBCRM
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Providing an Interface to the e-Shotgun Algorithm for Bayesian Optimization
+Summary:          Functions to Simulate and Conduct Dose-Escalation Phase I Studies
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate 
-Requires:         R-CRAN-reticulate 
 
 %description
-A set of tools for the usage of the e-shotgun algorithm for Bayesian
-optimization. The e-shotgun was originally developed by "George De Ath,
-Richard M. Everson, Jonathan E. Fieldsend, and Alma A. M. Rahat. 2020.
-e-shotgun : e-greedy Batch Bayesian Optimisation. In Genetic and
-Evolutionary Computation Conference (GECCO ’20), July 8–12, 2020, Cancún,
-Mexico. ACM, New York, NY, USA, 9 pages." <doi:10.1145/3377930.3390154>.
+Two Phase I designs are implemented in the package: the classical 3+3 and
+the Continual Reassessment Method. Simulations tools are also available to
+estimate the operating characteristics of the methods with several
+user-dependent options.
 
 %prep
 %setup -q -c -n %{packname}
