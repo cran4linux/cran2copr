@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  GLDEX
-%global packver   2.0.0.8
+%global packver   2.0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0.8
+Version:          2.0.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting Single and Mixture of Generalised Lambda Distributions
 
@@ -49,8 +49,8 @@ Likelihood Methods: GLDEX in R" <doi:10.18637/jss.v021.i09>, Su (2009)
 "Confidence Intervals for Quantiles Using Generalized Lambda
 Distributions" <doi:10.1016/j.csda.2009.02.014>, Su (2010) "Chapter 14:
 Fitting GLDs and Mixture of GLDs to Data using Quantile Matching Method"
-<doi:10.1201/b10159-3>, Su (2010) "Chapter 15: Fitting GLD to data using
-GLDEX 1.0.4 in R" <doi:10.1201/b10159-3>, Su (2015) "Flexible Parametric
+<doi:10.1201/b10159>, Su (2010) "Chapter 15: Fitting GLD to data using
+GLDEX 1.0.4 in R" <doi:10.1201/b10159>, Su (2015) "Flexible Parametric
 Quantile Regression Model" <doi:10.1007/s11222-014-9457-1>, Su (2021)
 "Flexible parametric accelerated failure time
 model"<doi:10.1080/10543406.2021.1934854>.

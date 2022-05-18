@@ -1,34 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  localScore
-%global packver   1.0.8
+%global packname  chronicler
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package for Sequence Analysis by Local Score
+Summary:          Add Logging to Functions
 
-License:          GPL (>= 2) | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.16
-BuildRequires:    R-utils 
-Requires:         R-CRAN-Rcpp >= 0.12.16
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-clipr 
+BuildRequires:    R-CRAN-diffobj 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-maybe 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-clipr 
+Requires:         R-CRAN-diffobj 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-maybe 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
-Functionalities for calculating the local score and calculating
-statistical relevance (p-value) to find a local Score in a sequence of
-given distribution (S. Mercier and J.-J. Daudin (2001)
-<https://hal.archives-ouvertes.fr/hal-00714174>) ; S. Karlin and S.
-Altschul (1990) <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC53667/> ; S.
-Mercier, D. Cellier and F. Charlot (2003)
-<https://hal.archives-ouvertes.fr/hal-00937529v1> ; A. Lagnoux, S. Mercier
-and P. Valois (2017) <doi:10.1093/bioinformatics/btw699> ).
+Decorate functions to make them return enhanced output. The enhanced
+output consists in an object of type 'chronicle' containing the result of
+the function applied to its arguments, as well as a log detailing when the
+function was run, what were its inputs, what were the errors (if the
+function failed to run) and other useful information. Tools to handle
+decorated functions are included, such as a forward pipe operator that
+makes chaining decorated functions possible.
 
 %prep
 %setup -q -c -n %{packname}

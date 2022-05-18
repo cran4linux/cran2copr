@@ -1,34 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  localScore
-%global packver   1.0.8
+%global packname  designer
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package for Sequence Analysis by Local Score
+Summary:          'Shiny' UI Prototype Builder
 
-License:          GPL (>= 2) | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.16
-BuildRequires:    R-utils 
-Requires:         R-CRAN-Rcpp >= 0.12.16
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny >= 1.7.1
+BuildRequires:    R-CRAN-config >= 0.3.1
+BuildRequires:    R-CRAN-golem >= 0.3.1
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-shinipsum 
+BuildRequires:    R-CRAN-shinyscreenshot 
+BuildRequires:    R-CRAN-cicerone 
+Requires:         R-CRAN-shiny >= 1.7.1
+Requires:         R-CRAN-config >= 0.3.1
+Requires:         R-CRAN-golem >= 0.3.1
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-shinipsum 
+Requires:         R-CRAN-shinyscreenshot 
+Requires:         R-CRAN-cicerone 
 
 %description
-Functionalities for calculating the local score and calculating
-statistical relevance (p-value) to find a local Score in a sequence of
-given distribution (S. Mercier and J.-J. Daudin (2001)
-<https://hal.archives-ouvertes.fr/hal-00714174>) ; S. Karlin and S.
-Altschul (1990) <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC53667/> ; S.
-Mercier, D. Cellier and F. Charlot (2003)
-<https://hal.archives-ouvertes.fr/hal-00937529v1> ; A. Lagnoux, S. Mercier
-and P. Valois (2017) <doi:10.1093/bioinformatics/btw699> ).
+A 'shiny' application that enables the user to create a prototype UI,
+being able to drag and drop UI components before being able to save or
+download the equivalent R code.
 
 %prep
 %setup -q -c -n %{packname}

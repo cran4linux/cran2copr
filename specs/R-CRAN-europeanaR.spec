@@ -1,57 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  microeco
-%global packver   0.9.0
+%global packname  europeanaR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Microbial Community Ecology Data Analysis
+Summary:          Interact with Metadata Records and Media on the Europeana Repository
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-reshape2 
-Requires:         R-CRAN-R6 
-Requires:         R-stats 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-scales 
-Requires:         R-grid 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-reshape2 
+Requires:         R-utils 
+Requires:         R-CRAN-Rdpack 
 
 %description
-A series of statistical and plotting approaches in microbial community
-ecology based on the R6 class. The classes are designed for data
-preprocessing, taxa abundance plotting, alpha diversity analysis, beta
-diversity analysis, differential abundance test, null model analysis,
-network analysis, machine learning, environmental data analysis and
-functional analysis.
+Interact with the Europeana Data Model via a variety of API endpoints that
+contains digital collections from thousands of institutions around Europe.
+This translates to millions of Cultural Heritage Objects in the form of
+image, text, video, sound and 3D, accompanied by rich metadata. The Data
+Model design principles are based on the core principles and best
+practices of the Semantic Web and Linked Data efforts to which Europeana
+contributes (see, e.g., Doerr, Martin, et al. The europeana data model
+(edm). World Library and Information Congress: 76th IFLA general
+conference and assembly. Vol. 10. 2010.). The package also provides
+methods for bulk downloads of specific subsets of items, including both
+their metadata and their associated media files.
 
 %prep
 %setup -q -c -n %{packname}

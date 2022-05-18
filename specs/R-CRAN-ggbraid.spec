@@ -1,41 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  PUlasso
-%global packver   3.2.4
+%global packname  ggbraid
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.4
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          High-Dimensional Variable Selection with Presence-Only Data
+Summary:          Braid Ribbons in 'ggplot2'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 0.12.8
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 0.12.8
-Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-ggplot2 >= 3.0.0
 
 %description
-Efficient algorithm for solving PU (Positive and Unlabeled) problem in low
-or high dimensional setting with lasso or group lasso penalty. The
-algorithm uses Maximization-Minorization and (block) coordinate descent.
-Sparse calculation and parallel computing are supported for the
-computational speed-up. See Hyebin Song, Garvesh Raskutti (2018)
-<arXiv:1711.08129>.
+A new stat, stat_braid(), that extends the functionality of geom_ribbon()
+to correctly fill the area between two alternating lines (or steps) with
+two different colors, and a geom, geom_braid(), that wraps geom_ribbon()
+and uses stat_braid() by default.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,6 +33,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

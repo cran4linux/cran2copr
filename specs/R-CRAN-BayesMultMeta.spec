@@ -1,32 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ggmatplot
-%global packver   0.1.2
+%global packname  BayesMultMeta
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plot Columns of Two Matrices Against Each Other Using 'ggplot2'
+Summary:          Bayesian Multivariate Meta-Analysis
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-Rdpack 
 
 %description
-A quick and easy way of plotting the columns of two matrices or data
-frames against each other using 'ggplot2'. Although 'ggmatplot' doesn't
-provide the same flexibility as 'ggplot2', it can be used as a workaround
-for having to wrangle wide format data into long format for plotting with
-'ggplot2'.
+Objective Bayesian inference procedures for the parameters of the
+multivariate random effects model with application to multivariate
+meta-analysis. The posterior for the model parameters, namely the overall
+mean vector and the between-study covariance matrix, are assessed by
+constructing Markov chains based on the Metropolis-Hastings algorithms as
+developed in Bodnar and Bodnar (2021) (<arXiv:2104.02105>). The
+Metropolis-Hastings algorithm is designed under the assumption of the
+normal distribution and the t-distribution when the Berger and Bernardo
+reference prior and the Jeffreys prior are assigned to the model
+parameters. Convergence properties of the generated Markov chains are
+investigated by the rank plots and the split hat-R estimate based on the
+rank normalization, which are proposed in Vehtari et al. (2021)
+(<DOI:10.1214/20-BA1221>).
 
 %prep
 %setup -q -c -n %{packname}

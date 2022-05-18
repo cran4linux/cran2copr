@@ -1,34 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  localScore
-%global packver   1.0.8
+%global packname  iscoCrosswalks
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package for Sequence Analysis by Local Score
+Summary:          Crosswalks Between Classifications of Occupations
 
-License:          GPL (>= 2) | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.16
-BuildRequires:    R-utils 
-Requires:         R-CRAN-Rcpp >= 0.12.16
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-labourR 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-labourR 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Functionalities for calculating the local score and calculating
-statistical relevance (p-value) to find a local Score in a sequence of
-given distribution (S. Mercier and J.-J. Daudin (2001)
-<https://hal.archives-ouvertes.fr/hal-00714174>) ; S. Karlin and S.
-Altschul (1990) <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC53667/> ; S.
-Mercier, D. Cellier and F. Charlot (2003)
-<https://hal.archives-ouvertes.fr/hal-00937529v1> ; A. Lagnoux, S. Mercier
-and P. Valois (2017) <doi:10.1093/bioinformatics/btw699> ).
+Allows the user to perform approximate matching between the occupational
+classifications using concordances provided by the Institute for
+Structural Research and Faculty of Economics, University of Warsaw,
+<doi:10.1111/ecot.12145>. The crosswalks offer a complete step-by-step
+mapping of Standard Occupational Classification (2010) data to the
+International Standard Classification of Occupations (2008). We propose a
+mapping method based on the aforementioned research that converts
+measurements to the smallest possible unit of the target taxonomy, and
+then performs an aggregation/estimate to the requested degree Occupational
+Hierarchical level.
 
 %prep
 %setup -q -c -n %{packname}

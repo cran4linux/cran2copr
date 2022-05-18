@@ -1,32 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ggmatplot
-%global packver   0.1.2
+%global packname  immer
+%global packver   1.3-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plot Columns of Two Matrices Against Each Other Using 'ggplot2'
+Summary:          Item Response Models for Multiple Ratings
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-CDM 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-psychotools 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-sirt 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-TAM 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-CDM 
+Requires:         R-CRAN-coda 
+Requires:         R-graphics 
+Requires:         R-methods 
+Requires:         R-CRAN-psychotools 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-sirt 
 Requires:         R-stats 
+Requires:         R-CRAN-TAM 
 
 %description
-A quick and easy way of plotting the columns of two matrices or data
-frames against each other using 'ggplot2'. Although 'ggmatplot' doesn't
-provide the same flexibility as 'ggplot2', it can be used as a workaround
-for having to wrangle wide format data into long format for plotting with
-'ggplot2'.
+Implements some item response models for multiple ratings, including the
+hierarchical rater model, conditional maximum likelihood estimation of
+linear logistic partial credit model and a wrapper function to the
+commercial FACETS program. See Robitzsch and Steinfeld (2018) for a
+description of the functionality of the package. See Wang, Su and Qiu
+(2014; <doi:10.1111/jedm.12045>) for an overview of modeling alternatives.
 
 %prep
 %setup -q -c -n %{packname}

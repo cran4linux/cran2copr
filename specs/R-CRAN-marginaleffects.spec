@@ -1,43 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  sampSurf
-%global packver   0.7-6
+%global packname  marginaleffects
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.6
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sampling Surface Simulation for Areal Sampling Methods
+Summary:          Marginal Effects, Marginal Means, Predictions, and Contrasts
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster >= 2.9.5
-BuildRequires:    R-CRAN-boot >= 1.3.3
-BuildRequires:    R-CRAN-sp >= 1.3.0
-BuildRequires:    R-CRAN-latticeExtra >= 0.6.28
-BuildRequires:    R-CRAN-rasterVis >= 0.45
-BuildRequires:    R-CRAN-lattice >= 0.20.35
+BuildRequires:    R-CRAN-insight >= 0.17.1
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-raster >= 2.9.5
-Requires:         R-CRAN-boot >= 1.3.3
-Requires:         R-CRAN-sp >= 1.3.0
-Requires:         R-CRAN-latticeExtra >= 0.6.28
-Requires:         R-CRAN-rasterVis >= 0.45
-Requires:         R-CRAN-lattice >= 0.20.35
+Requires:         R-CRAN-insight >= 0.17.1
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-generics 
 Requires:         R-methods 
 
 %description
-Sampling surface simulation is useful in the comparison of different areal
-sampling methods in forestry, ecology and natural resources. The sampSurf
-package allows the simulation of numerous sampling methods for standing
-trees and downed woody debris in a spatial context. It also provides an S4
-class and method structure that facilitates the addition of new sampling
-methods.
+Compute, summarize, and plot marginal effects, adjusted predictions,
+contrasts, and marginal means for a wide variety of models.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

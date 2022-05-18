@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  hmer
-%global packver   1.0.1
+%global packname  mpathsenser
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          History Matching and Emulation Package
+Summary:          Process and Analyse Data from m-Path Sense
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,41 +16,42 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lhs 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-GGally 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-isoband 
-BuildRequires:    R-CRAN-mclust 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rjson 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lhs 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-GGally 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-isoband 
-Requires:         R-CRAN-mclust 
 
 %description
-A set of objects and functions for Bayes Linear emulation and history
-matching. Core functionality includes automated training of emulators to
-data, diagnostic functions to ensure suitability, and a variety of
-proposal methods for generating 'waves' of points. For details on the
-mathematical background, there are many papers available on the topic (see
-references attached to function help files); for details of the functions
-in this package, consult the manual or help files.
+Overcomes one of the major challenges in mobile (passive) sensing, namely
+being able to pre-process the raw data that comes from a mobile sensing
+app, specifically "m-Path Sense" <https://m-path.io>. The main task of
+'mpathsenser' is therefore to read "m-Path Sense" JSON files into a
+database and provide several convenience functions to aid in data
+processing.
 
 %prep
 %setup -q -c -n %{packname}
