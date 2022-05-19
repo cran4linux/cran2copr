@@ -1,44 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  soilDB
-%global packver   2.7.0
+%global packname  LAM
+%global packver   0.6-19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.0
+Version:          0.6.19
 Release:          1%{?dist}%{?buildtag}
-Summary:          Soil Database Interface
+Summary:          Some Latent Variable Models
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-aqp 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
+BuildRequires:    R-CRAN-CDM 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-sirt 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-DBI 
-Requires:         R-CRAN-aqp 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-CDM 
 Requires:         R-graphics 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-sirt 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-curl 
-Requires:         R-methods 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-DBI 
 
 %description
-A collection of functions for reading data from USDA-NCSS soil databases.
+Includes some procedures for latent variable modeling with a particular
+focus on multilevel data. The 'LAM' package contains mean and covariance
+structure modelling for multivariate normally distributed data
+(mlnormal(); Longford, 1987; <doi:10.1093/biomet/74.4.817>), a general
+Metropolis-Hastings algorithm (amh(); Roberts & Rosenthal, 2001,
+<doi:10.1214/ss/1015346320>) and penalized maximum likelihood estimation
+(pmle(); Cole, Chu & Greenland, 2014; <doi:10.1093/aje/kwt245>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dipm
-%global packver   1.6
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Depth Importance in Precision Medicine (DIPM) Method
 
@@ -30,7 +30,7 @@ Requires:         R-grid
 
 %description
 An implementation of the Depth Importance in Precision Medicine (DIPM)
-method in Chen and Zhang (2020) <doi:10.1093/biostatistics/kxaa021> and
+method in Chen and Zhang (2022) <doi:10.1093/biostatistics/kxaa021> and
 Chen and Zhang (2020) <doi:10.1007/978-3-030-46161-4_16>. The DIPM method
 is a classification tree that searches for subgroups with especially poor
 or strong performance in a given treatment group.

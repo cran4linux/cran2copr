@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RTL
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Risk Tool Library - Trading, Risk, 'Analytics' for Commodities
 
@@ -15,13 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fabletools 
-BuildRequires:    R-CRAN-feasts 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
@@ -32,21 +28,17 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyquant 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-timetk 
 BuildRequires:    R-CRAN-tsibble 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fabletools 
-Requires:         R-CRAN-feasts 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
@@ -57,15 +49,14 @@ Requires:         R-CRAN-readr
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyquant 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-timetk 
 Requires:         R-CRAN-tsibble 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-cli 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-lifecycle 
 
 %description
 A toolkit for Commodities 'analytics', risk management and trading

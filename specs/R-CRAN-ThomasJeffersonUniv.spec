@@ -1,44 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  soilDB
-%global packver   2.7.0
+%global packname  ThomasJeffersonUniv
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Soil Database Interface
+Summary:          Handy Tools for TJU/TJUH Employees
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-aqp 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-DBI 
-Requires:         R-CRAN-aqp 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-curl 
-Requires:         R-methods 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-DBI 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-timeDate 
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-timeDate 
+Requires:         R-CRAN-lubridate 
 
 %description
-A collection of functions for reading data from USDA-NCSS soil databases.
+Functions for admin needs of employees of Thomas Jefferson University and
+Thomas Jefferson University Hospital, Philadelphia, PA.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,44 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  soilDB
-%global packver   2.7.0
+%global packname  shinybrowser
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Soil Database Interface
+Summary:          Find Out Information About a User's Web Browser in 'Shiny'
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-aqp 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-DBI 
-Requires:         R-CRAN-aqp 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-curl 
-Requires:         R-methods 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-DBI 
+BuildRequires:    R-CRAN-shiny >= 1.0.4
+Requires:         R-CRAN-shiny >= 1.0.4
 
 %description
-A collection of functions for reading data from USDA-NCSS soil databases.
+Sometimes it's useful to know some information about your user in a
+'Shiny' app. The available information is: browser name (such as 'Chrome'
+or 'Safari') and version, device type (mobile or desktop), operating
+system (such as 'Windows' or 'Mac' or 'Android') and version, and browser
+dimensions.
 
 %prep
 %setup -q -c -n %{packname}

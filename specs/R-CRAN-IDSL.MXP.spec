@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  IDSL.MXP
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          mzML and mzXML Parser
+Summary:          Parser for mzML, mzXML, and netCDF Files (Mass Spectrometry Data)
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,13 +17,16 @@ BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-RNetCDF 
 BuildRequires:    R-CRAN-base64enc 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-RNetCDF 
 Requires:         R-CRAN-base64enc 
 
 %description
-A tiny parser to extract mass spectra data and metadata from mzML and
-mzXML files.
+A tiny parser to extract mass spectra data and metadata table of MS
+acquisition properties from mzML, mzXML and netCDF mass spectrometry
+files.
 
 %prep
 %setup -q -c -n %{packname}

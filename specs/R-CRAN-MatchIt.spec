@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MatchIt
-%global packver   4.3.4
+%global packver   4.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.4
+Version:          4.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Preprocessing for Parametric Causal Inference
 
@@ -29,8 +29,7 @@ matching procedures.  The package also implements a series of
 recommendations offered in Ho, Imai, King, and Stuart (2007)
 <DOI:10.1093/pan/mpl013>. (The 'gurobi' package, which is not on CRAN, is
 optional and comes with an installation of the Gurobi Optimizer, available
-at <https://www.gurobi.com>. The 'optmatch' package may also not be on
-CRAN; see the 'MatchIt' documentation for instructions on installing it.)
+at <https://www.gurobi.com>.)
 
 %prep
 %setup -q -c -n %{packname}

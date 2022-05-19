@@ -1,44 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  soilDB
-%global packver   2.7.0
+%global packname  mnlfa
+%global packver   0.2-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.0
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Soil Database Interface
+Summary:          Moderated Nonlinear Factor Analysis
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-aqp 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
+BuildRequires:    R-CRAN-CDM >= 7.0.4
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-DBI 
-Requires:         R-CRAN-aqp 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-CDM >= 7.0.4
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-curl 
-Requires:         R-methods 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-DBI 
 
 %description
-A collection of functions for reading data from USDA-NCSS soil databases.
+Conducts moderated nonlinear factor analysis (e.g., Curran et al., 2014,
+<doi:10.1080/00273171.2014.889594>). Regularization methods are
+implemented for assessing non-invariant items. Currently, the package
+includes dichotomous items and unidimensional item response models.
+Extensions will be included in future package versions.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  IDSL.IPA
-%global packver   1.4
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Intrinsic Peak Analysis (IPA) for HRMS Data
 
@@ -16,35 +16,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-IDSL.MXP 
+BuildRequires:    R-CRAN-IDSL.MXP >= 1.2
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-RNetCDF 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-png 
-Requires:         R-CRAN-IDSL.MXP 
+Requires:         R-CRAN-IDSL.MXP >= 1.2
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-RNetCDF 
 Requires:         R-CRAN-base64enc 
 Requires:         R-grid 
 Requires:         R-CRAN-readxl 
 Requires:         R-parallel 
-Requires:         R-CRAN-doSNOW 
+Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-png 
 
 %description
-A sophisticated pipeline for processing high-resolution LC/MS data to
-extract signals of organic compounds. The package performs isotope
-pairing, peak detection, alignment, RT correction, gap filling, peak
-annotation and visualization of extracted ion chromatograms and total ion
-chromatograms.
+A sophisticated pipeline for processing LC/HRMS data to extract signals of
+organic compounds. The package performs isotope pairing, peak detection,
+alignment, RT correction, gap filling, peak annotation and visualization
+of extracted ion chromatograms and total ion chromatograms.
 
 %prep
 %setup -q -c -n %{packname}

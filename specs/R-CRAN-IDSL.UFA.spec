@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  IDSL.UFA
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          United Formula Annotation (UFA) for HRMS Data Processing
 
@@ -16,38 +16,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-IDSL.IPA >= 1.4
-BuildRequires:    R-CRAN-IDSL.MXP 
+BuildRequires:    R-CRAN-IDSL.IPA >= 1.5
+BuildRequires:    R-CRAN-IDSL.MXP >= 1.2
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-RNetCDF 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-stats 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-GA 
-BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-IDSL.IPA >= 1.4
-Requires:         R-CRAN-IDSL.MXP 
+Requires:         R-CRAN-IDSL.IPA >= 1.5
+Requires:         R-CRAN-IDSL.MXP >= 1.2
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-RNetCDF 
 Requires:         R-CRAN-base64enc 
 Requires:         R-stats 
 Requires:         R-grid 
 Requires:         R-CRAN-readxl 
 Requires:         R-parallel 
-Requires:         R-CRAN-doSNOW 
+Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-GA 
-Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
 
 %description
 A pipeline to annotate peaklists from the IDSL.IPA package with molecular
-formula using an isotopic profile matching approach.
+formula using an isotopic profile matching approach. The IDSL.UFA pipeline
+is especially beneficial when MS/MS data channels are not available. The
+IDSL.UFA package has functions to process user-defined adduct formulas.
 
 %prep
 %setup -q -c -n %{packname}

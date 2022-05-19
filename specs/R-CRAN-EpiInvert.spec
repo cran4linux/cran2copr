@@ -1,44 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  soilDB
-%global packver   2.7.0
+%global packname  EpiInvert
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Soil Database Interface
+Summary:          Estimation of Time Varying Reproduction Numbers and Restored Incidence Curves Using Variational Techniques
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-aqp 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-DBI 
-Requires:         R-CRAN-aqp 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-curl 
-Requires:         R-methods 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-DBI 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8.3
+Requires:         R-CRAN-Rcpp >= 1.0.8.3
 
 %description
-A collection of functions for reading data from USDA-NCSS soil databases.
+Estimation, by inverting a renewal equation, of time-varying reproduction
+numbers and restored incidence curves with festive days and weekly biases
+corrected as described in Alvarez et al. (2021)
+<doi:10.1073/pnas.2105112118> and Alvarez et al. (2022)
+<doi:10.3390/biology11040540>.
 
 %prep
 %setup -q -c -n %{packname}

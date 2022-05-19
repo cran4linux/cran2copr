@@ -1,44 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  soilDB
-%global packver   2.7.0
+%global packname  TSdisaggregation
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Soil Database Interface
+Summary:          High-Dimensional Temporal Disaggregation
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-aqp 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-DBI 
-Requires:         R-CRAN-aqp 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-curl 
-Requires:         R-methods 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-DBI 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-lars 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-lars 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-withr 
 
 %description
-A collection of functions for reading data from USDA-NCSS soil databases.
+First - Generates (potentially high-dimensional) high-frequency and
+low-frequency series for simulation studies in temporal disaggregation;
+Second - a toolkit utilizing temporal disaggregation and benchmarking
+techniques with a low-dimensional matrix of indicator series previously
+proposed in Dagum and Cholette (2006, ISBN:978-0-387-35439-2) ; and Third
+- novel techniques proposed by Mosley, Gibberd and Eckley (2021)
+<arXiv:2108.05783> for disaggregating low-frequency series in the presence
+of high-dimensional indicator matrices.
 
 %prep
 %setup -q -c -n %{packname}

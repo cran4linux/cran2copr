@@ -1,44 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  soilDB
-%global packver   2.7.0
+%global packname  rdataretriever
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Soil Database Interface
+Summary:          R Interface to the Data Retriever
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    python3-devel
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-aqp 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-DBI 
-Requires:         R-CRAN-aqp 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-curl 
-Requires:         R-methods 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-DBI 
+BuildRequires:    R-CRAN-reticulate >= 1.16
+BuildRequires:    R-CRAN-semver 
+Requires:         R-CRAN-reticulate >= 1.16
+Requires:         R-CRAN-semver 
 
 %description
-A collection of functions for reading data from USDA-NCSS soil databases.
+Provides an R interface to the Data Retriever
+<https://retriever.readthedocs.io/en/latest/> via the Data Retriever's
+command line interface. The Data Retriever automates the tasks of finding,
+downloading, and cleaning public datasets, and then stores them in a local
+database.
 
 %prep
 %setup -q -c -n %{packname}

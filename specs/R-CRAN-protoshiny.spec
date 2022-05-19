@@ -1,44 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  soilDB
-%global packver   2.7.0
+%global packname  protoshiny
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Soil Database Interface
+Summary:          Interactive Dendrograms for Visualizing Hierarchical Clusters with Prototypes
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-aqp 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-dynamicTreeCut 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-DBI 
-Requires:         R-CRAN-aqp 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-protoclust 
+BuildRequires:    R-CRAN-rare 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinycssloaders 
+BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-dynamicTreeCut 
 Requires:         R-methods 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-protoclust 
+Requires:         R-CRAN-rare 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinycssloaders 
+Requires:         R-CRAN-shinythemes 
+Requires:         R-tools 
 
 %description
-A collection of functions for reading data from USDA-NCSS soil databases.
+Shiny app to interactively visualize hierarchical clustering with
+prototypes. For details on hierarchical clustering with prototypes, see
+Bien and Tibshirani (2011) <doi:10.1198/jasa.2011.tm10183>. This package
+currently launches the application.
 
 %prep
 %setup -q -c -n %{packname}

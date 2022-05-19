@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  brmsmargins
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Marginal Effects for 'brms' Models
 
@@ -34,11 +34,12 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-CRAN-posterior 
 
 %description
-Calculate Bayesian marginal effects and average marginal effects for
+Calculate Bayesian marginal effects, average marginal effects, and
+marginal coefficients (also called population averaged coefficients) for
 models fit using the 'brms' package including fixed effects, mixed
 effects, and location scale models. These are based on marginal
 predictions that integrate out random effects if necessary (see for
-example <doi:10.1186/s12874-015-0046-6>).
+example <doi:10.1186/s12874-015-0046-6> and <doi:10.1111/biom.12707>).
 
 %prep
 %setup -q -c -n %{packname}

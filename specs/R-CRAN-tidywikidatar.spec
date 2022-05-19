@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tidywikidatar
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explore 'Wikidata' Through Tidy Data Frames
 
@@ -34,6 +34,7 @@ BuildRequires:    R-CRAN-progress
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-pool 
 BuildRequires:    R-CRAN-WikipediR 
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
@@ -52,6 +53,7 @@ Requires:         R-CRAN-progress
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-pool 
 Requires:         R-CRAN-WikipediR 
+Requires:         R-CRAN-vctrs 
 
 %description
 Query 'Wikidata' API <https://www.wikidata.org/wiki/Wikidata:Main_Page>

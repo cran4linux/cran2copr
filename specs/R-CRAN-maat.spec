@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  maat
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Administrations Adaptive Testing
 
@@ -16,15 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-TestDesign >= 1.2.0
+BuildRequires:    R-CRAN-TestDesign >= 1.3.3
 BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-diagram 
-Requires:         R-CRAN-TestDesign >= 1.2.0
+Requires:         R-CRAN-TestDesign >= 1.3.3
 Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-Rdpack 
 Requires:         R-methods 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-diagram 

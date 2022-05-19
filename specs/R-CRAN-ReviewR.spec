@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ReviewR
-%global packver   2.3.7
+%global packver   2.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.7
+Version:          2.3.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Light-Weight, Portable Tool for Reviewing Individual Patient Records
 
@@ -35,7 +35,6 @@ BuildRequires:    R-CRAN-golem
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-pkgload 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-redcapAPI 
 BuildRequires:    R-CRAN-REDCapR 
@@ -65,7 +64,6 @@ Requires:         R-CRAN-golem
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-pkgload 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-redcapAPI 
 Requires:         R-CRAN-REDCapR 

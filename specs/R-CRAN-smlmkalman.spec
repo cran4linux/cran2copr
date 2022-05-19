@@ -1,44 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  soilDB
-%global packver   2.7.0
+%global packname  smlmkalman
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Soil Database Interface
+Summary:          Generation and Tracking of Super-Resolution Filamentous Datasets
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-aqp 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-DBI 
-Requires:         R-CRAN-aqp 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-truncnorm 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-curl 
-Requires:         R-methods 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-truncnorm 
 
 %description
-A collection of functions for reading data from USDA-NCSS soil databases.
+A pair of functions that allow for the generation and tracking of
+coordinate data clouds without a time dimension, primarily for use in
+super-resolution plant micro-tubule image segmentation.
 
 %prep
 %setup -q -c -n %{packname}

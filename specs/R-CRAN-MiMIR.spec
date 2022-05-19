@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MiMIR
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Metabolomics-Based Models for Imputing Risk
 
@@ -20,10 +20,8 @@ BuildRequires:    R-CRAN-caret
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-heatmaply 
 BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-pkgload 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-pROC 
@@ -38,14 +36,13 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-survminer 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fs 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-heatmaply 
 Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-pkgload 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-pROC 
@@ -60,6 +57,7 @@ Requires:         R-stats
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-survminer 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fs 
 
 %description
 Provides an intuitive framework for ad-hoc statistical analysis of 1H-NMR

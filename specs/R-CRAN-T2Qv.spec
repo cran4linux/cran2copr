@@ -1,40 +1,52 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DisImpact
-%global packver   0.0.17
+%global packname  T2Qv
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.17
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculates Disproportionate Impact When Binary Success Data are Disaggregated by Subgroups
+Summary:          Control Qualitative Variables
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 0.8.5
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-htmltools >= 0.5.1.1
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboardPlus 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-shinycssloaders 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ca 
+BuildRequires:    R-CRAN-highcharter 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tables 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr >= 0.8.5
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-htmltools >= 0.5.1.1
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboardPlus 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-shinycssloaders 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ca 
+Requires:         R-CRAN-highcharter 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tables 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
 
 %description
-Implements methods for calculating disproportionate impact: the percentage
-point gap, proportionality index, and the 80%% index. California Community
-Colleges Chancellor's Office (2017).  Percentage Point Gap Method.
-<https://www.cccco.edu/-/media/CCCCO-Website/About-Us/Divisions/Digital-Innovation-and-Infrastructure/Research/Files/PercentagePointGapMethod2017.ashx>.
-California Community Colleges Chancellor's Office (2014).  Guidelines for
-Measuring Disproportionate Impact in Equity Plans.
-<https://www.cccco.edu/-/media/CCCCO-Website/Files/DII/guidelines-for-measuring-disproportionate-impact-in-equity-plans-tfa-ada.pdf>.
+Covers k-table control analysis using multivariate control charts for
+qualitative variables using fundamentals of multiple correspondence
+analysis and multiple factor analysis. The graphs can be shown in a flat
+or interactive way, in the same way all the outputs can be shown in an
+interactive shiny panel.
 
 %prep
 %setup -q -c -n %{packname}

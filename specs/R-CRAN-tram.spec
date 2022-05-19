@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tram
-%global packver   0.7-0
+%global packver   0.7-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transformation Models
 
@@ -46,9 +46,10 @@ variables, normal and non-normal (Box-Cox type) linear models, and
 continuous outcome logistic regression (Lohse et al., 2017,
 <DOI:10.12688/f1000research.12934.1>). The underlying theory is described
 in Hothorn et al. (2018) <DOI:10.1111/sjos.12291>. An extension to
-transformation models for clustered data is provided (Hothorn, 2019,
-<arxiv:1910.09219>). Multivariate conditional transformation models
-(<arxiv:1906.03151>) can be fitted as well.
+transformation models for clustered data is provided (Barbanti and
+Hothorn, 2022, <arxiv:1910.09219>). Multivariate conditional
+transformation models (Klein et al, 2022, <DOI:10.1111/sjos.12501>) can be
+fitted as well.
 
 %prep
 %setup -q -c -n %{packname}

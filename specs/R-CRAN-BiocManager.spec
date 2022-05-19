@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BiocManager
-%global packver   1.30.17
+%global packver   1.30.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.30.17
+Version:          1.30.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access the Bioconductor Project Package Repository
 
