@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  r3PG
-%global packver   0.1.4
+%global packname  DGEobj.utils
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulating Forest Growth using the 3-PG Model
+Summary:          Differential Gene Expression (DGE) Analysis Utility Toolkit
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,15 +15,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-DGEobj >= 1.0.3
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-DGEobj >= 1.0.3
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-dplyr 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 
 %description
-Provides a flexible and easy-to-use interface for the Physiological
-Processes Predicting Growth (3-PG) model written in Fortran. The r3PG
-serves as a flexible and easy-to-use interface for the 3-PGpjs
-(monospecific, evenaged and evergreen forests) described in Landsberg &
-Waring (1997) <doi:10.1016/S0378-1127(97)00026-1> and the 3-PGmix
-(deciduous, uneven-aged or mixed-species forests) described in Forrester &
-Tang (2016) <doi:10.1016/j.ecolmodel.2015.07.010>.
+Provides a function toolkit to facilitate reproducible RNA-Seq
+Differential Gene Expression (DGE) analysis (Law (2015)
+<doi:10.12688/f1000research.9005.3>).  The tools include both analysis
+work-flow and utility functions: mapping/unit conversion, count
+normalization, accounting for unknown covariates, and more.  This is a
+complement/cohort to the 'DGEobj' package that provides a flexible
+container to manage and annotate Differential Gene Expression analysis
+results.
 
 %prep
 %setup -q -c -n %{packname}

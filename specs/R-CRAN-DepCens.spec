@@ -1,29 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  r3PG
-%global packver   0.1.4
+%global packname  DepCens
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulating Forest Growth using the 3-PG Model
+Summary:          Dependent Censoring Regression Models
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dlm 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-dlm 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-rootSolve 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-stats 
 
 %description
-Provides a flexible and easy-to-use interface for the Physiological
-Processes Predicting Growth (3-PG) model written in Fortran. The r3PG
-serves as a flexible and easy-to-use interface for the 3-PGpjs
-(monospecific, evenaged and evergreen forests) described in Landsberg &
-Waring (1997) <doi:10.1016/S0378-1127(97)00026-1> and the 3-PGmix
-(deciduous, uneven-aged or mixed-species forests) described in Forrester &
-Tang (2016) <doi:10.1016/j.ecolmodel.2015.07.010>.
+Dependent censoring regression models for survival multivariate data.
+These models are based on extensions of the frailty models, capable to
+accommodating the dependence between failure and censoring times, with
+Weibull and piecewise exponential marginal distributions. Theoretical
+details regarding the models implemented in the package can be found in
+Schneider et al. (2019) <doi:10.1002/bimj.201800391>.
 
 %prep
 %setup -q -c -n %{packname}

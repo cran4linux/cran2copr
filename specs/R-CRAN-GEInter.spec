@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  GEInter
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Gene-Environment Interaction Analysis
 
@@ -16,7 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survAUC 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-pcaPP 
@@ -27,7 +26,6 @@ BuildRequires:    R-CRAN-reshape2
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-Requires:         R-CRAN-survAUC 
 Requires:         R-CRAN-MASS 
 Requires:         R-splines 
 Requires:         R-CRAN-pcaPP 
@@ -40,10 +38,10 @@ Requires:         R-stats
 Requires:         R-graphics 
 
 %description
-For the risk, progression, and response to treatment of many complex
-diseases, it has been increasingly recognized that gene-environment
-interactions play important roles beyond the main genetic and
-environmental effects. In practical interaction analyses, outliers in
+Description: For the risk, progression, and response to treatment of many
+complex diseases, it has been increasingly recognized that
+gene-environment interactions play important roles beyond the main genetic
+and environmental effects. In practical interaction analyses, outliers in
 response variables and covariates are not uncommon. In addition,
 missingness in environmental factors is routinely encountered in
 epidemiological studies. The developed package consists of five robust

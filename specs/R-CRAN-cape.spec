@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cape
-%global packver   3.1.0
+%global packver   3.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Combined Analysis of Pleiotropy and Epistasis for Diversity Outbred Mice
 
@@ -19,7 +19,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 >= 2.4.1
 BuildRequires:    R-CRAN-yaml >= 2.2.1
 BuildRequires:    R-CRAN-shape >= 1.4.5
-BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-regress >= 1.3.21
 BuildRequires:    R-CRAN-RColorBrewer >= 1.1.2
 BuildRequires:    R-CRAN-abind 
@@ -31,8 +30,8 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-CRAN-here 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pheatmap 
+BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-propagate 
 BuildRequires:    R-CRAN-qtl 
 BuildRequires:    R-CRAN-qtl2 
@@ -43,7 +42,6 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-R6 >= 2.4.1
 Requires:         R-CRAN-yaml >= 2.2.1
 Requires:         R-CRAN-shape >= 1.4.5
-Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-regress >= 1.3.21
 Requires:         R-CRAN-RColorBrewer >= 1.1.2
 Requires:         R-CRAN-abind 
@@ -55,8 +53,8 @@ Requires:         R-CRAN-foreach
 Requires:         R-CRAN-here 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-Matrix 
-Requires:         R-parallel 
 Requires:         R-CRAN-pheatmap 
+Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-propagate 
 Requires:         R-CRAN-qtl 
 Requires:         R-CRAN-qtl2 
@@ -93,6 +91,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

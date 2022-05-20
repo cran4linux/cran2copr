@@ -1,29 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  r3PG
-%global packver   0.1.4
+%global packname  ModEstM
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulating Forest Growth using the 3-PG Model
+Summary:          Mode Estimation, Even in the Multimodal Case
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 
 %description
-Provides a flexible and easy-to-use interface for the Physiological
-Processes Predicting Growth (3-PG) model written in Fortran. The r3PG
-serves as a flexible and easy-to-use interface for the 3-PGpjs
-(monospecific, evenaged and evergreen forests) described in Landsberg &
-Waring (1997) <doi:10.1016/S0378-1127(97)00026-1> and the 3-PGmix
-(deciduous, uneven-aged or mixed-species forests) described in Forrester &
-Tang (2016) <doi:10.1016/j.ecolmodel.2015.07.010>.
+Function ModEstM() is the only one of this package, it estimates the modes
+of an empirical univariate distribution. It relies on the stats::density()
+function, even for input control. Due to very good performance of the
+density estimation, computation time is not an issue. The multiple modes
+are handled using dplyr::group_by(). For conditions and rates of
+convergences, see Eddy (1980) <doi:10.1214/aos/1176345080>.
 
 %prep
 %setup -q -c -n %{packname}

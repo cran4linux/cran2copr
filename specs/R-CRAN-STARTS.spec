@@ -1,29 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  r3PG
-%global packver   0.1.4
+%global packname  STARTS
+%global packver   1.3-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.3.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulating Forest Growth using the 3-PG Model
+Summary:          Functions for the STARTS Model
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
+BuildRequires:    R-CRAN-CDM >= 7.1.19
+BuildRequires:    R-CRAN-sirt >= 2.3
+BuildRequires:    R-CRAN-LAM >= 0.3.27
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-CDM >= 7.1.19
+Requires:         R-CRAN-sirt >= 2.3
+Requires:         R-CRAN-LAM >= 0.3.27
+Requires:         R-graphics 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Provides a flexible and easy-to-use interface for the Physiological
-Processes Predicting Growth (3-PG) model written in Fortran. The r3PG
-serves as a flexible and easy-to-use interface for the 3-PGpjs
-(monospecific, evenaged and evergreen forests) described in Landsberg &
-Waring (1997) <doi:10.1016/S0378-1127(97)00026-1> and the 3-PGmix
-(deciduous, uneven-aged or mixed-species forests) described in Forrester &
-Tang (2016) <doi:10.1016/j.ecolmodel.2015.07.010>.
+Contains functions for estimating the STARTS model of Kenny and Zautra
+(1995, 2001) <DOI:10.1037/0022-006X.63.1.52>, <DOI:10.1037/10409-008>.
+Penalized maximum likelihood estimation and Markov Chain Monte Carlo
+estimation are also provided, see Luedtke, Robitzsch and Wagner (2018)
+<DOI:10.1037/met0000155>.
 
 %prep
 %setup -q -c -n %{packname}

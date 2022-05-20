@@ -1,29 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  r3PG
-%global packver   0.1.4
+%global packname  ivaBSS
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulating Forest Growth using the 3-PG Model
+Summary:          Tools for Independent Vector Analysis
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-BSSprep 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-BSSprep 
 
 %description
-Provides a flexible and easy-to-use interface for the Physiological
-Processes Predicting Growth (3-PG) model written in Fortran. The r3PG
-serves as a flexible and easy-to-use interface for the 3-PGpjs
-(monospecific, evenaged and evergreen forests) described in Landsberg &
-Waring (1997) <doi:10.1016/S0378-1127(97)00026-1> and the 3-PGmix
-(deciduous, uneven-aged or mixed-species forests) described in Forrester &
-Tang (2016) <doi:10.1016/j.ecolmodel.2015.07.010>.
+Independent vector analysis (IVA) is a blind source separation (BSS) model
+where several datasets are jointly unmixed. This package provides several
+methods for the unmixing together with some performance measures. For
+details, see Anderson et al. (2011) <doi:10.1109/TSP.2011.2181836> and Lee
+et al. (2007) <doi:10.1016/j.sigpro.2007.01.010>.
 
 %prep
 %setup -q -c -n %{packname}

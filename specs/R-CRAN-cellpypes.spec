@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  inti
-%global packver   0.5.6
+%global packname  cellpypes
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.6
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools and Statistical Procedures in Plant Science
+Summary:          Cell Type Pipes for Single-Cell RNA Sequencing Data
 
-License:          GPL-3 | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,40 +16,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-scUtils 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-agricolae 
-BuildRequires:    R-CRAN-FactoMineR 
-BuildRequires:    R-CRAN-emmeans 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-DT 
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-scattermore 
+Requires:         R-CRAN-scUtils 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-agricolae 
-Requires:         R-CRAN-FactoMineR 
-Requires:         R-CRAN-emmeans 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-DT 
+Requires:         R-CRAN-scales 
+Requires:         R-methods 
+Requires:         R-CRAN-scattermore 
 
 %description
-The 'inti' package is part of the 'inkaverse' project for developing
-different procedures and tools used in plant science and experimental
-designs. The mean aim of the package is to support researchers during the
-planning of experiments and data collection (tarpuy()), data analysis and
-graphics (yupana()) , and technical writing. Learn more about the
-'inkaverse' project at <https://inkaverse.com/>.
+Annotate single-cell RNA sequencing data manually based on marker gene
+thresholds. Find cell type rules (gene+threshold) through exploration, use
+the popular piping operator '%%>%%' to reconstruct complex cell type
+hierarchies. 'cellpypes' models technical noise to find positive and
+negative cells for a given expression threshold and returns cell type
+labels or pseudobulks. Cite this package as Frauhammer (2022)
+<doi:10.5281/zenodo.6555728> and visit
+<https://github.com/FelixTheStudent/cellpypes> for tutorials and newest
+features.
 
 %prep
 %setup -q -c -n %{packname}

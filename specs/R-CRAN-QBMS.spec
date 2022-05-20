@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  QBMS
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Query the Breeding Management System 'BMS'
+Summary:          Query the Breeding Management System(s)
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -26,9 +26,11 @@ Requires:         R-tcltk
 Requires:         R-utils 
 
 %description
-Query the Breeding Management System 'BMS' <https://bmspro.io> database
-(using 'BrAPI' <https://brapi.org> calls) to help breeders as targeted
-end-users retrieving data directly into their analyzing pipelines.
+Query the Breeding Management System(s) like BMS <https://bmspro.io>,
+BreeBase <https://breedbase.org>, and GIGWA
+<https://southgreen.fr/content/gigwa> (using 'BrAPI' <https://brapi.org>
+calls) to help breeders as targeted end-users retrieve phenotypic and
+genotypic data directly into their analyzing pipelines.
 
 %prep
 %setup -q -c -n %{packname}

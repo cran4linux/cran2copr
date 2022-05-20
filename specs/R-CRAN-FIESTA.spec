@@ -1,29 +1,48 @@
 %global __brp_check_rpaths %{nil}
-%global packname  r3PG
-%global packver   0.1.4
+%global packname  FIESTA
+%global packver   3.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          3.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulating Forest Growth using the 3-PG Model
+Summary:          Forest Inventory Estimation and Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-FIESTAutils >= 1.1.1
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sqldf 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-FIESTAutils >= 1.1.1
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-DBI 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-methods 
+Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sqldf 
+Requires:         R-utils 
 
 %description
-Provides a flexible and easy-to-use interface for the Physiological
-Processes Predicting Growth (3-PG) model written in Fortran. The r3PG
-serves as a flexible and easy-to-use interface for the 3-PGpjs
-(monospecific, evenaged and evergreen forests) described in Landsberg &
-Waring (1997) <doi:10.1016/S0378-1127(97)00026-1> and the 3-PGmix
-(deciduous, uneven-aged or mixed-species forests) described in Forrester &
-Tang (2016) <doi:10.1016/j.ecolmodel.2015.07.010>.
+A research estimation tool for analysts that work with sample-based
+inventory data from the U.S. Department of Agriculture, Forest Service,
+Forest Inventory and Analysis (FIA) Program.
 
 %prep
 %setup -q -c -n %{packname}

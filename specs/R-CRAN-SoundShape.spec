@@ -1,43 +1,54 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RadOnc
-%global packver   1.1.6
+%global packname  SoundShape
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analytical Tools for Radiation Oncology
+Summary:          Sound Waves Onto Morphometric Data
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.3.1
+Requires:         R-core >= 3.3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-oro.dicom >= 0.5.0
+BuildRequires:    R-CRAN-geomorph >= 3.0.2
+BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ptinpoly 
+BuildRequires:    R-CRAN-plot3D 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-seewave 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tuneR 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-oro.dicom >= 0.5.0
+Requires:         R-CRAN-geomorph >= 3.0.2
+Requires:         R-CRAN-abind 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-CRAN-ptinpoly 
+Requires:         R-CRAN-plot3D 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-seewave 
 Requires:         R-stats 
+Requires:         R-CRAN-tuneR 
 Requires:         R-utils 
 
 %description
-Designed for the import, analysis, and visualization of dosimetric and
-volumetric data in Radiation Oncology, the tools herein enable import of
-dose-volume histogram information from multiple treatment planning system
-platforms and 3D structural representations and dosimetric information
-from 'DICOM-RT' files.  These tools also enable subsequent visualization
-and statistical analysis of these data.
+Implement a promising, and yet little explored protocol for bioacoustical
+analysis, the eigensound method by MacLeod, Krieger and Jones (2013)
+<doi:10.4404/hystrix-24.1-6299>. Eigensound is a multidisciplinary method
+focused on the direct comparison between stereotyped sounds from different
+species. 'SoundShape', in turn, provide the tools required for anyone to
+go from sound waves to Principal Components Analysis, using tools
+extracted from traditional bioacoustics (i.e. 'tuneR' and 'seewave'
+packages), geometric morphometrics (i.e. 'geomorph' package) and
+multivariate analysis (e.g. 'stats' package). For more information, please
+see Rocha and Romano (2021) and check 'SoundShape' repository on GitHub
+for news and updates <https://github.com/p-rocha/SoundShape>.
 
 %prep
 %setup -q -c -n %{packname}

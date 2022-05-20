@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mod2rm
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Moderation Analysis for Two-Instance Repeated Measures Designs
 
@@ -16,13 +16,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-methods 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-methods 
 
 %description
-Moderation analysis for two-instance repeated measures designs, including
-simple slopes and conditional effects at values of the moderator. Based on
-Montoya, A. K. (2018) "Moderation analysis in two-instance repeated
-measures designs: Probing methods and multiple moderator models"
-<doi:10.3758/s13428-018-1088-6> .
+Multiple moderation analysis for two-instance repeated measures designs,
+with up to three simultaneous moderators (dichotomous and/or continuous)
+with additive or multiplicative relationship. Includes analyses of simple
+slopes and conditional effects at (automatically determined or manually
+set) values of the moderator(s). Based on Montoya, A. K. (2018)
+"Moderation analysis in two-instance repeated measures designs: Probing
+methods and multiple moderator models" <doi:10.3758/s13428-018-1088-6> .
 
 %prep
 %setup -q -c -n %{packname}
