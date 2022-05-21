@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tidyquant
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Quantitative Financial Analysis
 
@@ -40,10 +40,6 @@ BuildRequires:    R-CRAN-TTR
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-janitor 
 Requires:         R-CRAN-timetk >= 2.4.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
@@ -68,10 +64,6 @@ Requires:         R-CRAN-TTR
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-janitor 
 
 %description
 Bringing business and financial analysis to the 'tidyverse'. The
@@ -90,6 +82,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

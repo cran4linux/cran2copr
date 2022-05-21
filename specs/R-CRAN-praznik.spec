@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  praznik
-%global packver   10.0.0
+%global packver   11.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          10.0.0
+Version:          11.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Information-Based Feature Selection and Scoring
 

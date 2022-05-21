@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mclust
-%global packver   5.4.9
+%global packver   5.4.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.4.9
+Version:          5.4.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gaussian Mixture Modelling for Model-Based Clustering, Classification, and Density Estimation
 

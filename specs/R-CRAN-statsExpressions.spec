@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  statsExpressions
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Dataframes and Expressions with Statistical Details
 
@@ -21,8 +21,8 @@ BuildRequires:    R-CRAN-BayesFactor >= 0.9.12.4.3
 BuildRequires:    R-CRAN-correlation >= 0.8.0
 BuildRequires:    R-CRAN-performance >= 0.8.0
 BuildRequires:    R-CRAN-effectsize >= 0.6.0.1
-BuildRequires:    R-CRAN-datawizard >= 0.3.0
-BuildRequires:    R-CRAN-insight >= 0.17.0
+BuildRequires:    R-CRAN-datawizard >= 0.4.1
+BuildRequires:    R-CRAN-insight >= 0.17.1
 BuildRequires:    R-CRAN-parameters >= 0.17.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
@@ -37,8 +37,8 @@ Requires:         R-CRAN-BayesFactor >= 0.9.12.4.3
 Requires:         R-CRAN-correlation >= 0.8.0
 Requires:         R-CRAN-performance >= 0.8.0
 Requires:         R-CRAN-effectsize >= 0.6.0.1
-Requires:         R-CRAN-datawizard >= 0.3.0
-Requires:         R-CRAN-insight >= 0.17.0
+Requires:         R-CRAN-datawizard >= 0.4.1
+Requires:         R-CRAN-insight >= 0.17.1
 Requires:         R-CRAN-parameters >= 0.17.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 

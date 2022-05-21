@@ -1,29 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  seismic
-%global packver   1.1
+%global packname  Yamm
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Predict Information Cascade by Self-Exciting Point Process
+Summary:          Multivariate Methods Based on Projections and Related Concepts
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
+BuildRequires:    R-CRAN-depth 
+BuildRequires:    R-CRAN-robustX 
+BuildRequires:    R-CRAN-interp 
+Requires:         R-CRAN-depth 
+Requires:         R-CRAN-robustX 
+Requires:         R-CRAN-interp 
 
 %description
-An implementation of self-exciting point process model for information
-cascades, which occurs when many people engage in the same acts after
-observing the actions of others (e.g. post resharings on Facebook or
-Twitter). It provides functions to estimate the infectiousness of an
-information cascade and predict its popularity given the observed history.
-See <http://snap.stanford.edu/seismic/> for more information and datasets.
+Functionality to compute the projection median via several algorithms.
+Also provides functions to plot different multivariate medians and
+multivariate quantiles in two-dimensional and three-dimensional data
+respectively. See Chen, F and Nason, G P (2020) "A new method for
+computing the projection median, its influence curve and techniques for
+the production of projected quantile plots." PLOS One
+<doi:10.1371/journal.pone.0229845>.
 
 %prep
 %setup -q -c -n %{packname}

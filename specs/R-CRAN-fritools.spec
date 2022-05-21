@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fritools
-%global packver   3.4.0
+%global packver   3.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.0
+Version:          3.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for the Forest Research Institute of the State Baden-Wuerttemberg
 

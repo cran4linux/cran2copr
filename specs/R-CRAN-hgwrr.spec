@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  hgwrr
-%global packver   0.2-1
+%global packver   0.2-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical and Geographically Weighted Regression
 
@@ -25,9 +25,10 @@ Requires:         R-utils
 
 %description
 This model divides coefficients into three types, i.e., local fixed
-effects, global fixed effects, and random effects. If data have spatial
-hierarchical structures (especially are overlapping on some locations), it
-is worth trying this model to reach better fitness.
+effects, global fixed effects, and random effects (Hu et al.,
+2022)<doi:10.1177/23998083211063885>. If data have spatial hierarchical
+structures (especially are overlapping on some locations), it is worth
+trying this model to reach better fitness.
 
 %prep
 %setup -q -c -n %{packname}

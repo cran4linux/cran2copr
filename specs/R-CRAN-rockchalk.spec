@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rockchalk
-%global packver   1.8.151
+%global packver   1.8.152
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.151
+Version:          1.8.152
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Estimation and Presentation
 

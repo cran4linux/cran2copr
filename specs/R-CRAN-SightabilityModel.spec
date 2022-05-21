@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SightabilityModel
-%global packver   1.4.2
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wildlife Sightability Modeling
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-formula.tools
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-msm 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-survey 
 BuildRequires:    R-utils 
@@ -27,6 +28,7 @@ Requires:         R-CRAN-formula.tools
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-msm 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-stats 
 Requires:         R-CRAN-survey 
 Requires:         R-utils 

@@ -1,29 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  seismic
-%global packver   1.1
+%global packname  BootWPTOS
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Predict Information Cascade by Self-Exciting Point Process
+Summary:          Test Stationarity using Bootstrap Wavelet Packet Tests
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.0
+Requires:         R-core >= 2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-wavethresh 
+BuildRequires:    R-CRAN-tseries 
+Requires:         R-CRAN-wavethresh 
+Requires:         R-CRAN-tseries 
 
 %description
-An implementation of self-exciting point process model for information
-cascades, which occurs when many people engage in the same acts after
-observing the actions of others (e.g. post resharings on Facebook or
-Twitter). It provides functions to estimate the infectiousness of an
-information cascade and predict its popularity given the observed history.
-See <http://snap.stanford.edu/seismic/> for more information and datasets.
+Provides significance tests for second-order stationarity for time series
+using bootstrap wavelet packet tests. Provides functionality to visualize
+the time series with the results of the hypothesis tests superimposed. The
+methodology is described in Cardinali, A and Nason, G P (2016) "Practical
+powerful wavelet packet tests for second-order stationarity." Applied and
+Computational Harmonic Analysis, 44, 558-585
+<doi:10.1016/j.acha.2016.06.006>.
 
 %prep
 %setup -q -c -n %{packname}

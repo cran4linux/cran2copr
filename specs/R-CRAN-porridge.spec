@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  porridge
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ridge-Type Penalized Estimation of a Potpourri of Models
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.1
-Requires:         R-core >= 2.15.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-stats 
@@ -38,15 +38,17 @@ Gaussian graphical model and a mixture of such models. The
 porridge-package implements the estimation of the former either from i)
 data with replicated observations by penalized loglikelihood maximization
 using the regular ridge penalty on the parameters (van Wieringen, Chen,
-2021, <doi:10.1002/sim.9028>) or ii) from non-replicated data by means of
-either a ridge estimator with multiple shrinkage targets (as presented in
-van Wieringen et al. 2020, <doi:10.1016/j.jmva.2020.104621>) or the
-generalized ridge estimator that allows for both the inclusion of
-quantitative and qualitative prior information on the precision matrix via
-element-wise penalization and shrinkage (van Wieringen, 2019,
-<doi:10.1080/10618600.2019.1604374>). Additionally, the porridge-package
-facilitates the ridge penalized estimation of a mixture of Gaussian
-graphical models (Aflakparast et al., 2018, <doi:10.1002/bimj.201700102>).
+2021) or ii) from non-replicated data by means of either a ridge estimator
+with multiple shrinkage targets (as presented in van Wieringen et al.
+2020, <doi:10.1016/j.jmva.2020.104621>) or the generalized ridge estimator
+that allows for both the inclusion of quantitative and qualitative prior
+information on the precision matrix via element-wise penalization and
+shrinkage (van Wieringen, 2019, <doi:10.1080/10618600.2019.1604374>).
+Additionally, the porridge-package facilitates the ridge penalized
+estimation of a mixture of Gaussian graphical models (Aflakparast et al.,
+2018). On another note, the package also includes functionality for
+ridge-type estimation of the generalized linear model (as presented in van
+Wieringen, Binder, 2022, <doi:10.1080/10618600.2022.2035231>).
 
 %prep
 %setup -q -c -n %{packname}
