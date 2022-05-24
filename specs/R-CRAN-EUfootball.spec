@@ -1,28 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bcv
-%global packver   1.0.1.4
+%global packname  EUfootball
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1.4
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cross-Validation for the SVD (Bi-Cross-Validation)
+Summary:          Football Match Data of European Leagues
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 
 %description
-Methods for choosing the rank of an SVD approximation via cross
-validation.  The package provides both Gabriel-style "block" holdouts and
-Wold-style "speckled" holdouts.  It also includes an implementation of the
-SVDImpute algorithm.  For more information about Bi-cross-validation, see
-Owen & Perry's 2009 AoAS article (at <arXiv:0908.2062>) and Perry's 2009
-PhD thesis (at <arXiv:0909.3052>).
+Contains match results from seven European men's football leagues, namely
+Premier League (England), Ligue 1 (France), Bundesliga (Germany), Serie A
+(Italy), Primera Division (Spain), Eredivisie (The Netherlands), Super Lig
+(Turkey). Includes Seasons 2010/2011 until 2019/2020 and a set of
+interesting covariates. Can be used all purposes.
 
 %prep
 %setup -q -c -n %{packname}
@@ -32,6 +32,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

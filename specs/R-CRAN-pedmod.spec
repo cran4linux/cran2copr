@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pedmod
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pedigree Models
 
@@ -16,11 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-alabama 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-CRAN-psqn 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-alabama 
 
 %description
 Provides functions to estimate mixed probit models using, for instance,

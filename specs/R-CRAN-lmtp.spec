@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  lmtp
-%global packver   1.0.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Parametric Causal Effects of Feasible Interventions Based on Modified Treatment Policies
 
@@ -16,22 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate >= 2.1.0
 BuildRequires:    R-CRAN-future >= 1.17.0
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-nnls 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-origami 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-SuperLearner 
+Requires:         R-CRAN-checkmate >= 2.1.0
 Requires:         R-CRAN-future >= 1.17.0
 Requires:         R-stats 
 Requires:         R-CRAN-nnls 
 Requires:         R-CRAN-cli 
-Requires:         R-utils 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-origami 

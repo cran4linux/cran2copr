@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  randtoolbox
-%global packver   1.31.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.31.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Toolbox for Pseudo and Quasi Random Number Generation and Random Generator Tests
 
@@ -27,7 +27,7 @@ sequence (including the Van der Corput sequence) and (3) some generator
 tests - the gap test, the serial test, the poker test. See e.g. Gentle
 (2003) <doi:10.1007/b97336>. The package can be provided without the
 rngWELL dependency on demand. Take a look at the Distribution task view of
-types and tests of random number generators. Version in Memoriam of
+types and tests of random number generators. Package in Memoriam of
 Diethelm and Barbara Wuertz.
 
 %prep

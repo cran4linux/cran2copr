@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  text2map
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Tools for Text Matrices, Embeddings, and Networks
 
@@ -18,7 +18,6 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-qgraph >= 1.6.9
 BuildRequires:    R-CRAN-igraph >= 1.2.6
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-text2vec 
 BuildRequires:    R-parallel 
@@ -29,13 +28,13 @@ BuildRequires:    R-CRAN-stringi
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-kit 
 BuildRequires:    R-CRAN-fastmatch 
-BuildRequires:    R-CRAN-mlpack 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ClusterR 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-qgraph >= 1.6.9
 Requires:         R-CRAN-igraph >= 1.2.6
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-text2vec 
 Requires:         R-parallel 
@@ -46,10 +45,11 @@ Requires:         R-CRAN-stringi
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-kit 
 Requires:         R-CRAN-fastmatch 
-Requires:         R-CRAN-mlpack 
 Requires:         R-methods 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ClusterR 
+Requires:         R-CRAN-tibble 
 
 %description
 This is a collection of functions optimized for working with with various

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  lidaRtRee
-%global packver   3.1.2
+%global packver   4.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.2
+Version:          4.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forest Analysis with Airborne Laser Scanning (LiDAR) Data
 
@@ -13,28 +13,28 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lidR >= 3.1.0
+BuildRequires:    R-CRAN-lidR >= 4.0.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-imager 
 BuildRequires:    R-CRAN-leaps 
 BuildRequires:    R-CRAN-gvlma 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-reldist 
-Requires:         R-CRAN-lidR >= 3.1.0
+Requires:         R-CRAN-lidR >= 4.0.0
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-grDevices 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-raster 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-imager 
 Requires:         R-CRAN-leaps 
 Requires:         R-CRAN-gvlma 

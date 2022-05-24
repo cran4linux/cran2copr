@@ -1,48 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Compind
-%global packver   2.3
+%global packname  CR2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Composite Indicators Functions
+Summary:          Compute Cluster Robust Standard Errors with Degrees of Freedom Adjustments
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Benchmarking 
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-lpSolve 
-BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-GPArotation 
-BuildRequires:    R-CRAN-nonparaeff 
-BuildRequires:    R-CRAN-smaa 
-BuildRequires:    R-CRAN-np 
-Requires:         R-CRAN-Benchmarking 
-Requires:         R-CRAN-psych 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-lpSolve 
-Requires:         R-CRAN-spdep 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-GPArotation 
-Requires:         R-CRAN-nonparaeff 
-Requires:         R-CRAN-smaa 
-Requires:         R-CRAN-np 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
 
 %description
-Contains functions to enhance approaches to the Composite Indicators
-methods, focusing, in particular, on the normalisation and
-weighting-aggregation steps.
+Estimate different types of cluster robust standard errors (CR0, CR1, CR2)
+with degrees of freedom adjustments. Standard errors are computed based on
+'Liang and Zeger' (1986) <doi:10.1093/biomet/73.1.13> and Bell and
+'McCaffrey'
+<https://www150.statcan.gc.ca/n1/en/pub/12-001-x/2002002/article/9058-eng.pdf?st=NxMjN1YZ>.
+Functions used in Huang and Li <doi:10.3758/s13428-021-01627-0> and Huang,
+'Wiedermann', and 'Zhang' (forthcoming: Multivariate Behavioral Research).
 
 %prep
 %setup -q -c -n %{packname}

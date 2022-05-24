@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cata
-%global packver   0.0.10.8
+%global packver   0.0.10.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.10.8
+Version:          0.0.10.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Check-All-that-Apply (CATA) Data
 

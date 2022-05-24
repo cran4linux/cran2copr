@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  qrNLMM
-%global packver   3.2
+%global packname  nlmixr2plot
+%global packver   2.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2
+Version:          2.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quantile Regression for Nonlinear Mixed-Effects Models
+Summary:          Nonlinear Mixed Effects Models in Population PK/PD, Plot Functions
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,26 +16,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-lqr 
-BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-ald 
-BuildRequires:    R-CRAN-progress 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-lqr 
-Requires:         R-CRAN-quantreg 
-Requires:         R-CRAN-psych 
-Requires:         R-CRAN-ald 
-Requires:         R-CRAN-progress 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-nlmixr2est 
+BuildRequires:    R-CRAN-nlmixr2extra 
+BuildRequires:    R-CRAN-rxode2 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vpc 
+BuildRequires:    R-CRAN-xgxr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-nlmixr2est 
+Requires:         R-CRAN-nlmixr2extra 
+Requires:         R-CRAN-rxode2 
+Requires:         R-utils 
+Requires:         R-CRAN-vpc 
+Requires:         R-CRAN-xgxr 
 
 %description
-Quantile regression (QR) for Nonlinear Mixed-Effects Models via the
-asymmetric Laplace distribution (ALD). It uses the Stochastic
-Approximation of the EM (SAEM) algorithm for deriving exact maximum
-likelihood estimates and full inference results for the fixed-effects and
-variance components. It also provides prediction and graphical summaries
-for assessing the algorithm convergence and fitting results.
+Fit and compare nonlinear mixed-effects models in differential equations
+with flexible dosing information commonly seen in pharmacokinetics and
+pharmacodynamics (Almquist, Leander, and Jirstrand 2015
+<doi:10.1007/s10928-015-9409-1>). Differential equation solving is by
+compiled C code provided in the 'rxode2' package (Wang, Hallow, and James
+2015 <doi:10.1002/psp4.12052>). This package is for 'ggplot2' plotting
+methods for 'nlmixr2' objects.
 
 %prep
 %setup -q -c -n %{packname}

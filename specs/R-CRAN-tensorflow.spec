@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tensorflow
-%global packver   2.8.0
+%global packver   2.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.0
+Version:          2.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'TensorFlow'
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-config
 BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-grDevices 
 Requires:         R-CRAN-reticulate >= 1.24
 Requires:         R-CRAN-tfruns >= 1.0
 Requires:         R-CRAN-rstudioapi >= 0.7
@@ -32,6 +33,7 @@ Requires:         R-CRAN-config
 Requires:         R-CRAN-processx 
 Requires:         R-utils 
 Requires:         R-CRAN-yaml 
+Requires:         R-grDevices 
 
 %description
 Interface to 'TensorFlow' <https://www.tensorflow.org/>, an open source

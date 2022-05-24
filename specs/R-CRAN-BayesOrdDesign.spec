@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BayesOrdDesign
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Group Sequential Design for Ordinal Data
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-rjmcmc
 BuildRequires:    R-CRAN-R2jags 
 BuildRequires:    R-CRAN-rjags 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-DescTools 
 Requires:         R-CRAN-ordinal 
 Requires:         R-CRAN-schoolmath 
 Requires:         R-CRAN-tidyverse 
@@ -42,6 +43,7 @@ Requires:         R-CRAN-rjmcmc
 Requires:         R-CRAN-R2jags 
 Requires:         R-CRAN-rjags 
 Requires:         R-methods 
+Requires:         R-CRAN-DescTools 
 
 %description
 The proposed group-sequential trial design is based on Bayesian methods

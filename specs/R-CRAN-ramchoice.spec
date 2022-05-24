@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ramchoice
-%global packver   2.0
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Revealed Preference and Attention Analysis in Random Limited Attention Models
 
@@ -25,7 +25,7 @@ that socio-economic agent may not pay full attention to all available
 alternatives, rendering standard revealed preference theory invalid. This
 package implements the estimation and inference procedures of Cattaneo,
 Ma, Masatlioglu and Suleymanov (2020) <arXiv:1712.03448> and Cattaneo,
-Cheung, Ma, and Masatlioglu (2021) <arXiv:2110.10650>, which utilizes
+Cheung, Ma, and Masatlioglu (2022) <arXiv:2110.10650>, which utilizes
 standard choice data to partially identify and estimate a decision maker's
 preference and attention. For inference, several simulation-based critical
 values are provided.

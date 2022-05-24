@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bruceR
-%global packver   0.8.6
+%global packver   0.8.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.6
+Version:          0.8.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Broadly Useful Convenient and Efficient R Functions
 
@@ -61,15 +61,15 @@ Requires:         R-CRAN-see
 Broadly useful convenient and efficient R functions that bring users
 concise and elegant R data analyses. This package includes easy-to-use
 functions for (1) basic R programming (e.g., set working directory to the
-path of currently opened file, import/export data from/to files with any
-format, print strings with rich formats and colors); (2) multivariate
-computation (e.g., compute scale sums/means/... with reverse scoring); (3)
-reliability analyses and factor analyses; (4) descriptive statistics and
-correlation analyses; (5) t-test, multi-factor analysis of variance
-(ANOVA), simple-effect analysis, and post-hoc multiple comparison; (6)
-tidy report of statistical models (to R Console and Microsoft Word); (7)
-mediation and moderation analyses (PROCESS); and (8) additional toolbox
-for statistics and graphics.
+path of currently opened file; import/export data from/to files in any
+format; print tables to Microsoft Word); (2) multivariate computation
+(e.g., compute scale sums/means/... with reverse scoring); (3) reliability
+analyses and factor analyses; (4) descriptive statistics and correlation
+analyses; (5) t-test, multi-factor analysis of variance (ANOVA),
+simple-effect analysis, and post-hoc multiple comparison; (6) tidy report
+of statistical models (to R Console and Microsoft Word); (7) mediation and
+moderation analyses (PROCESS); and (8) additional toolbox for statistics
+and graphics.
 
 %prep
 %setup -q -c -n %{packname}

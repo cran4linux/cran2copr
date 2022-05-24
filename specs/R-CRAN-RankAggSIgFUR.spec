@@ -1,40 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  micompr
-%global packver   1.1.1
+%global packname  RankAggSIgFUR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Independent Comparison of Observations
+Summary:          Polynomially Bounded Rank Aggregation under Kemeny's Axiomatic Approach
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-combinat 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-combinat 
 
 %description
-A procedure for comparing multivariate samples associated with different
-groups. It uses principal component analysis to convert multivariate
-observations into a set of linearly uncorrelated statistical measures,
-which are then compared using a number of statistical methods. The
-procedure is independent of the distributional properties of samples and
-automatically selects features that best explain their differences,
-avoiding manual selection of specific points or summary statistics. It is
-appropriate for comparing samples of time series, images, spectrometric
-measures or similar multivariate observations.
+Polynomially bounded algorithms to aggregate complete rankings under
+Kemeny's axiomatic framework. 'RankAggSIgFUR' (pronounced as
+rank-agg-cipher) contains two heuristics algorithms: FUR and SIgFUR. For
+details, please see Badal and Das (2018) <doi:10.1016/j.cor.2018.06.007>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +35,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

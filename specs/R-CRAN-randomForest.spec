@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  randomForest
-%global packver   4.7-1
+%global packver   4.7-1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.7.1
+Version:          4.7.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Breiman and Cutler's Random Forests for Classification and Regression
 

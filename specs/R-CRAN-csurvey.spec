@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  csurvey
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Constrained Regression for Survey Data
 
@@ -13,24 +13,32 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS >= 7.3.51.4
 BuildRequires:    R-CRAN-survey >= 3.36
-BuildRequires:    R-CRAN-Matrix >= 1.2.17
-BuildRequires:    R-CRAN-coneproj >= 1.14
-BuildRequires:    R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-MASS >= 7.3.51.4
+BuildRequires:    R-CRAN-cgam >= 1.7
+BuildRequires:    R-CRAN-coneproj 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-survey >= 3.36
-Requires:         R-CRAN-Matrix >= 1.2.17
-Requires:         R-CRAN-coneproj >= 1.14
-Requires:         R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-cgam >= 1.7
+Requires:         R-CRAN-coneproj 
+Requires:         R-CRAN-purrr 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
 
 %description
 Domain mean estimation with monotonicity or block monotone constraints.
-See Wu J, Meyer MC and Opsomer JD (2016)<doi:10.1002/cjs.11301> for more
-details.
+See Xu X, Meyer MC and Opsomer JD (2021)<doi:10.1016/j.jspi.2021.02.004>
+for more details.
 
 %prep
 %setup -q -c -n %{packname}

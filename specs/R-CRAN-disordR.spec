@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  disordR
-%global packver   0.0-9
+%global packver   0.0-9-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.0.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Ordered Vectors
 
@@ -17,8 +17,10 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-digest 
 Requires:         R-methods 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-digest 
 
 %description
@@ -36,8 +38,7 @@ allowed to access or modify a disord object using a python list
 comprehension.  The idea is to prevent ill-defined operations on values
 (or keys) of associative maps, whose order is undefined or at best
 implementation-specific, while allowing and facilitating sensible
-operations.  The package is needed for development versions of 'mvp',
-'hyper2', 'spray', 'clifford', and 'freealg'.
+operations.
 
 %prep
 %setup -q -c -n %{packname}
