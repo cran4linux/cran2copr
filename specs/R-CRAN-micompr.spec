@@ -1,48 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  VineCopula
-%global packver   2.4.4
+%global packname  micompr
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.4
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Inference of Vine Copulas
+Summary:          Multivariate Independent Comparison of Observations
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ADGofTest 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-parallel 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
+BuildRequires:    R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-graphics 
 Requires:         R-methods 
-Requires:         R-CRAN-ADGofTest 
-Requires:         R-CRAN-lattice 
-Requires:         R-parallel 
+Requires:         R-stats 
 
 %description
-Provides tools for the statistical analysis of regular vine copula models,
-see Aas et al. (2009) <doi:10.1016/j.insmatheco.2007.02.001> and Dissman
-et al. (2013) <doi:10.1016/j.csda.2012.08.010>. The package includes tools
-for parameter estimation, model selection, simulation, goodness-of-fit
-tests, and visualization. Tools for estimation, selection and exploratory
-data analysis of bivariate copula models are also provided.
+A procedure for comparing multivariate samples associated with different
+groups. It uses principal component analysis to convert multivariate
+observations into a set of linearly uncorrelated statistical measures,
+which are then compared using a number of statistical methods. The
+procedure is independent of the distributional properties of samples and
+automatically selects features that best explain their differences,
+avoiding manual selection of specific points or summary statistics. It is
+appropriate for comparing samples of time series, images, spectrometric
+measures or similar multivariate observations.
 
 %prep
 %setup -q -c -n %{packname}

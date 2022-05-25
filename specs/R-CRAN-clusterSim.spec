@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  clusterSim
-%global packver   0.49-2
+%global packver   0.50-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.49.2
+Version:          0.50.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Searching for Optimal Clustering Procedure for a Data Set
 
@@ -19,7 +19,6 @@ BuildRequires:    R-CRAN-cluster
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-ade4 
 BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-R2HTML 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
@@ -29,7 +28,6 @@ Requires:         R-CRAN-cluster
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-ade4 
 Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-R2HTML 
 Requires:         R-grDevices 
 Requires:         R-graphics 
@@ -66,6 +64,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

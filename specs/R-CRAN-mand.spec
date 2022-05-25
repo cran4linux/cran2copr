@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mand
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Analysis for Neuroimaging Data
 
@@ -31,9 +31,7 @@ Requires:         R-CRAN-caret
 Several functions can be used to analyze neuroimaging data using
 multivariate methods based on the 'msma' package. The functions used in
 the book entitled "Multivariate Analysis for Neuroimaging Data" (2021,
-ISBN-13: 978-0367255329) are contained. Please also see Kawaguchi et al.
-(2017) <doi:10.1093/biostatistics/kxx011> and Kawaguchi (2019)
-<DOI:10.5772/intechopen.80531>.
+ISBN-13: 978-0367255329) are contained.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,6 +41,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

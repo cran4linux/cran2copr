@@ -1,48 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  VineCopula
-%global packver   2.4.4
+%global packname  rr
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.4
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Inference of Vine Copulas
+Summary:          Statistical Methods for the Randomized Response Technique
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ADGofTest 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-parallel 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-arm 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-magic 
 Requires:         R-utils 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-methods 
-Requires:         R-CRAN-ADGofTest 
-Requires:         R-CRAN-lattice 
-Requires:         R-parallel 
+Requires:         R-CRAN-arm 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-magic 
 
 %description
-Provides tools for the statistical analysis of regular vine copula models,
-see Aas et al. (2009) <doi:10.1016/j.insmatheco.2007.02.001> and Dissman
-et al. (2013) <doi:10.1016/j.csda.2012.08.010>. The package includes tools
-for parameter estimation, model selection, simulation, goodness-of-fit
-tests, and visualization. Tools for estimation, selection and exploratory
-data analysis of bivariate copula models are also provided.
+Enables researchers to conduct multivariate statistical analyses of survey
+data with randomized response technique items from several designs,
+including mirrored question, forced question, and unrelated question. This
+includes regression with the randomized response as the outcome and
+logistic regression with the randomized response item as a predictor. In
+addition, tools for conducting power analysis for designing randomized
+response items are included. The package implements methods described in
+Blair, Imai, and Zhou (2015) ''Design and Analysis of the Randomized
+Response Technique,'' Journal of the American Statistical Association
+<https://graemeblair.com/papers/randresp.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

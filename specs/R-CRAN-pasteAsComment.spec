@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  TBEST
-%global packver   5.2
+%global packname  pasteAsComment
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tree Branches Evaluated Statistically for Tightness
+Summary:          'RStudio' Addin to Paste the Clipboard as a Comment Block or a 'roxygen' Block
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,24 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-fdrtool 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-parallel 
-Requires:         R-CRAN-signal 
-Requires:         R-CRAN-fdrtool 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-clipr 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-clipr 
 
 %description
-Our method introduces mathematically well-defined measures for tightness
-of branches in a hierarchical tree. Statistical significance of the
-findings is determined, for all branches of the tree, by performing
-permutation tests, optionally with generalized Pareto p-value estimation.
+Provides a 'RStudio' addin allowing to paste the content of the clipboard
+as a comment block or as 'roxygen' lines. This is very useful to insert an
+example in the 'roxygen' block.
 
 %prep
 %setup -q -c -n %{packname}

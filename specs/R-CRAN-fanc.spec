@@ -1,39 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  TBEST
-%global packver   5.2
+%global packname  fanc
+%global packver   2.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.2
+Version:          2.3.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tree Branches Evaluated Statistically for Tightness
+Summary:          Penalized Likelihood Factor Analysis via Nonconvex Penalty
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-fdrtool 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-parallel 
-Requires:         R-CRAN-signal 
-Requires:         R-CRAN-fdrtool 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-ellipse 
+BuildRequires:    R-tcltk 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-ellipse 
+Requires:         R-tcltk 
 
 %description
-Our method introduces mathematically well-defined measures for tightness
-of branches in a hierarchical tree. Statistical significance of the
-findings is determined, for all branches of the tree, by performing
-permutation tests, optionally with generalized Pareto p-value estimation.
+Computes the penalized maximum likelihood estimates of factor loadings and
+unique variances for various tuning parameters. The pathwise coordinate
+descent along with EM algorithm is used.  This package also includes a new
+graphical tool which outputs path diagram, goodness-of-fit indices and
+model selection criteria for each regularization parameter. The user can
+change the regularization parameter by manipulating scrollbars, which is
+helpful to find a suitable value of regularization parameter.
 
 %prep
 %setup -q -c -n %{packname}

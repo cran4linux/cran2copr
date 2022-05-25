@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  composits
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional, Multivariate and Univariate Time Series Outlier Ensemble
 
@@ -50,17 +50,23 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-kableExtra 
 
 %description
-An ensemble of time series outlier detection methods that can be used for
-compositional, multivariate and univariate data. It uses the four R
-packages 'forecast', 'tsoutliers', 'otsad' and 'anomalize' to detect time
-series outliers.
+A compositional, multivariate and univariate time series outlier ensemble.
+It uses the four R packages 'forecast', 'tsoutliers', 'otsad' and
+'anomalize' to detect time series outliers (Kandanaarachchi, Menendez
+2020) <doi:10.13140/RG.2.2.32217.95845>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -70,6 +76,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

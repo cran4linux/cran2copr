@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  TBEST
-%global packver   5.2
+%global packname  nLTT
+%global packver   1.4.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.2
+Version:          1.4.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tree Branches Evaluated Statistically for Tightness
+Summary:          Calculate the NLTT Statistic
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,24 +16,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-fdrtool 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-parallel 
-Requires:         R-CRAN-signal 
-Requires:         R-CRAN-fdrtool 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-testit 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-testit 
 
 %description
-Our method introduces mathematically well-defined measures for tightness
-of branches in a hierarchical tree. Statistical significance of the
-findings is determined, for all branches of the tree, by performing
-permutation tests, optionally with generalized Pareto p-value estimation.
+Provides functions to calculate the normalised Lineage-Through- Time
+(nLTT) statistic, given two phylogenetic trees. The nLTT statistic
+measures the difference between two Lineage-Through-Time curves, where
+each curve is normalised both in time and in number of lineages.
 
 %prep
 %setup -q -c -n %{packname}

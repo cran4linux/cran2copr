@@ -1,44 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nanostringr
-%global packver   0.3.0
+%global packname  predictMe
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Performs Quality Control, Data Normalization, and Batch Effect Correction for 'NanoString nCounter' Data
+Summary:          Visualize Individual Prediction Performance
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-ccaPP 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-epiR 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-ccaPP 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-epiR 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
 
 %description
-Provides quality control (QC), normalization, and batch effect correction
-operations for 'NanoString nCounter' data, Talhouk et al. (2016)
-<doi:10.1371/journal.pone.0153844>.  Various metrics are used to determine
-which samples passed or failed QC.  Gene expression should first be
-normalized to housekeeping genes, before a reference-based approach is
-used to adjust for batch effects.  Raw NanoString data can be imported in
-the form of Reporter Code Count (RCC) files.
+Enables researchers to visualize the prediction performance of any
+algorithm on the individual level (or close to it), given that the
+predicted outcome is either binary or continuous. Visual results are
+instantly comprehensible.
 
 %prep
 %setup -q -c -n %{packname}

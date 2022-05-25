@@ -1,48 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  VineCopula
-%global packver   2.4.4
+%global packname  MBSP
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.4
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Inference of Vine Copulas
+Summary:          Multivariate Bayesian Model with Shrinkage Priors
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-GIGrvg 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ADGofTest 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-parallel 
-Requires:         R-graphics 
-Requires:         R-grDevices 
 Requires:         R-stats 
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-CRAN-GIGrvg 
 Requires:         R-utils 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-methods 
-Requires:         R-CRAN-ADGofTest 
-Requires:         R-CRAN-lattice 
-Requires:         R-parallel 
 
 %description
-Provides tools for the statistical analysis of regular vine copula models,
-see Aas et al. (2009) <doi:10.1016/j.insmatheco.2007.02.001> and Dissman
-et al. (2013) <doi:10.1016/j.csda.2012.08.010>. The package includes tools
-for parameter estimation, model selection, simulation, goodness-of-fit
-tests, and visualization. Tools for estimation, selection and exploratory
-data analysis of bivariate copula models are also provided.
+Gibbs sampler for fitting multivariate Bayesian linear regression with
+shrinkage priors (MBSP), using the three parameter beta normal family. The
+method is described in Bai and Ghosh (2018)
+<doi:10.1016/j.jmva.2018.04.010>.
 
 %prep
 %setup -q -c -n %{packname}

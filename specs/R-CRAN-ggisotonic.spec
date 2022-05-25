@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  TBEST
-%global packver   5.2
+%global packname  ggisotonic
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tree Branches Evaluated Statistically for Tightness
+Summary:          'ggplot2' Friendly Isotonic or Monotonic Regression Curves
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,24 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-fdrtool 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-parallel 
-Requires:         R-CRAN-signal 
-Requires:         R-CRAN-fdrtool 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-fdrtool >= 1.2.17
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-fdrtool >= 1.2.17
+Requires:         R-CRAN-dplyr >= 1.0.0
 
 %description
-Our method introduces mathematically well-defined measures for tightness
-of branches in a hierarchical tree. Statistical significance of the
-findings is determined, for all branches of the tree, by performing
-permutation tests, optionally with generalized Pareto p-value estimation.
+Provides stat_isotonic() to add weighted univariate isotonic regression
+curves.
 
 %prep
 %setup -q -c -n %{packname}

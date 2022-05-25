@@ -1,44 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nanostringr
-%global packver   0.3.0
+%global packname  nlmixr2
+%global packver   2.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          2.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Performs Quality Control, Data Normalization, and Batch Effect Correction for 'NanoString nCounter' Data
+Summary:          Nonlinear Mixed Effects Models in Population PK/PD
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-ccaPP 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-epiR 
+BuildRequires:    R-CRAN-nlmixr2data 
+BuildRequires:    R-CRAN-nlmixr2est 
+BuildRequires:    R-CRAN-nlmixr2extra 
+BuildRequires:    R-CRAN-rxode2 
+BuildRequires:    R-CRAN-nlmixr2plot 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-ccaPP 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-epiR 
+Requires:         R-CRAN-nlmixr2data 
+Requires:         R-CRAN-nlmixr2est 
+Requires:         R-CRAN-nlmixr2extra 
+Requires:         R-CRAN-rxode2 
+Requires:         R-CRAN-nlmixr2plot 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
 
 %description
-Provides quality control (QC), normalization, and batch effect correction
-operations for 'NanoString nCounter' data, Talhouk et al. (2016)
-<doi:10.1371/journal.pone.0153844>.  Various metrics are used to determine
-which samples passed or failed QC.  Gene expression should first be
-normalized to housekeeping genes, before a reference-based approach is
-used to adjust for batch effects.  Raw NanoString data can be imported in
-the form of Reporter Code Count (RCC) files.
+Fit and compare nonlinear mixed-effects models in differential equations
+with flexible dosing information commonly seen in pharmacokinetics and
+pharmacodynamics (Almquist, Leander, and Jirstrand 2015
+<doi:10.1007/s10928-015-9409-1>). Differential equation solving is by
+compiled C code provided in the 'rxode2' package (Wang, Hallow, and James
+2015 <doi:10.1002/psp4.12052>).
 
 %prep
 %setup -q -c -n %{packname}

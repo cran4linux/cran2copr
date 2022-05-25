@@ -1,48 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  VineCopula
-%global packver   2.4.4
+%global packname  eurodata
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.4
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Inference of Vine Copulas
+Summary:          Fast and Easy Eurostat Data Import and Search
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ADGofTest 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-parallel 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-xtable 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rvest 
 Requires:         R-utils 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-methods 
-Requires:         R-CRAN-ADGofTest 
-Requires:         R-CRAN-lattice 
-Requires:         R-parallel 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rvest 
 
 %description
-Provides tools for the statistical analysis of regular vine copula models,
-see Aas et al. (2009) <doi:10.1016/j.insmatheco.2007.02.001> and Dissman
-et al. (2013) <doi:10.1016/j.csda.2012.08.010>. The package includes tools
-for parameter estimation, model selection, simulation, goodness-of-fit
-tests, and visualization. Tools for estimation, selection and exploratory
-data analysis of bivariate copula models are also provided.
+Interface to Eurostat’s Bulk Download Facility with fast data.table-based
+import of data, labels, and metadata. On top of the core functionality,
+data search and data description/comparison functions are also provided.
 
 %prep
 %setup -q -c -n %{packname}

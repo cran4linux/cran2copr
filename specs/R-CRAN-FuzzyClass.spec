@@ -1,49 +1,54 @@
 %global __brp_check_rpaths %{nil}
-%global packname  opdisDownsampling
-%global packver   0.8.2
+%global packname  FuzzyClass
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimal Distribution Preserving Down-Sampling of Bio-Medical Data
+Summary:          Fuzzy and Non-Fuzzy Classifiers
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-parallel 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-caTools 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-twosamples 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-benchmarkme 
-BuildRequires:    R-CRAN-memuse 
+BuildRequires:    R-datasets 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-EnvStats 
 BuildRequires:    R-CRAN-foreach 
-Requires:         R-parallel 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mlbench 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-CRAN-trapezoid 
 Requires:         R-CRAN-caTools 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-twosamples 
-Requires:         R-utils 
-Requires:         R-CRAN-benchmarkme 
-Requires:         R-CRAN-memuse 
+Requires:         R-datasets 
 Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-EnvStats 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mlbench 
+Requires:         R-parallel 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-rootSolve 
+Requires:         R-CRAN-trapezoid 
 
 %description
-An optimized method for distribution-preserving class-proportional
-down-sampling of bio-medical data.
+Provides classifiers that can be used for discrete variables and for
+continuous variables based on the idea of Naive Bayes and Fuzzy Naive
+Bayes considering some statistical distributions of articles published in
+the literature developed in the LabTEVE and LEAPIG research laboratories.
+Among the proposed classification methods is a with the Gamma
+distribution, proposed by Moraes, Soares and Machado (2018)
+<doi:10.1142/9789813273238_0088>.
 
 %prep
 %setup -q -c -n %{packname}

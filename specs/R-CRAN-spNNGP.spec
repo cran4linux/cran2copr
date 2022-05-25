@@ -1,38 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ri2
-%global packver   0.2.0
+%global packname  spNNGP
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Randomization Inference for Randomized Experiments
+Summary:          Spatial Regression Models for Large Datasets using Nearest Neighbor Gaussian Processes
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-randomizr >= 0.16.0
-BuildRequires:    R-CRAN-estimatr 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-pbapply 
-Requires:         R-CRAN-randomizr >= 0.16.0
-Requires:         R-CRAN-estimatr 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-pbapply 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-RANN 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-RANN 
+Requires:         R-methods 
 
 %description
-Randomization inference procedures for simple and complex randomized
-designs, including multi-armed trials, as described in Gerber and Green
-(2012, ISBN: 978-0393979954). Users formally describe their randomization
-procedure and test statistic. The randomization distribution of the test
-statistic under some null hypothesis is efficiently simulated.
+Fits univariate Bayesian spatial regression models for large datasets
+using Nearest Neighbor Gaussian Processes (NNGP) detailed in Finley,
+Datta, Banerjee (2020) <arXiv:2001.09111>, and Finley, Datta, Cook,
+Morton, Andersen, and Banerjee (2019) <doi:10.1080/10618600.2018.1537924>
+and Datta, Banerjee, Finley, and Gelfand (2016)
+<doi:10.1080/01621459.2015.1044091>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

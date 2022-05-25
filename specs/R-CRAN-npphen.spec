@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  npphen
-%global packver   1.1.1
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Vegetation Phenological Cycle and Anomaly Detection using Remote Sensing Data
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-ks 
@@ -39,7 +39,8 @@ approach applied to time series of vegetation indices derived from remote
 sensing data or field measurements. The package implements basic and
 high-level functions for manipulating vector data (numerical series) and
 raster data (satellite derived products). Processing of very large raster
-files is supported.
+files is supported. For more information, please check the following
+paper: Estay, S., Chávez, R.O. (2018) <doi:10.1101/301143>.
 
 %prep
 %setup -q -c -n %{packname}

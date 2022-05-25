@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  CoOL
-%global packver   1.0.3
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causes of Outcome Learning
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-plyr
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ClustGeo 
 BuildRequires:    R-CRAN-wesanderson 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-data.table 
@@ -36,15 +37,16 @@ Requires:         R-CRAN-plyr
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ClustGeo 
 Requires:         R-CRAN-wesanderson 
+Requires:         R-grDevices 
 
 %description
 Implementing the computational phase of the Causes of Outcome Learning
 approach as described in Rieckmann, Dworzynski, Arras, Lapuschkin, Samek,
-Arah, Rod, Ekstrom. Causes of outcome learning: A causal
+Arah, Rod, Ekstrom. 2022. Causes of outcome learning: A causal
 inference-inspired machine learning approach to disentangling common
-combinations of potential causes of a health outcome. medRxiv (2020)
-<doi:10.1101/2020.12.10.20225243>. The optional 'ggtree' package can be
-obtained through Bioconductor.
+combinations of potential causes of a health outcome. International
+Journal of Epidemiology <doi:10.1093/ije/dyac078>. The optional 'ggtree'
+package can be obtained through Bioconductor.
 
 %prep
 %setup -q -c -n %{packname}

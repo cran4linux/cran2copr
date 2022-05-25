@@ -1,48 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  VineCopula
-%global packver   2.4.4
+%global packname  spc4sts
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.4
+Version:          0.6.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Inference of Vine Copulas
+Summary:          Statistical Process Control for Stochastic Textured Surfaces
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ADGofTest 
-BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-parallel 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-methods 
-Requires:         R-CRAN-ADGofTest 
-Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-gridExtra 
 Requires:         R-parallel 
 
 %description
-Provides tools for the statistical analysis of regular vine copula models,
-see Aas et al. (2009) <doi:10.1016/j.insmatheco.2007.02.001> and Dissman
-et al. (2013) <doi:10.1016/j.csda.2012.08.010>. The package includes tools
-for parameter estimation, model selection, simulation, goodness-of-fit
-tests, and visualization. Tools for estimation, selection and exploratory
-data analysis of bivariate copula models are also provided.
+Provides statistical process control tools for stochastic textured
+surfaces. The current version supports the following tools: (1) generic
+modeling of stochastic textured surfaces. (2) local defect monitoring and
+diagnostics in stochastic textured surfaces, which was proposed by Bui and
+Apley (2018a) <doi:10.1080/00401706.2017.1302362>. (3) global change
+monitoring in the nature of stochastic textured surfaces, which was
+proposed by Bui and Apley (2018b) <doi:10.1080/00224065.2018.1507559>. (4)
+computation of dissimilarity matrix of stochastic textured surface images,
+which was proposed by Bui and Apley (2019b)
+<doi:10.1016/j.csda.2019.01.019>.
 
 %prep
 %setup -q -c -n %{packname}
