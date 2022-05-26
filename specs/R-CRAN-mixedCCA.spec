@@ -1,39 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  lifecontingencies
-%global packver   1.3.8
+%global packname  mixedCCA
+%global packver   1.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.8
+Version:          1.5.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Financial and Actuarial Mathematics for Life Contingencies
+Summary:          Sparse Canonical Correlation Analysis for High-Dimensional Mixed Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-Rcpp >= 0.12.18
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-markovchain 
+BuildRequires:    R-devel >= 3.0.1
+Requires:         R-core >= 3.0.1
 BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 0.12.18
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-utils 
-Requires:         R-CRAN-markovchain 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-pcaPP 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-fMultivar 
+BuildRequires:    R-CRAN-mnormt 
+BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-pcaPP 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-fMultivar 
+Requires:         R-CRAN-mnormt 
+Requires:         R-CRAN-irlba 
 
 %description
-Classes and methods that allow the user to manage life table, actuarial
-tables (also multiple decrements tables). Moreover, functions to easily
-perform demographic, financial and actuarial mathematics on life
-contingencies insurances calculations are contained therein. See Spedicato
-(2013) <doi:10.18637/jss.v055.i10>.
+Semi-parametric approach for sparse canonical correlation analysis which
+can handle mixed data types: continuous, binary and truncated continuous.
+Bridge functions are provided to connect Kendall's tau to latent
+correlation under the Gaussian copula model. The methods are described in
+Yoon, Carroll and Gaynanova (2020) <doi:10.1093/biomet/asaa007> and Yoon,
+Mueller and Gaynanova (2020) <doi:10.1080/10618600.2021.1882468>.
 
 %prep
 %setup -q -c -n %{packname}

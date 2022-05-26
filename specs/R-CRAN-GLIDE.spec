@@ -1,54 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  baggingbwsel
-%global packver   1.0
+%global packname  GLIDE
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bagging Bandwidth Selection in Kernel Density and Regression Estimation
+Summary:          Global and Individual Tests for Direct Effects
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-kedd 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-sm 
-BuildRequires:    R-CRAN-nor1mix 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-rpanel 
-BuildRequires:    R-CRAN-tkrplot 
-BuildRequires:    R-CRAN-misc3d 
-Requires:         R-CRAN-Rcpp >= 1.0.3
-Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-foreach 
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-kedd 
-Requires:         R-stats 
-Requires:         R-CRAN-sm 
-Requires:         R-CRAN-nor1mix 
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-rpanel 
-Requires:         R-CRAN-tkrplot 
-Requires:         R-CRAN-misc3d 
 
 %description
-Bagging bandwidth selection methods for the Parzen-Rosenblatt and
-Nadaraya-Watson estimators. These bandwidth selectors can achieve greater
-statistical precision than their non-bagged counterparts while being
-computationally fast. See Barreiro-Ures et al. (2020)
-<doi:10.1093/biomet/asaa092> and Barreiro-Ures et al. (2021)
-<arXiv:2105.04134>.
+Global and individual tests for pleiotropy and direct effects in Mendelian
+randomization studies. Refer to J. Y. Dai, U. Peters, X. Wang, J. Kocarnik
+et al. AJE (2018) <doi:10.1093/aje/kwy177>.
 
 %prep
 %setup -q -c -n %{packname}

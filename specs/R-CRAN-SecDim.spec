@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SecDim
-%global packver   1.3
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Second Dimension of Spatial Associations
+Summary:          The Second Dimension of Spatial Association
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,17 +19,19 @@ BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-RcppArmadillo 
+Requires:         R-methods 
 
 %description
-Most of the current methods explore spatial associations using
-observations at sample locations, which are defined as the first dimension
-of spatial associations (FDA). The proposed concept of the second
-dimension of spatial associations (SDA) aims to extract in-depth
-information about the geographical environment from locations outside
-sample locations for exploring spatial associations.
+Most of the current methods explore spatial association using observations
+at sample locations, which are defined as the first dimension of spatial
+association (FDA). The proposed concept of the second dimension of spatial
+association (SDA) aims to extract in-depth information about the
+geographical environment from locations outside sample locations for
+exploring spatial association.
 
 %prep
 %setup -q -c -n %{packname}

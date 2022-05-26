@@ -1,32 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SpaTimeClus
-%global packver   1.0.1
+%global packname  OPTS
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model-Based Clustering of Spatio-Temporal Data
+Summary:          Optimization via Subsampling (OPTS)
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-Rcpp >= 0.11.1
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.11.1
-Requires:         R-methods 
-Requires:         R-parallel 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-cvTools 
+BuildRequires:    R-CRAN-changepoint 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-cvTools 
+Requires:         R-CRAN-changepoint 
 
 %description
-Mixture model is used to achieve the clustering goal. Each component is
-itself a mixture model of polynomial autoregressive regressions whose the
-logistic weights consider the spatial and temporal information.
+Subsampling based variable selection for low dimensional generalized
+linear models. The methods repeatedly subsample the data minimizing an
+information criterion (AIC/BIC) over a sequence of nested models for each
+subsample. Marinela Capanu, Mihai Giurcanu, Colin B Begg, Mithat Gonen,
+Subsampling based variable selection for generalized linear models.
 
 %prep
 %setup -q -c -n %{packname}
@@ -36,6 +38,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

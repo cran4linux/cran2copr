@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  AzureStor
-%global packver   3.6.1
+%global packver   3.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6.1
+Version:          3.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Storage Management in 'Azure'
 

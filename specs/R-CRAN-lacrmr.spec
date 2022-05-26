@@ -1,30 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MultiHorizonSPA
-%global packver   1.0.0
+%global packname  lacrmr
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multi Horizon Superior Predictive Ability
+Summary:          Connect to the 'Less Annoying CRM' API
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-matlab 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-matlab 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-sjmisc 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-sjmisc 
+Requires:         R-CRAN-stringr 
 
 %description
-Run the Multi Horizon Superior Predictive Ability test to compare the
-predictive performance of two distinct models when jointly considering all
-horizons of a forecast path.
+Connect to the 'Less Annoying CRM' API with ease to get your crm data in a
+clean and tidy format. 'Less Annoying CRM' is a simple CRM built for small
+businesses, more information is available on their website
+<https://www.lessannoyingcrm.com/>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -34,6 +45,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

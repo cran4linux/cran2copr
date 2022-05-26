@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dcurves
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Decision Curve Analysis for Model Evaluation
 
@@ -21,7 +21,7 @@ BuildRequires:    R-CRAN-tibble >= 3.1.0
 BuildRequires:    R-CRAN-glue >= 1.4.2
 BuildRequires:    R-CRAN-scales >= 1.1.1
 BuildRequires:    R-CRAN-dplyr >= 1.0.5
-BuildRequires:    R-CRAN-broom >= 0.7.6
+BuildRequires:    R-CRAN-broom >= 0.7.10
 BuildRequires:    R-CRAN-rlang >= 0.4.10
 BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-survival 
@@ -30,7 +30,7 @@ Requires:         R-CRAN-tibble >= 3.1.0
 Requires:         R-CRAN-glue >= 1.4.2
 Requires:         R-CRAN-scales >= 1.1.1
 Requires:         R-CRAN-dplyr >= 1.0.5
-Requires:         R-CRAN-broom >= 0.7.6
+Requires:         R-CRAN-broom >= 0.7.10
 Requires:         R-CRAN-rlang >= 0.4.10
 Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-survival 

@@ -1,33 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  modesto
-%global packver   0.1.3
+%global packname  africamonitor
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modeling and Analysis of Stochastic Systems
+Summary:          Africa Macroeconomic Monitor Database API
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-markovchain 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-CRAN-markovchain 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-RMySQL 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-collapse 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-RMySQL 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-collapse 
 
 %description
-Compute important quantities when we consider stochastic systems that are
-observed continuously. Such as, Cost model, Limiting distribution,
-Transition matrix, Transition distribution and Occupancy matrix. The
-methods are described, for example, Ross S. (2014), Introduction to
-Probability Models. Eleven Edition. Academic Press.
+An R API providing access to a relational database with macroeconomic data
+for Africa. The database is maintained at the Kiel Institute for the World
+Economy. See <https://africamonitor.ifw-kiel.de/>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +38,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

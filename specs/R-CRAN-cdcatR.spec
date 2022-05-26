@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  FAVAR
-%global packver   0.1.2
+%global packname  cdcatR
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Analysis of a FAVAR Model
+Summary:          Cognitive Diagnostic Computerized Adaptive Testing
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,30 +16,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-matlab 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-bvartools 
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-GDINA >= 2.2.0
+BuildRequires:    R-CRAN-cdmTools >= 1.0.1
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-matlab 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-bvartools 
+BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-CRAN-NPCD 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-GDINA >= 2.2.0
+Requires:         R-CRAN-cdmTools >= 1.0.1
+Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-MCMCpack 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-doSNOW 
+Requires:         R-CRAN-NPCD 
+Requires:         R-stats 
 
 %description
-Estimate a FAVAR model by a Bayesian method, based on Bernanke et al.
-(2005) <DOI:10.1162/0033553053327452>.
+Provides a set of functions for conducting cognitive diagnostic
+computerized adaptive testing applications (Chen, 2009)
+<DOI:10.1007/s11336-009-9123-2>). It includes different item selection
+rules such us the global discrimination index (Kaplan, de la Torre, and
+Barrada (2015) <DOI:10.1177/0146621614554650>) and the nonparametric
+selection method (Chang, Chiu, and Tsai (2019)
+<DOI:10.1177/0146621618813113>), as well as several stopping rules.
+Functions for generating item banks and responses are also provided. To
+guide item bank calibration, model comparison at the item level can be
+conducted using the two-step likelihood ratio test statistic by Sorrel, de
+la Torre, Abad and Olea (2017) <DOI:10.1027/1614-2241/a000131>.
 
 %prep
 %setup -q -c -n %{packname}

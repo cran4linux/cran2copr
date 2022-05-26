@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  vetiver
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Version, Share, Deploy, and Monitor Models
 
@@ -16,12 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr >= 2.0.3
 BuildRequires:    R-CRAN-readr >= 1.4.0
 BuildRequires:    R-CRAN-pins >= 1.0.0
 BuildRequires:    R-CRAN-plumber >= 1.0.0
 BuildRequires:    R-CRAN-butcher 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-glue 
@@ -36,12 +36,12 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-magrittr >= 2.0.3
 Requires:         R-CRAN-readr >= 1.4.0
 Requires:         R-CRAN-pins >= 1.0.0
 Requires:         R-CRAN-plumber >= 1.0.0
 Requires:         R-CRAN-butcher 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-curl 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-glue 

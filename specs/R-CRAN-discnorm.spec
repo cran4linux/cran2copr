@@ -1,36 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rHL7
-%global packver   1.0.0
+%global packname  discnorm
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read and Write Health Level 7 Files
+Summary:          Test for Discretized Normality in Ordinal Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-randomNames 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-matlab 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-randomNames 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-matlab 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-stringi 
+BuildRequires:    R-CRAN-lavaan >= 0.6.10
+BuildRequires:    R-CRAN-arules 
+BuildRequires:    R-CRAN-sirt 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-pbivnorm 
+BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-CRAN-copula 
+BuildRequires:    R-CRAN-mnormt 
+BuildRequires:    R-CRAN-GoFKernel 
+Requires:         R-CRAN-lavaan >= 0.6.10
+Requires:         R-CRAN-arules 
+Requires:         R-CRAN-sirt 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-pbivnorm 
+Requires:         R-CRAN-cubature 
+Requires:         R-CRAN-copula 
+Requires:         R-CRAN-mnormt 
+Requires:         R-CRAN-GoFKernel 
 
 %description
-Read health level 7 transactions and write random health level 7 files.
+Tests whether multivariate ordinal data may stem from discretizing a
+multivariate normal distribution. The test is described by Foldnes and
+Grønneberg (2019) <doi:10.1080/10705511.2019.1673168>. In addition, an
+adjusted polychoric correlation estimator is provided that takes marginal
+knowledge into account, as described by Grønneberg and Foldnes (2022)
+<doi:10.1037/met0000495>.
 
 %prep
 %setup -q -c -n %{packname}

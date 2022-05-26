@@ -1,40 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  FactorCopula
-%global packver   0.8
+%global packname  multifunc
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          0.9.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Factor, Bi-Factor and Second-Order Copula Models
+Summary:          Analysis of Ecological Drivers on Ecosystem Multifunctionality
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-polycor 
-BuildRequires:    R-CRAN-VineCopula 
-BuildRequires:    R-CRAN-matlab 
-Requires:         R-CRAN-statmod 
-Requires:         R-CRAN-abind 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-MASS 
 Requires:         R-utils 
-Requires:         R-CRAN-polycor 
-Requires:         R-CRAN-VineCopula 
-Requires:         R-CRAN-matlab 
+Requires:         R-CRAN-magrittr 
 
 %description
-Estimation, model selection and goodness-of-fit of (1) factor copula
-models for mixed continuous and discrete data in Kadhem and
-Nikoloulopoulos (2021) <doi:10.1111/bmsp.12231>; (2) bi-factor and
-second-order copula models for item response data in Kadhem and
-Nikoloulopoulos (2021) <arXiv:2102.10660>.
+Methods for the analysis of how ecological drivers affect the
+multifunctionality of an ecosystem based on methods of Byrnes et al. 2016
+<doi:10.1111/2041-210X.12143> and Byrnes et al. 2022
+<doi:10.1101/2022.03.17.484802>. Most standard methods in the literature
+are implemented (see vignettes) in a tidy format.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mlr3learners
-%global packver   0.5.2
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Recommended Learners for 'mlr3'
 
@@ -30,11 +30,11 @@ Requires:         R-CRAN-paradox
 Requires:         R-CRAN-R6 
 
 %description
-Recommended Learners for 'mlr3'. Extends 'mlr3' and 'mlr3proba' with
-interfaces to essential machine learning packages on CRAN.  This includes,
-but is not limited to: (penalized) linear and logistic regression, linear
-and quadratic discriminant analysis, k-nearest neighbors, naive Bayes,
-support vector machines, and gradient boosting.
+Recommended Learners for 'mlr3'. Extends 'mlr3' with interfaces to
+essential machine learning packages on CRAN.  This includes, but is not
+limited to: (penalized) linear and logistic regression, linear and
+quadratic discriminant analysis, k-nearest neighbors, naive Bayes, support
+vector machines, and gradient boosting.
 
 %prep
 %setup -q -c -n %{packname}
