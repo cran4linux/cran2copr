@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  QuClu
-%global packver   1.0.1
+%global packname  ri2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quantile-Based Clustering Algorithms
+Summary:          Randomization Inference for Randomized Experiments
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,17 +16,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-randomizr >= 0.16.0
+BuildRequires:    R-CRAN-estimatr 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-pbapply 
+Requires:         R-CRAN-randomizr >= 0.16.0
+Requires:         R-CRAN-estimatr 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-pbapply 
 
 %description
-Various quantile-based clustering algorithms: algorithm CU (Common theta
-and Unscaled variables), algorithm CS (Common theta and Scaled variables
-through lambda_j), algorithm VU (Variable-wise theta_j and Unscaled
-variables) and algorithm VW (Variable-wise theta_j and Scaled variables
-through lambda_j). Hennig, C., Viroli, C., Anderlucci, L. (2019)
-"Quantile-based clustering." Electronic Journal of Statistics. 13 (2) 4849
-- 4883 <doi:10.1214/19-EJS1640>.
+Randomization inference procedures for simple and complex randomized
+designs, including multi-armed trials, as described in Gerber and Green
+(2012, ISBN: 978-0393979954). Users formally describe their randomization
+procedure and test statistic. The randomization distribution of the test
+statistic under some null hypothesis is efficiently simulated.
 
 %prep
 %setup -q -c -n %{packname}

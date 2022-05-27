@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  QuClu
-%global packver   1.0.1
+%global packname  OPTtesting
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quantile-Based Clustering Algorithms
+Summary:          Optimal Testing
 
-License:          GPL-2 | GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,17 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-rootSolve 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-RSpectra 
 Requires:         R-stats 
 
 %description
-Various quantile-based clustering algorithms: algorithm CU (Common theta
-and Unscaled variables), algorithm CS (Common theta and Scaled variables
-through lambda_j), algorithm VU (Variable-wise theta_j and Unscaled
-variables) and algorithm VW (Variable-wise theta_j and Scaled variables
-through lambda_j). Hennig, C., Viroli, C., Anderlucci, L. (2019)
-"Quantile-based clustering." Electronic Journal of Statistics. 13 (2) 4849
-- 4883 <doi:10.1214/19-EJS1640>.
+Optimal testing under general dependence. The R package implements
+procedures proposed in Wang, Han, and Tong (2022). The package includes
+parameter estimation procedures, the computation for the posterior
+probabilities, and the testing procedure.
 
 %prep
 %setup -q -c -n %{packname}

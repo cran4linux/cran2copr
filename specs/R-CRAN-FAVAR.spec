@@ -1,32 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  QuClu
-%global packver   1.0.1
+%global packname  FAVAR
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quantile-Based Clustering Algorithms
+Summary:          Bayesian Analysis of a FAVAR Model
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-bvartools 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-bvartools 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-Matrix 
 
 %description
-Various quantile-based clustering algorithms: algorithm CU (Common theta
-and Unscaled variables), algorithm CS (Common theta and Scaled variables
-through lambda_j), algorithm VU (Variable-wise theta_j and Unscaled
-variables) and algorithm VW (Variable-wise theta_j and Scaled variables
-through lambda_j). Hennig, C., Viroli, C., Anderlucci, L. (2019)
-"Quantile-based clustering." Electronic Journal of Statistics. 13 (2) 4849
-- 4883 <doi:10.1214/19-EJS1640>.
+Estimate a FAVAR model by a Bayesian method, based on Bernanke et al.
+(2005) <DOI:10.1162/0033553053327452>.
 
 %prep
 %setup -q -c -n %{packname}

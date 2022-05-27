@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rlas
-%global packver   1.5.3
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read and Write 'las' and 'laz' Binary File Formats Used for Remote Sensing Data
 
@@ -13,13 +13,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-data.table 
+Requires:         R-utils 
 
 %description
 Read and write 'las' and 'laz' binary file formats. The LAS file format is

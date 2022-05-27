@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  OmicNavigator
-%global packver   1.8.0
+%global packver   1.11.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.0
+Version:          1.11.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Open-Source Software for 'Omic' Data Analysis and Visualization
 
@@ -35,7 +35,7 @@ to facilitate novel discoveries from high-throughput biology. The software
 includes R functions for the 'bioinformatician' to deposit study metadata
 and the outputs from statistical analyses (e.g. differential expression,
 enrichment). These results are then exported to an interactive JavaScript
-dashboard that can be interrogated on the user’s local machine or deployed
+dashboard that can be interrogated on the user's local machine or deployed
 online to be explored by collaborators. The dashboard includes 'sortable'
 tables, interactive plots including network visualization, and
 fine-grained filtering based on statistical significance.

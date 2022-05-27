@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  effectsize
-%global packver   0.6.0.1
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0.1
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Indices of Effect Size and Standardized Parameters
 
@@ -16,18 +16,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-performance >= 0.8.0
-BuildRequires:    R-CRAN-datawizard >= 0.2.2
-BuildRequires:    R-CRAN-parameters >= 0.16.0
-BuildRequires:    R-CRAN-insight >= 0.15.0
-BuildRequires:    R-CRAN-bayestestR >= 0.11.5
+BuildRequires:    R-CRAN-performance >= 0.9.0
+BuildRequires:    R-CRAN-datawizard >= 0.4.1
+BuildRequires:    R-CRAN-parameters >= 0.18.0
+BuildRequires:    R-CRAN-insight >= 0.17.0
+BuildRequires:    R-CRAN-bayestestR >= 0.12.1
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-performance >= 0.8.0
-Requires:         R-CRAN-datawizard >= 0.2.2
-Requires:         R-CRAN-parameters >= 0.16.0
-Requires:         R-CRAN-insight >= 0.15.0
-Requires:         R-CRAN-bayestestR >= 0.11.5
+Requires:         R-CRAN-performance >= 0.9.0
+Requires:         R-CRAN-datawizard >= 0.4.1
+Requires:         R-CRAN-parameters >= 0.18.0
+Requires:         R-CRAN-insight >= 0.17.0
+Requires:         R-CRAN-bayestestR >= 0.12.1
 Requires:         R-stats 
 Requires:         R-utils 
 

@@ -1,32 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  QuClu
-%global packver   1.0.1
+%global packname  async
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quantile-Based Clustering Algorithms
+Summary:          Asynchronous Code Constructs: Generators, Yield, Async, Await
 
-License:          GPL-2 | GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-nseval >= 0.4
+BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-CRAN-itertools 
+BuildRequires:    R-CRAN-later 
+BuildRequires:    R-CRAN-promises 
+Requires:         R-CRAN-nseval >= 0.4
+Requires:         R-CRAN-iterators 
+Requires:         R-CRAN-itertools 
+Requires:         R-CRAN-later 
+Requires:         R-CRAN-promises 
 
 %description
-Various quantile-based clustering algorithms: algorithm CU (Common theta
-and Unscaled variables), algorithm CS (Common theta and Scaled variables
-through lambda_j), algorithm VU (Variable-wise theta_j and Unscaled
-variables) and algorithm VW (Variable-wise theta_j and Scaled variables
-through lambda_j). Hennig, C., Viroli, C., Anderlucci, L. (2019)
-"Quantile-based clustering." Electronic Journal of Statistics. 13 (2) 4849
-- 4883 <doi:10.1214/19-EJS1640>.
+Write sequential-looking code that pauses and resumes. gen() creates a
+generator, an iterator that returns a value and pauses each time it
+reaches a yield() call. async() creates a promise, which runs until it
+reaches a call to await(), then resumes when information is available.
+These work similarly to generator and async constructs from 'Python' or
+'JavaScript'. Objects produced are compatible with the 'iterators' and
+'promises' packages.
 
 %prep
 %setup -q -c -n %{packname}

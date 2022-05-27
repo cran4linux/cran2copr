@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  QuClu
-%global packver   1.0.1
+%global packname  MonteCarloSEM
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quantile-Based Clustering Algorithms
+Summary:          Monte Carlo Data Simulation Package
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,17 +16,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-lavaan 
+Requires:         R-CRAN-Matrix 
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-lavaan 
 
 %description
-Various quantile-based clustering algorithms: algorithm CU (Common theta
-and Unscaled variables), algorithm CS (Common theta and Scaled variables
-through lambda_j), algorithm VU (Variable-wise theta_j and Unscaled
-variables) and algorithm VW (Variable-wise theta_j and Scaled variables
-through lambda_j). Hennig, C., Viroli, C., Anderlucci, L. (2019)
-"Quantile-based clustering." Electronic Journal of Statistics. 13 (2) 4849
-- 4883 <doi:10.1214/19-EJS1640>.
+Monte Carlo simulation allows to test different conditions given to the
+correct structural equation models. This package runs Monte Carlo
+simulations under different conditions (such as sample size or normality
+of data). Within the package data sets can be simulated and run based on
+the given model. First, continuous and normal data sets are generated
+based on the given model. Later Fleishman's power method (1978)
+<DOI:10.1007/BF02293811> is used to add non-normality if exists. When data
+generation is completed (or when generated data sets are given) model test
+can also be run. Please cite as "Orçan, F. (2021). MonteCarloSEM: An R
+Package to Simulate Data for SEM. International Journal of Assessment
+Tools in Education, 8 (3), 704-713."
 
 %prep
 %setup -q -c -n %{packname}

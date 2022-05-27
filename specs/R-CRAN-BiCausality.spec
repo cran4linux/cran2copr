@@ -1,32 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  QuClu
-%global packver   1.0.1
+%global packname  BiCausality
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quantile-Based Clustering Algorithms
+Summary:          Binary Causality Inference Framework
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
 
 %description
-Various quantile-based clustering algorithms: algorithm CU (Common theta
-and Unscaled variables), algorithm CS (Common theta and Scaled variables
-through lambda_j), algorithm VU (Variable-wise theta_j and Unscaled
-variables) and algorithm VW (Variable-wise theta_j and Scaled variables
-through lambda_j). Hennig, C., Viroli, C., Anderlucci, L. (2019)
-"Quantile-based clustering." Electronic Journal of Statistics. 13 (2) 4849
-- 4883 <doi:10.1214/19-EJS1640>.
+A framework to infer causality on binary data using techniques in frequent
+pattern mining and estimation statistics. Given a set of individual
+vectors S={x} where x(i) is a realization value of binary variable i, the
+framework infers empirical causal relations of binary variables i,j from S
+in a form of causal graph G=(V,E) where V is a set of nodes representing
+binary variables and there is an edge from i to j in E if the variable i
+causes j. The framework determines dependency among variables as well as
+analyzing confounding factors before deciding whether i causes j.  The
+publication of this package is at <arXiv:2205.06131>.
 
 %prep
 %setup -q -c -n %{packname}

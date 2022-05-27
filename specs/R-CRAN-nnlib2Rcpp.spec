@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  nnlib2Rcpp
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Collection of Neural Networks
+Summary:          A Tool for Creating Custom Neural Networks in C++ and using Them in R
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,8 +21,8 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-methods 
 
 %description
-Contains versions of Autoencoder, BP, LVQ, MAM NN and a module to define
-custom neural networks.
+Contains a module to define neural networks from custom components and
+versions of Autoencoder, BP, LVQ, MAM NN.
 
 %prep
 %setup -q -c -n %{packname}
