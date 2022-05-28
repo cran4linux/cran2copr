@@ -1,38 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  biscale
-%global packver   1.0.0
+%global packname  cdfquantreg
+%global packver   1.3.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.3.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools and Palettes for Bivariate Thematic Mapping
+Summary:          Quantile Regression for Random Variables on the Unit Interval
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-classInt 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-pracma >= 2.3
+BuildRequires:    R-CRAN-Formula >= 1.2
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-classInt 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-pracma >= 2.3
+Requires:         R-CRAN-Formula >= 1.2
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-MASS 
 
 %description
-Provides a 'ggplot2' centric approach to bivariate mapping. This is a
-technique that maps two quantities simultaneously rather than the single
-value that most thematic maps display. The package provides a suite of
-tools for calculating breaks using multiple different approaches, a
-selection of palettes appropriate for bivariate mapping and scale
-functions for 'ggplot2' calls that adds those palettes to maps. Tools for
-creating bivariate legends are also included.
+Employs a two-parameter family of distributions for modelling random
+variables on the (0, 1) interval by applying the cumulative distribution
+function (cdf) of one parent distribution to the quantile function of
+another.
 
 %prep
 %setup -q -c -n %{packname}

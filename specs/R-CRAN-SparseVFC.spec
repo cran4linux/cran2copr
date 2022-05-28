@@ -1,38 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  biscale
-%global packver   1.0.0
+%global packname  SparseVFC
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools and Palettes for Bivariate Thematic Mapping
+Summary:          Sparse Vector Field Consensus for Vector Field Learning
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-classInt 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-classInt 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-pdist 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-pdist 
+Requires:         R-CRAN-purrr 
 
 %description
-Provides a 'ggplot2' centric approach to bivariate mapping. This is a
-technique that maps two quantities simultaneously rather than the single
-value that most thematic maps display. The package provides a suite of
-tools for calculating breaks using multiple different approaches, a
-selection of palettes appropriate for bivariate mapping and scale
-functions for 'ggplot2' calls that adds those palettes to maps. Tools for
-creating bivariate legends are also included.
+The sparse vector field consensus (SparseVFC) algorithm (Ma et al., 2013
+<doi:10.1016/j.patcog.2013.05.017>) for robust vector field learning.
+Largely translated from the Matlab functions in
+<https://github.com/jiayi-ma/VFC>.
 
 %prep
 %setup -q -c -n %{packname}

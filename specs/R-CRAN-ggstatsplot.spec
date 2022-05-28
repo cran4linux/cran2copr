@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ggstatsplot
-%global packver   0.9.2
+%global packver   0.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.9.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          'ggplot2' Based Plots with Statistical Details
 
@@ -17,9 +17,9 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-statsExpressions >= 1.3.2
+BuildRequires:    R-CRAN-correlation >= 0.8.1
+BuildRequires:    R-CRAN-parameters >= 0.18.0
 BuildRequires:    R-CRAN-insight >= 0.17.1
-BuildRequires:    R-CRAN-parameters >= 0.17.0
-BuildRequires:    R-CRAN-correlation 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
@@ -34,9 +34,9 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-statsExpressions >= 1.3.2
+Requires:         R-CRAN-correlation >= 0.8.1
+Requires:         R-CRAN-parameters >= 0.18.0
 Requires:         R-CRAN-insight >= 0.17.1
-Requires:         R-CRAN-parameters >= 0.17.0
-Requires:         R-CRAN-correlation 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 

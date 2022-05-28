@@ -1,38 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  biscale
-%global packver   1.0.0
+%global packname  hitandrun
+%global packver   0.5-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.5.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools and Palettes for Bivariate Thematic Mapping
+Summary:          "Hit and Run" and "Shake and Bake" for Sampling Uniformly from Convex Shapes
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-classInt 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-rcdd >= 1.1
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-classInt 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rcdd >= 1.1
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Provides a 'ggplot2' centric approach to bivariate mapping. This is a
-technique that maps two quantities simultaneously rather than the single
-value that most thematic maps display. The package provides a suite of
-tools for calculating breaks using multiple different approaches, a
-selection of palettes appropriate for bivariate mapping and scale
-functions for 'ggplot2' calls that adds those palettes to maps. Tools for
-creating bivariate legends are also included.
+The "Hit and Run" Markov Chain Monte Carlo method for sampling uniformly
+from convex shapes defined by linear constraints, and the "Shake and Bake"
+method for sampling from the boundary of such shapes. Includes specialized
+functions for sampling normalized weights with arbitrary linear
+constraints. Tervonen, T., van Valkenhoef, G., Basturk, N., and Postmus,
+D. (2012) <doi:10.1016/j.ejor.2012.08.026>. van Valkenhoef, G., Tervonen,
+T., and Postmus, D. (2014) <doi:10.1016/j.ejor.2014.06.036>.
 
 %prep
 %setup -q -c -n %{packname}

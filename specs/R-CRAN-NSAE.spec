@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  NSAE
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonstationary Small Area Estimation
 
@@ -17,18 +17,38 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlist 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-spgwr 
+BuildRequires:    R-CRAN-SemiPar 
 Requires:         R-CRAN-rlist 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-spgwr 
+Requires:         R-CRAN-SemiPar 
 
 %description
-Executes spatial nonstationary Fay-Herriot models for small area
-estimation.The empirical best linear unbiased predictor (EBLUP) under
-stationary and nonstationary Fay-Herriot models along with the mean
-squared error estimation are included. EBLUP for prediction of non-sample
-area is also included under both stationary and nonstationary Fay-Herriot
-models. This extension to the Fay-Herriot model that accounts for the
-presence of spatial nonstationarity was developed by Hukum Chandra, Nicola
-Salvati and Ray Chambers (2015) <doi:10.1093/jssam/smu026>. This package
-is dedicated to the memory of Dr. Hukum Chandra who passed away while the
+Executes nonstationary Fay-Herriot model and nonstationary generalized
+linear mixed model for small area estimation.The empirical best linear
+unbiased predictor (EBLUP) under stationary and nonstationary Fay-Herriot
+models and empirical best predictor (EBP) under nonstationary generalized
+linear mixed model along with the mean squared error estimation are
+included. EBLUP for prediction of non-sample area is also included under
+both stationary and nonstationary Fay-Herriot models. This extension to
+the Fay-Herriot model that accounts for the presence of spatial
+nonstationarity was developed by Hukum Chandra, Nicola Salvati and Ray
+Chambers (2015) <doi:10.1093/jssam/smu026> and nonstationary generalized
+linear mixed model was developed by Hukum Chandra, Nicola Salvati and Ray
+Chambers (2017) <doi:10.1016/j.spasta.2017.01.004>. This package is
+dedicated to the memory of Dr. Hukum Chandra who passed away while the
 package creation was in progress.
 
 %prep

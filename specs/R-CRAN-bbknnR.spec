@@ -1,38 +1,51 @@
 %global __brp_check_rpaths %{nil}
-%global packname  biscale
+%global packname  bbknnR
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools and Palettes for Bivariate Thematic Mapping
+Summary:          Perform Batch Balanced KNN in R
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-classInt 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8
+BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-classInt 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-RcppAnnoy 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-Rtsne 
+BuildRequires:    R-CRAN-Seurat 
+BuildRequires:    R-CRAN-SeuratObject 
+BuildRequires:    R-CRAN-tidytable 
+BuildRequires:    R-CRAN-uwot 
+Requires:         R-methods 
 Requires:         R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-Rcpp >= 1.0.8
+Requires:         R-CRAN-RcppAnnoy 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-Rtsne 
+Requires:         R-CRAN-Seurat 
+Requires:         R-CRAN-SeuratObject 
+Requires:         R-CRAN-tidytable 
+Requires:         R-CRAN-uwot 
 
 %description
-Provides a 'ggplot2' centric approach to bivariate mapping. This is a
-technique that maps two quantities simultaneously rather than the single
-value that most thematic maps display. The package provides a suite of
-tools for calculating breaks using multiple different approaches, a
-selection of palettes appropriate for bivariate mapping and scale
-functions for 'ggplot2' calls that adds those palettes to maps. Tools for
-creating bivariate legends are also included.
+A fast and intuitive batch effect removal tool for single-cell data. BBKNN
+is originally used in the 'scanpy' python package, and now can be used
+with 'Seurat' seamlessly.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SPOT
-%global packver   2.9.52
+%global packver   2.11.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.52
+Version:          2.11.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sequential Parameter Optimization Toolbox
 

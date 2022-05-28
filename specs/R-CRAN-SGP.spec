@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SGP
-%global packver   1.9-5.0
+%global packver   2.0-0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.5.0
-Release:          2%{?dist}%{?buildtag}
+Version:          2.0.0.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Student Growth Percentiles & Percentile Growth Trajectories
 
 License:          GPL-3
@@ -15,13 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 Requires:         tex(latex)
 Requires:         tex(pdfpages.sty)
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-equate >= 2.0.5
 BuildRequires:    R-CRAN-doRNG >= 1.8.2
 BuildRequires:    R-CRAN-rngtools >= 1.5
-BuildRequires:    R-CRAN-data.table >= 1.12.4
+BuildRequires:    R-CRAN-data.table >= 1.14.0
 BuildRequires:    R-CRAN-sn >= 1.0.0
 BuildRequires:    R-CRAN-randomNames >= 0.0.5
 BuildRequires:    R-CRAN-Cairo 
@@ -52,7 +52,7 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-equate >= 2.0.5
 Requires:         R-CRAN-doRNG >= 1.8.2
 Requires:         R-CRAN-rngtools >= 1.5
-Requires:         R-CRAN-data.table >= 1.12.4
+Requires:         R-CRAN-data.table >= 1.14.0
 Requires:         R-CRAN-sn >= 1.0.0
 Requires:         R-CRAN-randomNames >= 0.0.5
 Requires:         R-CRAN-Cairo 
@@ -90,9 +90,15 @@ longitudinal education assessment data as developed in Betebenner (2009)
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -100,9 +106,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

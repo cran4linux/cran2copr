@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  pedmod
-%global packver   0.2.2
+%global packname  binspp
+%global packver   0.1.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.18
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pedigree Models
+Summary:          Bayesian Inference for Neyman-Scott Point Processes
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,23 +16,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-alabama 
+BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-spatstat 
+BuildRequires:    R-CRAN-spatstat.core 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.random 
 BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-CRAN-psqn 
+BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-alabama 
+Requires:         R-CRAN-VGAM 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-spatstat 
+Requires:         R-CRAN-spatstat.core 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.random 
 
 %description
-Provides functions to estimate mixed probit models using, for instance,
-pedigree data like in <doi:10.1002/sim.1603>. The models are also commonly
-called liability threshold models. The approximation is based on direct
-log marginal likelihood approximations like the randomized Quasi-Monte
-Carlo suggested by <doi:10.1198/106186002394> with a similar procedure to
-approximate the derivatives. The minimax tilting method suggested by
-<doi:10.1111/rssb.12162> is also supported. Graph-based methods are also
-provided that can be used to simplify pedigrees.
+The Bayesian MCMC estimation of parameters for Thomas-type cluster point
+process with various inhomogeneities. It allows for inhomogeneity in (i)
+distribution of parent points, (ii) mean number of points in a cluster,
+(iii) cluster spread. The package also allows for the Bayesian MCMC
+algorithm for the homogeneous generalized Thomas process. The cluster size
+is allowed to have a variance that is greater or less than the expected
+value (cluster sizes are over or under dispersed). Details are described
+in Dvořák, Remeš, Beránek & Mrkvička (2022) <arXiv:
+10.48550/arXiv.2205.07946>.
 
 %prep
 %setup -q -c -n %{packname}

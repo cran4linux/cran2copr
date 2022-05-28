@@ -1,38 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  biscale
-%global packver   1.0.0
+%global packname  plotBart
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools and Palettes for Bivariate Thematic Mapping
+Summary:          Diagnostic and Plotting Functions to Supplement 'bartCause'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-classInt 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-classInt 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-rpart >= 4.1.15
+BuildRequires:    R-stats >= 3.6.2
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
+BuildRequires:    R-CRAN-tidyr >= 1.1.3
+BuildRequires:    R-CRAN-dplyr >= 1.0.5
+BuildRequires:    R-CRAN-bartCause >= 1.0.4
+BuildRequires:    R-CRAN-ggdendro >= 0.1.22
+Requires:         R-CRAN-rpart >= 4.1.15
+Requires:         R-stats >= 3.6.2
+Requires:         R-CRAN-ggplot2 >= 3.3.2
+Requires:         R-CRAN-tidyr >= 1.1.3
+Requires:         R-CRAN-dplyr >= 1.0.5
+Requires:         R-CRAN-bartCause >= 1.0.4
+Requires:         R-CRAN-ggdendro >= 0.1.22
 
 %description
-Provides a 'ggplot2' centric approach to bivariate mapping. This is a
-technique that maps two quantities simultaneously rather than the single
-value that most thematic maps display. The package provides a suite of
-tools for calculating breaks using multiple different approaches, a
-selection of palettes appropriate for bivariate mapping and scale
-functions for 'ggplot2' calls that adds those palettes to maps. Tools for
-creating bivariate legends are also included.
+Functions to assist in diagnostics and plotting during the causal
+inference modeling process. Supplements the 'bartCause' package.
 
 %prep
 %setup -q -c -n %{packname}

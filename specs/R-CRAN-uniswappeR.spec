@@ -1,38 +1,55 @@
 %global __brp_check_rpaths %{nil}
-%global packname  biscale
-%global packver   1.0.0
+%global packname  uniswappeR
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools and Palettes for Bivariate Thematic Mapping
+Summary:          Interact with the Uniswap Platform
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-classInt 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-ghql 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-classInt 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-ghql 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-reticulate 
 Requires:         R-utils 
 
 %description
-Provides a 'ggplot2' centric approach to bivariate mapping. This is a
-technique that maps two quantities simultaneously rather than the single
-value that most thematic maps display. The package provides a suite of
-tools for calculating breaks using multiple different approaches, a
-selection of palettes appropriate for bivariate mapping and scale
-functions for 'ggplot2' calls that adds those palettes to maps. Tools for
-creating bivariate legends are also included.
+Routines to interact with the Uniswap trading platform and its API
+<https://uniswap.org>. The package contains codebase to interact with the
+uniswap platform directly from R console, Ability to pull and export data
+related to the platform and analyse some aspects.
 
 %prep
 %setup -q -c -n %{packname}

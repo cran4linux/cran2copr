@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  multivar
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Estimation and Forecasting of Multiple Subject Vector Autoregressive (multi-VAR) Models
+Summary:          Penalized Estimation of Multiple-Subject Vector Autoregressive (multi-VAR) Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-vars 
 BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.3
 Requires:         R-methods 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-Matrix
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-vars 
 Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-glmnet 
 
 %description
 Functions for simulating, estimating and forecasting stationary Vector

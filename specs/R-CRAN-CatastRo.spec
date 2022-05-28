@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  CatastRo
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the API 'Sede Electronica Del Catastro'
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-mapSpain >= 0.6.0
 BuildRequires:    R-CRAN-rappdirs >= 0.3.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-tibble 
@@ -31,7 +30,6 @@ Requires:         R-CRAN-mapSpain >= 0.6.0
 Requires:         R-CRAN-rappdirs >= 0.3.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-tibble 

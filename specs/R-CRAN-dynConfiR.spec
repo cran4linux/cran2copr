@@ -1,49 +1,52 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ggblanket
-%global packver   1.1.0
+%global packname  dynConfiR
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrappers to Simplify Beautiful 'ggplot2' Visualisation
+Summary:          Dynamic Models for Confidence and Response Time Distributions
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rtdists 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-snakecase 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-logger 
+BuildRequires:    R-CRAN-minqa 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-parallel 
+Requires:         R-stats 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rtdists 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-snakecase 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-logger 
+Requires:         R-CRAN-minqa 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-progress 
+Requires:         R-parallel 
 
 %description
-Wrapper functions around the amazing 'ggplot2' package with the objective
-to simplify beautiful 'ggplot2' visualisation.
+Provides density functions for the joint distribution of choice, response
+time and confidence for discrete confidence judgments as well as functions
+for parameter fitting, prediction and simulation for various dynamical
+models of decision confidence. All models are explained in detail by
+Hellmann et al. (preprint; <https://osf.io/9jfqr/>). Implemented models
+are the dynWEV model, the 2DSD model (Pleskac & Busemeyer, 2010,
+<doi:10.1037/a0019737>), and various race models. C++ code for dynWEV and
+2DSD is based on the 'rtdists' package by Henrik Singmann.
 
 %prep
 %setup -q -c -n %{packname}
