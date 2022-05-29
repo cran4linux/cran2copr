@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ipkg
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Install R Packages on GitHub from Hub.fastgit.org
+Summary:          Install R Packages on GitHub from Hub.fastgit.xyz
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,7 +22,7 @@ Requires:         R-CRAN-remotes
 %description
 When you want to install an R package on GitHub, but you can't access
 GitHub, this function helps you download and install the package from
-another website <https://hub.fastgit.org/>, which is in real-time sync
+another website <https://hub.fastgit.xyz/>, which is in real-time sync
 with GitHub.
 
 %prep

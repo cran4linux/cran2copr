@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  hypervolume
-%global packver   3.0.3
+%global packver   3.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.3
+Version:          3.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Dimensional Geometry, Set Operations, Projection, and Inference Using Kernel Density Estimation, Support Vector Machines, and Convex Hulls
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-maps
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-geometry 
 BuildRequires:    R-CRAN-ks 
+BuildRequires:    R-CRAN-hitandrun 
 BuildRequires:    R-CRAN-pdist 
 BuildRequires:    R-CRAN-fastcluster 
 BuildRequires:    R-CRAN-e1071 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-maps
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-geometry 
 Requires:         R-CRAN-ks 
+Requires:         R-CRAN-hitandrun 
 Requires:         R-CRAN-pdist 
 Requires:         R-CRAN-fastcluster 
 Requires:         R-CRAN-e1071 

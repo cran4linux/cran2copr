@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  embryogrowth
-%global packver   8.4
+%global packver   8.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.4
+Version:          8.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Analyze the Thermal Reaction Norm of Embryo Growth
 
@@ -13,15 +13,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-HelpersMG >= 4.0
+BuildRequires:    R-CRAN-HelpersMG >= 5.3
 BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-CRAN-optimx 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-parallel 
-Requires:         R-CRAN-HelpersMG >= 4.0
+Requires:         R-CRAN-HelpersMG >= 5.3
 Requires:         R-CRAN-deSolve 
 Requires:         R-CRAN-optimx 
 Requires:         R-CRAN-numDeriv 
