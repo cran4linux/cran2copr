@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tesseract
-%global packver   5.0.0
+%global packver   5.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.0
+Version:          5.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Open Source OCR Engine
 
@@ -29,10 +29,10 @@ Requires:         R-CRAN-rappdirs
 Requires:         R-CRAN-digest 
 
 %description
-Bindings to 'Tesseract' <https://opensource.google/projects/tesseract>: a
-powerful optical character recognition (OCR) engine that supports over 100
-languages. The engine is highly configurable in order to tune the
-detection algorithms and obtain the best possible results.
+Bindings to 'Tesseract': a powerful optical character recognition (OCR)
+engine that supports over 100 languages. The engine is highly configurable
+in order to tune the detection algorithms and obtain the best possible
+results.
 
 %prep
 %setup -q -c -n %{packname}

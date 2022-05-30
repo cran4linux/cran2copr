@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dipsaus
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Dipping Sauce for Data Analysis and Visualizations
 
@@ -35,7 +35,6 @@ BuildRequires:    R-CRAN-future.apply
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-base64url 
 BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-synchronicity 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-startup 
 Requires:         R-CRAN-jsonlite >= 1.6
@@ -58,7 +57,6 @@ Requires:         R-CRAN-future.apply
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-base64url 
 Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-synchronicity 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-startup 
 

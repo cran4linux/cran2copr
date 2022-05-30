@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rb3
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Parse Public Data Released by B3 Exchange
 
@@ -32,6 +32,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-XML 
 Requires:         R-CRAN-bizdays 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-proto 
@@ -48,6 +49,7 @@ Requires:         R-methods
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-XML 
 
 %description
 Download and parse public files released by B3 and convert them into

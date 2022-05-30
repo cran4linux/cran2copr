@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  scINSIGHT
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interpretation of Heterogeneous Single-Cell Gene Expression Data
 
@@ -42,7 +42,8 @@ levels in each sample in a lower-dimensional space. With the factorized
 results, the inferred expression levels and memberships of common gene
 modules can be used to cluster cells and detect cell identities, and the
 condition-specific gene modules can help compare functional differences in
-transcriptomes from distinct conditions.
+transcriptomes from distinct conditions. Please also see Qian K, Fu SW, Li
+HW, Li WV (2022) <doi:10.1186/s13059-022-02649-3>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SSVS
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Stochastic Search Variable Selection (SSVS)
 
@@ -38,7 +38,11 @@ Bayesian variable selection method used to estimate the probability that
 individual predictors should be included in a regression model. Using MCMC
 estimation, the method samples thousands of regression models in order to
 characterize the model uncertainty regarding both the predictor set and
-the regression parameters.
+the regression parameters. For details see Bainter, McCauley, Wager, and
+Losin (2020) Improving practices for selecting a subset of important
+predictors in psychology: An application to predicting pain, Advances in
+Methods and Practices in Psychological Science 3(1), 66-80
+<DOI:10.1177/2515245919885617>.
 
 %prep
 %setup -q -c -n %{packname}

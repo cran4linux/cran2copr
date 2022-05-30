@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gee
-%global packver   4.13-22
+%global packver   4.13-23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.13.22
+Version:          4.13.23
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Estimation Equation Solver
 

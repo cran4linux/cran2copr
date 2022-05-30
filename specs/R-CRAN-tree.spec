@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tree
-%global packver   1.0-41
+%global packver   1.0-42
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.41
+Version:          1.0.42
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classification and Regression Trees
 

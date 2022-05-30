@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ggcorset
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Corset Plot
 
@@ -26,18 +26,18 @@ Requires:         R-CRAN-gghalves
 Requires:         R-CRAN-ggstance 
 
 %description
-Corset plots are a new visualization technique, which are used strictly to
-visualize repeat measures at 2 time points (such as pre- and post- data).
-The distribution of measurements at each time point are visualized using
-half violins, whilst the trajectories of individual change are visualized
-via spaghetti plots by connecting these two points linearly. These lines
-can be coloured to represent percent change or other user-defined value.
-This method of visualization is ideal for showing the heterogeneity of
-data, including differences by sub-groups. The package relies on 'ggplot2'
-allowing for easy integration so that users can customize their
-visualizations as required. Users can create corset plots using data in
-either wide or long format using the functions gg_corset() or
-gg_corset_elongated(), respectively.
+Corset plots are a visualization technique used strictly to visualize
+repeat measures at 2 time points (such as pre- and post- data). The
+distribution of measurements are visualized at each time point, whilst the
+trajectories of individual change are visualized by connecting the pre-
+and post- values linearly. These lines can be coloured to represent the
+magnitude of change, or other user-defined value. This method of
+visualization is ideal for showing the heterogeneity of data, including
+differences by sub-groups. The package relies on 'ggplot2' allowing for
+easy integration so that users can customize their visualizations as
+required. Users can create corset plots using data in either wide or long
+format using the functions gg_corset() or gg_corset_elongated(),
+respectively.
 
 %prep
 %setup -q -c -n %{packname}

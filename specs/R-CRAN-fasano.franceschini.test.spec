@@ -1,39 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fasano.franceschini.test
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fasano-Franceschini Test: A 2-D Kolmogorov-Smirnov Two-Sample Test
+Summary:          Fasano-Franceschini Test: A Multidimensional Kolmogorov-Smirnov Two-Sample Test
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-stats 
-BuildRequires:    R-parallel 
-BuildRequires:    R-methods 
+Requires:         R-CRAN-RcppParallel >= 5.0.1
+Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-stats 
-Requires:         R-parallel 
-Requires:         R-methods 
 
 %description
-An implementation of the 2-D Kolmogorov-Smirnov (KS) two-sample test as
-defined by Fasano and Franceschini (Fasano and Franceschini 1987). The
-'fasano.franceschini.test' package provides three improvements over the
-current 2-D KS test on the Comprehensive R Archive Network (CRAN): (i) the
-Fasano and Franceschini test has been shown to run in O(n^2) versus the
-Peacock implementation which runs in O(n^3); (ii) the package implements a
-procedure for handling ties in the data; and (iii) the package implements
-a parallelized permutation procedure for improved significance testing.
-Ultimately, the 'fasano.franceschini.test' package presents a robust
-statistical test for analyzing random samples defined in 2-dimensions.
+An implementation of the two-sample multidimensional Kolmogorov-Smirnov
+test described by Fasano and Franceschini (1987)
+<doi:10.1093/mnras/225.1.155>. This test evaluates the null hypothesis
+that two i.i.d. random samples were drawn from the same underlying
+probability distribution. The data can be of any dimension, and can be of
+any type (continuous, discrete, or mixed).
 
 %prep
 %setup -q -c -n %{packname}

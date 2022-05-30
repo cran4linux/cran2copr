@@ -1,38 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pmledecon
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Deconvolution Density Estimation using Penalized MLE
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.3
-Requires:         R-core >= 3.6.3
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-splitstackshape 
 BuildRequires:    R-CRAN-rmutil 
-Requires:         R-stats 
 Requires:         R-CRAN-splitstackshape 
 Requires:         R-CRAN-rmutil 
 
 %description
-Given a sample with additive measurement error, the package estimates the
-deconvolution density - that is, the density of the underlying
-distribution of the sample without measurement error. The method maximises
-the log-likelihood of the estimated density, plus a quadratic smoothness
-penalty. The distribution of the measurement error can be either a known
-family, or can be estimated from a "pure error" sample. For known error
-distributions, the package supports Normal, Laplace or Beta distributed
-error. For unknown error distribution, a pure error sample independent
-from the data is used.
+Performs penalized MLE deconvolution estimation.
 
 %prep
 %setup -q -c -n %{packname}
