@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  raveio
-%global packver   0.0.5
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          File-System Toolbox for RAVE Project
 
@@ -13,47 +13,47 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-callr >= 3.7.0
 BuildRequires:    R-CRAN-R.matlab >= 3.6.2
 BuildRequires:    R-CRAN-yaml >= 2.2.1
+BuildRequires:    R-CRAN-remotes >= 2.1.2
 BuildRequires:    R-CRAN-jsonlite >= 1.7.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-hdf5r >= 1.3.4
 BuildRequires:    R-CRAN-edfReader >= 1.2.1
+BuildRequires:    R-CRAN-promises >= 1.2.0
 BuildRequires:    R-CRAN-fst >= 0.9.2
 BuildRequires:    R-CRAN-targets >= 0.8.0
-BuildRequires:    R-CRAN-ini >= 0.3.1
-BuildRequires:    R-CRAN-threeBrain >= 0.2.3
-BuildRequires:    R-CRAN-dipsaus >= 0.1.8
-BuildRequires:    R-CRAN-filearray >= 0.1.1
+BuildRequires:    R-CRAN-threeBrain >= 0.2.5
+BuildRequires:    R-CRAN-filearray >= 0.1.3
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-dipsaus 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-globals 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-remotes 
 Requires:         R-CRAN-callr >= 3.7.0
 Requires:         R-CRAN-R.matlab >= 3.6.2
 Requires:         R-CRAN-yaml >= 2.2.1
+Requires:         R-CRAN-remotes >= 2.1.2
 Requires:         R-CRAN-jsonlite >= 1.7.0
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-hdf5r >= 1.3.4
 Requires:         R-CRAN-edfReader >= 1.2.1
+Requires:         R-CRAN-promises >= 1.2.0
 Requires:         R-CRAN-fst >= 0.9.2
 Requires:         R-CRAN-targets >= 0.8.0
-Requires:         R-CRAN-ini >= 0.3.1
-Requires:         R-CRAN-threeBrain >= 0.2.3
-Requires:         R-CRAN-dipsaus >= 0.1.8
-Requires:         R-CRAN-filearray >= 0.1.1
+Requires:         R-CRAN-threeBrain >= 0.2.5
+Requires:         R-CRAN-filearray >= 0.1.3
 Requires:         R-utils 
 Requires:         R-CRAN-data.table 
-Requires:         R-parallel 
+Requires:         R-CRAN-dipsaus 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-globals 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-remotes 
 
 %description
 Includes multiple cross-platform read/write interfaces for 'RAVE' project.

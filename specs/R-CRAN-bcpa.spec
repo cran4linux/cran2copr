@@ -1,27 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  chron
-%global packver   2.3-57
+%global packname  bcpa
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.57
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Chronological Objects which can Handle Dates and Times
+Summary:          Behavioral Change Point Analysis of Animal Movement
 
-License:          GPL-2
+License:          Unlimited
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.12.0
-Requires:         R-core >= 2.12.0
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-stats 
-Requires:         R-graphics 
+Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-CRAN-plyr 
 Requires:         R-stats 
 
 %description
-Provides chronological objects which can handle dates and times.
+The Behavioral Change Point Analysis (BCPA) is a method of identifying
+hidden shifts in the underlying parameters of a time series, developed
+specifically to be applied to animal movement data which is irregularly
+sampled.  The method is based on: E. Gurarie, R. Andrews and K. Laidre A
+novel method for identifying behavioural changes in animal movement data
+(2009) Ecology Letters 12:5 395-408. A development version is on
+<https://github.com/EliGurarie/bcpa>. NOTE: the BCPA method may be useful
+for any univariate, irregularly sampled Gaussian time-series, but animal
+movement analysts are encouraged to apply correlated velocity change point
+analysis as implemented in the smoove package, as of this writing on
+GitHub at <https://github.com/EliGurarie/smoove>. An example of a
+univariate analysis is provided in the UnivariateBCPA vignette.
 
 %prep
 %setup -q -c -n %{packname}

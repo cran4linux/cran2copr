@@ -1,34 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gghalves
-%global packver   0.1.3
+%global packname  RcppFaddeeva
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compose Half-Half Plots Using Your Favourite Geoms
+Summary:          'Rcpp' Bindings for the 'Faddeeva' Package
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gtable 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-grid 
-Requires:         R-CRAN-gtable 
-Requires:         R-grDevices 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-stats 
 
 %description
-A 'ggplot2' extension for easy plotting of half-half geom combinations.
-Think half boxplot and half jitterplot, or half violinplot and half
-dotplot.
+Access to a family of Gauss error functions for arbitrary complex
+arguments is provided via the 'Faddeeva' package by Steven G. Johnson (see
+<http://ab-initio.mit.edu/wiki/index.php/Faddeeva_Package> for more
+information).
 
 %prep
 %setup -q -c -n %{packname}

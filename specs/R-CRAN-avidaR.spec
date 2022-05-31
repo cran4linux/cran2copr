@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  avidaR
-%global packver   1.0.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A computational biologist's toolkit to get data from avidaDB
+Summary:          A Computational Biologist’s Toolkit To Get Data From ‘avidaDB’
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -38,12 +38,10 @@ Requires:         R-CRAN-RColorBrewer
 Requires:         R-CRAN-R6 
 
 %description
-It provides users of the R programming language with easy-to-use tools for
-performing complex queries on avidaDB, a semantic database that stores
-genomic and transcriptomic data of self-replicating computer programs
-(known as digital organisms) that mutate and evolve within a user-defined
-computational environment. The functions send SPARQL queries to the
-avidaDB endpoint <https://graphdb.fortunalab.org/repositories/avidaDB>.
+Easy-to-use tools for performing complex queries on 'avidaDB', a semantic
+database that stores genomic and transcriptomic data of self-replicating
+computer programs (known as digital organisms) that mutate and evolve
+within a user-defined computational environment.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,34 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gghalves
-%global packver   0.1.3
+%global packname  ChoiceModelR
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compose Half-Half Plots Using Your Favourite Geoms
+Summary:          Choice Modeling in R
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gtable 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-grid 
-Requires:         R-CRAN-gtable 
-Requires:         R-grDevices 
 
 %description
-A 'ggplot2' extension for easy plotting of half-half geom combinations.
-Think half boxplot and half jitterplot, or half violinplot and half
-dotplot.
+Implements an MCMC algorithm to estimate a hierarchical multinomial logit
+model with a normal heterogeneity distribution. The algorithm uses a
+hybrid Gibbs Sampler with a random walk metropolis step for the MNL
+coefficients for each unit. Dependent variable may be discrete or
+continuous. Independent variables may be discrete or continuous with
+optional order constraints. Means of the distribution of heterogeneity can
+optionally be modeled as a linear function of unit characteristics
+variables.
 
 %prep
 %setup -q -c -n %{packname}

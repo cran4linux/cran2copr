@@ -1,34 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gghalves
-%global packver   0.1.3
+%global packname  smaa
+%global packver   0.3-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compose Half-Half Plots Using Your Favourite Geoms
+Summary:          Stochastic Multi-Criteria Acceptability Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gtable 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-grid 
-Requires:         R-CRAN-gtable 
-Requires:         R-grDevices 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-graphics 
+Requires:         R-graphics 
 
 %description
-A 'ggplot2' extension for easy plotting of half-half geom combinations.
-Think half boxplot and half jitterplot, or half violinplot and half
-dotplot.
+Implementation of the Stochastic Multi-Criteria Acceptability Analysis
+(SMAA) family of Multiple Criteria Decision Analysis (MCDA) methods.
+Tervonen, T. and Figueira, J. R. (2008) <doi:10.1002/mcda.407>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  funGp
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gaussian Process Models for Scalar and Functional Inputs
 
@@ -13,36 +13,37 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-qdapRegex 
 BuildRequires:    R-CRAN-microbenchmark 
 BuildRequires:    R-CRAN-doFuture 
+BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-progressr 
 Requires:         R-methods 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-qdapRegex 
 Requires:         R-CRAN-microbenchmark 
 Requires:         R-CRAN-doFuture 
+Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-progressr 
 
 %description
-Construction and smart selection of Gaussian process models with emphasis
-on treatment of functional inputs. This package offers: (i) flexible
-modeling of functional-input regression problems through the fairly
-general Gaussian process model; (ii) built-in dimension reduction for
-functional inputs; (iii) heuristic optimization of the structural
-parameters of the model (e.g., active inputs, kernel function, type of
-distance). Metamodeling background is provided in Betancourt et al. (2020)
+Construction and smart selection of Gaussian process models for analysis
+of computer experiments with emphasis on treatment of functional inputs
+that are regularly sampled. This package offers: (i) flexible modeling of
+functional-input regression problems through the fairly general Gaussian
+process model; (ii) built-in dimension reduction for functional inputs;
+(iii) heuristic optimization of the structural parameters of the model
+(e.g., active inputs, kernel function, type of distance). Metamodeling
+background is provided in Betancourt et al. (2020)
 <doi:10.1016/j.ress.2020.106870>. The algorithm for structural parameter
 optimization is described in
 <https://hal.archives-ouvertes.fr/hal-02532713>.

@@ -1,34 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gghalves
-%global packver   0.1.3
+%global packname  actilifecounts
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compose Half-Half Plots Using Your Favourite Geoms
+Summary:          Generate Activity Counts from Raw Accelerometer Data
 
-License:          MIT + file LICENSE
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gtable 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-grid 
-Requires:         R-CRAN-gtable 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-gsignal 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-gsignal 
+Requires:         R-CRAN-pracma 
 
 %description
-A 'ggplot2' extension for easy plotting of half-half geom combinations.
-Think half boxplot and half jitterplot, or half violinplot and half
-dotplot.
+A tool to obtain activity counts, originally a translation of the 'python'
+package 'agcounts' <https://github.com/actigraph/agcounts>. This tool
+allows the processing of data from any accelerometer brand, with a more
+flexible approach to handle different sampling frequencies.
 
 %prep
 %setup -q -c -n %{packname}

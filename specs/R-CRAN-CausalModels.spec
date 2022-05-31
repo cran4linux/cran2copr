@@ -1,34 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gghalves
-%global packver   0.1.3
+%global packname  CausalModels
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compose Half-Half Plots Using Your Favourite Geoms
+Summary:          Causal Inference Modeling for Estimation of Causal Effects
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gtable 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-grid 
-Requires:         R-CRAN-gtable 
-Requires:         R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-causaldata 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-multcomp 
+Requires:         R-stats 
+Requires:         R-CRAN-causaldata 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-multcomp 
 
 %description
-A 'ggplot2' extension for easy plotting of half-half geom combinations.
-Think half boxplot and half jitterplot, or half violinplot and half
-dotplot.
+Provides an array of statistical models common in causal inference such as
+standardization, IP weighting, propensity matching, outcome regression,
+and doubly-robust estimators. Estimates of the average treatment effects
+from each model are given with the standard error and a 95%% Wald
+confidence interval (Hernan, Robins (2020)
+<https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/>).
 
 %prep
 %setup -q -c -n %{packname}

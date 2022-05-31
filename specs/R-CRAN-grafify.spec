@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  grafify
-%global packver   2.2.0
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Graphs for Data Visualisation and Linear Models for ANOVA
 
@@ -42,14 +42,15 @@ Easily explore data by generating different kinds of graphs with few lines
 of code. Use these ggplot() wrappers to quickly draw graphs of
 scatter/dots with box-whiskers, violins or SD error bars, data
 distributions, before-after graphs, factorial ANOVA and more. Customise
-graphs and choose from 8 colour-blind friendly discreet or 1 continuous
-colour scheme. Simple code for ANOVA as ordinary (lm()) or mixed-effects
-linear models (lmer()), including randomised-block or repeated-measures
-designs. Carry out post-hoc comparisons on fitted models (via emmeans()
-wrappers). Also includes small datasets for practicing code and teaching
-basics before users move on to more complex designs. See vignettes for
-details on usage <https://grafify-vignettes.netlify.app/>. Citation:
-<doi:10.5281/zenodo.5136508>.
+graphs in many ways. Choose from colourblind-friendly 12 discreet , 3
+continuous (3 palettes) and 3 divergent colour palettes. Simple code for
+ANOVA as ordinary (lm()) or mixed-effects linear models (lmer()),
+including randomised-block or repeated-measures designs. Obtain estimated
+marginal means and perform post-hoc comparisons on fitted models (via
+emmeans() wrappers). Also includes small datasets for practicing code and
+teaching basics before users move on to more complex designs. See
+vignettes for details on usage <https://grafify-vignettes.netlify.app/>.
+Citation: <doi:10.5281/zenodo.5136508>.
 
 %prep
 %setup -q -c -n %{packname}

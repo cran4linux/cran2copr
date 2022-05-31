@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  adapt4pv
-%global packver   0.2-1
+%global packver   0.2-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adaptive Approaches for Signal Detection in Pharmacovigilance
 
@@ -32,7 +32,8 @@ Requires:         R-CRAN-foreach
 %description
 A collection of several pharmacovigilance signal detection methods based
 on adaptive lasso. Additional lasso-based and propensity score-based
-signal detection approaches are also supplied.
+signal detection approaches are also supplied. See Courtois et al
+<doi:10.1186/s12874-021-01450-3>.
 
 %prep
 %setup -q -c -n %{packname}

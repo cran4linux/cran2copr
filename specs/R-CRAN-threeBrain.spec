@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  threeBrain
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          3D Brain Visualization
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-oro.nifti >= 0.9.1
 BuildRequires:    R-CRAN-gifti >= 0.7.5
 BuildRequires:    R-CRAN-digest >= 0.6.22
 BuildRequires:    R-CRAN-freesurferformats >= 0.1.7
+BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-dipsaus 
@@ -38,6 +39,7 @@ Requires:         R-CRAN-oro.nifti >= 0.9.1
 Requires:         R-CRAN-gifti >= 0.7.5
 Requires:         R-CRAN-digest >= 0.6.22
 Requires:         R-CRAN-freesurferformats >= 0.1.7
+Requires:         R-utils 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-CRAN-dipsaus 
@@ -48,12 +50,13 @@ A fast, interactive cross-platform, and easy to share 'WebGL'-based 3D
 brain viewer that visualizes 'FreeSurfer' and/or 'AFNI/SUMA' surfaces. The
 viewer widget can be either standalone or embedded into 'R-shiny'
 applications. The standalone version only require a web browser with
-'WebGL2' support (for example, 'Chrome'). It can be inserted into any
-websites; see <https://dipterix.org/project/threebrain/>). as an example.
-The 'R-shiny' support allows the 3D viewer to be dynamically generated
-from reactive user inputs. This feature has been fully adopted by 'RAVE'
+'WebGL2' support (for example, 'Chrome', 'Firefox', 'Safari'). It can be
+inserted into any websites; see
+<https://dipterix.org/project/threebrain/>) as an example. The 'R-shiny'
+support allows the 3D viewer to be dynamically generated from reactive
+user inputs. This feature has been fully adopted by 'RAVE'
 <https://openwetware.org/wiki/RAVE>, an interactive toolbox to analyze
-'iEEG/eCoG' data. Documentation about 'threeBrain' is provided by
+'iEEG' data. Documentation about 'threeBrain' is provided by
 <https://dipterix.org/threeBrain/> and several vignettes included in this
 package. To cite the package, please check our 'NeuroImage' paper by
 Magnotti, Wang, and Beauchamp (2020,

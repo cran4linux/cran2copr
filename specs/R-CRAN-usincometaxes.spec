@@ -1,34 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gghalves
-%global packver   0.1.3
+%global packname  usincometaxes
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compose Half-Half Plots Using Your Favourite Geoms
+Summary:          Calculate Federal and State Income Taxes in the United States
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gtable 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-grid 
-Requires:         R-CRAN-gtable 
-Requires:         R-grDevices 
+BuildRequires:    R-datasets 
+BuildRequires:    R-CRAN-vroom 
+Requires:         R-datasets 
+Requires:         R-CRAN-vroom 
 
 %description
-A 'ggplot2' extension for easy plotting of half-half geom combinations.
-Think half boxplot and half jitterplot, or half violinplot and half
-dotplot.
+Calculates federal and state income taxes in the United States. It acts as
+a wrapper to the NBER's TAXSIM 35 (<http://taxsim.nber.org/taxsim35/>) tax
+simulator. TAXSIM 35 conducts the calculations, while 'usincometaxes'
+prepares the data for TAXSIM 35, sends the data to TAXSIM 35's server,
+retrieves the data, and places it into a data frame. All without the user
+worrying about this process.
 
 %prep
 %setup -q -c -n %{packname}

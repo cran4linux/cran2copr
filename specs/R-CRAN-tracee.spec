@@ -1,34 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gghalves
-%global packver   0.1.3
+%global packname  tracee
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compose Half-Half Plots Using Your Favourite Geoms
+Summary:          Easily Save Output and Trace it Back to Code
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gtable 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-gridExtra 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 
-Requires:         R-CRAN-gtable 
-Requires:         R-grDevices 
+Requires:         R-CRAN-gridExtra 
 
 %description
-A 'ggplot2' extension for easy plotting of half-half geom combinations.
-Think half boxplot and half jitterplot, or half violinplot and half
-dotplot.
+Simple but crucial functionality related to creation of reproducible and
+traceable output (plots) back to code. It has a graphics saver with simple
+automation of plot stamping with source, destination and creation time, a
+selection of dimensions for use in presentations. A list of plots can be
+saved at once.
 
 %prep
 %setup -q -c -n %{packname}

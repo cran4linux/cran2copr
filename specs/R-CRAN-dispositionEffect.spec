@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dispositionEffect
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Disposition Effect on Financial Portfolios
 
@@ -21,13 +21,11 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-progress 
-Requires:         R-CRAN-rlang 
 
 %description
 Evaluate the presence of disposition effect and others irrational
