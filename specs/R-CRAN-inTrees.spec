@@ -1,35 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  jmvcore
-%global packver   2.3.12
+%global packname  inTrees
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.12
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dependencies for the 'jamovi' Framework
+Summary:          Interpret Tree Ensembles
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 1.0.1
-BuildRequires:    R-CRAN-rlang >= 0.3.0.1
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-R6 >= 1.0.1
-Requires:         R-CRAN-rlang >= 0.3.0.1
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-stringi 
+BuildRequires:    R-CRAN-RRF 
+BuildRequires:    R-CRAN-arules 
+BuildRequires:    R-CRAN-gbm 
+BuildRequires:    R-CRAN-xtable 
+BuildRequires:    R-CRAN-xgboost 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-RRF 
+Requires:         R-CRAN-arules 
+Requires:         R-CRAN-gbm 
+Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-xgboost 
+Requires:         R-CRAN-data.table 
+Requires:         R-methods 
 
 %description
-A framework for creating rich interactive analyses for the jamovi platform
-(see <https://www.jamovi.org> for more information).
+For tree ensembles such as random forests, regularized random forests and
+gradient boosted trees, this package provides functions for: extracting,
+measuring and pruning rules; selecting a compact rule set; summarizing
+rules into a learner; calculating frequent variable interactions;
+formatting rules in latex code.  Reference: Interpreting tree ensembles
+with inTrees (Houtao Deng, 2019, <doi:10.1007/s41060-018-0144-8>).
 
 %prep
 %setup -q -c -n %{packname}

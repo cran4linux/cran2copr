@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  LDLcalc
-%global packver   1.1
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate and Predict the Low Density Lipoprotein Values
 
@@ -24,12 +24,11 @@ BuildRequires:    R-CRAN-corrplot
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-resample 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-earth 
-BuildRequires:    R-CRAN-kernlab 
-BuildRequires:    R-CRAN-gbm 
-BuildRequires:    R-CRAN-Cubist 
-BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-moments 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-philentropy 
+BuildRequires:    R-CRAN-sets 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-caretEnsemble 
@@ -38,19 +37,20 @@ Requires:         R-CRAN-corrplot
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-resample 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-earth 
-Requires:         R-CRAN-kernlab 
-Requires:         R-CRAN-gbm 
-Requires:         R-CRAN-Cubist 
-Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-moments 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-philentropy 
+Requires:         R-CRAN-sets 
 
 %description
 A wide variety of ways to calculate (through equations) or predict (using
 9 Machine learning methods as well as a stack algorithm combination of
 them all) the Low Density Lipoprotein values of patients based on the
-values of three other metrics as Total Cholesterol , Triglyceride and High
-Density Lipoprotein.
+values of three other metrics, namely Total Cholesterol , Triglycerides
+and High Density Lipoprotein. It can also calculate the variance of LDL
+and the Atherogenic Index of Plasma (AIP) using error propagation and
+bootstrapping.
 
 %prep
 %setup -q -c -n %{packname}

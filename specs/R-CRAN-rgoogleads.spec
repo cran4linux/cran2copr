@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rgoogleads
-%global packver   0.6.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Loading Data from 'Google Ads API'
 
@@ -30,7 +30,6 @@ BuildRequires:    R-CRAN-pbapply
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-rlist 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-cachem 
 BuildRequires:    R-CRAN-rappdirs 
@@ -48,7 +47,6 @@ Requires:         R-CRAN-pbapply
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-rlist 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-cachem 
 Requires:         R-CRAN-rappdirs 

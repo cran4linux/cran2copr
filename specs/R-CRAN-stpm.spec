@@ -1,46 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rEMM
-%global packver   1.1.1
+%global packname  stpm
+%global packver   1.7.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.7.11
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extensible Markov Model for Modelling Temporal Relationships Between Clusters
+Summary:          Stochastic Process Model for Analysis of Longitudinal and Time-to-Event Outcomes
 
-License:          GPL-2
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-proxy >= 0.4.7
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 0.11.1
+BuildRequires:    R-CRAN-sas7bdat 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-clusterGeneration 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-proxy >= 0.4.7
-Requires:         R-CRAN-igraph 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.11.1
+Requires:         R-CRAN-sas7bdat 
 Requires:         R-stats 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-clusterGeneration 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-survival 
+Requires:         R-tools 
 Requires:         R-CRAN-MASS 
-Requires:         R-utils 
 
 %description
-Implements TRACDS (Temporal Relationships between Clusters for Data
-Streams), a generalization of Extensible Markov Model (EMM). TRACDS adds a
-temporal or order model to data stream clustering by superimposing a
-dynamically adapting Markov Chain. Also provides an implementation of EMM
-(TRACDS on top of tNN data stream clustering). Development of this package
-was supported in part by NSF IIS-0948893 and R21HG005912 from the National
-Human Genome Research Institute. Hahsler and Dunham (2010)
-<doi:10.18637/jss.v035.i05>.
+Utilities to estimate parameters of the models with survival functions
+induced by stochastic covariates. Miscellaneous functions for data
+preparation and simulation are also provided. For more information, see:
+(i)"Stochastic model for analysis of longitudinal data on aging and
+mortality" by Yashin A. et al. (2007), Mathematical Biosciences, 208(2),
+538-551, <DOI:10.1016/j.mbs.2006.11.006>; (ii) "Health decline, aging and
+mortality: how are they related?" by Yashin A. et al. (2007),
+Biogerontology 8(3), 291(302), <DOI:10.1007/s10522-006-9073-3>.
 
 %prep
 %setup -q -c -n %{packname}

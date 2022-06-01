@@ -1,35 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  jmvcore
-%global packver   2.3.12
+%global packname  BlockmodelingGUI
+%global packver   1.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.12
+Version:          1.8.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dependencies for the 'jamovi' Framework
+Summary:          GUI for the Generalised Blockmodeling of Valued Networks
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 1.0.1
-BuildRequires:    R-CRAN-rlang >= 0.3.0.1
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-R6 >= 1.0.1
-Requires:         R-CRAN-rlang >= 0.3.0.1
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-stringi 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-shiny 
 
 %description
-A framework for creating rich interactive analyses for the jamovi platform
-(see <https://www.jamovi.org> for more information).
+This app provides some useful tools for Offering an accessible GUI for
+generalised blockmodeling of single-relation, one-mode networks. The user
+can execute blockmodeling without having to write a line code by using the
+app's visual helps. Moreover, there are several ways to visualisations
+networks and their partitions. Finally, the results can be exported as if
+they were produced by writing code.
 
 %prep
 %setup -q -c -n %{packname}

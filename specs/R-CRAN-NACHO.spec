@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  NACHO
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          NanoString Quality Control Dashboard
 
@@ -17,45 +17,25 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-tibble >= 2.1.3
-BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-shiny >= 1.4.0
-BuildRequires:    R-CRAN-crayon >= 1.3.4
 BuildRequires:    R-CRAN-knitr >= 1.25
 BuildRequires:    R-CRAN-rmarkdown >= 1.16
-BuildRequires:    R-CRAN-sessioninfo >= 1.1.1
-BuildRequires:    R-CRAN-cli >= 1.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.2
-BuildRequires:    R-CRAN-scales >= 1.0.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-ggrepel >= 0.8.1
 BuildRequires:    R-CRAN-ggbeeswarm >= 0.6.0
 BuildRequires:    R-CRAN-shinyWidgets >= 0.4.9
-BuildRequires:    R-CRAN-purrr >= 0.3.3
 BuildRequires:    R-CRAN-ggforce >= 0.3.1
-BuildRequires:    R-CRAN-rstudioapi >= 0.10
-BuildRequires:    R-CRAN-rlang >= 0.1.2
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-tibble >= 2.1.3
-Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-shiny >= 1.4.0
-Requires:         R-CRAN-crayon >= 1.3.4
 Requires:         R-CRAN-knitr >= 1.25
 Requires:         R-CRAN-rmarkdown >= 1.16
-Requires:         R-CRAN-sessioninfo >= 1.1.1
-Requires:         R-CRAN-cli >= 1.1.0
-Requires:         R-CRAN-dplyr >= 1.0.2
-Requires:         R-CRAN-scales >= 1.0.0
-Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-ggrepel >= 0.8.1
 Requires:         R-CRAN-ggbeeswarm >= 0.6.0
 Requires:         R-CRAN-shinyWidgets >= 0.4.9
-Requires:         R-CRAN-purrr >= 0.3.3
 Requires:         R-CRAN-ggforce >= 0.3.1
-Requires:         R-CRAN-rstudioapi >= 0.10
-Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-utils 
+Requires:         R-CRAN-data.table 
 
 %description
 NanoString nCounter data are gene expression assays where there is no need
@@ -78,6 +58,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

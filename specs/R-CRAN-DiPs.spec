@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  elfgen
-%global packver   2.3.0
+%global packname  DiPs
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          0.6.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ecological Limit Function Model Generation, Analysis, and Visualization using 'ggplot2' and Statistical Methods
+Summary:          Directional Penalties for Optimal Matching in Observational Studies
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,36 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-testit 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-sqldf 
-BuildRequires:    R-CRAN-sbtools 
-BuildRequires:    R-CRAN-nhdplusTools 
-Requires:         R-utils 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-quantreg 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-mvnfast 
+BuildRequires:    R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-testit 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-sqldf 
-Requires:         R-CRAN-sbtools 
-Requires:         R-CRAN-nhdplusTools 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-mvnfast 
+Requires:         R-methods 
 
 %description
-A toolset for generating Ecological Limit Function (ELF) models and
-evaluating potential species loss resulting from flow change, based on the
-"elfgen" framework. ELFs describe the relation between aquatic species
-richness (fish or benthic macroinvertebrates) and stream size
-characteristics (streamflow or drainage area). Journal publications are
-available outlining framework methodology (Kleiner et al. (2020)
-<doi:10.1111/1752-1688.12876>) and application (Rapp et al. (2020)
-<doi:10.1111/1752-1688.12877>).
+Improves the balance of optimal matching with near-fine balance by giving
+penalties on the unbalanced covariates with the unbalanced directions.
+Many directional penalties can also be viewed as Lagrange multipliers,
+pushing a matched sample in the direction of satisfying a linear
+constraint that would not be satisfied without penalization. Yu and
+Rosenbaum (2019) <doi:10.1111/biom.13098>.
 
 %prep
 %setup -q -c -n %{packname}

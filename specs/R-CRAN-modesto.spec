@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  jmvcore
-%global packver   2.3.12
+%global packname  modesto
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.12
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dependencies for the 'jamovi' Framework
+Summary:          Modeling and Analysis of Stochastic Systems
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
-BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 1.0.1
-BuildRequires:    R-CRAN-rlang >= 0.3.0.1
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-R6 >= 1.0.1
-Requires:         R-CRAN-rlang >= 0.3.0.1
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-stringi 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-markovchain 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-methods 
+Requires:         R-CRAN-markovchain 
+Requires:         R-CRAN-Rcpp 
 
 %description
-A framework for creating rich interactive analyses for the jamovi platform
-(see <https://www.jamovi.org> for more information).
+Compute important quantities when we consider stochastic systems that are
+observed continuously. Such as, Cost model, Limiting distribution,
+Transition matrix, Transition distribution and Occupancy matrix. The
+methods are described, for example, Ross S. (2014), Introduction to
+Probability Models. Eleven Edition. Academic Press.
 
 %prep
 %setup -q -c -n %{packname}

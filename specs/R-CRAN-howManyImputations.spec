@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  howManyImputations
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate How many Imputations are Needed for Multiple Imputation
 
@@ -28,7 +28,7 @@ When performing multiple imputations, while 5-10 imputations are
 sufficient for obtaining point estimates, a larger number of imputations
 are needed for proper standard error estimates. This package allows you to
 calculate how many imputations are needed, following the work of von
-Hippel 2018 <doi:10.1177/0049124117747303>.
+Hippel (2020) <doi:10.1177/0049124117747303>.
 
 %prep
 %setup -q -c -n %{packname}

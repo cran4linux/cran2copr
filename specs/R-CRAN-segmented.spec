@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  segmented
-%global packver   1.5-0
+%global packver   1.6-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regression Models with Break-Points / Change-Points Estimation
+Summary:          Regression Models with Break-Points / Change-Points (with Possibly Random Effects) Estimation
 
 License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,7 +17,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-nlme 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-nlme 
 
 %description
 Given a regression model, segmented `updates' it by adding one or more
@@ -28,6 +30,8 @@ Muggeo (2003, <doi:10.1002/sim.1545>) and illustrated in Muggeo (2008,
 hypothesis testing is presented in Muggeo (2016,
 <doi:10.1080/00949655.2016.1149855>), and interval estimation for the
 breakpoint is discussed in Muggeo (2017, <doi:10.1111/anzs.12200>).
+Segmented mixed models, i.e. random effects in the change point, are
+discussed in in Muggeo (2014, <doi:10.1177/1471082X13504721>).
 
 %prep
 %setup -q -c -n %{packname}

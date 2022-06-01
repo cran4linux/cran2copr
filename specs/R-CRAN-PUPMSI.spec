@@ -1,35 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  jmvcore
-%global packver   2.3.12
+%global packname  PUPMSI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.12
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dependencies for the 'jamovi' Framework
+Summary:          Moisture Sorption Isotherm Modeling Program
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 1.0.1
-BuildRequires:    R-CRAN-rlang >= 0.3.0.1
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-R6 >= 1.0.1
-Requires:         R-CRAN-rlang >= 0.3.0.1
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-stringi 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Metrics 
+BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-nls2 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Metrics 
+Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-nls2 
+Requires:         R-stats 
 
 %description
-A framework for creating rich interactive analyses for the jamovi platform
-(see <https://www.jamovi.org> for more information).
+Contains sixteen moisture sorption isotherm models, which evaluate the
+fitness of adsorption and desorption curves for further understanding of
+the relationship between moisture content and water activity. Fitness
+evaluation is conducted through parameter estimation and error analysis.
+Moreover, graphical representation, hysteresis area estimation, and
+isotherm classification through the equation of Blahovec & Yanniotis
+(2009) <doi:10.1016/j.jfoodeng.2008.08.007> which is based on the
+classification system introduced by Brunauer et. al. (1940)
+<doi:10.1021/ja01864a025> are also included for the visualization of
+models and hysteresis.
 
 %prep
 %setup -q -c -n %{packname}

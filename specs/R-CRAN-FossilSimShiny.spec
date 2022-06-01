@@ -1,35 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  jmvcore
-%global packver   2.3.12
+%global packname  FossilSimShiny
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.12
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dependencies for the 'jamovi' Framework
+Summary:          Shiny Application for 'FossilSim'
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 1.0.1
-BuildRequires:    R-CRAN-rlang >= 0.3.0.1
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-R6 >= 1.0.1
-Requires:         R-CRAN-rlang >= 0.3.0.1
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-stringi 
+BuildRequires:    R-CRAN-shiny >= 1.7.1
+BuildRequires:    R-CRAN-FossilSim 
+Requires:         R-CRAN-shiny >= 1.7.1
+Requires:         R-CRAN-FossilSim 
 
 %description
-A framework for creating rich interactive analyses for the jamovi platform
-(see <https://www.jamovi.org> for more information).
+A shiny application based on 'FossilSim'. Used for simulating tree,
+taxonomic and fossil data under mechanistic models of speciation,
+preservation and sampling.
 
 %prep
 %setup -q -c -n %{packname}

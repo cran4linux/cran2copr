@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  biogrowth
-%global packver   0.2.3
+%global packver   1.0.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          1.0.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modelling of Population Growth
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-cowplot >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.5
 BuildRequires:    R-CRAN-rlang >= 0.4.7
 BuildRequires:    R-CRAN-purrr >= 0.3.4
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-MASS >= 7.3
 Requires:         R-CRAN-ggplot2 >= 3.3.2
 Requires:         R-CRAN-tibble >= 3.0.3
@@ -40,6 +41,7 @@ Requires:         R-CRAN-cowplot >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.5
 Requires:         R-CRAN-rlang >= 0.4.7
 Requires:         R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-lifecycle 
 
 %description
 Modelling of population growth under static and dynamic environmental

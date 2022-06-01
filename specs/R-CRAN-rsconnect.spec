@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rsconnect
-%global packver   0.8.25
+%global packver   0.8.26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.25
+Version:          0.8.26
 Release:          1%{?dist}%{?buildtag}
 Summary:          Deployment Interface for R Markdown Documents and Shiny Applications
 
@@ -17,20 +17,20 @@ BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-yaml >= 2.1.5
+BuildRequires:    R-CRAN-openssl >= 2.0.0
 BuildRequires:    R-CRAN-packrat >= 0.6
 BuildRequires:    R-CRAN-rstudioapi >= 0.5
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-tools 
 Requires:         R-CRAN-yaml >= 2.1.5
+Requires:         R-CRAN-openssl >= 2.0.0
 Requires:         R-CRAN-packrat >= 0.6
 Requires:         R-CRAN-rstudioapi >= 0.5
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-openssl 
 Requires:         R-tools 
 
 %description

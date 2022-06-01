@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  admiral
-%global packver   0.7.0
+%global packname  riskCommunicator
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          ADaM in R Asset Library
+Summary:          G-Computation to Estimate Interpretable Epidemiological Effects
 
-License:          Apache License (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,37 +16,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-boot 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-MASS 
+Requires:         R-methods 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
+Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
 
 %description
-A toolbox for programming Clinical Data Standards Interchange Consortium
-(CDISC) compliant Analysis Data Model (ADaM) datasets in R. ADaM datasets
-are a mandatory part of any New Drug or Biologics License Application
-submitted to the United States Food and Drug Administration (FDA).
-Analysis derivations are implemented in accordance with the "Analysis Data
-Model Implementation Guide" (CDISC Analysis Data Model Team, 2021,
-<https://www.cdisc.org/standards/foundational/adam/adamig-v1-3-release-package>).
+Estimates flexible epidemiological effect measures including both
+differences and ratios using the parametric G-formula developed as an
+alternative to inverse probability weighting.  It is useful for estimating
+the impact of interventions in the presence of
+treatment-confounder-feedback. G-computation was originally described by
+Robbins (1986) <doi:10.1016/0270-0255(86)90088-6> and has been described
+in detail by Ahern, Hubbard, and Galea (2009) <doi:10.1093/aje/kwp015>;
+Snowden, Rose, and Mortimer (2011) <doi:10.1093/aje/kwq472>; and Westreich
+et al. (2012) <doi:10.1002/sim.5316>.
 
 %prep
 %setup -q -c -n %{packname}

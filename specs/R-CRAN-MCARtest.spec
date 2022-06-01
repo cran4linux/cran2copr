@@ -1,35 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  jmvcore
-%global packver   2.3.12
+%global packname  MCARtest
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.12
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dependencies for the 'jamovi' Framework
+Summary:          Optimal Nonparametric Testing of Missing Completely at Random
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 1.0.1
-BuildRequires:    R-CRAN-rlang >= 0.3.0.1
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-R6 >= 1.0.1
-Requires:         R-CRAN-rlang >= 0.3.0.1
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-stringi 
+BuildRequires:    R-CRAN-lpSolve 
+BuildRequires:    R-CRAN-rcdd 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-Epi 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-lpSolve 
+Requires:         R-CRAN-rcdd 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-Epi 
+Requires:         R-CRAN-Rdpack 
 
 %description
-A framework for creating rich interactive analyses for the jamovi platform
-(see <https://www.jamovi.org> for more information).
+Provides functions for carrying out nonparametric hypothesis tests of the
+MCAR hypothesis based on the theory of Frechet classes and compatibility.
+Also gives functions for computing halfspace representations of the
+marginal polytope and related geometric objects.
 
 %prep
 %setup -q -c -n %{packname}

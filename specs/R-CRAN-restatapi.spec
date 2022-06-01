@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  restatapi
-%global packver   0.13.1
+%global packver   0.13.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.1
+Version:          0.13.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Search and Retrieve Data from Eurostat Database
 

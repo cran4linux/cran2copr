@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  uavRmp
-%global packver   0.5.7
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.7
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          UAV Mission Planner
 
@@ -32,7 +32,6 @@ BuildRequires:    R-CRAN-link2GI
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rlist 
-BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-raster 
@@ -49,7 +48,6 @@ Requires:         R-CRAN-link2GI
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rlist 
-Requires:         R-CRAN-rlang 
 
 %description
 The Unmanned Aerial Vehicle Mission Planner provides an easy to use work
@@ -69,6 +67,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
