@@ -1,28 +1,26 @@
 %global __brp_check_rpaths %{nil}
-%global packname  regspec
-%global packver   2.6
+%global packname  matlab
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Parametric Bayesian Spectrum Estimation for Multirate Data
+Summary:          'MATLAB' Emulation Package
 
-License:          GPL-2
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.15
+Requires:         R-core >= 2.15
 BuildArch:        noarch
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-Computes linear Bayesian spectral estimates from multirate data for
-second-order stationary time series. Provides credible intervals and
-methods for plotting various spectral estimates. Please see the paper
-`Should we sample a time series more frequently?' (doi below) for a full
-description of and motivation for the methodology.
+Emulate 'MATLAB' code using 'R'.
 
 %prep
 %setup -q -c -n %{packname}

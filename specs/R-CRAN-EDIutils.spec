@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  regspec
-%global packver   2.6
+%global packname  EDIutils
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Parametric Bayesian Spectrum Estimation for Multirate Data
+Summary:          An API Client for the Environmental Data Initiative Repository
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,13 +16,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-xml2 
 
 %description
-Computes linear Bayesian spectral estimates from multirate data for
-second-order stationary time series. Provides credible intervals and
-methods for plotting various spectral estimates. Please see the paper
-`Should we sample a time series more frequently?' (doi below) for a full
-description of and motivation for the methodology.
+A client for the Environmental Data Initiative repository REST API. The
+'EDI' data repository <https://portal.edirepository.org/nis/home.jsp> is
+for publication and reuse of ecological data with emphasis on metadata
+accuracy and completeness. It is built upon the 'PASTA+' software stack
+<https://pastaplus-core.readthedocs.io/en/latest/index.html#> and was
+developed in collaboration with the US 'LTER' Network
+<https://lternet.edu/>. 'EDIutils' includes functions to search and access
+existing data, evaluate and upload new data, and assist other data
+management tasks common to repository users.
 
 %prep
 %setup -q -c -n %{packname}

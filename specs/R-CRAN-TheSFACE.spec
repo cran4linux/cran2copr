@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  regspec
-%global packver   2.6
+%global packname  TheSFACE
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Parametric Bayesian Spectrum Estimation for Multirate Data
+Summary:          The Subtype Free Average Causal Effect
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,13 +16,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tibble 
+Requires:         R-stats 
 
 %description
-Computes linear Bayesian spectral estimates from multirate data for
-second-order stationary time series. Provides credible intervals and
-methods for plotting various spectral estimates. Please see the paper
-`Should we sample a time series more frequently?' (doi below) for a full
-description of and motivation for the methodology.
+Estimation of the SF-ACE, a Causal Inference estimand proposed in the
+paper "The Subtype-Free Average Causal Effect For Heterogeneous Disease
+Etiology" (soon on arXiv).
 
 %prep
 %setup -q -c -n %{packname}

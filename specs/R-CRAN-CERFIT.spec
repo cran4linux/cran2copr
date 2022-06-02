@@ -1,28 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  regspec
-%global packver   2.6
+%global packname  CERFIT
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Parametric Bayesian Spectrum Estimation for Multirate Data
+Summary:          Causal Effect Random Forest of Interaction Tress
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-partykit 
+BuildRequires:    R-CRAN-CBPS 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-twang 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-partykit 
+Requires:         R-CRAN-CBPS 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-twang 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
+Requires:         R-CRAN-glmnet 
 
 %description
-Computes linear Bayesian spectral estimates from multirate data for
-second-order stationary time series. Provides credible intervals and
-methods for plotting various spectral estimates. Please see the paper
-`Should we sample a time series more frequently?' (doi below) for a full
-description of and motivation for the methodology.
+Fits a Causal Effect Random Forest of Interaction Tress (CERFIT) which is
+a modification of the Random Forest algorithm where each split is chosen
+to maximize subgroup treatment heterogeneity. Doing this allows it to
+estimate the individualized treatment effect for each observation in
+either randomized controlled trial (RCT) or observational data. For more
+information see X. Su, A. T. Peña, L. Liu, and R. A. Levine (2018)
+<doi:10.48550/arXiv.1709.04862>.
 
 %prep
 %setup -q -c -n %{packname}

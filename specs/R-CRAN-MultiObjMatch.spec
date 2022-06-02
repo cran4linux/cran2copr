@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SightabilityModel
-%global packver   1.5.1
+%global packname  MultiObjMatch
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wildlife Sightability Modeling
+Summary:          Multi-Objective Matching Algorithm
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,28 +16,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-formula.tools 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-msm 
+BuildRequires:    R-CRAN-cobalt 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-optmatch 
+BuildRequires:    R-CRAN-matchMulti 
+BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-rcbalance 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-formula.tools 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-msm 
+BuildRequires:    R-CRAN-rlemon 
+Requires:         R-CRAN-cobalt 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-optmatch 
+Requires:         R-CRAN-matchMulti 
+Requires:         R-CRAN-fields 
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-rcbalance 
+Requires:         R-CRAN-MASS 
 Requires:         R-stats 
-Requires:         R-CRAN-survey 
+Requires:         R-methods 
 Requires:         R-utils 
+Requires:         R-CRAN-rlemon 
 
 %description
-Uses logistic regression to model the probability of detection as a
-function of covariates. This model is then used with observational survey
-data to estimate population size, while accounting for uncertain
-detection.  See Steinhorst and Samuel (1989).
+Matching algorithm based on network-flow structure. Users are able to
+modify the emphasis on three different optimization goals: two different
+distance measures and the number of treated units left unmatched. The
+method is proposed by Pimentel and Kelz (2019)
+<doi:10.1080/01621459.2020.1720693>. The 'rrelaxiv' package, which
+provides an alternative solver for the underlying network flow problems,
+carries an academic license and is not available on CRAN, but may be
+downloaded from Github at <https://github.com/josherrickson/rrelaxiv/>.
 
 %prep
 %setup -q -c -n %{packname}

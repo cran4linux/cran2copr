@@ -1,28 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  regspec
-%global packver   2.6
+%global packname  fpopw
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Parametric Bayesian Spectrum Estimation for Multirate Data
+Summary:          Weighted Segmentation using Functional Pruning and Optimal Partioning
 
-License:          GPL-2
+License:          GPL (>= 2.1)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 
 %description
-Computes linear Bayesian spectral estimates from multirate data for
-second-order stationary time series. Provides credible intervals and
-methods for plotting various spectral estimates. Please see the paper
-`Should we sample a time series more frequently?' (doi below) for a full
-description of and motivation for the methodology.
+Weighted-L2 FPOP Maidstone et al. (2017) <doi:10.1007/s11222-016-9636-3>
+and pDPA/FPSN Rigaill (2010) <arXiv:1004.0887> algorithm for detecting
+multiple changepoints in the mean of a vector. Also includes a few model
+selection functions using Lebarbier (2005)
+<doi:10.1016/j.sigpro.2004.11.012> and the 'capsushe' package.
 
 %prep
 %setup -q -c -n %{packname}

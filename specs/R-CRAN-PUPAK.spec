@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SightabilityModel
-%global packver   1.5.1
+%global packname  PUPAK
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wildlife Sightability Modeling
+Summary:          Parameter Estimation, and Plot Visualization of Adsorption Kinetic Models
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,28 +16,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-formula.tools 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-msm 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-Metrics 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-formula.tools 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-msm 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-nls2 
+BuildRequires:    R-CRAN-segmented 
 Requires:         R-stats 
-Requires:         R-CRAN-survey 
+Requires:         R-CRAN-Metrics 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-utils 
+Requires:         R-CRAN-nls2 
+Requires:         R-CRAN-segmented 
 
 %description
-Uses logistic regression to model the probability of detection as a
-function of covariates. This model is then used with observational survey
-data to estimate population size, while accounting for uncertain
-detection.  See Steinhorst and Samuel (1989).
+Contains model fitting functions for linear and non-linear adsorption
+kinetic and diffusion models. Adsorption kinetics is used for
+characterizing the rate of solute adsorption and the time necessary for
+the adsorption process. Adsorption kinetics offers vital information on
+adsorption rate, adsorbent performance in response time, and mass transfer
+processes. In addition, diffusion models are included in the package as
+solute diffusion affects the adsorption kinetic experiments. This package
+consists of 20 adsorption and diffusion models, including Pseudo First
+Order (PFO), Pseudo Second Order (PSO), Elovich, and Weber-Morris model
+(commonly called the intraparticle model) stated by Plazinski et al.
+(2009) <doi:10.1016/j.cis.2009.07.009>. This package also contains a
+summary function where the statistical errors of each model are ranked for
+a more straightforward determination of the best fit model.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  jmvconnect
-%global packver   2.0.0
+%global packver   2.3.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.3.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Connect to the 'jamovi' Statistical Spreadsheet
 
@@ -15,13 +15,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-jmvcore >= 1.2.19
+BuildRequires:    R-CRAN-jmvcore >= 2.3.12
 BuildRequires:    R-CRAN-Rcpp >= 0.12.16
 BuildRequires:    R-CRAN-evaluate 
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-jmvcore >= 1.2.19
+Requires:         R-CRAN-jmvcore >= 2.3.12
 Requires:         R-CRAN-Rcpp >= 0.12.16
 Requires:         R-CRAN-evaluate 
 Requires:         R-CRAN-rappdirs 
@@ -39,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

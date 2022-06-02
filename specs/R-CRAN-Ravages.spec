@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Ravages
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rare Variant Analysis and Genetic Simulations
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-dfidx
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-bedr 
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-mlogit >= 1.1.0
@@ -37,6 +38,7 @@ Requires:         R-CRAN-dfidx
 Requires:         R-parallel 
 Requires:         R-CRAN-bedr 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-data.table 
 
 %description
 Rare variant association tests: burden tests (Bocher et al. 2019

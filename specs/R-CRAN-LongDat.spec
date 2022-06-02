@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  LongDat
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Tool for 'Confounder'-Sensitive Longitudinal Analysis on 'Multi-omics' Data
+Summary:          A Tool for 'Covariate'-Sensitive Longitudinal Analysis on 'omics' Data
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -60,10 +60,10 @@ Requires:         R-CRAN-patchwork
 %description
 This tool takes longitudinal dataset as input and analyzes if there is
 significant change of the features over time (a proxy for treatments),
-while detects and controls for 'confounders' simultaneously. 'LongDat' is
+while detects and controls for 'covariates' simultaneously. 'LongDat' is
 able to take in several data types as input, including count, proportion,
 binary, ordinal and continuous data. The output table contains p values,
-effect sizes and 'confounders' of each feature, making the downstream
+effect sizes and 'covariates' of each feature, making the downstream
 analysis easy.
 
 %prep

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mxnorm
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Apply Normalization Methods to Multiplexed Images
 
@@ -60,7 +60,10 @@ Requires:         R-methods
 %description
 Implements methods to normalize multiplexed imaging data, including
 statistical metrics and visualizations to quantify technical variation in
-this data type.
+this data type. Reference for methods listed here: Harris, C., Wrobel, J.,
+& Vandekar, S. (2022). mxnorm: An R Package to Normalize Multiplexed
+Imaging Data. Journal of Open Source Software, 7(71), 4180,
+<doi:10.21105/joss.04180>.
 
 %prep
 %setup -q -c -n %{packname}

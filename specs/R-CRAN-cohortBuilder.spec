@@ -1,28 +1,48 @@
 %global __brp_check_rpaths %{nil}
-%global packname  regspec
-%global packver   2.6
+%global packname  cohortBuilder
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Parametric Bayesian Spectrum Estimation for Multirate Data
+Summary:          Data Source Agnostic Filtering Tools
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 1.0
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-formatR 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-rlang >= 1.0
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-formatR 
 
 %description
-Computes linear Bayesian spectral estimates from multirate data for
-second-order stationary time series. Provides credible intervals and
-methods for plotting various spectral estimates. Please see the paper
-`Should we sample a time series more frequently?' (doi below) for a full
-description of and motivation for the methodology.
+Common API for filtering data stored in different data models. Provides
+multiple filter types and reproducible R code. Works standalone or with
+'shinyCohortBuilder' as the GUI for interactive Shiny apps.
 
 %prep
 %setup -q -c -n %{packname}

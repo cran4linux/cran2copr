@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tinyscholar
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get and Show Personal 'Google Scholar' Profile
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rvest >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.1.2
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
@@ -24,10 +25,10 @@ BuildRequires:    R-CRAN-gt
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-R.utils 
+Requires:         R-CRAN-rvest >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
@@ -36,7 +37,6 @@ Requires:         R-CRAN-gt
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-R.utils 

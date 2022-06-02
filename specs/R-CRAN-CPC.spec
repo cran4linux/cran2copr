@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  regspec
-%global packver   2.6
+%global packname  CPC
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6
+Version:          2.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Parametric Bayesian Spectrum Estimation for Multirate Data
+Summary:          Implementation of Cluster-Polarization Coefficient
 
-License:          GPL-2
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,13 +16,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-dbscan 
+BuildRequires:    R-CRAN-Rfast 
+Requires:         R-stats 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-dbscan 
+Requires:         R-CRAN-Rfast 
 
 %description
-Computes linear Bayesian spectral estimates from multirate data for
-second-order stationary time series. Provides credible intervals and
-methods for plotting various spectral estimates. Please see the paper
-`Should we sample a time series more frequently?' (doi below) for a full
-description of and motivation for the methodology.
+Implements cluster-polarization coefficient for measuring distributional
+polarization in single or multiple dimensions, as well as associated
+functions. Contains support for hierarchical clustering, k-means,
+partitioning around medoids, density-based spatial clustering with noise,
+and manually imposed cluster membership.
 
 %prep
 %setup -q -c -n %{packname}

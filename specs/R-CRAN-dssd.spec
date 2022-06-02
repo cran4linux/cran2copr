@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dssd
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distance Sampling Survey Design
 
@@ -17,12 +17,10 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-plot3D 
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-plot3D 
 Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 

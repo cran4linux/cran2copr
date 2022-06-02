@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mvrsquared
-%global packver   0.1.2
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compute the Coefficient of Determination for Vector or Matrix Outcomes
 
@@ -13,13 +13,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildRequires:    R-CRAN-RcppThread >= 2.1.3
 BuildRequires:    R-CRAN-Rcpp >= 1.0.2
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppThread 
 Requires:         R-CRAN-Rcpp >= 1.0.2
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 

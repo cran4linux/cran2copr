@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mpathsenser
-%global packver   1.0.3
+%global packname  campsis
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Process and Analyse Data from m-Path Sense
+Summary:          Generic PK/PD Simulation Platform CAMPSIS
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,42 +16,47 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-campsismod 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-campsismod 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-MASS 
+Requires:         R-methods 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-progress 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rjson 
-Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 
 %description
-Overcomes one of the major challenges in mobile (passive) sensing, namely
-being able to pre-process the raw data that comes from a mobile sensing
-app, specifically "m-Path Sense" <https://m-path.io>. The main task of
-'mpathsenser' is therefore to read "m-Path Sense" JSON files into a
-database and provide several convenience functions to aid in data
-processing.
+A generic, easy-to-use and intuitive pharmacokinetic/pharmacodynamic
+(PK/PD) simulation platform based on R packages 'rxode2', 'RxODE' and
+'mrgsolve'. CAMPSIS provides an abstraction layer over the underlying
+processes of writing a PK/PD model, assembling a custom dataset and
+running a simulation. CAMPSIS has a strong dependency to the R package
+'campsismod', which allows to read/write a model from/to files and adapt
+it further on the fly in the R environment. Package 'campsis' allows the
+user to assemble a dataset in an intuitive manner. Once the user’s dataset
+is ready, the package is in charge of preparing the simulation, calling
+'rxode2', 'RxODE' or 'mrgsolve' (at the user's choice) and returning the
+results, for the given model, dataset and desired simulation settings.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,28 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  regspec
-%global packver   2.6
+%global packname  kaigiroku
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Parametric Bayesian Spectrum Estimation for Multirate Data
+Summary:          Programmatic Access to the API for Japanese Diet Proceedings
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-tidyr 
 
 %description
-Computes linear Bayesian spectral estimates from multirate data for
-second-order stationary time series. Provides credible intervals and
-methods for plotting various spectral estimates. Please see the paper
-`Should we sample a time series more frequently?' (doi below) for a full
-description of and motivation for the methodology.
+Search and download data from the API for Japanese Diet Proceedings (see
+the reference at <https://kokkai.ndl.go.jp/api.html>).
 
 %prep
 %setup -q -c -n %{packname}

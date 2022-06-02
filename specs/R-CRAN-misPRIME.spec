@@ -1,28 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  regspec
-%global packver   2.6
+%global packname  misPRIME
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Parametric Bayesian Spectrum Estimation for Multirate Data
+Summary:          Partial Replacement Imputation Estimation for Missing Covariates
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
+Requires:         R-splines 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
 
 %description
-Computes linear Bayesian spectral estimates from multirate data for
-second-order stationary time series. Provides credible intervals and
-methods for plotting various spectral estimates. Please see the paper
-`Should we sample a time series more frequently?' (doi below) for a full
-description of and motivation for the methodology.
+Partial Replacement Imputation Estimation (PRIME) can overcome problems
+caused by missing covariates in additive partially linear model. PRIME
+conducts imputation and regression simultaneously with known and unknown
+model structure. More details can be referred to Zishu Zhan, Xiangjie Li
+and Jingxiao Zhang. (2022) <arXiv:2205.14994>.
 
 %prep
 %setup -q -c -n %{packname}
