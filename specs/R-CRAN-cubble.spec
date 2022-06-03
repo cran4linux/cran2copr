@@ -1,52 +1,63 @@
 %global __brp_check_rpaths %{nil}
-%global packname  swfscAirDAS
-%global packver   0.2.3
+%global packname  cubble
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Southwest Fisheries Science Center Aerial DAS Data Processing
+Summary:          A Vector Spatio-Temporal Data Structure for Data Analysis
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-swfscDAS >= 0.3.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-clipr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-swfscMisc 
+BuildRequires:    R-CRAN-styler 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-swfscDAS >= 0.3.0
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-tsibble 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-whisker 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-clipr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-readr 
+Requires:         R-CRAN-ncdf4 
+Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-swfscMisc 
+Requires:         R-CRAN-styler 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-tsibble 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-whisker 
 
 %description
-Process and summarize aerial survey 'DAS' data (AirDAS)
-<https://swfsc-publications.fisheries.noaa.gov/publications/TM/SWFSC/NOAA-TM-NMFS-SWFSC-185.PDF>
-collected using an aerial survey program from the Southwest Fisheries
-Science Center (SWFSC)
-<https://www.fisheries.noaa.gov/west-coast/science-data/california-current-marine-mammal-assessment-program>.
-PDF files detailing the relevant AirDAS data formats are included in this
-package.
+A spatiotemperal data object in a relational data structure to separate
+the recording of time variant/ invariant variables.
 
 %prep
 %setup -q -c -n %{packname}

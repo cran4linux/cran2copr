@@ -1,58 +1,49 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ariExtra
-%global packver   0.3.1
+%global packname  webmorphR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Creating Automated Courses
+Summary:          Reproducible Stimuli
 
-License:          GPL-3
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-docxtractr >= 0.6.2
-BuildRequires:    R-CRAN-text2speech >= 0.2.8
-BuildRequires:    R-CRAN-ari >= 0.2.3
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-pdftools 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-mime 
 BuildRequires:    R-tools 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-tuneR 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-docxtractr >= 0.6.2
-Requires:         R-CRAN-text2speech >= 0.2.8
-Requires:         R-CRAN-ari >= 0.2.3
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-httr 
-Requires:         R-utils 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-pdftools 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-mime 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-geomorph 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-rsvg 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-tools 
+Requires:         R-grDevices 
 Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-tuneR 
-Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-geomorph 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-rsvg 
+Requires:         R-grid 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Leverages the 'ari' package and other tools to create automated courses
-from slides and a script.  Also, uploads these to 'YouTube' and other
-services using 'tuber' package.
+Create reproducible image stimuli, specialised for face images with
+'psychomorph' or 'webmorph' templates.
 
 %prep
 %setup -q -c -n %{packname}
@@ -62,6 +53,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,50 +1,49 @@
 %global __brp_check_rpaths %{nil}
-%global packname  CruzPlot
-%global packver   1.4.8
+%global packname  skynet
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.8
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plot Shipboard DAS Data
+Summary:          Generates Networks from BTS Data
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.1.2
+Requires:         R-core >= 3.1.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-swfscDAS >= 0.3.0
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-mapdata 
-BuildRequires:    R-CRAN-marmap 
-BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinydashboard 
-BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-swfscDAS >= 0.3.0
+BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-RCurl 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-mapdata 
-Requires:         R-CRAN-marmap 
-Requires:         R-CRAN-maps 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinydashboard 
-Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-maps 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-RCurl 
 
 %description
-A utility program oriented to create maps, plot data, and do basic data
-summaries of 'DAS' data
-<https://swfsc-publications.fisheries.noaa.gov/publications/TM/SWFSC/NOAA-TM-NMFS-SWFSC-305.PDF>
-produced by 'WinCruz' from the Southwest Fisheries Science Center.
-<https://www.fisheries.noaa.gov/west-coast/science-data/california-current-marine-mammal-assessment-program>.
+A flexible tool that allows generating bespoke air transport statistics
+for urban studies based on publicly available data from the Bureau of
+Transport Statistics (BTS) in the United States
+<https://www.transtats.bts.gov/databases.asp?Z1qr_VQ=E&Z1qr_Qr5p=N8vn6v10&f7owrp6_VQF=D>.
 
 %prep
 %setup -q -c -n %{packname}

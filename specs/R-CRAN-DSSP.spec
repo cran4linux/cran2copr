@@ -1,31 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SplitGLM
-%global packver   1.0.4
+%global packname  DSSP
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Split Generalized Linear Models
+Summary:          Implementation of the Direct Sampling Spatial Prior
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-CRAN-mcmcse 
+BuildRequires:    R-CRAN-posterior 
+BuildRequires:    R-CRAN-rust 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.3
+Requires:         R-CRAN-mcmcse 
+Requires:         R-CRAN-posterior 
+Requires:         R-CRAN-rust 
+Requires:         R-CRAN-sp 
 
 %description
-Functions to compute split generalized linear models. The approach fits
-generalized linear models that split the covariates into groups. The
-optimal split of the variables into groups and the regularized estimation
-of the coefficients are performed by minimizing an objective function that
-encourages sparsity within each group and diversity among them. Example
-applications can be found in Christidis et al. (2021) <arXiv:2102.08591>.
+Draw samples from the direct sampling spatial prior model as described in
+G. White, D. Sun, P. Speckman (2019) <arXiv:1906.05575>. The basic model
+assumes a Gaussian likelihood and derives a spatial prior based on
+thin-plate splines.
 
 %prep
 %setup -q -c -n %{packname}

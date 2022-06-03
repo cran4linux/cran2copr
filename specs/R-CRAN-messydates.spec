@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  messydates
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Flexible Class for Messy Dates
 
@@ -13,23 +13,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-skimr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-skimr 
 
 %description
 Contains a set of tools for constructing and coercing into and from the
-messydt class. This date class implements ISO 8601-2:2019(E) and allows
+mdate class. This date class implements ISO 8601-2:2019(E) and allows
 regular dates to be annotated to express unspecified date components,
 approximate or uncertain date components, date ranges, and sets of dates.
 This is useful for describing and analysing temporal information, whether

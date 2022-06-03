@@ -1,50 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  CruzPlot
-%global packver   1.4.8
+%global packname  agua
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.8
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plot Shipboard DAS Data
+Summary:          'tidymodels' Integration with 'h2o'
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-swfscDAS >= 0.3.0
+BuildRequires:    R-CRAN-h2o >= 3.36.0.4
+BuildRequires:    R-CRAN-parsnip 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-mapdata 
-BuildRequires:    R-CRAN-marmap 
-BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinydashboard 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-swfscDAS >= 0.3.0
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-hardhat 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-h2o >= 3.36.0.4
+Requires:         R-CRAN-parsnip 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-mapdata 
-Requires:         R-CRAN-marmap 
-Requires:         R-CRAN-maps 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinydashboard 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-hardhat 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
-A utility program oriented to create maps, plot data, and do basic data
-summaries of 'DAS' data
-<https://swfsc-publications.fisheries.noaa.gov/publications/TM/SWFSC/NOAA-TM-NMFS-SWFSC-305.PDF>
-produced by 'WinCruz' from the Southwest Fisheries Science Center.
-<https://www.fisheries.noaa.gov/west-coast/science-data/california-current-marine-mammal-assessment-program>.
+Create and evaluate models using 'tidymodels' and 'h2o' <https://h2o.ai/>.
+The package enables users to specify 'h2o' as an engine for several
+modeling methods.
 
 %prep
 %setup -q -c -n %{packname}

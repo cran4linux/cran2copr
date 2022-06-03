@@ -1,46 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  npphen
-%global packver   1.5.1
+%global packname  AHSurv
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vegetation Phenological Cycle and Anomaly Detection using Remote Sensing Data
+Summary:          Flexible Parametric Accelerated Hazards Models
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-ks 
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-flexsurv 
+BuildRequires:    R-CRAN-rootSolve 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-snow 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-ks 
-Requires:         R-methods 
-Requires:         R-graphics 
+BuildRequires:    R-stats4 
+Requires:         R-CRAN-flexsurv 
+Requires:         R-CRAN-rootSolve 
 Requires:         R-stats 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-snow 
+Requires:         R-stats4 
 
 %description
-Calculates phenological cycle and anomalies using a non-parametric
-approach applied to time series of vegetation indices derived from remote
-sensing data or field measurements. The package implements basic and
-high-level functions for manipulating vector data (numerical series) and
-raster data (satellite derived products). Processing of very large raster
-files is supported. For more information, please check the following
-paper: Estay, S., Chávez, R.O. (2018) <doi:10.1101/301143>.
+Flexible parametric Accelerated Hazards (AH) regression models in overall
+and relative survival frameworks with 13 distinct Baseline Distributions.
+The AH Model can also be applied to lifetime data with crossed survival
+curves. Any user-defined parametric distribution can be fitted, given at
+least an R function defining the cumulative hazard and hazard rate
+functions. See Chen and Wang (2000) <doi:10.1080/01621459.2000.10474236>,
+and Lee (2015) <doi:10.1007/s10985-015-9349-5> for more details.
 
 %prep
 %setup -q -c -n %{packname}

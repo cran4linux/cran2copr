@@ -1,46 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  npphen
-%global packver   1.5.1
+%global packname  ASV
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vegetation Phenological Cycle and Anomaly Detection using Remote Sensing Data
+Summary:          Stochastic Volatility Models with or without Leverage
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-ks 
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-freqdom 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-snow 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-ks 
-Requires:         R-methods 
-Requires:         R-graphics 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-freqdom 
 Requires:         R-stats 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-snow 
+Requires:         R-graphics 
 
 %description
-Calculates phenological cycle and anomalies using a non-parametric
-approach applied to time series of vegetation indices derived from remote
-sensing data or field measurements. The package implements basic and
-high-level functions for manipulating vector data (numerical series) and
-raster data (satellite derived products). Processing of very large raster
-files is supported. For more information, please check the following
-paper: Estay, S., Chávez, R.O. (2018) <doi:10.1101/301143>.
+The efficient Markov chain Monte Carlo estimation of stochastic volatility
+models with and without leverage (asymmetric and symmetric stochastic
+volatility models). Further, it computes the logarithm of the likelihood
+given parameters using particle filters.
 
 %prep
 %setup -q -c -n %{packname}

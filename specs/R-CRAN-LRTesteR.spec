@@ -1,46 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  npphen
-%global packver   1.5.1
+%global packname  LRTesteR
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vegetation Phenological Cycle and Anomaly Detection using Remote Sensing Data
+Summary:          Likelihood Ratio Tests
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-ks 
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rgdal 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-snow 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-ks 
-Requires:         R-methods 
-Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-rgdal 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-snow 
 
 %description
-Calculates phenological cycle and anomalies using a non-parametric
-approach applied to time series of vegetation indices derived from remote
-sensing data or field measurements. The package implements basic and
-high-level functions for manipulating vector data (numerical series) and
-raster data (satellite derived products). Processing of very large raster
-files is supported. For more information, please check the following
-paper: Estay, S., Chávez, R.O. (2018) <doi:10.1101/301143>.
+A collection of hypothesis tests based on the likelihood ratio
+<https://en.wikipedia.org/wiki/Likelihood-ratio_test>.
 
 %prep
 %setup -q -c -n %{packname}

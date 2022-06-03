@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MultiATSM
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multicountry Term Structure of Interest Rates Models
 
@@ -30,7 +30,7 @@ Requires:         R-CRAN-ggplot2
 %description
 Estimation routines for several classes of affine term structure of
 interest rates models. All the models are based on the single-country
-unspanned macroeconomic risk framework from Joslin, Priebisch, and
+unspanned macroeconomic risk framework from Joslin, Priebsch, and
 Singleton (2014) <doi:10.1111/jofi.12131>. Multicountry extensions such as
 the ones of Jotikasthira, Le, and Lundblad (2015)
 <doi:10.1016/j.jfineco.2014.09.004> and Candelon and Moura (2021)

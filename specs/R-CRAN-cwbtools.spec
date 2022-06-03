@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cwbtools
-%global packver   0.3.5
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Create, Modify and Manage 'CWB' Corpora
 
