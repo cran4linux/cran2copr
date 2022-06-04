@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ecospat
-%global packver   3.2.2
+%global packver   3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.2
+Version:          3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Ecology Miscellaneous Methods
 
@@ -13,29 +13,24 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-randomForest >= 4.6.7
-BuildRequires:    R-CRAN-rms >= 4.5.0
 BuildRequires:    R-CRAN-Hmisc >= 4.4.2
 BuildRequires:    R-CRAN-gtools >= 3.4.1
 BuildRequires:    R-CRAN-ape >= 3.2
 BuildRequires:    R-methods >= 3.1.1
-BuildRequires:    R-CRAN-maps >= 3.0.0
 BuildRequires:    R-CRAN-raster >= 2.5.8
 BuildRequires:    R-CRAN-vegan >= 2.4.1
 BuildRequires:    R-CRAN-gbm >= 2.1.1
-BuildRequires:    R-CRAN-snowfall >= 1.61
 BuildRequires:    R-CRAN-ade4 >= 1.6.2
 BuildRequires:    R-CRAN-foreach >= 1.4.3
 BuildRequires:    R-CRAN-poibin >= 1.3
 BuildRequires:    R-CRAN-ecodist >= 1.2.9
 BuildRequires:    R-CRAN-ks >= 1.12.0
 BuildRequires:    R-CRAN-PresenceAbsence >= 1.1.9
-BuildRequires:    R-CRAN-iterators >= 1.0.8
 BuildRequires:    R-CRAN-sp >= 1.0.15
-BuildRequires:    R-CRAN-doParallel >= 1.0.10
 BuildRequires:    R-CRAN-dismo >= 0.9.3
 BuildRequires:    R-CRAN-maptools >= 0.8.39
 BuildRequires:    R-CRAN-matrixStats >= 0.53.1
@@ -46,25 +41,20 @@ BuildRequires:    R-CRAN-classInt >= 0.1.23
 BuildRequires:    R-CRAN-biomod2 < 4.0
 BuildRequires:    R-parallel 
 Requires:         R-CRAN-randomForest >= 4.6.7
-Requires:         R-CRAN-rms >= 4.5.0
 Requires:         R-CRAN-Hmisc >= 4.4.2
 Requires:         R-CRAN-gtools >= 3.4.1
 Requires:         R-CRAN-ape >= 3.2
 Requires:         R-methods >= 3.1.1
-Requires:         R-CRAN-maps >= 3.0.0
 Requires:         R-CRAN-raster >= 2.5.8
 Requires:         R-CRAN-vegan >= 2.4.1
 Requires:         R-CRAN-gbm >= 2.1.1
-Requires:         R-CRAN-snowfall >= 1.61
 Requires:         R-CRAN-ade4 >= 1.6.2
 Requires:         R-CRAN-foreach >= 1.4.3
 Requires:         R-CRAN-poibin >= 1.3
 Requires:         R-CRAN-ecodist >= 1.2.9
 Requires:         R-CRAN-ks >= 1.12.0
 Requires:         R-CRAN-PresenceAbsence >= 1.1.9
-Requires:         R-CRAN-iterators >= 1.0.8
 Requires:         R-CRAN-sp >= 1.0.15
-Requires:         R-CRAN-doParallel >= 1.0.10
 Requires:         R-CRAN-dismo >= 0.9.3
 Requires:         R-CRAN-maptools >= 0.8.39
 Requires:         R-CRAN-matrixStats >= 0.53.1

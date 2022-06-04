@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  LMMstar
-%global packver   0.5.4
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Repeated Measurement Models for Discrete Times
 
@@ -17,22 +17,22 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-copula 
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lava 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-multcomp 
 BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-sandwich 
 Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-copula 
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lava 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-multcomp 
 Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-sandwich 
 
 %description

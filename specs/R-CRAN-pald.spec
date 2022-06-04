@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pald
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Partitioned Local Depths for Community Structure in Data
+Summary:          Partitioned Local Depth for Community Structure in Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,7 +24,7 @@ Requires:         R-graphics
 Requires:         R-CRAN-glue 
 
 %description
-Implementation of the Partitioned Local Depths (PaLD) approach which
+Implementation of the Partitioned Local Depth (PaLD) approach which
 provides a measure of local depth and the cohesion of a point to another
 which (together with a universal threshold for distinguishing strong and
 weak ties) may be used to reveal local and global structure in data, based

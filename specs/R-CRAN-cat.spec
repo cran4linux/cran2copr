@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cat
-%global packver   0.0-6.5
+%global packver   0.0-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6.5
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of categorical-variable datasets with missing values
+Summary:          Analysis and Imputation of Categorical-Variable Datasets with Missing Values
 
 License:          file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,7 +17,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 
 %description
-Analysis of categorical-variable with missing values
+Performs analysis of categorical-variable with missing values. Implements
+methods from Schafer, JL, Analysis of Incomplete Multivariate Data,
+Chapman and Hall.
 
 %prep
 %setup -q -c -n %{packname}

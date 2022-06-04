@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ClaimsProblems
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Conflicting Claims
 
@@ -21,11 +21,13 @@ BuildRequires:    R-CRAN-rgl
 BuildRequires:    R-CRAN-geometry 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-pracma 
 Requires:         R-graphics 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-geometry 
 Requires:         R-grDevices 
 Requires:         R-stats 
+Requires:         R-CRAN-pracma 
 
 %description
 The analysis of conflicting claims arises when an amount has to be divided
@@ -39,10 +41,8 @@ overlap rules, the random arrival and the Talmud rules. Besides, the
 Dominguez and Thomson and the average of awards rules are also included.
 All of them can be found in the book of W. Thomson (2019), 'How to divide
 when there isn't enough. From Aristotle, the Talmud, and Maimonides to the
-axiomatics of resource allocation'. Cambridge University Press, ISBN:
-9781316646441, with the exception of the average of awards rule (Mirás et
-al. (2020)
-<http://ecobas.webs.uvigo.es/wk/2020-02-corecenterforthebankruptcyproblem.pdf>).
+axiomatics of resource allocation', with the exception of the average of
+awards rule (Mirás Calvo et al. (2022), <doi:10.1007/s00355-022-01414-6>).
 In addition, graphical diagrams allow the user to represent, among others,
 the set of awards, the paths of awards, and the schedules of awards of a
 rule, and some indexes. A good understanding of the similarities and the
@@ -57,6 +57,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

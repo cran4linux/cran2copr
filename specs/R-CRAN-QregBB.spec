@@ -1,32 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Rcatch22
-%global packver   0.2.1
+%global packname  QregBB
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculation of 22 CAnonical Time-Series CHaracteristics
+Summary:          Block Bootstrap Methods for Quantile Regression in Time Series
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.15
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 0.12.15
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-quantreg 
+Requires:         R-CRAN-quantreg 
 
 %description
-Calculate 22 summary statistics coded in C on time-series vectors to
-enable pattern detection, classification, and regression applications in
-the feature space as proposed by Lubba et al. (2019)
-<doi:10.1007/s10618-019-00647-x>.
+Implements moving-blocks bootstrap and extended tapered-blocks bootstrap,
+as well as smooth versions of each, for quantile regression in time
+series. This package accompanies the paper: Gregory, K. B., Lahiri, S. N.,
+& Nordman, D. J. (2018). A smooth block bootstrap for quantile regression
+with time series. The Annals of Statistics, 46(3), 1138-1166.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  networktools
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Identifying Important Nodes in Networks
 
@@ -18,15 +18,12 @@ Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-qgraph 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-IsingFit 
 BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-NetworkComparisonTest 
 BuildRequires:    R-CRAN-cocor 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-R.utils 
@@ -36,15 +33,12 @@ BuildRequires:    R-CRAN-smacof
 BuildRequires:    R-CRAN-wordcloud 
 Requires:         R-CRAN-qgraph 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-IsingFit 
 Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-utils 
-Requires:         R-CRAN-NetworkComparisonTest 
 Requires:         R-CRAN-cocor 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-R.utils 

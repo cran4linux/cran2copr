@@ -1,32 +1,48 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Rcatch22
-%global packver   0.2.1
+%global packname  leastcostpath
+%global packver   1.8.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.8.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculation of 22 CAnonical Time-Series CHaracteristics
+Summary:          Modelling Pathways and Movement Potential Within a Landscape
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.15
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildArch:        noarch
+BuildRequires:    R-parallel >= 3.4.1
+BuildRequires:    R-CRAN-raster >= 2.6.7
+BuildRequires:    R-CRAN-pbapply >= 1.4.2
+BuildRequires:    R-CRAN-rgdal >= 1.3.3
+BuildRequires:    R-CRAN-sp >= 1.3.1
+BuildRequires:    R-CRAN-gdistance >= 1.2.2
+BuildRequires:    R-CRAN-rgeos >= 0.3.28
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 0.12.15
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-gstat 
+Requires:         R-parallel >= 3.4.1
+Requires:         R-CRAN-raster >= 2.6.7
+Requires:         R-CRAN-pbapply >= 1.4.2
+Requires:         R-CRAN-rgdal >= 1.3.3
+Requires:         R-CRAN-sp >= 1.3.1
+Requires:         R-CRAN-gdistance >= 1.2.2
+Requires:         R-CRAN-rgeos >= 0.3.28
+Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-gstat 
 
 %description
-Calculate 22 summary statistics coded in C on time-series vectors to
-enable pattern detection, classification, and regression applications in
-the feature space as proposed by Lubba et al. (2019)
-<doi:10.1007/s10618-019-00647-x>.
+Calculates cost surfaces based on slope to be used when modelling pathways
+and movement potential within a landscape (Lewis, 2021)
+<doi:10.1007/s10816-021-09522-w>.
 
 %prep
 %setup -q -c -n %{packname}

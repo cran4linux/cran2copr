@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  classyfireR
-%global packver   0.3.8
+%global packname  psychometric
+%global packver   2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to the 'ClassyFire' REST API
+Summary:          Applied Psychometric Theory
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,41 +16,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-clisymbols 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-tidyjson 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-clisymbols 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-multilevel 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-nlme 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-methods 
-Requires:         R-CRAN-rjson 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-tidyjson 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-multilevel 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-nlme 
 
 %description
-Access to the 'ClassyFire' REST API <http://classyfire.wishartlab.com>.
-Retrieve existing entity classifications and submit new entities for
-classification.
+Provides tools useful for measurement theory (Allen & Yen 2001)<ISBN:
+157766230X>, meta-analysis (validity-generalization) (Schmidt &
+Hunter)<doi:10.4135/9781483398105>, reliability, item analysis,
+inter-rater reliability, classical utility, and correlation analysis
+(Cohen et. al. 2003)<doi:10.4324/9780203774441>.
 
 %prep
 %setup -q -c -n %{packname}

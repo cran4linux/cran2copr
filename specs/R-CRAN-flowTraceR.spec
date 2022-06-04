@@ -1,32 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Rcatch22
-%global packver   0.2.1
+%global packname  flowTraceR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculation of 22 CAnonical Time-Series CHaracteristics
+Summary:          Tracing Information Flow for Inter-Software Comparisons in Mass Spectrometry-Based Bottom-Up Proteomics
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.15
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 0.12.15
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-comprehenr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-comprehenr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Calculate 22 summary statistics coded in C on time-series vectors to
-enable pattern detection, classification, and regression applications in
-the feature space as proposed by Lubba et al. (2019)
-<doi:10.1007/s10618-019-00647-x>.
+Useful functions to standardize software outputs from ProteomeDiscoverer,
+Spectronaut, DIA-NN and MaxQuant on precursor, modified peptide and
+proteingroup level and to trace software differences for identifications
+such as varying proteingroup denotations for common precursor.
 
 %prep
 %setup -q -c -n %{packname}

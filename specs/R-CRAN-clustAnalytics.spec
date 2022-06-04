@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  clustAnalytics
-%global packver   0.3.1
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cluster Evaluation on Graphs
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-truncnorm
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-fossil 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-kdtools 
 BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-Rcpp >= 1.0.1
 Requires:         R-CRAN-igraph 
@@ -32,12 +33,15 @@ Requires:         R-CRAN-truncnorm
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-fossil 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-kdtools 
 Requires:         R-CRAN-Rdpack 
 
 %description
 Evaluates the stability and significance of clusters on 'igraph' graphs.
 Supports weighted and unweighted graphs. Implements the cluster evaluation
 methods defined by Arratia A, Renedo M (2021) <doi:10.7717/peerj-cs.600>.
+Also includes an implementation of the Reduced Mutual Information
+introduced by Newman et al. (2020).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  haplo.stats
-%global packver   1.8.7
+%global packver   1.8.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.7
+Version:          1.8.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Analysis of Haplotypes with Traits and Covariates when Linkage Phase is Ambiguous
 

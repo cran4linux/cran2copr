@@ -1,46 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  iccCounts
-%global packver   1.1.0
+%global packname  QuantPsyc
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Intraclass Correlation Coefficient for Count Data
+Summary:          Quantitative Psychology Tools
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glmmTMB 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Deriv 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-glmmTMB 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Deriv 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-VGAM 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-boot 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Estimates the intraclass correlation coefficient (ICC) for count data to
-assess repeatability (intra-methods concordance) and concordance
-(between-method concordance). In the concordance setting, the ICC is
-equivalent to the concordance correlation coefficient estimated by
-variance components. The ICC is estimated using the estimates from
-generalized linear mixed models. The within-subjects distributions
-considered are: Poisson; Negative Binomial with additive and proportional
-extradispersion; Zero-Inflated Poisson; and Zero-Inflated Negative
-Binomial with additive and proportional extradispersion. The statistical
-methodology used to estimate the ICC with count data can be found in
-Carrasco (2010) <doi:10.1111/j.1541-0420.2009.01335.x>.
+Contains tools useful for data screening, testing moderation (Cohen et.
+al. 2003)<doi:10.4324/9780203774441>, mediation (MacKinnon et. al.
+2002)<doi:10.1037/1082-989x.7.1.83> and estimating power (Murphy & Myors
+2014)<ISBN:9781315773155>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,33 +1,50 @@
 %global __brp_check_rpaths %{nil}
-%global packname  IDConverter
-%global packver   0.3.2
+%global packname  clinicalsignificance
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Identifiers in Biological Databases
+Summary:          Determine the Clinical Significance in Clinical Trials
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-insight 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-insight 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Identifiers in biological databases connect different levels of metadata,
-phenotype data or genotype data. This tool is designed to easily convert
-identifiers within or between different biological databases (Wang,
-Shixiang, et al. (2021) <DOI:10.1371/journal.pgen.1009557>).
+A clinical significance analysis can be used to determine if an
+intervention has a meaningful or practical effect for patients. You
+provide a tidy data set plus a few more metrics and this package will take
+care of it to make your results publication ready as proposed by Jacobson
+et al., (1984) <doi:10.1016/S0005-7894(84)80002-7>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  refineR
-%global packver   1.0.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reference Interval Estimation using Real-World Data
 
@@ -38,11 +38,12 @@ containing pathological and non-pathological samples as input and uses
 sophisticated statistical methods to derive a model describing the
 distribution of the non-pathological samples. This distribution can then
 be used to derive reference intervals. Furthermore, the package offers
-functions for printing and plotting the results of the algorithm. The
-method is described in detail in Ammer T., Schuetzenmeister A., Prokosch
-H.-U., Rauh M., Rank C.M., Zierk J. "refineR: A Novel Algorithm for
-Reference Interval Estimation from Real-World Data". Scientific Reports
-(2021) [accepted July 21, 2021].
+functions for printing and plotting the results of the algorithm. See
+?refineR for a more comprehensive description of the features. Version 1.0
+of the algorithm is described in detail in Ammer T., Schuetzenmeister A.,
+Prokosch H.-U., Rauh M., Rank C.M., Zierk J. "refineR: A Novel Algorithm
+for Reference Interval Estimation from Real-World Data". Scientific
+Reports (2021) <doi:10.1038/s41598-021-95301-2>.
 
 %prep
 %setup -q -c -n %{packname}
