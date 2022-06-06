@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fpopw
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighted Segmentation using Functional Pruning and Optimal Partioning
 
-License:          GPL (>= 2.1)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 

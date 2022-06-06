@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
 %global packname  duckdb
-%global packver   0.3.2-2
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2.2
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          DBI Package for the DuckDB Database Management System
 
-License:          MPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
