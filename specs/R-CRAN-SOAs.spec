@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SOAs
-%global packver   1.0-1
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creation of Stratum Orthogonal Arrays
 
@@ -36,9 +36,9 @@ Creates stratum orthogonal arrays (also known as strong orthogonal
 arrays). These are arrays with more levels per column than the typical
 orthogonal array, and whose low order projections behave like orthogonal
 arrays, when collapsing levels to coarser strata. Details are described in
-Groemping (2021) "A unified implementation of stratum (aka strong)
+Groemping (2022) "A unifying implementation of stratum (aka strong)
 orthogonal arrays"
-<http://www1.bht-berlin.de/FB_II/reports/Report-2021-001.pdf>.
+<http://www1.bht-berlin.de/FB_II/reports/Report-2022-002.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

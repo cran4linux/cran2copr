@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  modelsummary
-%global packver   0.10.0
+%global packver   0.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Summary Tables and Plots for Statistical Models and Data: Beautiful, Customizable, and Publication-Ready
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-parameters >= 0.17.0
 BuildRequires:    R-CRAN-insight >= 0.16.1
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-performance 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-parameters >= 0.17.0
 Requires:         R-CRAN-insight >= 0.16.1
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-performance 

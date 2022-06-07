@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  admisc
-%global packver   0.27
+%global packver   0.28
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.27
+Version:          0.28
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adrian Dusa's Miscellaneous
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SHT
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Hypothesis Testing Toolbox
 
@@ -19,15 +19,15 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-fastclime 
 BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-flare 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-fastclime 
 Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-flare 
 
 %description
 We provide a collection of statistical hypothesis testing procedures

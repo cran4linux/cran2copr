@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  highTtest
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simultaneous Critical Values for t-Tests in Very High Dimensions
 

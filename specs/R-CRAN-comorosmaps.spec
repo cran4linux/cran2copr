@@ -1,46 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  chronochrt
-%global packver   0.1.0
+%global packname  comorosmaps
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creating Chronological Charts with R
+Summary:          Comoro Islands Maps
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
-Requires:         R-CRAN-magick 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-dplyr 
 
 %description
-Easy way to draw chronological charts from tables, aiming to include an
-intuitive environment for anyone new to R. Includes 'ggplot2' geoms and
-theme for chronological charts.
+Maps of Comoro Islands. Layers include the country coastline, each island
+coastline and administrative regions boundaries.
 
 %prep
 %setup -q -c -n %{packname}
