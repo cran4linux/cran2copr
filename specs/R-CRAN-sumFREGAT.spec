@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sumFREGAT
-%global packver   1.2.4
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Region-Based Association Tests on Summary Statistics
 
@@ -32,7 +32,11 @@ techniques to the use of summary statistics (P values and effect sizes)
 and correlations between genetic variants as input. It is a tool to
 perform the most popular and efficient gene-based tests using the results
 of genome-wide association (meta-)analyses without having the original
-genotypes and phenotypes at hand.
+genotypes and phenotypes at hand. See for details: Svishcheva et al (2019)
+Gene-based association tests using GWAS summary statistics.
+Bioinformatics. Belonogova et al (2022) SumSTAAR: A flexible framework for
+gene-based association studies using GWAS summary statistics. PLOS Comp
+Biol.
 
 %prep
 %setup -q -c -n %{packname}

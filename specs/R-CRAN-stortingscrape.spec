@@ -1,42 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ph2rand
-%global packver   0.1.0
+%global packname  stortingscrape
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Randomized Phase II Oncology Trials with Bernoulli Outcomes
+Summary:          Access Data from the Norwegian Parliament API
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-httr 
+Requires:         R-parallel 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-scales 
-Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 
 %description
-Provides functions to assist with the design of randomized comparative
-phase II oncology trials that assume their primary outcome variable is
-Bernoulli distributed. Specifically, support is provided to (a) perform a
-sample size calculation when using one of several published designs, (b)
-evaluate the operating characteristics of a given design (both
-analytically and via simulation), and (c) produce informative plots.
+Functions for retrieving general and specific data from the Norwegian
+Parliament, through the Norwegian Parliament API at
+<https://data.stortinget.no>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

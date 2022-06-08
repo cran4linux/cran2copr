@@ -1,50 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MSEtool
-%global packver   3.5.0
+%global packname  xaringanExtra
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Management Strategy Evaluation Toolkit
+Summary:          Extras and Extensions for 'xaringan' Slides
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-snowfall 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-snowfall 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-dplyr 
-Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-parallel 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-uuid 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-knitr 
 Requires:         R-utils 
+Requires:         R-CRAN-uuid 
 
 %description
-Development, simulation testing, and implementation of management
-procedures for fisheries (see Carruthers & Hordyk (2018)
-<doi:10.1111/2041-210X.13081>).
+Extras and extensions for 'xaringan' slides. Navigate your slides with
+tile view. Make your slides editable, live! Announce slide changes with
+subtle tones. Animate slide transitions with 'animate.css'. Add tabbed
+panels to slides with 'panelset'. Use the 'Tachyons CSS' utility toolkit
+for rapid slide development. Scribble on your slides. Add a copy button to
+your code chunks with 'clipboard'. Add a logo or top or bottom banner to
+every slide. Broadcast slides to stay in sync with remote viewers. Include
+yourself in your slides with 'webcam'.  Plus a whole lot more!
 
 %prep
 %setup -q -c -n %{packname}

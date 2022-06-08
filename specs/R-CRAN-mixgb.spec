@@ -1,50 +1,52 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MSEtool
-%global packver   3.5.0
+%global packname  mixgb
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Management Strategy Evaluation Toolkit
+Summary:          Multiple Imputation Through 'XGBoost'
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-snowfall 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mice 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-snowfall 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-dplyr 
-Requires:         R-methods 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-xgboost 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-parallel 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mice 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
+Requires:         R-CRAN-xgboost 
 
 %description
-Development, simulation testing, and implementation of management
-procedures for fisheries (see Carruthers & Hordyk (2018)
-<doi:10.1111/2041-210X.13081>).
+Multiple imputation using 'XGBoost', bootstrapping and predictive mean
+matching as described in Deng and Lumley (2021) <arXiv:2106.01574>. It is
+built under Fully Conditional Specification, where 'XGBoost' imputation
+models are built for each incomplete variable. It supports various types
+of variables and offers different settings regarding bootstrapping and
+predictive mean matching. Visual diagnostic functions are also provided
+for inspecting multiply imputed values for incomplete variables.
 
 %prep
 %setup -q -c -n %{packname}

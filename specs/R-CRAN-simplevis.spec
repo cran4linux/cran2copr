@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  simplevis
-%global packver   6.2.0
+%global packver   6.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.2.0
+Version:          6.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple 'ggplot2' and 'leaflet' Visualisation with Less Brainpower
+Summary:          Wrappers to Simplify Beautiful 'ggplot2' and 'leaflet' Visualisation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,12 +23,12 @@ BuildRequires:    R-CRAN-htmlwidgets
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-leafem 
 BuildRequires:    R-CRAN-leafpop 
-BuildRequires:    R-CRAN-kimisc 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-santoku 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-shiny 
@@ -45,12 +45,12 @@ Requires:         R-CRAN-htmlwidgets
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-leafem 
 Requires:         R-CRAN-leafpop 
-Requires:         R-CRAN-kimisc 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-santoku 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-shiny 
@@ -62,8 +62,9 @@ Requires:         R-CRAN-tidyselect
 Requires:         R-CRAN-viridis 
 
 %description
-Wrapper functions to make 'ggplot2' and 'leaflet' visualisation easier
-with less brainpower required.
+Wrapper functions around the amazing 'ggplot2' and 'leaflet' packages that
+aims to simplify beautiful 'ggplot2' and 'leaflet' visualisation.
+Precursor package to the 'ggblanket' package.
 
 %prep
 %setup -q -c -n %{packname}

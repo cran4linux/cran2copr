@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pspatreg
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial and Spatio-Temporal Semiparametric Regression Models with Spatial Lags
 
@@ -25,7 +25,7 @@ BuildRequires:    R-splines >= 4.1
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
 BuildRequires:    R-CRAN-numDeriv >= 2016.8.1.1
 BuildRequires:    R-CRAN-plm >= 2.6.1
-BuildRequires:    R-CRAN-Rdpack >= 2.1
+BuildRequires:    R-CRAN-Rdpack >= 2.1.2
 BuildRequires:    R-CRAN-fields >= 13.3
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-Matrix >= 1.3.4
@@ -45,7 +45,7 @@ Requires:         R-splines >= 4.1
 Requires:         R-CRAN-ggplot2 >= 3.3.5
 Requires:         R-CRAN-numDeriv >= 2016.8.1.1
 Requires:         R-CRAN-plm >= 2.6.1
-Requires:         R-CRAN-Rdpack >= 2.1
+Requires:         R-CRAN-Rdpack >= 2.1.2
 Requires:         R-CRAN-fields >= 13.3
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-Matrix >= 1.3.4

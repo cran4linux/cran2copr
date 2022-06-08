@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bigsparser
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse Matrix Format with Data on Disk
 
@@ -19,14 +19,16 @@ BuildRequires:    R-CRAN-rmio >= 0.4
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-bigassertr 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-rmio >= 0.4
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-bigassertr 
 Requires:         R-methods 
+Requires:         R-CRAN-Matrix 
 
 %description
-Provides a sparse matrix format with data stored on disk, to be used in
+Provide a sparse matrix format with data stored on disk, to be used in
 both R and C++. This is intended for more efficient use of sparse data in
 C++ and also when parallelizing, since data on disk does not need copying.
 Only a limited number of features will be implemented. For now, conversion

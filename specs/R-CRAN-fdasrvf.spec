@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fdasrvf
-%global packver   1.9.7
+%global packver   1.9.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.7
+Version:          1.9.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Elastic Functional Data Analysis
 
@@ -19,6 +19,7 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.1
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-splines 
 BuildRequires:    R-parallel 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-Rcpp >= 0.12.1
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-methods 
 Requires:         R-CRAN-matrixcalc 
 Requires:         R-splines 
 Requires:         R-parallel 
@@ -60,6 +62,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

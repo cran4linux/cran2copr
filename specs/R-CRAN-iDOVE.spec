@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  iDOVE
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Durability of Vaccine Efficacy Against SARS-CoV-2 Infection
 
@@ -19,13 +19,11 @@ BuildRequires:    R-CRAN-Rcpp >= 1.0.4.6
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.4.6
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-graphics 
-Requires:         R-CRAN-knitr 
 
 %description
 Implements a nonparametric maximum likelihood method for assessing

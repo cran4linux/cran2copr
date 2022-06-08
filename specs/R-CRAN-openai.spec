@@ -1,50 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MSEtool
-%global packver   3.5.0
+%global packname  openai
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Management Strategy Evaluation Toolkit
+Summary:          R Wrapper for OpenAI API
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-snowfall 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-snowfall 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-dplyr 
-Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-parallel 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr >= 2.0.3
+BuildRequires:    R-CRAN-jsonlite >= 1.8.0
+BuildRequires:    R-CRAN-glue >= 1.6.2
+BuildRequires:    R-CRAN-httr >= 1.4.3
+BuildRequires:    R-CRAN-lifecycle >= 1.0.1
+BuildRequires:    R-CRAN-assertthat >= 0.2.1
+Requires:         R-CRAN-magrittr >= 2.0.3
+Requires:         R-CRAN-jsonlite >= 1.8.0
+Requires:         R-CRAN-glue >= 1.6.2
+Requires:         R-CRAN-httr >= 1.4.3
+Requires:         R-CRAN-lifecycle >= 1.0.1
+Requires:         R-CRAN-assertthat >= 0.2.1
 
 %description
-Development, simulation testing, and implementation of management
-procedures for fisheries (see Carruthers & Hordyk (2018)
-<doi:10.1111/2041-210X.13081>).
+An R wrapper of OpenAI API endpoints (see
+<https://beta.openai.com/docs/introduction> for details). This package
+covers Engines, Completions, Edits, Files, Fine-tunes, Embeddings and
+legacy Searches, Classifications, and Answers endpoints.
 
 %prep
 %setup -q -c -n %{packname}

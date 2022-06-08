@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  motif
-%global packver   0.5.0
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Local Pattern Analysis
 
@@ -16,14 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
 BuildRequires:    R-CRAN-comat >= 0.7.0
-BuildRequires:    R-CRAN-philentropy 
+BuildRequires:    R-CRAN-philentropy >= 0.6.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stars 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-philentropy >= 0.6.0
 Requires:         R-CRAN-comat >= 0.7.0
-Requires:         R-CRAN-philentropy 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stars 

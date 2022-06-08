@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  soilphysics
-%global packver   4.1
+%global packver   5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1
+Version:          5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Soil Physical Analysis
 
@@ -24,6 +24,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-datasets 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-rhandsontable 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-fields 
 Requires:         R-utils 
@@ -34,6 +35,7 @@ Requires:         R-grDevices
 Requires:         R-datasets 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-rhandsontable 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-fields 
 

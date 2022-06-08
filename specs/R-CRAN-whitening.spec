@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  whitening
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Whitening and High-Dimensional Canonical Correlation Analysis
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-corpcor >= 1.6.10
 BuildRequires:    R-stats 
@@ -29,7 +29,10 @@ whitening approach to canonical correlation analysis allowing negative
 canonical correlations described in Jendoubi and Strimmer (2019) "A
 whitening approach to probabilistic canonical correlation analysis for
 omics data integration", <doi:10.1186/s12859-018-2572-9>. The package also
-offers a function to simulate random orthogonal matrices.
+offers functions to simulate random orthogonal matrices, compute
+(correlation) loadings and explained variation. It also contains four
+example data sets (extended UCI wine data, TCGA LUSC data, nutrimouse
+data, extended pitprops data).
 
 %prep
 %setup -q -c -n %{packname}

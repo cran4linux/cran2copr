@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  binspp
-%global packver   0.1.18
+%global packver   0.1.20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.18
+Version:          0.1.20
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Inference for Neyman-Scott Point Processes
 

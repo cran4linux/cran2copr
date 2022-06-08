@@ -1,50 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MSEtool
-%global packver   3.5.0
+%global packname  RcmdrPlugin.BWS2
+%global packver   0.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Management Strategy Evaluation Toolkit
+Summary:          R Commander Plug-in for Case 2 Best-Worst Scaling
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-snowfall 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-snowfall 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-dplyr 
-Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-parallel 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-support.BWS2 >= 0.4.0
+BuildRequires:    R-CRAN-support.CEs 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-Rcmdr 
+BuildRequires:    R-CRAN-DoE.base 
+Requires:         R-CRAN-support.BWS2 >= 0.4.0
+Requires:         R-CRAN-support.CEs 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-Rcmdr 
+Requires:         R-CRAN-DoE.base 
 
 %description
-Development, simulation testing, and implementation of management
-procedures for fisheries (see Carruthers & Hordyk (2018)
-<doi:10.1111/2041-210X.13081>).
+Adds menu items for Case 2 (profile case) best-worst scaling (BWS2) to the
+R Commander. BWS2 is a question-based survey method that constructs
+profiles (combinations of attribute levels) using an orthogonal array,
+asks respondents to select the best and worst levels in each profile, and
+measures preferences for attribute levels by analyzing the responses. For
+details, see Aizaki and Fogarty (2019) <doi:10.1016/j.jocm.2019.100171>.
 
 %prep
 %setup -q -c -n %{packname}

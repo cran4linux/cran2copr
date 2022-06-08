@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  manydata
-%global packver   0.7.3
+%global packver   0.7.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          0.7.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Portal for Global Governance Data
 
@@ -16,15 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-covr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-messydates 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-pkgdown 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-roxygen2 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-CRAN-jsonlite 
@@ -32,15 +29,12 @@ BuildRequires:    R-CRAN-remotes
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-covr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-messydates 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-pkgdown 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-roxygen2 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-usethis 
 Requires:         R-CRAN-jsonlite 

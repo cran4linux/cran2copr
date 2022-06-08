@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  GetBCBData
-%global packver   0.6
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Imports Datasets from BCB (Central Bank of Brazil) using Its Official API
 
@@ -17,10 +17,6 @@ BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
@@ -29,11 +25,8 @@ BuildRequires:    R-CRAN-furrr
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-stringr 
-Requires:         R-stats 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-readr 
 Requires:         R-utils 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
@@ -42,6 +35,7 @@ Requires:         R-CRAN-furrr
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-purrr 
+Requires:         R-methods 
 
 %description
 Downloads and organizes datasets using BCB's API
@@ -57,6 +51,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

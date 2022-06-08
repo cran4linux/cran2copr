@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
 %global packname  viewpoly
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Shiny App to Visualize Genetic Maps and QTL Analysis in Polyploid Species
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -35,7 +35,6 @@ BuildRequires:    R-CRAN-abind
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-shiny >= 1.6.0
 Requires:         R-CRAN-config >= 0.3.1
 Requires:         R-CRAN-golem >= 0.3.1
@@ -55,7 +54,6 @@ Requires:         R-CRAN-abind
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-markdown 
 Requires:         R-stats 
-Requires:         R-CRAN-rlang 
 
 %description
 Provides a graphical user interface to integrate, visualize and explore

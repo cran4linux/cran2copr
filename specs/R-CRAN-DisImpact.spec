@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DisImpact
-%global packver   0.0.17
+%global packver   0.0.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.17
+Version:          0.0.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculates Disproportionate Impact When Binary Success Data are Disaggregated by Subgroups
 
@@ -21,11 +21,15 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-fst 
 Requires:         R-CRAN-dplyr >= 0.8.5
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-parallel 
+Requires:         R-CRAN-fst 
 
 %description
 Implements methods for calculating disproportionate impact: the percentage

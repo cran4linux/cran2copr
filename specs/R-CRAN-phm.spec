@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  phm
-%global packver   0.1.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
-Release:          2%{?dist}%{?buildtag}
+Version:          1.1.0
+Release:          1%{?dist}%{?buildtag}
 Summary:          Phrase Mining
 
 License:          GPL-3
@@ -16,16 +16,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils >= 3.6.2
-BuildRequires:    R-CRAN-shiny >= 1.4.0
-BuildRequires:    R-CRAN-data.table >= 1.12.8
-BuildRequires:    R-CRAN-tm >= 0.7.7
-BuildRequires:    R-CRAN-slam >= 0.1.46
-Requires:         R-utils >= 3.6.2
-Requires:         R-CRAN-shiny >= 1.4.0
-Requires:         R-CRAN-data.table >= 1.12.8
-Requires:         R-CRAN-tm >= 0.7.7
-Requires:         R-CRAN-slam >= 0.1.46
+BuildRequires:    R-CRAN-shiny >= 1.7.1
+BuildRequires:    R-CRAN-Matrix >= 1.4.1
+BuildRequires:    R-CRAN-data.table >= 1.14.2
+BuildRequires:    R-CRAN-smallstuff >= 1.0.1
+BuildRequires:    R-CRAN-tm >= 0.7.8
+BuildRequires:    R-CRAN-NLP >= 0.2.1
+Requires:         R-CRAN-shiny >= 1.7.1
+Requires:         R-CRAN-Matrix >= 1.4.1
+Requires:         R-CRAN-data.table >= 1.14.2
+Requires:         R-CRAN-smallstuff >= 1.0.1
+Requires:         R-CRAN-tm >= 0.7.8
+Requires:         R-CRAN-NLP >= 0.2.1
 
 %description
 Functions to extract and handle commonly occurring principal phrases
@@ -34,9 +36,15 @@ obtained from collections of texts.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -44,9 +52,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

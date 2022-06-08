@@ -1,50 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MSEtool
-%global packver   3.5.0
+%global packname  itp
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Management Strategy Evaluation Toolkit
+Summary:          The Interpolate, Truncate, Project (ITP) Root-Finding Algorithm
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-snowfall 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-snowfall 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-dplyr 
-Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-parallel 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Development, simulation testing, and implementation of management
-procedures for fisheries (see Carruthers & Hordyk (2018)
-<doi:10.1111/2041-210X.13081>).
+Implements the Interpolate, Truncate, Project (ITP) root-finding algorithm
+developed by Oliveira and Takahashi (2021) <doi:10.1145/3423597>. The user
+provides the function, from the real numbers to the real numbers, and an
+interval with the property that the values of the function at its
+endpoints have different signs. If the function is continuous over this
+interval then the ITP method estimates the value at which the function is
+equal to zero. If the function is discontinuous then a point of
+discontinuity at which the function changes sign may be found. Tuning
+parameters of the ITP algorithm can be set by the user. Default values are
+set based on arguments in Oliveira and Takahashi (2021).
 
 %prep
 %setup -q -c -n %{packname}
