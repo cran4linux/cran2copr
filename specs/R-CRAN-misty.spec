@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  misty
-%global packver   0.4.5
+%global packver   0.4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.4.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions 'T. Yanagida'
 
@@ -46,8 +46,8 @@ descriptive statistics for missing data, missing data pattern, Little's
 test of Missing Completely at Random, and auxiliary variable analysis),
 item analysis (e.g., coefficient alpha and omega, confirmatory factor
 analysis), and statistical analysis (e.g., confidence intervals,
-collinearity diagnostics, Levene's test, t-test, z-test, sample size
-determination).
+collinearity diagnostics, analysis of variance, Levene's test, t-test,
+z-test, sample size determination).
 
 %prep
 %setup -q -c -n %{packname}

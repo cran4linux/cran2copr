@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cat2cat
-%global packver   0.3.3
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Unify a Categorical Variable in a Panel Dataset
+Summary:          Handling an Inconsistent Coded Categorical Variable in a Panel Dataset
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,13 +17,11 @@ BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-assertthat 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-assertthat 
 
 %description
 There are offered automatic methods to map a categorical variable
-according to a specific encoding across different time points. The main
+according to a specific mappings across different time points. The main
 rule is to replicate the observation if it could be assign to a few
 categories. Then using simple frequencies or statistical methods to
 approximate probabilities of being assign to each of them. This algorithm

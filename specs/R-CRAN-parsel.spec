@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  parsel
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallelized Dynamic Web-Scraping Using 'RSelenium'
+Summary:          Parallel Dynamic Web-Scraping Using 'RSelenium'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,12 +22,14 @@ BuildRequires:    R-utils >= 2.10.1
 BuildRequires:    R-CRAN-lubridate >= 1.7.9
 BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-RSelenium 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-parallel >= 3.6.2
 Requires:         R-methods >= 3.3.1
 Requires:         R-utils >= 2.10.1
 Requires:         R-CRAN-lubridate >= 1.7.9
 Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-RSelenium 
+Requires:         R-CRAN-rlang 
 
 %description
 A system to increase the efficiency of dynamic web-scraping with

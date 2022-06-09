@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ggpointless
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Emphasize Observations with Points
+Summary:          A Small Collection of New Geometries, and Stats for 'ggplot2'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,10 +20,11 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 
 %description
-Add minimal emphasis to your plots. 'ggpointless' is a small extension of
-the 'ggplot2' library making it easy to highlight the first, or last
-observations, sample minimum and maximum. The goal is to provide
-additional context. Or just some visual sugar.
+A collection of new geometries and stats for 'ggplot2'. geom_pointless()
+adds minimal emphasis to your plots making it easy to highlight some
+observations. This layer provides additional context. Or just some visual
+sugar. geom_lexis() draws a 45° lifeline of an event that mimics lexis
+diagrams.
 
 %prep
 %setup -q -c -n %{packname}

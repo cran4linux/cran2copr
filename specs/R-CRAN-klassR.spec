@@ -1,32 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BranchGLM
-%global packver   1.1.0
+%global packname  klassR
+%global packver   0.1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.11
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Branch and Bound Variable Selection for GLMs using 'RcppArmadillo'
+Summary:          Classifications and Codelists for Statistics Norway
 
-License:          Apache License (>= 2)
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tm 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-tm 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Performs efficient and scalable glm best subset selection using a novel
-implementation of a branch and bound algorithm. To speed up the model
-fitting process, a range of optimization methods are implemented in
-'RcppArmadillo'. Parallel computation is available using 'OpenMP'.
+Functions to search, retrieve and apply classifications and codelists
+using Statistics Norway's API <https://www.ssb.no/klass> from the system
+'KLASS'. Retrieves classifications by date with options to choose
+language, hierarchical level and formatting.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  extras
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helper Functions for Bayesian Analyses
 
@@ -26,8 +26,9 @@ Requires:         R-stats
 %description
 Functions to 'numericise' 'R' objects (coerce to numeric objects),
 summarise 'MCMC' (Monte Carlo Markov Chain) samples and calculate deviance
-residuals as well as 'R' translations of 'BUGS' (Bayesian Using Gibbs
-Sampling) and 'JAGS' (Just Another Gibbs Sampler) functions.
+residuals as well as 'R' translations of some 'BUGS' (Bayesian Using Gibbs
+Sampling), 'JAGS' (Just Another Gibbs Sampler), 'STAN' and 'TMB' (Template
+Model Builder) functions.
 
 %prep
 %setup -q -c -n %{packname}

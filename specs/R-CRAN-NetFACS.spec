@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  NetFACS
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Network Applications to Facial Communication Data
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-Rfast
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidygraph 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-arrangements 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
@@ -46,6 +47,7 @@ Requires:         R-CRAN-Rfast
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidygraph 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-vctrs 
 
 %description
 Functions to analyze and visualize communication data, based on network

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  jsTreeR
-%global packver   1.6.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Wrapper of the JavaScript Library 'jsTree'
 
@@ -51,7 +51,8 @@ more features and options, such as the grid extension, restricting the
 drag-and-drop behavior, and settings for the search functionality. It is
 possible to attach some data to the nodes of a tree and then to get these
 data in 'Shiny' when a node is selected. Also provides a 'Shiny' gadget
-allowing to manipulate one or more folders.
+allowing to manipulate one or more folders, and a 'Shiny' module allowing
+to navigate in the server side file system.
 
 %prep
 %setup -q -c -n %{packname}

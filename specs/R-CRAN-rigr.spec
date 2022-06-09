@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rigr
-%global packver   1.0.1
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression, Inference, and General Data Analysis Tools in R
 
@@ -16,15 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Exact 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-Exact 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-sandwich 
-Requires:         R-CRAN-tibble 
+Requires:         R-stats 
 Requires:         R-CRAN-survival 
 
 %description

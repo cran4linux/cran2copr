@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  autostsm
-%global packver   3.0.0
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Structural Time Series Models
 
@@ -16,34 +16,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-forecast >= 8.15
-BuildRequires:    R-parallel >= 4.1
+BuildRequires:    R-parallel >= 4.1.1
 BuildRequires:    R-CRAN-ggplot2 >= 3.3
 BuildRequires:    R-CRAN-sandwich >= 3.0
 BuildRequires:    R-CRAN-gridExtra >= 2.3
 BuildRequires:    R-CRAN-lubridate >= 1.7
-BuildRequires:    R-CRAN-maxLik >= 1.5
+BuildRequires:    R-CRAN-maxLik >= 1.5.2
 BuildRequires:    R-CRAN-strucchange >= 1.5
 BuildRequires:    R-CRAN-foreach >= 1.5
 BuildRequires:    R-CRAN-progress >= 1.2
 BuildRequires:    R-CRAN-data.table >= 1.14
-BuildRequires:    R-CRAN-doSNOW >= 1.0
-BuildRequires:    R-CRAN-lmtest >= 0.9
+BuildRequires:    R-CRAN-doSNOW >= 1.0.19
+BuildRequires:    R-CRAN-lmtest >= 0.9.38
 BuildRequires:    R-CRAN-ggrepel >= 0.9
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-forecast >= 8.15
-Requires:         R-parallel >= 4.1
+Requires:         R-parallel >= 4.1.1
 Requires:         R-CRAN-ggplot2 >= 3.3
 Requires:         R-CRAN-sandwich >= 3.0
 Requires:         R-CRAN-gridExtra >= 2.3
 Requires:         R-CRAN-lubridate >= 1.7
-Requires:         R-CRAN-maxLik >= 1.5
+Requires:         R-CRAN-maxLik >= 1.5.2
 Requires:         R-CRAN-strucchange >= 1.5
 Requires:         R-CRAN-foreach >= 1.5
 Requires:         R-CRAN-progress >= 1.2
 Requires:         R-CRAN-data.table >= 1.14
-Requires:         R-CRAN-doSNOW >= 1.0
-Requires:         R-CRAN-lmtest >= 0.9
+Requires:         R-CRAN-doSNOW >= 1.0.19
+Requires:         R-CRAN-lmtest >= 0.9.38
 Requires:         R-CRAN-ggrepel >= 0.9
 
 %description

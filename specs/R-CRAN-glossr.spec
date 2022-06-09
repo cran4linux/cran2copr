@@ -1,32 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BranchGLM
-%global packver   1.1.0
+%global packname  glossr
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Branch and Bound Variable Selection for GLMs using 'RcppArmadillo'
+Summary:          Use Interlinear Glosses in R Markdown
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-methods 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-tidyr 
 
 %description
-Performs efficient and scalable glm best subset selection using a novel
-implementation of a branch and bound algorithm. To speed up the model
-fitting process, a range of optimization methods are implemented in
-'RcppArmadillo'. Parallel computation is available using 'OpenMP'.
+Read examples with interlinear glosses from files or from text and print
+them in a way compatible with both Latex and HTML outputs.
 
 %prep
 %setup -q -c -n %{packname}

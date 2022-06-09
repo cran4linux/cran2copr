@@ -1,32 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BranchGLM
-%global packver   1.1.0
+%global packname  sketching
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Branch and Bound Variable Selection for GLMs using 'RcppArmadillo'
+Summary:          Sketching of Data via Random Subspace Embeddings
 
-License:          Apache License (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-phangorn >= 2.8.1
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-phangorn >= 2.8.1
 Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-MASS 
 
 %description
-Performs efficient and scalable glm best subset selection using a novel
-implementation of a branch and bound algorithm. To speed up the model
-fitting process, a range of optimization methods are implemented in
-'RcppArmadillo'. Parallel computation is available using 'OpenMP'.
+Construct sketches of data via random subspace embeddings. For more
+details, see the following papers. Lee, S. and Ng, S. (2022). "Least
+Squares Estimation Using Sketched Data with Heteroskedastic Errors,"
+<arXiv:2007.07781>, accepted for presentation at the Thirty-ninth
+International Conference on Machine Learning (ICML 2022). Lee, S. and Ng,
+S. (2020). "An Econometric Perspective on Algorithmic Subsampling," Annual
+Review of Economics, 12(1): 45–80.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  multid
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Difference Between Two Groups
 
@@ -36,7 +36,11 @@ Estimation of multivariate differences between two groups (e.g.,
 multivariate sex differences) with regularized regression methods and
 predictive approach. See Lönnqvist & Ilmarinen (2021)
 <doi:10.1007/s11109-021-09681-2> and Ilmarinen et al. (2022)
-<doi:10.1177/08902070221088155>.
+<doi:10.1177/08902070221088155>. Includes tools that help in understanding
+difference score reliability, predictions of difference score variables,
+conditional intra-class correlations, and heterogeneity of variance
+estimates. Package development was supported by the Academy of Finland
+research grant 338891.
 
 %prep
 %setup -q -c -n %{packname}
