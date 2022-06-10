@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RCurl
-%global packver   1.98-1.6
+%global packver   1.98-1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.98.1.6
+Version:          1.98.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          General Network (HTTP/FTP/...) Client Interface for R
 

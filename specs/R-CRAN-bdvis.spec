@@ -1,35 +1,48 @@
 %global __brp_check_rpaths %{nil}
-%global packname  kernlab
-%global packver   0.9-31
+%global packname  bdvis
+%global packver   0.2.33
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.31
+Version:          0.2.33
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kernel-Based Machine Learning Lab
+Summary:          Biodiversity Data Visualizations
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-CRAN-sqldf 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-taxize 
+BuildRequires:    R-CRAN-treemap 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-chron 
+BuildRequires:    R-CRAN-rgdal 
+Requires:         R-CRAN-maps 
+Requires:         R-CRAN-plotrix 
+Requires:         R-CRAN-sqldf 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-taxize 
+Requires:         R-CRAN-treemap 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-chron 
+Requires:         R-CRAN-rgdal 
 
 %description
-Kernel-based machine learning methods for classification, regression,
-clustering, novelty detection, quantile regression and dimensionality
-reduction.  Among other methods 'kernlab' includes Support Vector
-Machines, Spectral Clustering, Kernel PCA, Gaussian Processes and a QP
-solver.
+Provides a set of functions to create basic visualizations to quickly
+preview different aspects of biodiversity information such as inventory
+completeness, extent of coverage (taxonomic, temporal and geographic),
+gaps and biases. Barve & Otegui (2016)
+<DOI:10.1093/bioinformatics/btw333>.
 
 %prep
 %setup -q -c -n %{packname}

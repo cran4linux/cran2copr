@@ -1,50 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  osmdata
-%global packver   0.1.10
+%global packname  aspline
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Import 'OpenStreetMap' Data as Simple Features or Spatial Objects
+Summary:          Spline Regression with Adaptive Knot Selection
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.4
-Requires:         R-core >= 3.2.4
-BuildRequires:    R-CRAN-Rcpp >= 0.12.4
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-reproj 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-Rcpp >= 0.12.4
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-lubridate 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-splines2 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-reproj 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-splines2 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-rlang 
 
 %description
-Download and import of 'OpenStreetMap' ('OSM') data as 'sf' or 'sp'
-objects.  'OSM' data are extracted from the 'Overpass' web server
-(<https://overpass-api.de/>) and processed with very fast 'C++' routines
-for return to 'R'.
+Perform one-dimensional spline regression with automatic knot selection.
+This package uses a penalized approach to select the most relevant knots.
+B-splines of any degree can be fitted. More details in 'Goepp et al.
+(2018)', "Spline Regression with Automatic Knot Selection",
+<arXiv:1808.01770>.
 
 %prep
 %setup -q -c -n %{packname}

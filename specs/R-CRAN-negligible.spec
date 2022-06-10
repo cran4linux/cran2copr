@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  negligible
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Functions for Negligible Effect/Equivalence Testing
 
@@ -22,12 +22,16 @@ BuildRequires:    R-CRAN-WRS2
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-nptest 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fungible 
+BuildRequires:    R-CRAN-rockchalk 
 Requires:         R-CRAN-DescTools 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-WRS2 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-nptest 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fungible 
+Requires:         R-CRAN-rockchalk 
 
 %description
 Researchers often want to evaluate whether there is a negligible

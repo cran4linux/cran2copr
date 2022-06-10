@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ToxicR
-%global packver   22.5
+%global packver   22.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          22.5
+Version:          22.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzing Toxicology Dose-Response Data
 

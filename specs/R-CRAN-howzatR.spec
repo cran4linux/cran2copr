@@ -1,50 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  osmdata
-%global packver   0.1.10
+%global packname  howzatR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Import 'OpenStreetMap' Data as Simple Features or Spatial Objects
+Summary:          Useful Functions for Cricket Analysis
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.4
-Requires:         R-core >= 3.2.4
-BuildRequires:    R-CRAN-Rcpp >= 0.12.4
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-reproj 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-Rcpp >= 0.12.4
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-lubridate 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-reproj 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-rlang 
 
 %description
-Download and import of 'OpenStreetMap' ('OSM') data as 'sf' or 'sp'
-objects.  'OSM' data are extracted from the 'Overpass' web server
-(<https://overpass-api.de/>) and processed with very fast 'C++' routines
-for return to 'R'.
+Helping to calculate cricket specific problems in a tidy & simple manner.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  kernlab
-%global packver   0.9-31
+%global packname  rankrate
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.31
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kernel-Based Machine Learning Lab
+Summary:          Statistical Tools for Preference Learning with Rankings and Ratings
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-lpSolve 
 Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-lpSolve 
 
 %description
-Kernel-based machine learning methods for classification, regression,
-clustering, novelty detection, quantile regression and dimensionality
-reduction.  Among other methods 'kernlab' includes Support Vector
-Machines, Spectral Clustering, Kernel PCA, Gaussian Processes and a QP
-solver.
+An implementation of the statistical methodology proposed by Pearce and
+Erosheva, "A Unified Statistical Learning Model for Rankings and Scores
+with Application to Grant Panel Review" (2022), which at time of release
+has been accepted in the Journal of Machine Learning Research. The package
+provides tools for estimating parameters of a Mallows-Binomial model, the
+first joint statistical preference learning model for rankings and
+ratings. The package includes functions for simulating rankings and
+ratings from the model, calculating the density of Mallows-Binomial data,
+estimating parameters using various exact and approximate algorithms, and
+for obtaining approximate confidence intervals based on the nonparametric
+bootstrap.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  diversityForest
-%global packver   0.3.3
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Innovative Complex Split Procedures in Random Forests Through Candidate Split Sampling
 
@@ -59,13 +59,13 @@ offers plot functions for visualising the estimated forms of interaction
 effects. Categorical, metric, and survival outcomes are supported. This is
 a fork of the R package 'ranger' (main author: Marvin N. Wright) that
 implements random forests using an efficient C++ implementation.
-References: [1] Hornung, R. & Boulesteix, A.-L. (2021) Interaction
+References: [1] Hornung, R. & Boulesteix, A.-L. (2022) Interaction
 Forests: Identifying and exploiting interpretable quantitative and
-qualitative interaction effects. Technical Report No. 237, Department of
-Statistics, University of Munich, <doi:10.5282/ubm/epub.75269>. [2]
-Hornung, R. (2022) Diversity forests: Using split sampling to enable
-innovative complex split procedures in random forests. SN Computer Science
-3(2):1, <doi:10.1007/s42979-021-00920-1>.
+qualitative interaction effects. Computational Statistics & Data Analysis
+171:107460, <doi:10.1016/j.csda.2022.107460>. [2] Hornung, R. (2022)
+Diversity forests: Using split sampling to enable innovative complex split
+procedures in random forests. SN Computer Science 3(2):1,
+<doi:10.1007/s42979-021-00920-1>.
 
 %prep
 %setup -q -c -n %{packname}

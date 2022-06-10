@@ -1,50 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  osmdata
-%global packver   0.1.10
+%global packname  outerbase
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Import 'OpenStreetMap' Data as Simple Features or Spatial Objects
+Summary:          Outer Product Regression
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.4
-Requires:         R-core >= 3.2.4
-BuildRequires:    R-CRAN-Rcpp >= 0.12.4
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-reproj 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-Rcpp >= 0.12.4
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-methods 
-Requires:         R-CRAN-reproj 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-utils 
-Requires:         R-CRAN-xml2 
+Requires:         R-stats 
 
 %description
-Download and import of 'OpenStreetMap' ('OSM') data as 'sf' or 'sp'
-objects.  'OSM' data are extracted from the 'Overpass' web server
-(<https://overpass-api.de/>) and processed with very fast 'C++' routines
-for return to 'R'.
+High-dimensional regression using outer product models.  Research on the
+methods is currently under investigation and published resources will be
+posted as they are available.  As the method is new, the website is the
+best resource for understanding the principals. Some of the core ideas are
+based on Plumlee and coauthors' work on analysis of grid-structured
+experiments described in Plumlee (2014) <doi:10.1080/01621459.2014.900250>
+and Plumlee, Erickson, Ankenman, Lawrence (2021)
+<doi:10.1093/biomet/asaa084>.  Some additional textbooks for additional
+information on Gaussian processes are Rasmussen and Williams (2005)
+<doi:10.7551/mitpress/3206.001.0001> and Gramacy (2022)
+<doi:10.1201/9780367815493>.
 
 %prep
 %setup -q -c -n %{packname}

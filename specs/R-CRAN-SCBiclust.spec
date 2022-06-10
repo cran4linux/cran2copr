@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SCBiclust
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
-Release:          3%{?dist}%{?buildtag}
-Summary:          Identifies Mean, Variance, and Hierarchically ClusteredBiclusters
+Version:          1.0.1
+Release:          1%{?dist}%{?buildtag}
+Summary:          Identifies Mean, Variance, and Hierarchically Clustered Biclusters
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -26,20 +26,23 @@ Identifies a bicluster, a submatrix of the data such that the features and
 observations within the submatrix differ from those not contained in
 submatrix, using a two-step method. In the first step, observations in the
 bicluster are identified to maximize the sum of weighted between cluster
-feature differences. The observations are identified in a similar fashion
-as in Witten and Tibshirani (2010) <doi:10.1198/jasa.2010.tm09415> except
-with a modified objective function and no feature sparsity constraint. In
-the second step, features in the bicluster are identified based on their
-contribution to the clustering of the observations. The cluster
-significance test of Liu, Hayes, Nobel, and Marron (2008):
-<doi:10.1198/016214508000000454> can then be used to test the strength of
-the identified bicluster. 'SCBiclust' can be used to identify biclusters
+feature differences. The method is described in Helgeson et al. (2020)
+<doi:10.1111/biom.13136>. 'SCBiclust' can be used to identify biclusters
 which differ based on feature means, feature variances, or more general
 differences.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -49,13 +52,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

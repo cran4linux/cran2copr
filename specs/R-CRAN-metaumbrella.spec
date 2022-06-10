@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  metaumbrella
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Umbrella Review Package for R
 
@@ -17,6 +17,7 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-meta 
+BuildRequires:    R-CRAN-pwr 
 BuildRequires:    R-CRAN-powerSurvEpi 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-tcltk 
@@ -24,6 +25,7 @@ BuildRequires:    R-CRAN-withr
 BuildRequires:    R-CRAN-writexl 
 BuildRequires:    R-CRAN-xtable 
 Requires:         R-CRAN-meta 
+Requires:         R-CRAN-pwr 
 Requires:         R-CRAN-powerSurvEpi 
 Requires:         R-CRAN-readxl 
 Requires:         R-tcltk 

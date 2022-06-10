@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  UNPaC
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
-Release:          3%{?dist}%{?buildtag}
-Summary:          Non-Parametric Cluster Significance Testing with Reference to aUnimodal Null Distribution
+Version:          1.1.1
+Release:          1%{?dist}%{?buildtag}
+Summary:          Non-Parametric Cluster Significance Testing with Reference to a Unimodal Null Distribution
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -29,14 +29,21 @@ unimodal reference distribution which preserves the covariance structure
 in the data. The reference distribution is generated using kernel density
 estimation and a Gaussian copula framework. A dimension reduction strategy
 and sparse covariance estimation optimize this method for the
-high-dimensional, low-sample size setting. This method is similar to them
-method described in Helgeson and Bair (2016) <arXiv:1610.01424> except a
-Gaussian copula approach is used to account for feature correlation.
+high-dimensional, low-sample size setting. This method is described in
+Helgeson, Vock, and Bair (2021) <doi:10.1111/biom.13376>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -44,16 +51,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

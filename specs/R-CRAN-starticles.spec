@@ -1,35 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  kernlab
-%global packver   0.9-31
+%global packname  starticles
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.31
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kernel-Based Machine Learning Lab
+Summary:          A Generic, Publisher-Independent Template for Writing Scientific Documents in 'rmarkdown'
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-devel > 3.5.0
+Requires:         R-core > 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-bookdown 
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-bookdown 
+Requires:         R-CRAN-knitr 
 
 %description
-Kernel-based machine learning methods for classification, regression,
-clustering, novelty detection, quantile regression and dimensionality
-reduction.  Among other methods 'kernlab' includes Support Vector
-Machines, Spectral Clustering, Kernel PCA, Gaussian Processes and a QP
-solver.
+Provides a generic, publisher-independent Rmarkdown template for writing
+scientific papers and reports in Rmarkdown. The template allows for all
+the basic features of a scientific article, including a title page with
+author affiliations and footnotes possibly shown in two common formats,
+multi-language abstracts and keywords, page headers and footers, and the
+ability to place figures and tables at the end of the output PDF. Smart
+cross-referencing of figures, tables, equations and sections is provided
+using the bookdown package. See package README.md for basic package usage.
 
 %prep
 %setup -q -c -n %{packname}

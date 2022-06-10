@@ -1,48 +1,53 @@
 %global __brp_check_rpaths %{nil}
-%global packname  himach
-%global packver   0.3.0
+%global packname  plnr
+%global packver   2022.6.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          2022.6.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          High Mach Finds Routes for Supersonic Aircraft
+Summary:          A System for Planing Analyses
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-sf >= 1.0
-BuildRequires:    R-CRAN-cppRouting 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lwgeom 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-s2 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-sf >= 1.0
-Requires:         R-CRAN-cppRouting 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lwgeom 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-usethis 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-s2 
-Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-digest 
+Requires:         R-stats 
 
 %description
-For supersonic aircraft, flying subsonic over land, High Mach finds the
-best route between airports. Allows for coastal buffer and potentially
-closed regions. Uses a minimal model of aircraft performance: the focus is
-on time saved versus subsonic flight, rather than on vertical flight
-profile. For modelling and forecasting, not for planning your flight!
+A system to plan analyses within the mental model where you have one (or
+more) datasets and want to run either A) the same function multiple times
+with different arguments, or B) multiple functions. This is appropriate
+when you have multiple strata (e.g. locations, age groups) that you want
+to apply the same function to, or you have multiple variables (e.g.
+exposures) that you want to apply the same statistical method to, or when
+you are creating the output for a report and you need multiple different
+tables or graphs.
 
 %prep
 %setup -q -c -n %{packname}

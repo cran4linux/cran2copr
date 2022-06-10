@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  prettymapr
-%global packver   0.2.4
+%global packname  gtExtras
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Scale Bar, North Arrow, and Pretty Margins in R
+Summary:          Extending 'gt' for Beautiful HTML Tables
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,21 +16,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-plyr 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-rjson 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-plyr 
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
+BuildRequires:    R-CRAN-glue >= 1.6.1
+BuildRequires:    R-CRAN-paletteer >= 1.4.0
+BuildRequires:    R-CRAN-scales >= 1.2.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.8
+BuildRequires:    R-CRAN-rlang >= 1.0.1
+BuildRequires:    R-CRAN-htmltools >= 0.5.2
+BuildRequires:    R-CRAN-gt >= 0.5
+BuildRequires:    R-CRAN-fontawesome >= 0.2.2
+BuildRequires:    R-CRAN-commonmark 
+Requires:         R-CRAN-ggplot2 >= 3.3.5
+Requires:         R-CRAN-glue >= 1.6.1
+Requires:         R-CRAN-paletteer >= 1.4.0
+Requires:         R-CRAN-scales >= 1.2.0
+Requires:         R-CRAN-dplyr >= 1.0.8
+Requires:         R-CRAN-rlang >= 1.0.1
+Requires:         R-CRAN-htmltools >= 0.5.2
+Requires:         R-CRAN-gt >= 0.5
+Requires:         R-CRAN-fontawesome >= 0.2.2
+Requires:         R-CRAN-commonmark 
 
 %description
-Automates the process of creating a scale bar and north arrow in any
-package that uses base graphics to plot in R. Bounding box tools help find
-and manipulate extents. Finally, there is a function to automate the
-process of setting margins, plotting the map, scale bar, and north arrow,
-and resetting graphic parameters upon completion.
+Provides additional functions for creating beautiful tables with 'gt'. The
+functions are generally wrappers around boilerplate or adding capabilities
+that are currently not built into 'gt'.
 
 %prep
 %setup -q -c -n %{packname}

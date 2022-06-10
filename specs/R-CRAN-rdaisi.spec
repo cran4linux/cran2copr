@@ -1,35 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  kernlab
-%global packver   0.9-31
+%global packname  rdaisi
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.31
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kernel-Based Machine Learning Lab
+Summary:          R Client for the Daisi Microservice Platform
 
-License:          GPL-2
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-httr 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-httr 
 
 %description
-Kernel-based machine learning methods for classification, regression,
-clustering, novelty detection, quantile regression and dimensionality
-reduction.  Among other methods 'kernlab' includes Support Vector
-Machines, Spectral Clustering, Kernel PCA, Gaussian Processes and a QP
-solver.
+Connect, execute, and parse results from the Daisi Microservice Platform
+<https://www.daisi.io/>. The rdaisi client includes a set of functionality
+that allows remote execution of microservices directly from R. Daisis
+allow R users to access a wide variety of Python functionality and
+interact with them natively.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,43 +1,59 @@
 %global __brp_check_rpaths %{nil}
-%global packname  justifier
-%global packver   0.2.4
+%global packname  rock
+%global packver   0.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.5.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Human and Machine-Readable Justifications and Justified Decisions Based on 'YAML'
+Summary:          Reproducible Open Coding Kit
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
+BuildRequires:    R-utils >= 3.5.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
+BuildRequires:    R-graphics >= 3.0.0
+BuildRequires:    R-stats >= 3.0.0
 BuildRequires:    R-CRAN-yaml >= 2.2.0
+BuildRequires:    R-CRAN-glue >= 1.3.0
+BuildRequires:    R-CRAN-markdown >= 1.1
 BuildRequires:    R-CRAN-DiagrammeR >= 1.0.0
 BuildRequires:    R-CRAN-data.tree >= 0.7.8
-BuildRequires:    R-CRAN-purrr >= 0.3.0
+BuildRequires:    R-CRAN-dplyr >= 0.7.8
+BuildRequires:    R-CRAN-htmltools >= 0.5.0
+BuildRequires:    R-CRAN-purrr >= 0.2.5
+BuildRequires:    R-CRAN-yum >= 0.1.0
 BuildRequires:    R-CRAN-DiagrammeRsvg >= 0.1
-BuildRequires:    R-CRAN-yum >= 0.0.1
+Requires:         R-utils >= 3.5.0
+Requires:         R-CRAN-ggplot2 >= 3.2.0
+Requires:         R-graphics >= 3.0.0
+Requires:         R-stats >= 3.0.0
 Requires:         R-CRAN-yaml >= 2.2.0
+Requires:         R-CRAN-glue >= 1.3.0
+Requires:         R-CRAN-markdown >= 1.1
 Requires:         R-CRAN-DiagrammeR >= 1.0.0
 Requires:         R-CRAN-data.tree >= 0.7.8
-Requires:         R-CRAN-purrr >= 0.3.0
+Requires:         R-CRAN-dplyr >= 0.7.8
+Requires:         R-CRAN-htmltools >= 0.5.0
+Requires:         R-CRAN-purrr >= 0.2.5
+Requires:         R-CRAN-yum >= 0.1.0
 Requires:         R-CRAN-DiagrammeRsvg >= 0.1
-Requires:         R-CRAN-yum >= 0.0.1
 
 %description
-Leverages the 'yum' package to implement a 'YAML' ('YAML Ain't Markup
-Language', a human friendly standard for data serialization; see
-<https:yaml.org>) standard for documenting justifications, such as for
-decisions taken during the planning, execution and analysis of a study or
-during the development of a behavior change intervention as illustrated by
-Marques & Peters (2019) <doi:10.17605/osf.io/ndxha>. These justifications
-are both human- and machine-readable, facilitating efficient extraction
-and organisation.
+The Reproducible Open Coding Kit ('ROCK', and this package, 'rock') was
+developed to facilitate reproducible and open coding, specifically geared
+towards qualitative research methods. Although it is a general-purpose
+toolkit, three specific applications have been implemented, specifically
+an interface to the 'rENA' package that implements Epistemic Network
+Analysis ('ENA'), means to process notes from Cognitive Interviews
+('CIs'), and means to work with decentralized construct taxonomies
+('DCTs').
 
 %prep
 %setup -q -c -n %{packname}

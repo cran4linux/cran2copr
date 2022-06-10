@@ -1,44 +1,48 @@
 %global __brp_check_rpaths %{nil}
-%global packname  urlshorteneR
-%global packver   1.5.4
+%global packname  ggpie
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.4
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Wrapper for the 'Bit.ly' and 'Is.gd'/'v.gd' URL Shortening Services
+Summary:          Pie, Donut and Rose Pie Plots
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.1.0
-BuildRequires:    R-CRAN-jsonlite >= 1.8.0
-BuildRequires:    R-CRAN-lubridate >= 1.8.0
-BuildRequires:    R-CRAN-shiny >= 1.7.1
-BuildRequires:    R-CRAN-httr >= 1.4.3
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-clipr >= 0.8.0
-BuildRequires:    R-CRAN-assertthat >= 0.2.1
-BuildRequires:    R-CRAN-miniUI >= 0.1.1.1
-Requires:         R-CRAN-cli >= 3.1.0
-Requires:         R-CRAN-jsonlite >= 1.8.0
-Requires:         R-CRAN-lubridate >= 1.8.0
-Requires:         R-CRAN-shiny >= 1.7.1
-Requires:         R-CRAN-httr >= 1.4.3
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-clipr >= 0.8.0
-Requires:         R-CRAN-assertthat >= 0.2.1
-Requires:         R-CRAN-miniUI >= 0.1.1.1
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggnewscale 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-cowplot 
+Requires:         R-CRAN-dplyr 
+Requires:         R-grDevices 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggnewscale 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-utils 
+Requires:         R-CRAN-cowplot 
 
 %description
-Allows using two URL shortening services, which also provide expanding and
-analytic functions. Specifically developed for 'Bit.ly' (which requires
-OAuth2) and 'is.gd' (no API key).
+Create pie, donut and rose pie plot with 'ggplot2'.
 
 %prep
 %setup -q -c -n %{packname}

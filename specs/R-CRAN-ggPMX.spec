@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ggPMX
-%global packver   1.2.6
+%global packver   1.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          1.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          'ggplot2' Based Tool to Facilitate Diagnostic Plots for NLME Models
 
@@ -65,6 +65,12 @@ adequate set of diagnostics and a toolbox, called 'ggPMX' to execute them.
 'ggPMX' is a toolbox that can generate all diagnostic plots at a quality
 sufficient for publication and submissions using few lines of code. This
 package focuses on plots recommended by ISoP <doi:10.1002/psp4.12161>.
+While not required, you can get/install the 'R' 'lixoftConnectors' package
+in the 'Monolix' installation, as described at the following url
+<https://monolix.lixoft.com/monolix-api/lixoftconnectors_installation/>.
+When 'lixoftConnectors' is available, 'R' can use 'Monolix' directly to
+create the required Chart Data instead of exporting it from the 'Monolix'
+gui.
 
 %prep
 %setup -q -c -n %{packname}

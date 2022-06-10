@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  healthyR.ts
-%global packver   0.1.9
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Time Series Modeling Companion to 'healthyR'
 
@@ -34,7 +34,6 @@ BuildRequires:    R-CRAN-forcats
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-parsnip 
 BuildRequires:    R-CRAN-workflowsets 
-BuildRequires:    R-CRAN-earth 
 BuildRequires:    R-CRAN-hardhat 
 Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-magrittr 
@@ -54,7 +53,6 @@ Requires:         R-CRAN-forcats
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-parsnip 
 Requires:         R-CRAN-workflowsets 
-Requires:         R-CRAN-earth 
 Requires:         R-CRAN-hardhat 
 
 %description

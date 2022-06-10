@@ -1,50 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  osmdata
-%global packver   0.1.10
+%global packname  grPipe
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Import 'OpenStreetMap' Data as Simple Features or Spatial Objects
+Summary:          Graphviz Pipeline Plot Based on Grids (grPipe: Graphviz Pipeline)
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.4
-Requires:         R-core >= 3.2.4
-BuildRequires:    R-CRAN-Rcpp >= 0.12.4
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-DiagrammeR 
+BuildRequires:    R-CRAN-DiagrammeRsvg 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-reproj 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-Rcpp >= 0.12.4
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-lubridate 
+BuildRequires:    R-CRAN-rsvg 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-grid 
+Requires:         R-CRAN-DiagrammeR 
+Requires:         R-CRAN-DiagrammeRsvg 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-reproj 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-rsvg 
+Requires:         R-CRAN-png 
+Requires:         R-grid 
 
 %description
-Download and import of 'OpenStreetMap' ('OSM') data as 'sf' or 'sp'
-objects.  'OSM' data are extracted from the 'Overpass' web server
-(<https://overpass-api.de/>) and processed with very fast 'C++' routines
-for return to 'R'.
+Create a grid-based graphviz using the following functions: 1 - Creating
+the data.frame where the nodes are; 2 - Adding and editing nodes; 3 -
+Plotting these nodes.
 
 %prep
 %setup -q -c -n %{packname}
