@@ -1,44 +1,54 @@
 %global __brp_check_rpaths %{nil}
-%global packname  WRS2
-%global packver   1.1-4
+%global packname  zetadiv
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Collection of Robust Statistical Methods
+Summary:          Functions to Compute Compositional Turnover Using Zeta Diversity
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-reshape 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-scam 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-mc2d 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-reshape 
-Requires:         R-CRAN-plyr 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-geodist 
+BuildRequires:    R-CRAN-nnls 
+BuildRequires:    R-CRAN-glm2 
+Requires:         R-CRAN-scam 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-utils 
-Requires:         R-CRAN-mc2d 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-geodist 
+Requires:         R-CRAN-nnls 
+Requires:         R-CRAN-glm2 
 
 %description
-A collection of robust statistical methods based on Wilcox' WRS functions.
-It implements robust t-tests (independent and dependent samples), robust
-ANOVA (including between-within subject designs), quantile ANOVA, robust
-correlation, robust mediation, and nonparametric ANCOVA models based on
-robust location measures.
+Functions to compute compositional turnover using zeta-diversity, the
+number of species shared by multiple assemblages. The package includes
+functions to compute zeta-diversity for a specific number of assemblages
+and to compute zeta-diversity for a range of numbers of assemblages. It
+also includes functions to explain how zeta-diversity varies with distance
+and with differences in environmental variables between assemblages, using
+generalised linear models, linear models with negative constraints,
+generalised additive models,shape constrained additive models, and
+I-splines.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  massiveGST
-%global packver   1.0.1
+%global packname  cbl
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Competitive Gene Sets Test with the Mann-Whitney-Wilcoxon Test
+Summary:          Causal Discovery under a Confounder Blanket
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-msigdbr >= 7.4.0
-BuildRequires:    R-CRAN-WriteXLS >= 6.3.0
-BuildRequires:    R-CRAN-visNetwork >= 2.0.9
-BuildRequires:    R-CRAN-igraph >= 1.2.6
-BuildRequires:    R-CRAN-formattable >= 0.2.1
-Requires:         R-CRAN-msigdbr >= 7.4.0
-Requires:         R-CRAN-WriteXLS >= 6.3.0
-Requires:         R-CRAN-visNetwork >= 2.0.9
-Requires:         R-CRAN-igraph >= 1.2.6
-Requires:         R-CRAN-formattable >= 0.2.1
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-lightgbm 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-lightgbm 
 
 %description
-Friendly implementation of the Mann-Whitney-Wilcoxon test for competitive
-gene set enrichment analysis.
+Methods for learning causal relationships among a set of foreground
+variables X based on signals from a (potentially much larger) set of
+background variables Z, which are known non-descendants of X. The
+confounder blanket learner (CBL) uses sparse regression techniques to
+simultaneously perform many conditional independence tests, with
+complementary pairs stability selection to guarantee finite sample error
+control. CBL is sound and complete with respect to a so-called "lazy
+oracle", and works with both linear and nonlinear systems. For details,
+see Watson & Silva (2022) <arXiv:2205.05715>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,52 +1,51 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bamlss
-%global packver   1.1-8
+%global packname  spikeSlabGAM
+%global packver   1.1-19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.8
+Version:          1.1.19
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Additive Models for Location, Scale, and Shape (and Beyond)
+Summary:          Bayesian Variable Selection and Model Choice for Generalized Additive Mixed Models
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.15.1
+Requires:         R-core >= 2.15.1
+BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
+BuildRequires:    R-CRAN-gridExtra >= 2.0
 BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-MBA 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-interp 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-MCMCpack 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-R2WinBUGS 
+BuildRequires:    R-CRAN-reshape 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-splines 
 BuildRequires:    R-parallel 
+Requires:         R-CRAN-ggplot2 >= 2.0.0
+Requires:         R-CRAN-gridExtra >= 2.0
 Requires:         R-CRAN-coda 
-Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-MBA 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-interp 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-MCMCpack 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-survival 
-Requires:         R-methods 
+Requires:         R-CRAN-R2WinBUGS 
+Requires:         R-CRAN-reshape 
+Requires:         R-CRAN-scales 
+Requires:         R-splines 
 Requires:         R-parallel 
 
 %description
-Infrastructure for estimating probabilistic distributional regression
-models in a Bayesian framework. The distribution parameters may capture
-location, scale, shape, etc. and every parameter may depend on complex
-additive terms (fixed, random, smooth, spatial, etc.) similar to a
-generalized additive model. The conceptual and computational framework is
-introduced in Umlauf, Klein, Zeileis (2019)
-<doi:10.1080/10618600.2017.1407325> and the R package in Umlauf, Klein,
-Simon, Zeileis (2021) <doi:10.18637/jss.v100.i04>.
+Bayesian variable selection, model choice, and regularized estimation for
+(spatial) generalized additive mixed regression models via stochastic
+search variable selection with spike-and-slab priors.
 
 %prep
 %setup -q -c -n %{packname}

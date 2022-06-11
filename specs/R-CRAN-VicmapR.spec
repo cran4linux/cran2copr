@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  VicmapR
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Victorian Spatial Data Through Web File Services (WFS)
 
@@ -13,9 +13,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dbplyr >= 2.0.0
 BuildRequires:    R-CRAN-sf >= 0.7
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-httr 
@@ -26,11 +27,15 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-mapview 
+BuildRequires:    R-CRAN-leaflet 
+Requires:         R-CRAN-dbplyr >= 2.0.0
 Requires:         R-CRAN-sf >= 0.7
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-httr 
@@ -41,11 +46,14 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-mapview 
+Requires:         R-CRAN-leaflet 
 
 %description
 Easily interfaces R to spatial datasets available through the Victorian

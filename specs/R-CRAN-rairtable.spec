@@ -1,35 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  massiveGST
-%global packver   1.0.1
+%global packname  rairtable
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Competitive Gene Sets Test with the Mann-Whitney-Wilcoxon Test
+Summary:          Efficient Wrapper for the 'Airtable' API
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-msigdbr >= 7.4.0
-BuildRequires:    R-CRAN-WriteXLS >= 6.3.0
-BuildRequires:    R-CRAN-visNetwork >= 2.0.9
-BuildRequires:    R-CRAN-igraph >= 1.2.6
-BuildRequires:    R-CRAN-formattable >= 0.2.1
-Requires:         R-CRAN-msigdbr >= 7.4.0
-Requires:         R-CRAN-WriteXLS >= 6.3.0
-Requires:         R-CRAN-visNetwork >= 2.0.9
-Requires:         R-CRAN-igraph >= 1.2.6
-Requires:         R-CRAN-formattable >= 0.2.1
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-snow 
+BuildRequires:    R-CRAN-progress 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-snow 
+Requires:         R-CRAN-progress 
 
 %description
-Friendly implementation of the Mann-Whitney-Wilcoxon test for competitive
-gene set enrichment analysis.
+Efficient CRUD interface for the 'Airtable' API
+<https://airtable.com/api>, supporting batch requests and parallel
+encoding of large data sets.
 
 %prep
 %setup -q -c -n %{packname}

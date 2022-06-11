@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
 %global packname  OlinkAnalyze
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Facilitate Analysis of Proteomic Data from Olink
 
-License:          GPL-3
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-forcats 
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rstatix 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
@@ -40,8 +41,9 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-car 
+BuildRequires:    R-CRAN-zip 
 Requires:         R-CRAN-broom 
+Requires:         R-CRAN-car 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-forcats 
@@ -57,6 +59,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-methods 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rstatix 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
@@ -64,6 +67,7 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-tidyselect 
 Requires:         R-tools 
 Requires:         R-utils 
+Requires:         R-CRAN-zip 
 
 %description
 A collection of functions to facilitate analysis of proteomic data from

@@ -1,35 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  massiveGST
-%global packver   1.0.1
+%global packname  cppcheckR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Competitive Gene Sets Test with the Mann-Whitney-Wilcoxon Test
+Summary:          Check 'C' and 'C++' Files using 'Cppcheck'
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-msigdbr >= 7.4.0
-BuildRequires:    R-CRAN-WriteXLS >= 6.3.0
-BuildRequires:    R-CRAN-visNetwork >= 2.0.9
-BuildRequires:    R-CRAN-igraph >= 1.2.6
-BuildRequires:    R-CRAN-formattable >= 0.2.1
-Requires:         R-CRAN-msigdbr >= 7.4.0
-Requires:         R-CRAN-WriteXLS >= 6.3.0
-Requires:         R-CRAN-visNetwork >= 2.0.9
-Requires:         R-CRAN-igraph >= 1.2.6
-Requires:         R-CRAN-formattable >= 0.2.1
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-V8 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-shiny 
+Requires:         R-utils 
+Requires:         R-CRAN-V8 
+Requires:         R-CRAN-xml2 
 
 %description
-Friendly implementation of the Mann-Whitney-Wilcoxon test for competitive
-gene set enrichment analysis.
+Allow to run 'Cppcheck' (<https://cppcheck.sourceforge.io/>) on 'C' and
+'C++' files with a 'R' command or a 'RStudio' addin. The report appears in
+the 'RStudio' viewer pane as a formatted 'HTML' file. It is also possible
+to get this report with a 'shiny' application. 'Cppcheck' can spot many
+error types and it can also give some recommendations on the code.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  hergm
-%global packver   4.1-8
+%global packver   4.1-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.8
+Version:          4.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Exponential-Family Random Graph Models
 
@@ -18,7 +18,6 @@ Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 0.12.7
 BuildRequires:    R-CRAN-ergm 
 BuildRequires:    R-CRAN-latentnet 
-BuildRequires:    R-CRAN-mcgibbsit 
 BuildRequires:    R-CRAN-network 
 BuildRequires:    R-CRAN-sna 
 BuildRequires:    R-methods 
@@ -31,7 +30,6 @@ BuildRequires:    R-CRAN-stringr
 Requires:         R-CRAN-Rcpp >= 0.12.7
 Requires:         R-CRAN-ergm 
 Requires:         R-CRAN-latentnet 
-Requires:         R-CRAN-mcgibbsit 
 Requires:         R-CRAN-network 
 Requires:         R-CRAN-sna 
 Requires:         R-methods 

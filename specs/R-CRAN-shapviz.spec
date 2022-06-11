@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DPQ
-%global packver   0.5-2
+%global packname  shapviz
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Density, Probability, Quantile ('DPQ') Computations
+Summary:          SHAP Visualizations
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,25 +15,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-sfsmisc >= 1.1.13
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-ggfittext >= 0.8.0
+BuildRequires:    R-CRAN-rlang >= 0.3.0
+BuildRequires:    R-CRAN-ggbeeswarm 
+BuildRequires:    R-CRAN-gggenes 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-grid 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-sfsmisc >= 1.1.13
+BuildRequires:    R-CRAN-xgboost 
+Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-ggfittext >= 0.8.0
+Requires:         R-CRAN-rlang >= 0.3.0
+Requires:         R-CRAN-ggbeeswarm 
+Requires:         R-CRAN-gggenes 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-grid 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-methods 
 Requires:         R-utils 
+Requires:         R-CRAN-xgboost 
 
 %description
-Computations for approximations and alternatives for the 'DPQ' (Density
-(pdf), Probability (cdf) and Quantile) functions for probability
-distributions in R. Primary focus is on (central and non-central) beta,
-gamma and related distributions such as the chi-squared, F, and t. -- This
-is for the use of researchers in these numerical approximation
-implementations, notably for my own use in order to improve standard R
-pbeta(), qgamma(), ..., etc: {'"dpq"'-functions}.
+Visualizations for SHAP (SHapley Additive exPlanations), such as waterfall
+plots, force plots, various types of importance plots, and dependence
+plots.  These plots act on a 'shapviz' object created from a matrix of
+SHAP values and a corresponding feature dataset. Wrappers for the R
+packages 'xgboost', 'lightgbm', 'fastshap', and 'treeshap' are added for
+convenience.  By separating visualization and computation, it is possible
+to display factor variables in graphs, even if the SHAP values are
+calculated by a model that requires numerical features. The plots are
+inspired by those provided by the 'shap' package in Python, but there is
+no dependency on it.
 
 %prep
 %setup -q -c -n %{packname}

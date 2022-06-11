@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  datapack
-%global packver   1.4.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Flexible Container to Transport and Manipulate Data and Associated Resources
 
@@ -17,17 +17,21 @@ BuildRequires:    R-devel >= 3.1.1
 Requires:         R-core >= 3.1.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-redland 
 BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-hash 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-zip 
 Requires:         R-CRAN-digest 
+Requires:         R-CRAN-fs 
 Requires:         R-methods 
 Requires:         R-CRAN-redland 
 Requires:         R-CRAN-XML 
-Requires:         R-CRAN-hash 
+Requires:         R-utils 
 Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-zip 
 
 %description
 Provides a flexible container to transport and manipulate complex sets of
@@ -49,6 +53,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

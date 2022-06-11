@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  datamart
-%global packver   0.5.2
+%global packname  jshintr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Unified access to your data sources
+Summary:          Lint 'JavaScript' Files
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,32 +16,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RJSONIO 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-base64 
-BuildRequires:    R-CRAN-gsubfn 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-markdown 
-Requires:         R-CRAN-RJSONIO 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-base64 
-Requires:         R-CRAN-gsubfn 
-Requires:         R-methods 
-Requires:         R-CRAN-markdown 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-tools 
 
 %description
-Provides an S4 infrastructure for unified handling of internal datasets
-and web based data sources. The package is currently in beta; things may
-break, change or go away without warning.
+Allow to run 'jshint' on 'JavaScript' files with a 'R' command or a
+'RStudio' addin. The report appears in the 'RStudio' viewer pane.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -51,6 +50,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

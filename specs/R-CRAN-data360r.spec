@@ -1,35 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  massiveGST
-%global packver   1.0.1
+%global packname  data360r
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Competitive Gene Sets Test with the Mann-Whitney-Wilcoxon Test
+Summary:          Wrapper for 'TCdata360' and 'Govdata360' API
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-msigdbr >= 7.4.0
-BuildRequires:    R-CRAN-WriteXLS >= 6.3.0
-BuildRequires:    R-CRAN-visNetwork >= 2.0.9
-BuildRequires:    R-CRAN-igraph >= 1.2.6
-BuildRequires:    R-CRAN-formattable >= 0.2.1
-Requires:         R-CRAN-msigdbr >= 7.4.0
-Requires:         R-CRAN-WriteXLS >= 6.3.0
-Requires:         R-CRAN-visNetwork >= 2.0.9
-Requires:         R-CRAN-igraph >= 1.2.6
-Requires:         R-CRAN-formattable >= 0.2.1
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-utils 
 
 %description
-Friendly implementation of the Mann-Whitney-Wilcoxon test for competitive
-gene set enrichment analysis.
+Makes it easy to engage with the Application Program Interface (API) of
+the 'TCdata360' and 'Govdata360' platforms at
+<https://tcdata360.worldbank.org/> and
+<https://govdata360.worldbank.org/>, respectively. These application
+program interfaces provide access to over 5000 trade, competitiveness, and
+governance indicator data, metadata, and related information from sources
+both inside and outside the World Bank Group. Package functions include
+easier download of data sets, metadata, and related information, as well
+as searching based on user-inputted query.
 
 %prep
 %setup -q -c -n %{packname}

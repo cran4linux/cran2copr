@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  robsurvey
-%global packver   0.2
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Survey Statistics Estimation
 
@@ -25,11 +25,11 @@ Requires:         R-stats
 Requires:         R-CRAN-KernSmooth 
 
 %description
-Functions to compute robust (outlier-resistant) estimates of finite
-population characteristics. The package supports the computations of
-robust means, totals, ratios, etc. Available methods are regression M- and
-GM-estimators, trimming, and winsorization. The package robsurvey
-complements the survey.
+Robust (outlier-resistant) estimators of finite population characteristics
+like of means, totals, ratios, regression, etc. Available methods are M-
+and GM-estimators of regression, weight reduction, trimming, and
+winsorization. The package extends the 'survey'
+<https://CRAN.R-project.org/package=survey> package.
 
 %prep
 %setup -q -c -n %{packname}

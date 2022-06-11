@@ -1,35 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  massiveGST
-%global packver   1.0.1
+%global packname  lifecontingencies
+%global packver   1.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.3.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Competitive Gene Sets Test with the Mann-Whitney-Wilcoxon Test
+Summary:          Financial and Actuarial Mathematics for Life Contingencies
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-msigdbr >= 7.4.0
-BuildRequires:    R-CRAN-WriteXLS >= 6.3.0
-BuildRequires:    R-CRAN-visNetwork >= 2.0.9
-BuildRequires:    R-CRAN-igraph >= 1.2.6
-BuildRequires:    R-CRAN-formattable >= 0.2.1
-Requires:         R-CRAN-msigdbr >= 7.4.0
-Requires:         R-CRAN-WriteXLS >= 6.3.0
-Requires:         R-CRAN-visNetwork >= 2.0.9
-Requires:         R-CRAN-igraph >= 1.2.6
-Requires:         R-CRAN-formattable >= 0.2.1
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.18
+BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-markovchain 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rcpp >= 0.12.18
+Requires:         R-methods 
+Requires:         R-parallel 
+Requires:         R-utils 
+Requires:         R-CRAN-markovchain 
+Requires:         R-stats 
 
 %description
-Friendly implementation of the Mann-Whitney-Wilcoxon test for competitive
-gene set enrichment analysis.
+Classes and methods that allow the user to manage life table, actuarial
+tables (also multiple decrements tables). Moreover, functions to easily
+perform demographic, financial and actuarial mathematics on life
+contingencies insurances calculations are contained therein. See Spedicato
+(2013) <doi:10.18637/jss.v055.i10>.
 
 %prep
 %setup -q -c -n %{packname}

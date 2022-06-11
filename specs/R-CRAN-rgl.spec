@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rgl
-%global packver   0.108.3.2
+%global packver   0.109.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.108.3.2
+Version:          0.109.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          3D Visualization Using OpenGL
 
@@ -30,6 +30,8 @@ BuildRequires:    R-CRAN-htmlwidgets
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-mime 
 Requires:         R-CRAN-knitr >= 1.33
 Requires:         R-CRAN-jsonlite >= 0.9.20
 Requires:         R-graphics 
@@ -40,6 +42,8 @@ Requires:         R-CRAN-htmlwidgets
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-mime 
 
 %description
 Provides medium to high level functions for 3D interactive graphics,

@@ -1,35 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  massiveGST
-%global packver   1.0.1
+%global packname  taxotools
+%global packver   0.0.129
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.0.129
 Release:          1%{?dist}%{?buildtag}
-Summary:          Competitive Gene Sets Test with the Mann-Whitney-Wilcoxon Test
+Summary:          Tools to Handle Taxonomic Lists
 
-License:          GPL (>= 3)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-msigdbr >= 7.4.0
-BuildRequires:    R-CRAN-WriteXLS >= 6.3.0
-BuildRequires:    R-CRAN-visNetwork >= 2.0.9
-BuildRequires:    R-CRAN-igraph >= 1.2.6
-BuildRequires:    R-CRAN-formattable >= 0.2.1
-Requires:         R-CRAN-msigdbr >= 7.4.0
-Requires:         R-CRAN-WriteXLS >= 6.3.0
-Requires:         R-CRAN-visNetwork >= 2.0.9
-Requires:         R-CRAN-igraph >= 1.2.6
-Requires:         R-CRAN-formattable >= 0.2.1
+BuildRequires:    R-CRAN-taxize 
+BuildRequires:    R-CRAN-wikitaxa 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-sqldf 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-taxize 
+Requires:         R-CRAN-wikitaxa 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-sqldf 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-stringi 
 
 %description
-Friendly implementation of the Mann-Whitney-Wilcoxon test for competitive
-gene set enrichment analysis.
+Tools include matching and merging taxonomic lists, casting and melting
+scientific names, managing taxonomic lists from GBIF and ITIS, harvesting
+names from wikipedia and fuzzy matching.
 
 %prep
 %setup -q -c -n %{packname}
