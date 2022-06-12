@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RavenR
-%global packver   2.1.7
+%global packver   2.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.7
+Version:          2.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Raven Hydrological Modelling Framework R Support and Analysis
 
@@ -17,6 +17,7 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-DiagrammeR 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-dygraphs 
@@ -38,6 +39,7 @@ BuildRequires:    R-CRAN-xts
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-DiagrammeR 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-dygraphs 

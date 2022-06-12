@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tidytable
-%global packver   0.7.2
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Interface to 'data.table'
 
@@ -21,17 +21,15 @@ BuildRequires:    R-CRAN-pillar >= 1.5.0
 BuildRequires:    R-CRAN-glue >= 1.4.0
 BuildRequires:    R-CRAN-data.table >= 1.14.0
 BuildRequires:    R-CRAN-tidyselect >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 1.0.2
 BuildRequires:    R-CRAN-vctrs >= 0.4.1
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 Requires:         R-CRAN-magrittr >= 2.0.3
 Requires:         R-CRAN-pillar >= 1.5.0
 Requires:         R-CRAN-glue >= 1.4.0
 Requires:         R-CRAN-data.table >= 1.14.0
 Requires:         R-CRAN-tidyselect >= 1.1.0
-Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-rlang >= 1.0.2
 Requires:         R-CRAN-vctrs >= 0.4.1
-Requires:         R-CRAN-lifecycle >= 0.2.0
 
 %description
 A tidy interface to 'data.table' that is 'rlang' compatible, giving users

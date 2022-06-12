@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sodium
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Modern and Easy-to-Use Crypto Library
 
@@ -18,11 +18,11 @@ BuildRequires:    R-devel
 Requires:         R-core
 
 %description
-Bindings to 'libsodium': a modern, easy-to-use software library for
-encryption, decryption, signatures, password hashing and more. Sodium uses
-curve25519, a state-of-the-art Diffie-Hellman function by Daniel
-Bernstein, which has become very popular after it was discovered that the
-NSA had backdoored Dual EC DRBG.
+Bindings to 'libsodium' <https://doc.libsodium.org/>: a modern,
+easy-to-use software library for encryption, decryption, signatures,
+password hashing and more. Sodium uses curve25519, a state-of-the-art
+Diffie-Hellman function by Daniel Bernstein, which has become very popular
+after it was discovered that the NSA had backdoored Dual EC DRBG.
 
 %prep
 %setup -q -c -n %{packname}

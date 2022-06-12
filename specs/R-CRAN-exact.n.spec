@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  exact.n
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exact Samples Sizes and Inference for Clinical Trials with Binary Endpoint
 
@@ -23,10 +23,9 @@ Requires:         R-stats
 
 %description
 Allows the user to determine minimum sample sizes that achieve target size
-and power at a specified alternative. For more information, see “A
-comprehensive open-source library for exact required sample size in binary
-clinical trials” by Lloyd, C.J. & Ripamonti E. (2021) Contemporary
-Clinical Trials 107, <doi:10.1016/j.cct.2021.106491>.
+and power at a specified alternative. For more information, see “Exact
+samples sizes for clinical trials subject to size and power constraints”
+by Lloyd, C.J. (2022) Preprint <doi:10.13140/RG.2.2.11828.94085>.
 
 %prep
 %setup -q -c -n %{packname}

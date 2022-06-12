@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spMC
-%global packver   0.3.11
+%global packver   0.3.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.11
+Version:          0.3.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous-Lag Spatial Markov Chains
 
@@ -35,7 +35,9 @@ A set of functions is provided for 1) the stratum lengths analysis along a
 chosen direction, 2) fast estimation of continuous lag spatial Markov
 chains model parameters and probability computing (also for large data
 sets), 3) transition probability maps and transiograms drawing, 4)
-simulation methods for categorical random fields.
+simulation methods for categorical random fields. More details on the
+methodology are discussed in Sartore (2013) <doi:10.32614/RJ-2013-022> and
+Sartore et al. (2016) <doi:10.1016/j.cageo.2016.06.001>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,6 +47,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

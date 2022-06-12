@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  logitr
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Logit Models w/Preference & WTP Space Utility Parameterizations
 
@@ -39,10 +39,10 @@ package to minimize the negative log-likelihood function. Additional
 functions are available for computing and comparing WTP from both
 preference space and WTP space models and for predicting expected choices
 and choice probabilities for sets of alternatives based on an estimated
-model. MXL models assume uncorrelated heterogeneity covariances and are
-estimated using maximum simulated likelihood based on the algorithms in
-Train (2009) "Discrete Choice Methods with Simulation, 2nd Edition"
-<doi:10.1017/CBO9780511805271>.
+model. Mixed logit models can include uncorrelated or correlated
+heterogeneity covariances and are estimated using maximum simulated
+likelihood based on the algorithms in Train (2009) "Discrete Choice
+Methods with Simulation, 2nd Edition" <doi:10.1017/CBO9780511805271>.
 
 %prep
 %setup -q -c -n %{packname}
