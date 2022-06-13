@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  soiltestcorr
-%global packver   2.1.1
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Soil Test Correlation and Calibration
 
@@ -45,17 +45,21 @@ Requires:         R-CRAN-AICcmodavg
 
 %description
 A compilation of functions designed to assist users on the correlation
-analysis of crop yield and soil test values. Functions to estimate
-response patterns to nutrient availability and critical soil test values
-using alternative approaches such as: 1) the modified arcsine-log
+analysis of crop yield and soil test values. Functions to estimate crop
+response patterns to soil nutrient availability and critical soil test
+values using various approaches such as: 1) the modified arcsine-log
 calibration curve (Correndo et al. (2017) <doi:10.1071/CP16444>); 2) the
-graphical Cate-Nelson quadrants-analysis (Cate & Nelson (1965)), 3) the
-statistical Cate-Nelson quadrants-analysis (Cate & Nelson (1971)
+graphical Cate-Nelson quadrants analysis (Cate & Nelson (1965)), 3) the
+statistical Cate-Nelson quadrants analysis (Cate & Nelson (1971)
 <doi:10.2136/sssaj1971.03615995003500040048x>), 4) the linear-plateau
 regression (Anderson & Nelson (1975) <doi:10.2307/2529422>), 5) the
 quadratic-plateau regression (Bullock & Bullock (1994)
-<doi:10.2134/agronj1994.00021962008600010033x>), and 6) the Mitscherlich
-regression (Melsted & Peck (1977) <doi:10.2134/asaspecpub29.c1>).
+<doi:10.2134/agronj1994.00021962008600010033x>), and 6) the
+Mitscherlich-type exponential regression (Melsted & Peck (1977)
+<doi:10.2134/asaspecpub29.c1>). The package development stemmed from
+ongoing work with the Fertilizer Recommendation Support Tool (FRST) and
+Feed the Future Innovation Lab for Collaborative Research on Sustainable
+Intensification (SIIL) projects.
 
 %prep
 %setup -q -c -n %{packname}

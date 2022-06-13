@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RClickhouse
-%global packver   0.6.3
+%global packver   0.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Yandex Clickhouse' Interface for R with Basic 'dplyr' Support
 
@@ -21,12 +21,14 @@ BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-DBI >= 0.6.0
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-CRAN-bit64 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-methods >= 3.3.2
 Requires:         R-CRAN-dbplyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-DBI >= 0.6.0
 Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-CRAN-bit64 
+Requires:         R-CRAN-cli 
 
 %description
 'Yandex Clickhouse' (<https://clickhouse.com/>) is a high-performance

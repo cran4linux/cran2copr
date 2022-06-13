@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BEKKs
-%global packver   1.2.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Conditional Volatility Modelling and Forecasting
 
@@ -33,6 +33,8 @@ BuildRequires:    R-CRAN-ks
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-reshape2 
@@ -52,6 +54,8 @@ Requires:         R-CRAN-ks
 Requires:         R-CRAN-lubridate 
 Requires:         R-utils 
 Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-moments 
 
 %description
 Methods and tools for estimating, simulating and forecasting of so-called
