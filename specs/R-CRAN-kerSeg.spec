@@ -1,29 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  biwt
-%global packver   1.0.1
+%global packname  kerSeg
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compute the Biweight Mean Vector and Covariance & Correlation Matrice
+Summary:          New Kernel-Based Change-Point Detection
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.1.0
-Requires:         R-core >= 2.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-Rcpp >= 1.0.7
 
 %description
-Compute multivariate location, scale, and correlation estimates based on
-Tukey's biweight M-estimator.
+New kernel-based test and fast tests for detecting change-points or
+changed-intervals where the distributions abruptly change. They work well
+particularly for high-dimensional data. Song, H. and Chen, H. (2022)
+<arXiv:2206.01853>.
 
 %prep
 %setup -q -c -n %{packname}

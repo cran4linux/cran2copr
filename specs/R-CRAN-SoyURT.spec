@@ -1,30 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RcppFaddeeva
-%global packver   0.2.2
+%global packname  SoyURT
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Rcpp' Bindings for the 'Faddeeva' Package
+Summary:          USDA Northern Region Uniform Soybean Tests Dataset
 
-License:          GPL (>= 2)
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 
 %description
-Access to a family of Gauss error functions for arbitrary complex
-arguments is provided via the 'Faddeeva' package by Steven G. Johnson (see
-<http://ab-initio.mit.edu/wiki/index.php/Faddeeva_Package> for more
-information).
+Data sets used by 'Krause et al. (2022)' <doi:10.1101/2022.04.11.487885>.
+It comprises phenotypic records obtained from the USDA Northern Region
+Uniform Soybean Tests from 1989 to 2019 for maturity groups II and III. In
+addition, soil and weather variables are provided for the 591 observed
+environments (combination of locations and years).
 
 %prep
 %setup -q -c -n %{packname}

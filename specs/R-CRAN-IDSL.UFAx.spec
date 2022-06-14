@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  IDSL.UFAx
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exhaustive Chemical Enumeration for United Formula Annotation
 
@@ -16,9 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-IDSL.IPA >= 1.5
-BuildRequires:    R-CRAN-IDSL.MXP >= 1.2
-BuildRequires:    R-CRAN-IDSL.UFA >= 1.2
+BuildRequires:    R-CRAN-IDSL.IPA >= 1.7
+BuildRequires:    R-CRAN-IDSL.MXP >= 1.4
+BuildRequires:    R-CRAN-IDSL.UFA >= 1.4
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-RNetCDF 
 BuildRequires:    R-CRAN-base64enc 
@@ -28,9 +28,9 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-RcppAlgos 
-Requires:         R-CRAN-IDSL.IPA >= 1.5
-Requires:         R-CRAN-IDSL.MXP >= 1.2
-Requires:         R-CRAN-IDSL.UFA >= 1.2
+Requires:         R-CRAN-IDSL.IPA >= 1.7
+Requires:         R-CRAN-IDSL.MXP >= 1.4
+Requires:         R-CRAN-IDSL.UFA >= 1.4
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-RNetCDF 
 Requires:         R-CRAN-base64enc 
@@ -44,8 +44,8 @@ Requires:         R-CRAN-RcppAlgos
 %description
 A pipeline to annotate a number of peaks from the IDSL.IPA peaklists using
 an exhaustive chemical enumeration-based approach. This package can
-perform elemental composition using following 15 elements : C, B, Br, Cl,
-K, S, Se, Si, N, H, As, F, I, Na, O, and P.
+perform elemental composition calculations using following 15 elements :
+C, B, Br, Cl, K, S, Se, Si, N, H, As, F, I, Na, O, and P.
 
 %prep
 %setup -q -c -n %{packname}

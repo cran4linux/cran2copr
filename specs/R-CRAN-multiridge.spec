@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  multiridge
-%global packver   1.9
+%global packver   1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9
+Version:          1.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Cross-Validation for Multi-Penalty Ridge Regression
 
@@ -18,12 +18,12 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-pROC 
-BuildRequires:    R-CRAN-risksetROC 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-snowfall 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-pROC 
-Requires:         R-CRAN-risksetROC 
+Requires:         R-methods 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-snowfall 
 
@@ -43,6 +43,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

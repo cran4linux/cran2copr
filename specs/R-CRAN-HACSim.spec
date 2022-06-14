@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  HACSim
-%global packver   1.0.6
+%global packver   1.0.6-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Iterative Extrapolation of Species' Haplotype Accumulation Curves for Genetic Diversity Assessment
 

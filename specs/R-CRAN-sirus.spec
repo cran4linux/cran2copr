@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sirus
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stable and Interpretable RUle Set
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildRequires:    R-CRAN-Rcpp >= 0.11.2
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-ROCR 
@@ -37,8 +37,9 @@ frequent nodes of the forest are selected to form a stable rule ensemble
 model. The algorithm is fully described in the following articles: Benard
 C., Biau G., da Veiga S., Scornet E. (2021), Electron. J. Statist.,
 15:427-505 <DOI:10.1214/20-EJS1792> for classification, and Benard C.,
-Biau G., da Veiga S., Scornet E. (2020) <arXiv:2004.14841> for regression.
-This R package is a fork from the project ranger
+Biau G., da Veiga S., Scornet E. (2021), AISTATS, PMLR 130:937-945
+<http://proceedings.mlr.press/v130/benard21a>, for regression. This R
+package is a fork from the project ranger
 (<https://github.com/imbs-hl/ranger>).
 
 %prep
@@ -49,6 +50,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

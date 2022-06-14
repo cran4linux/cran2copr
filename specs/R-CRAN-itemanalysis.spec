@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RHT
-%global packver   1.0
+%global packname  itemanalysis
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regularized Hotelling's T-square Test for Pathway (Gene Set) Analysis
+Summary:          Classical Test Theory Item Analysis
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,19 +16,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-polycor 
+BuildRequires:    R-CRAN-car 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-polycor 
+Requires:         R-CRAN-car 
 
 %description
-This package offers functions to perform regularized Hotelling's T-square
-test for pathway or gene set analysis. The package is tailored for but not
-limited to proteomics data, in which sample sizes are often small, a large
-proportion of the data are missing and/or correlations may be present.
+Runs classical item analysis for multiple-choice test items and polytomous
+items (e.g., rating scales). The statistics reported in this package can
+be found in any measurement textbook such as Crocker and Algina (2006,
+ISBN:9780495395911).
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -38,6 +50,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

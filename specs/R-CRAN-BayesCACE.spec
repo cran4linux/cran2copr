@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BayesCACE
-%global packver   1.2
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Model for CACE Analysis
 
@@ -23,6 +23,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-forestplot 
 BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-rjags >= 4.6
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-Rdpack 
@@ -30,6 +31,7 @@ Requires:         R-grDevices
 Requires:         R-CRAN-forestplot 
 Requires:         R-CRAN-metafor 
 Requires:         R-CRAN-lme4 
+Requires:         R-methods 
 
 %description
 Performs CACE (Complier Average Causal Effect analysis) on either a single

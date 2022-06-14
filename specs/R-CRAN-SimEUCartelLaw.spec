@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SimEUCartelLaw
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation of Legal Exemption System for European Cartel Law
 
@@ -15,13 +15,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-plot3Drgl 
 BuildRequires:    R-CRAN-plot3D 
-BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-plot3Drgl 
 Requires:         R-CRAN-plot3D 
-Requires:         R-CRAN-rgl 
 Requires:         R-stats 
 
 %description

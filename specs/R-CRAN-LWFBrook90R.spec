@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  LWFBrook90R
-%global packver   0.4.5
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate Evapotranspiration and Soil Moisture with the SVAT Model LWF-Brook90
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-foreach >= 1.5.0
+BuildRequires:    R-CRAN-parallelly >= 1.30.0
 BuildRequires:    R-CRAN-future >= 1.19.0
 BuildRequires:    R-CRAN-data.table >= 1.10.4
 BuildRequires:    R-CRAN-iterators >= 1.0.12
@@ -24,6 +25,7 @@ BuildRequires:    R-CRAN-vegperiod >= 0.3.0
 BuildRequires:    R-CRAN-doFuture >= 0.10.0
 BuildRequires:    R-methods 
 Requires:         R-CRAN-foreach >= 1.5.0
+Requires:         R-CRAN-parallelly >= 1.30.0
 Requires:         R-CRAN-future >= 1.19.0
 Requires:         R-CRAN-data.table >= 1.10.4
 Requires:         R-CRAN-iterators >= 1.0.12

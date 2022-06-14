@@ -1,29 +1,54 @@
 %global __brp_check_rpaths %{nil}
-%global packname  biwt
-%global packver   1.0.1
+%global packname  corHMM
+%global packver   2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compute the Biweight Mean Vector and Covariance & Correlation Matrice
+Summary:          Hidden Markov Models of Character Evolution
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.1.0
-Requires:         R-core >= 2.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-GenSA 
+BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-robustbase 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-phangorn 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-Rmpfr 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-phytools 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-GenSA 
+Requires:         R-CRAN-expm 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-corpcor 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-phangorn 
+Requires:         R-parallel 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-Rmpfr 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-phytools 
 
 %description
-Compute multivariate location, scale, and correlation estimates based on
-Tukey's biweight M-estimator.
+Fits hidden Markov models of discrete character evolution which allow
+different transition rate classes on different portions of a phylogeny.
+Beaulieu et al (2013) <doi:10.1093/sysbio/syt034>.
 
 %prep
 %setup -q -c -n %{packname}

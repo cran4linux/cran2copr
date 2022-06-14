@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dynaTree
-%global packver   1.2-12
+%global packver   1.2-13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.12
+Version:          1.2.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Trees for Learning and Design
 

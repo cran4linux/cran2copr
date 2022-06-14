@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ggseg
-%global packver   1.6.4
+%global packver   1.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.4
+Version:          1.6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plotting Tool for Brain Atlases
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.3
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-sf >= 0.9.2
+BuildRequires:    R-stats 
 BuildRequires:    R-grid 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vctrs 
@@ -27,6 +28,7 @@ Requires:         R-CRAN-ggplot2 >= 3.3
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-sf >= 0.9.2
+Requires:         R-stats 
 Requires:         R-grid 
 Requires:         R-utils 
 Requires:         R-CRAN-vctrs 

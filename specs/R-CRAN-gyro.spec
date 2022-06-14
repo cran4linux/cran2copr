@@ -1,44 +1,50 @@
 %global __brp_check_rpaths %{nil}
-%global packname  AID
-%global packver   2.7
+%global packname  gyro
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Box-Cox Power Transformation
+Summary:          Hyperbolic Geometry
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-tseries 
-BuildRequires:    R-CRAN-nortest 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-cxhull >= 0.3.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-Rvcg 
+BuildRequires:    R-CRAN-Morpho 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-clipr 
+BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-meta 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-tseries 
-Requires:         R-CRAN-nortest 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-cxhull >= 0.3.0
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-Rvcg 
+Requires:         R-CRAN-Morpho 
+Requires:         R-CRAN-purrr 
+Requires:         R-grDevices 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-clipr 
+Requires:         R-CRAN-plotrix 
 Requires:         R-graphics 
-Requires:         R-CRAN-psych 
-Requires:         R-stats 
-Requires:         R-CRAN-meta 
-Requires:         R-CRAN-stringr 
 
 %description
-Performs Box-Cox power transformation for different purposes, graphical
-approaches, assesses the success of the transformation via tests and
-plots, computes mean and confidence interval for back transformed data.
+Hyperbolic geometry in the Minkowski model and the Poincaré model. The
+methods are based on the gyrovector space theory developed by A. A. Ungar
+that can be found in the book 'Analytic Hyperbolic Geometry: Mathematical
+Foundations And Applications' <doi:10.1142/5914>. The package provides
+functions to plot three-dimensional hyperbolic polyhedra and to plot
+hyperbolic tilings of the Poincaré disk.
 
 %prep
 %setup -q -c -n %{packname}

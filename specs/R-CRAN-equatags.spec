@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  equatags
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Equations to 'XML'
 
@@ -18,19 +18,18 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-xslt 
-BuildRequires:    R-CRAN-locatexec 
 BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-katex 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-xslt 
-Requires:         R-CRAN-locatexec 
 Requires:         R-tools 
+Requires:         R-CRAN-katex 
 
 %description
-Provides function transform_mathjax() to transform equations defined using
-'MathML', 'LaTeX' or 'ASCIIMathML' notation into format 'SVG' or 'Office
-Open XML Math'. The 'XML' result can then be included in 'HTML',
-'Microsoft Word' documents or 'Microsoft PowerPoint' presentations by
-using a 'Markdown' document or the R package 'officer'.
+Provides function to transform latex math expressions into format 'HTML'
+or 'Office Open XML Math'. The 'XML' result can then be included in
+'HTML', 'Microsoft Word' documents or 'Microsoft PowerPoint' presentations
+by using a 'Markdown' document or the R package 'officer'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,29 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  biwt
+%global packname  PlatformDesign
 %global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compute the Biweight Mean Vector and Covariance & Correlation Matrice
+Summary:          Optimal Two-Period Multi-Arm Platform Design
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.1.0
-Requires:         R-core >= 2.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-stats 
 
 %description
-Compute multivariate location, scale, and correlation estimates based on
-Tukey's biweight M-estimator.
+Design parameters can be calculated using this package based on the
+optimal two-period multi-arm platform design allowing pre-planned deferred
+arms to be added during the trial. More details about the design method
+can be found in the paper: Pan, H., Yuan, X. and Ye, J. (2022) "An optimal
+two-period multi-arm platform design with adding new arms". Manuscript
+submitted for publication. For additional references: Dunnett, C. W.
+(1955) <doi:10.2307/2281208>.
 
 %prep
 %setup -q -c -n %{packname}

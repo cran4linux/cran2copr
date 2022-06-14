@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  selection.index
-%global packver   1.1.3
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Selection Index in Plant Breeding
 
@@ -17,9 +17,7 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-utils 
-BuildRequires:    R-stats 
 Requires:         R-utils 
-Requires:         R-stats 
 
 %description
 The aim of most plant breeding programmes is simultaneous improvement of

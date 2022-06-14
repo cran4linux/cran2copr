@@ -1,29 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  biwt
-%global packver   1.0.1
+%global packname  mggd
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compute the Biweight Mean Vector and Covariance & Correlation Matrice
+Summary:          Multivariate Generalised Gaussian Distribution; Kullback-Leibler Divergence
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.1.0
-Requires:         R-core >= 2.1.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-robustbase 
+BuildRequires:    R-CRAN-rgl 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-rgl 
 
 %description
-Compute multivariate location, scale, and correlation estimates based on
-Tukey's biweight M-estimator.
+Distance between multivariate generalised Gaussian distributions, as
+presented by N. Bouhlel and A. Dziri (2019)
+<doi:10.1109/LSP.2019.2915000>. Manipulation of multivariate generalised
+Gaussian distributions (methods presented by Gomez, Gomez-Villegas and
+Marin (1998) <doi:10.1080/03610929808832115> and Pascal, Bombrun,
+Tourneret and Berthoumieu (2013) <doi:10.1109/TSP.2013.2282909>).
 
 %prep
 %setup -q -c -n %{packname}

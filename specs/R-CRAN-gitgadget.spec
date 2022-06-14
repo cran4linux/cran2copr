@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gitgadget
-%global packver   0.6.9
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.9
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Rstudio' Addin for Version Control and Assignment Management using Git
 

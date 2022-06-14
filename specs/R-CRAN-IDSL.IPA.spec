@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  IDSL.IPA
-%global packver   1.6
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Intrinsic Peak Analysis (IPA) for HRMS Data
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-IDSL.MXP >= 1.2
+BuildRequires:    R-CRAN-IDSL.MXP >= 1.4
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-RNetCDF 
 BuildRequires:    R-CRAN-base64enc 
@@ -28,7 +28,7 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-png 
-Requires:         R-CRAN-IDSL.MXP >= 1.2
+Requires:         R-CRAN-IDSL.MXP >= 1.4
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-RNetCDF 
 Requires:         R-CRAN-base64enc 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  GetFREData
-%global packver   0.7
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reading FRE Corporate Data of Public Traded Companies from B3
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-xml2 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-GetDFPData2 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-dplyr 
@@ -34,10 +35,11 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-XML 
+Requires:         R-CRAN-GetDFPData2 
 
 %description
 Reads corporate data such as board composition and compensation for
-companies traded at B3, the Brazilian exchange <http://www.b3.com.br/>.
+companies traded at B3, the Brazilian exchange <https://www.b3.com.br/>.
 All data is downloaded and imported from the ftp site
 <http://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/FRE/>.
 
