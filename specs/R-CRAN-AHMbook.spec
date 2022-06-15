@@ -1,46 +1,58 @@
 %global __brp_check_rpaths %{nil}
-%global packname  buildmer
-%global packver   2.5
+%global packname  AHMbook
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Stepwise Elimination and Term Reordering for Mixed-Effects Regression
+Summary:          Functions and Data for the Book 'Applied Hierarchical Modeling in Ecology' Vols 1 and 2
 
-License:          FreeBSD
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-unmarked >= 0.12.2
+BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-spdep 
+Requires:         R-CRAN-unmarked >= 0.12.2
+Requires:         R-grDevices 
 Requires:         R-graphics 
-Requires:         R-CRAN-lme4 
 Requires:         R-methods 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-plyr 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-plotrix 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-spdep 
 
 %description
-Finds the largest possible regression model that will still converge for
-various types of regression analyses (including mixed models and
-generalized additive models) and then optionally performs stepwise
-elimination similar to the forward and backward effect-selection methods
-in SAS, based on the change in log-likelihood or its significance,
-Akaike's Information Criterion, the Bayesian Information Criterion, the
-explained deviance, or the F-test of the change in R².
+Provides functions to simulate data sets from hierarchical ecological
+models, including all the simulations described in the two volume
+publication 'Applied Hierarchical Modeling in Ecology: Analysis of
+distribution, abundance and species richness in R and BUGS' by Marc Kéry
+and Andy Royle: volume 1 (2016, ISBN: 978-0-12-801378-6) and volume 2
+(2021, ISBN: 978-0-12-809585-0),
+<https://www.mbr-pwrc.usgs.gov/pubanalysis/keryroylebook/>. It also has
+all the utility functions and data sets needed to replicate the analyses
+shown in the books.
 
 %prep
 %setup -q -c -n %{packname}

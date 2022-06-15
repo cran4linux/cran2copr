@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  causact
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accelerated Bayesian Analytics with DAGs
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-greta >= 0.3.1
 BuildRequires:    R-CRAN-coda >= 0.19.3
 BuildRequires:    R-CRAN-rstudioapi >= 0.11
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-htmlwidgets >= 1.5.1
 Requires:         R-CRAN-magrittr >= 1.5
@@ -46,6 +47,7 @@ Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-greta >= 0.3.1
 Requires:         R-CRAN-coda >= 0.19.3
 Requires:         R-CRAN-rstudioapi >= 0.11
+Requires:         R-CRAN-lifecycle 
 
 %description
 Accelerate Bayesian analytics workflows in 'R' through interactive

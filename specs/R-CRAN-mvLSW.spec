@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mvLSW
-%global packver   1.2.4
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate, Locally Stationary Wavelet Process Estimation
 
@@ -19,10 +19,12 @@ BuildRequires:    R-CRAN-fields
 BuildRequires:    R-CRAN-wavethresh 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-wavethresh 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-zoo 
+Requires:         R-methods 
 
 %description
 Tools for analysing multivariate time series with wavelets. This includes:

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  stokes
-%global packver   1.1-3
+%global packname  Rtapas
+%global packver   0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Exterior Calculus
+Summary:          Random Tanglegram Partitions
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,25 +16,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-permutations >= 1.0.4
-BuildRequires:    R-CRAN-spray >= 1.0.18
-BuildRequires:    R-CRAN-disordR >= 0.0.8
-BuildRequires:    R-CRAN-partitions 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mathjaxr 
-Requires:         R-CRAN-permutations >= 1.0.4
-Requires:         R-CRAN-spray >= 1.0.18
-Requires:         R-CRAN-disordR >= 0.0.8
-Requires:         R-CRAN-partitions 
-Requires:         R-methods 
-Requires:         R-CRAN-mathjaxr 
+BuildRequires:    R-CRAN-phytools 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-distory 
+BuildRequires:    R-CRAN-GiniWegNeg 
+BuildRequires:    R-CRAN-paco 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-parallelly 
+Requires:         R-CRAN-phytools 
+Requires:         R-parallel 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-distory 
+Requires:         R-CRAN-GiniWegNeg 
+Requires:         R-CRAN-paco 
+Requires:         R-stats 
+Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-parallelly 
 
 %description
-Provides functionality for working with tensors, alternating tensors,
-wedge products, Stokes's theorem, and related concepts from the exterior
-calculus.  Functionality for Grassman algebra is provided.  The canonical
-reference would be: M. Spivak (1965, ISBN:0-8053-9021-9) "Calculus on
-Manifolds".
+Applies a given global-fit method to random partial tanglegrams of a fixed
+size to identify the associations, terminals, and nodes that maximize
+phylogenetic (in)congruence. It also includes functions to compute more
+easily the confidence intervals of classification metrics and plot
+results, reducing computational time. See Llaberia-Robledillo et al.
+(2022, <doi:10.1101/2022.05.17.492291>).
 
 %prep
 %setup -q -c -n %{packname}

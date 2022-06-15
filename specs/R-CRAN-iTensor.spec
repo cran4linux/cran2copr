@@ -1,40 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  stokes
-%global packver   1.1-3
+%global packname  iTensor
+%global packver   0.99.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          0.99.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Exterior Calculus
+Summary:          ICA-Based Matrix/Tensor Decomposition
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-permutations >= 1.0.4
-BuildRequires:    R-CRAN-spray >= 1.0.18
-BuildRequires:    R-CRAN-disordR >= 0.0.8
-BuildRequires:    R-CRAN-partitions 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mathjaxr 
-Requires:         R-CRAN-permutations >= 1.0.4
-Requires:         R-CRAN-spray >= 1.0.18
-Requires:         R-CRAN-disordR >= 0.0.8
-Requires:         R-CRAN-partitions 
+BuildRequires:    R-CRAN-rTensor 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-MASS 
 Requires:         R-methods 
-Requires:         R-CRAN-mathjaxr 
+Requires:         R-CRAN-rTensor 
+Requires:         R-stats 
 
 %description
-Provides functionality for working with tensors, alternating tensors,
-wedge products, Stokes's theorem, and related concepts from the exterior
-calculus.  Functionality for Grassman algebra is provided.  The canonical
-reference would be: M. Spivak (1965, ISBN:0-8053-9021-9) "Calculus on
-Manifolds".
+Some functions for performing ICA, MICA, and Multilinear ICA are
+implemented. ICA, MICA, and Multilinear ICA extract statistically
+independent components from single matrix, multiple matrices, and single
+tensor, respectively. For the details of these methods, see the reference
+section of GitHub README.md <https://github.com/rikenbit/iTensor>.
 
 %prep
 %setup -q -c -n %{packname}

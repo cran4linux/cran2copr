@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SuessR
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Suess and Laws Corrections for Marine Stable Carbon Isotope Data
 
@@ -21,10 +21,10 @@ Requires:         R-stats
 
 %description
 Generates region-specific Suess and Laws corrections for stable carbon
-isotope data from marine organisms collected between 1850 and 2020.
-Version 0.1.3 of 'SuessR' contains four built-in regions: the Bering Sea
-('Bering Sea'), the Aleutian archipelago ('Aleutians Islands'), the Gulf
-of Alaska ('Gulf of Alaska'), and the subpolar North Atlantic ('Subpolar
+isotope data from marine organisms collected between 1850 and 2021.
+Version 0.1.4 of 'SuessR' contains four built-in regions: the Bering Sea
+('Bering Sea'), the Aleutian archipelago ('Aleutian Islands'), the Gulf of
+Alaska ('Gulf of Alaska'), and the subpolar North Atlantic ('Subpolar
 North Atlantic'). Users can supply their own environmental data for
 regions currently not built into the package to generate corrections for
 those regions.
@@ -37,6 +37,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

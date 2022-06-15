@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  butcher
-%global packver   0.1.5
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Butcher
 
@@ -13,29 +13,29 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 2.1.1
-BuildRequires:    R-CRAN-usethis >= 1.5.0
+BuildRequires:    R-CRAN-cli >= 3.3.0
+BuildRequires:    R-CRAN-tibble >= 3.1.7
 BuildRequires:    R-CRAN-lobstr >= 1.1.1
-BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-rlang >= 1.0.2
+BuildRequires:    R-CRAN-vctrs >= 0.4.1
+BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-tibble >= 2.1.1
-Requires:         R-CRAN-usethis >= 1.5.0
+Requires:         R-CRAN-cli >= 3.3.0
+Requires:         R-CRAN-tibble >= 3.1.7
 Requires:         R-CRAN-lobstr >= 1.1.1
-Requires:         R-CRAN-fs 
+Requires:         R-CRAN-rlang >= 1.0.2
+Requires:         R-CRAN-vctrs >= 0.4.1
+Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-methods 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
 Requires:         R-utils 
 
 %description
-Provides a set of five S3 generics to axe components of fitted model
-objects and help reduce the size of model objects saved to disk.
+Provides a set of S3 generics to axe components of fitted model objects
+and help reduce the size of model objects saved to disk.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,6 +45,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

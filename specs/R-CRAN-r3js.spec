@@ -1,43 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BFS
-%global packver   0.4.1
+%global packname  r3js
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Search and Download Data from the Swiss Federal Statistical Office (BFS)
+Summary:          'WebGL'-Based 3D Plotting using the 'three.js' Library
 
-License:          MIT + file LICENSE
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pxweb 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-tidyRSS 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-pxweb 
+BuildRequires:    R-CRAN-ellipsis 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-tidyRSS 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-vctrs 
 
 %description
-Search and download data from the Swiss Federal Statistical Office
-<https://www.bfs.admin.ch/>.
+Provides R and 'JavaScript' functions to allow 'WebGL'-based 3D plotting
+using the 'three.js' 'JavaScript' library. Interactivity through roll-over
+highlighting and toggle buttons is also supported.
 
 %prep
 %setup -q -c -n %{packname}

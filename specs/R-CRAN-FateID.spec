@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  stokes
-%global packver   1.1-3
+%global packname  FateID
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Exterior Calculus
+Summary:          Quantification of Fate Bias in Multipotent Progenitors
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,25 +16,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-permutations >= 1.0.4
-BuildRequires:    R-CRAN-spray >= 1.0.18
-BuildRequires:    R-CRAN-disordR >= 0.0.8
-BuildRequires:    R-CRAN-partitions 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mathjaxr 
-Requires:         R-CRAN-permutations >= 1.0.4
-Requires:         R-CRAN-spray >= 1.0.18
-Requires:         R-CRAN-disordR >= 0.0.8
-Requires:         R-CRAN-partitions 
-Requires:         R-methods 
-Requires:         R-CRAN-mathjaxr 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-locfit 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-pheatmap 
+BuildRequires:    R-CRAN-princurve 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-Rtsne 
+BuildRequires:    R-CRAN-som 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-umap 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-locfit 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-pheatmap 
+Requires:         R-CRAN-princurve 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-Rtsne 
+Requires:         R-CRAN-som 
+Requires:         R-stats 
+Requires:         R-CRAN-umap 
+Requires:         R-utils 
 
 %description
-Provides functionality for working with tensors, alternating tensors,
-wedge products, Stokes's theorem, and related concepts from the exterior
-calculus.  Functionality for Grassman algebra is provided.  The canonical
-reference would be: M. Spivak (1965, ISBN:0-8053-9021-9) "Calculus on
-Manifolds".
+Application of 'FateID' allows computation and visualization of cell fate
+bias for multi-lineage single cell transcriptome data. Herman, J.S.,
+Sagar, Grün D. (2018) <DOI:10.1038/nmeth.4662>.
 
 %prep
 %setup -q -c -n %{packname}
