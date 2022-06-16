@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rpact
-%global packver   3.2.3
+%global packver   3.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.3
+Version:          3.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Confirmatory Adaptive Clinical Trial Design and Analysis
 

@@ -1,55 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  webchem
-%global packver   1.1.3
+%global packname  simodels
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Chemical Information from the Web
+Summary:          Flexible Framework for Developing Spatial Interaction Models
 
-License:          MIT + file LICENSE
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-od >= 0.4.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-data.tree 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-geodist 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-stringr 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-od >= 0.4.0
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-data.tree 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-geodist 
 Requires:         R-CRAN-rlang 
-Requires:         R-utils 
+Requires:         R-CRAN-sf 
 
 %description
-Chemical information from around the web. This package interacts with a
-suite of web services for chemical information. Sources include: Alan
-Wood's Compendium of Pesticide Common Names, Chemical Identifier Resolver,
-ChEBI, Chemical Translation Service, ChemIDplus, ChemSpider, ETOX,
-Flavornet, NIST Chemistry WebBook, OPSIN, PAN Pesticide Database, PubChem,
-SRS, Wikidata.
+Develop spatial interaction models (SIMs).  SIMs predict the amount of
+interaction, for example number of trips per day, between geographic
+entities representing trip origins and destinations. Contains functions
+for creating origin-destination datasets from geographic input datasets
+and calculating movement between origin-destination pairs with
+constrained, production-constrained, and attraction-constrained models
+(Wilson 1979) <doi:10.1068/a030001>.
 
 %prep
 %setup -q -c -n %{packname}

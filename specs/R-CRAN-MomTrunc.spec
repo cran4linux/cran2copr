@@ -1,45 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  funcharts
-%global packver   1.2.0
+%global packname  MomTrunc
+%global packver   6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functional Control Charts
+Summary:          Moments of Folded and Doubly Truncated Multivariate Distributions
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-fda 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-CRAN-matrixStats 
-Requires:         R-CRAN-fda 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
-Requires:         R-parallel 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-RSpectra 
-Requires:         R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-tlrmvnmvt >= 1.1.0
+BuildRequires:    R-CRAN-mvtnorm >= 1.0.11
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-hypergeo 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-tlrmvnmvt >= 1.1.0
+Requires:         R-CRAN-mvtnorm >= 1.0.11
+Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-hypergeo 
 
 %description
-Provides functional control charts for statistical process monitoring of
-functional data, using the methods of Capezza et al. (2020)
-<doi:10.1002/asmb.2507> and Centofanti et al. (2020)
-<doi:10.1080/00401706.2020.1753581>.
+It computes arbitrary products moments (mean vector and
+variance-covariance matrix), for some double truncated (and folded)
+multivariate distributions. These distributions belong to the family of
+selection elliptical distributions, which includes well known skewed
+distributions as the unified skew-t distribution (SUT) and its particular
+cases as the extended skew-t (EST), skew-t (ST) and the symmetric
+student-t (T) distribution. Analogous normal cases unified skew-normal
+(SUN), extended skew-normal (ESN), skew-normal (SN), and symmetric normal
+(N) are also included. Density, probabilities and random deviates are also
+offered for these members.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  moreparty
-%global packver   0.2.1
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Toolbox for Conditional Inference Random Forests
+Summary:          A Toolbox for Conditional Inference Trees and Random Forests
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -29,6 +29,12 @@ BuildRequires:    R-CRAN-pdp
 BuildRequires:    R-CRAN-vip 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyWidgets 
+BuildRequires:    R-CRAN-rclipboard 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-datamods 
+BuildRequires:    R-CRAN-phosphoricons 
 Requires:         R-CRAN-party 
 Requires:         R-CRAN-partykit 
 Requires:         R-CRAN-varImp 
@@ -42,14 +48,21 @@ Requires:         R-CRAN-pdp
 Requires:         R-CRAN-vip 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyWidgets 
+Requires:         R-CRAN-rclipboard 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-datamods 
+Requires:         R-CRAN-phosphoricons 
 
 %description
-Additions to 'party' package : tools for the interpretation of forests
-(surrogate trees, prototypes, etc.), feature selection (see Gregorutti et
-al (2017) <arXiv:1310.5726>, Hapfelmeier and Ulm (2013)
-<doi:10.1016/j.csda.2012.09.020>, Altmann et al (2010)
+Additions to 'party' and 'partykit' packages : tools for the
+interpretation of forests (surrogate trees, prototypes, etc.), feature
+selection (see Gregorutti et al (2017) <arXiv:1310.5726>, Hapfelmeier and
+Ulm (2013) <doi:10.1016/j.csda.2012.09.020>, Altmann et al (2010)
 <doi:10.1093/bioinformatics/btq134>) and parallelized versions of
-conditional forest and variable importance functions.
+conditional forest and variable importance functions. Also modules and a
+shiny app for conditional inference trees.
 
 %prep
 %setup -q -c -n %{packname}

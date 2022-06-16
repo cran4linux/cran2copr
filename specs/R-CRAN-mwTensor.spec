@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mwTensor
-%global packver   0.99.5
+%global packver   0.99.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.5
+Version:          0.99.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Way Component Analysis
 
@@ -21,14 +21,14 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-rTensor 
 BuildRequires:    R-CRAN-nnTensor 
 BuildRequires:    R-CRAN-ccTensor 
-BuildRequires:    R-CRAN-ica 
+BuildRequires:    R-CRAN-iTensor 
 BuildRequires:    R-CRAN-igraph 
 Requires:         R-methods 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-rTensor 
 Requires:         R-CRAN-nnTensor 
 Requires:         R-CRAN-ccTensor 
-Requires:         R-CRAN-ica 
+Requires:         R-CRAN-iTensor 
 Requires:         R-CRAN-igraph 
 
 %description

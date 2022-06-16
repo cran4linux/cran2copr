@@ -1,51 +1,52 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BayesTools
-%global packver   0.2.11
+%global packname  germinationmetrics
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.11
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Bayesian Analyses
+Summary:          Seed Germination Indices and Curve Fitting
 
-License:          GPL-3
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-extraDistr 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-rjags 
-BuildRequires:    R-CRAN-runjags 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-bridgesampling 
-BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-mathjaxr 
+BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-extraDistr 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-rjags 
-Requires:         R-CRAN-runjags 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-bridgesampling 
-Requires:         R-parallel 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-mathjaxr 
+Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-utils 
+Requires:         R-stats 
 
 %description
-Provides tools for conducting Bayesian analyses. The package contains
-functions for creating a wide range of prior distribution objects, mixing
-posterior samples from 'JAGS' and 'Stan' models, plotting posterior
-distributions, and etc... The tools for working with prior distribution
-span from visualization, generating 'JAGS' and 'bridgesampling' syntax to
-basic functions such as rng, quantile, and distribution functions.
+Provides functions to compute various germination indices such as
+germinability, median germination time, mean germination time, mean
+germination rate, speed of germination, Timson's index, germination value,
+coefficient of uniformity of germination, uncertainty of germination
+process, synchrony of germination etc. from germination count data.
+Includes functions for fitting cumulative seed germination curves using
+four-parameter hill function and computation of associated parameters. See
+the vignette for more, including full list of citations for the methods
+implemented.
 
 %prep
 %setup -q -c -n %{packname}

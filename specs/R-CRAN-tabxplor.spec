@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tabxplor
-%global packver   1.0.3
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          User-Friendly Tables with Color Helpers for Data Exploration
 
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-forcats >= 0.5.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-purrr >= 0.3.0
 BuildRequires:    R-CRAN-vctrs >= 0.3.0
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-stats >= 4.0.0
 Requires:         R-CRAN-tibble >= 3.1.0
 Requires:         R-CRAN-cli >= 2.0.0
@@ -50,13 +51,17 @@ Requires:         R-CRAN-forcats >= 0.5.0
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-purrr >= 0.3.0
 Requires:         R-CRAN-vctrs >= 0.3.0
+Requires:         R-CRAN-data.table 
 
 %description
 Make it easy to deal with multiple cross-tables in data exploration, by
 creating them, manipulating them, and adding color helpers to highlight
-important informations. All functions are "tidy", pipe-friendly, and
-render data frames which can be easily manipulated. Tables can be exported
-to Excel and in html with formats and colors.
+important informations (differences from totals, comparisons between lines
+or columns, contributions to variance, margins of error, etc.). All
+functions are pipe-friendly and render data frames which can be easily
+manipulated. In the same time, time-taking operations are done with
+`data.table` to go faster with big dataframes. Tables can be exported to
+Excel and in html with formats and colors.
 
 %prep
 %setup -q -c -n %{packname}

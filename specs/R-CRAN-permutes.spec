@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  permutes
-%global packver   2.4
+%global packver   2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4
+Version:          2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Permutation Tests for Time Series Data
 
@@ -17,7 +17,11 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-plyr 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Helps you determine the analysis window to use when analyzing

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  AgroR
-%global packver   1.2.9
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.9
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Experimental Statistics and Graphics for Agricultural Sciences
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-multcompView
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-drc 
 BuildRequires:    R-CRAN-dunn.test 
+BuildRequires:    R-CRAN-gtools 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-nortest 
 Requires:         R-CRAN-lme4 
@@ -44,6 +45,7 @@ Requires:         R-CRAN-multcompView
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-drc 
 Requires:         R-CRAN-dunn.test 
+Requires:         R-CRAN-gtools 
 
 %description
 Performs the analysis of completely randomized experimental designs (CRD),

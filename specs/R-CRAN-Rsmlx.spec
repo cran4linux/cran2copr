@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Rsmlx
-%global packver   4.0.2
+%global packver   5.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.2
+Version:          5.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Speaks 'Monolix'
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-utils 
@@ -32,6 +33,7 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
 
 %description
 Provides methods for model building and model evaluation of mixed effects

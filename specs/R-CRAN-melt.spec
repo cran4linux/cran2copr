@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  melt
-%global packver   1.5.1
+%global packver   1.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Empirical Likelihood Tests
 
@@ -25,13 +25,11 @@ Requires:         R-methods
 Requires:         R-stats 
 
 %description
-Performs multiple empirical likelihood tests for regression analysis. Much
-of its functionality and syntax mimics the corresponding base R functions.
-The core computational routines are implemented using the 'Eigen' C++
-library and 'RcppEigen' interface, with OpenMP for parallel computation.
-Additional functions are available for multiple testing for the analysis
-of experimental designs. Details of the testing procedures are given in
-Kim et al. (2021) <arxiv:2112.09206>.
+Performs multiple empirical likelihood tests for linear and generalized
+linear models.  The core computational routines are implemented using the
+'Eigen' C++ library and 'RcppEigen' interface, with OpenMP for parallel
+computation. Details of multiple testing procedures are given in Kim et
+al. (2021) <arxiv:2112.09206>.
 
 %prep
 %setup -q -c -n %{packname}

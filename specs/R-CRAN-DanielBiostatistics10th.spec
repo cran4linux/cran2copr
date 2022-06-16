@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DanielBiostatistics10th
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Wayne W. Daniel's Biostatistics, Tenth Edition
 
@@ -18,12 +18,16 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-latex2exp 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-latex2exp 
+Requires:         R-methods 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-scales 
 

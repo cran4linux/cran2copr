@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  AlphaSimR
-%global packver   1.1.2
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Breeding Program Simulations
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.7.500.0.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.7
 BuildRequires:    R-methods 

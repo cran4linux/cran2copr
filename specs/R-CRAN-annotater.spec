@@ -1,34 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  support
-%global packver   0.1.6
+%global packname  annotater
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Support Points
+Summary:          Annotate Package Load Calls
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.4
-BuildRequires:    R-CRAN-randtoolbox 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 0.12.4
-Requires:         R-CRAN-randtoolbox 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rlang 
 
 %description
-The functions sp() and sp_seq() compute the support points in Mak and
-Joseph (2018) <DOI:10.1214/17-AOS1629>. Support points can be used as a
-representative sample of a desired distribution, or a representative
-reduction of a big dataset (e.g., an "optimal" thinning of Markov-chain
-Monte Carlo sample chains). This work was supported by USARO grant
-W911NF-14-1-0024 and NSF DMS grant 1712642.
+Provides non-invasive annotation of package load calls such as
+code{library()}, code{p_load()}, and code{require()} so that we can
+have an idea of what the packages we are loading are meant for.
 
 %prep
 %setup -q -c -n %{packname}

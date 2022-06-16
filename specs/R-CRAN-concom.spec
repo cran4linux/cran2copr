@@ -1,38 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dail
-%global packver   1.3.1
+%global packname  concom
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data from Access to Information Law
+Summary:          Connected Components of an Undirected Graph
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stopwords 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidytext 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stopwords 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidytext 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8
+BuildRequires:    R-CRAN-english 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-Rvcg 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 1.0.8
+Requires:         R-CRAN-english 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-Rvcg 
 
 %description
-Downloads the public data available from the Brazilian Access to
-Information Law and and performs a search on information requests and
-appeals made since 2015.
+Provides a function for fast computation of the connected components of an
+undirected graph (though not faster than the components() function of the
+'igraph' package) from the edges or the adjacency matrix of the graph.
+Based on this one, a function to compute the connected components of a
+triangle 'rgl' mesh is also provided.
 
 %prep
 %setup -q -c -n %{packname}

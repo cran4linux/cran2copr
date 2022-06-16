@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ppmSuite
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Models that Employ a Product Partition Distribution as a Prior on Partitions
 
@@ -26,7 +26,7 @@ covariate values are missing, then the approach detailed in Page, G.L.;
 Quintana, F.A.; Mueller, P (2020) <doi:10.1080/10618600.2021.1999824> is
 employed.  Also included in the package is a function that fits a Gaussian
 likelihood spatial product partition model that is detailed in Page, G.L.;
-Quintana, F.A. (2016) <doi:10.1214/15-BA971>, and multivariate change
+Quintana, F.A. (2016) <doi:10.1214/15-BA971>, and multivariate PPM change
 point models that are detailed in Quinlan, J.J.; Page, G.L.; Castro, L.M.
 (2021) <arXiv:2201.07830>.
 

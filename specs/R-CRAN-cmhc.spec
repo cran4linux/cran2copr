@@ -1,55 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  webchem
-%global packver   1.1.3
+%global packname  cmhc
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Chemical Information from the Web
+Summary:          Access, Retrieve, and Work with CMHC Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-dplyr >= 1.0
+BuildRequires:    R-CRAN-digest >= 0.1
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-data.tree 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-aws.s3 
+Requires:         R-CRAN-dplyr >= 1.0
+Requires:         R-CRAN-digest >= 0.1
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringr 
-Requires:         R-methods 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-data.tree 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-rlang 
-Requires:         R-utils 
+Requires:         R-CRAN-aws.s3 
 
 %description
-Chemical information from around the web. This package interacts with a
-suite of web services for chemical information. Sources include: Alan
-Wood's Compendium of Pesticide Common Names, Chemical Identifier Resolver,
-ChEBI, Chemical Translation Service, ChemIDplus, ChemSpider, ETOX,
-Flavornet, NIST Chemistry WebBook, OPSIN, PAN Pesticide Database, PubChem,
-SRS, Wikidata.
+Wrapper around the Canadian Mortgage and Housing Corporation (CMHC) web
+interface. It enables programmatic and reproducible access to a wide
+variety of housing data from CMHC.
 
 %prep
 %setup -q -c -n %{packname}

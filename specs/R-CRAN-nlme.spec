@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  nlme
-%global packver   3.1-157
+%global packver   3.1-158
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.157
+Version:          3.1.158
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear and Nonlinear Mixed Effects Models
 

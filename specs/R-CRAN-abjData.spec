@@ -1,38 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dail
-%global packver   1.3.1
+%global packname  abjData
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data from Access to Information Law
+Summary:          Databases Used Routinely by the Brazilian Jurimetrics Association
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.1
+Requires:         R-core >= 3.3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stopwords 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidytext 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stopwords 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidytext 
 
 %description
-Downloads the public data available from the Brazilian Access to
-Information Law and and performs a search on information requests and
-appeals made since 2015.
+The Brazilian Jurimetrics Association (ABJ in Portuguese, see
+<https://abj.org.br/> for more information) is a non-profit organization
+which aims to investigate and promote the use of statistics and
+probability in the study of Law and its institutions. This package has a
+set of datasets commonly used in our book.
 
 %prep
 %setup -q -c -n %{packname}

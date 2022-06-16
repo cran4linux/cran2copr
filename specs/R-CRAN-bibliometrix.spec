@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bibliometrix
-%global packver   3.2.1
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.1
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive Science Mapping Analysis
 
@@ -71,14 +71,13 @@ Requires:         R-CRAN-tidytext
 
 %description
 Tool for quantitative research in scientometrics and bibliometrics. It
-provides various routines for importing bibliographic data from 'SCOPUS'
-(<https://scopus.com>), 'Clarivate Analytics Web of Science'
-(<https://www.webofknowledge.com/>), 'Digital Science Dimensions'
-(<https://www.dimensions.ai/>), 'Cochrane Library'
-(<https://www.cochranelibrary.com/>), 'Lens' (<https://lens.org>), and
-'PubMed' (<https://pubmed.ncbi.nlm.nih.gov/>) databases, performing
-bibliometric analysis and building networks for co-citation, coupling,
-scientific collaboration and co-word analysis.
+provides various routines for importing bibliographic data from 'SCOPUS',
+'Clarivate Analytics Web of Science' (<https://www.webofknowledge.com/>),
+'Digital Science Dimensions' (<https://www.dimensions.ai/>), 'Cochrane
+Library' (<https://www.cochranelibrary.com/>), 'Lens'
+(<https://lens.org>), and 'PubMed' (<https://pubmed.ncbi.nlm.nih.gov/>)
+databases, performing bibliometric analysis and building networks for
+co-citation, coupling, scientific collaboration and co-word analysis.
 
 %prep
 %setup -q -c -n %{packname}

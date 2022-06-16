@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  inflection
-%global packver   1.3.5
+%global packver   1.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.5
-Release:          3%{?dist}%{?buildtag}
+Version:          1.3.6
+Release:          1%{?dist}%{?buildtag}
 Summary:          Finds the Inflection Point of a Curve
 
 License:          GPL (>= 2)
@@ -28,14 +28,23 @@ Requires:         R-grDevices
 %description
 Implementation of methods Extremum Surface Estimator (ESE) and Extremum
 Distance Estimator (EDE) to identify the inflection point of a curve .
-Christopoulos, DT (2014) <arXiv:1206.5478v2 [math.NA]> . Christopoulos, DT
-(2016)
+Christopoulos, DT (2014) <doi:10.48550/arXiv.1206.5478> . Christopoulos,
+DT (2016)
 <https://veltech.edu.in/wp-content/uploads/2016/04/Paper-04-2016.pdf> .
 Christopoulos, DT (2016) <doi:10.2139/ssrn.3043076> .
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -45,16 +54,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%doc %{rlibdir}/%{packname}/NEWS.md
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/doc
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

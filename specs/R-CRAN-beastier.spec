@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  beastier
-%global packver   2.4.9
+%global packver   2.4.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.9
+Version:          2.4.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Call 'BEAST2'
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-beautier >= 2.6.1
+BuildRequires:    R-CRAN-beautier >= 2.6.4
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-assertive 
 BuildRequires:    R-CRAN-devtools 
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-rJava
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-beautier >= 2.6.1
+Requires:         R-CRAN-beautier >= 2.6.4
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-assertive 
 Requires:         R-CRAN-devtools 
