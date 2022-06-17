@@ -1,44 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  additive
-%global packver   0.0.5
+%global packname  ycevo
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bindings for Additive TidyModels
+Summary:          Nonparametric Estimation of the Yield Curve Evolution
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-mgcv >= 1.8.40
-BuildRequires:    R-CRAN-parsnip >= 1.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.18
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-mgcv >= 1.8.40
-Requires:         R-CRAN-parsnip >= 1.0.0
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.18
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
 
 %description
-Fit Generalized Additive Models (GAM) using 'mgcv' with
-'parsnip'/'tidymodels' via 'additive' <doi:10.5281/zenodo.6654298>.
-'tidymodels' is a collection of packages for machine learning; see Kuhn
-and Wickham (2020) <https://www.tidymodels.org>). The technical details of
-'mgcv' are described in Wood (2017) <doi:10.1201/9781315370279>.
+Nonparametric estimation of the discount rate and yield curve. Koo, B., La
+Vecchia, D., & Linton, O. B. (2021) <doi:10.1016/j.jeconom.2020.04.014>
+describe the application with the Center for Research in Security Prices
+(CRSP) Bond Data and document the methods of this package.
 
 %prep
 %setup -q -c -n %{packname}

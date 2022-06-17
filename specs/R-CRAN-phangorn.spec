@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  phangorn
-%global packver   2.8.1
+%global packver   2.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.1
+Version:          2.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Phylogenetic Reconstruction and Analysis
 
@@ -18,6 +18,7 @@ Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-ape >= 5.5
 BuildRequires:    R-CRAN-igraph >= 1.0
 BuildRequires:    R-CRAN-fastmatch 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-Matrix 
@@ -30,6 +31,7 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-ape >= 5.5
 Requires:         R-CRAN-igraph >= 1.0
 Requires:         R-CRAN-fastmatch 
+Requires:         R-CRAN-generics 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-Matrix 
@@ -42,10 +44,10 @@ Requires:         R-utils
 
 %description
 Allows for estimation of phylogenetic trees and networks using Maximum
-Likelihood, Maximum Parsimony, distance methods and Hadamard conjugation.
-Offers methods for tree comparison, model selection and visualization of
-phylogenetic networks as described in Schliep et al. (2017)
-<doi:10.1111/2041-210X.12760>.
+Likelihood, Maximum Parsimony, distance methods and Hadamard conjugation
+(Schliep 2011). Offers methods for tree comparison, model selection and
+visualization of phylogenetic networks as described in Schliep et al.
+(2017).
 
 %prep
 %setup -q -c -n %{packname}

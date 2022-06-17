@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  PRSPGx
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Construct PGx PRS
 
@@ -18,6 +18,7 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-glmnet >= 4.0.2
 BuildRequires:    R-methods >= 3.6.3
+BuildRequires:    R-CRAN-Rfast >= 1.9.9
 BuildRequires:    R-CRAN-bigsnpr >= 1.5.2
 BuildRequires:    R-CRAN-gglasso >= 1.5
 BuildRequires:    R-CRAN-MCMCpack >= 1.4.6
@@ -27,12 +28,14 @@ BuildRequires:    R-CRAN-bigstatsr >= 1.2.3
 BuildRequires:    R-CRAN-Matrix >= 1.2.18
 BuildRequires:    R-CRAN-mvtnorm >= 1.1.0
 BuildRequires:    R-CRAN-propagate >= 1.0.6
+BuildRequires:    R-CRAN-matrixcalc >= 1.0.3
 BuildRequires:    R-CRAN-lmtest >= 0.9.37
 BuildRequires:    R-CRAN-GIGrvg >= 0.5
 BuildRequires:    R-CRAN-bigsparser >= 0.4.0
 BuildRequires:    R-CRAN-bigparallelr >= 0.2.3
 Requires:         R-CRAN-glmnet >= 4.0.2
 Requires:         R-methods >= 3.6.3
+Requires:         R-CRAN-Rfast >= 1.9.9
 Requires:         R-CRAN-bigsnpr >= 1.5.2
 Requires:         R-CRAN-gglasso >= 1.5
 Requires:         R-CRAN-MCMCpack >= 1.4.6
@@ -42,6 +45,7 @@ Requires:         R-CRAN-bigstatsr >= 1.2.3
 Requires:         R-CRAN-Matrix >= 1.2.18
 Requires:         R-CRAN-mvtnorm >= 1.1.0
 Requires:         R-CRAN-propagate >= 1.0.6
+Requires:         R-CRAN-matrixcalc >= 1.0.3
 Requires:         R-CRAN-lmtest >= 0.9.37
 Requires:         R-CRAN-GIGrvg >= 0.5
 Requires:         R-CRAN-bigsparser >= 0.4.0

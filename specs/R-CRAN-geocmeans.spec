@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  geocmeans
-%global packver   0.2.0
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Implementing Methods for Spatial Fuzzy Unsupervised Classification
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-Rdpack >= 2.1.1
 BuildRequires:    R-CRAN-leaflet >= 2.0.4.1
 BuildRequires:    R-CRAN-reldist >= 1.6.6
 BuildRequires:    R-CRAN-shiny >= 1.6.0
-BuildRequires:    R-CRAN-rgdal >= 1.5.23
 BuildRequires:    R-CRAN-reshape2 >= 1.4.4
 BuildRequires:    R-CRAN-sp >= 1.4.4
 BuildRequires:    R-CRAN-future.apply >= 1.4.0
@@ -49,7 +48,6 @@ Requires:         R-CRAN-Rdpack >= 2.1.1
 Requires:         R-CRAN-leaflet >= 2.0.4.1
 Requires:         R-CRAN-reldist >= 1.6.6
 Requires:         R-CRAN-shiny >= 1.6.0
-Requires:         R-CRAN-rgdal >= 1.5.23
 Requires:         R-CRAN-reshape2 >= 1.4.4
 Requires:         R-CRAN-sp >= 1.4.4
 Requires:         R-CRAN-future.apply >= 1.4.0

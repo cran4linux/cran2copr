@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  jfa
-%global packver   0.6.3
+%global packver   0.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian and Classical Audit Sampling
 
@@ -24,15 +24,15 @@ Requires:         R-graphics
 Requires:         R-stats 
 
 %description
-Implements the audit sampling workflow as discussed in Derks et al. (2019)
-<doi:10.31234/osf.io/9f6ub>. The package makes it easy for an auditor to
-plan a statistical sample, select the sample from the population, and
-evaluate the misstatement in the sample compliant with the International
-Standards on Auditing. Next to classical audit sampling methodology, the
-package implements Bayesian equivalents of these methods whose statistical
-underpinnings are described in Derks et al. (2021)
-<doi:10.1111/ijau.12240> and Derks et al. (2021)
-<doi:10.31234/osf.io/kzqp5>.
+Provides statistical audit sampling methods as implemented in JASP for
+Audit (Derks et al., 2021 <doi:10.21105/joss.02733>). The package makes it
+easy for an auditor to plan a statistical sample, select the sample from
+the population, and evaluate the misstatement in the sample compliant with
+the International Standards on Auditing. Next to classical audit sampling
+methodology, the package implements Bayesian equivalents of these methods
+whose statistical underpinnings are described in Derks et al. (2021)
+<doi:10.1111/ijau.12240>, Derks et al. (2021) <doi:10.31234/osf.io/kzqp5>,
+and Derks et al. (2022) <doi:10.31234/osf.io/8nf3e>.
 
 %prep
 %setup -q -c -n %{packname}

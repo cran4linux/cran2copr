@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  CR2
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compute Cluster Robust Standard Errors with Degrees of Freedom Adjustments
 
@@ -33,8 +33,10 @@ with degrees of freedom adjustments. Standard errors are computed based on
 'Liang and Zeger' (1986) <doi:10.1093/biomet/73.1.13> and Bell and
 'McCaffrey'
 <https://www150.statcan.gc.ca/n1/en/pub/12-001-x/2002002/article/9058-eng.pdf?st=NxMjN1YZ>.
-Functions used in Huang and Li <doi:10.3758/s13428-021-01627-0> and Huang,
-'Wiedermann', and 'Zhang' (forthcoming: Multivariate Behavioral Research).
+Functions used in Huang and Li <doi:10.3758/s13428-021-01627-0>, Huang,
+'Wiedermann', and 'Zhang' <doi:10.1080/00273171.2022.2077290>, and Huang,
+'Zhang', and Li (forthcoming: Journal of Research on Educational
+Effectiveness).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rspa
-%global packver   0.2.6
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adapt Numerical Records to Fit (in)Equality Restrictions
 

@@ -1,44 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  additive
-%global packver   0.0.5
+%global packname  alphahull
+%global packver   2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bindings for Additive TidyModels
+Summary:          Generalization of the Convex Hull of a Sample of Points in the Plane
 
-License:          MIT + file LICENSE
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mgcv >= 1.8.40
-BuildRequires:    R-CRAN-parsnip >= 1.0.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-mgcv >= 1.8.40
-Requires:         R-CRAN-parsnip >= 1.0.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-interp 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-sgeostat 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.random 
+BuildRequires:    R-CRAN-splancs 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-interp 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-sgeostat 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.random 
+Requires:         R-CRAN-splancs 
 
 %description
-Fit Generalized Additive Models (GAM) using 'mgcv' with
-'parsnip'/'tidymodels' via 'additive' <doi:10.5281/zenodo.6654298>.
-'tidymodels' is a collection of packages for machine learning; see Kuhn
-and Wickham (2020) <https://www.tidymodels.org>). The technical details of
-'mgcv' are described in Wood (2017) <doi:10.1201/9781315370279>.
+Computation of the alpha-shape and alpha-convex hull of a given sample of
+points in the plane. The concepts of alpha-shape and alpha-convex hull
+generalize the definition of the convex hull of a finite set of points.
+The programming is based on the duality between the Voronoi diagram and
+Delaunay triangulation. The package also includes a function that returns
+the Delaunay mesh of a given sample of points and its dual Voronoi diagram
+in one single object.
 
 %prep
 %setup -q -c -n %{packname}

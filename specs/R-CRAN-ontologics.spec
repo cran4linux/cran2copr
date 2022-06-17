@@ -1,44 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  additive
-%global packver   0.0.5
+%global packname  ontologics
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bindings for Additive TidyModels
+Summary:          Code-Logics to Handle Ontologies
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mgcv >= 1.8.40
-BuildRequires:    R-CRAN-parsnip >= 1.0.0
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-mgcv >= 1.8.40
-Requires:         R-CRAN-parsnip >= 1.0.0
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
-Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Fit Generalized Additive Models (GAM) using 'mgcv' with
-'parsnip'/'tidymodels' via 'additive' <doi:10.5281/zenodo.6654298>.
-'tidymodels' is a collection of packages for machine learning; see Kuhn
-and Wickham (2020) <https://www.tidymodels.org>). The technical details of
-'mgcv' are described in Wood (2017) <doi:10.1201/9781315370279>.
+Provides tools to build and work with an ontology of linked (open) data in
+a tidy workflow. It is inspired by the FAO caliper platform and makes use
+of the Simple Knowledge Organisation System (SKOS).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  simputation
-%global packver   0.2.7
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Imputation
 
@@ -13,18 +13,28 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-gower 
+BuildRequires:    R-CRAN-VIM 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-missForest 
+BuildRequires:    R-CRAN-norm 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-gower 
+Requires:         R-CRAN-VIM 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-missForest 
+Requires:         R-CRAN-norm 
 
 %description
 Easy to use interfaces to a number of imputation methods that fit in the
