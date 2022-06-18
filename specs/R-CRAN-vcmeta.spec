@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  vcmeta
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Varying Coefficient Meta-Analysis
 
@@ -32,12 +32,8 @@ comparisons, general linear effect size contrasts, and linear models of
 effect sizes based on varying coefficient methods can be used to describe
 effect size heterogeneity. Varying coefficient meta-analysis methods do
 not require the unrealistic assumptions of the traditional fixed-effect
-and random-effects meta-analysis methods. For details, see: Bonett (2008)
-<doi:10.1037/a0012868>, Bonett (2009) <doi:10.1037/a0016619>, Bonett
-(2010) <doi:10.1037/a0020142>, Bonett & Price (2014)
-<doi:10.1111/bmsp.12024>, Bonett & Price (2015) <doi:10.1111/bmsp.12024>,
-Bonett (2020) <doi:10.1111/bmsp.12189>, Bonett (2021)
-<doi:10.1177/1094428120911088>.
+and random-effects meta-analysis methods. For details see: Statistical
+Methods for Psychologists, Volume 5, <https://dgbonett.sites.ucsc.edu/>.
 
 %prep
 %setup -q -c -n %{packname}

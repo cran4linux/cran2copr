@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  citrus
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Customer Intelligence Tool for Rapid Understandable Segmentation
 
@@ -16,30 +16,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rpart >= 4.1.15
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-rpart.plot >= 3.0.7
+BuildRequires:    R-CRAN-tibble >= 3.0.0
+BuildRequires:    R-CRAN-GGally >= 2.0.0
+BuildRequires:    R-CRAN-stringr >= 1.3.0
+BuildRequires:    R-CRAN-treeClust >= 1.1.7
+BuildRequires:    R-CRAN-RColorBrewer >= 1.1.2
+BuildRequires:    R-CRAN-dplyr >= 1.0.6
+BuildRequires:    R-CRAN-rlang >= 0.4.9
 BuildRequires:    R-CRAN-clustMixType >= 0.1.16
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-GGally 
-BuildRequires:    R-CRAN-treeClust 
-BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rpart.plot 
-BuildRequires:    R-CRAN-rpart.utils 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-rpart >= 4.1.15
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-rpart.plot >= 3.0.7
+Requires:         R-CRAN-tibble >= 3.0.0
+Requires:         R-CRAN-GGally >= 2.0.0
+Requires:         R-CRAN-stringr >= 1.3.0
+Requires:         R-CRAN-treeClust >= 1.1.7
+Requires:         R-CRAN-RColorBrewer >= 1.1.2
+Requires:         R-CRAN-dplyr >= 1.0.6
+Requires:         R-CRAN-rlang >= 0.4.9
 Requires:         R-CRAN-clustMixType >= 0.1.16
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-GGally 
-Requires:         R-CRAN-treeClust 
-Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rpart.plot 
-Requires:         R-CRAN-rpart.utils 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-rlang 
+Requires:         R-methods 
 
 %description
 A tool to easily run and visualise supervised and unsupervised state of

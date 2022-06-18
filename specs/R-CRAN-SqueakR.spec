@@ -1,49 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  skynet
-%global packver   1.4.3
+%global packname  SqueakR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generates Networks from BTS Data
+Summary:          An Experiment Superstructure for 'DeepSqueak'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggcorrplot 
+BuildRequires:    R-CRAN-ggeasy 
+BuildRequires:    R-CRAN-gghighlight 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-RCurl 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-igraph 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rlist 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggcorrplot 
+Requires:         R-CRAN-ggeasy 
+Requires:         R-CRAN-gghighlight 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-maps 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rlist 
 
 %description
-A flexible tool that allows generating bespoke air transport statistics
-for urban studies based on publicly available data from the Bureau of
-Transport Statistics (BTS) in the United States
-<https://www.transtats.bts.gov/databases.asp?Z1qr_VQ=E&Z1qr_Qr5p=N8vn6v10&f7owrp6_VQF=D>.
+A collection of functions intended to produce convenient visualizations
+for rodent vocalizations exported from 'DeepSqueak'. These visualizations
+include call frequency-clustered graphs, and density graphs grouped by
+frequency, custom labels identified in 'DeepSqueak', and call duration.
 
 %prep
 %setup -q -c -n %{packname}

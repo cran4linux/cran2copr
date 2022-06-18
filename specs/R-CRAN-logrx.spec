@@ -1,52 +1,53 @@
 %global __brp_check_rpaths %{nil}
-%global packname  spatialsample
-%global packver   0.2.0
+%global packname  logrx
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Resampling Infrastructure
+Summary:          A Logging Utility Focus on Clinical Trial Programming Workflows
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-vctrs >= 0.3.6
-BuildRequires:    R-CRAN-rsample >= 0.0.9
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-miniUI 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-sessioninfo 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-waiter 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-units 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-vctrs >= 0.3.6
-Requires:         R-CRAN-rsample >= 0.0.9
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-sf 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-miniUI 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-sessioninfo 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-waiter 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-units 
 
 %description
-Functions and classes for spatial resampling to use with the 'rsample'
-package, such as spatial cross-validation (Brenning, 2012)
-<doi:10.1109/IGARSS.2012.6352393>. The scope of 'rsample' and
-'spatialsample' is to provide the basic building blocks for creating and
-analyzing resamples of a spatial data set, but neither package includes
-functions for modeling or computing statistics. The resampled spatial data
-sets created by 'spatialsample' do not contain much overhead in memory.
+A utility to facilitate the logging and review of R programs in clinical
+trial programming workflows.
 
 %prep
 %setup -q -c -n %{packname}

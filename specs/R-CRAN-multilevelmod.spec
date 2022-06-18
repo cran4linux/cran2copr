@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  multilevelmod
-%global packver   0.2.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Wrappers for Multi-Level Models
 
@@ -16,14 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-parsnip >= 0.2.0
+BuildRequires:    R-CRAN-parsnip >= 1.0.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-parsnip >= 0.2.0
+Requires:         R-CRAN-parsnip >= 1.0.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-purrr 

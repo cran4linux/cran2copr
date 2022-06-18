@@ -1,36 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  reportROC
-%global packver   3.6
+%global packname  pfocal
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Easy Way to Report ROC Analysis
+Summary:          Fast Convolution of Matrices
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-pROC 
-BuildRequires:    R-CRAN-vcd 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-pROC 
-Requires:         R-CRAN-vcd 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 Requires:         R-methods 
 
 %description
-Provides an easy way to report the results of ROC analysis, including: 1.
-an ROC curve. 2. the value of Cutoff, AUC (Area Under Curve), ACC
-(accuracy), SEN (sensitivity), SPE (specificity), PLR (positive likelihood
-ratio), NLR (negative likelihood ratio), PPV (positive predictive value),
-NPV (negative predictive value), PPA (percentage of positive accordance),
-NPA (percentage of negative accordance), TPA (percentage of total
-accordance), KAPPA (kappa value).
+Provides functions to create and apply convolution kernels to rectangular
+data (matrix, raster). Implements calculations of convolutions in
+parallel, emphasizing performance over convolution function diversity.
+Moving window calculations are common in many fields, from image
+processing to raster data manipulation. The process of ingesting values in
+the neighborhood of a each cell in a grid, passing them through a
+function, and returning a reduced value, is embarrassingly parallel. This
+package implements this with parallel C code. In doing so, it provides a
+much faster option than other similarly aimed packages and functions.
 
 %prep
 %setup -q -c -n %{packname}

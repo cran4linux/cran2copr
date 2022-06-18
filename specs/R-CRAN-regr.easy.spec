@@ -1,49 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  skynet
-%global packver   1.4.3
+%global packname  regr.easy
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generates Networks from BTS Data
+Summary:          Easy Linear, Quadratic and Cubic Regression Models
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-RCurl 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stargazer 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-maps 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-stargazer 
 
 %description
-A flexible tool that allows generating bespoke air transport statistics
-for urban studies based on publicly available data from the Bureau of
-Transport Statistics (BTS) in the United States
-<https://www.transtats.bts.gov/databases.asp?Z1qr_VQ=E&Z1qr_Qr5p=N8vn6v10&f7owrp6_VQF=D>.
+Focused on linear, quadratic and cubic regression models, it has a
+function for calculating the models, obtaining a list with their
+parameters, and a function for making the graphs for the respective
+models.
 
 %prep
 %setup -q -c -n %{packname}

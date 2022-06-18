@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  hoopR
-%global packver   1.5.0
+%global packver   1.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions to Access Men's Basketball Play by Play Data
+Summary:          Access Men's Basketball Play by Play Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,7 +25,9 @@ BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-rvest >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-progressr >= 0.6.0
+BuildRequires:    R-CRAN-httr >= 0.5
 BuildRequires:    R-CRAN-rlang >= 0.4.0
+BuildRequires:    R-CRAN-purrr >= 0.3.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-future 
@@ -42,7 +44,9 @@ Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-rvest >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-progressr >= 0.6.0
+Requires:         R-CRAN-httr >= 0.5
 Requires:         R-CRAN-rlang >= 0.4.0
+Requires:         R-CRAN-purrr >= 0.3.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-future 

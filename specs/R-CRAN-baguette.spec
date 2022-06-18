@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  baguette
-%global packver   0.2.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Model Functions for Bagging
 
@@ -13,11 +13,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-parsnip >= 0.2.0
-BuildRequires:    R-CRAN-hardhat >= 0.1.4
+BuildRequires:    R-CRAN-hardhat >= 1.1.0
+BuildRequires:    R-CRAN-parsnip >= 1.0.0
 BuildRequires:    R-CRAN-butcher 
 BuildRequires:    R-CRAN-C50 
 BuildRequires:    R-CRAN-dials 
@@ -34,8 +34,8 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-parsnip >= 0.2.0
-Requires:         R-CRAN-hardhat >= 0.1.4
+Requires:         R-CRAN-hardhat >= 1.1.0
+Requires:         R-CRAN-parsnip >= 1.0.0
 Requires:         R-CRAN-butcher 
 Requires:         R-CRAN-C50 
 Requires:         R-CRAN-dials 
@@ -54,9 +54,9 @@ Requires:         R-utils
 Requires:         R-CRAN-withr 
 
 %description
-Tree- and rule-based models can be bagged using this package and their
-predictions equations are stored in an efficient format to reduce the
-model objects size and speed.
+Tree- and rule-based models can be bagged (<doi:10.1007/BF00058655>) using
+this package and their predictions equations are stored in an efficient
+format to reduce the model objects size and speed.
 
 %prep
 %setup -q -c -n %{packname}

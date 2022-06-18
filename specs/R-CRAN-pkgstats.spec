@@ -1,49 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  skynet
-%global packver   1.4.3
+%global packname  pkgstats
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generates Networks from BTS Data
+Summary:          Metrics of R Packages
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-brio 
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-RCurl 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-igraph 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-sys 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-brio 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-maps 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-igraph 
+Requires:         R-methods 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-sys 
+Requires:         R-CRAN-withr 
 
 %description
-A flexible tool that allows generating bespoke air transport statistics
-for urban studies based on publicly available data from the Bureau of
-Transport Statistics (BTS) in the United States
-<https://www.transtats.bts.gov/databases.asp?Z1qr_VQ=E&Z1qr_Qr5p=N8vn6v10&f7owrp6_VQF=D>.
+Static code analyses for R packages using the external code-tagging
+libraries "ctags" and "gtags". Static analyses enable packages to be
+analysed very quickly, generally a couple of seconds at most. The package
+also provides access to a database generating by applying the main
+function to the full CRAN archive, enabling the statistical properties of
+any package to be compared with all other CRAN packages.
 
 %prep
 %setup -q -c -n %{packname}

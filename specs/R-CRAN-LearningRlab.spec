@@ -1,36 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  reportROC
-%global packver   3.6
+%global packname  LearningRlab
+%global packver   2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6
+Version:          2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Easy Way to Report ROC Analysis
+Summary:          Statistical Learning Functions
 
-License:          GPL-3
+License:          Unlimited
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-pROC 
-BuildRequires:    R-CRAN-vcd 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-pROC 
-Requires:         R-CRAN-vcd 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-crayon 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-crayon 
 
 %description
-Provides an easy way to report the results of ROC analysis, including: 1.
-an ROC curve. 2. the value of Cutoff, AUC (Area Under Curve), ACC
-(accuracy), SEN (sensitivity), SPE (specificity), PLR (positive likelihood
-ratio), NLR (negative likelihood ratio), PPV (positive predictive value),
-NPV (negative predictive value), PPA (percentage of positive accordance),
-NPA (percentage of negative accordance), TPA (percentage of total
-accordance), KAPPA (kappa value).
+Aids in learning statistical functions incorporating the result of
+calculus done with each function and how they are obtained, that is, which
+equation and variables are used. Also for all these equations and their
+related variables detailed explanations and interactive exercises are also
+included. All these characteristics allow to the package user to improve
+the learning of statistics basics by means of their use.
 
 %prep
 %setup -q -c -n %{packname}

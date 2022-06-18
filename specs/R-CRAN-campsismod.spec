@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  campsismod
-%global packver   0.8.1
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generic Implementation of a PK/PD Model
 
@@ -23,6 +23,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-dplyr 
@@ -31,6 +32,7 @@ Requires:         R-methods
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 
 %description

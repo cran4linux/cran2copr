@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  flexsurv
-%global packver   2.1
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Parametric Survival and Multi-State Models
 
@@ -30,10 +30,12 @@ BuildRequires:    R-CRAN-quadprog
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rstpm2 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-mstate >= 0.2.10
 Requires:         R-CRAN-Rcpp >= 0.11.5
 Requires:         R-CRAN-survival 
@@ -49,10 +51,12 @@ Requires:         R-CRAN-quadprog
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rstpm2 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-statmod 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Flexible parametric models for time-to-event data, including the

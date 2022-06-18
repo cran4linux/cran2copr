@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  vegdata
-%global packver   0.9.10
+%global packver   0.9.11.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.10
+Version:          0.9.11.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Vegetation Databases and Treat Taxonomy
 
@@ -20,34 +20,32 @@ BuildRequires:    R-CRAN-curl >= 2.4
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-xml2 >= 1.3.0
 BuildRequires:    R-CRAN-RSQLite >= 1.1.2
-BuildRequires:    R-CRAN-readr >= 1.1.1
 BuildRequires:    R-CRAN-dbplyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-DBI >= 0.6.1
 BuildRequires:    R-CRAN-hoardr >= 0.1.0
 BuildRequires:    R-CRAN-foreign 
 BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-indicspecies 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-curl >= 2.4
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-xml2 >= 1.3.0
 Requires:         R-CRAN-RSQLite >= 1.1.2
-Requires:         R-CRAN-readr >= 1.1.1
 Requires:         R-CRAN-dbplyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-DBI >= 0.6.1
 Requires:         R-CRAN-hoardr >= 0.1.0
 Requires:         R-CRAN-foreign 
 Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-indicspecies 
 Requires:         R-utils 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-tibble 
 
 %description
 Handling of vegetation data from different sources ( Turboveg 2.0
