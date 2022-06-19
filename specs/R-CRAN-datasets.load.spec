@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  datasets.load
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interfaces for Loading Datasets
+Summary:          Graphical Interface for Loading Datasets
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,7 +24,7 @@ Requires:         R-CRAN-miniUI
 Requires:         R-CRAN-DT 
 
 %description
-Visual interface for loading datasets in RStudio from all installed
+Graphical interface for loading datasets in RStudio from all installed
 (including unloaded) packages, also includes command line interfaces.
 
 %prep

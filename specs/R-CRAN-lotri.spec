@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  lotri
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Simple Way to Specify Symmetric, Block Diagonal Matrices
 
@@ -17,17 +17,17 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-crayon 
 Requires:         R-methods 
-Requires:         R-utils 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Provides a simple mechanism to specify a symmetric block diagonal matrices
 (often used for covariance matrices).  This is based on the domain
-specific language implemented in 'nlmixr' but expanded to create matrices
+specific language implemented in 'nlmixr2' but expanded to create matrices
 in R generally instead of specifying parts of matrices to estimate.
 
 %prep

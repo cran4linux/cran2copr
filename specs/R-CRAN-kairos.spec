@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  kairos
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Chronological Patterns from Archaeological Count Data
 
@@ -16,8 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arkhe >= 0.4.0
+BuildRequires:    R-CRAN-arkhe >= 0.5.0
 BuildRequires:    R-CRAN-dimensio >= 0.2.2
+BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-extraDistr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Hmisc 
@@ -25,8 +26,9 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-arkhe >= 0.4.0
+Requires:         R-CRAN-arkhe >= 0.5.0
 Requires:         R-CRAN-dimensio >= 0.2.2
+Requires:         R-CRAN-boot 
 Requires:         R-CRAN-extraDistr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Hmisc 
@@ -38,9 +40,9 @@ Requires:         R-utils
 %description
 A toolkit for absolute dating and analysis of chronological patterns. This
 package includes functions for chronological modeling and dating of
-archaeological assemblages from count data. It allows to compute time
-point estimates and density estimates of the occupation and duration of an
-archaeological site.
+archaeological assemblages from count data. It provides methods for matrix
+seriation. It also allows to compute time point estimates and density
+estimates of the occupation and duration of an archaeological site.
 
 %prep
 %setup -q -c -n %{packname}

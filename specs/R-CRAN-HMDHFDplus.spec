@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  HMDHFDplus
-%global packver   1.9.17
+%global packver   1.9.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.17
+Version:          1.9.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read Human Mortality Database and Human Fertility Database Data from the Web
 

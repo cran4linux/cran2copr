@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  khroma
-%global packver   1.8.0
+%global packver   1.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.0
+Version:          1.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Colour Schemes for Scientific Data Visualization
 
@@ -16,10 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
+BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-grid 
 Requires:         R-stats 
@@ -29,7 +31,7 @@ Requires:         R-utils
 Colour schemes ready for each type of data (qualitative, diverging or
 sequential), with colours that are distinct for all people, including
 colour-blind readers. This package provides an implementation of Paul Tol
-(2018) and Fabio Crameri (2018) <doi: 10.5194/gmd-11-2541-2018> colour
+(2018) and Fabio Crameri (2018) <doi:10.5194/gmd-11-2541-2018> colour
 schemes for use with 'graphics' or 'ggplot2'. It provides tools to
 simulate colour-blindness and to test how well the colours of any palette
 are identifiable. Several scientific thematic schemes (geologic timescale,

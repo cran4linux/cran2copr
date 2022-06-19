@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cargo
-%global packver   0.2.3
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Develop R Packages using Rust
 
@@ -18,7 +18,7 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 
 %description
-A framework is provided to transparently develop R packages using 'Rust'
+A framework is provided to develop R packages using 'Rust'
 <https://www.rust-lang.org/> with minimal overhead, and more wrappers are
 easily added. Help is provided to run 'Cargo'
 <https://doc.rust-lang.org/cargo/> in a manner consistent with CRAN
