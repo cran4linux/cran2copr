@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  decompr
-%global packver   6.2.0
+%global packver   6.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.2.0
+Version:          6.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Global Value Chain Decomposition
 

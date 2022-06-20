@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rnn
-%global packver   1.5.0
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Recurrent Neural Network
 
@@ -16,9 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.2
 Requires:         R-core >= 3.2.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sigmoid 
+BuildRequires:    R-CRAN-sigmoid >= 1.4.0
 BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-sigmoid 
+Requires:         R-CRAN-sigmoid >= 1.4.0
 Requires:         R-CRAN-shiny 
 
 %description

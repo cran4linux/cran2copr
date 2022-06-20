@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gvc
-%global packver   6.2.1
+%global packver   6.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.2.1
+Version:          6.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Global Value Chains Tools
 
