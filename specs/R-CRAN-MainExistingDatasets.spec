@@ -1,45 +1,65 @@
 %global __brp_check_rpaths %{nil}
-%global packname  UCSCXenaTools
-%global packver   1.4.8
+%global packname  MainExistingDatasets
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Explore Datasets from UCSC Xena Data Hubs
+Summary:          Main Existing Human Datasets
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-config 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-golem 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-pkgload 
+BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-spData 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tmap 
+BuildRequires:    R-CRAN-tmaptools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-digest 
+Requires:         R-CRAN-config 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-golem 
+Requires:         R-grDevices 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-readr 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-pkgload 
+Requires:         R-CRAN-processx 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-spData 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tmap 
+Requires:         R-CRAN-tmaptools 
 Requires:         R-utils 
 
 %description
-Download and explore datasets from UCSC Xena data hubs, which are a
-collection of UCSC-hosted public databases such as TCGA, ICGC, TARGET,
-GTEx, CCLE, and others.  Databases are normalized so they can be combined,
-linked, filtered, explored and downloaded.
+Shiny for Open Science to visualize, share, and inventory the main
+existing human datasets for researchers.
 
 %prep
 %setup -q -c -n %{packname}

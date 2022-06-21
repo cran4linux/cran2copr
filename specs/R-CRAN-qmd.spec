@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  qmd
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantification of Multivariate Dependence
 
@@ -15,14 +15,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp >= 1.0.6
 BuildRequires:    R-CRAN-qad 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 1.0.6
 Requires:         R-CRAN-qad 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-dplyr 
+Requires:         R-utils 
 
 %description
 A multivariate copula-based dependence measure. For more information, see
-Griessenberger, Junker, Trutschnig (2021), On a multivariate copula-based
-dependence measure and its estimation, <arXiv:2109.12883>.
+Griessenberger, Junker, Trutschnig (2022), On a multivariate copula-based
+dependence measure and its estimation, Electronic Journal of Statistics,
+16, 2206-2251.
 
 %prep
 %setup -q -c -n %{packname}

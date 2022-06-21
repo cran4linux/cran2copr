@@ -1,43 +1,50 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RSC
-%global packver   2.0.2
+%global packname  ipsecr
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Robust and Sparse Correlation Matrix
+Summary:          Spatially Explicit Capture-Recapture by Inverse Prediction
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-secr >= 4.5.4
+BuildRequires:    R-CRAN-Rcpp >= 0.12.14
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-utils 
-Requires:         R-stats 
+BuildRequires:    R-parallel 
+BuildRequires:    R-stats 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-secr >= 4.5.4
+Requires:         R-CRAN-Rcpp >= 0.12.14
 Requires:         R-graphics 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
+Requires:         R-grDevices 
+Requires:         R-CRAN-MASS 
 Requires:         R-utils 
+Requires:         R-parallel 
+Requires:         R-stats 
+Requires:         R-tools 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-nlme 
 
 %description
-Performs robust and sparse correlation matrix estimation. Robustness is
-achieved based on a simple robust pairwise correlation estimator, while
-sparsity is obtained based on thresholding. The optimal thresholding is
-tuned via cross-validation. See Serra, Coretto, Fratello and Tagliaferri
-(2018) <doi:10.1093/bioinformatics/btx642>.
+Estimates the density of a spatially distributed animal population sampled
+with an array of passive detectors, such as traps. Models incorporating
+distance-dependent detection are fitted by simulation and inverse
+prediction as proposed by Efford (2004)
+<doi:10.1111/j.0030-1299.2004.13043.x>.
 
 %prep
 %setup -q -c -n %{packname}

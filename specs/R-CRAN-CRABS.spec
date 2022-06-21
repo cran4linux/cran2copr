@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DLMtool
-%global packver   6.0.6
+%global packname  CRABS
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.6
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data-Limited Methods Toolkit
+Summary:          Congruent Rate Analyses in Birth-Death Scenarios
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,28 +15,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-TMB >= 1.7.22
-BuildRequires:    R-CRAN-MSEtool 
-BuildRequires:    R-CRAN-dplyr 
+BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-TMB >= 1.7.22
-Requires:         R-CRAN-MSEtool 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-latex2exp 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-ape 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-deSolve 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-latex2exp 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-ape 
 
 %description
-A collection of data-limited management procedures that can be evaluated
-with management strategy evaluation with the 'MSEtool' package, or applied
-to fishery data to provide management recommendations.
+Features tools for exploring congruent phylogenetic birth-death models. It
+can construct the pulled speciation- and net-diversification rates from a
+reference model. Given alternative speciation- or extinction rates, it can
+construct new models that are congruent with the reference model.
+Functionality is included to sample new rate functions, and to visualize
+the distribution of one congruence class. See also Louca & Pennell (2020)
+<doi:10.1038/s41586-020-2176-1>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BiasCorrector
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A GUI to Correct Measurement Bias in DNA Methylation Analyses
 
@@ -16,17 +16,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rBiasCorrection >= 0.3.4
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rBiasCorrection 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-shinyjs 
+Requires:         R-CRAN-rBiasCorrection >= 0.3.4
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rBiasCorrection 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-shinyjs 
