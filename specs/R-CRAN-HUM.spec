@@ -1,32 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  distribglm
-%global packver   0.4.1
+%global packname  HUM
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distributed Generalized Linear Models
+Summary:          Compute HUM Value and Visualize ROC Curves
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-readr 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 2.13.0
+Requires:         R-core >= 2.13.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.1
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-rgl 
+Requires:         R-CRAN-Rcpp >= 0.12.1
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-rgl 
 
 %description
-Distributed generalized linear models (GLM) fitting using Fisher scoring
-from McCullagh and Nelder (1989) <ISBN:0412317605>. Models are to be fit
-using a primary-secondary relationship, where the results are written to a
-synced folder, but data can be elsewhere though it is loaded in memory.
-Additional functions are available for deploying a plumber 'API'.
+Tools for computing HUM (Hypervolume Under the Manifold) value to estimate
+features ability to discriminate the class labels, visualizing the ROC
+curve for two or three class labels (Natalia Novoselova, Cristina Della
+Beffa, Junxi Wang, Jialiang Li, Frank Pessler, Frank Klawonn (2014)
+<doi:10.1093/bioinformatics/btu086>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -36,6 +37,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

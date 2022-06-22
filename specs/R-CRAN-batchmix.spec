@@ -1,31 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  arabic2kansuji
-%global packver   0.1.2
+%global packname  batchmix
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Arabic Numerals to Kansuji
+Summary:          Semi-Supervised Bayesian Mixture Models Incorporating Batch Correction
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Simple functions to convert given Arabic numerals to Kansuji numerical
-figures that represent numbers written in Chinese characters.
+Semi-supervised and unsupervised Bayesian mixture models that
+simultaneously infer the cluster/class structure and a batch correction.
+Densities available are the multivariate normal and the multivariate t.
+The model sampler is implemented in C++. This package is aimed at analysis
+of low-dimensional data generated across several batches. See Coleman et
+al. (2022) <doi:10.1101/2022.01.14.476352> for details of the model.
 
 %prep
 %setup -q -c -n %{packname}

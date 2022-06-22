@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  webtools
-%global packver   0.7.10
+%global packver   0.7.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.10
+Version:          0.7.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Various Useful Web Tools (Including Full CRAN Dataset Search and Fetch)
 
@@ -39,7 +39,7 @@ Requires:         R-CRAN-dplyr
 A set of useful web tools to improve your productivity. Including:
 searching DuckDuckGo; finding and loading datasets across all CRAN
 packages (not just those you've installed); sharing a file to a paste-bin;
-getting a fast GUID.
+getting a fast GUID; useful info on all countries.
 
 %prep
 %setup -q -c -n %{packname}

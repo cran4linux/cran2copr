@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  CIPerm
-%global packver   0.2.1
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computationally-Efficient Confidence Intervals for Mean Shift from Permutation Methods
 
@@ -22,7 +22,7 @@ Requires:         R-CRAN-matrixStats
 %description
 Implements computationally-efficient construction of confidence intervals
 from permutation or randomization tests for simple differences in means,
-based on Nguyen (2009) <https://archives.pdx.edu/ds/psu/37406>.
+based on Nguyen (2009) <doi:10.15760/etd.7798>.
 
 %prep
 %setup -q -c -n %{packname}

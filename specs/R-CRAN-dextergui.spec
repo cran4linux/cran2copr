@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dextergui
-%global packver   0.2.5
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Graphical User Interface for Dexter
 
@@ -17,22 +17,22 @@ BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
-BuildRequires:    R-CRAN-tibble >= 2.1
+BuildRequires:    R-CRAN-tibble >= 3.0
+BuildRequires:    R-CRAN-shinyjs >= 2.0
 BuildRequires:    R-CRAN-RCurl >= 1.95
 BuildRequires:    R-CRAN-readODS >= 1.6
 BuildRequires:    R-CRAN-jsonlite >= 1.5
 BuildRequires:    R-CRAN-shiny >= 1.3.0
 BuildRequires:    R-CRAN-htmlwidgets >= 1.3
-BuildRequires:    R-CRAN-dexter >= 1.1.4
+BuildRequires:    R-CRAN-dexter >= 1.2.1
 BuildRequires:    R-CRAN-readxl >= 1.1
 BuildRequires:    R-CRAN-DBI >= 1.0.0
-BuildRequires:    R-CRAN-shinyjs >= 1.0
+BuildRequires:    R-CRAN-dplyr >= 1.0
+BuildRequires:    R-CRAN-tidyr >= 1.0
 BuildRequires:    R-CRAN-writexl >= 1.0
+BuildRequires:    R-CRAN-shinyFiles >= 0.9.2
 BuildRequires:    R-CRAN-DT >= 0.9
-BuildRequires:    R-CRAN-dplyr >= 0.8.3
-BuildRequires:    R-CRAN-tidyr >= 0.8.3
 BuildRequires:    R-CRAN-ggExtra >= 0.8
-BuildRequires:    R-CRAN-shinyFiles >= 0.7.3
 BuildRequires:    R-CRAN-shinyBS >= 0.6
 BuildRequires:    R-CRAN-ggridges >= 0.5.1
 BuildRequires:    R-CRAN-htmltools >= 0.4.0
@@ -45,22 +45,22 @@ BuildRequires:    R-methods
 BuildRequires:    R-utils 
 BuildRequires:    R-tools 
 Requires:         R-CRAN-ggplot2 >= 3.3.5
-Requires:         R-CRAN-tibble >= 2.1
+Requires:         R-CRAN-tibble >= 3.0
+Requires:         R-CRAN-shinyjs >= 2.0
 Requires:         R-CRAN-RCurl >= 1.95
 Requires:         R-CRAN-readODS >= 1.6
 Requires:         R-CRAN-jsonlite >= 1.5
 Requires:         R-CRAN-shiny >= 1.3.0
 Requires:         R-CRAN-htmlwidgets >= 1.3
-Requires:         R-CRAN-dexter >= 1.1.4
+Requires:         R-CRAN-dexter >= 1.2.1
 Requires:         R-CRAN-readxl >= 1.1
 Requires:         R-CRAN-DBI >= 1.0.0
-Requires:         R-CRAN-shinyjs >= 1.0
+Requires:         R-CRAN-dplyr >= 1.0
+Requires:         R-CRAN-tidyr >= 1.0
 Requires:         R-CRAN-writexl >= 1.0
+Requires:         R-CRAN-shinyFiles >= 0.9.2
 Requires:         R-CRAN-DT >= 0.9
-Requires:         R-CRAN-dplyr >= 0.8.3
-Requires:         R-CRAN-tidyr >= 0.8.3
 Requires:         R-CRAN-ggExtra >= 0.8
-Requires:         R-CRAN-shinyFiles >= 0.7.3
 Requires:         R-CRAN-shinyBS >= 0.6
 Requires:         R-CRAN-ggridges >= 0.5.1
 Requires:         R-CRAN-htmltools >= 0.4.0

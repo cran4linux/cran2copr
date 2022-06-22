@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  arabic2kansuji
-%global packver   0.1.2
+%global packname  xportr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Arabic Numerals to Kansuji
+Summary:          Utilities to Output CDISC SDTM/ADaM XPT Files
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,16 +16,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-haven >= 2.5.0
+BuildRequires:    R-CRAN-glue >= 1.4.2
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.2
+BuildRequires:    R-CRAN-rlang >= 0.4.10
+BuildRequires:    R-CRAN-purrr >= 0.3.4
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-tm 
+Requires:         R-CRAN-haven >= 2.5.0
+Requires:         R-CRAN-glue >= 1.4.2
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-dplyr >= 1.0.2
+Requires:         R-CRAN-rlang >= 0.4.10
+Requires:         R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-tm 
 
 %description
-Simple functions to convert given Arabic numerals to Kansuji numerical
-figures that represent numbers written in Chinese characters.
+Tools to build CDISC compliant data sets and check for CDISC compliance.
 
 %prep
 %setup -q -c -n %{packname}

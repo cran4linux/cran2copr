@@ -1,29 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global packname  wru
-%global packver   0.1-12
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.12
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Who are You? Bayesian Prediction of Racial Category Using Surname and Geolocation
+Summary:          Who are You? Bayesian Prediction of Racial Category Using Surname, First Name, Middle Name, and Geolocation
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-devtools >= 1.10.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-utils 
-Requires:         R-CRAN-devtools >= 1.10.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-piggyback 
+BuildRequires:    R-CRAN-PL94171 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-piggyback 
+Requires:         R-CRAN-PL94171 
 
 %description
-Predicts individual race/ethnicity using surname, geolocation, and other
-attributes, such as gender and age. The method utilizes the Bayes' Rule to
+Predicts individual race/ethnicity using surname, first name, middle name,
+geolocation, and other attributes, such as gender and age. The method
+utilizes Bayes' Rule (with optional measurement error correction) to
 compute the posterior probability of each racial category for any given
 individual. The package implements methods described in Imai and Khanna
 (2016) "Improving Ecological Inference by Predicting Individual Ethnicity
@@ -38,6 +51,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

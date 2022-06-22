@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bmstdr
-%global packver   0.1.4
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Modeling of Spatio-Temporal Data with R
 
@@ -29,6 +29,9 @@ BuildRequires:    R-CRAN-CARBayesST
 BuildRequires:    R-CRAN-spTDyn 
 BuildRequires:    R-CRAN-MCMCpack 
 BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-mnormt 
+BuildRequires:    R-CRAN-inlabru 
+BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-methods 
@@ -41,6 +44,9 @@ Requires:         R-CRAN-CARBayesST
 Requires:         R-CRAN-spTDyn 
 Requires:         R-CRAN-MCMCpack 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-mnormt 
+Requires:         R-CRAN-inlabru 
+Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-rstantools
 
 %description

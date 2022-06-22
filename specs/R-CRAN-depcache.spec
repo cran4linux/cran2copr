@@ -1,31 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  arabic2kansuji
-%global packver   0.1.2
+%global packname  depcache
+%global packver   0.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Arabic Numerals to Kansuji
+Summary:          Cache R Expressions, Taking Their Dependencies into Account
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-codetools 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-codetools 
+Requires:         R-methods 
 
 %description
-Simple functions to convert given Arabic numerals to Kansuji numerical
-figures that represent numbers written in Chinese characters.
+Hash an expression with its dependencies and store its value, reloading it
+from a file as long as both the expression and its dependencies stay the
+same.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  shidashi
-%global packver   0.1.0
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Shiny Dashboard Template System
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-httr >= 1.4.2
 BuildRequires:    R-CRAN-formatR >= 1.11
 BuildRequires:    R-CRAN-fastmap >= 1.1.0
 BuildRequires:    R-CRAN-digest >= 0.6.27
+BuildRequires:    R-utils 
 Requires:         R-CRAN-yaml >= 2.2.1
 Requires:         R-CRAN-jsonlite >= 1.7.2
 Requires:         R-CRAN-shiny >= 1.7.0
@@ -30,6 +31,7 @@ Requires:         R-CRAN-httr >= 1.4.2
 Requires:         R-CRAN-formatR >= 1.11
 Requires:         R-CRAN-fastmap >= 1.1.0
 Requires:         R-CRAN-digest >= 0.6.27
+Requires:         R-utils 
 
 %description
 A template system based on 'AdminLTE3' (<https://adminlte.io/themes/v3/>)

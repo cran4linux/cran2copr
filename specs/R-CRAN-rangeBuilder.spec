@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RRPP
-%global packver   1.3.0
+%global packname  rangeBuilder
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linear Model Evaluation with Randomized Residuals in a Permutation Procedure
+Summary:          Occurrence Filtering, Geographic and Taxonomic Standardization and Generation of Species Range Polygons
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,27 +15,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-parallel 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-alphahull >= 2.5
+BuildRequires:    R-CRAN-data.table >= 1.10
+BuildRequires:    R-CRAN-Rcpp >= 0.12.9
+BuildRequires:    R-CRAN-rgeos >= 0.1.4
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-cleangeo 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-alphahull >= 2.5
+Requires:         R-CRAN-data.table >= 1.10
+Requires:         R-CRAN-Rcpp >= 0.12.9
+Requires:         R-CRAN-rgeos >= 0.1.4
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-cleangeo 
+Requires:         R-methods 
 
 %description
-Linear model calculations are made for many random versions of data. Using
-residual randomization in a permutation procedure, sums of squares are
-calculated over many permutations to generate empirical probability
-distributions for evaluating model effects.  This packaged is described by
-Collyer & Adams (2018).  Additionally, coefficients, statistics, fitted
-values, and residuals generated over many permutations can be used for
-various procedures including pairwise tests, prediction, classification,
-and model comparison.  This package should provide most tools one could
-need for the analysis of high-dimensional data, especially in ecology and
-evolutionary biology, but certainly other fields, as well.
+Provides tools for filtering occurrence records, generating
+alpha-hull-derived range polygons and mapping species distributions.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,31 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  arabic2kansuji
-%global packver   0.1.2
+%global packname  crimedata
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Arabic Numerals to Kansuji
+Summary:          Access Crime Data from the Open Crime Database
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-stats 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stringr 
-Requires:         R-stats 
 
 %description
-Simple functions to convert given Arabic numerals to Kansuji numerical
-figures that represent numbers written in Chinese characters.
+Gives convenient access to publicly available police-recorded open crime
+data from large cities in the United States that are included in the Crime
+Open Database <https://osf.io/zyaqn/>.
 
 %prep
 %setup -q -c -n %{packname}

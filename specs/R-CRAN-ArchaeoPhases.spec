@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ArchaeoPhases
-%global packver   1.6
+%global packver   1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Post-Processing of the Markov Chain Simulated by 'ChronoModel', 'Oxcal' or 'BCal'
 
@@ -23,10 +23,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinythemes 
-BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-ggthemes 
 BuildRequires:    R-CRAN-toOrdinal 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggalt 
@@ -35,7 +32,6 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-gplots 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-ggraph 
 BuildRequires:    R-CRAN-gtools 
 Requires:         R-CRAN-coda 
@@ -45,10 +41,7 @@ Requires:         R-utils
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinythemes 
-Requires:         R-CRAN-DT 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-ggthemes 
 Requires:         R-CRAN-toOrdinal 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggalt 
@@ -57,7 +50,6 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-gplots 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-ggraph 
 Requires:         R-CRAN-gtools 
 

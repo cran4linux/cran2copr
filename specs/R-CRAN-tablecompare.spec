@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  arabic2kansuji
-%global packver   0.1.2
+%global packname  tablecompare
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Arabic Numerals to Kansuji
+Summary:          Compare Data Frames
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,16 +16,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table >= 1.14.2
+BuildRequires:    R-CRAN-rlang >= 0.4.3
+BuildRequires:    R-CRAN-tidyselect >= 0.4.3
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-stats 
+Requires:         R-CRAN-data.table >= 1.14.2
+Requires:         R-CRAN-rlang >= 0.4.3
+Requires:         R-CRAN-tidyselect >= 0.4.3
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-stats 
 
 %description
-Simple functions to convert given Arabic numerals to Kansuji numerical
-figures that represent numbers written in Chinese characters.
+A toolbox for comparing two data frames with the aim of quick and simple
+functionality. Using a key-column common to both tables, see which rows
+are common and highlight differing values by column. Also included are
+functions validating keys and uniqueness of in-group values.
 
 %prep
 %setup -q -c -n %{packname}

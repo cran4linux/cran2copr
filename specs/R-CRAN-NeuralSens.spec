@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nonparaeff
-%global packver   0.5-13
+%global packname  NeuralSens
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.13
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonparametric Methods for Measuring Efficiency and Productivity
+Summary:          Sensitivity Analysis of Neural Networks
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,18 +16,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-geometry 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-NeuralNetTools 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-fastDummies 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-lpSolve 
-Requires:         R-CRAN-geometry 
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-ggnewscale 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-NeuralNetTools 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-fastDummies 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-lpSolve 
+Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-ggnewscale 
+Requires:         R-CRAN-magrittr 
 
 %description
-Efficiency and productivity indices are measured using this package. This
-package contains functions for measuring efficiency and productivity of
-decision making units (DMUs) under the framework of Data Envelopment
-Analysis (DEA) and its variations.
+Analysis functions to quantify inputs importance in neural network models.
+Functions are available for calculating and plotting the inputs importance
+and obtaining the activation function of each neuron layer and its
+derivatives. The importance of a given input is defined as the
+distribution of the derivatives of the output with respect to that input
+in each training data point <doi:10.18637/jss.v102.i07>.
 
 %prep
 %setup -q -c -n %{packname}

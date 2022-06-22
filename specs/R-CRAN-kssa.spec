@@ -1,31 +1,49 @@
 %global __brp_check_rpaths %{nil}
-%global packname  arabic2kansuji
-%global packver   0.1.2
+%global packname  kssa
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Arabic Numerals to Kansuji
+Summary:          Known Sub-Sequence Algorithm
 
-License:          MIT + file LICENSE
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-imputeTS 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-Metrics 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-missMethods 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-methods 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-imputeTS 
 Requires:         R-stats 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-Metrics 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-missMethods 
 
 %description
-Simple functions to convert given Arabic numerals to Kansuji numerical
-figures that represent numbers written in Chinese characters.
+Implements the Known Sub-Sequence Algorithm
+<doi:10.1016/j.aaf.2021.12.013>, which helps to automatically identify and
+validate the best method for missing data imputation in a time series.
+Supports the comparison of multiple state-of-the-art algorithms.
 
 %prep
 %setup -q -c -n %{packname}

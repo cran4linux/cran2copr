@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  arabic2kansuji
-%global packver   0.1.2
+%global packname  ipsfs
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Arabic Numerals to Kansuji
+Summary:          Intuitionistic, Pythagorean, and Spherical Fuzzy Similarity Measure
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,16 +16,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-stats 
 
 %description
-Simple functions to convert given Arabic numerals to Kansuji numerical
-figures that represent numbers written in Chinese characters.
+Advanced fuzzy logic based techniques are implemented to compute the
+similarity among different objects or items. Typically, application areas
+consist of transforming raw data into the corresponding advanced fuzzy
+logic representation and determining the similarity between two objects
+using advanced fuzzy similarity techniques in various fields of research,
+such as text classification, pattern recognition, software projects,
+decision-making, medical diagnosis, and market prediction. Functions are
+designed to compute the membership, non-membership, hesitant-membership,
+indeterminacy-membership, and refusal-membership for the input matrices.
+Furthermore, it also includes a large number of advanced fuzzy logic based
+similarity measure functions to compute the Intuitionistic fuzzy
+similarity (IFS), Pythagorean fuzzy similarity (PFS), and Spherical fuzzy
+similarity (SFS) between two objects or items based on their fuzzy
+relationships. It also includes working examples for each function with
+sample data sets.
 
 %prep
 %setup -q -c -n %{packname}

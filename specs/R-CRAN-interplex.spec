@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dplyr.teradata
-%global packver   0.4.1
+%global packname  interplex
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A 'Teradata' Backend for 'dplyr'
+Summary:          Coercion Methods for Simplicial Complex Data Structures
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,24 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dbplyr >= 2.0.0
-BuildRequires:    R-CRAN-odbc >= 1.3.0
-BuildRequires:    R-CRAN-DBI >= 1.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.2
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-dbplyr >= 2.0.0
-Requires:         R-CRAN-odbc >= 1.3.0
-Requires:         R-CRAN-DBI >= 1.1.0
-Requires:         R-CRAN-dplyr >= 1.0.2
-Requires:         R-CRAN-bit64 
-Requires:         R-methods 
 
 %description
-A 'Teradata' backend for 'dplyr'. It makes it possible to operate
-'Teradata' database
-<https://www.teradata.com/products-and-services/teradata-database/> in the
-same way as manipulating data frames with 'dplyr'.
+Computational topology, which includes topological data analysis (TDA),
+makes pervasive use of abstract mathematical objects called simplicial
+complexes; see Edelsbrunner and Harer (2010) <doi:10.1090/mbk/069>.
+Several R packages and other software libraries used through an R
+interface construct and use data structures that represent simplicial
+complexes, including mathematical graphs viewed as 1-dimensional
+complexes. This package provides coercers (converters) between these data
+structures. Currently supported structures are complete lists of simplices
+as used by 'TDA'; the simplex trees of Boissonnat and Maria (2014)
+<doi:10.1007/s00453-014-9887-3> as implemented in 'simplextree' and in
+Python GUDHI (by way of 'reticulate'); and the graph classes of 'igraph'
+and 'network', by way of the 'intergraph' package.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

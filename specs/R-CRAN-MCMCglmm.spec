@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MCMCglmm
-%global packver   2.33
+%global packver   2.34
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.33
+Version:          2.34
 Release:          1%{?dist}%{?buildtag}
 Summary:          MCMC Generalised Linear Mixed Models
 
