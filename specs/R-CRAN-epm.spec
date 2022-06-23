@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  epm
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          EcoPhyloMapper
 
@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-terra >= 1.5.10
+BuildRequires:    R-CRAN-terra >= 1.5.21
 BuildRequires:    R-CRAN-Rcpp >= 0.12.9
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-ape 
@@ -23,7 +23,7 @@ BuildRequires:    R-CRAN-viridisLite
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RcppProgress 
-Requires:         R-CRAN-terra >= 1.5.10
+Requires:         R-CRAN-terra >= 1.5.21
 Requires:         R-CRAN-Rcpp >= 0.12.9
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-ape 
@@ -36,6 +36,8 @@ Requires:         R-CRAN-RcppProgress
 Facilitates the aggregation of species' geographic ranges from vector or
 raster spatial data, and that enables the calculation of various
 morphological and phylogenetic community metrics across geography.
+Citation: Title, PO, DL Swiderski and ML Zelditch (2022)
+<doi:10.1111/2041-210X.13914>.
 
 %prep
 %setup -q -c -n %{packname}

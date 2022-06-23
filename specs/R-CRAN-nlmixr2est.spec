@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  nlmixr2est
-%global packver   2.0.7
+%global packver   2.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.7
+Version:          2.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonlinear Mixed Effects Models in Population PK/PD, Estimation Routines
 
@@ -20,33 +20,52 @@ BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
 BuildRequires:    R-CRAN-rxode2 >= 2.0.7
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.5.600.2.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.3
 BuildRequires:    R-CRAN-dparser >= 0.1.8
 BuildRequires:    R-CRAN-nlmixr2data 
-BuildRequires:    R-CRAN-lbfgsb3c 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rex 
-BuildRequires:    R-CRAN-minqa 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-backports 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-lbfgsb3c 
+BuildRequires:    R-CRAN-lotri 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-minqa 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rex 
+BuildRequires:    R-CRAN-Rvmmin 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-symengine 
+BuildRequires:    R-CRAN-ucminf 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vpc 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-n1qn1 >= 6.0.1.10
 Requires:         R-CRAN-rxode2 >= 2.0.7
-Requires:         R-CRAN-Rcpp >= 0.12.3
 Requires:         R-CRAN-nlmixr2data 
-Requires:         R-CRAN-lbfgsb3c 
-Requires:         R-CRAN-dparser >= 0.1.8
-Requires:         R-methods 
-Requires:         R-CRAN-rex 
-Requires:         R-CRAN-minqa 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-backports 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-graphics 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-lbfgsb3c 
+Requires:         R-CRAN-lotri 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-minqa 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rex 
+Requires:         R-CRAN-Rvmmin 
+Requires:         R-stats 
 Requires:         R-CRAN-symengine 
+Requires:         R-CRAN-ucminf 
+Requires:         R-utils 
+Requires:         R-CRAN-vpc 
 
 %description
 Fit and compare nonlinear mixed-effects models in differential equations

@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  saeHB.ZIB
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Small Area Estimation under ZIB Distribution using Hierarchical Bayesian
+Summary:          Small Area Estimation using Hierarchical Bayesian under Zero Inflated Binomial Distribution
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -31,12 +31,11 @@ Requires:         R-graphics
 
 %description
 Provides function for area level of small area estimation using
-hierarchical Bayesian (HB) method with Zero-Inflated Binomial (ZIB)
-distribution for variables of interest. Some dataset produced by a data
-generation are also provided. The 'rjags' package is employed to obtain
-parameter estimates. Model-based estimators involves the HB estimators
-which include the mean and the variation of mean. For references, see
-Wiley (2013) <doi:10.1111/cdoe.12044>.
+hierarchical Bayesian (HB) method with Zero-Inflated Binomial distribution
+for variables of interest. Some dataset produced by a data generation are
+also provided. The 'rjags' package is employed to obtain parameter
+estimates. Model-based estimators involves the HB estimators which include
+the mean and the variation of mean.
 
 %prep
 %setup -q -c -n %{packname}

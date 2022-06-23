@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SqueakR
-%global packver   1.0.0
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Experiment Superstructure for 'DeepSqueak'
+Summary:          An Experiment Interface for 'DeepSqueak' Bioacoustics Research
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,22 +22,32 @@ BuildRequires:    R-CRAN-ggeasy
 BuildRequires:    R-CRAN-gghighlight 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-googlesheets4 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlist 
+BuildRequires:    R-CRAN-rstatix 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggcorrplot 
 Requires:         R-CRAN-ggeasy 
 Requires:         R-CRAN-gghighlight 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-googlesheets4 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlist 
+Requires:         R-CRAN-rstatix 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-utils 
 
 %description
-A collection of functions intended to produce convenient visualizations
-for rodent vocalizations exported from 'DeepSqueak'. These visualizations
-include call frequency-clustered graphs, and density graphs grouped by
-frequency, custom labels identified in 'DeepSqueak', and call duration.
+Data processing and visualizations for rodent vocalizations exported from
+'DeepSqueak'. These functions are compatible with the 'SqueakR' Shiny
+Dashboard, which can be used to visualize experimental results and
+analyses.
 
 %prep
 %setup -q -c -n %{packname}

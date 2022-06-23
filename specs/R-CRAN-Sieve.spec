@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  clime
-%global packver   0.5.0
+%global packname  Sieve
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Constrained L1-Minimization for Inverse (Covariance) Matrix Estimation
+Summary:          Nonparametric Estimation by the Method of Sieves
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,16 +15,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-lpSolve 
-Requires:         R-CRAN-lpSolve 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-combinat 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-combinat 
+Requires:         R-CRAN-glmnet 
+Requires:         R-methods 
 
 %description
-A robust constrained L1 minimization method for estimating a large sparse
-inverse covariance matrix (aka precision matrix), and recovering its
-support for building graphical models.  The computation uses linear
-programming.  The method was published in TT Cai, W Liu, X Luo (2011)
-<doi:10.1198/jasa.2011.tm10155>.
+Performs multivariate nonparametric regression/classification by the
+method of sieves (or using orthogonal series). The method is suitable for
+continuous/binary problems with multivariate or moderate high-dimensional
+features (dimension < 100). The main estimator in this package, penalized
+sieve estimator, is adaptive to the feature dimension with provable
+theoretical guarantees. Moreover, such a method is computationally
+tractable in the sense it typically has a polynomial dependence (rather
+than an exponential one) on the feature dimension and an almost linear
+dependence on the sample size. Details of the methods and model
+assumptions can be found in: Tianyu Zhang, and Noah Simon (2022)
+<arXiv:2206.02994>.
 
 %prep
 %setup -q -c -n %{packname}

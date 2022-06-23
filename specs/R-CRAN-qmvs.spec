@@ -1,30 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  clime
-%global packver   0.5.0
+%global packname  qmvs
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Constrained L1-Minimization for Inverse (Covariance) Matrix Estimation
+Summary:          Queueing Model of Visual Search
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-lpSolve 
-Requires:         R-CRAN-lpSolve 
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-A robust constrained L1 minimization method for estimating a large sparse
-inverse covariance matrix (aka precision matrix), and recovering its
-support for building graphical models.  The computation uses linear
-programming.  The method was published in TT Cai, W Liu, X Luo (2011)
-<doi:10.1198/jasa.2011.tm10155>.
+The queueing model of visual search models the accuracy and response time
+data in a visual search experiment using queueing models with finite
+customer population and stopping criteria of completing the service for
+finite number of customers. It implements the conceptualization of a
+hybrid model proposed by Moore and Wolfe (2001), in which visual stimuli
+enter the processing one after the other and then are identified in
+parallel. This package provides functions that simulate the specified
+queueing process and calculate the Wasserstein distance between the
+empirical response times and the model prediction.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,30 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  clime
-%global packver   0.5.0
+%global packname  MasterBayes
+%global packver   2.58
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          2.58
 Release:          1%{?dist}%{?buildtag}
-Summary:          Constrained L1-Minimization for Inverse (Covariance) Matrix Estimation
+Summary:          ML and MCMC Methods for Pedigree Reconstruction and Analysis
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-lpSolve 
-Requires:         R-CRAN-lpSolve 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-genetics 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-kinship2 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-genetics 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-kinship2 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-A robust constrained L1 minimization method for estimating a large sparse
-inverse covariance matrix (aka precision matrix), and recovering its
-support for building graphical models.  The computation uses linear
-programming.  The method was published in TT Cai, W Liu, X Luo (2011)
-<doi:10.1198/jasa.2011.tm10155>.
+The primary aim of 'MasterBayes' is to use MCMC techniques to integrate
+over uncertainty in pedigree configurations estimated from molecular
+markers and phenotypic data.  Emphasis is put on the marginal distribution
+of parameters that relate the phenotypic data to the pedigree. All
+simulation is done in compiled 'C++' for efficiency.
 
 %prep
 %setup -q -c -n %{packname}

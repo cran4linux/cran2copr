@@ -1,38 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RobustRankAggreg
-%global packver   1.1
+%global packname  fakmct
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods for robust rank aggregation
+Summary:          Fuzzy Adaptive Resonance Theory K-Means Clustering Technique
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Methods for aggregating ranked lists, especially lists of genes. It
-implements the Robust Rank Aggregation (Kolde et. al in preparation) and
-some other simple algorithms for the task. RRA method uses a probabilistic
-model for aggregation that is robust to noise and also facilitates the
-calculation of significance probabilities for all the elements in the
-final ranking.
+A set of function for clustering data observation with hybrid method Fuzzy
+ART and K-Means by Sengupta, Ghosh & Dan (2011)
+<doi:10.1080/0951192X.2011.602362>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -42,6 +45,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  webdeveloper
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Web Development
 
@@ -16,12 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-html5 >= 1.0.0
 BuildRequires:    R-CRAN-httpuv 
-BuildRequires:    R-CRAN-html5 
-BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-html5 >= 1.0.0
 Requires:         R-CRAN-httpuv 
-Requires:         R-CRAN-html5 
-Requires:         R-CRAN-stringi 
 
 %description
 Organizational framework for web development in R including functions to
@@ -37,6 +35,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

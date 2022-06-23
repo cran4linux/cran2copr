@@ -1,30 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  clime
-%global packver   0.5.0
+%global packname  NasdaqDataLink
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Constrained L1-Minimization for Inverse (Covariance) Matrix Estimation
+Summary:          API Wrapper for Nasdaq Data Link
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lpSolve 
-Requires:         R-CRAN-lpSolve 
+BuildRequires:    R-CRAN-jsonlite >= 0.9.14
+BuildRequires:    R-CRAN-httr >= 0.6.1
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-jsonlite >= 0.9.14
+Requires:         R-CRAN-httr >= 0.6.1
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
+Requires:         R-methods 
 
 %description
-A robust constrained L1 minimization method for estimating a large sparse
-inverse covariance matrix (aka precision matrix), and recovering its
-support for building graphical models.  The computation uses linear
-programming.  The method was published in TT Cai, W Liu, X Luo (2011)
-<doi:10.1198/jasa.2011.tm10155>.
+Functions for interacting directly with the Nasdaq Data Link API to offer
+data in a number of formats usable in R, downloading a zip with all data
+from a Nasdaq Data Link database, and the ability to search. This R
+package uses the Nasdaq Data Link API. For more information go to
+<https://docs.data.nasdaq.com/>. For more help on the package itself go to
+<https://data.nasdaq.com/tools/r>.
 
 %prep
 %setup -q -c -n %{packname}

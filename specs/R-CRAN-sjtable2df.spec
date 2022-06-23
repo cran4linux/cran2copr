@@ -1,30 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  clime
-%global packver   0.5.0
+%global packname  sjtable2df
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Constrained L1-Minimization for Inverse (Covariance) Matrix Estimation
+Summary:          Convert 'sjPlot' HTML-Tables to R 'data.frame'
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lpSolve 
-Requires:         R-CRAN-lpSolve 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-xml2 
 
 %description
-A robust constrained L1 minimization method for estimating a large sparse
-inverse covariance matrix (aka precision matrix), and recovering its
-support for building graphical models.  The computation uses linear
-programming.  The method was published in TT Cai, W Liu, X Luo (2011)
-<doi:10.1198/jasa.2011.tm10155>.
+A small set of helper functions to convert 'sjPlot' HTML-tables to R
+data.frame objects / knitr::kable-tables.
 
 %prep
 %setup -q -c -n %{packname}

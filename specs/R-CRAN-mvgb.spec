@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mvgb
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Probabilities of Scale Mixtures of Multivariate Normal Distributions via the Genz and Bretz (2002) QRSVN Method
 

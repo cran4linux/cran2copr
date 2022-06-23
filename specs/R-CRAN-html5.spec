@@ -1,27 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global packname  html5
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generates HTML Tag Strings for HTML5 Elements Included in Mozilla's Documentation of HTML5
+Summary:          Creates Valid HTML5 Strings
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
-Generates HTML tag strings for HTML5 elements included in Mozilla's
-documentation of HTML5. Attributes are passed as parameters. If the
-attribute name is a reserved R word, the attribute is suffixed with _attr
-(ex: for_attr). To declare a DOCTYPE, wrap html with function html_doc().
+Generates valid HTML tag strings for HTML5 elements documented by Mozilla.
+Attributes are passed as named lists, with names being the attribute name
+and values being the attribute value. Attribute values are automatically
+double-quoted. To declare a DOCTYPE, wrap html() with function doctype().
 Mozilla's documentation for HTML5 is available here:
 <https://developer.mozilla.org/en-US/docs/Web/HTML/Element>. Elements
 marked as obsolete are not included.
@@ -34,6 +34,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tergm
-%global packver   4.0.2
+%global packver   4.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.2
+Version:          4.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit, Simulate and Diagnose Models for Network Evolution Based on Exponential-Family Random Graph Models
 
@@ -17,7 +17,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-MASS >= 7.3.51.4
 BuildRequires:    R-CRAN-statnet.common >= 4.4.0
-BuildRequires:    R-CRAN-ergm >= 4.1.0
+BuildRequires:    R-CRAN-ergm >= 4.2.2
 BuildRequires:    R-CRAN-nlme >= 3.1.139
 BuildRequires:    R-CRAN-network >= 1.15
 BuildRequires:    R-CRAN-robustbase >= 0.93.5
@@ -28,7 +28,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-MASS >= 7.3.51.4
 Requires:         R-CRAN-statnet.common >= 4.4.0
-Requires:         R-CRAN-ergm >= 4.1.0
+Requires:         R-CRAN-ergm >= 4.2.2
 Requires:         R-CRAN-nlme >= 3.1.139
 Requires:         R-CRAN-network >= 1.15
 Requires:         R-CRAN-robustbase >= 0.93.5

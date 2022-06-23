@@ -1,51 +1,55 @@
 %global __brp_check_rpaths %{nil}
-%global packname  excluder
-%global packver   0.4.0
+%global packname  mpwR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Checks for Exclusion Criteria in Online Data
+Summary:          Standardized Comparison of Workflows in Mass Spectrometry-Based Bottom-Up Proteomics
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-comprehenr 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-iptools 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-flowTraceR 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-UpSetR 
+Requires:         R-CRAN-comprehenr 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-iptools 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-flowTraceR 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-maps 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-purrr 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-UpSetR 
 
 %description
-Data that are collected through online sources such as Mechanical Turk may
-require excluding rows because of IP address duplication, geolocation, or
-completion duration. This package facilitates exclusion of these data for
-Qualtrics datasets.
+Useful functions to analyze proteomic workflows including number of
+identifications, data completeness, missed cleavages, quantitative and
+retention time precision etc. Various software outputs are supported such
+as 'ProteomeDiscoverer', 'Spectronaut', 'DIA-NN' and 'MaxQuant'.
 
 %prep
 %setup -q -c -n %{packname}

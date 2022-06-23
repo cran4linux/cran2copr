@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  linea
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Regression Interface
 
@@ -18,6 +18,7 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-anytime 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gtrendsR 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
@@ -29,7 +30,6 @@ BuildRequires:    R-CRAN-RColorBrewer
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-CRAN-sjmisc 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
@@ -39,6 +39,7 @@ BuildRequires:    R-CRAN-tis
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-anytime 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gtrendsR 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
@@ -50,7 +51,6 @@ Requires:         R-CRAN-RColorBrewer
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-rlist 
 Requires:         R-CRAN-sjmisc 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 

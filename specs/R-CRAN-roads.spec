@@ -1,51 +1,54 @@
 %global __brp_check_rpaths %{nil}
-%global packname  excluder
-%global packver   0.4.0
+%global packname  roads
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Checks for Exclusion Criteria in Online Data
+Summary:          Road Network Projection
 
-License:          GPL (>= 3)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-iptools 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-SpaDES.tools 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stars 
+BuildRequires:    R-CRAN-units 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-curl 
+Requires:         R-CRAN-raster 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-iptools 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-maps 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-SpaDES.tools 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stars 
+Requires:         R-CRAN-units 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-methods 
 Requires:         R-CRAN-tidyselect 
 
 %description
-Data that are collected through online sources such as Mechanical Turk may
-require excluding rows because of IP address duplication, geolocation, or
-completion duration. This package facilitates exclusion of these data for
-Qualtrics datasets.
+Project road network development based on an existing road network, target
+locations to be connected by roads and a cost surface. Road projection
+methods include minimum spanning tree with least cost path (Kruskal’s
+algorithm (1956) <doi:10.2307/2033241>), least cost path (Dijkstra's
+algorithm (1959) <doi:10.1007/BF01386390>) or snapping. These road network
+projection methods are ideal for use with land cover change projection
+models.
 
 %prep
 %setup -q -c -n %{packname}

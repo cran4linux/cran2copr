@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  clintools
-%global packver   0.9.3
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.9.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Clinical Research
 
@@ -16,9 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-xml2 >= 1.3.2
 BuildRequires:    R-CRAN-lme4 >= 1.1.27.1
 BuildRequires:    R-CRAN-signal >= 0.7.6
+Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-xml2 >= 1.3.2
 Requires:         R-CRAN-lme4 >= 1.1.27.1
 Requires:         R-CRAN-signal >= 0.7.6

@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mrbin
-%global packver   1.6.4
+%global packver   1.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.4
+Version:          1.6.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Magnetic Resonance Binning, Integration and Normalization
+Summary:          Metabolomics Data Analysis Functions
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -26,15 +26,16 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Nuclear Magnetic Resonance is widely used for metabolite analysis. This
-package is a collection of functions for processing and analyzing
-metabolite data. (<doi:10.1021/acs.jproteome.0c00684>). The namesake
-function converts 1D or 2D data into a matrix of values suitable for
-further data analysis and performs basic processing steps in a
-reproducible way. Negative values, a common issue in such data, are
-replaced by positive values. All used parameters are stored in a readable
-text file and can be restored from that file to enable exact reproduction
-of the data at a later time.
+A collection of functions for processing and analyzing metabolite data.
+The namesake function "mrbin" converts 1D or 2D Nuclear Magnetic Resonance
+data into a matrix of values suitable for further data analysis and
+performs basic processing steps in a reproducible way. Negative values, a
+common issue in such data, are replaced by positive values
+(<doi:10.1021/acs.jproteome.0c00684>). All used parameters are stored in a
+readable text file and can be restored from that file to enable exact
+reproduction of the data at a later time. The function "fia" ranks
+features according to their impact on classifier models, especially
+artificial neural network models.
 
 %prep
 %setup -q -c -n %{packname}
