@@ -1,28 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Rwhois
-%global packver   1.0.10
+%global packname  DeltaMAN
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          WHOIS Server Querying
+Summary:          Delta Measurement of Agreement for Nominal Data
 
-License:          MIT + file LICENSE
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-stringr 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyMatrix 
+BuildRequires:    R-CRAN-xtable 
+BuildRequires:    R-CRAN-shinyBS 
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyMatrix 
+Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-shinyBS 
+Requires:         R-CRAN-knitr 
 
 %description
-Queries data from WHOIS servers.
+Analysis of agreement for nominal data between two raters using the Delta
+model. This model is proposed as an alternative to the widespread measure
+Cohen kappa coefficient, which performs poorly when the marginal
+distributions are very asymmetric (Martin-Andres and Femia-Marzo (2004),
+<doi:10.1348/000711004849268>; Martin-Andres and Femia-Marzo (2008)
+<doi:10.1080/03610920701669884>). The package also contains a function to
+perform a massive analysis of multiple raters against a gold standard. A
+shiny app is also provided to obtain the measures of nominal agreement
+between two raters.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
 %global packname  genodds
-%global packver   1.1.0
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Odds Ratios
+Summary:          Generalised Odds Ratios
 
-License:          GPL (>= 2)
+License:          GPL (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -19,12 +19,11 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.3
 Requires:         R-CRAN-Rcpp >= 0.12.3
 
 %description
-Calculates Agresti's (1980) <https://www.jstor.org/stable/2530495>
-generalized odds ratios. For a randomly selected pair of observations from
-two groups, calculates the odds that the second group will have a higher
-scoring outcome than that of the first group. Package provides hypothesis
-testing for if this odds ratio is significantly different to 1 (equal
-chance).
+Calculates Agresti's generalized odds ratios. For a randomly selected pair
+of observations from two groups, calculates the odds that the second group
+will have a higher scoring outcome than that of the first group. Package
+provides hypothesis testing for if this odds ratio is significantly
+different to 1 (equal chance).
 
 %prep
 %setup -q -c -n %{packname}

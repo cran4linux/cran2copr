@@ -1,28 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Rwhois
-%global packver   1.0.10
+%global packname  lablaster
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          WHOIS Server Querying
+Summary:          Laser Ablation Blast Through Endpoint Detection
 
-License:          MIT + file LICENSE
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-stringr 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-smooth 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-smooth 
+Requires:         R-CRAN-scales 
+Requires:         R-stats 
+Requires:         R-CRAN-rlang 
 
 %description
-Queries data from WHOIS servers.
+Imports a data frame containing a single time resolved laser ablation mass
+spectrometry analysis of a foraminifera (or other carbonate shell), then
+detects when the laser has burnt through the foraminifera test as a
+function of change in signal over time.
 
 %prep
 %setup -q -c -n %{packname}

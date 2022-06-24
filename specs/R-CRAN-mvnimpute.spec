@@ -1,48 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  libr
-%global packver   1.2.3
+%global packname  mvnimpute
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Libraries, Data Dictionaries, and a Data Step for R
+Summary:          Simultaneously Impute the Missing and Censored Values
 
-License:          CC0
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-tools 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-LaplacesDemon 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppDist 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-LaplacesDemon 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-truncnorm 
 
 %description
-Contains a set of functions to create data libraries, generate data
-dictionaries, and simulate a data step. The libname() function will load a
-directory of data into a library in one line of code.  The dictionary()
-function will generate data dictionaries for individual data frames or an
-entire library.  And the datestep() function will perform row-by-row data
-processing.
+Implementing a multiple imputation algorithm for multivariate data with
+missing and censored values under a coarsening at random assumption
+(Heitjan and Rubin, 1991<doi:10.1214/aos/1176348396>). The multiple
+imputation algorithm is based on the data augmentation algorithm proposed
+by Tanner and Wong (1987)<doi:10.1080/01621459.1987.10478458>. The Gibbs
+sampling algorithm is adopted to to update the model parameters and draw
+imputations of the coarse data.
 
 %prep
 %setup -q -c -n %{packname}

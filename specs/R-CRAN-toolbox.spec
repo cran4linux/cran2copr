@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Rwhois
-%global packver   1.0.10
+%global packname  toolbox
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          WHOIS Server Querying
+Summary:          List, String, and Meta Programming Utility Functions
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,13 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-stringr 
-Requires:         R-utils 
+BuildRequires:    R-parallel 
+Requires:         R-parallel 
 
 %description
-Queries data from WHOIS servers.
+Includes functions for mapping named lists to function arguments, random
+strings, pasting and combining rows together across columns, etc.
 
 %prep
 %setup -q -c -n %{packname}

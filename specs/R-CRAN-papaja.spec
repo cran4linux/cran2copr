@@ -1,46 +1,50 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tabula
-%global packver   1.7.0
+%global packname  papaja
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis and Visualization of Archaeological Count Data
+Summary:          Prepare American Psychological Association Journal Articles with R Markdown
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-kairos >= 1.1.0
-BuildRequires:    R-CRAN-arkhe >= 0.5.0
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rmarkdown >= 2.4
+BuildRequires:    R-CRAN-glue >= 1.4.0
+BuildRequires:    R-CRAN-knitr >= 1.26
+BuildRequires:    R-CRAN-bookdown >= 0.9
+BuildRequires:    R-CRAN-broom >= 0.7.0
+BuildRequires:    R-CRAN-rmdfiltr >= 0.1.3
+BuildRequires:    R-CRAN-tinylabels >= 0.1.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-kairos >= 1.1.0
-Requires:         R-CRAN-arkhe >= 0.5.0
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-rmarkdown >= 2.4
+Requires:         R-CRAN-glue >= 1.4.0
+Requires:         R-CRAN-knitr >= 1.26
+Requires:         R-CRAN-bookdown >= 0.9
+Requires:         R-CRAN-broom >= 0.7.0
+Requires:         R-CRAN-rmdfiltr >= 0.1.3
+Requires:         R-CRAN-tinylabels >= 0.1.0
 Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-zip 
 
 %description
-An easy way to examine archaeological count data. This package provides
-several tests and measures of diversity: heterogeneity and evenness
-(Brillouin, Shannon, Simpson, etc.), richness and rarefaction (Chao1,
-Chao2, ACE, ICE, etc.), turnover and similarity (Brainerd-Robinson, etc.).
-The package make it easy to visualize count data and statistical
-thresholds: rank vs abundance plots, heatmaps, Ford (1962) and Bertin
-(1977) diagrams.
+Tools to create dynamic, submission-ready manuscripts, which conform to
+American Psychological Association manuscript guidelines. We provide R
+Markdown document formats for manuscripts (PDF and Word) and revision
+letters (PDF). Helper functions facilitate reporting statistical analyses
+or create publication-ready tables and plots.
 
 %prep
 %setup -q -c -n %{packname}

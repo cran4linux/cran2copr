@@ -1,28 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Rwhois
-%global packver   1.0.10
+%global packname  VirtualPop
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          WHOIS Server Querying
+Summary:          Simulation of Populations by Sampling Waiting-Time Distributions
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-stringr 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-msm 
+BuildRequires:    R-CRAN-HMDHFDplus 
+Requires:         R-CRAN-msm 
+Requires:         R-CRAN-HMDHFDplus 
 
 %description
-Queries data from WHOIS servers.
+Generates lifespans and fertility histories in continuous time using
+individual-level state transition (multi-state) models and data from the
+Human Mortality Database and the Human Fertility Database. To facilitate
+virtual population analysis, data on virtual individuals are stored in a
+data structure commonly used in sample surveys. Life histories are
+generated for multiple generations. The genealogies that result facilitate
+the study of family ties.
 
 %prep
 %setup -q -c -n %{packname}

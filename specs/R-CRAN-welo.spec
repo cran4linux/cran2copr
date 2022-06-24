@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  welo
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighted and Standard Elo Rates
 
@@ -13,27 +13,32 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
+BuildRequires:    R-CRAN-reshape2 >= 1.4.4
 BuildRequires:    R-CRAN-boot >= 1.3
 BuildRequires:    R-CRAN-Rdpack >= 1.0.0
+BuildRequires:    R-CRAN-rio >= 0.5.29
 BuildRequires:    R-CRAN-xts >= 0.12.0
+Requires:         R-CRAN-ggplot2 >= 3.3.5
+Requires:         R-CRAN-reshape2 >= 1.4.4
 Requires:         R-CRAN-boot >= 1.3
 Requires:         R-CRAN-Rdpack >= 1.0.0
+Requires:         R-CRAN-rio >= 0.5.29
 Requires:         R-CRAN-xts >= 0.12.0
 
 %description
-Estimates the standard and weighted Elo (WElo, Angelini et al., 2021
-<doi:10.1016/j.ejor.2021.04.011>) rates. The current version provides
-these rates for tennis. In the future, new sports will be added. The
-'welo' package offers a flexible tool to estimate the WElo and Elo rates,
-according to different systems of weights (games or sets) and scale
-factors (constant, proportional to the number of matches, with more weight
-on Grand Slam matches or on matches played on a specific surface).
-Moreover, the package gives the possibility of estimating the (bootstrap)
-standard errors for the rates. Finally, the package includes a betting
-function which automatically selects the matches on which place a bet.
+Estimates the standard and weighted Elo (WElo, Angelini et al., 2022
+<doi:10.1016/j.ejor.2021.04.011>) rates. The current version provides Elo
+and WElo rates for tennis, according to different systems of weights
+(games or sets) and scale factors (constant, proportional to the number of
+matches, with more weight on Grand Slam matches or matches played on a
+specific surface). Moreover, the package gives the possibility of
+estimating the (bootstrap) standard errors for the rates. Finally, the
+package includes betting functions that automatically select the matches
+on which place a bet.
 
 %prep
 %setup -q -c -n %{packname}

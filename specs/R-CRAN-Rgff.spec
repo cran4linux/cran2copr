@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Rwhois
-%global packver   1.0.10
+%global packname  Rgff
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          WHOIS Server Querying
+Summary:          R Utilities for Gff Files
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,13 +16,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-stringr 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-tibble >= 3.1.6
+BuildRequires:    R-CRAN-magrittr >= 2.0.1
+BuildRequires:    R-CRAN-stringi >= 1.7.6
+BuildRequires:    R-CRAN-RJSONIO >= 1.3.1.6
+BuildRequires:    R-CRAN-tidyr >= 1.1.4
+BuildRequires:    R-CRAN-dplyr >= 1.0.7
+BuildRequires:    R-CRAN-data.tree >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 0.4.12
+Requires:         R-CRAN-tibble >= 3.1.6
+Requires:         R-CRAN-magrittr >= 2.0.1
+Requires:         R-CRAN-stringi >= 1.7.6
+Requires:         R-CRAN-RJSONIO >= 1.3.1.6
+Requires:         R-CRAN-tidyr >= 1.1.4
+Requires:         R-CRAN-dplyr >= 1.0.7
+Requires:         R-CRAN-data.tree >= 1.0.0
+Requires:         R-CRAN-rlang >= 0.4.12
 
 %description
-Queries data from WHOIS servers.
+R utilities for gff files, either general feature format (GFF3) or gene
+transfer format (GTF) formatted files. This package includes functions for
+producing summary stats, check for consistency and sorting errors,
+conversion from GTF to GFF3 format, file sorting, visualization and
+plotting of feature hierarchy, and exporting user defined feature subsets
+to SAF format. This tool was developed by the BioinfoGP core facility at
+CNB-CSIC.
 
 %prep
 %setup -q -c -n %{packname}

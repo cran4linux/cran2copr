@@ -1,28 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Rwhois
-%global packver   1.0.10
+%global packname  makePalette
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          WHOIS Server Querying
+Summary:          Make Palette
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-stringr 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-prismatic 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-cluster 
+Requires:         R-grDevices 
+Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-prismatic 
 
 %description
-Queries data from WHOIS servers.
+Functions that allow you to create your own color palette from an image,
+using mathematical algorithms.
 
 %prep
 %setup -q -c -n %{packname}

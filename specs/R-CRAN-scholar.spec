@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  scholar
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyse Citation Data from Google Scholar
 
@@ -13,12 +13,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R.cache 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-xml2 
@@ -28,6 +29,7 @@ BuildRequires:    R-CRAN-ggplot2
 Requires:         R-CRAN-R.cache 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-xml2 

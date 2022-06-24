@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Rwhois
-%global packver   1.0.10
+%global packname  ravedash
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          WHOIS Server Querying
+Summary:          Dashboard System for Reproducible Visualization of 'iEEG'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,13 +16,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-stringr 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-shiny >= 1.7.1
+BuildRequires:    R-CRAN-shinyWidgets >= 0.6.2
+BuildRequires:    R-CRAN-threeBrain >= 0.2.4
+BuildRequires:    R-CRAN-logger >= 0.2.2
+BuildRequires:    R-CRAN-dipsaus >= 0.2.0
+BuildRequires:    R-CRAN-rpymat >= 0.1.2
+BuildRequires:    R-CRAN-shidashi >= 0.1.0.9000
+BuildRequires:    R-CRAN-raveio >= 0.0.5.9000
+BuildRequires:    R-CRAN-shinyvalidate 
+Requires:         R-CRAN-shiny >= 1.7.1
+Requires:         R-CRAN-shinyWidgets >= 0.6.2
+Requires:         R-CRAN-threeBrain >= 0.2.4
+Requires:         R-CRAN-logger >= 0.2.2
+Requires:         R-CRAN-dipsaus >= 0.2.0
+Requires:         R-CRAN-rpymat >= 0.1.2
+Requires:         R-CRAN-shidashi >= 0.1.0.9000
+Requires:         R-CRAN-raveio >= 0.0.5.9000
+Requires:         R-CRAN-shinyvalidate 
 
 %description
-Queries data from WHOIS servers.
+Dashboard system to display the analysis results produced by 'RAVE'
+(Magnotti J.F., Wang Z., Beauchamp M.S. (2020), R analysis and
+visualizations of 'iEEG' <doi:10.1016/j.neuroimage.2020.117341>). Provides
+infrastructure to integrate customized analysis pipelines into dashboard
+modules, including file structures, front-end widgets, and event handlers.
 
 %prep
 %setup -q -c -n %{packname}

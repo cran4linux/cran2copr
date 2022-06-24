@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dplR
-%global packver   1.7.3
+%global packver   1.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.3
+Version:          1.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dendrochronology Program Library in R
 
@@ -31,6 +31,7 @@ BuildRequires:    R-grid
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-CRAN-boot 
 Requires:         R-CRAN-XML >= 2.1.0
 Requires:         R-CRAN-plyr >= 1.8
 Requires:         R-CRAN-R.utils >= 1.32.1
@@ -47,6 +48,7 @@ Requires:         R-grid
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-signal 
+Requires:         R-CRAN-boot 
 
 %description
 Perform tree-ring analyses such as detrending, chronology building, and

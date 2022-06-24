@@ -1,48 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  libr
-%global packver   1.2.3
+%global packname  wdnet
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Libraries, Data Dictionaries, and a Data Step for R
+Summary:          Weighted and Directed Networks
 
-License:          CC0
+License:          GPL (>= 3.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-tools 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-wdm 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-rARPACK 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-CVXR 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-stats 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-wdm 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-rARPACK 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-CVXR 
 
 %description
-Contains a set of functions to create data libraries, generate data
-dictionaries, and simulate a data step. The libname() function will load a
-directory of data into a library in one line of code.  The dictionary()
-function will generate data dictionaries for individual data frames or an
-entire library.  And the datestep() function will perform row-by-row data
-processing.
+Implementations of network analysis including (1) assortativity
+coefficient of weighted and directed networks, Yuan, Yan and Zhang (2021)
+<doi:10.1093/comnet/cnab017>, (2) centrality measures for weighted and
+directed networks, Opsahl, Agneessens and Skvoretz (2010)
+<doi:10.1016/j.socnet.2010.03.006>, Zhang, Wang and Yan (2022)
+<doi:10.1016/j.physa.2021.126438>, (3) clustering coefficient of weighted
+and directed networks, Fagiolo (2007) <doi:10.1103/PhysRevE.76.026107> and
+Clemente and Grassi (2018) <doi:10.1016/j.chaos.2017.12.007>, (4) network
+rewiring, (5) preferential attachment network generation.
 
 %prep
 %setup -q -c -n %{packname}

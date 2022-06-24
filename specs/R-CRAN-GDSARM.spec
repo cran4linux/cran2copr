@@ -1,28 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Rwhois
-%global packver   1.0.10
+%global packname  GDSARM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          WHOIS Server Querying
+Summary:          Gauss - Dantzig Selector: Aggregation over Random Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-stringr 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-lpSolve 
+Requires:         R-CRAN-lpSolve 
 
 %description
-Queries data from WHOIS servers.
+The method aims to identify important factors in screening experiments by
+aggregation over random models as studied in Singh and Stufken (2022)
+<doi:10.48550/arXiv.2205.13497>. This package provides functions to run
+Gauss-Dantzig selector on screening experiments when interactions may be
+affecting the response. Currently, all functions require each factor to be
+at two-levels coded as +1 and -1.
 
 %prep
 %setup -q -c -n %{packname}

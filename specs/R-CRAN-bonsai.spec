@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Rwhois
-%global packver   1.0.10
+%global packname  bonsai
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          WHOIS Server Querying
+Summary:          Model Wrappers for Tree-Based Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,13 +16,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-parsnip >= 1.0.0
+BuildRequires:    R-CRAN-dials 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-parsnip >= 1.0.0
+Requires:         R-CRAN-dials 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 
 %description
-Queries data from WHOIS servers.
+Bindings for additional tree-based model engines for use with the
+'parsnip' package. Models include gradient boosted decision trees with
+'LightGBM' (Ke et al, 2017.) and conditional inference trees and
+conditional random forests with 'partykit' (Hothorn and Zeileis, 2015. and
+Hothorn et al, 2006. <doi:10.1198/106186006X133933>).
 
 %prep
 %setup -q -c -n %{packname}

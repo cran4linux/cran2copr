@@ -1,28 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Rwhois
-%global packver   1.0.10
+%global packname  covid19brazil
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          WHOIS Server Querying
+Summary:          COVID-19 Dataset for Brazil
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-stringr 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-devtools 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-devtools 
+Requires:         R-CRAN-dplyr 
 
 %description
-Queries data from WHOIS servers.
+Dataset with strategic information about COVID-19 in Brazil. Data for
+municipalities, states, region and Brazil. Data source: Sistema Unico de
+Saude - SUS.
 
 %prep
 %setup -q -c -n %{packname}

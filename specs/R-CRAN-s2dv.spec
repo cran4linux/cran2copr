@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  s2dv
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Set of Common Tools for Seasonal to Decadal Verification
 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-plyr
 BuildRequires:    R-CRAN-ncdf4 
 BuildRequires:    R-CRAN-NbClust 
 BuildRequires:    R-CRAN-easyNCDF 
+BuildRequires:    R-CRAN-easyVerification 
 Requires:         R-CRAN-multiApply >= 2.1.1
 Requires:         R-CRAN-SpecsVerification >= 0.5.0
 Requires:         R-CRAN-maps 
@@ -48,6 +49,7 @@ Requires:         R-CRAN-plyr
 Requires:         R-CRAN-ncdf4 
 Requires:         R-CRAN-NbClust 
 Requires:         R-CRAN-easyNCDF 
+Requires:         R-CRAN-easyVerification 
 
 %description
 The advanced version of package 's2dverification'. It is intended for

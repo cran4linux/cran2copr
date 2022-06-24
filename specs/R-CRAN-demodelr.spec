@@ -1,57 +1,52 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tidyposterior
+%global packname  demodelr
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Analysis to Compare Models using Resampling Statistics
+Summary:          Simulating Differential Equations with Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rstanarm >= 2.21.1
-BuildRequires:    R-CRAN-tidyr >= 0.7.1
-BuildRequires:    R-CRAN-vctrs >= 0.3.0
-BuildRequires:    R-CRAN-tune >= 0.2.0
-BuildRequires:    R-CRAN-rsample >= 0.0.2
-BuildRequires:    R-CRAN-dplyr > 1.0.0
-BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-formula.tools 
+BuildRequires:    R-CRAN-GGally 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-workflowsets 
-Requires:         R-CRAN-rstanarm >= 2.21.1
-Requires:         R-CRAN-tidyr >= 0.7.1
-Requires:         R-CRAN-vctrs >= 0.3.0
-Requires:         R-CRAN-tune >= 0.2.0
-Requires:         R-CRAN-rsample >= 0.0.2
-Requires:         R-CRAN-dplyr > 1.0.0
-Requires:         R-CRAN-generics 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-formula.tools 
+Requires:         R-CRAN-GGally 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
 Requires:         R-utils 
-Requires:         R-CRAN-workflowsets 
+Requires:         R-CRAN-tibble 
 
 %description
-Bayesian analysis used here to answer the question: "when looking at
-resampling results, are the differences between models 'real'?" To answer
-this, a model can be created were the performance statistic is the
-resampling statistics (e.g. accuracy or RMSE). These values are explained
-by the model types. In doing this, we can get parameter estimates for each
-model's affect on performance and make statistical (and practical)
-comparisons between models. The methods included here are similar to
-Benavoli et al (2017) <https://jmlr.org/papers/v18/16-305.html>.
+Designed to support the visualization, numerical computation, qualitative
+analysis, model-data fusion, and stochastic simulation for autonomous
+systems of differential equations. Euler and Runge-Kutta methods are
+implemented, along with tools to visualize the two-dimensional phaseplane.
+Likelihood surfaces and a simple Markov Chain Monte Carlo parameter
+estimator can be used for model-data fusion of differential equations and
+empirical models. The Euler-Maruyama method is provided for simulation of
+stochastic differential equations. The package was originally written for
+internal use to support teaching by Zobitz, and refined to support the
+text "Exploring modeling with data and differential equations using R" by
+John Zobitz (2021) <https://jmzobitz.github.io/ModelingWithR/index.html>.
 
 %prep
 %setup -q -c -n %{packname}

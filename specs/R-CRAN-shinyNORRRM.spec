@@ -1,28 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Rwhois
-%global packver   1.0.10
+%global packname  shinyNORRRM
+%global packver   0.8.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          0.8.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          WHOIS Server Querying
+Summary:          The Ultimate Igneous Norm
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-CRAN-shinyWidgets 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-Ternary 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-shinyWidgets 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-Ternary 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 Requires:         R-utils 
 
 %description
-Queries data from WHOIS servers.
+The computer program is an efficient igneous norm algorithm and rock
+classification system written in R but run as shiny app.
 
 %prep
 %setup -q -c -n %{packname}

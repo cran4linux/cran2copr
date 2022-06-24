@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  geomander
-%global packver   2.0.3
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geographic Tools for Studying Gerrymandering
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
 BuildRequires:    R-CRAN-tigris >= 1.5
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-dplyr 
@@ -29,8 +29,8 @@ BuildRequires:    R-CRAN-dataverse
 BuildRequires:    R-CRAN-censable 
 BuildRequires:    R-CRAN-geos 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-tigris >= 1.5
-Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-sf 
@@ -43,6 +43,8 @@ Requires:         R-CRAN-dataverse
 Requires:         R-CRAN-censable 
 Requires:         R-CRAN-geos 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-Rcpp >= 1.0.7
 
 %description
 A compilation of tools to complete common tasks for studying
