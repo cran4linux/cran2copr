@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DemographicTable
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creating Demographic Table
 
@@ -18,8 +18,10 @@ Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-xtable 
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-xtable 
 
 %description
 Functions for creating demographic table with simple summary statistics,

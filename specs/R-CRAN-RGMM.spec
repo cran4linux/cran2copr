@@ -1,40 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  caMST
-%global packver   0.1.6
+%global packname  RGMM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mixed Computerized Adaptive Multistage Testing
+Summary:          Robust Mixture Model
 
-License:          LGPL (>= 2.0, < 3) | Mozilla Public License
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-catR 
-BuildRequires:    R-CRAN-mstR 
-BuildRequires:    R-CRAN-diagram 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-catR 
-Requires:         R-CRAN-mstR 
-Requires:         R-CRAN-diagram 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-LaplacesDemon 
+BuildRequires:    R-CRAN-genieclust 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-mclust 
+Requires:         R-parallel 
+Requires:         R-CRAN-LaplacesDemon 
+Requires:         R-CRAN-genieclust 
+Requires:         R-CRAN-RSpectra 
 
 %description
-Provides functions to more easily analyze computerized adaptive tests.
-Currently, functions for computerized adaptive tests (CAT), computer
-adaptive multistage tests (CMT), and mixed computer adaptive multistage
-tests (McaMST) utilizing CAT item-level adaptation for the initial stage
-and traditional MST module-level adaptation for the subsequent stages have
-been created, and a variation of Hybrid computer adaptive MST is planned
-as well. For an in-depth look at CAT and MST, see Weiss & Kingsbury (1984)
-<doi:10.1111/j.1745-3984.1984.tb01040.x> and Luecht & Nungester (2000)
-<doi:10.1007/0-306-47531-6_6> respectively.
+Algorithms for estimating robustly the parameters of a Gaussian, Student,
+or Laplace Mixture Model.
 
 %prep
 %setup -q -c -n %{packname}

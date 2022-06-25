@@ -1,40 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  caMST
-%global packver   0.1.6
+%global packname  attention
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mixed Computerized Adaptive Multistage Testing
+Summary:          Self-Attention Algorithm
 
-License:          LGPL (>= 2.0, < 3) | Mozilla Public License
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-catR 
-BuildRequires:    R-CRAN-mstR 
-BuildRequires:    R-CRAN-diagram 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-catR 
-Requires:         R-CRAN-mstR 
-Requires:         R-CRAN-diagram 
-Requires:         R-methods 
 
 %description
-Provides functions to more easily analyze computerized adaptive tests.
-Currently, functions for computerized adaptive tests (CAT), computer
-adaptive multistage tests (CMT), and mixed computer adaptive multistage
-tests (McaMST) utilizing CAT item-level adaptation for the initial stage
-and traditional MST module-level adaptation for the subsequent stages have
-been created, and a variation of Hybrid computer adaptive MST is planned
-as well. For an in-depth look at CAT and MST, see Weiss & Kingsbury (1984)
-<doi:10.1111/j.1745-3984.1984.tb01040.x> and Luecht & Nungester (2000)
-<doi:10.1007/0-306-47531-6_6> respectively.
+Self-Attention algorithm helper functions and demonstration vignettes of
+increasing depth on how to construct the Self-Attention algorithm, this is
+based on Dan Jurafsky and James H. Martin (2022, ISBN:978-0131873216)
+<https://web.stanford.edu/~jurafsky/slp3/> "Speech and Language Processing
+(3rd ed.)" and Alex Graves (2020)
+<https://www.youtube.com/watch?v=AIiwuClvH6k> "Attention and Memory in
+Deep Learning".
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  caMST
-%global packver   0.1.6
+%global packname  h0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mixed Computerized Adaptive Multistage Testing
+Summary:          A Meta Analysis for Estimating the Hubble Constant via Time Delay Cosmography
 
-License:          LGPL (>= 2.0, < 3) | Mozilla Public License
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.2.0
+Requires:         R-core >= 2.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-catR 
-BuildRequires:    R-CRAN-mstR 
-BuildRequires:    R-CRAN-diagram 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-catR 
-Requires:         R-CRAN-mstR 
-Requires:         R-CRAN-diagram 
-Requires:         R-methods 
 
 %description
-Provides functions to more easily analyze computerized adaptive tests.
-Currently, functions for computerized adaptive tests (CAT), computer
-adaptive multistage tests (CMT), and mixed computer adaptive multistage
-tests (McaMST) utilizing CAT item-level adaptation for the initial stage
-and traditional MST module-level adaptation for the subsequent stages have
-been created, and a variation of Hybrid computer adaptive MST is planned
-as well. For an in-depth look at CAT and MST, see Weiss & Kingsbury (1984)
-<doi:10.1111/j.1745-3984.1984.tb01040.x> and Luecht & Nungester (2000)
-<doi:10.1007/0-306-47531-6_6> respectively.
+We provide a toolbox to conduct a meta analysis for estimating the current
+expansion rate of the Universe, called the Hubble constant H0, via time
+delay cosmography. The input data are (i) estimates of Fermat potential
+differences and their one-sigma uncertainties (standard errors), and (ii)
+estimates of time delays and their one-sigma uncertainties. Given these
+inputs, the meta analysis conducts a maximum likelihood estimation or a
+Bayesian inference to infer the Hubble constant.
 
 %prep
 %setup -q -c -n %{packname}

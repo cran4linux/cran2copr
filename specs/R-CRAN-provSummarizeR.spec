@@ -1,40 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  caMST
-%global packver   0.1.6
+%global packname  provSummarizeR
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mixed Computerized Adaptive Multistage Testing
+Summary:          Summarizes Provenance Related to Inputs and Outputs of a Script or Console Commands
 
-License:          LGPL (>= 2.0, < 3) | Mozilla Public License
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-catR 
-BuildRequires:    R-CRAN-mstR 
-BuildRequires:    R-CRAN-diagram 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-catR 
-Requires:         R-CRAN-mstR 
-Requires:         R-CRAN-diagram 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-provParseR >= 0.3
+Requires:         R-CRAN-provParseR >= 0.3
 
 %description
-Provides functions to more easily analyze computerized adaptive tests.
-Currently, functions for computerized adaptive tests (CAT), computer
-adaptive multistage tests (CMT), and mixed computer adaptive multistage
-tests (McaMST) utilizing CAT item-level adaptation for the initial stage
-and traditional MST module-level adaptation for the subsequent stages have
-been created, and a variation of Hybrid computer adaptive MST is planned
-as well. For an in-depth look at CAT and MST, see Weiss & Kingsbury (1984)
-<doi:10.1111/j.1745-3984.1984.tb01040.x> and Luecht & Nungester (2000)
-<doi:10.1007/0-306-47531-6_6> respectively.
+Reads the provenance collected by the 'rdtLite' or 'rdt' packages, or
+other tools providing compatible PROV JSON output, created by the
+execution of a script or a console session, and provides a human-readable
+summary identifying the input and output files, the script used (if any),
+errors and warnings produced, and the environment in which it was
+executed.  It can also optionally package all the files into a zip file.
+The exact format of the JSON created by 'rdtLite' and 'rdt' is described
+in <https://github.com/End-to-end-provenance/ExtendedProvJson>. More
+information about 'rdtLite' and associated tools is available at
+<https://github.com/End-to-end-provenance/> and Barbara Lerner, Emery
+Boose, and Luis Perez (2018), Using Introspection to Collect Provenance in
+R, Informatics, <doi: 10.3390/informatics5010012>.
 
 %prep
 %setup -q -c -n %{packname}

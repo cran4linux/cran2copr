@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  AdhereRViz
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adherence to Medications
 
@@ -16,12 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-parallel >= 3.0
 BuildRequires:    R-CRAN-RSQLite >= 2.1
 BuildRequires:    R-CRAN-data.table >= 1.9
-BuildRequires:    R-CRAN-lubridate >= 1.5
 BuildRequires:    R-CRAN-V8 >= 1.5
-BuildRequires:    R-CRAN-rsvg >= 1.3
 BuildRequires:    R-CRAN-knitr >= 1.20
 BuildRequires:    R-CRAN-RMariaDB >= 1.0.5
 BuildRequires:    R-CRAN-manipulate >= 1.0
@@ -29,18 +26,14 @@ BuildRequires:    R-CRAN-shiny >= 1.0
 BuildRequires:    R-CRAN-shinyjs >= 1.0
 BuildRequires:    R-CRAN-colourpicker >= 1.0
 BuildRequires:    R-CRAN-DBI >= 1.0
-BuildRequires:    R-CRAN-scales >= 1.0
-BuildRequires:    R-CRAN-AdhereR >= 0.7
+BuildRequires:    R-CRAN-AdhereR >= 0.7.1
 BuildRequires:    R-CRAN-shinyWidgets >= 0.4.4
 BuildRequires:    R-CRAN-highlight >= 0.4
 BuildRequires:    R-CRAN-clipr >= 0.4
 BuildRequires:    R-CRAN-viridisLite >= 0.3
-Requires:         R-parallel >= 3.0
 Requires:         R-CRAN-RSQLite >= 2.1
 Requires:         R-CRAN-data.table >= 1.9
-Requires:         R-CRAN-lubridate >= 1.5
 Requires:         R-CRAN-V8 >= 1.5
-Requires:         R-CRAN-rsvg >= 1.3
 Requires:         R-CRAN-knitr >= 1.20
 Requires:         R-CRAN-RMariaDB >= 1.0.5
 Requires:         R-CRAN-manipulate >= 1.0
@@ -48,8 +41,7 @@ Requires:         R-CRAN-shiny >= 1.0
 Requires:         R-CRAN-shinyjs >= 1.0
 Requires:         R-CRAN-colourpicker >= 1.0
 Requires:         R-CRAN-DBI >= 1.0
-Requires:         R-CRAN-scales >= 1.0
-Requires:         R-CRAN-AdhereR >= 0.7
+Requires:         R-CRAN-AdhereR >= 0.7.1
 Requires:         R-CRAN-shinyWidgets >= 0.4.4
 Requires:         R-CRAN-highlight >= 0.4
 Requires:         R-CRAN-clipr >= 0.4

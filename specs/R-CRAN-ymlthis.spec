@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ymlthis
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Write 'YAML' for 'R Markdown', 'bookdown', 'blogdown', and More
 
@@ -18,32 +18,26 @@ Requires:         R-core >= 3.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rmarkdown >= 2.10
 BuildRequires:    R-CRAN-usethis >= 1.5.0
-BuildRequires:    R-CRAN-rlang >= 0.4.0
+BuildRequires:    R-CRAN-rlang >= 0.4.10
 BuildRequires:    R-CRAN-purrr >= 0.3.2
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-miniUI 
 BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyBS 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-whoami 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-rmarkdown >= 2.10
 Requires:         R-CRAN-usethis >= 1.5.0
-Requires:         R-CRAN-rlang >= 0.4.0
+Requires:         R-CRAN-rlang >= 0.4.10
 Requires:         R-CRAN-purrr >= 0.3.2
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-miniUI 
 Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyBS 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-whoami 
 Requires:         R-CRAN-withr 

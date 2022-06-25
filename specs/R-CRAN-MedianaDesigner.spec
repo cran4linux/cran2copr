@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MedianaDesigner
-%global packver   0.7
+%global packver   0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Simulation-Based Power and Sample Size Calculations for a Broad Class of Late-Stage Clinical Trials
 
@@ -17,6 +17,7 @@ BuildRequires:    R-devel >= 3.1.2
 Requires:         R-core >= 3.1.2
 BuildRequires:    R-CRAN-Rcpp >= 0.12.10
 BuildRequires:    R-CRAN-RcppNumerical 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-devEMF 
@@ -28,9 +29,15 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-lmerTest 
+BuildRequires:    R-CRAN-pbkrtest 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 0.12.10
 Requires:         R-CRAN-RcppNumerical 
+Requires:         R-methods 
 Requires:         R-CRAN-officer 
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-devEMF 
@@ -42,6 +49,11 @@ Requires:         R-CRAN-foreach
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-doRNG 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-rootSolve 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-lmerTest 
+Requires:         R-CRAN-pbkrtest 
 
 %description
 The following modules are included in the package: Adaptive designs with
@@ -50,7 +62,8 @@ with data-driven treatment selection, Adaptive designs with data-driven
 population selection, Optimal selection of a futility stopping rule, Event
 prediction in event-driven trials, Adaptive trials with response-adaptive
 randomization (experimental module), Traditional trials with multiple
-objectives (experimental module).
+objectives (experimental module). Traditional trials with
+cluster-randomized designs (experimental module).
 
 %prep
 %setup -q -c -n %{packname}

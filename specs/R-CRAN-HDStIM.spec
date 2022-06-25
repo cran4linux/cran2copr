@@ -1,53 +1,53 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rsample
-%global packver   1.0.0
+%global packname  HDStIM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          General Resampling Infrastructure
+Summary:          High Dimensional Stimulation Immune Mapping ('HDStIM')
 
-License:          MIT + file LICENSE
+License:          CC0 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 0.4.10
-BuildRequires:    R-CRAN-vctrs >= 0.3.0
-BuildRequires:    R-CRAN-slider >= 0.1.5
-BuildRequires:    R-CRAN-ellipsis 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-uwot 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-rlang >= 0.4.10
-Requires:         R-CRAN-vctrs >= 0.3.0
-Requires:         R-CRAN-slider >= 0.1.5
-Requires:         R-CRAN-ellipsis 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-glue 
-Requires:         R-methods 
-Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-ggridges 
+BuildRequires:    R-CRAN-Boruta 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-uwot 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-broom 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-ggridges 
+Requires:         R-CRAN-Boruta 
+Requires:         R-CRAN-scales 
 
 %description
-Classes and functions to create and summarize different types of
-resampling objects (e.g. bootstrap, cross-validation).
+A method for identifying responses to experimental stimulation in mass or
+flow cytometry that uses high dimensional analysis of measured parameters
+and can be performed with an end-to-end unsupervised approach. In the
+context of in vitro stimulation assays where high-parameter cytometry was
+used to monitor intracellular response markers, using cell populations
+annotated either through automated clustering or manual gating for a
+combined set of stimulated and unstimulated samples, 'HDStIM' labels cells
+as responding or non-responding. The package also provides auxiliary
+functions to rank intracellular markers based on their contribution to
+identifying responses and generating diagnostic plots.
 
 %prep
 %setup -q -c -n %{packname}

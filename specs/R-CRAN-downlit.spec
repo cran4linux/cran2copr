@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  downlit
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Syntax Highlighting and Automatic Linking
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-fansi
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-brio 
 Requires:         R-CRAN-desc 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-fansi
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-withr 
 Requires:         R-CRAN-yaml 
 
 %description

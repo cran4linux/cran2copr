@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ttservice
-%global packver   0.1.2
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Service for Tidy Transcriptomics Software Suite
 
@@ -16,14 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-dplyr 
 
 %description
 It provides generic methods that are used by more than one package,
 avoiding conflicts. This package will be imported by
-'tidySingleCellExperiment' and 'tidyseurat'. The implemented method is
-join_features().
+'tidySingleCellExperiment' and 'tidyseurat'.
 
 %prep
 %setup -q -c -n %{packname}

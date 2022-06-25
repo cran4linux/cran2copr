@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mapme.biodiversity
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Monitoring of Global Biodiversity Portfolios
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stringr 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stringr 

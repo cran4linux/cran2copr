@@ -1,44 +1,49 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rotations
-%global packver   1.6.4
+%global packname  visR
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.4
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Working with Rotation Data
+Summary:          Clinical Graphs and Tables Adhering to Graphical Principles
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-broom >= 0.7.11
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-broom >= 0.7.11
+Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-gtable 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-survival 
 
 %description
-Tools for working with rotational data, including simulation from the most
-commonly used distributions on SO(3), methods for different Bayes, mean
-and median type estimators for the central orientation of a sample,
-confidence/credible regions for the central orientation based on those
-estimators and a novel visualization technique for rotation data.  Most
-recently, functions to identify potentially discordant (outlying) values
-have been added.  References: Bingham, Melissa A. and Nordman, Dan J. and
-Vardeman, Steve B. (2009), Bingham, Melissa A and Vardeman, Stephen B and
-Nordman, Daniel J (2009), Bingham, Melissa A and Nordman, Daniel J and
-Vardeman, Stephen B (2010), Leon, C.A. and Masse, J.C. and Rivest, L.P.
-(2006), Hartley, R and Aftab, K and Trumpf, J. (2011), Stanfill, Bryan and
-Genschel, Ulrike and Hofmann, Heike (2013), Maonton, Jonathan (2004),
-Mardia, KV and Jupp, PE (2000, ISBN:9780471953333), Rancourt, D. and
-Rivest, L.P. and Asselin, J. (2000), Chang, Ted and Rivest, Louis-Paul
-(2001), Fisher, Nicholas I. (1996, ISBN:0521568900).
+To enable fit-for-purpose, reusable clinical and medical research focused
+visualizations and tables with sensible defaults and based on graphical
+principles as described in: "Vandemeulebroecke et al. (2018)"
+<doi:10.1002/pst.1912>, "Vandemeulebroecke et al. (2019)"
+<doi:10.1002/psp4.12455>, and "Morris et al. (2019)"
+<doi:10.1136/bmjopen-2019-030215>.
 
 %prep
 %setup -q -c -n %{packname}
