@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  easyr
-%global packver   0.5-8
+%global packver   0.5-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.8
+Version:          0.5.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helpful Functions from Oliver Wyman Actuarial Consulting
 
@@ -24,8 +24,10 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-readxlsb 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rprojroot 
 BuildRequires:    R-CRAN-XML 
@@ -37,8 +39,10 @@ Requires:         R-CRAN-glue
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-stringr 
+Requires:         R-methods 
 Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-readxlsb 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rprojroot 
 Requires:         R-CRAN-XML 

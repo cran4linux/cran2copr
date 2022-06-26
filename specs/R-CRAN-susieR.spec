@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
 %global packname  susieR
-%global packver   0.11.92
+%global packver   0.12.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.92
+Version:          0.12.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sum of Single Effects Linear Regression
 
-License:          MIT + file LICENSE
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 

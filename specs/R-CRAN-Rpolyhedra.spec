@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Rpolyhedra
-%global packver   0.5.1
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Polyhedra Database
 
@@ -22,7 +22,7 @@ BuildRequires:    R-CRAN-rgl
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-futile.logger 
+BuildRequires:    R-CRAN-lgr 
 BuildRequires:    R-CRAN-git2r 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-geometry 
@@ -30,7 +30,7 @@ Requires:         R-CRAN-rgl
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-XML 
 Requires:         R-CRAN-digest 
-Requires:         R-CRAN-futile.logger 
+Requires:         R-CRAN-lgr 
 Requires:         R-CRAN-git2r 
 
 %description

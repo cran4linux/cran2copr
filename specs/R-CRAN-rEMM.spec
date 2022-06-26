@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rEMM
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extensible Markov Model for Modelling Temporal Relationships Between Clusters
 
@@ -19,6 +19,7 @@ BuildRequires:    R-CRAN-proxy >= 0.4.7
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stream 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-clusterGeneration 
 BuildRequires:    R-CRAN-MASS 
@@ -27,6 +28,7 @@ Requires:         R-CRAN-proxy >= 0.4.7
 Requires:         R-CRAN-igraph 
 Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-CRAN-stream 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-clusterGeneration 
 Requires:         R-CRAN-MASS 

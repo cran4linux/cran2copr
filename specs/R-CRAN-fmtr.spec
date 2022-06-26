@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fmtr
-%global packver   1.5.5
+%global packver   1.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.5
+Version:          1.5.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Apply Formats to Data
 
