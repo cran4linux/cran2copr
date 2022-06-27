@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ARpLMEC
-%global packver   2.4
+%global packver   2.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4
+Version:          2.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Censored Mixed-Effects Models with Different Correlation Structures
 

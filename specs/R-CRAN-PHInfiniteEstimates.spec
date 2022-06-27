@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  PHInfiniteEstimates
-%global packver   2.2
+%global packver   2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Inference in the Presence of a Monotone Likelihood
 
@@ -19,12 +19,10 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-Rdpack >= 0.7
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-lpSolve 
-BuildRequires:    R-CRAN-mlogit 
 BuildRequires:    R-CRAN-coxphf 
 Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-lpSolve 
-Requires:         R-CRAN-mlogit 
 Requires:         R-CRAN-coxphf 
 
 %description

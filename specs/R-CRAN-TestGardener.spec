@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  TestGardener
-%global packver   2.0.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Analysis of Test and Rating Scale Data
 
@@ -42,18 +42,18 @@ Requires:         R-CRAN-rmarkdown
 %description
 Develop, evaluate, and score multiple choice examinations, psychological
 scales, questionnaires, and similar types of data involving sequences of
-choices among one or more sets of answers. Using the package does not
-require any formal statistical knowledge beyond what would be provided by
-a first course in statistics in a social science department.  There the
-user would encounter the concept of probability and how it is used to
-model data and make decisions, and would become familiar with basic
-mathematical and statistical notation. The essential aspects of each
-display were designed to be self-explanatory, although more statistically
-sophisticated users will also find information that they may find helpful.
-Most of the output is in graphical form. Two recent papers on the
-methodology are Ramsay, James; Li, Juan; Wiberg, Marie (2020)
-<doi:10.3390/psych2040026> and Ramsay, James; Wiberg, Marie; Li, Juan
-(2019) <doi:10.3102/1076998619885636>.
+choices among one or more sets of answers. This version of the package
+should be considered as brand new.  Almost all of the functions have been
+changed, including their argument list. See the file NEWS.Rd in the Inst
+folder for more information. Using the package does not require any formal
+statistical knowledge beyond what would be provided by a first course in
+statistics in a social science department.  There the user would encounter
+the concept of probability and how it is used to model data and make
+decisions, and would become familiar with basic mathematical and
+statistical notation. Most of the output is in graphical form. Two recent
+papers on the methodology are Ramsay, James; Li, Juan; Wiberg, Marie
+(2020) <doi:10.3390/psych2040026> and Ramsay, James; Wiberg, Marie; Li,
+Juan (2019) <doi:10.3102/1076998619885636>.
 
 %prep
 %setup -q -c -n %{packname}

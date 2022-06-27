@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mdsOpt
-%global packver   0.6-3
+%global packver   0.7-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Searching for Optimal MDS Procedure for Metric and Interval-Valued Data
 
@@ -15,6 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-smacof 
 BuildRequires:    R-CRAN-clusterSim 
 BuildRequires:    R-CRAN-symbolicDA 
@@ -38,8 +39,7 @@ interval-valued data by varying all combinations of normalization and
 optimization methods.Selecting the optimal MDS procedure for statistical
 data referring to the evaluation of tourist attractiveness of Lower
 Silesian counties. (Borg, I., Groenen, P.J.F., Mair, P. (2013)
-<doi:10.1007/978-3-642-31848-1>, Groenen, P.J.F., Winsberg, S., Rodriguez,
-O., Diday, E. (2006) <doi:10.1016/j.csda.2006.04.003>, Walesiak, M. (2016)
+<doi:10.1007/978-3-642-31848-1>, Walesiak, M. (2016)
 <doi:10.15611/ekt.2016.2.01>, Walesiak, M. (2017)
 <doi:10.15611/ekt.2017.3.01>).
 

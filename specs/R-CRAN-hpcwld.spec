@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  hpcwld
-%global packver   0.6-4
+%global packver   0.6-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Performance Cluster Models Based on Kiefer-Wolfowitz Recursion
 
@@ -25,7 +25,10 @@ inter-arrival times, service times, number of cores per task and waiting
 times of HPC of Karelian Research Centre are included, measurements took
 place from 06/03/2009 to 02/30/2011. Functions provided to import/export
 workload traces in Standard Workload Format (swf). Stability condition of
-the model may be verified either exactly, or approximately.
+the model may be verified either exactly, or approximately. Stability
+analysis: see Rumyantsev and Morozov (2017)
+<doi:10.1007/s10479-015-1917-2>, workload recursion: see Rumyantsev (2014)
+<doi:10.1109/PDCAT.2014.36>.
 
 %prep
 %setup -q -c -n %{packname}

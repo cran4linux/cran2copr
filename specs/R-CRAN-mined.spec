@@ -1,30 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  flux
-%global packver   0.3-0.1
+%global packname  mined
+%global packver   1.0-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Flux Rate Calculation from Dynamic Closed Chamber Measurements
+Summary:          Minimum Energy Designs
 
-License:          GPL-2
+License:          LGPL-2.1
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.12.0
-Requires:         R-core >= 2.12.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-caTools 
-Requires:         R-CRAN-caTools 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.12.17
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 0.12.17
 
 %description
-Functions for the calculation of greenhouse gas flux rates from closed
-chamber concentration measurements. The package follows a modular concept:
-Fluxes can be calculated in just two simple steps or in several steps if
-more control in details is wanted. Additionally plot and preparation
-functions as well as functions for modelling gpp and reco are provided.
+This is a method (MinED) for mining probability distributions using
+deterministic sampling which is proposed by Joseph, Wang, Gu, Lv, and Tuo
+(2019) <DOI:10.1080/00401706.2018.1552203>. The MinED samples can be used
+for approximating the target distribution. They can be generated from a
+density function that is known only up to a proportionality constant and
+thus, it might find applications in Bayesian computation. Moreover, the
+MinED samples are generated with much fewer evaluations of the density
+function compared to random sampling-based methods such as MCMC and
+therefore, this method will be especially useful when the unnormalized
+posterior is expensive or time consuming to evaluate. This research is
+supported by a U.S. National Science Foundation grant DMS-1712642.
 
 %prep
 %setup -q -c -n %{packname}

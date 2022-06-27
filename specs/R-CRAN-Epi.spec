@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Epi
-%global packver   2.46
+%global packver   2.47
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.46
+Version:          2.47
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Analysis in Epidemiology
 
