@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  scapGNN
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graph Neural Network-Based Framework for Single Cell Active Pathways and Gene Modules Activity
+Summary:          Graph Neural Network-Based Framework for Single Cell Active Pathways and Gene Modules Analysis
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}

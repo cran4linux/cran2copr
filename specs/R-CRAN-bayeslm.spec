@@ -1,37 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  laGP
-%global packver   1.5-7
+%global packname  bayeslm
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.7
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Local Approximate Gaussian Process Regression
+Summary:          Efficient Sampling for Gaussian Linear Regression with Arbitrary Priors
 
-License:          LGPL
+License:          LGPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14
-Requires:         R-core >= 2.14
-BuildRequires:    R-CRAN-tgp 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-tgp 
-Requires:         R-parallel 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 0.12.7
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.7
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-coda 
+Requires:         R-methods 
+Requires:         R-CRAN-RcppParallel 
 
 %description
-Performs approximate GP regression for large computer experiments and
-spatial datasets.  The approximation is based on finding small local
-designs for prediction (independently) at particular inputs. OpenMP and
-SNOW parallelization are supported for prediction over a vast
-out-of-sample testing set; GPU acceleration is also supported for an
-important subroutine.  OpenMP and GPU features may require special
-compilation.  An interface to lower-level (full) GP inference and
-prediction is provided. Wrapper routines for blackbox optimization under
-mixed equality and inequality constraints via an augmented Lagrangian
-scheme, and for large scale computer model calibration, are also provided.
-For details and tutorial, see Gramacy (2016 <doi:10.18637/jss.v072.i01>.
+Efficient sampling for Gaussian linear regression with arbitrary priors,
+Hahn, He and Lopes (2018) <arXiv:1806.05738>.
 
 %prep
 %setup -q -c -n %{packname}

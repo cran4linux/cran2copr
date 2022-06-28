@@ -1,37 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  laGP
-%global packver   1.5-7
+%global packname  mmcif
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Local Approximate Gaussian Process Regression
+Summary:          Mixed Multivariate Cumulative Incidence Functions
 
-License:          LGPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14
-Requires:         R-core >= 2.14
-BuildRequires:    R-CRAN-tgp 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-tgp 
-Requires:         R-parallel 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-alabama 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-psqn 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
+Requires:         R-CRAN-alabama 
 
 %description
-Performs approximate GP regression for large computer experiments and
-spatial datasets.  The approximation is based on finding small local
-designs for prediction (independently) at particular inputs. OpenMP and
-SNOW parallelization are supported for prediction over a vast
-out-of-sample testing set; GPU acceleration is also supported for an
-important subroutine.  OpenMP and GPU features may require special
-compilation.  An interface to lower-level (full) GP inference and
-prediction is provided. Wrapper routines for blackbox optimization under
-mixed equality and inequality constraints via an augmented Lagrangian
-scheme, and for large scale computer model calibration, are also provided.
-For details and tutorial, see Gramacy (2016 <doi:10.18637/jss.v072.i01>.
+Fits the mixed cumulative incidence functions model suggested by
+<doi:10.1093/biostatistics/kxx072> which decomposes within cluster
+dependence of risk and timing. The estimation method supports computation
+in parallel using a shared memory C++ implementation. A sandwich estimator
+of the covariance matrix is available. Natural cubic splines are used to
+provide a flexible model for the cumulative incidence functions.
 
 %prep
 %setup -q -c -n %{packname}

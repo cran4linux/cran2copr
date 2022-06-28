@@ -1,37 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  laGP
-%global packver   1.5-7
+%global packname  DEET
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.7
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Local Approximate Gaussian Process Regression
+Summary:          Differential Expression Enrichment Tool
 
-License:          LGPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14
-Requires:         R-core >= 2.14
-BuildRequires:    R-CRAN-tgp 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-tgp 
-Requires:         R-parallel 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ActivePathways 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-downloader 
+Requires:         R-CRAN-ActivePathways 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glmnet 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-downloader 
 
 %description
-Performs approximate GP regression for large computer experiments and
-spatial datasets.  The approximation is based on finding small local
-designs for prediction (independently) at particular inputs. OpenMP and
-SNOW parallelization are supported for prediction over a vast
-out-of-sample testing set; GPU acceleration is also supported for an
-important subroutine.  OpenMP and GPU features may require special
-compilation.  An interface to lower-level (full) GP inference and
-prediction is provided. Wrapper routines for blackbox optimization under
-mixed equality and inequality constraints via an augmented Lagrangian
-scheme, and for large scale computer model calibration, are also provided.
-For details and tutorial, see Gramacy (2016 <doi:10.18637/jss.v072.i01>.
+A bio informatics R package for comparing a list of human genes to
+published RNA-Seq studies containing similar DE genes. Reference:
+Sokolowski,D.J., Ahn J., Erdman,L., Hou,H., Wang L., Goldenberg,A., and
+Wilson,M.D. (2022) Differential Expression Enrichment Tool (DEET): An
+interactive atlas of human differential gene expression. (In Preparation).
 
 %prep
 %setup -q -c -n %{packname}

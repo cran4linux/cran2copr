@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bioclim
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bioclimatic Analysis and Classification
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-reshape2
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-berryFunctions 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-reshape2
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-stats 
 Requires:         R-grDevices 
+Requires:         R-methods 
 
 %description
 Using numeric or raster data, this package contains functions to

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bigDM
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scalable Bayesian Disease Mapping Models for High-Dimensional Data
 
@@ -52,7 +52,10 @@ Implements several spatial and spatio-temporal scalable disease mapping
 models for high-dimensional count data using the INLA technique for
 approximate Bayesian inference in latent Gaussian models (Orozco-Acosta et
 al., 2021 <doi:10.1016/j.spasta.2021.100496> and Orozco-Acosta et al.,
-2022 <arXiv:2201.08323>).
+2022 <arXiv:2201.08323>). The creation and develpment of this package has
+been supported by Project MTM2017-82553-R (AEI/FEDER, UE) and Project
+PID2020-113125RB-I00/MCIN/AEI/10.13039/501100011033. It has also been
+partially funded by the Public University of Navarra (project PJUPNA2001).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,37 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  laGP
-%global packver   1.5-7
+%global packname  nparLD
+%global packver   2.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.7
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Local Approximate Gaussian Process Regression
+Summary:          Nonparametric Analysis of Longitudinal Data in Factorial Experiments
 
-License:          LGPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14
-Requires:         R-core >= 2.14
-BuildRequires:    R-CRAN-tgp 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-tgp 
-Requires:         R-parallel 
+BuildRequires:    R-devel >= 2.6.0
+Requires:         R-core >= 2.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-MASS 
 
 %description
-Performs approximate GP regression for large computer experiments and
-spatial datasets.  The approximation is based on finding small local
-designs for prediction (independently) at particular inputs. OpenMP and
-SNOW parallelization are supported for prediction over a vast
-out-of-sample testing set; GPU acceleration is also supported for an
-important subroutine.  OpenMP and GPU features may require special
-compilation.  An interface to lower-level (full) GP inference and
-prediction is provided. Wrapper routines for blackbox optimization under
-mixed equality and inequality constraints via an augmented Lagrangian
-scheme, and for large scale computer model calibration, are also provided.
-For details and tutorial, see Gramacy (2016 <doi:10.18637/jss.v072.i01>.
+Performs nonparametric analysis of longitudinal data in factorial
+experiments. Longitudinal data are those which are collected from the same
+subjects over time, and they frequently arise in biological sciences.
+Nonparametric methods do not require distributional assumptions, and are
+applicable to a variety of data types (continuous, discrete, purely
+ordinal, and dichotomous).  Such methods are also robust with respect to
+outliers and for small sample sizes.
 
 %prep
 %setup -q -c -n %{packname}

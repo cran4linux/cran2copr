@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  susieR
-%global packver   0.12.12
+%global packver   0.12.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.12
+Version:          0.12.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sum of Single Effects Linear Regression
 

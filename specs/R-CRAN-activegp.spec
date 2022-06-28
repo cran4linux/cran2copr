@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  activegp
-%global packver   1.0.6
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gaussian Process Based Design and Analysis for the Active Subspace Method
 
@@ -20,12 +20,16 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.18
 BuildRequires:    R-CRAN-lhs 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-RcppProgress 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-hetGP >= 1.1.1
 Requires:         R-CRAN-Rcpp >= 0.12.18
 Requires:         R-CRAN-lhs 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-methods 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-RcppProgress 
 
 %description
 The active subspace method is a sensitivity analysis technique that finds

@@ -1,48 +1,50 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ggpie
-%global packver   0.2.2
+%global packname  hydrorecipes
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pie, Donut and Rose Pie Plots
+Summary:          Hydrogeology Steps for the 'recipes' Package
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-recipes >= 0.1.15
+BuildRequires:    R-CRAN-earthtide 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-ggnewscale 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-cowplot 
-Requires:         R-CRAN-dplyr 
-Requires:         R-grDevices 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-fftw 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppParallel 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-recipes >= 0.1.15
+Requires:         R-CRAN-earthtide 
+Requires:         R-CRAN-generics 
+Requires:         R-splines 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-ggnewscale 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
-Requires:         R-utils 
-Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-fftw 
 
 %description
-Create pie, donut and rose pie plot with 'ggplot2'.
+Additional steps to be used with the 'recipes' package. New steps were
+designed for regression deconvolution on datasets with millions of rows
+with applications to signal decomposition and response characterization.
+The methods in this package were developed as part of PhD thesis titled
+High Frequency Water Level Responses to Natural Signals
+<http://hdl.handle.net/10214/17890> by Jonathan Kennel in 2020.
 
 %prep
 %setup -q -c -n %{packname}

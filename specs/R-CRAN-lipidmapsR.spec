@@ -1,37 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  laGP
-%global packver   1.5-7
+%global packname  lipidmapsR
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.7
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Local Approximate Gaussian Process Regression
+Summary:          Lipid Maps Rest Service
 
-License:          LGPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14
-Requires:         R-core >= 2.14
-BuildRequires:    R-CRAN-tgp 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-tgp 
-Requires:         R-parallel 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr >= 1.3.1
+BuildRequires:    R-CRAN-RJSONIO >= 1.3.0
+Requires:         R-CRAN-httr >= 1.3.1
+Requires:         R-CRAN-RJSONIO >= 1.3.0
 
 %description
-Performs approximate GP regression for large computer experiments and
-spatial datasets.  The approximation is based on finding small local
-designs for prediction (independently) at particular inputs. OpenMP and
-SNOW parallelization are supported for prediction over a vast
-out-of-sample testing set; GPU acceleration is also supported for an
-important subroutine.  OpenMP and GPU features may require special
-compilation.  An interface to lower-level (full) GP inference and
-prediction is provided. Wrapper routines for blackbox optimization under
-mixed equality and inequality constraints via an augmented Lagrangian
-scheme, and for large scale computer model calibration, are also provided.
-For details and tutorial, see Gramacy (2016 <doi:10.18637/jss.v072.i01>.
+Lipid Maps Rest service. Researchers can access the Lipid Maps Rest
+service programmatically and conveniently integrate it into the current
+workflow or packages.
 
 %prep
 %setup -q -c -n %{packname}

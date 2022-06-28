@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  grattan
-%global packver   1.9.0.10
+%global packver   2.0.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.0.10
+Version:          2.0.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Australian Tax Policy Analysis
 
@@ -18,26 +18,24 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-zoo >= 1.5.5
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-hutils >= 1.3.0
+BuildRequires:    R-CRAN-hutilscpp >= 0.9.0
 BuildRequires:    R-CRAN-ineq >= 0.2.10
 BuildRequires:    R-CRAN-fy >= 0.2.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.3
 BuildRequires:    R-CRAN-assertthat >= 0.1
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-hutilscpp 
 BuildRequires:    R-CRAN-fastmatch 
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-zoo >= 1.5.5
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-hutils >= 1.3.0
+Requires:         R-CRAN-hutilscpp >= 0.9.0
 Requires:         R-CRAN-ineq >= 0.2.10
 Requires:         R-CRAN-fy >= 0.2.0
-Requires:         R-CRAN-Rcpp >= 0.12.3
 Requires:         R-CRAN-assertthat >= 0.1
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-hutilscpp 
 Requires:         R-CRAN-fastmatch 
 Requires:         R-CRAN-forecast 
 Requires:         R-utils 

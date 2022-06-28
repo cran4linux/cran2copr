@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  raster
-%global packver   3.5-15
+%global packver   3.5-21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.15
+Version:          3.5.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geographic Data Analysis and Modeling
 

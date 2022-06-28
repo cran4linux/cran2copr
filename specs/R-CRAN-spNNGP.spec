@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  spNNGP
-%global packver   0.1.8
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Regression Models for Large Datasets using Nearest Neighbor Gaussian Processes
 
@@ -27,8 +27,8 @@ Requires:         R-methods
 %description
 Fits univariate Bayesian spatial regression models for large datasets
 using Nearest Neighbor Gaussian Processes (NNGP) detailed in Finley,
-Datta, Banerjee (2020) <arXiv:2001.09111>, and Finley, Datta, Cook,
-Morton, Andersen, and Banerjee (2019) <doi:10.1080/10618600.2018.1537924>
+Datta, Banerjee (2022) <doi:10.18637/jss.v103.i05>, Finley, Datta, Cook,
+Morton, Andersen, and Banerjee (2019) <doi:10.1080/10618600.2018.1537924>,
 and Datta, Banerjee, Finley, and Gelfand (2016)
 <doi:10.1080/01621459.2015.1044091>.
 

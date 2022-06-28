@@ -1,37 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  laGP
-%global packver   1.5-7
+%global packname  PRIMME
+%global packver   3.2-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.7
+Version:          3.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Local Approximate Gaussian Process Regression
+Summary:          Eigenvalues and Singular Values and Vectors from Large Matrices
 
-License:          LGPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14
-Requires:         R-core >= 2.14
-BuildRequires:    R-CRAN-tgp 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-tgp 
-Requires:         R-parallel 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Performs approximate GP regression for large computer experiments and
-spatial datasets.  The approximation is based on finding small local
-designs for prediction (independently) at particular inputs. OpenMP and
-SNOW parallelization are supported for prediction over a vast
-out-of-sample testing set; GPU acceleration is also supported for an
-important subroutine.  OpenMP and GPU features may require special
-compilation.  An interface to lower-level (full) GP inference and
-prediction is provided. Wrapper routines for blackbox optimization under
-mixed equality and inequality constraints via an augmented Lagrangian
-scheme, and for large scale computer model calibration, are also provided.
-For details and tutorial, see Gramacy (2016 <doi:10.18637/jss.v072.i01>.
+R interface to 'PRIMME' <https://www.cs.wm.edu/~andreas/software/>, a C
+library for computing a few eigenvalues and their corresponding
+eigenvectors of a real symmetric or complex Hermitian matrix, or
+generalized Hermitian eigenproblem.  It can also compute singular values
+and vectors of a square or rectangular matrix. 'PRIMME' finds largest,
+smallest, or interior singular/eigenvalues and can use preconditioning to
+accelerate convergence. General description of the methods are provided in
+the papers Stathopoulos (2010, <doi:10.1145/1731022.1731031>) and Wu
+(2017, <doi:10.1137/16M1082214>). See 'citation("PRIMME")' for details.
 
 %prep
 %setup -q -c -n %{packname}

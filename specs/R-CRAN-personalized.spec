@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  personalized
-%global packver   0.2.6
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation and Validation Methods for Subgroup Identification and Personalized Medicine
 
@@ -18,22 +18,22 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-glmnet >= 2.0.13
 BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-gbm 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-kernlab 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-xgboost 
 Requires:         R-CRAN-glmnet >= 2.0.13
 Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-gbm 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-survival 
 Requires:         R-methods 
 Requires:         R-CRAN-kernlab 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-xgboost 
 
 %description
 Provides functions for fitting and validation of models for subgroup
@@ -51,6 +51,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pkgload
-%global packver   1.2.4
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate Package Installation and Attach
 
@@ -13,27 +13,29 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-cli >= 3.3.0
+BuildRequires:    R-CRAN-withr >= 2.4.3
+BuildRequires:    R-CRAN-rlang >= 1.0.3
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-desc 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rprojroot 
-BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-cli 
+Requires:         R-CRAN-cli >= 3.3.0
+Requires:         R-CRAN-withr >= 2.4.3
+Requires:         R-CRAN-rlang >= 1.0.3
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-desc 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-glue 
 Requires:         R-methods 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rprojroot 
-Requires:         R-CRAN-rstudioapi 
 Requires:         R-utils 
-Requires:         R-CRAN-withr 
 
 %description
 Simulates the process of installing a package and then attaching it. This
