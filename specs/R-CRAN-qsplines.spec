@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  WordR
-%global packver   0.3.3
+%global packname  qsplines
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rendering Word Documents with R Inline Code
+Summary:          Quaternions Splines
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,18 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-onion 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-onion 
+Requires:         R-CRAN-shiny 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Serves for rendering MS Word documents with R inline code and inserting
-tables and plots.
+Provides routines to create some quaternions splines: Barry-Goldman
+algorithm, De Casteljau algorithm, and Kochanek-Bartels algorithm. The
+implementations are based on the Python library 'splines'. Quaternions
+splines allow to construct spherical curves. References: Barry and Goldman
+<doi:10.1145/54852.378511>, Kochanek and Bartels
+<doi:10.1145/800031.808575>.
 
 %prep
 %setup -q -c -n %{packname}

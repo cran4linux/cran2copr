@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gosset
-%global packver   0.3
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Data Analysis in Experimental Agriculture
 
@@ -18,8 +18,11 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-BradleyTerry2 
+BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-gnm 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggparty 
+BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-partykit 
 BuildRequires:    R-CRAN-PlackettLuce 
 BuildRequires:    R-CRAN-psychotools 
@@ -30,8 +33,11 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-patchwork 
 Requires:         R-methods 
 Requires:         R-CRAN-BradleyTerry2 
+Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-gnm 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggparty 
+Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-partykit 
 Requires:         R-CRAN-PlackettLuce 
 Requires:         R-CRAN-psychotools 

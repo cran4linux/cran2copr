@@ -1,25 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BASIX
-%global packver   1.2
+%global packname  hdtg
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Efficient C/C++ Toolset for R
+Summary:          Generate Samples from Multivariate Truncated Normal Distributions
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.2
-Requires:         R-core >= 2.14.2
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-RcppXsimd 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppParallel 
+Requires:         R-CRAN-RcppXsimd 
+Requires:         R-CRAN-mgcv 
+Requires:         R-stats 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Accelerated computation for some basic R functions.
+Efficient sampling from high-dimensional truncated Gaussian distributions
+(so comes the package name hdtg). Techniques include zigzag Hamiltonian
+Monte Carlo as in Akihiko Nishimura, Zhenyu Zhang and Marc A. Suchard
+(2021) <arXiv:2104.07694>, and harmonic Hamiltonian Monte Carlo in Ari
+Pakman and Liam Paninski (2014) <doi:10.1080/10618600.2013.788448>.
 
 %prep
 %setup -q -c -n %{packname}

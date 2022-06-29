@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  WeightIt
-%global packver   0.12.0
+%global packver   0.13.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.0
+Version:          0.13.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighting for Covariate Balance in Observational Studies
 
@@ -18,28 +18,27 @@ Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cobalt >= 4.3.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-backports >= 1.2.0
+BuildRequires:    R-CRAN-backports >= 1.4.1
 BuildRequires:    R-CRAN-crayon 
 Requires:         R-CRAN-cobalt >= 4.3.0
 Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-backports >= 1.2.0
+Requires:         R-CRAN-backports >= 1.4.1
 Requires:         R-CRAN-crayon 
 
 %description
-Generates weights to form equivalent groups in observational studies with
-point or longitudinal treatments by easing and extending the functionality
-of the R packages 'twang' for generalized boosted modeling (McCaffrey,
-Ridgeway & Morral, 2004) <doi:10.1037/1082-989X.9.4.403>, 'CBPS' for
-covariate balancing propensity score weighting (Imai & Ratkovic, 2014)
-<doi:10.1111/rssb.12027>, 'ebal' for entropy balancing (Hainmueller, 2012)
-<doi:10.1093/pan/mpr025>, 'optweight' for optimization-based weights
-(Zubizarreta, 2015) <doi:10.1080/01621459.2015.1023805>, 'ATE' for
-empirical balancing calibration weighting (Chan, Yam, & Zhang, 2016)
-<doi:10.1111/rssb.12129>, 'SuperLearner' for stacked machine
-learning-based propensity scores (Pirracchio, Petersen, & van der Laan,
-2015) <doi:10.1093/aje/kwu253>, among others. Also allows for assessment
-of weights and checking of covariate balance by interfacing directly with
-'cobalt'.
+Generates balancing weights for causal effect estimation in observational
+studies with binary, multi-category, or continuous point or longitudinal
+treatments by easing and extending the functionality of several R packages
+and providing in-house estimation methods. Available methods include
+propensity score weighting using generalized linear models, gradient
+boosting machines, the covariate balancing propensity score algorithm,
+Bayesian additive regression trees, and SuperLearner, and directly
+estimating balancing weights using entropy balancing, empirical balancing
+calibration weights, energy balancing, and optimization-based weights.
+Also allows for assessment of weights and checking of covariate balance by
+interfacing directly with the 'cobalt' package. See the vignette
+"Installing Supporting Packages" for instructions on how to install any
+package 'WeightIt' uses, including those that may not be on CRAN.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,6 +48,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

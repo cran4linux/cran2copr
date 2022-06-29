@@ -1,32 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BlockFeST
-%global packver   2.0
+%global packname  VisualizeSimon2Stage
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Calculation of Region-Specific Fixation Index to Detect Local Adaptation
+Summary:          Visualize Simon's Two-Stage Design
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.2
-Requires:         R-core >= 2.14.2
-BuildRequires:    R-CRAN-BASIX 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-BASIX 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
 
 %description
-An R implementation of an extension of the 'BayeScan' software (Foll,
-2008) <DOI:10.1534/genetics.108.092221> for codominant markers, adding the
-option to group individual SNPs into pre-defined blocks. A typical
-application of this new approach is the identification of genomic regions,
-genes, or gene sets containing one or more SNPs that evolved under
-directional selection.
+Functions for visualizing the probabilities of early termination, fail and
+success of Simon's two-stage design. Functions for evaluating and
+visualizing the operating characteristics of Simon's two-stage design.
 
 %prep
 %setup -q -c -n %{packname}
@@ -36,6 +34,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

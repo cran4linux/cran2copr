@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  clustEff
-%global packver   0.3.0
+%global packname  IDEAFilter
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clusters of Effects Curves in Quantile Regression Models
+Summary:          Agnostic, Idiomatic Data Filter Module for Shiny
 
-License:          GPL-2
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,21 +16,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-qrcm 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-fda 
-BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-pillar >= 1.5.0
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-qrcm 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-fda 
-Requires:         R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-shinyTime 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-pillar >= 1.5.0
+Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-shinyTime 
+Requires:         R-CRAN-purrr 
 
 %description
-Clustering method to cluster both effects curves, through quantile
-regression coefficient modeling, and curves in functional data analysis.
-Sottile G. and Adelfio G. (2019) <doi:10.1007/s00180-018-0817-8>.
+When added to an existing shiny app, users may subset any developer-chosen
+R data.frame on the fly. That is, users are empowered to slice & dice data
+by applying multiple (order specific) filters using the AND (&) operator
+between each, and getting real-time updates on the number of rows
+effected/available along the way. Thus, any downstream processes that
+leverage this data source (like tables, plots, or statistical procedures)
+will re-render after new filters are applied. The shiny module’s user
+interface has a 'minimalist' aesthetic so that the focus can be on the
+data & other visuals. In addition to returning a reactive (filtered)
+data.frame, 'IDEAFilter' as also returns 'dplyr' filter statements used to
+actually slice the data.
 
 %prep
 %setup -q -c -n %{packname}

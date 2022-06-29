@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SqueakR
-%global packver   1.3.0
+%global packname  tcgaViz
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Experiment Interface for 'DeepSqueak' Bioacoustics Research
+Summary:          Visualization Tool for the Cancer Genome Atlas Program (TCGA)
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,46 +16,59 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-config 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggcorrplot 
-BuildRequires:    R-CRAN-ggeasy 
-BuildRequires:    R-CRAN-gghighlight 
+BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-googlesheets4 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-golem 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-report 
-BuildRequires:    R-CRAN-rlist 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rstatix 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-shinyFeedback 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-config 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggcorrplot 
-Requires:         R-CRAN-ggeasy 
-Requires:         R-CRAN-gghighlight 
+Requires:         R-CRAN-DT 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-googlesheets4 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-golem 
+Requires:         R-grDevices 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-report 
-Requires:         R-CRAN-rlist 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rstatix 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-shinyFeedback 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
 
 %description
-Data processing and visualizations for rodent vocalizations exported from
-'DeepSqueak'. These functions are compatible with the 'SqueakR' Shiny
-Dashboard, which can be used to visualize experimental results and
-analyses.
+Differential analysis of tumor tissue immune cell type abundance based on
+RNA-seq gene-level expression from The Cancer Genome Atlas (TCGA;
+<https://pancanatlas.xenahubs.net>) database.
 
 %prep
 %setup -q -c -n %{packname}

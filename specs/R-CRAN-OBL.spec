@@ -1,33 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  WordR
-%global packver   0.3.3
+%global packname  OBL
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rendering Word Documents with R Inline Code
+Summary:          Optimum Block Length
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-CRAN-future 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 
 %description
-Serves for rendering MS Word documents with R inline code and inserting
-tables and plots.
+Obtain optimum block from Non-overlapping Block Bootstrap method.
 
 %prep
 %setup -q -c -n %{packname}

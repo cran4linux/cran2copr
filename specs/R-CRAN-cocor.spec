@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cocor
-%global packver   1.1-3
+%global packver   1.1-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
-Release:          3%{?dist}%{?buildtag}
+Version:          1.1.4
+Release:          1%{?dist}%{?buildtag}
 Summary:          Comparing Correlations
 
 License:          GPL (>= 3)
@@ -25,14 +25,23 @@ Requires:         R-stats
 Statistical tests for the comparison between two correlations based on
 either independent or dependent groups. Dependent correlations can either
 be overlapping or nonoverlapping. A web interface is available on the
-website http://comparingcorrelations.org. A plugin for the R GUI and IDE
-RKWard is included. Please install RKWard from https://rkward.kde.org to
+website <http://comparingcorrelations.org>. A plugin for the R GUI and IDE
+RKWard is included. Please install RKWard from <https://rkward.kde.org> to
 use this feature. The respective R package 'rkward' cannot be installed
 directly from a repository, as it is a part of RKWard.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -42,17 +51,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
-%dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/html
-%{rlibdir}/%{packname}/Meta
-%{rlibdir}/%{packname}/help
-%{rlibdir}/%{packname}/data
-%{rlibdir}/%{packname}/DESCRIPTION
-%{rlibdir}/%{packname}/NAMESPACE
-%{rlibdir}/%{packname}/R
-%doc %{rlibdir}/%{packname}/CITATION
-%doc %{rlibdir}/%{packname}/doc
-%doc %{rlibdir}/%{packname}/rkward
-%{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}

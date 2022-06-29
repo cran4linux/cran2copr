@@ -1,33 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  WordR
-%global packver   0.3.3
+%global packname  statcodelists
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rendering Word Documents with R Inline Code
+Summary:          Use Standardized Statistical Codelists
 
-License:          GPL-3
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-xml2 
 
 %description
-Serves for rendering MS Word documents with R inline code and inserting
-tables and plots.
+The goal of statcodelists is to promote the reuse and exchange of
+statistical information and related metadata with making the
+internationally standardized SDMX code lists available for the R user.
+SDMX has been published as an ISO International Standard (ISO 17369). The
+metadata definitions, including the codelists are updated regularly
+according to the standard. The authoritative version of the code lists
+made available in this package is <https://sdmx.org/?page_id=3215/>.
 
 %prep
 %setup -q -c -n %{packname}

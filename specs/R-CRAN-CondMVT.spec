@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  WordR
-%global packver   0.3.3
+%global packname  CondMVT
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rendering Word Documents with R Inline Code
+Summary:          Conditional Multivariate t Distribution, Expectation Maximization Algorithm, and Its Stochastic Variants
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,18 +16,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-stats 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Serves for rendering MS Word documents with R inline code and inserting
-tables and plots.
+Computes conditional multivariate t probabilities, random deviates, and
+densities. It can also be used to create missing values at random in a
+dataset, resulting in a missing at random (MAR) mechanism. Inbuilt in the
+package are the Expectation-Maximization (EM), Monte Carlo EM, and
+Stochastic EM algorithms for imputation of missing values in datasets
+assuming the multivariate t distribution. See Kinyanjui, Tamba, Orawo, and
+Okenye (2020)<doi:10.3233/mas-200493>, and Kinyanjui, Tamba, and
+Okenye(2021)<http://www.ceser.in/ceserp/index.php/ijamas/article/view/6726/0>
+for more details.
 
 %prep
 %setup -q -c -n %{packname}

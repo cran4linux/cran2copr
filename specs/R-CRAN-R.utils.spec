@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  R.utils
-%global packver   2.11.0
+%global packver   2.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.11.0
+Version:          2.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Various Programming Utilities
 

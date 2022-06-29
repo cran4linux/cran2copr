@@ -1,39 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ycevo
-%global packver   0.1.2
+%global packname  ecostats
+%global packver   1.1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.1.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonparametric Estimation of the Yield Curve Evolution
+Summary:          Code and Data Accompanying the Eco-Stats Text (Warton 2022)
 
-License:          GPL-3
+License:          LGPL (>= 2.1)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.18
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-rlang 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mvabund >= 4.2
+BuildRequires:    R-CRAN-ecoCopula 
+BuildRequires:    R-CRAN-GET 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.18
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-mvabund >= 4.2
+Requires:         R-CRAN-ecoCopula 
+Requires:         R-CRAN-GET 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-stats 
 
 %description
-Nonparametric estimation of the discount rate and yield curve. Koo, B., La
-Vecchia, D., & Linton, O. B. (2021) <doi:10.1016/j.jeconom.2020.04.014>
-describe the application with the Center for Research in Security Prices
-(CRSP) Bond Data and document the methods of this package.
+Functions and data supporting the Eco-Stats text (Warton, 2022, Springer),
+and solutions to exercises. Functions include tools for using simulation
+envelopes in diagnostic plots, and a function for diagnostic plots of
+multivariate linear models. Datasets mentioned in the package are included
+here (where not available elsewhere) and there is a vignette for each
+chapter of the text with solutions to exercises.
 
 %prep
 %setup -q -c -n %{packname}

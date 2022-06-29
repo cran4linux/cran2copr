@@ -1,33 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  WordR
-%global packver   0.3.3
+%global packname  odns
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rendering Word Documents with R Inline Code
+Summary:          Access Scottish Health and Social Care Open Data
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr 
+Requires:         R-utils 
+Requires:         R-CRAN-data.table 
+Requires:         R-methods 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Serves for rendering MS Word documents with R inline code and inserting
-tables and plots.
+Allows potential users of Scottish Health and Social Care Open Data
+(<https://www.opendata.nhs.scot/>) to easily explore and extract the
+available data.
 
 %prep
 %setup -q -c -n %{packname}

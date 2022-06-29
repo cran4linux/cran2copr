@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  WordR
-%global packver   0.3.3
+%global packname  kmscv
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rendering Word Documents with R Inline Code
+Summary:          K-Means Based Stratified Resampling
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,18 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-parsnip 
+BuildRequires:    R-CRAN-rsample 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-parsnip 
+Requires:         R-CRAN-rsample 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-xml2 
 
 %description
-Serves for rendering MS Word documents with R inline code and inserting
-tables and plots.
+An 'rsample' extension to create cluster based stratified resamples for
+cross-validation.
 
 %prep
 %setup -q -c -n %{packname}
