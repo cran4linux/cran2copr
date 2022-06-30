@@ -1,44 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  d4storagehub4R
-%global packver   0.4
+%global packname  bandit
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'D4Science' 'StorageHub' API
+Summary:          Functions for Simple a/B Split Test and Multi-Armed Bandit Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-keyring 
-BuildRequires:    R-tools 
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-keyring 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-gam >= 1.09
+BuildRequires:    R-CRAN-boot 
+Requires:         R-CRAN-gam >= 1.09
+Requires:         R-CRAN-boot 
 
 %description
-Provides an interface to 'D4Science' 'StorageHub' API
-(<https://dev.d4science.org/>). Allows to get user profile, and perform
-actions over the 'StorageHub' (workspace) including creation of folders,
-files management (upload/update/deletion/sharing), and listing of stored
-resources.
+A set of functions for doing analysis of A/B split test data and web
+metrics in general.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  eatRep
-%global packver   0.14.3
+%global packver   0.14.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.3
+Version:          0.14.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Educational Assessment Tools for Replication Methods
 
@@ -13,14 +13,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-survey >= 4.1.1
 BuildRequires:    R-CRAN-mice >= 2.46
-BuildRequires:    R-CRAN-eatTools >= 0.7.2
+BuildRequires:    R-CRAN-eatTools >= 0.7.3
 BuildRequires:    R-CRAN-lavaan >= 0.6.7
-BuildRequires:    R-CRAN-eatGADS >= 0.19.0
+BuildRequires:    R-CRAN-eatGADS >= 0.20.0
 BuildRequires:    R-CRAN-BIFIEsurvey 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-Hmisc 
@@ -39,9 +39,9 @@ BuildRequires:    R-CRAN-msm
 BuildRequires:    R-CRAN-lme4 
 Requires:         R-CRAN-survey >= 4.1.1
 Requires:         R-CRAN-mice >= 2.46
-Requires:         R-CRAN-eatTools >= 0.7.2
+Requires:         R-CRAN-eatTools >= 0.7.3
 Requires:         R-CRAN-lavaan >= 0.6.7
-Requires:         R-CRAN-eatGADS >= 0.19.0
+Requires:         R-CRAN-eatGADS >= 0.20.0
 Requires:         R-CRAN-BIFIEsurvey 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-Hmisc 

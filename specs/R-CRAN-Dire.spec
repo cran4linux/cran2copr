@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Dire
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Regressions with a Latent Outcome Variable
 
@@ -15,19 +15,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8.3
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-iterators 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.8.3
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-iterators 
 Requires:         R-methods 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-haven 
-Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-MASS 
 
 %description

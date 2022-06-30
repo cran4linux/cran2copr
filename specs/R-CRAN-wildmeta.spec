@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  wildmeta
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cluster Wild Bootstrapping for Meta-Analysis
 
@@ -30,8 +30,8 @@ Requires:         R-stats
 %description
 Conducts single coefficient tests and multiple-contrast hypothesis tests
 of meta-regression models using cluster wild bootstrapping, based on
-methods examined in Joshi, Pustejovsky, and Beretvas (2021)
-<DOI:10.31222/osf.io/x6uhk>.
+methods examined in Joshi, Pustejovsky, and Beretvas (2022)
+<DOI:10.1002/jrsm.1554>.
 
 %prep
 %setup -q -c -n %{packname}
