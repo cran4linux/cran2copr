@@ -1,35 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  read.gt3x
-%global packver   1.2.0
+%global packname  TimeVarConcurrentModel
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parse 'ActiGraph' 'GT3X'/'GT3X+' 'Accelerometer' Data
+Summary:          Concurrent Multivariate Models with Time-Varying Coefficients
 
-License:          EUPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-utils 
-Requires:         R-CRAN-R.utils 
-Requires:         R-tools 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Bolstad2 
+BuildRequires:    R-CRAN-fda 
+Requires:         R-CRAN-Bolstad2 
+Requires:         R-CRAN-fda 
 
 %description
-Implements a high performance C++ parser for 'ActiGraph' 'GT3X'/'GT3X+'
-data format (with extension '.gt3x') for 'accelerometer' samples. Activity
-samples can be easily read into a matrix or data.frame.  This allows for
-storing the raw 'accelerometer' samples in the original binary format to
-reserve space.
+Provides a hypothesis test and variable selection algorithm for use in
+time-varying, concurrent regression models. The hypothesis test function
+is also accompanied by a plotting function which will show the estimated
+beta(s) and confidence band(s) from the hypothesis test. The hypothesis
+test function helps the user identify significant covariates within the
+scope of a time-varying concurrent model. The plots will show the amount
+of area that falls outside the confidence band(s) which is used for the
+test statistic within the hypothesis test.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  hardhat
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Construct Modeling Packages
 
@@ -18,11 +18,11 @@ Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.1.7
 BuildRequires:    R-CRAN-glue >= 1.6.2
-BuildRequires:    R-CRAN-rlang >= 1.0.2
+BuildRequires:    R-CRAN-rlang >= 1.0.3
 BuildRequires:    R-CRAN-vctrs >= 0.4.1
 Requires:         R-CRAN-tibble >= 3.1.7
 Requires:         R-CRAN-glue >= 1.6.2
-Requires:         R-CRAN-rlang >= 1.0.2
+Requires:         R-CRAN-rlang >= 1.0.3
 Requires:         R-CRAN-vctrs >= 0.4.1
 
 %description

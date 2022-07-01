@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ProAE
-%global packver   0.2.10
+%global packname  yfR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.10
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          PRO-CTCAE Scoring, Analysis, and Graphical Tools
+Summary:          Downloads and Organizes Financial Data from Yahoo Finance
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,30 +16,46 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggnewscale 
-BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-CRAN-quantmod >= 0.4.20
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ggpattern 
-BuildRequires:    R-CRAN-DescTools 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggnewscale 
-Requires:         R-CRAN-ggtext 
+BuildRequires:    R-CRAN-humanize 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-quantmod >= 0.4.20
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ggpattern 
-Requires:         R-CRAN-DescTools 
-Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-humanize 
+Requires:         R-methods 
 
 %description
-A collection of tools to facilitate standardized analysis and graphical
-procedures when using the National Cancer Institute’s Patient-Reported
-Outcomes version of the Common Terminology Criteria for Adverse Events
-(PRO-CTCAE).
+Facilitates download of financial data from Yahoo Finance
+<https://finance.yahoo.com/>, a vast repository of stock price data across
+multiple financial exchanges. The package offers a local caching system
+and support for parallel computation.
 
 %prep
 %setup -q -c -n %{packname}

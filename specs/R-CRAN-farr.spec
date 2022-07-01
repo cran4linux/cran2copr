@@ -1,35 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  read.gt3x
-%global packver   1.2.0
+%global packname  farr
+%global packver   0.2.27
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.2.27
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parse 'ActiGraph' 'GT3X'/'GT3X+' 'Accelerometer' Data
+Summary:          Data and Code for Financial Accounting Research
 
-License:          EUPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-utils 
-Requires:         R-CRAN-R.utils 
-Requires:         R-tools 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dbplyr >= 2.2.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-dbplyr >= 2.2.0
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-lubridate 
 
 %description
-Implements a high performance C++ parser for 'ActiGraph' 'GT3X'/'GT3X+'
-data format (with extension '.gt3x') for 'accelerometer' samples. Activity
-samples can be easily read into a matrix or data.frame.  This allows for
-storing the raw 'accelerometer' samples in the original binary format to
-reserve space.
+Provides handy functions and data to support a course book for accounting
+research. Gow, Ian and Tongqing Ding (2022) "Accounting Research: An
+Introductory Course" <https://iangow.github.io/far_book/>.
 
 %prep
 %setup -q -c -n %{packname}

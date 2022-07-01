@@ -1,35 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  read.gt3x
-%global packver   1.2.0
+%global packname  accessibility
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parse 'ActiGraph' 'GT3X'/'GT3X+' 'Accelerometer' Data
+Summary:          Transport Accessibility Metrics
 
-License:          EUPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-data.table 
 Requires:         R-utils 
-Requires:         R-CRAN-R.utils 
-Requires:         R-tools 
 
 %description
-Implements a high performance C++ parser for 'ActiGraph' 'GT3X'/'GT3X+'
-data format (with extension '.gt3x') for 'accelerometer' samples. Activity
-samples can be easily read into a matrix or data.frame.  This allows for
-storing the raw 'accelerometer' samples in the original binary format to
-reserve space.
+A set of fast and convenient functions to calculate multiple transport
+accessibility measures. Given a pre-computed travel cost matrix in long
+format combined with land-use data (e.g. location of jobs, healthcare,
+population), the package allows one to calculate active and passive
+accessibility levels using multiple accessibility metrics such as:
+cumulative opportunity measure (using either travel time cutoff or
+interval), minimum travel cost to closest N number of activities,
+gravitational measures and different floating catchment area methods.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fastRG
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sample Generalized Random Dot Product Graphs in Linear Time
 
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
@@ -29,7 +28,6 @@ Requires:         R-CRAN-Matrix
 Requires:         R-CRAN-ellipsis 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-RSpectra 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
@@ -39,11 +37,12 @@ Requires:         R-CRAN-tidygraph
 Samples generalized random product graph, a generalization of a broad
 class of network models. Given matrices X, S, and Y with with non-negative
 entries, samples a matrix with expectation X S Y^T and independent Poisson
-or Bernoulli entries. The algorithm first samples the number of edges and
-then puts them down one-by-one.  As a result it is O(m) where m is the
-number of edges, a dramatic improvement over element-wise algorithms that
-which require O(n^2) operations to sample a random graph, where n is the
-number of nodes.
+or Bernoulli entries using the fastRG algorithm of Rohe et al. (2017)
+<https://www.jmlr.org/papers/v19/17-128.html>. The algorithm first samples
+the number of edges and then puts them down one-by-one.  As a result it is
+O(m) where m is the number of edges, a dramatic improvement over
+element-wise algorithms that which require O(n^2) operations to sample a
+random graph, where n is the number of nodes.
 
 %prep
 %setup -q -c -n %{packname}
@@ -53,6 +52,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

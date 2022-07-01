@@ -1,35 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  read.gt3x
-%global packver   1.2.0
+%global packname  extrafrail
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parse 'ActiGraph' 'GT3X'/'GT3X+' 'Accelerometer' Data
+Summary:          Estimation and Additional Tools for Alternative Multivariate Frailty Models
 
-License:          EUPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-utils 
-Requires:         R-CRAN-R.utils 
-Requires:         R-tools 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-stats 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-pracma 
 
 %description
-Implements a high performance C++ parser for 'ActiGraph' 'GT3X'/'GT3X+'
-data format (with extension '.gt3x') for 'accelerometer' samples. Activity
-samples can be easily read into a matrix or data.frame.  This allows for
-storing the raw 'accelerometer' samples in the original binary format to
-reserve space.
+Provide estimation and data generation tools for some new multivariate
+frailty models. This initial version includes only the weighted Lindley as
+the distribution for the frailty terms. For the basal model, it is
+considered a parametric approach based on the Weibull distribution and a
+semiparametric approach. For details, see Gallardo and Bourguignon (2022)
+<arXiv:2206.12973>.
 
 %prep
 %setup -q -c -n %{packname}

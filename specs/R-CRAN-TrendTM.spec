@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  read.gt3x
-%global packver   1.2.0
+%global packname  TrendTM
+%global packver   2.0.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          2.0.14
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parse 'ActiGraph' 'GT3X'/'GT3X+' 'Accelerometer' Data
+Summary:          Trend of High-Dimensional Time Series Matrix Estimation
 
-License:          EUPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-utils 
-Requires:         R-CRAN-R.utils 
-Requires:         R-tools 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-softImpute 
+BuildRequires:    R-CRAN-capushe 
+BuildRequires:    R-CRAN-fda 
+Requires:         R-CRAN-softImpute 
+Requires:         R-CRAN-capushe 
+Requires:         R-CRAN-fda 
 
 %description
-Implements a high performance C++ parser for 'ActiGraph' 'GT3X'/'GT3X+'
-data format (with extension '.gt3x') for 'accelerometer' samples. Activity
-samples can be easily read into a matrix or data.frame.  This allows for
-storing the raw 'accelerometer' samples in the original binary format to
-reserve space.
+Matrix factorization for multivariate time series with both low rank and
+temporal structures. The procedure is the one proposed by Alquier, P. and
+Marie, N. Matrix factorization for multivariate time series analysis.
+Electronic journal of statistics, 13(2), 4346-4366 (2019).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  earthtide
-%global packver   0.0.12
+%global packver   0.0.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.12
+Version:          0.0.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parallel Implementation of 'ETERNA 3.40' for Prediction and Analysis of Earth Tides
 
