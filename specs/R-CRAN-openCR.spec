@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  openCR
-%global packver   2.2.2
+%global packver   2.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          2.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Open Population Capture-Recapture
 
@@ -16,34 +16,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.1.1
-BuildRequires:    R-CRAN-secr >= 4.4.0
+BuildRequires:    R-CRAN-secr >= 4.5.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.14
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-methods 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-RcppParallel >= 5.1.1
-Requires:         R-CRAN-secr >= 4.4.0
+Requires:         R-CRAN-secr >= 4.5.0
 Requires:         R-CRAN-Rcpp >= 0.12.14
-Requires:         R-utils 
+Requires:         R-CRAN-abind 
 Requires:         R-CRAN-MASS 
+Requires:         R-methods 
 Requires:         R-CRAN-nlme 
 Requires:         R-parallel 
+Requires:         R-CRAN-plyr 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-abind 
-Requires:         R-methods 
+Requires:         R-utils 
 
 %description
-Functions for non-spatial and spatial open-population capture-recapture
-analysis.
+Non-spatial and spatial open-population capture-recapture analysis.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ciftiTools
-%global packver   0.9.0
+%global packver   0.10.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.10.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Reading, Writing, Viewing and Manipulating CIFTI Files
 

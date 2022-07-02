@@ -1,50 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  markovchain
-%global packver   0.9.0
+%global packname  rfVarImpOOB
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Handling Discrete Time Markov Chains
+Summary:          Unbiased Variable Importance for Random Forests
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.2
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.600.4.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-stats4 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-utils 
+BuildRequires:    R-devel >= 3.2.2
+Requires:         R-core >= 3.2.2
+BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-Rcpp >= 1.0.2
-Requires:         R-methods 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-expm 
-Requires:         R-stats4 
-Requires:         R-parallel 
-Requires:         R-CRAN-RcppParallel 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-titanic 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ranger 
 Requires:         R-stats 
-Requires:         R-grDevices 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-titanic 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ranger 
 
 %description
-Functions and S4 methods to create and manage discrete time Markov chains
-more easily. In addition functions to perform statistical (fitting and
-drawing random variates) and probabilistic (analysis of their structural
-proprieties) analysis are provided. See Spedicato (2017)
-<doi:10.32614/RJ-2017-036>.
+Computes a novel variable importance for random forests: Impurity
+reduction importance scores for out-of-bag (OOB) data complementing the
+existing inbag Gini importance, see also <doi:
+10.1080/03610926.2020.1764042>. The Gini impurities for inbag and OOB data
+are combined in three different ways, after which the information gain is
+computed at each split. This gain is aggregated for each split variable in
+a tree and averaged across trees.
 
 %prep
 %setup -q -c -n %{packname}

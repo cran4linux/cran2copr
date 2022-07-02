@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  motifcluster
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Motif-Based Spectral Clustering of Weighted Directed Networks
 
@@ -16,11 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ClusterR >= 1.2.6
 BuildRequires:    R-CRAN-igraph >= 1.2.5
 BuildRequires:    R-CRAN-Matrix >= 1.2
 BuildRequires:    R-CRAN-RSpectra >= 0.16.0
-Requires:         R-CRAN-ClusterR >= 1.2.6
 Requires:         R-CRAN-igraph >= 1.2.5
 Requires:         R-CRAN-Matrix >= 1.2
 Requires:         R-CRAN-RSpectra >= 0.16.0

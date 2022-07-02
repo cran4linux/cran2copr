@@ -1,50 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  markovchain
-%global packver   0.9.0
+%global packname  scAnnotate
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Handling Discrete Time Markov Chains
+Summary:          An Automated Cell Type Annotation Tool for Single-Cell RNA-Sequencing Data
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.2
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.600.4.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-stats4 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-utils 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Seurat >= 4.0.5
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-Rcpp >= 1.0.2
-Requires:         R-methods 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-expm 
-Requires:         R-stats4 
-Requires:         R-parallel 
-Requires:         R-CRAN-RcppParallel 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-MTPS 
+BuildRequires:    R-CRAN-harmony 
+Requires:         R-CRAN-Seurat >= 4.0.5
+Requires:         R-CRAN-glmnet 
 Requires:         R-stats 
-Requires:         R-grDevices 
+Requires:         R-CRAN-MTPS 
+Requires:         R-CRAN-harmony 
 
 %description
-Functions and S4 methods to create and manage discrete time Markov chains
-more easily. In addition functions to perform statistical (fitting and
-drawing random variates) and probabilistic (analysis of their structural
-proprieties) analysis are provided. See Spedicato (2017)
-<doi:10.32614/RJ-2017-036>.
+An entirely data-driven cell type annotation tools, which requires
+training data to learn the classifier, but not biological knowledge to
+make subjective decisions. It consists of three steps: preprocessing
+training and test data, model fitting on training data, and cell
+classification on test data. See Xiangling Ji,Danielle Tsao, Kailun Bai,
+Min Tsao, Xuekui Zhang.(2022)<doi:10.1101/2022.02.19.481159> for more
+details.
 
 %prep
 %setup -q -c -n %{packname}

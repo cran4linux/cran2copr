@@ -1,50 +1,55 @@
 %global __brp_check_rpaths %{nil}
-%global packname  markovchain
-%global packver   0.9.0
+%global packname  ParallelDSM
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Handling Discrete Time Markov Chains
+Summary:          Parallel Digital Soil Mapping using Machine Learning
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.2
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.600.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-snowfall 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-stats4 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-pryr 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-gstat 
+BuildRequires:    R-CRAN-quantregForest 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-Rcpp >= 1.0.2
+Requires:         R-CRAN-snowfall 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-sp 
 Requires:         R-methods 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-expm 
-Requires:         R-stats4 
-Requires:         R-parallel 
-Requires:         R-CRAN-RcppParallel 
+Requires:         R-CRAN-pryr 
 Requires:         R-utils 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-gstat 
+Requires:         R-CRAN-quantregForest 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rgdal 
 Requires:         R-stats 
-Requires:         R-grDevices 
 
 %description
-Functions and S4 methods to create and manage discrete time Markov chains
-more easily. In addition functions to perform statistical (fitting and
-drawing random variates) and probabilistic (analysis of their structural
-proprieties) analysis are provided. See Spedicato (2017)
-<doi:10.32614/RJ-2017-036>.
+Parallel computing, multi-core CPU is used to efficiently compute and
+process multi-dimensional soil data.This package includes the parallelized
+'Quantile Regression Forests' algorithm for Digital Soil Mapping and is
+mainly dependent on the package 'quantregForest' and 'snowfall'. Detailed
+references to the R package and the web site are described in the methods,
+as detailed in the method documentation.
 
 %prep
 %setup -q -c -n %{packname}

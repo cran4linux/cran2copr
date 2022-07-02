@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MicroMoB
-%global packver   0.0.12
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.12
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discrete Time Simulation of Mosquito-Borne Pathogen Transmission
 
@@ -15,10 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-extraDistr 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-extraDistr 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-jsonlite 
 
