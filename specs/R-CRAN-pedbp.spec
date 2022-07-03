@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  TNRS
-%global packver   0.3.1
+%global packname  pedbp
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Taxonomic Name Resolution Service
+Summary:          Pediatric Blood Pressure
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,17 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
 
 %description
-Provides access to the Taxonomic Name Resolution Service
-<https://github.com/ojalaquellueva/tnrsapi> through R.  The user supplies
-plant taxonomic names and the package returns resolved taxonomic names
-along with information on decisions.  Optionally, the package can also be
-used to parse taxonomic names.
+Data and utilities for estimating pediatric blood pressure percentiles by
+sex, age, and optionally height (stature). Blood pressure percentiles for
+children under one year of age come from Gemelli et.al. (1990)
+<doi:10.1007/BF02171556>.  Estimates of blood pressure percentiles for
+children at least one year of age are informed by data from the National
+Heart, Lung, and Blood Institute (NHLBI) and the Centers for Disease
+Control and Prevention (CDC) <doi:10.1542/peds.2009-2107C> or from Lo
+et.al. (2013) <doi:10.1542/peds.2012-1292>.  The flowchart for selecting
+the informing data source comes from Martin et.al. (2022)
+<doi:10.1542/hpeds.2021-005998>.
 
 %prep
 %setup -q -c -n %{packname}

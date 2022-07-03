@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cir
-%global packver   2.2.1
+%global packname  Missplot
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Centered Isotonic Regression and Dose-Response Utilities
+Summary:          Missing Plot Technique in Design of Experiment
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,10 +18,10 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Isotonic regression (IR) and its improvement: centered isotonic regression
-(CIR). CIR is recommended in particular with small samples. Also, interval
-estimates for both, and additional utilities such as plotting
-dose-response data.
+A system for testing differential effects among treatments in case of
+Randomised Block Design and Latin Square Design when there is one missing
+observation. Methods for this process are as described in
+A.M.Gun,M.K.Gupta and B.Dasgupta(2019,ISBN:81-87567-81-3).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  itp
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Interpolate, Truncate, Project (ITP) Root-Finding Algorithm
 
@@ -15,7 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8
+Requires:         R-CRAN-Rcpp >= 1.0.8
 
 %description
 Implements the Interpolate, Truncate, Project (ITP) root-finding algorithm
@@ -25,9 +26,11 @@ interval with the property that the values of the function at its
 endpoints have different signs. If the function is continuous over this
 interval then the ITP method estimates the value at which the function is
 equal to zero. If the function is discontinuous then a point of
-discontinuity at which the function changes sign may be found. Tuning
-parameters of the ITP algorithm can be set by the user. Default values are
-set based on arguments in Oliveira and Takahashi (2021).
+discontinuity at which the function changes sign may be found. The
+function can be supplied using either an R function or an external pointer
+to a C++ function. Tuning parameters of the ITP algorithm can be set by
+the user. Default values are set based on arguments in Oliveira and
+Takahashi (2021).
 
 %prep
 %setup -q -c -n %{packname}

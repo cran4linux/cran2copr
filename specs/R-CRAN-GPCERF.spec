@@ -1,46 +1,52 @@
 %global __brp_check_rpaths %{nil}
-%global packname  eefAnalytics
-%global packver   1.1.0
+%global packname  GPCERF
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Robust Analytical Methods for Evaluating Educational Interventions using Randomised Controlled Trials Designs
+Summary:          Gaussian Processes for Estimating Causal Exposure Response Curves
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-xgboost 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rstanarm 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-logger 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-parallel 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-xgboost 
 Requires:         R-stats 
-Requires:         R-CRAN-rstanarm 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-logger 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-Matrix 
 
 %description
-Analysing data from evaluations of educational interventions using a
-randomised controlled trial design. Various analytical tools to perform
-sensitivity analysis using different methods are supported (e.g.
-frequentist models with bootstrapping and permutations options, Bayesian
-models). The included commands can be used for simple randomised trials,
-cluster randomised trials and multisite trials. The methods can also be
-used more widely beyond education trials. This package can be used to
-evaluate other intervention designs using Frequentist and Bayesian
-multilevel models.
+Provides a non-parametric Bayesian framework based on Gaussian process
+priors for estimating causal effects of a continuous exposure and
+detecting change points in the causal exposure response curves using
+observational data. Ren, B., Wu, X., Braun, D., Pillai, N., & Dominici,
+F.(2021). "Bayesian modeling for exposure response curve via gaussian
+processes: Causal effects of exposure to air pollution on health
+outcomes." arXiv preprint <arXiv:2105.03454>.
 
 %prep
 %setup -q -c -n %{packname}

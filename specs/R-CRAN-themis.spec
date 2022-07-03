@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  themis
-%global packver   0.2.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extra Recipes Steps for Dealing with Unbalanced Data
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-recipes >= 0.2.0
+BuildRequires:    R-CRAN-recipes >= 1.0.0
 BuildRequires:    R-CRAN-generics >= 0.1.0
 BuildRequires:    R-CRAN-gower 
 BuildRequires:    R-CRAN-lifecycle 
@@ -28,7 +28,8 @@ BuildRequires:    R-CRAN-ROSE
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-recipes >= 0.2.0
+BuildRequires:    R-CRAN-hardhat 
+Requires:         R-CRAN-recipes >= 1.0.0
 Requires:         R-CRAN-generics >= 0.1.0
 Requires:         R-CRAN-gower 
 Requires:         R-CRAN-lifecycle 
@@ -40,6 +41,7 @@ Requires:         R-CRAN-ROSE
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-hardhat 
 
 %description
 A dataset with an uneven number of cases in each class is said to be

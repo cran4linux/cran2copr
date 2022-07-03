@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cir
-%global packver   2.2.1
+%global packname  vrtest
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Centered Isotonic Regression and Dose-Response Utilities
+Summary:          Variance Ratio Tests and Other Tests for Martingale Difference Hypothesis
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,10 +18,10 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Isotonic regression (IR) and its improvement: centered isotonic regression
-(CIR). CIR is recommended in particular with small samples. Also, interval
-estimates for both, and additional utilities such as plotting
-dose-response data.
+A collection of statistical tests for martingale difference hypothesis,
+including automatic portmanteau test (Escansiano and Lobato, 2009)
+<doi:10.1016/j.jeconom.2009.03.001> and automatic variance ratio test
+(Kim, 2009) <doi:10.1016/j.frl.2009.04.003>.
 
 %prep
 %setup -q -c -n %{packname}

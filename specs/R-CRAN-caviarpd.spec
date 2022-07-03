@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  caviarpd
-%global packver   0.2.28
+%global packver   0.2.32
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.28
+Version:          0.2.32
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cluster Analysis via Random Partition Distributions
 
@@ -13,8 +13,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-CRAN-cargo >= 0.2.15
+Requires:         R-CRAN-cargo >= 0.2.15
 
 %description
 Cluster analysis is performed using pairwise distance information and a
@@ -24,7 +26,8 @@ clustering estimates. An implementation of a selection algorithm is
 provided for the mass parameter of the partition distribution. Since
 pairwise distances are the principal input to this procedure, it is most
 comparable to the hierarchical and k-medoids clustering methods. The
-method is currently under peer review at a journal.
+method is currently under peer review but an earlier draft is available in
+Dahl, Andros, Carter <doi:10.48550/arXiv.2106.02760>.
 
 %prep
 %setup -q -c -n %{packname}
