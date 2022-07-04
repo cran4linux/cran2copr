@@ -1,33 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gets
-%global packver   0.36
+%global packname  ftaproxim
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.36
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          General-to-Specific (GETS) Modelling and Indicator Saturation Methods
+Summary:          Fault Tree Analysis Based on Proxel Simulation
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-parallel 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-zoo 
-Requires:         R-parallel 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Automated General-to-Specific (GETS) modelling of the mean and variance of
-a regression, and indicator saturation methods for detecting and testing
-for structural breaks in the mean, see Pretis, Reade and Sucarrat (2018)
-<doi:10.18637/jss.v086.i03>.
+Calculation and plotting of instantaneous unavailabilities of basic events
+along with the top event of fault trees are issues important in
+reliability analysis of complex systems. Here, a fault tree is provided in
+terms of its minimal cut sets, along with reliability and maintainability
+distribution functions of the basic events. All the methods are derived
+from Horton (2002, ISBN: 3-936150-21-4), Niloofar and Lazarova-Molnar
+(2022).
 
 %prep
 %setup -q -c -n %{packname}

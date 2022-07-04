@@ -1,33 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gets
-%global packver   0.36
+%global packname  bsnsing
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.36
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          General-to-Specific (GETS) Modelling and Indicator Saturation Methods
+Summary:          Build Decision Trees with Optimal Multivariate Splits
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-parallel 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
 BuildRequires:    R-methods 
-Requires:         R-CRAN-zoo 
-Requires:         R-parallel 
+Requires:         R-CRAN-Rcpp >= 1.0.3
 Requires:         R-methods 
 
 %description
-Automated General-to-Specific (GETS) modelling of the mean and variance of
-a regression, and indicator saturation methods for detecting and testing
-for structural breaks in the mean, see Pretis, Reade and Sucarrat (2018)
-<doi:10.18637/jss.v086.i03>.
+Functions for training an optimal decision tree classifier, making
+predictions and generating latex code for plotting. Works for two-class
+and multi-class classification problems. The algorithm seeks the optimal
+Boolean rule consisting of multiple variables to split a node, resulting
+in shorter trees. Use bsnsing() to build a tree, predict() to make
+predictions and plot() to plot the tree into latex and PDF. See Yanchao
+Liu (2022) <arXiv:2205.15263> for technical details. Source code and more
+data sets are at <https://github.com/profyliu/bsnsing/>.
 
 %prep
 %setup -q -c -n %{packname}

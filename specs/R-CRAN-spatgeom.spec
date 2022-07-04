@@ -1,33 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gets
-%global packver   0.36
+%global packname  spatgeom
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.36
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          General-to-Specific (GETS) Modelling and Indicator Saturation Methods
+Summary:          Geometric Spatial Point Analysis
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-parallel 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-zoo 
-Requires:         R-parallel 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lwgeom 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lwgeom 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-purrr 
 
 %description
-Automated General-to-Specific (GETS) modelling of the mean and variance of
-a regression, and indicator saturation methods for detecting and testing
-for structural breaks in the mean, see Pretis, Reade and Sucarrat (2018)
-<doi:10.18637/jss.v086.i03>.
+The implementation to perform the geometric spatial point analysis
+developed in Hernández & Solís (2022) <doi:10.1007/s00180-022-01244-1>. It
+estimates the geometric goodness-of-fit index for a set of variables
+against a response one based on the 'sf' package. The package has methods
+to print and plot the results.
 
 %prep
 %setup -q -c -n %{packname}

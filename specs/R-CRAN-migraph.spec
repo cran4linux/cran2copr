@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  migraph
-%global packver   0.9.3
+%global packver   0.10.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.10.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multimodal and Multilevel Network Analysis
+Summary:          Tools for Multimodal Network Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,56 +16,48 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-concaveman 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-ggdendro 
 BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggraph 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-network 
-BuildRequires:    R-CRAN-oaqc 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sna 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidygraph 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-concaveman 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-generics 
-Requires:         R-CRAN-ggdendro 
 Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggraph 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-network 
-Requires:         R-CRAN-oaqc 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sna 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidygraph 
 Requires:         R-CRAN-tidyr 
 
 %description
-A set of tools that extend common social network analysis packages for
-analysing multimodal and multilevel networks. It includes functions for
-one- and two-mode (and sometimes three-mode) centrality, centralization,
-clustering, and constraint, as well as for one- and two-mode network
-regression and block-modelling. All functions operate with matrices, edge
-lists, and 'igraph', 'network'/'sna', and 'tidygraph' objects. The package
-is released as a complement to 'Multimodal Political Networks' (2021,
-ISBN:9781108985000), and includes various datasets used in the book.
+A set of tools for analysing multimodal networks. All functions operate
+with matrices, edge lists, and 'igraph', 'network', and 'tidygraph'
+objects, and on one-mode, two-mode (bipartite), and sometimes three-mode
+networks. It includes functions for measuring centrality, centralization,
+cohesion, closure, and constraint, as well as for network block-modelling
+and regression. The package is released as a complement to 'Multimodal
+Political Networks' (2021, ISBN:9781108985000), and includes various
+datasets used in the book in addition to other network data.
 
 %prep
 %setup -q -c -n %{packname}

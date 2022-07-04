@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  NetSci
-%global packver   1.0.0
+%global packname  elastes
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculates Basic Network Measures Commonly Used in Network Medicine
+Summary:          Elastic Full Procrustes Means for Sparse and Irregular Planar Curves
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,26 +16,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-wTO 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-elasdics 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-binr 
-BuildRequires:    R-CRAN-cubature 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-wTO 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-Rfast 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-sparseFLMM 
+BuildRequires:    R-CRAN-orthogonalsplinebasis 
+Requires:         R-CRAN-elasdics 
 Requires:         R-utils 
-Requires:         R-CRAN-binr 
-Requires:         R-CRAN-cubature 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-splines 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-sparseFLMM 
+Requires:         R-CRAN-orthogonalsplinebasis 
 
 %description
-Calculates network measures such as Largest Connected Component (LCC),
-Proximity, Separation, Jaccard Index, along with permutation, when needed.
+Provides functions for the computation of functional elastic shape means
+over sets of open planar curves. The package is particularly suitable for
+settings where these curves are only sparsely and irregularly observed. It
+uses a novel approach for elastic shape mean estimation, where planar
+curves are treated as complex functions and a full Procrustes mean is
+estimated from the corresponding smoothed Hermitian covariance surface.
+This is combined with the methods for elastic mean estimation proposed in
+Steyer, Stöcker, Greven (2022) <doi:10.1111/biom.13706>. See Stöcker et.
+al. (2022) <arXiv:2203.10522> for details.
 
 %prep
 %setup -q -c -n %{packname}
