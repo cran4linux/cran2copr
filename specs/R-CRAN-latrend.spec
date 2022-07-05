@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
-%global packname  latticeExtra
-%global packver   0.6-30
+%global packname  latrend
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.30
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extra Graphical Utilities Based on Lattice
+Summary:          A Framework for Clustering Longitudinal Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,31 +16,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-rmarkdown >= 1.18
+BuildRequires:    R-CRAN-data.table >= 1.12.0
+BuildRequires:    R-CRAN-assertthat >= 0.2.1
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-jpeg 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-interp 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-lattice 
-Requires:         R-grid 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-rmarkdown >= 1.18
+Requires:         R-CRAN-data.table >= 1.12.0
+Requires:         R-CRAN-assertthat >= 0.2.1
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-grDevices 
-Requires:         R-CRAN-png 
-Requires:         R-CRAN-jpeg 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-interp 
-Requires:         R-CRAN-MASS 
+Requires:         R-methods 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-rlang 
 
 %description
-Building on the infrastructure provided by the lattice package, this
-package provides several new high-level functions and methods, as well as
-additional utilities such as panel and axis annotation functions.
+A framework for clustering longitudinal datasets in a standardized way.
+The package provides an interface to existing R packages for clustering
+longitudinal univariate trajectories, facilitating reproducible and
+transparent analyses. Additionally, standard tools are provided to support
+cluster analyses, including repeated estimation, model validation, and
+model assessment. The interface enables users to compare results between
+methods, and to implement and evaluate new methods with ease.
 
 %prep
 %setup -q -c -n %{packname}

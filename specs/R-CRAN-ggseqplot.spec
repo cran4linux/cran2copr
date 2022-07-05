@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tinyscholar
-%global packver   0.1.6
+%global packname  ggseqplot
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Get and Show Personal 'Google Scholar' Profile
+Summary:          Render Sequence Plots using 'ggplot2'
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,34 +16,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rvest >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 0.1.2
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-ggh4x 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gt 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-R.utils 
-Requires:         R-CRAN-rvest >= 1.0.0
-Requires:         R-CRAN-rlang >= 0.1.2
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-TraMineR 
+BuildRequires:    R-CRAN-usethis 
+Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ggh4x 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gt 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-ggtext 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-TraMineR 
+Requires:         R-CRAN-usethis 
 
 %description
-Provides functions to get personal 'Google Scholar' profile data from web
-API and show it in table or figure format.
+A set of wrapper functions that mainly re-produces some of the sequence
+plots rendered with TraMineR::seqplot() and 'TraMineRextras'. Whereas
+'TraMineR' uses base R to produce the plots this library draws on
+'ggplot2'. The plots are produced on the basis of a sequence object
+defined with TraMineR::seqdef(). The package automates the reshaping and
+plotting of sequence data. Resulting plots are of class 'ggplot', i.e.
+components can be added and tweaked using '+' and regular 'ggplot2'
+functions.
 
 %prep
 %setup -q -c -n %{packname}

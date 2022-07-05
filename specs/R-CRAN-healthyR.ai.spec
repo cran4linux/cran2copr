@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  healthyR.ai
-%global packver   0.0.7
+%global packver   0.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Machine Learning and AI Modeling Companion to 'healthyR'
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-recipes >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.1.2
 BuildRequires:    R-CRAN-yardstick >= 0.0.8
 BuildRequires:    R-CRAN-magrittr 
@@ -27,7 +28,6 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-recipes 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-h2o 
 BuildRequires:    R-stats 
@@ -36,6 +36,7 @@ BuildRequires:    R-CRAN-parsnip
 BuildRequires:    R-CRAN-tune 
 BuildRequires:    R-CRAN-workflows 
 BuildRequires:    R-CRAN-modeltime 
+Requires:         R-CRAN-recipes >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-yardstick >= 0.0.8
 Requires:         R-CRAN-magrittr 
@@ -47,7 +48,6 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-recipes 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-h2o 
 Requires:         R-stats 

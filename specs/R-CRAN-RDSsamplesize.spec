@@ -1,36 +1,26 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DSSP
+%global packname  RDSsamplesize
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Implementation of the Direct Sampling Spatial Prior
+Summary:          RDS Sample Size Estimation and Power Calculation
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-mcmcse 
-BuildRequires:    R-CRAN-posterior 
-BuildRequires:    R-CRAN-rust 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-mcmcse 
-Requires:         R-CRAN-posterior 
-Requires:         R-CRAN-rust 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Draw samples from the direct sampling spatial prior model as described in
-G. White, D. Sun, P. Speckman (2019) <arXiv:1906.05575>. The basic model
-assumes a Gaussian likelihood and derives a spatial prior based on
-thin-plate splines.
+Provides functionality for carrying out sample size estimation and power
+calculation in Respondent-Driven Sampling.
 
 %prep
 %setup -q -c -n %{packname}

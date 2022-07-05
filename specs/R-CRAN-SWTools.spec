@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SWTools
-%global packver   0.2.3.1
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3.1
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helper Tools for Australian Hydrologists
 

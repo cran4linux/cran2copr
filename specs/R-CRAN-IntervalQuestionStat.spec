@@ -1,58 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  asbio
-%global packver   1.7
+%global packname  IntervalQuestionStat
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Collection of Statistical Tools for Biologists
+Summary:          Tools to Deal with Interval-Valued Responses in Questionnaires
 
-License:          GPL (>= 2)
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    xorg-x11-server-Xvfb
-Requires:         bwidget
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-tcltk 
-BuildRequires:    R-CRAN-scatterplot3d 
-BuildRequires:    R-CRAN-pixmap 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-deSolve 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-combinat 
-BuildRequires:    R-CRAN-multcompView 
+BuildRequires:    R-methods 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-gWidgets2 
-BuildRequires:    R-CRAN-gWidgets2tcltk 
-Requires:         R-tcltk 
-Requires:         R-CRAN-scatterplot3d 
-Requires:         R-CRAN-pixmap 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-deSolve 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-combinat 
-Requires:         R-CRAN-multcompView 
+Requires:         R-methods 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-gWidgets2 
-Requires:         R-CRAN-gWidgets2tcltk 
 
 %description
-Contains functions from: Aho, K. (2014) Foundational and Applied
-Statistics for Biologists using R.  CRC/Taylor and Francis, Boca Raton,
-FL, ISBN: 978-1-4398-7338-0.
+S4 classes, methods and functions to deal with interval-valued responses
+in questionnaires. They allow for computing any arithmetic and statistical
+operations with interval-valued data, preparing plots, transforming
+interval-valued responses into Likert-type and visual analogue scales
+responses, analysing respondents answers reliability and simulating
+interval-valued responses in a questionnaire.
 
 %prep
 %setup -q -c -n %{packname}
@@ -72,7 +51,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %install
 
 mkdir -p %{buildroot}%{rlibdir}
-xvfb-run %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 # remove buildroot from installed files

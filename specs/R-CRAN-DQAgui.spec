@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DQAgui
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphical User Interface for Data Quality Assessment
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DQAstats >= 0.3.0
-BuildRequires:    R-CRAN-DIZutils >= 0.1.0
+BuildRequires:    R-CRAN-DQAstats >= 0.3.1
+BuildRequires:    R-CRAN-DIZutils >= 0.1.1
 BuildRequires:    R-CRAN-DIZtools >= 0.0.5
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-daterangepicker 
@@ -34,8 +34,8 @@ BuildRequires:    R-CRAN-shinyFiles
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-waiter 
-Requires:         R-CRAN-DQAstats >= 0.3.0
-Requires:         R-CRAN-DIZutils >= 0.1.0
+Requires:         R-CRAN-DQAstats >= 0.3.1
+Requires:         R-CRAN-DIZutils >= 0.1.1
 Requires:         R-CRAN-DIZtools >= 0.0.5
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-daterangepicker 

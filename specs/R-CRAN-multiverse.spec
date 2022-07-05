@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  multiverse
-%global packver   0.5.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Explorable Multiverse' Data Analysis and Reports
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-collections
 BuildRequires:    R-CRAN-evaluate 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-berryFunctions 
+BuildRequires:    R-CRAN-future.apply 
 Requires:         R-CRAN-knitr >= 1.3
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.1
@@ -46,6 +47,7 @@ Requires:         R-CRAN-collections
 Requires:         R-CRAN-evaluate 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-berryFunctions 
+Requires:         R-CRAN-future.apply 
 
 %description
 Implement 'multiverse' style analyses (Steegen S., Tuerlinckx F, Gelman
@@ -69,6 +71,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

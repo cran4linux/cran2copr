@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fda
-%global packver   6.0.4
+%global packver   6.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.4
+Version:          6.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Data Analysis
 

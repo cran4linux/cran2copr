@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  tanaka
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Design Shaded Contour Lines (or Tanaka) Maps
 
@@ -18,14 +18,12 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-isoband 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mapiso 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-isoband 
-Requires:         R-methods 
+Requires:         R-CRAN-mapiso 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 

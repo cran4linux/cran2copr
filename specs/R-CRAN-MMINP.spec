@@ -1,33 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  evd
-%global packver   2.3-6.1
+%global packname  MMINP
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.6.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Extreme Value Distributions
+Summary:          Microbe-Metabolite Interactions-Based Metabolic Profiles Predictor
 
-License:          GPL-3
+License:          GPL (>= 3.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-OmicsPLS >= 2.0.2
+BuildRequires:    R-CRAN-magrittr >= 2.0.1
+BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+Requires:         R-CRAN-OmicsPLS >= 2.0.2
+Requires:         R-CRAN-magrittr >= 2.0.1
+Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-graphics 
 
 %description
-Extends simulation, distribution, quantile and density functions to
-univariate and multivariate parametric extreme value distributions, and
-provides fitting functions which calculate maximum likelihood estimates
-for univariate and bivariate maxima models, and for univariate and
-bivariate threshold models.
+Implements a computational framework to predict microbial community-based
+metabolic profiles with 'O2PLS' model. It provides procedures of model
+training and prediction. Paired microbiome and metabolome data are needed
+for modeling, and the trained model can be applied to predict metabolites
+of analogous environments using new microbial feature abundances.
 
 %prep
 %setup -q -c -n %{packname}

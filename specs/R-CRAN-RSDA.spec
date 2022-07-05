@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RSDA
-%global packver   3.0.9
+%global packver   3.0.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.9
+Version:          3.0.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          R to Symbolic Data Analysis
 
@@ -38,13 +38,13 @@ BuildRequires:    R-CRAN-princurve
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-sqldf 
 BuildRequires:    R-CRAN-randomcoloR 
-BuildRequires:    R-CRAN-labelled 
 BuildRequires:    R-CRAN-kknn 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-gbm 
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-neuralnet 
+BuildRequires:    R-CRAN-readr 
 Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-dplyr >= 0.8.5
 Requires:         R-CRAN-rlang >= 0.4.5
@@ -67,13 +67,13 @@ Requires:         R-CRAN-princurve
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-sqldf 
 Requires:         R-CRAN-randomcoloR 
-Requires:         R-CRAN-labelled 
 Requires:         R-CRAN-kknn 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-gbm 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-neuralnet 
+Requires:         R-CRAN-readr 
 
 %description
 Symbolic Data Analysis (SDA) was proposed by professor Edwin Diday in
@@ -90,6 +90,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

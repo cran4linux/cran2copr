@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dendextend
-%global packver   1.15.2
+%global packver   1.16.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.15.2
+Version:          1.16.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extending 'dendrogram' Functionality in R
 

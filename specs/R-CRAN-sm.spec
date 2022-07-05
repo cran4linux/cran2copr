@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sm
-%global packver   2.2-5.7
+%global packver   2.2-5.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.5.7
+Version:          2.2.5.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Smoothing Methods for Nonparametric Regression and Density Estimation
 
