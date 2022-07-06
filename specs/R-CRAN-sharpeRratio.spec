@@ -1,27 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  generics
-%global packver   0.1.3
+%global packname  sharpeRratio
+%global packver   1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.4.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Common S3 Generics not Provided by Base R Methods Related to Model Fitting
+Summary:          Moment-Free Estimation of Sharpe Ratios
 
-License:          MIT + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.4
+BuildRequires:    R-CRAN-ghyp 
 BuildRequires:    R-methods 
+Requires:         R-CRAN-Rcpp >= 0.12.4
+Requires:         R-CRAN-ghyp 
 Requires:         R-methods 
 
 %description
-In order to reduce potential package dependencies and conflicts, generics
-provides a number of commonly used S3 generics.
+An efficient moment-free estimator of the Sharpe ratio, or signal-to-noise
+ratio, for heavy-tailed data (see <arXiv:1505.01333>).
 
 %prep
 %setup -q -c -n %{packname}

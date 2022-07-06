@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BayesFactor
-%global packver   0.9.12-4.3
+%global packver   0.9.12-4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.12.4.3
+Version:          0.9.12.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computation of Bayes Factors for Common Designs
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-MatrixModels 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-hypergeo 
@@ -36,7 +35,6 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-CRAN-stringr 
 Requires:         R-utils 
 Requires:         R-graphics 
-Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-MatrixModels 
 Requires:         R-methods 
 Requires:         R-CRAN-hypergeo 

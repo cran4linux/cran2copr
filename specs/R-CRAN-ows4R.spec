@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ows4R
-%global packver   0.2-1
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to OGC Web-Services (OWS)
 
@@ -23,8 +23,9 @@ BuildRequires:    R-CRAN-keyring
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-rgdal 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-parallel 
 Requires:         R-CRAN-XML >= 3.96.1.1
 Requires:         R-methods 
@@ -33,18 +34,19 @@ Requires:         R-CRAN-keyring
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-rgdal 
+Requires:         R-CRAN-terra 
 Requires:         R-parallel 
 
 %description
 Provides an Interface to Web-Services defined as standards by the Open
 Geospatial Consortium (OGC), including Web Feature Service (WFS) for
-vector data, Catalogue Service (CSW) for ISO/OGC metadata, and associated
-standards such as the common web-service specification (OWS) and OGC
-Filter Encoding. Partial support is provided for the Web Map Service (WMS)
-and Web Processing Service (WPS). The purpose is to add support for
-additional OGC service standards such as Web Coverage Service (WCS), Web
+vector data, Web Coverage Service (WCS), Catalogue Service (CSW) for
+ISO/OGC metadata, and associated standards such as the common web-service
+specification (OWS) and OGC Filter Encoding. Partial support is provided
+for the Web Map Service (WMS) and Web Processing Service (WPS). The
+purpose is to add support for additional OGC service standards such as Web
 Coverage Processing Service (WCPS) or OGC API.
 
 %prep

@@ -1,46 +1,56 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ontologics
-%global packver   0.1.0
+%global packname  riverconn
+%global packver   0.3.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.3.18
 Release:          1%{?dist}%{?buildtag}
-Summary:          Code-Logics to Handle Ontologies
+Summary:          Common Fragmentation and Connectivity Indices for Riverscapes
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-markdown 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-CRAN-dodgr 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
+Requires:         R-CRAN-markdown 
+Requires:         R-parallel 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
+Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-dodgr 
+Requires:         R-CRAN-reshape2 
 
 %description
-Provides tools to build and work with an ontology of linked (open) data in
-a tidy workflow. It is inspired by the FAO caliper platform and makes use
-of the Simple Knowledge Organisation System (SKOS).
+Indices for assessing riverscape fragmentation, including the Dendritic
+Connectivity Index, the Population Connectivity Index, the River
+Fragmentation Index, the Probability of Connectivity, and the Integral
+Index of connectivity. For a review, see Jumani et al. (2020)
+<doi:10.1088/1748-9326/abcb37>. Functions to calculate temporal indices
+improvement when fragmentation due to barriers is reduced are also
+included.
 
 %prep
 %setup -q -c -n %{packname}

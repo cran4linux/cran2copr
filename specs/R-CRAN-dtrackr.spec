@@ -1,47 +1,54 @@
 %global __brp_check_rpaths %{nil}
-%global packname  volcano3D
-%global packver   2.0.0
+%global packname  dtrackr
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          3D Volcano Plots and Polar Plots for Three-Class Data
+Summary:          Track your Data Pipelines
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-matrixTests 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rsvg 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-V8 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-base64enc 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-matrixTests 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rsvg 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-V8 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-base64enc 
 
 %description
-Generates interactive plots for analysing and visualising three-class high
-dimensional data. It is particularly suited to visualising differences in
-continuous attributes such as gene/protein/biomarker expression levels
-between three groups. Differential gene/biomarker expression analysis
-between two classes is typically shown as a volcano plot. However, with
-three groups this type of visualisation is particularly difficult to
-interpret. This package generates 3D volcano plots and 3-way polar plots
-for easier interpretation of three-class data.
+Track and document 'dplyr' data pipelines. As you filter, mutate, and join
+your way through a data set, 'dtrackr' seamlessly keeps track of your data
+flow and makes publication ready documentation of a data pipeline simple.
 
 %prep
 %setup -q -c -n %{packname}

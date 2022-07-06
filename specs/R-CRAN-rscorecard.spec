@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rscorecard
-%global packver   0.22.0
+%global packver   0.23.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.22.0
+Version:          0.23.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Method to Download Department of Education College Scorecard Data
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lazyeval 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
@@ -29,7 +28,6 @@ Requires:         R-CRAN-httr
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lazyeval 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-purrr 
 

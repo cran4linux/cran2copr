@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  workflows
-%global packver   0.2.6
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modeling Workflows
 
@@ -13,27 +13,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 2.0.0
+BuildRequires:    R-CRAN-cli >= 3.3.0
+BuildRequires:    R-CRAN-glue >= 1.6.2
+BuildRequires:    R-CRAN-hardhat >= 1.2.0
 BuildRequires:    R-CRAN-tidyselect >= 1.1.2
-BuildRequires:    R-CRAN-rlang >= 1.0.1
-BuildRequires:    R-CRAN-lifecycle >= 1.0.0
-BuildRequires:    R-CRAN-vctrs >= 0.3.8
-BuildRequires:    R-CRAN-hardhat >= 0.2.0
-BuildRequires:    R-CRAN-parsnip >= 0.2.0
+BuildRequires:    R-CRAN-rlang >= 1.0.3
+BuildRequires:    R-CRAN-lifecycle >= 1.0.1
+BuildRequires:    R-CRAN-parsnip >= 1.0.0
+BuildRequires:    R-CRAN-vctrs >= 0.4.1
 BuildRequires:    R-CRAN-generics >= 0.1.2
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-cli >= 2.0.0
+Requires:         R-CRAN-cli >= 3.3.0
+Requires:         R-CRAN-glue >= 1.6.2
+Requires:         R-CRAN-hardhat >= 1.2.0
 Requires:         R-CRAN-tidyselect >= 1.1.2
-Requires:         R-CRAN-rlang >= 1.0.1
-Requires:         R-CRAN-lifecycle >= 1.0.0
-Requires:         R-CRAN-vctrs >= 0.3.8
-Requires:         R-CRAN-hardhat >= 0.2.0
-Requires:         R-CRAN-parsnip >= 0.2.0
+Requires:         R-CRAN-rlang >= 1.0.3
+Requires:         R-CRAN-lifecycle >= 1.0.1
+Requires:         R-CRAN-parsnip >= 1.0.0
+Requires:         R-CRAN-vctrs >= 0.4.1
 Requires:         R-CRAN-generics >= 0.1.2
-Requires:         R-CRAN-glue 
 
 %description
 Managing both a 'parsnip' model and a preprocessor, such as a model

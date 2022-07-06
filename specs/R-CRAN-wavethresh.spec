@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  wavethresh
-%global packver   4.6.9
+%global packver   4.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6.9
+Version:          4.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wavelets Statistics and Transforms
 

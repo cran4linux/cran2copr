@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  markets
-%global packver   1.0.3
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation Methods for Markets in Equilibrium and Disequilibrium
 
@@ -16,11 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-MASS >= 7.3.50
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-tibble >= 1.4.2
-BuildRequires:    R-CRAN-systemfit >= 1.1
-BuildRequires:    R-CRAN-bbmle >= 1.0.20
-BuildRequires:    R-CRAN-tidyr >= 1.0.2
 BuildRequires:    R-CRAN-dplyr >= 0.7.6
 BuildRequires:    R-CRAN-rlang >= 0.2.1
 BuildRequires:    R-CRAN-Formula 
@@ -28,12 +23,8 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppGSL 
 BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-MASS >= 7.3.50
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-tibble >= 1.4.2
-Requires:         R-CRAN-systemfit >= 1.1
-Requires:         R-CRAN-bbmle >= 1.0.20
-Requires:         R-CRAN-tidyr >= 1.0.2
 Requires:         R-CRAN-dplyr >= 0.7.6
 Requires:         R-CRAN-rlang >= 0.2.1
 Requires:         R-CRAN-Formula 
@@ -41,6 +32,7 @@ Requires:         R-methods
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RcppGSL 
 Requires:         R-CRAN-RcppParallel 
+Requires:         R-stats 
 
 %description
 Provides estimation methods for markets in equilibrium and disequilibrium.

@@ -1,39 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  outsider
-%global packver   0.1.1
+%global packname  rtiddlywiki
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Install and Run Programs, Outside of R, Inside of R
+Summary:          R Interface for 'TiddlyWiki'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-remotes >= 2.0
-BuildRequires:    R-CRAN-outsider.base 
-BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-settings 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-remotes >= 2.0
-Requires:         R-CRAN-outsider.base 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-CRAN-bookdown 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-settings 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-utils 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-bookdown 
+Requires:         R-CRAN-stringr 
 
 %description
-Install and run external command-line programs in R through use of
-'Docker' <https://www.docker.com/> and online repositories.
+'TiddlyWiki' is a unique non-linear notebook for capturing, organising and
+sharing complex information. 'rtiddlywiki' is a R interface of
+'TiddlyWiki' <https://tiddlywiki.com> to create new tiddler from Rmarkdown
+file, and then put into a local 'TiddlyWiki' node.js server if it is
+available.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,6 +46,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

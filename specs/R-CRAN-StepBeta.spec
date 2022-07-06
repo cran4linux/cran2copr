@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  StepBeta
-%global packver   1.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stepwise Procedure for Beta Regression Models
 
@@ -19,9 +19,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-betareg 
+BuildRequires:    R-CRAN-combinat 
 Requires:         R-CRAN-glue 
 Requires:         R-stats 
 Requires:         R-CRAN-betareg 
+Requires:         R-CRAN-combinat 
 
 %description
 Starting from a Beta Regression Model, it provides a stepwise procedure to

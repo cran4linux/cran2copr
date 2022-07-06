@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  metrica
-%global packver   1.2.3
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prediction Performance Metrics
 
@@ -21,31 +21,41 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-ggpp 
+BuildRequires:    R-CRAN-minerva 
+BuildRequires:    R-CRAN-energy 
 Requires:         R-stats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-viridis 
 Requires:         R-utils 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-ggpp 
+Requires:         R-CRAN-minerva 
+Requires:         R-CRAN-energy 
 
 %description
-A compilation of more than 40 functions designed to evaluate prediction
-performance of point-forecast models accounting for different aspects of
-the agreement between predicted and observed values. It includes error
-metrics (e.g. MAE, RMSE), model efficiencies (e.g. NSE, KGE), indices of
-agreement (e.g. d, RAC), goodness of fit (e.g. r, R2), concordance
-correlation (e.g. CCC), error decomposition (e.g. lack of
-accuracy-precision), and plots the visualize agreement. For more details
-visit the vignettes <https://adriancorrendo.github.io/metrica/>.
+A compilation of more than 80 functions designed to quantitatively and
+visually evaluate prediction performance of regression (continuous
+variables) and classification (categorical variables) of point-forecast
+models (e.g. APSIM, DSSAT, DNDC, supervised Machine Learning). For
+regression, it includes functions to generate plots (scatter, tiles,
+density, & Bland-Altman plot), and to estimate error metrics (e.g. MBE,
+MAE, RMSE), error decomposition (e.g. lack of accuracy-precision), model
+efficiency (e.g. NSE, E1, KGE), indices of agreement (e.g. d, RAC),
+goodness of fit (e.g. r, R2), adjusted correlation coefficients (e.g. CCC,
+dcorr), symmetric regression coefficients (intercept, slope), and mean
+absolute scaled error (MASE) for time series predictions. For
+classification (binomial and multinomial), it offers functions to generate
+and plot confusion matrices, and to estimate performance metrics such as
+accuracy, precision, recall, specificity, F-score, Cohen's Kappa, G-mean,
+and many more. For more details visit the vignettes
+<https://adriancorrendo.github.io/metrica/>.
 
 %prep
 %setup -q -c -n %{packname}

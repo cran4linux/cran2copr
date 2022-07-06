@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ottr
-%global packver   1.1.5
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An R Autograding Extension for Otter-Grader
 
@@ -29,8 +29,8 @@ Requires:         R-methods
 
 %description
 An R autograding extension for Otter-Grader
-(<https://otter-grader.readthedocs.io>). It supports grading R scripts,
-RMarkdown documents, and R Jupyter Notebooks.
+(<https://otter-grader.readthedocs.io>). It supports grading R scripts, R
+Markdown documents, and R Jupyter Notebooks.
 
 %prep
 %setup -q -c -n %{packname}

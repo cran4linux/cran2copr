@@ -1,27 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  generics
-%global packver   0.1.3
+%global packname  SCCS
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Common S3 Generics not Provided by Base R Methods Related to Model Fitting
+Summary:          The Self-Controlled Case Series Method
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 2.14.0
+Requires:         R-core >= 2.14.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-corpcor 
+BuildRequires:    R-CRAN-fda 
+BuildRequires:    R-CRAN-R.methodsS3 
+BuildRequires:    R-CRAN-gnm 
+Requires:         R-CRAN-survival 
+Requires:         R-splines 
+Requires:         R-CRAN-corpcor 
+Requires:         R-CRAN-fda 
+Requires:         R-CRAN-R.methodsS3 
+Requires:         R-CRAN-gnm 
 
 %description
-In order to reduce potential package dependencies and conflicts, generics
-provides a number of commonly used S3 generics.
+Various self-controlled case series models used to investigate
+associations between time-varying exposures such as vaccines or other
+drugs or non drug exposures and an adverse event can be fitted. Detailed
+information on the self-controlled case series method and its extensions
+with more examples can be found in Farrington, P., Whitaker, H., and
+Ghebremichael Weldeselassie, Y. (2018, ISBN: 978-1-4987-8159-6.
+Self-controlled Case Series studies: A modelling Guide with R. Boca Raton:
+Chapman & Hall/CRC Press) and <https://sccs-studies.info/index.html>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  oce
-%global packver   1.7-6
+%global packver   1.7-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.6
+Version:          1.7.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Oceanographic Data
 
