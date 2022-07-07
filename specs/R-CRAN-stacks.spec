@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  stacks
-%global packver   0.2.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Model Stacking
 
@@ -21,9 +21,9 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-purrr >= 0.3.2
 BuildRequires:    R-CRAN-workflows >= 0.2.3
+BuildRequires:    R-CRAN-recipes >= 0.2.0
 BuildRequires:    R-CRAN-tune >= 0.1.3
 BuildRequires:    R-CRAN-butcher >= 0.1.3
-BuildRequires:    R-CRAN-recipes >= 0.1.15
 BuildRequires:    R-CRAN-rsample >= 0.1.1
 BuildRequires:    R-CRAN-workflowsets >= 0.1.0
 BuildRequires:    R-CRAN-parsnip >= 0.0.4
@@ -40,9 +40,9 @@ Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-purrr >= 0.3.2
 Requires:         R-CRAN-workflows >= 0.2.3
+Requires:         R-CRAN-recipes >= 0.2.0
 Requires:         R-CRAN-tune >= 0.1.3
 Requires:         R-CRAN-butcher >= 0.1.3
-Requires:         R-CRAN-recipes >= 0.1.15
 Requires:         R-CRAN-rsample >= 0.1.1
 Requires:         R-CRAN-workflowsets >= 0.1.0
 Requires:         R-CRAN-parsnip >= 0.0.4

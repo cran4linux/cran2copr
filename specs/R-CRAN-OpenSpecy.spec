@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  OpenSpecy
-%global packver   0.9.3
+%global packver   0.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.9.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyze, Process, Identify, and Share, Raman and (FT)IR Spectra
+Summary:          Analyze, Process, Identify, and Share Raman and (FT)IR Spectra
 
 License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -44,7 +44,7 @@ background noise with subtr_bg() in accordance with Zhao et al. (2007)
 reference library (Cowger et al. 2020, <doi:10.1177/0003702820929064>).
 Analyzed spectra can be shared with the Open Specy community. A Shiny app
 is available via run_app() or online at
-<https://wincowger.shinyapps.io/OpenSpecy/>.
+<https://openanalysis.org/openspecy/>.
 
 %prep
 %setup -q -c -n %{packname}

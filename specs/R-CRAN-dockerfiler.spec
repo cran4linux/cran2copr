@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dockerfiler
-%global packver   0.1.4
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Dockerfile Creation from R
 
@@ -16,28 +16,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-R6 >= 2.5.0
+BuildRequires:    R-CRAN-cli >= 2.3.0
+BuildRequires:    R-CRAN-remotes >= 2.2.0
+BuildRequires:    R-CRAN-usethis >= 2.0.1
+BuildRequires:    R-CRAN-jsonlite >= 1.7.2
+BuildRequires:    R-CRAN-fs >= 1.5.0
+BuildRequires:    R-CRAN-glue >= 1.4.2
+BuildRequires:    R-CRAN-desc >= 1.2.0
+BuildRequires:    R-CRAN-pkgbuild >= 1.2.0
 BuildRequires:    R-CRAN-attempt >= 0.3.1
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-pak >= 0.2.0
+BuildRequires:    R-CRAN-renv >= 0.12.0
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-remotes 
-BuildRequires:    R-CRAN-desc 
-BuildRequires:    R-CRAN-usethis 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-pkgbuild 
+Requires:         R-CRAN-R6 >= 2.5.0
+Requires:         R-CRAN-cli >= 2.3.0
+Requires:         R-CRAN-remotes >= 2.2.0
+Requires:         R-CRAN-usethis >= 2.0.1
+Requires:         R-CRAN-jsonlite >= 1.7.2
+Requires:         R-CRAN-fs >= 1.5.0
+Requires:         R-CRAN-glue >= 1.4.2
+Requires:         R-CRAN-desc >= 1.2.0
+Requires:         R-CRAN-pkgbuild >= 1.2.0
 Requires:         R-CRAN-attempt >= 0.3.1
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-R6 
+Requires:         R-CRAN-pak >= 0.2.0
+Requires:         R-CRAN-renv >= 0.12.0
 Requires:         R-utils 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-remotes 
-Requires:         R-CRAN-desc 
-Requires:         R-CRAN-usethis 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-pkgbuild 
 
 %description
 Build a Dockerfile straight from your R session. 'dockerfiler' allows you

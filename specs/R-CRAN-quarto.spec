@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  quarto
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'Quarto' Markdown Publishing System
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rsconnect >= 0.8.26
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-jsonlite 
@@ -23,6 +24,7 @@ BuildRequires:    R-CRAN-yaml
 BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-later 
+Requires:         R-CRAN-rsconnect >= 0.8.26
 Requires:         R-utils 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-jsonlite 

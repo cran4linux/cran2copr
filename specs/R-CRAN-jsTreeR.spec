@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  jsTreeR
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Wrapper of the JavaScript Library 'jsTree'
 
@@ -16,32 +16,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-shinyAce 
-BuildRequires:    R-CRAN-miniUI 
-BuildRequires:    R-tools 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-fontawesome 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-jquerylib 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-shinyAce 
-Requires:         R-CRAN-miniUI 
-Requires:         R-tools 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-miniUI 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyAce 
+BuildRequires:    R-stats 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-base64enc 
-Requires:         R-utils 
-Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-fontawesome 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-jquerylib 
+Requires:         R-CRAN-miniUI 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyAce 
+Requires:         R-stats 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
 Creates interactive trees that can be included in 'Shiny' apps and R

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  lmeInfo
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Information Matrices for 'lmeStruct' and 'glsStruct' Objects
 

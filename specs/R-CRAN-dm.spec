@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  dm
-%global packver   0.2.8
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Relational Data Models
 
@@ -16,16 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-cli >= 2.2.0
-BuildRequires:    R-CRAN-pillar >= 1.6.2
-BuildRequires:    R-CRAN-dplyr >= 1.0.3
-BuildRequires:    R-CRAN-rlang >= 1.0.1
+BuildRequires:    R-CRAN-pillar >= 1.7.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.9
+BuildRequires:    R-CRAN-rlang >= 1.0.2
 BuildRequires:    R-CRAN-tidyselect >= 1.0.1
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-vctrs >= 0.3.2
 BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-lifecycle 
@@ -33,17 +33,16 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-cli >= 2.2.0
-Requires:         R-CRAN-pillar >= 1.6.2
-Requires:         R-CRAN-dplyr >= 1.0.3
-Requires:         R-CRAN-rlang >= 1.0.1
+Requires:         R-CRAN-pillar >= 1.7.0
+Requires:         R-CRAN-dplyr >= 1.0.9
+Requires:         R-CRAN-rlang >= 1.0.2
 Requires:         R-CRAN-tidyselect >= 1.0.1
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-vctrs >= 0.3.2
 Requires:         R-CRAN-backports 
 Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-ellipsis 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-lifecycle 
@@ -51,7 +50,6 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-memoise 
 Requires:         R-methods 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tibble 
 
 %description
 Provides tools for working with multiple related tables, stored as data

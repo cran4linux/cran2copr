@@ -1,43 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tipmap
-%global packver   0.1.1
+%global packname  brpop
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tipping Point Analysis for Bayesian Dynamic Borrowing
+Summary:          Brazilian Population Estimatives
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-RBesT 
-BuildRequires:    R-CRAN-SHELF 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-RBesT 
-Requires:         R-CRAN-SHELF 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
 
 %description
-Tipping point analysis for clinical trials that employ Bayesian dynamic
-borrowing via robust meta-analytic predictive (MAP) priors. Mainly an
-implementation of an approach proposed by Best and colleagues (2021)
-<doi:10.1002/pst.2093> is provided. Further functions facilitate the
-specification of the robust MAP prior via expert elicitation (using the
-roulette method) and computation of the posterior distribution of the
-treatment effect with either fixed or stochastic expert-elicited weights.
-Intended use is the planning, analysis and interpretation of extrapolation
-studies in pediatric drug development, but applicability is generally
-wider.
+Datasets with yearly (2000 to 2021) Brazilian population estimates from
+DataSUS/Brazilian Health Ministry, aggregated by state, municipality, sex,
+and age groups. The data in this package is manually downloaded from the
+DataSUS website
+(<http://tabnet.datasus.gov.br/cgi/deftohtm.exe?popsvs/cnv/popbr.def>) and
+converted to tibbles.
 
 %prep
 %setup -q -c -n %{packname}

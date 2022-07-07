@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  macleish
-%global packver   0.3.8
+%global packver   0.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          0.3.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve Data from MacLeish Field Station
 
@@ -19,13 +19,21 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-etl 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-phenocamr 
 BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-etl 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-phenocamr 
 Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-xml2 
 
 %description
 Download data from the Ada and Archibald MacLeish Field Station in

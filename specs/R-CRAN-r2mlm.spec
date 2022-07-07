@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  r2mlm
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          R-Squared Measures for Multilevel Models
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broomExtra >= 4.1.0
+BuildRequires:    R-methods >= 3.6.3
 BuildRequires:    R-CRAN-nlme >= 3.1.14
 BuildRequires:    R-CRAN-rockchalk >= 1.8.144
 BuildRequires:    R-CRAN-magrittr >= 1.5
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-lme4 >= 1.1.23
 BuildRequires:    R-CRAN-tidyselect >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.5
 BuildRequires:    R-CRAN-rlang >= 0.4.6
-Requires:         R-CRAN-broomExtra >= 4.1.0
+Requires:         R-methods >= 3.6.3
 Requires:         R-CRAN-nlme >= 3.1.14
 Requires:         R-CRAN-rockchalk >= 1.8.144
 Requires:         R-CRAN-magrittr >= 1.5

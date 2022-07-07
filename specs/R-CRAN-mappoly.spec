@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mappoly
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genetic Linkage Maps in Autopolyploids
 
@@ -29,7 +29,6 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-smacof 
 BuildRequires:    R-CRAN-princurve 
 BuildRequires:    R-CRAN-dendextend 
 BuildRequires:    R-CRAN-vcfR 
@@ -49,7 +48,6 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-smacof 
 Requires:         R-CRAN-princurve 
 Requires:         R-CRAN-dendextend 
 Requires:         R-CRAN-vcfR 

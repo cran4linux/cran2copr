@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  PSS.Health
-%global packver   0.4.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power and Sample Size for Health Researchers via Shiny
 
@@ -16,10 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-easypower 
 BuildRequires:    R-CRAN-EnvStats 
 BuildRequires:    R-CRAN-epiR 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ICC.Sample.Size 
 BuildRequires:    R-CRAN-kappaSize 
 BuildRequires:    R-CRAN-longpower 
@@ -34,12 +36,13 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-CRAN-shinycssloaders 
 BuildRequires:    R-CRAN-shinyFeedback 
 BuildRequires:    R-CRAN-shinyhelper 
-BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-writexl 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-easypower 
 Requires:         R-CRAN-EnvStats 
 Requires:         R-CRAN-epiR 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ICC.Sample.Size 
 Requires:         R-CRAN-kappaSize 
 Requires:         R-CRAN-longpower 
@@ -54,7 +57,6 @@ Requires:         R-CRAN-shiny
 Requires:         R-CRAN-shinycssloaders 
 Requires:         R-CRAN-shinyFeedback 
 Requires:         R-CRAN-shinyhelper 
-Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-writexl 
 
 %description

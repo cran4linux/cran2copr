@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  vetiver
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Version, Share, Deploy, and Monitor Models
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-magrittr >= 2.0.3
 BuildRequires:    R-CRAN-readr >= 1.4.0
 BuildRequires:    R-CRAN-pins >= 1.0.0
 BuildRequires:    R-CRAN-plumber >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-butcher 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-fs 
@@ -32,7 +33,6 @@ BuildRequires:    R-CRAN-lifecycle
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rapidoc 
 BuildRequires:    R-CRAN-renv 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-withr 
@@ -40,6 +40,7 @@ Requires:         R-CRAN-magrittr >= 2.0.3
 Requires:         R-CRAN-readr >= 1.4.0
 Requires:         R-CRAN-pins >= 1.0.0
 Requires:         R-CRAN-plumber >= 1.0.0
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-butcher 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-fs 
@@ -52,7 +53,6 @@ Requires:         R-CRAN-lifecycle
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rapidoc 
 Requires:         R-CRAN-renv 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-withr 

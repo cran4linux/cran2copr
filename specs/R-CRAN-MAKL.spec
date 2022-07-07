@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MAKL
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Approximate Kernel Learning (MAKL)
 
@@ -22,8 +22,10 @@ Requires:         R-CRAN-AUC
 Requires:         R-CRAN-grplasso 
 
 %description
-Fits multiple approximate kernel learning (MAKL) models that are scalable,
-efficient and interpretable.
+R package associated with the Multiple Approximate Kernel Learning (MAKL)
+algorithm proposed in <doi:10.1093/bioinformatics/btac241>. The algorithm
+fits multiple approximate kernel learning (MAKL) models that are fast,
+scalable and interpretable.
 
 %prep
 %setup -q -c -n %{packname}
