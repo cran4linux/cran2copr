@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  seedreg
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Analysis for Seed Germination as a Function of Temperature
 
@@ -26,6 +26,9 @@ BuildRequires:    R-CRAN-hnp
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-multcompView 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-drc 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-car 
@@ -36,6 +39,9 @@ Requires:         R-CRAN-hnp
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-multcompView 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-dplyr 
 
 %description
 Regression analysis using common models in seed temperature studies, such
@@ -56,6 +62,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

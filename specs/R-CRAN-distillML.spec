@@ -1,47 +1,52 @@
 %global __brp_check_rpaths %{nil}
-%global packname  shorts
-%global packver   2.0.0
+%global packname  distillML
+%global packver   0.1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Short Sprints
+Summary:          Model Distillation and Interpretability Methods for Machine Learning Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-LambertW 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-R6 >= 2.0
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-Rforestry 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-purrr 
-Requires:         R-stats 
-Requires:         R-CRAN-LambertW 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-mltools 
+BuildRequires:    R-CRAN-gridExtra 
+Requires:         R-CRAN-R6 >= 2.0
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-Rforestry 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-mltools 
+Requires:         R-CRAN-gridExtra 
 
 %description
-Create short sprint (<6sec) profiles using the split times or the radar
-gun data. Mono-exponential equation is used to estimate maximal sprinting
-speed (MSS), relative acceleration (TAU), and other parameters such us
-maximal acceleration (MAC) and maximal relative power (PMAX). These
-parameters can be used to predict kinematic and kinetics variables and to
-compare individuals. The modeling method utilized in this package is based
-on the works of Chelly SM, Denis C. (2001) <doi:
-10.1097/00005768-200102000-00024>, Clark KP, Rieger RH, Bruno RF, Stearne
-DJ. (2017) <doi: 10.1519/JSC.0000000000002081>, Furusawa K, Hill AV,
-Parkinson JL (1927) <doi: 10.1098/rspb.1927.0035>, Greene PR. (1986) <doi:
-10.1016/0025-5564(86)90063-5>, and Samozino P. (2018) <doi:
-10.1007/978-3-319-05633-3_11>.
+Provides several methods for model distillation and interpretability for
+general black box machine learning models and treatment effect estimation
+methods. For details on the algorithms implemented, see
+<https://forestry-labs.github.io/distillML/index.html> Brian Cho, Theo F.
+Saarinen, Jasjeet S. Sekhon, Simon Walter.
 
 %prep
 %setup -q -c -n %{packname}

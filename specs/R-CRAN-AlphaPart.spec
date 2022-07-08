@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  AlphaPart
-%global packver   0.9.3
+%global packver   0.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.9.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Partition/Decomposition of Breeding Values by Paths of Information
 
@@ -15,16 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-gdata >= 2.6.0
-BuildRequires:    R-CRAN-pedigree >= 1.3
+BuildRequires:    R-methods >= 4.1.3
+BuildRequires:    R-CRAN-tibble >= 3.1.7
+BuildRequires:    R-CRAN-pedigree >= 1.3.1
 BuildRequires:    R-CRAN-directlabels >= 1.1
 BuildRequires:    R-CRAN-Rcpp >= 0.9.4
 BuildRequires:    R-CRAN-ggplot2 >= 0.8.9
 BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-gdata >= 2.6.0
-Requires:         R-CRAN-pedigree >= 1.3
+Requires:         R-methods >= 4.1.3
+Requires:         R-CRAN-tibble >= 3.1.7
+Requires:         R-CRAN-pedigree >= 1.3.1
 Requires:         R-CRAN-directlabels >= 1.1
 Requires:         R-CRAN-Rcpp >= 0.9.4
 Requires:         R-CRAN-ggplot2 >= 0.8.9

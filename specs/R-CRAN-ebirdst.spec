@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ebirdst
-%global packver   0.3.5
+%global packver   1.2020.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          1.2020.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access and Analyze eBird Status and Trends Data
 
@@ -13,25 +13,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-raster >= 3.1.5
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-sf >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-fasterize 
 BuildRequires:    R-CRAN-gbm 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-precrec 
 BuildRequires:    R-CRAN-PresenceAbsence 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RSQLite 
@@ -40,23 +38,20 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-viridisLite 
-BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-raster >= 3.1.5
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-sf >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-fasterize 
 Requires:         R-CRAN-gbm 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
 Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-precrec 
 Requires:         R-CRAN-PresenceAbsence 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-raster 
 Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-RSQLite 
@@ -65,15 +60,14 @@ Requires:         R-CRAN-stringr
 Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-viridisLite 
-Requires:         R-CRAN-xml2 
 
 %description
-Tools to download, map, plot and analyze eBird Status and Trends data
-(<https://ebird.org/science/status-and-trends>). eBird
+Tools to download, load, plot, and analyze eBird Status and Trends Data
+Products (<https://science.ebird.org/en/status-and-trends>). eBird
 (<https://ebird.org/home>) is a global database of bird observations
-collected by citizen scientists. eBird Status and Trends uses these data
-to model continental bird abundances, range boundaries, habitat
-associations, and trends.
+collected by member of the public. eBird Status and Trends uses these data
+to model global bird abundances, range boundaries, and habitat
+associations at a high spatial and temporal resolution.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fHMM
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting Hidden Markov Models to Financial Data
 
@@ -29,7 +29,8 @@ Requires:         R-CRAN-foreach
 Fitting (hierarchical) hidden Markov models to financial data via maximum
 likelihood estimation. See Oelschläger, L. and Adam, T. "Detecting bearish
 and bullish markets in financial time series using hierarchical hidden
-Markov models" (2021, Statistical Modelling) for a reference.
+Markov models" (2021, Statistical Modelling)
+<doi:10.1177/1471082X211034048> for a reference.
 
 %prep
 %setup -q -c -n %{packname}
