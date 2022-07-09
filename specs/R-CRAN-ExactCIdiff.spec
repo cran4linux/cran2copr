@@ -1,40 +1,25 @@
 %global __brp_check_rpaths %{nil}
-%global packname  robust
-%global packver   0.7-1
+%global packname  ExactCIdiff
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Port of the S+ "Robust Library"
+Summary:          Inductive Confidence Intervals for the Difference Between Two Proportions
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-fit.models 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-rrcov 
-Requires:         R-CRAN-fit.models 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-rrcov 
+BuildRequires:    R-devel >= 1.8.0
+Requires:         R-core >= 1.8.0
+BuildArch:        noarch
 
 %description
-Methods for robust statistics, a state of the art in the early 2000s,
-notably for robust regression and robust multivariate analysis.
+This is a package for exact Confidence Intervals for the difference
+between two independent or dependent proportions.
 
 %prep
 %setup -q -c -n %{packname}

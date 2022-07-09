@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  broman
-%global packver   0.76
+%global packver   0.80
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.76
+Version:          0.80
 Release:          1%{?dist}%{?buildtag}
 Summary:          Karl Broman's R Code
 

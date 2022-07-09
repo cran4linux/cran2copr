@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  wdpar
-%global packver   1.3.2
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the World Database on Protected Areas
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-RSelenium >= 1.7.4
 BuildRequires:    R-CRAN-httr >= 1.3.1
 BuildRequires:    R-CRAN-progress >= 1.2.0
 BuildRequires:    R-CRAN-xml2 >= 1.2.0
+BuildRequires:    R-CRAN-pingr >= 1.1.2
 BuildRequires:    R-CRAN-countrycode >= 1.1.0
 BuildRequires:    R-CRAN-sf >= 1.0.2
 BuildRequires:    R-CRAN-cli >= 1.0.1
@@ -37,6 +38,7 @@ Requires:         R-CRAN-RSelenium >= 1.7.4
 Requires:         R-CRAN-httr >= 1.3.1
 Requires:         R-CRAN-progress >= 1.2.0
 Requires:         R-CRAN-xml2 >= 1.2.0
+Requires:         R-CRAN-pingr >= 1.1.2
 Requires:         R-CRAN-countrycode >= 1.1.0
 Requires:         R-CRAN-sf >= 1.0.2
 Requires:         R-CRAN-cli >= 1.0.1

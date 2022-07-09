@@ -1,40 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  robust
-%global packver   0.7-1
+%global packname  fMRIscrub
+%global packver   0.11.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.11.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Port of the S+ "Robust Library"
+Summary:          Scrubbing and Other Data Cleaning Routines for fMRI
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-fit.models 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-pesel 
+BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-rrcov 
-Requires:         R-CRAN-fit.models 
-Requires:         R-graphics 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-pesel 
+Requires:         R-CRAN-robustbase 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-rrcov 
 
 %description
-Methods for robust statistics, a state of the art in the early 2000s,
-notably for robust regression and robust multivariate analysis.
+Data-driven fMRI denoising with projection scrubbing (Pham et al (2022)
+<arXiv:2108.00319>). Also includes routines for DVARS (Derivatives
+VARianceS) (Afyouni and Nichols (2018)
+<doi:10.1016/j.neuroimage.2017.12.098>), motion scrubbing (Power et al
+(2012) <doi:10.1016/j.neuroimage.2011.10.018>), aCompCor (anatomical
+Components Correction) (Muschelli et al (2014)
+<doi:10.1016/j.neuroimage.2014.03.028>), detrending, and nuisance
+regression. Projection scrubbing and DVARS are also applicable to other
+outlier detection tasks involving high-dimensional data.
 
 %prep
 %setup -q -c -n %{packname}

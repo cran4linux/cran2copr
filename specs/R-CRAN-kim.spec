@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  kim
-%global packver   0.5.3
+%global packver   0.5.55
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.5.55
 Release:          1%{?dist}%{?buildtag}
-Summary:          Behavioral Scientists' Analysis Toolkit
+Summary:          A Toolkit for Behavioral Scientists
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}

@@ -1,40 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BNPmix
-%global packver   1.0.1
+%global packname  visaOTR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Nonparametric Mixture Models
+Summary:          Valid Improved Sparsity A-Learning for Optimal Treatment Decision
 
-License:          LGPL-3 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.13
-BuildRequires:    R-methods 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Rglpk 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-kernlab 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mboost 
+BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppDist 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-xgboost 
+Requires:         R-CRAN-Rglpk 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-kernlab 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mboost 
+Requires:         R-CRAN-randomForest 
 Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-Rcpp >= 0.12.13
-Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-xgboost 
 
 %description
-Functions to perform Bayesian nonparametric univariate and multivariate
-density estimation and clustering, by means of Pitman-Yor mixtures, and
-dependent Dirichlet process mixtures for partially exchangeable data. See
-Corradin et al. (2021) <doi:10.18637/jss.v100.i15> for more details.
+Valid Improved Sparsity A-Learning (VISA) provides a new method for
+selecting important variables involved in optimal treatment regime from a
+multiply robust perspective. The VISA estimator achieves its success by
+borrowing the strengths of both model averaging (ARM, Yuhong Yang, 2001)
+<doi:10.1198/016214501753168262> and variable selection (PAL, Chengchun
+Shi, Ailin Fan, Rui Song and Wenbin Lu, 2018) <doi:10.1214/17-AOS1570>.
+The package is an implementation of Zishu Zhan and Jingxiao Zhang.
+(2022+).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  robust
-%global packver   0.7-1
+%global packname  ivgets
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Port of the S+ "Robust Library"
+Summary:          General to Specific Modeling and Indicator Saturation in 2SLS Models
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-fit.models 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-gets >= 0.36
+BuildRequires:    R-CRAN-ivreg 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-rrcov 
-Requires:         R-CRAN-fit.models 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-gets >= 0.36
+Requires:         R-CRAN-ivreg 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-rrcov 
+Requires:         R-CRAN-stringr 
 
 %description
-Methods for robust statistics, a state of the art in the early 2000s,
-notably for robust regression and robust multivariate analysis.
+Provides facilities of general to specific model selection for exogenous
+regressors in 2SLS models. Furthermore, indicator saturation methods can
+be used to detect outliers and structural breaks in the sample.
 
 %prep
 %setup -q -c -n %{packname}

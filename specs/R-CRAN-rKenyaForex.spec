@@ -1,39 +1,25 @@
 %global __brp_check_rpaths %{nil}
-%global packname  qmd
-%global packver   1.1.0
+%global packname  rKenyaForex
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quantification of Multivariate Dependence
+Summary:          Historical Data for Kenya Foreign Exchange Prices
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.6
-BuildRequires:    R-CRAN-qad 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.6
-Requires:         R-CRAN-qad 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-dplyr 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 
 %description
-A multivariate copula-based dependence measure. For more information, see
-Griessenberger, Junker, Trutschnig (2022), On a multivariate copula-based
-dependence measure and its estimation, Electronic Journal of Statistics,
-16, 2206-2251.
+Exchange rate for Kenya Shilling against other currencies, US DOLLAR,
+EURO, STERLING POUND, Tanzania Shilling, Uganda Shilling.
 
 %prep
 %setup -q -c -n %{packname}

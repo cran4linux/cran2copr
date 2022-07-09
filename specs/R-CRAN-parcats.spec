@@ -1,41 +1,49 @@
 %global __brp_check_rpaths %{nil}
-%global packname  usincometaxes
-%global packver   0.5.0
+%global packname  parcats
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Federal and State Income Taxes in the United States
+Summary:          Interactive Parallel Categories Diagrams for 'easyalluvial'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-datasets 
-BuildRequires:    R-CRAN-vroom 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-easyalluvial >= 0.2.1.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-V8 
-Requires:         R-datasets 
-Requires:         R-CRAN-vroom 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-easyalluvial >= 0.2.1.0
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
-Requires:         R-utils 
-Requires:         R-CRAN-V8 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-stringr 
 
 %description
-Calculates federal and state income taxes in the United States. It acts as
-a wrapper to the NBER's TAXSIM 35 (<http://taxsim.nber.org/taxsim35/>) tax
-simulator. TAXSIM 35 conducts the calculations, while 'usincometaxes'
-prepares the data for TAXSIM 35, sends the data to TAXSIM 35's server or
-communicates with the Web Assembly file, retrieves the data, and places it
-into a data frame. All without the user worrying about this process.
+Complex graphical representations of data are best explored using
+interactive elements. 'parcats' adds interactive graphing capabilities to
+the 'easyalluvial' package. The 'plotly.js' parallel categories diagrams
+offer a good framework for creating interactive flow graphs that allow
+manual drag and drop sorting of dimensions and categories, highlighting
+single flows and displaying mouse over information. The 'plotly.js'
+dependency is quite heavy and therefore is outsourced into a separate
+package.
 
 %prep
 %setup -q -c -n %{packname}

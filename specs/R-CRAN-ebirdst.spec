@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ebirdst
-%global packver   1.2020.0
+%global packver   1.2020.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2020.0
+Version:          1.2020.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access and Analyze eBird Status and Trends Data
 

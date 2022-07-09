@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  eatRep
-%global packver   0.14.4
+%global packver   0.14.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.4
+Version:          0.14.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Educational Assessment Tools for Replication Methods
 
@@ -37,6 +37,7 @@ BuildRequires:    R-CRAN-estimatr
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-msm 
 BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-survey >= 4.1.1
 Requires:         R-CRAN-mice >= 2.46
 Requires:         R-CRAN-eatTools >= 0.7.3
@@ -58,6 +59,7 @@ Requires:         R-CRAN-estimatr
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-msm 
 Requires:         R-CRAN-lme4 
+Requires:         R-utils 
 
 %description
 Replication methods to compute some basic statistic operations (means,

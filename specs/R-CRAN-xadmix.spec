@@ -1,37 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  pfocal
+%global packname  xadmix
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Convolution of Matrices
+Summary:          Subsetting and Plotting Optimized for Admixture Data
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-viridis 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-viridis 
 
 %description
-Provides functions to create and apply convolution kernels to rectangular
-data (matrix, raster). Implements calculations of convolutions in
-parallel, emphasizing performance over convolution function diversity.
-Moving window calculations are common in many fields, from image
-processing to raster data manipulation. The process of ingesting values in
-the neighborhood of a each cell in a grid, passing them through a
-function, and returning a reduced value, is embarrassingly parallel. This
-package implements this with parallel C code. In doing so, it provides a
-much faster option than other similarly aimed packages and functions.
+A few functions which provide a quick way of subsetting genomic admixture
+data and generating customizable stacked barplots.
 
 %prep
 %setup -q -c -n %{packname}

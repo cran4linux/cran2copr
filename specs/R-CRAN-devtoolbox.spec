@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  devtoolbox
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for the R Developer
 
@@ -36,6 +36,9 @@ BuildRequires:    R-CRAN-lubridate
 BuildRequires:    R-CRAN-flexdashboard 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-ggiraph 
+BuildRequires:    R-CRAN-cranlogs 
+BuildRequires:    R-CRAN-visNetwork 
+BuildRequires:    R-CRAN-pkgnet 
 Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-stats 
@@ -56,6 +59,9 @@ Requires:         R-CRAN-lubridate
 Requires:         R-CRAN-flexdashboard 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-ggiraph 
+Requires:         R-CRAN-cranlogs 
+Requires:         R-CRAN-visNetwork 
+Requires:         R-CRAN-pkgnet 
 
 %description
 Reporting tools for the R developer to evaluate their packages in terms of

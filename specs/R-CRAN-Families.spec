@@ -1,40 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  robust
-%global packver   0.7-1
+%global packname  Families
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Port of the S+ "Robust Library"
+Summary:          Kinship Ties in Virtual Populations
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-fit.models 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-rrcov 
-Requires:         R-CRAN-fit.models 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-rrcov 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-msm 
+BuildRequires:    R-CRAN-reshape 
+Requires:         R-CRAN-msm 
+Requires:         R-CRAN-reshape 
 
 %description
-Methods for robust statistics, a state of the art in the early 2000s,
-notably for robust regression and robust multivariate analysis.
+Tools to study kinship networks, grandparenthood, and double burden
+(presence of children and oldest old parents) in virtual population
+produced by 'VirtualPop'.
 
 %prep
 %setup -q -c -n %{packname}
