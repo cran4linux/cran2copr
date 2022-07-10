@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bigsnpr
-%global packver   1.9.11
+%global packver   1.10.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.11
+Version:          1.10.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Massive SNP Arrays
 
@@ -16,13 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildRequires:    R-CRAN-bigstatsr >= 1.5.6
+BuildRequires:    R-CRAN-data.table >= 1.12.4
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.600
-BuildRequires:    R-CRAN-bigsparser >= 0.5
+BuildRequires:    R-CRAN-bigsparser >= 0.6
 BuildRequires:    R-CRAN-bigutilsr >= 0.3.3
 BuildRequires:    R-CRAN-bigassertr >= 0.1.3
 BuildRequires:    R-CRAN-bigparallelr 
 BuildRequires:    R-CRAN-bigreadr 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
@@ -33,12 +34,13 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-rmio 
 Requires:         R-CRAN-bigstatsr >= 1.5.6
-Requires:         R-CRAN-bigsparser >= 0.5
+Requires:         R-CRAN-data.table >= 1.12.4
+Requires:         R-CRAN-bigsparser >= 0.6
 Requires:         R-CRAN-bigutilsr >= 0.3.3
 Requires:         R-CRAN-bigassertr >= 0.1.3
 Requires:         R-CRAN-bigparallelr 
 Requires:         R-CRAN-bigreadr 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
