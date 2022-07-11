@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  available
-%global packver   1.0.5
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Check if the Title of a Package is Available, Appropriate and Interesting
 
@@ -27,7 +27,6 @@ BuildRequires:    R-CRAN-memoise
 BuildRequires:    R-CRAN-SnowballC 
 BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-udapi 
 BuildRequires:    R-CRAN-yesno 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-clisymbols 
@@ -40,14 +39,12 @@ Requires:         R-CRAN-memoise
 Requires:         R-CRAN-SnowballC 
 Requires:         R-CRAN-stringdist 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-udapi 
 Requires:         R-CRAN-yesno 
 
 %description
 Check if a given package name is available to use. It checks the name's
 validity. Checks if it is used on 'GitHub', 'CRAN' and 'Bioconductor'.
-Checks for unintended meanings by querying Urban Dictionary, 'Wiktionary'
-and Wikipedia.
+Checks for unintended meanings by querying 'Wiktionary' and Wikipedia.
 
 %prep
 %setup -q -c -n %{packname}

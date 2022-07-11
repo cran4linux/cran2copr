@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  melt
-%global packver   1.5.2
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Empirical Likelihood Tests
 
@@ -15,21 +15,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8
+BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-dqrng 
 BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-RcppProgress 
-Requires:         R-CRAN-Rcpp >= 1.0.8
+Requires:         R-graphics 
 Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 
 %description
 Performs multiple empirical likelihood tests for linear and generalized
-linear models.  The core computational routines are implemented using the
+linear models. The core computational routines are implemented using the
 'Eigen' C++ library and 'RcppEigen' interface, with OpenMP for parallel
-computation. Details of multiple testing procedures are given in Kim et
-al. (2021) <arxiv:2112.09206>.
+computation. Details of multiple testing procedures are given in Kim,
+MacEachern, and Peruggia (2021) <arxiv:2112.09206>.
 
 %prep
 %setup -q -c -n %{packname}
