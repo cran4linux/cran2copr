@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  PDFEstimator
-%global packver   3.2.1
+%global packver   4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.1
+Version:          4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Probability Density Estimator
 
@@ -15,13 +15,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-plot3D 
+BuildRequires:    R-CRAN-MultiRNG 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-plot3D 
+Requires:         R-CRAN-MultiRNG 
+Requires:         R-methods 
 
 %description
 Farmer, J., D. Jacobs (2108) <DOI:10.1371/journal.pone.0196937>. A
-nonparametric density estimator based on the maximum-entropy method.
-Accurately predicts a probability density function (PDF) for random data
-using a novel iterative scoring function to determine the best fit without
-overfitting to the sample.
+multivariate nonparametric density estimator based on the maximum-entropy
+method.  Accurately predicts a probability density function (PDF) for
+random data using a novel iterative scoring function to determine the best
+fit without overfitting to the sample.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  chromConverter
-%global packver   0.1.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Chromatographic File Converter
 
@@ -16,15 +16,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-xml2 
 
 %description
 Reads chromatograms from binary formats into R objects. Currently supports
-conversion of Agilent ChemStation '.uv' and MassHunter '.sp', files using
-file parsers from the 'Aston' package <https://github.com/bovee/aston>.
+conversion of 'Agilent ChemStation', 'Agilent MassHunter', and 'ThermoRaw'
+files as well as various text-based formats. Utilizes file parsers from
+external libraries, such as 'Aston' <https://github.com/bovee/aston>,
+'Entab' <https://github.com/bovee/entab>, and 'ThermoRawFileParser'
+<https://github.com/compomics/ThermoRawFileParser>.
 
 %prep
 %setup -q -c -n %{packname}

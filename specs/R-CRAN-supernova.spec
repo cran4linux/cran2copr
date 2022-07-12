@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
 %global packname  supernova
-%global packver   2.5.1
+%global packver   2.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.1
+Version:          2.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Judd, McClelland, & Ryan Formatting for ANOVA Output
 
-License:          GPL-3
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,31 +17,29 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-pillar >= 1.5.0
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-backports 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-pillar >= 1.5.0
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-backports 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-vctrs 
-Requires:         R-methods 
-Requires:         R-CRAN-backports 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-withr 
 
 %description
 Produces ANOVA tables in the format used by Judd, McClelland, and Ryan

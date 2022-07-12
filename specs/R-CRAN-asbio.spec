@@ -1,55 +1,56 @@
 %global __brp_check_rpaths %{nil}
-%global packname  entropart
-%global packver   1.6-11
+%global packname  asbio
+%global packver   1.8-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.11
+Version:          1.8.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Entropy Partitioning to Measure Diversity
+Summary:          A Collection of Statistical Tools for Biologists
 
-License:          GNU General Public License
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         pandoc
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    xorg-x11-server-Xvfb
+Requires:         bwidget
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-EntropyEstimation 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-graphics 
+BuildRequires:    R-tcltk 
+BuildRequires:    R-CRAN-scatterplot3d 
+BuildRequires:    R-CRAN-pixmap 
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-multcompView 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vegan 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-EntropyEstimation 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-gWidgets2 
+BuildRequires:    R-CRAN-gWidgets2tcltk 
+Requires:         R-tcltk 
+Requires:         R-CRAN-scatterplot3d 
+Requires:         R-CRAN-pixmap 
+Requires:         R-CRAN-plotrix 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-deSolve 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-multcompView 
 Requires:         R-grDevices 
-Requires:         R-parallel 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-rlang 
+Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
 Requires:         R-utils 
-Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-gWidgets2 
+Requires:         R-CRAN-gWidgets2tcltk 
 
 %description
-Measurement and partitioning of diversity, based on Tsallis entropy,
-following Marcon and Herault (2015) <doi:10.18637/jss.v067.i08>.
-'entropart' provides functions to calculate alpha, beta and gamma
-diversity of communities, including phylogenetic and functional diversity.
-Estimation-bias corrections are available.
+Contains functions from: Aho, K. (2014) Foundational and Applied
+Statistics for Biologists using R.  CRC/Taylor and Francis, Boca Raton,
+FL, ISBN: 978-1-4398-7338-0.
 
 %prep
 %setup -q -c -n %{packname}
@@ -69,7 +70,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %install
 
 mkdir -p %{buildroot}%{rlibdir}
-%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+xvfb-run %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 # remove buildroot from installed files

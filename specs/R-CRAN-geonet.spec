@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  geonet
-%global packver   0.6.0
+%global packver   0.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Intensity Estimation on Geometric Networks with Penalized Splines
 
@@ -38,9 +38,11 @@ Requires:         R-CRAN-igraph
 %description
 Fitting the intensity function of point processes on geometric networks.
 The method makes use of generalized additive models (GAM). The method is
-described in Schneble and Kauermann (2020) <arXiv:2002.10270>. A new class
-for representing linear networks as geometric networks is the core of the
-package.
+described in Marc Schneble, Göran Kauermann. "Intensity estimation on
+geometric networks with penalized splines." The Annals of Applied
+Statistics, 16(2) 843-865 June 2022. <doi:10.1214/21-AOAS1522>. A new
+class for representing linear networks as geometric networks is the core
+of the package.
 
 %prep
 %setup -q -c -n %{packname}

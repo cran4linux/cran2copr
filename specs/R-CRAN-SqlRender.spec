@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SqlRender
-%global packver   1.9.1
+%global packver   1.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.1
+Version:          1.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rendering Parameterized SQL and Translation to Dialects
 
@@ -18,8 +18,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rJava 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-checkmate 
 Requires:         R-CRAN-rJava 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-checkmate 
 
 %description
 A rendering tool for parameterized SQL that also translates into different

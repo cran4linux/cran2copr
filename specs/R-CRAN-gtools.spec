@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gtools
-%global packver   3.9.2.2
+%global packver   3.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.9.2.2
+Version:          3.9.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Various R Programming Tools
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 

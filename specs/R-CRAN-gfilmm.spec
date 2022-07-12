@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gfilmm
-%global packver   2.0.4
+%global packver   2.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          2.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Fiducial Inference for Normal Linear Mixed Models
 
@@ -17,25 +17,23 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildRequires:    R-CRAN-spatstat >= 2.0.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-rgr 
+BuildRequires:    R-CRAN-lazyeval 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-spatstat >= 2.0.0
 Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-lazyeval 
-Requires:         R-stats 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-utils 
 Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-rgr 
+Requires:         R-CRAN-lazyeval 
 Requires:         R-CRAN-Matrix 
 Requires:         R-parallel 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Simulation of the generalized fiducial distribution for normal linear
@@ -54,6 +52,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

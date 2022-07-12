@@ -1,36 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cptec
-%global packver   0.1.1
+%global packname  idm
+%global packver   1.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.8.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interface to the 'CPTEC/INPE' API
+Summary:          Incremental Decomposition Methods
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+Requires:         ImageMagick
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-animation 
+BuildRequires:    R-CRAN-corpcor 
+BuildRequires:    R-CRAN-ca 
+BuildRequires:    R-CRAN-ggrepel 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-animation 
+Requires:         R-CRAN-corpcor 
+Requires:         R-CRAN-ca 
+Requires:         R-CRAN-ggrepel 
 
 %description
-Allows to retrieve data from the 'CPTEC/INPE' weather forecast API.
-'CPTEC' stands for 'Centro de Previsão de Tempo e Estudos Climáticos' and
-'INPE' for 'Instituto Nacional de Pesquisas Espaciais'. 'CPTEC' is the
-most advanced numerical weather and climate forecasting center in Latin
-America, with high-precision short and medium-term weather forecasting
-since the beginning of 1995. See <https://www.cptec.inpe.br/> for more
-information.
+Incremental Multiple Correspondence Analysis and Principal Component
+Analysis.
 
 %prep
 %setup -q -c -n %{packname}

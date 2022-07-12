@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  stringi
-%global packver   1.7.6
+%global packver   1.7.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.6
+Version:          1.7.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Character String Processing Facilities
+Summary:          Fast and Portable Character String Processing Facilities
 
 License:          file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -31,6 +31,9 @@ string transliteration, concatenation, sorting, padding, wrapping, Unicode
 normalisation, date-time formatting and parsing, and many more. They are
 fast, consistent, convenient, and - thanks to 'ICU' (International
 Components for Unicode) - portable across all locales and platforms.
+Documentation about 'stringi' is provided via its website at
+<https://stringi.gagolewski.com/> and the paper by Gagolewski (2022,
+<doi:10.18637/jss.v103.i02>).
 
 %prep
 %setup -q -c -n %{packname}

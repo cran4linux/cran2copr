@@ -1,46 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  epidm
-%global packver   1.0.4
+%global packname  R2ucare
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          UK Epidemiological Data Management
+Summary:          Goodness-of-Fit Tests for Capture-Recapture Models
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-odbc 
-BuildRequires:    R-CRAN-phonics 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-RMark 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-odbc 
-Requires:         R-CRAN-phonics 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-stats 
-Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-RMark 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Contains utilities and functions for the cleaning, processing and
-management of patient level public health data for surveillance and
-analysis held by the UK Health Security Agency, UKHSA.
+Performs goodness-of-fit tests for capture-recapture models as described
+by Gimenez et al. (2018) <doi:10.1111/2041-210X.13014>. Also contains
+several functions to process capture-recapture data.
 
 %prep
 %setup -q -c -n %{packname}

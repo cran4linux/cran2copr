@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  PMCMRplus
-%global packver   1.9.4
+%global packver   1.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.4
+Version:          1.9.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Pairwise Multiple Comparisons of Mean Rank Sums Extended
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-gmp
 BuildRequires:    R-CRAN-Rmpfr 
 BuildRequires:    R-CRAN-SuppDists 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-kSamples >= 1.2.7
 Requires:         R-CRAN-mvtnorm >= 1.0
 Requires:         R-CRAN-BWStest >= 0.2.1
@@ -33,6 +34,7 @@ Requires:         R-CRAN-gmp
 Requires:         R-CRAN-Rmpfr 
 Requires:         R-CRAN-SuppDists 
 Requires:         R-CRAN-MASS 
+Requires:         R-stats 
 
 %description
 For one-way layout experiments the one-way ANOVA can be performed as an

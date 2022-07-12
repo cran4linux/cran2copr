@@ -1,46 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  epidm
-%global packver   1.0.4
+%global packname  RobustRankAggreg
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          UK Epidemiological Data Management
+Summary:          Methods for Robust Rank Aggregation
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-odbc 
-BuildRequires:    R-CRAN-phonics 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-odbc 
-Requires:         R-CRAN-phonics 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-stats 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
-Requires:         R-utils 
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-Contains utilities and functions for the cleaning, processing and
-management of patient level public health data for surveillance and
-analysis held by the UK Health Security Agency, UKHSA.
+Methods for aggregating ranked lists, especially lists of genes. It
+implements the Robust Rank Aggregation Kolde et al (2012)
+<doi:10.1093/bioinformatics/btr709> and some other simple algorithms for
+the task. RRA method uses a probabilistic model for aggregation that is
+robust to noise and also facilitates the calculation of significance
+probabilities for all the elements in the final ranking.
 
 %prep
 %setup -q -c -n %{packname}

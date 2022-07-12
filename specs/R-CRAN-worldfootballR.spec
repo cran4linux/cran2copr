@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  worldfootballR
-%global packver   0.5.6
+%global packver   0.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.6
+Version:          0.5.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extract and Clean World Football (Soccer) Data
 
@@ -64,7 +64,7 @@ Requires:         R-CRAN-cli
 %description
 Allow users to obtain clean and tidy football (soccer) game, team and
 player data. Data is collected from a number of popular sites, including
-'FBref'<https://fbref.com/en/>, transfer and valuations data from
+'FBref', transfer and valuations data from
 'Transfermarkt'<https://www.transfermarkt.com/> and shooting location and
 other match stats data from 'Understat'<https://understat.com/> and
 'fotmob'<https://www.fotmob.com/>. It gives users the ability to access

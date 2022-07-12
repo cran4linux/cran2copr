@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  meta
-%global packver   5.2-0
+%global packver   5.5-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.2.0
+Version:          5.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          General Package for Meta-Analysis
 
@@ -30,7 +30,7 @@ Requires:         R-CRAN-xml2
 %description
 User-friendly general package providing standard methods for meta-analysis
 and supporting Schwarzer, Carpenter, and Rücker
-<DOI:10.1007/978-3-319-21416-0>, "Meta-Analysis with R" (2015): - fixed
+<DOI:10.1007/978-3-319-21416-0>, "Meta-Analysis with R" (2015): - common
 effect and random effects meta-analysis; - several plots (forest, funnel,
 Galbraith / radial, L'Abbe, Baujat, bubble); - statistical tests and
 trim-and-fill method to evaluate bias in meta-analysis; - import data from

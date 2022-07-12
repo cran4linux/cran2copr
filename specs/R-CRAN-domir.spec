@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  domir
-%global packver   0.3.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Support Relative Importance Analysis
 
@@ -22,16 +22,14 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Provides tools that support relative importance analysis focusing on
-dominance analysis.  Dominance analysis is a methodology for determining
-the relative importance of predictors/features/independent variables
-(Azen, R., & Budescu, D. V. (2003) <doi:10.1037/1082-989X.8.2.129>;
-Groemping, U. (2007) <doi:10.1198/000313007X188252>) as well as parameter
-estimates (Luchman, J. N, Lei, X., & Kaplan, S. (2020)
-<doi:10.47263/JASEM.4(2)02>). These tools are intended to extend relative
-importance analysis to, effectively, any statistical or machine learning
-function as defined or desired by the user-especially those where the user
-wants to use custom importance/fit statistic or modeling function.
+Methods to apply decomposition-based relative importance analysis for R
+functions. This package supports the application of decomposition methods
+by providing 'lapply'- or 'Map'-like meta-functions that compute dominance
+analysis (Azen, R., & Budescu, D. V. (2003)
+<doi:10.1037/1082-989X.8.2.129>; Grömping, U. (2007)
+<doi:10.1198/000313007X188252>) or Shapley value regression (Lipovetsky,
+S., & Conklin, M. (2001) <doi:10.1002/asmb.446>) based on the values
+returned from other functions.
 
 %prep
 %setup -q -c -n %{packname}

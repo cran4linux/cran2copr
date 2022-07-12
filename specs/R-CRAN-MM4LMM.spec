@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MM4LMM
-%global packver   2.1.0
+%global packver   3.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          3.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inference of Linear Mixed Models Through MM Algorithm
 
@@ -21,6 +21,9 @@ BuildRequires:    R-parallel
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 0.12.13
 Requires:         R-CRAN-Matrix 
@@ -28,11 +31,15 @@ Requires:         R-parallel
 Requires:         R-stats 
 Requires:         R-CRAN-MASS 
 Requires:         R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-corpcor 
 
 %description
 The main function MMEst() performs (Restricted) Maximum Likelihood in a
-variance component mixed models using a Min-Max (MM) algorithm (Hunter, D.
-R., & Lange, K. (2004) <doi:10.1198/0003130042836>).
+variance component mixed models using a Min-Max (MM) algorithm (Laporte,
+F., Charcosset, A. & Mary-Huard, T. (2022)
+<doi:10.1371/journal.pcbi.1009659>).
 
 %prep
 %setup -q -c -n %{packname}

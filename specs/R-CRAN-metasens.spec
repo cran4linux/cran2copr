@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  metasens
-%global packver   1.0-1
+%global packver   1.5-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Sensitivity Analysis in Meta-Analysis
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-meta >= 5.0.0
-Requires:         R-CRAN-meta >= 5.0.0
+BuildRequires:    R-CRAN-meta >= 5.5.0
+Requires:         R-CRAN-meta >= 5.5.0
 
 %description
 The following methods are implemented to evaluate how sensitive the

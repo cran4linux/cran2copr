@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  geostan
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Spatial Analysis
 
@@ -54,15 +54,16 @@ Requires:         R-utils
 Requires:         R-CRAN-rstantools
 
 %description
-For Bayesian inference with spatial data, provides exploratory analysis
-tools, multiple spatial model specifications, spatial model diagnostics,
-and special methods for inference with small area survey data (e.g., the
-America Community Survey (ACS)). Models are pre-specified using the Stan
-programming language, a platform for Bayesian inference using Markov chain
-Monte Carlo (MCMC). References: Carpenter et al. (2017)
-<doi:10.18637/jss.v076.i01>; Donegan, Chun and Hughes (2020)
-<doi:10.1016/j.spasta.2020.100450>; Donegan, Chun and Griffith (2021)
-<doi:10.3390/ijerph18136856>; Morris et al. (2019)
+For Bayesian inference with spatial data, provides exploratory spatial
+analysis tools, multiple spatial model specifications, spatial model
+diagnostics, and special methods for inference with small area survey data
+(e.g., the America Community Survey (ACS)) and censored population health
+surveillance data. Models are pre-specified using the Stan programming
+language, a platform for Bayesian inference using Markov chain Monte Carlo
+(MCMC). References: Carpenter et al. (2017) <doi:10.18637/jss.v076.i01>;
+Donegan (2021) <doi:10.31219/osf.io/3ey65>; Donegan, Chun and Hughes
+(2020) <doi:10.1016/j.spasta.2020.100450>; Donegan, Chun and Griffith
+(2021) <doi:10.3390/ijerph18136856>; Morris et al. (2019)
 <doi:10.1016/j.sste.2019.100301>.
 
 %prep

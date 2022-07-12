@@ -1,42 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bootUR
-%global packver   0.5.0
+%global packname  BMisc
+%global packver   1.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.4.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bootstrap Unit Root Tests
+Summary:          Miscellaneous Functions for Panel Data, Quantiles, and Printing Results
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-urca 
-BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppThread 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-CRAN-urca 
-Requires:         R-CRAN-RcppParallel 
-Requires:         R-CRAN-parallelly 
 
 %description
-Set of functions to perform various bootstrap unit root tests for both
-individual time series (including augmented Dickey-Fuller test and union
-tests), multiple time series and panel data; see Palm, Smeekes and Urbain
-(2008) <doi:10.1111/j.1467-9892.2007.00565.x>, Palm, Smeekes and Urbain
-(2011) <doi:10.1016/j.jeconom.2010.11.010>, Moon and Perron (2012)
-<doi:10.1016/j.jeconom.2012.01.008>, Smeekes and Taylor (2012)
-<doi:10.1017/S0266466611000387> and Smeekes (2015)
-<doi:10.1111/jtsa.12110> for key references.
+These are miscellaneous functions for working with panel data, quantiles,
+and printing results.  For panel data, the package includes functions for
+making a panel data balanced (that is, dropping missing individuals that
+have missing observations in any time period), converting id numbers to
+row numbers, and to treat repeated cross sections as panel data under the
+assumption of rank invariance.  For quantiles, there are functions to make
+distribution functions from a set of data points (this is particularly
+useful when a distribution function is created in several steps), to
+combine distribution functions based on some external weights, and to
+invert distribution functions.  Finally, there are several other
+miscellaneous functions for obtaining weighted means, weighted
+distribution functions, and weighted quantiles; to generate summary
+statistics and their differences for two groups; and to add or drop
+covariates from formulas.
 
 %prep
 %setup -q -c -n %{packname}
