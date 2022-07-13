@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  clintools
-%global packver   0.9.5
+%global packver   0.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          0.9.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Clinical Research
 

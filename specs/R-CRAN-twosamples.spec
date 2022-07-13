@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  twosamples
-%global packver   1.2.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Permutation Based Two Sample Tests
 
@@ -15,8 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.17
-Requires:         R-CRAN-Rcpp >= 0.12.17
+BuildRequires:    R-CRAN-cpp11 
 
 %description
 Fast randomization based two sample tests. Testing the hypothesis that two

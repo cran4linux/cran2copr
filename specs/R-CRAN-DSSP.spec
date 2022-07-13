@@ -1,42 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rsconnect
-%global packver   0.8.27
+%global packname  DSSP
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.27
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Deployment Interface for R Markdown Documents and Shiny Applications
+Summary:          Implementation of the Direct Sampling Spatial Prior
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-yaml >= 2.1.5
-BuildRequires:    R-CRAN-openssl >= 2.0.0
-BuildRequires:    R-CRAN-packrat >= 0.6
-BuildRequires:    R-CRAN-rstudioapi >= 0.5
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-yaml >= 2.1.5
-Requires:         R-CRAN-openssl >= 2.0.0
-Requires:         R-CRAN-packrat >= 0.6
-Requires:         R-CRAN-rstudioapi >= 0.5
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-tools 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-mcmcse 
+BuildRequires:    R-CRAN-posterior 
+BuildRequires:    R-CRAN-rust 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-mcmcse 
+Requires:         R-CRAN-posterior 
+Requires:         R-CRAN-rust 
+Requires:         R-CRAN-sp 
 
 %description
-Programmatic deployment interface for 'RPubs', 'shinyapps.io', and
-'RStudio Connect'. Supported content types include R Markdown documents,
-Shiny applications, Plumber APIs, plots, and static web content.
+Draw samples from the direct sampling spatial prior model as described in
+G. White, D. Sun, P. Speckman (2019) <arXiv:1906.05575>. The basic model
+assumes a Gaussian likelihood and derives a spatial prior based on
+thin-plate splines.
 
 %prep
 %setup -q -c -n %{packname}

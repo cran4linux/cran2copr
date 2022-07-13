@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  groundhog
-%global packver   1.5.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Simplest Solution to Version-Control for CRAN Packages
+Summary:          Version-Control for CRAN, GitHub, and GitLab Packages
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,16 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-utils 
+BuildRequires:    R-methods 
+Requires:         R-utils 
+Requires:         R-methods 
 
 %description
-Make R scripts that rely on packages reproducible, by ensuring that every
-time a given script is run, the same version of the used packages are
-loaded (instead of whichever version the user running the script happens
-to have installed). This is achieved by using the new command
-groundhog.library() instead of the base command library(), and including a
-date in the call. The date is used to call on the same version of the
-package every time (the most recent version available on CRAN at that
-date).
+Make R scripts reproducible, by ensuring that every time a given script is
+run, the same version of the used packages are loaded (instead of
+whichever version the user running the script happens to have installed).
+This is achieved by using the command groundhog.library() instead of the
+base command library(), and including a date in the call. The date is used
+to call on the same version of the package every time (the most recent
+version available at that date). Load packages from CRAN, GitHub, or
+Gitlab.
 
 %prep
 %setup -q -c -n %{packname}

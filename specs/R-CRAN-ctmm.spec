@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ctmm
-%global packver   0.6.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous-Time Movement Modeling
 
@@ -78,8 +78,9 @@ Calabrese (2017) <doi:10.1111/2041-210X.12673>, Péron et al (2017)
 <doi:10.1111/2041-210X.13027>, Fleming et al (2019)
 <doi:10.1111/2041-210X.13270>, Noonan & Fleming et al (2019)
 <doi:10.1186/s40462-019-0177-1>, Fleming et al (2020)
-<doi:10.1101/2020.06.12.130195>, and Noonan et al (2021)
-<doi:10.1111/2041-210X.13597>.
+<doi:10.1101/2020.06.12.130195>, Noonan et al (2021)
+<doi:10.1111/2041-210X.13597>, and Fleming et al (2022)
+<doi:10.1111/2041-210X.13815>.
 
 %prep
 %setup -q -c -n %{packname}

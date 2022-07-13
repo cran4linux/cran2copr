@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sidrar
-%global packver   0.2.8
+%global packver   0.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.2.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Interface to IBGE's SIDRA API
 
@@ -17,13 +17,13 @@ BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-rjson 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-rjson 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-stringr 

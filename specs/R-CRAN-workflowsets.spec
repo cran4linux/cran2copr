@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  workflowsets
-%global packver   0.2.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create a Collection of 'tidymodels' Workflows
 
@@ -17,15 +17,18 @@ BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.1.0
+BuildRequires:    R-CRAN-pillar >= 1.7.0
+BuildRequires:    R-CRAN-hardhat >= 1.2.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-lifecycle >= 1.0.0
-BuildRequires:    R-CRAN-workflows >= 0.2.4
-BuildRequires:    R-CRAN-hardhat >= 0.1.6
-BuildRequires:    R-CRAN-tune >= 0.1.3
+BuildRequires:    R-CRAN-parsnip >= 1.0.0
+BuildRequires:    R-CRAN-tune >= 1.0.0
+BuildRequires:    R-CRAN-workflows >= 1.0.0
+BuildRequires:    R-CRAN-generics >= 0.1.2
 BuildRequires:    R-CRAN-rsample >= 0.0.9
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-prettyunits 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
@@ -34,15 +37,18 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-tibble >= 3.1.0
+Requires:         R-CRAN-pillar >= 1.7.0
+Requires:         R-CRAN-hardhat >= 1.2.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-lifecycle >= 1.0.0
-Requires:         R-CRAN-workflows >= 0.2.4
-Requires:         R-CRAN-hardhat >= 0.1.6
-Requires:         R-CRAN-tune >= 0.1.3
+Requires:         R-CRAN-parsnip >= 1.0.0
+Requires:         R-CRAN-tune >= 1.0.0
+Requires:         R-CRAN-workflows >= 1.0.0
+Requires:         R-CRAN-generics >= 0.1.2
 Requires:         R-CRAN-rsample >= 0.0.9
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-generics 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-prettyunits 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 

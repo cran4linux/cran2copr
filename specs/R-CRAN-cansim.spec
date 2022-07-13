@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cansim
-%global packver   0.3.11
+%global packver   0.3.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.11
+Version:          0.3.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accessing Statistics Canada Data Table and Vectors
 

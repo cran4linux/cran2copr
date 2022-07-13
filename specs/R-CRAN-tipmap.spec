@@ -1,33 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  FREG
-%global packver   1.1
+%global packname  tipmap
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functional Regression Models
+Summary:          Tipping Point Analysis for Bayesian Dynamic Borrowing
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fda 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-fda 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-RBesT 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-RBesT 
 
 %description
-Different regression models with functional features are implemented: for
-continuous response, categorical response and ordinal response. The model
-for ordinal response has been published in: 'Analyzing cycling sensors
-data through ordinal logistic regression with functional covariates,
-Jacques J. and Samardzic S., Journal of the Royal Statistical Society,
-Series C, 1-18, 2022'.
+Tipping point analysis for clinical trials that employ Bayesian dynamic
+borrowing via robust meta-analytic predictive (MAP) priors. Mainly an
+implementation of an approach proposed by Best and colleagues (2021) is
+provided <doi:10.1002/pst.2093>. Intended use is the planning, analysis
+and interpretation of extrapolation studies in pediatric drug development,
+but applicability is generally wider.
 
 %prep
 %setup -q -c -n %{packname}

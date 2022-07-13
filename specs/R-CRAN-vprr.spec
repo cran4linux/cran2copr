@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rhino
-%global packver   1.1.0
+%global packname  vprr
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Framework for Enterprise Shiny Applications
+Summary:          Processing and Visualization of Video Plankton Recorder Data
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,44 +16,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-testthat >= 3.0.0
-BuildRequires:    R-CRAN-lintr >= 2.0.0
-BuildRequires:    R-CRAN-box 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-config 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-logger 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-renv 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-sass 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-styler 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-oce 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-interp 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-gsw 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-metR 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-cmocean 
 BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-testthat >= 3.0.0
-Requires:         R-CRAN-lintr >= 2.0.0
-Requires:         R-CRAN-box 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-config 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-logger 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-renv 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-sass 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-styler 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-usethis 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-oce 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-interp 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-gsw 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-metR 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-cmocean 
 Requires:         R-CRAN-withr 
-Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-usethis 
 
 %description
-A framework that supports creating and extending enterprise Shiny
-applications using best practices.
+An oceanographic data processing package for analyzing and visualizing
+Video Plankton Recorder data.  This package was developed at 'Bedford
+Institute of Oceanography'. Functions are designed to process automated
+image classification output and create organized and easily portable data
+products.
 
 %prep
 %setup -q -c -n %{packname}
