@@ -1,56 +1,58 @@
 %global __brp_check_rpaths %{nil}
-%global packname  golem
-%global packver   0.3.3
+%global packname  goodpractice
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Framework for Robust Shiny Applications
+Summary:          Advice on R Package Building
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 2.0.0
-BuildRequires:    R-CRAN-usethis >= 1.6.0
-BuildRequires:    R-CRAN-shiny >= 1.5.0
-BuildRequires:    R-CRAN-attempt >= 0.3.0
-BuildRequires:    R-CRAN-config 
+BuildRequires:    R-CRAN-lintr >= 3.0.0
+BuildRequires:    R-CRAN-cyclocomp >= 1.1.0
+BuildRequires:    R-CRAN-xmlparsedata >= 1.0.1
+BuildRequires:    R-CRAN-clisymbols 
+BuildRequires:    R-CRAN-covr 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-desc 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-here 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-pkgload 
-BuildRequires:    R-CRAN-roxygen2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-praise 
+BuildRequires:    R-CRAN-rcmdcheck 
 BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-cli >= 2.0.0
-Requires:         R-CRAN-usethis >= 1.6.0
-Requires:         R-CRAN-shiny >= 1.5.0
-Requires:         R-CRAN-attempt >= 0.3.0
-Requires:         R-CRAN-config 
+BuildRequires:    R-CRAN-whoami 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-lintr >= 3.0.0
+Requires:         R-CRAN-cyclocomp >= 1.1.0
+Requires:         R-CRAN-xmlparsedata >= 1.0.1
+Requires:         R-CRAN-clisymbols 
+Requires:         R-CRAN-covr 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-desc 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-here 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-pkgload 
-Requires:         R-CRAN-roxygen2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-praise 
+Requires:         R-CRAN-rcmdcheck 
 Requires:         R-CRAN-rstudioapi 
+Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-whoami 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-xml2 
 
 %description
-An opinionated framework for building a production-ready 'Shiny'
-application. This package contains a series of tools for building a robust
-'Shiny' application from start to finish.
+Give advice about good practices when building R packages. Advice includes
+functions and syntax to avoid, package structure, code complexity, code
+formatting, etc.
 
 %prep
 %setup -q -c -n %{packname}

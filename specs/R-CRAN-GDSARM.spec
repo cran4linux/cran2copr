@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  GDSARM
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gauss - Dantzig Selector: Aggregation over Random Models
 
@@ -23,9 +23,9 @@ Requires:         R-CRAN-lpSolve
 The method aims to identify important factors in screening experiments by
 aggregation over random models as studied in Singh and Stufken (2022)
 <doi:10.48550/arXiv.2205.13497>. This package provides functions to run
-Gauss-Dantzig selector on screening experiments when interactions may be
-affecting the response. Currently, all functions require each factor to be
-at two-levels coded as +1 and -1.
+the Gauss-Dantzig selector on screening experiments when interactions may
+be affecting the response. Currently, all functions require each factor to
+be at two levels coded as +1 and -1.
 
 %prep
 %setup -q -c -n %{packname}

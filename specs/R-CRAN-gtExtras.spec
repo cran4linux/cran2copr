@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gtExtras
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extending 'gt' for Beautiful HTML Tables
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.60
+Requires:         R-core >= 3.60
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
 BuildRequires:    R-CRAN-glue >= 1.6.1
@@ -39,8 +39,8 @@ Requires:         R-CRAN-commonmark
 
 %description
 Provides additional functions for creating beautiful tables with 'gt'. The
-functions are generally wrappers around boilerplate or adding capabilities
-that are currently not built into 'gt'.
+functions are generally wrappers around boilerplate or adding opinionated
+niche capabilities and helpers functions.
 
 %prep
 %setup -q -c -n %{packname}

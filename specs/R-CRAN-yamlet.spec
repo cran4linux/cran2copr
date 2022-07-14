@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  yamlet
-%global packver   0.8.7
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.7
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Versatile Curation of Table Metadata
 
@@ -17,25 +17,31 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 0.8.1
-BuildRequires:    R-CRAN-csv >= 0.5.4
+BuildRequires:    R-CRAN-csv >= 0.6.2
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-encode 
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-CRAN-spork 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-pillar 
 Requires:         R-CRAN-dplyr >= 0.8.1
-Requires:         R-CRAN-csv >= 0.5.4
+Requires:         R-CRAN-csv >= 0.6.2
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-encode 
 Requires:         R-CRAN-units 
 Requires:         R-CRAN-spork 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-xtable 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-pillar 
 
 %description
 A YAML-based mechanism for working with table metadata. Supports compact

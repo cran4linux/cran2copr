@@ -1,44 +1,48 @@
 %global __brp_check_rpaths %{nil}
-%global packname  text2sdg
-%global packver   0.1.3
+%global packname  renderthis
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Detecting UN Sustainable Development Goals in Text
+Summary:          Render Slides to Different Formats
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-corpustools >= 0.4.2
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-corpustools >= 0.4.2
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-cli >= 3.0.0
+BuildRequires:    R-CRAN-magick >= 2.7.1
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-pagedown 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-xaringan 
+BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-cli >= 3.0.0
+Requires:         R-CRAN-magick >= 2.7.1
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-pagedown 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-xaringan 
+Requires:         R-CRAN-zip 
 
 %description
-The United Nations’ Sustainable Development Goals (SDGs) have become an
-important guideline for organisations to monitor and plan their
-contributions to social, economic, and environmental transformations. The
-'text2sdg' package is an open-source analysis package that identifies SDGs
-in text using scientifically developed query systems, opening up the
-opportunity to monitor any type of text-based data, such as scientific
-output or corporate publications.
+Render slides to different formats, including 'html', 'pdf', 'png', 'gif',
+'pptx', and 'mp4', as well as a 'social' output, a 'png' of the first
+slide re-sized for sharing on social media.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RGMM
-%global packver   0.1.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Mixture Model
 
@@ -24,6 +24,8 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-LaplacesDemon 
 BuildRequires:    R-CRAN-genieclust 
 BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-foreach 
@@ -34,6 +36,8 @@ Requires:         R-parallel
 Requires:         R-CRAN-LaplacesDemon 
 Requires:         R-CRAN-genieclust 
 Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
 
 %description
 Algorithms for estimating robustly the parameters of a Gaussian, Student,

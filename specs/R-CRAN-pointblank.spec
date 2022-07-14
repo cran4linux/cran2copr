@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pointblank
-%global packver   0.10.0
+%global packver   0.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Validation and Organization of Metadata for Local and Remote Tables
 
@@ -16,44 +16,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.1.2
+BuildRequires:    R-CRAN-tibble >= 3.1.7
 BuildRequires:    R-CRAN-cli >= 2.5.0
 BuildRequires:    R-CRAN-testthat >= 2.3.2
 BuildRequires:    R-CRAN-yaml >= 2.2.1
 BuildRequires:    R-CRAN-dbplyr >= 2.1.1
-BuildRequires:    R-CRAN-fs >= 1.5.0
-BuildRequires:    R-CRAN-glue >= 1.4.2
+BuildRequires:    R-CRAN-glue >= 1.6.2
+BuildRequires:    R-CRAN-fs >= 1.5.2
 BuildRequires:    R-CRAN-knitr >= 1.30
-BuildRequires:    R-CRAN-tidyr >= 1.1.3
+BuildRequires:    R-CRAN-tidyr >= 1.2.0
+BuildRequires:    R-CRAN-tidyselect >= 1.1.2
 BuildRequires:    R-CRAN-scales >= 1.1.1
-BuildRequires:    R-CRAN-tidyselect >= 1.1.1
 BuildRequires:    R-CRAN-DBI >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.6
+BuildRequires:    R-CRAN-rlang >= 1.0.3
 BuildRequires:    R-CRAN-digest >= 0.6.27
-BuildRequires:    R-CRAN-htmltools >= 0.5.1.1
-BuildRequires:    R-CRAN-rlang >= 0.4.11
+BuildRequires:    R-CRAN-gt >= 0.6.0
+BuildRequires:    R-CRAN-htmltools >= 0.5.2
 BuildRequires:    R-CRAN-blastula >= 0.3.2
-BuildRequires:    R-CRAN-gt >= 0.3.0
 BuildRequires:    R-CRAN-base64enc >= 0.1.3
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-tibble >= 3.1.2
+Requires:         R-CRAN-tibble >= 3.1.7
 Requires:         R-CRAN-cli >= 2.5.0
 Requires:         R-CRAN-testthat >= 2.3.2
 Requires:         R-CRAN-yaml >= 2.2.1
 Requires:         R-CRAN-dbplyr >= 2.1.1
-Requires:         R-CRAN-fs >= 1.5.0
-Requires:         R-CRAN-glue >= 1.4.2
+Requires:         R-CRAN-glue >= 1.6.2
+Requires:         R-CRAN-fs >= 1.5.2
 Requires:         R-CRAN-knitr >= 1.30
-Requires:         R-CRAN-tidyr >= 1.1.3
+Requires:         R-CRAN-tidyr >= 1.2.0
+Requires:         R-CRAN-tidyselect >= 1.1.2
 Requires:         R-CRAN-scales >= 1.1.1
-Requires:         R-CRAN-tidyselect >= 1.1.1
 Requires:         R-CRAN-DBI >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.6
+Requires:         R-CRAN-rlang >= 1.0.3
 Requires:         R-CRAN-digest >= 0.6.27
-Requires:         R-CRAN-htmltools >= 0.5.1.1
-Requires:         R-CRAN-rlang >= 0.4.11
+Requires:         R-CRAN-gt >= 0.6.0
+Requires:         R-CRAN-htmltools >= 0.5.2
 Requires:         R-CRAN-blastula >= 0.3.2
-Requires:         R-CRAN-gt >= 0.3.0
 Requires:         R-CRAN-base64enc >= 0.1.3
 Requires:         R-CRAN-magrittr 
 

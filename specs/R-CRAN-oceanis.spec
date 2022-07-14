@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  oceanis
-%global packver   1.8.4
+%global packver   1.8.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.4
+Version:          1.8.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cartography for Statistical Analysis
 
@@ -17,9 +17,9 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
-BuildRequires:    R-CRAN-mapview >= 2.7.0
 BuildRequires:    R-CRAN-zip >= 2.1.1
 BuildRequires:    R-CRAN-leaflet >= 2.0.3
+BuildRequires:    R-CRAN-htmlwidgets >= 1.5.4
 BuildRequires:    R-CRAN-shiny >= 1.4.0.2
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-shinythemes >= 1.1.2
@@ -28,13 +28,14 @@ BuildRequires:    R-CRAN-leaflet.extras >= 1.0.0
 BuildRequires:    R-CRAN-sf >= 0.9.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.4
 BuildRequires:    R-CRAN-shinyBS >= 0.61
+BuildRequires:    R-CRAN-webshot >= 0.5.2
 BuildRequires:    R-CRAN-classInt >= 0.4.2
 BuildRequires:    R-CRAN-lwgeom >= 0.2.1
 BuildRequires:    R-CRAN-DT >= 0.12
 Requires:         R-CRAN-ggplot2 >= 3.2.0
-Requires:         R-CRAN-mapview >= 2.7.0
 Requires:         R-CRAN-zip >= 2.1.1
 Requires:         R-CRAN-leaflet >= 2.0.3
+Requires:         R-CRAN-htmlwidgets >= 1.5.4
 Requires:         R-CRAN-shiny >= 1.4.0.2
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-shinythemes >= 1.1.2
@@ -43,16 +44,17 @@ Requires:         R-CRAN-leaflet.extras >= 1.0.0
 Requires:         R-CRAN-sf >= 0.9.0
 Requires:         R-CRAN-dplyr >= 0.8.4
 Requires:         R-CRAN-shinyBS >= 0.61
+Requires:         R-CRAN-webshot >= 0.5.2
 Requires:         R-CRAN-classInt >= 0.4.2
 Requires:         R-CRAN-lwgeom >= 0.2.1
 Requires:         R-CRAN-DT >= 0.12
 
 %description
 Creating maps for statistical analysis such as proportional circles,
-chroropleth, typology and flows. Some functions use 'shiny' or 'leaflet'
+choropleth, typology and flows. Some functions use 'shiny' or 'leaflet'
 technologies for dynamism and interactivity. The great features are : -
 Create maps in a web environment where the parameters are modifiable on
-the fly ('shiny' and 'leaflet' technology). - Create interactive maps
+the fly ('shiny' and 'leaflet' technologies). - Create interactive maps
 through zoom and pop-up ('leaflet' technology). - Create frozen maps with
 the possibility to add labels.
 

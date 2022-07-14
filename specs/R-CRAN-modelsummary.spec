@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  modelsummary
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Summary Tables and Plots for Statistical Models and Data: Beautiful, Customizable, and Publication-Ready
 
@@ -18,8 +18,8 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-kableExtra >= 1.2.1
 BuildRequires:    R-CRAN-performance >= 0.9.1
-BuildRequires:    R-CRAN-parameters >= 0.17.0
-BuildRequires:    R-CRAN-insight >= 0.16.1
+BuildRequires:    R-CRAN-parameters >= 0.18.1
+BuildRequires:    R-CRAN-insight >= 0.18.0
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
@@ -28,8 +28,8 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-tables 
 Requires:         R-CRAN-kableExtra >= 1.2.1
 Requires:         R-CRAN-performance >= 0.9.1
-Requires:         R-CRAN-parameters >= 0.17.0
-Requires:         R-CRAN-insight >= 0.16.1
+Requires:         R-CRAN-parameters >= 0.18.1
+Requires:         R-CRAN-insight >= 0.18.0
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
