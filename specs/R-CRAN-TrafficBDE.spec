@@ -1,36 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  causaleffect
-%global packver   1.3.15
+%global packname  TrafficBDE
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.15
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Deriving Expressions of Joint Interventional Distributions and Transport Formulas in Causal Models
+Summary:          Traffic Predictions Using Neural Networks
 
-License:          GPL (>= 2)
+License:          GPL-2 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph 
-Requires:         R-CRAN-igraph 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-DescriptiveStats.OBeu 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-DescriptiveStats.OBeu 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-RCurl 
+Requires:         R-stats 
+Requires:         R-CRAN-zoo 
 
 %description
-Functions for identification and transportation of causal effects.
-Provides a conditional causal effect identification algorithm (IDC) by
-Shpitser, I. and Pearl, J. (2006)
-<http://ftp.cs.ucla.edu/pub/stat_ser/r329-uai.pdf>, an algorithm for
-transportability from multiple domains with limited experiments by
-Bareinboim, E. and Pearl, J. (2014)
-<http://ftp.cs.ucla.edu/pub/stat_ser/r443.pdf>, and a selection bias
-recovery algorithm by Bareinboim, E. and Tian, J. (2015)
-<http://ftp.cs.ucla.edu/pub/stat_ser/r445.pdf>. All of the previously
-mentioned algorithms are based on a causal effect identification algorithm
-by Tian , J. (2002) <http://ftp.cs.ucla.edu/pub/stat_ser/r309.pdf>.
+Estimate and return either the traffic speed or the car entries in the
+city of Thessaloniki using historical traffic data. It's used in transport
+pilot of the 'BigDataEurope' project. There are functions for processing
+these data, training a neural network, select the most appropriate model
+and predict the traffic speed or the car entries for a selected time date.
 
 %prep
 %setup -q -c -n %{packname}

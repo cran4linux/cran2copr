@@ -1,36 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  causaleffect
-%global packver   1.3.15
+%global packname  VPdtw
+%global packver   2.1-14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.15
+Version:          2.1.14
 Release:          1%{?dist}%{?buildtag}
-Summary:          Deriving Expressions of Joint Interventional Distributions and Transport Formulas in Causal Models
+Summary:          Variable Penalty Dynamic Time Warping
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph 
-Requires:         R-CRAN-igraph 
 
 %description
-Functions for identification and transportation of causal effects.
-Provides a conditional causal effect identification algorithm (IDC) by
-Shpitser, I. and Pearl, J. (2006)
-<http://ftp.cs.ucla.edu/pub/stat_ser/r329-uai.pdf>, an algorithm for
-transportability from multiple domains with limited experiments by
-Bareinboim, E. and Pearl, J. (2014)
-<http://ftp.cs.ucla.edu/pub/stat_ser/r443.pdf>, and a selection bias
-recovery algorithm by Bareinboim, E. and Tian, J. (2015)
-<http://ftp.cs.ucla.edu/pub/stat_ser/r445.pdf>. All of the previously
-mentioned algorithms are based on a causal effect identification algorithm
-by Tian , J. (2002) <http://ftp.cs.ucla.edu/pub/stat_ser/r309.pdf>.
+Variable Penalty Dynamic Time Warping (VPdtw) for aligning chromatographic
+signals. With an appropriate penalty this method performs good alignment
+of chromatographic data without deforming the peaks (Clifford, D., Stone,
+G., Montoliu, I., Rezzi S., Martin F., Guy P., Bruce S., and Kochhar
+S.(2009) <doi:10.1021/ac802041e>; Clifford, D. and Stone, G. (2012)
+<doi:10.18637/jss.v047.i08>).
 
 %prep
 %setup -q -c -n %{packname}

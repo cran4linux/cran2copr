@@ -1,46 +1,53 @@
 %global __brp_check_rpaths %{nil}
-%global packname  igraph
-%global packver   1.3.3
+%global packname  portalr
+%global packver   0.3.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          0.3.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Network Analysis and Visualization
+Summary:          Create Useful Summaries of the Portal Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel
-BuildRequires:    libxml2-devel
-BuildRequires:    glpk-devel
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-pkgconfig >= 2.0.0
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-devel >= 3.2.3
+Requires:         R-core >= 3.2.3
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tidyselect >= 1.0.0
+BuildRequires:    R-CRAN-clipr 
+BuildRequires:    R-CRAN-clisymbols 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-lunar 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-pkgconfig >= 2.0.0
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-tidyselect >= 1.0.0
+Requires:         R-CRAN-clipr 
+Requires:         R-CRAN-clisymbols 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-lunar 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-zoo 
 
 %description
-Routines for simple graphs and network analysis. It can handle large
-graphs very well and provides functions for generating random and regular
-graphs, graph visualization, centrality methods and much more.
+Download and generate summaries for the rodent, plant, ant, and weather
+data from the Portal Project. Portal is a long-term (and ongoing)
+experimental monitoring site in the Chihuahua desert. The raw data files
+can be found at <https://github.com/weecology/portaldata>.
 
 %prep
 %setup -q -c -n %{packname}

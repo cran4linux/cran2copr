@@ -1,36 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  causaleffect
-%global packver   1.3.15
+%global packname  ggpackets
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.15
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Deriving Expressions of Joint Interventional Distributions and Transport Formulas in Causal Models
+Summary:          Package Plot Layers for Easier Portability and Modularization
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph 
-Requires:         R-CRAN-igraph 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-utils 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-crayon 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-utils 
+Requires:         R-methods 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-crayon 
 
 %description
-Functions for identification and transportation of causal effects.
-Provides a conditional causal effect identification algorithm (IDC) by
-Shpitser, I. and Pearl, J. (2006)
-<http://ftp.cs.ucla.edu/pub/stat_ser/r329-uai.pdf>, an algorithm for
-transportability from multiple domains with limited experiments by
-Bareinboim, E. and Pearl, J. (2014)
-<http://ftp.cs.ucla.edu/pub/stat_ser/r443.pdf>, and a selection bias
-recovery algorithm by Bareinboim, E. and Tian, J. (2015)
-<http://ftp.cs.ucla.edu/pub/stat_ser/r445.pdf>. All of the previously
-mentioned algorithms are based on a causal effect identification algorithm
-by Tian , J. (2002) <http://ftp.cs.ucla.edu/pub/stat_ser/r309.pdf>.
+Create groups of 'ggplot2' layers that can be easily migrated from one
+plot to another, reducing redundant code and improving the ability to
+format many plots that draw from the same source 'ggpacket' layers.
 
 %prep
 %setup -q -c -n %{packname}

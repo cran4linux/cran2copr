@@ -1,36 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  causaleffect
-%global packver   1.3.15
+%global packname  trouBBlme4SolveR
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.15
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Deriving Expressions of Joint Interventional Distributions and Transport Formulas in Causal Models
+Summary:          Troubles Solver for 'lme4'
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph 
-Requires:         R-CRAN-igraph 
+BuildRequires:    R-CRAN-lme4 >= 1.1.28
+Requires:         R-CRAN-lme4 >= 1.1.28
 
 %description
-Functions for identification and transportation of causal effects.
-Provides a conditional causal effect identification algorithm (IDC) by
-Shpitser, I. and Pearl, J. (2006)
-<http://ftp.cs.ucla.edu/pub/stat_ser/r329-uai.pdf>, an algorithm for
-transportability from multiple domains with limited experiments by
-Bareinboim, E. and Pearl, J. (2014)
-<http://ftp.cs.ucla.edu/pub/stat_ser/r443.pdf>, and a selection bias
-recovery algorithm by Bareinboim, E. and Tian, J. (2015)
-<http://ftp.cs.ucla.edu/pub/stat_ser/r445.pdf>. All of the previously
-mentioned algorithms are based on a causal effect identification algorithm
-by Tian , J. (2002) <http://ftp.cs.ucla.edu/pub/stat_ser/r309.pdf>.
+The main function of the package aims to update 'lmer()'/'glmer()' models
+depending on their warnings, so trying to avoid convergence and
+singularity problems.
 
 %prep
 %setup -q -c -n %{packname}

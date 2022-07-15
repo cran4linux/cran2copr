@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  CNAIM
-%global packver   2.1.0
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Common Network Asset Indices Methodology (CNAIM)
 
@@ -16,26 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmlwidgets >= 1.2
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-r2d3 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-widgetframe 
-Requires:         R-CRAN-htmlwidgets >= 1.2
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-r2d3 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-testthat 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-widgetframe 
 
 %description
 Implementation of the CNAIM standard in R. Contains a series of algorithms

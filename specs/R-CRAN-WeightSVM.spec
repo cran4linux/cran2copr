@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  WeightSVM
-%global packver   1.7-9
+%global packver   1.7-11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.9
+Version:          1.7.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Subject Weighted Support Vector Machines
 
@@ -29,7 +29,7 @@ Requires:         R-utils
 %description
 Functions for subject/instance weighted support vector machines (SVM). It
 uses a modified version of 'libsvm' and is compatible with package
-'e1071'.
+'e1071'. It also allows user defined kernel matrix.
 
 %prep
 %setup -q -c -n %{packname}

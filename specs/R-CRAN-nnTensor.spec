@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  nnTensor
-%global packver   1.1.7
+%global packver   1.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.7
+Version:          1.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Negative Tensor Decomposition
 
@@ -17,12 +17,14 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-rTensor 
 BuildRequires:    R-CRAN-plot3D 
 BuildRequires:    R-CRAN-tagcloud 
 BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-methods 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-rTensor 
 Requires:         R-CRAN-plot3D 
@@ -33,9 +35,8 @@ Requires:         R-CRAN-ggplot2
 Some functions for performing non-negative matrix factorization,
 non-negative CANDECOMP/PARAFAC (CP) decomposition, non-negative Tucker
 decomposition, and generating toy model data. See Andrzej Cichock et al
-(2009) <doi:10.1002/9780470747278> and the reference section of GitHub
-README.md <https://github.com/rikenbit/nnTensor>, for details of the
-methods.
+(2009) and the reference section of GitHub README.md
+<https://github.com/rikenbit/nnTensor>, for details of the methods.
 
 %prep
 %setup -q -c -n %{packname}
