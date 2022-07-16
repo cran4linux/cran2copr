@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  isocalcR
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Isotope Calculations in R
 
@@ -16,8 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.6
-Requires:         R-CRAN-dplyr >= 1.0.6
 
 %description
 Perform common calculations based on published stable isotope theory, such

@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  phenology
-%global packver   7.8
+%global packname  dots
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.8
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Manage a Parametric Function that Describes Phenology and More
+Summary:          Dot Density Maps
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,25 +16,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-HelpersMG >= 5.5
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-optimx 
-Requires:         R-CRAN-HelpersMG >= 5.5
-Requires:         R-CRAN-numDeriv 
-Requires:         R-parallel 
-Requires:         R-CRAN-optimx 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rmapshaper 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-sp 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rmapshaper 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-sp 
 
 %description
-Functions used to fit and test the phenology of species based on counts.
-Based on Girondot, M. (2010) <doi:10.3354/esr00292> for the phenology
-function, Girondot, M. (2017) <doi:10.1016/j.ecolind.2017.05.063> for the
-convolution of negative binomial, Girondot, M. and Rizzo, A. (2015)
-<doi:10.2993/etbi-35-02-337-353.1> for Bayesian estimate, Pfaller JB, ...,
-Girondot M (2019) <doi:10.1007/s00227-019-3545-x> for tag-loss estimate,
-Hancock J, ..., Girondot M (2019) <doi:10.1016/j.ecolmodel.2019.04.013>
-for nesting history, Laloe J-O, ..., Girondot M, Hays GC (2020)
-<doi:10.1007/s00227-020-03686-x> for aggregating several seasons.
+Generate point data for representing people within spatial data. This
+collects a suite of tools for creating simple dot density maps. Several
+functions from different spatial packages are standardized to take the
+same arguments so that they can be easily substituted for each other.
 
 %prep
 %setup -q -c -n %{packname}

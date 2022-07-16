@@ -1,40 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  phenology
-%global packver   7.8
+%global packname  dcifer
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.8
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Manage a Parametric Function that Describes Phenology and More
+Summary:          Genetic Relatedness Between Polyclonal Infections
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-HelpersMG >= 5.5
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-optimx 
-Requires:         R-CRAN-HelpersMG >= 5.5
-Requires:         R-CRAN-numDeriv 
-Requires:         R-parallel 
-Requires:         R-CRAN-optimx 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-graphics 
 
 %description
-Functions used to fit and test the phenology of species based on counts.
-Based on Girondot, M. (2010) <doi:10.3354/esr00292> for the phenology
-function, Girondot, M. (2017) <doi:10.1016/j.ecolind.2017.05.063> for the
-convolution of negative binomial, Girondot, M. and Rizzo, A. (2015)
-<doi:10.2993/etbi-35-02-337-353.1> for Bayesian estimate, Pfaller JB, ...,
-Girondot M (2019) <doi:10.1007/s00227-019-3545-x> for tag-loss estimate,
-Hancock J, ..., Girondot M (2019) <doi:10.1016/j.ecolmodel.2019.04.013>
-for nesting history, Laloe J-O, ..., Girondot M, Hays GC (2020)
-<doi:10.1007/s00227-020-03686-x> for aggregating several seasons.
+An implementation of Dcifer (Distance for complex infections: fast
+estimation of relatedness), an identity by descent (IBD) based method to
+calculate genetic relatedness between polyclonal infections from biallelic
+and multiallelic data. The package includes functions that format and
+preprocess the data, implement the method, and visualize the results.
+Gerlovina et al. (2022) <doi:10.1101/2022.04.14.488406>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  phenology
-%global packver   7.8
+%global packname  text2sdg
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.8
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Manage a Parametric Function that Describes Phenology and More
+Summary:          Detecting UN Sustainable Development Goals in Text
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-HelpersMG >= 5.5
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-optimx 
-Requires:         R-CRAN-HelpersMG >= 5.5
-Requires:         R-CRAN-numDeriv 
-Requires:         R-parallel 
-Requires:         R-CRAN-optimx 
+BuildRequires:    R-CRAN-corpustools >= 0.4.2
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-corpustools >= 0.4.2
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Functions used to fit and test the phenology of species based on counts.
-Based on Girondot, M. (2010) <doi:10.3354/esr00292> for the phenology
-function, Girondot, M. (2017) <doi:10.1016/j.ecolind.2017.05.063> for the
-convolution of negative binomial, Girondot, M. and Rizzo, A. (2015)
-<doi:10.2993/etbi-35-02-337-353.1> for Bayesian estimate, Pfaller JB, ...,
-Girondot M (2019) <doi:10.1007/s00227-019-3545-x> for tag-loss estimate,
-Hancock J, ..., Girondot M (2019) <doi:10.1016/j.ecolmodel.2019.04.013>
-for nesting history, Laloe J-O, ..., Girondot M, Hays GC (2020)
-<doi:10.1007/s00227-020-03686-x> for aggregating several seasons.
+The United Nations’ Sustainable Development Goals (SDGs) have become an
+important guideline for organisations to monitor and plan their
+contributions to social, economic, and environmental transformations. The
+'text2sdg' package is an open-source analysis package that identifies SDGs
+in text using scientifically developed query systems, opening up the
+opportunity to monitor any type of text-based data, such as scientific
+output or corporate publications.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  individual
-%global packver   0.1.9
+%global packname  tlars
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Framework for Specifying and Simulating Individual Based Models
+Summary:          The T-LARS Algorithm: Early-Terminated Forward Variable Selection
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-testthat 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-A framework which provides users a set of useful primitive elements for
-specifying individual based simulation models, with special attention
-models for infectious disease epidemiology. Users build models by
-specifying variables for each characteristic of individuals in the
-simulated population by using data structures exposed by the package. The
-package provides efficient methods for finding subsets of individuals
-based on these variables, or cohorts. Cohorts can then be targeted for
-variable updates or scheduled for events. Variable updates queued during a
-time step are executed at the end of a discrete time step, and the code
-places no restrictions on how individuals are allowed to interact. These
-data structures are designed to provide an intuitive way for users to turn
-their conceptual model of a system into executable code, which is fast and
-memory efficient.
+Computes the solution path of the Terminating-LARS (T-LARS) algorithm. The
+T-LARS algorithm is a major building block of the T-Rex selector (see R
+package 'trex'). The package is based on the papers Machkour, Muma, and
+Palomar (2021) <arXiv:2110.06048>, Efron, Hastie, Johnstone, and
+Tibshirani (2004) <doi:10.1214/009053604000000067>, and Tibshirani (1996)
+<doi:10.1111/j.2517-6161.1996.tb02080.x>.
 
 %prep
 %setup -q -c -n %{packname}

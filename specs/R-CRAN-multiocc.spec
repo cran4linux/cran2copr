@@ -1,40 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  phenology
-%global packver   7.8
+%global packname  multiocc
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Manage a Parametric Function that Describes Phenology and More
+Summary:          Fits Multivariate Spatio-Temporal Occupancy Model
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-HelpersMG >= 5.5
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-optimx 
-Requires:         R-CRAN-HelpersMG >= 5.5
-Requires:         R-CRAN-numDeriv 
-Requires:         R-parallel 
-Requires:         R-CRAN-optimx 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-tmvtnorm 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-interp 
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-tmvtnorm 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-interp 
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-stats 
 
 %description
-Functions used to fit and test the phenology of species based on counts.
-Based on Girondot, M. (2010) <doi:10.3354/esr00292> for the phenology
-function, Girondot, M. (2017) <doi:10.1016/j.ecolind.2017.05.063> for the
-convolution of negative binomial, Girondot, M. and Rizzo, A. (2015)
-<doi:10.2993/etbi-35-02-337-353.1> for Bayesian estimate, Pfaller JB, ...,
-Girondot M (2019) <doi:10.1007/s00227-019-3545-x> for tag-loss estimate,
-Hancock J, ..., Girondot M (2019) <doi:10.1016/j.ecolmodel.2019.04.013>
-for nesting history, Laloe J-O, ..., Girondot M, Hays GC (2020)
-<doi:10.1007/s00227-020-03686-x> for aggregating several seasons.
+Spatio-temporal multivariate occupancy models can handle multiple species
+in occupancy models.  This method for fitting such models is described in
+Hepler and Erhardt (2021) "A spatiotemporal model for multivariate
+occupancy data"
+<https://onlinelibrary.wiley.com/doi/abs/10.1002/env.2657>.
 
 %prep
 %setup -q -c -n %{packname}
