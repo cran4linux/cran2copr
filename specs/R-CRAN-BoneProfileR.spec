@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BoneProfileR
-%global packver   2.2
+%global packver   2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Study Bone Compactness
 
@@ -16,12 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-HelpersMG >= 4.7
+BuildRequires:    R-CRAN-HelpersMG >= 5.3
 BuildRequires:    R-CRAN-imager 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-HelpersMG >= 4.7
+Requires:         R-CRAN-HelpersMG >= 5.3
 Requires:         R-CRAN-imager 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-rmarkdown 
@@ -30,8 +30,10 @@ Requires:         R-CRAN-shiny
 %description
 Bone Profiler is a scientific method and a software used to model bone
 section for paleontological and ecological studies. See Girondot and
-Laurin 2003
-<https://www.researchgate.net/publication/280021178_Bone_profiler_A_tool_to_quantify_model_and_statistically_compare_bone-section_compactness_profiles>.
+Laurin (2003)
+<https://www.researchgate.net/publication/280021178_Bone_profiler_A_tool_to_quantify_model_and_statistically_compare_bone-section_compactness_profiles>
+and Gônet, Laurin and Girondot (2022)
+<https://palaeo-electronica.org/content/2022/3590-bone-section-compactness-model>.
 
 %prep
 %setup -q -c -n %{packname}

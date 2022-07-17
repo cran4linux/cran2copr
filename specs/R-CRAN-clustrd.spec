@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  clustrd
-%global packver   1.3.9
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.9
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Joint Dimension Reduction and Clustering
 

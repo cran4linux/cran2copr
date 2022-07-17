@@ -1,38 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  actuar
-%global packver   3.3-0
+%global packname  ganDataModel
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Actuarial Functions and Heavy Tailed Distributions
+Summary:          Create a Hierarchical, Categorical Data Model for a Data Source
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-expint 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-expint 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-tensorflow >= 2.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+Requires:         R-CRAN-tensorflow >= 2.0.0
+Requires:         R-CRAN-Rcpp >= 1.0.3
 
 %description
-Functions and data sets for actuarial science: modeling of loss
-distributions; risk theory and ruin theory; simulation of compound models,
-discrete mixtures and compound hierarchical models; credibility theory.
-Support for many additional probability distributions to model insurance
-loss size and frequency: 23 continuous heavy tailed distributions; the
-Poisson-inverse Gaussian discrete distribution; zero-truncated and
-zero-modified extensions of the standard discrete distributions. Support
-for phase-type distributions commonly used to compute ruin probabilities.
-Main reference: <doi:10.18637/jss.v025.i07>. Implementation of the
-Feller-Pareto family of distributions: <doi:10.18637/jss.v103.i06>.
+Neural networks are applied to create a density value function which
+approximates density values for a data source. The trained neural network
+is analysed for different levels. For each level subspaces with density
+values above a level are determined. The obtained set of subspaces
+categorizes the data source hierarchically. A prerequisite is the
+definition of a data source, the generation of generative data and the
+calculation of density values. These tasks are executed using package
+'ganGenerativeData'
+<https://cran.r-project.org/package=ganGenerativeData>.
 
 %prep
 %setup -q -c -n %{packname}

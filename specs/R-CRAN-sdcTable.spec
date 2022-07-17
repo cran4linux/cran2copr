@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  sdcTable
-%global packver   0.32.2
+%global packver   0.32.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.32.2
+Version:          0.32.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Statistical Disclosure Control in Tabular Data
 
@@ -26,10 +26,11 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rglpk 
 BuildRequires:    R-CRAN-slam 
-BuildRequires:    R-CRAN-lpSolveAPI 
 BuildRequires:    R-CRAN-glpkAPI 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-SSBtools 
 Requires:         R-CRAN-sdcHierarchies >= 0.19.1
 Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-CRAN-data.table 
@@ -39,10 +40,11 @@ Requires:         R-CRAN-stringr
 Requires:         R-methods 
 Requires:         R-CRAN-Rglpk 
 Requires:         R-CRAN-slam 
-Requires:         R-CRAN-lpSolveAPI 
 Requires:         R-CRAN-glpkAPI 
 Requires:         R-CRAN-progress 
 Requires:         R-utils 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-SSBtools 
 
 %description
 Methods for statistical disclosure control in tabular data such as primary

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SIPDIBGE
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collection of Household Survey Packages Conducted by IBGE
 
@@ -19,7 +19,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-PNADcIBGE >= 0.6.0
 BuildRequires:    R-CRAN-COVIDIBGE >= 0.1.0
 BuildRequires:    R-CRAN-PNSIBGE >= 0.1.0
-BuildRequires:    R-CRAN-POFIBGE >= 0.1.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
@@ -31,7 +30,6 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-PNADcIBGE >= 0.6.0
 Requires:         R-CRAN-COVIDIBGE >= 0.1.0
 Requires:         R-CRAN-PNSIBGE >= 0.1.0
-Requires:         R-CRAN-POFIBGE >= 0.1.0
 Requires:         R-CRAN-cli 
 Requires:         R-graphics 
 Requires:         R-grDevices 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  worcs
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Workflow for Open Reproducible Code in Science
 
@@ -18,20 +18,30 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-renv 
 BuildRequires:    R-CRAN-prereg 
 BuildRequires:    R-CRAN-gert 
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-rticles 
+BuildRequires:    R-CRAN-tinytex 
+BuildRequires:    R-CRAN-credentials 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-gh 
 Requires:         R-methods 
 Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-renv 
 Requires:         R-CRAN-prereg 
 Requires:         R-CRAN-gert 
 Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-rticles 
+Requires:         R-CRAN-tinytex 
+Requires:         R-CRAN-credentials 
+Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-gh 
 
 %description
 Create reproducible and transparent research projects in 'R'. This package
@@ -40,8 +50,8 @@ step-by-step procedure based on best practices for Open Science. It
 includes an 'RStudio' project template, several convenience functions, and
 all dependencies required to make your project reproducible and
 transparent. WORCS is explained in the tutorial paper by Van Lissa,
-Brandmaier, Brinkman, Lamprecht, Struiksma, & Vreede (2020).
-<doi:10.17605/OSF.IO/ZCVBS>.
+Brandmaier, Brinkman, Lamprecht, Struiksma, & Vreede (2021).
+<doi:10.3233/DS-210031>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,6 +61,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

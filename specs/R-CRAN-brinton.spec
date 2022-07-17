@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  brinton
-%global packver   0.2.5
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Graphical EDA Tool
 
@@ -41,14 +41,16 @@ Requires:         R-CRAN-GGally
 
 %description
 An automated graphical exploratory data analysis (EDA) tool that
-introduces: a.) wideplot() graphics for exploring the structure of a
-dataset through a grid of variables and graphic types. b.) longplot()
-graphics, which present the entire catalog of available graphics for
-representing a particular variable using a grid of graphic types and
-variations on these types. c.) plotup() function, which presents a
-particular graphic for a specific variable of a dataset. The plotup()
-function also makes it possible to obtain the code used to generate the
-graphic, meaning that the user can adjust its properties as needed.
+introduces: a.) wideplot graphics for exploring the structure of a dataset
+through a grid of variables and graphic types. b.) longplot graphics,
+which present the entire catalog of available graphics for representing a
+particular variable using a grid of graphic types and variations on these
+types. c.) plotup function, which presents a particular graphic for a
+specific variable of a dataset. The plotup() function also makes it
+possible to obtain the code used to generate the graphic, meaning that the
+user can adjust its properties as needed. d.) matrixplot graphics that is
+a grid of a particular graphic showing bivariate relationships between all
+pairs of variables of a certain(s) type(s) in a multivariate data set.
 
 %prep
 %setup -q -c -n %{packname}
@@ -58,6 +60,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

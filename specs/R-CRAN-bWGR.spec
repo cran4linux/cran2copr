@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  bWGR
-%global packver   2.0
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Whole-Genome Regression
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppEigen 
@@ -24,8 +24,9 @@ Requires:         R-CRAN-RcppEigen
 
 %description
 Whole-genome regression methods on Bayesian framework fitted via EM or
-Gibbs sampling, univariate and multivariate, with optional kernel term and
-sampling techniques.
+Gibbs sampling, single step (<doi:10.1534/g3.119.400728>), univariate and
+multivariate (<doi:10.1186/s12711-022-00730-w>), with optional kernel term
+and sampling techniques (<doi:10.1186/s12859-017-1582-3>).
 
 %prep
 %setup -q -c -n %{packname}

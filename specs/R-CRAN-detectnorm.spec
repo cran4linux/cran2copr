@@ -1,38 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  actuar
-%global packver   3.3-0
+%global packname  detectnorm
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Actuarial Functions and Heavy Tailed Distributions
+Summary:          Detect Nonnormality in Meta-Analysis without Raw Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-expint 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-expint 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-nleqslv 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-psych 
+Requires:         R-CRAN-nleqslv 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-psych 
 
 %description
-Functions and data sets for actuarial science: modeling of loss
-distributions; risk theory and ruin theory; simulation of compound models,
-discrete mixtures and compound hierarchical models; credibility theory.
-Support for many additional probability distributions to model insurance
-loss size and frequency: 23 continuous heavy tailed distributions; the
-Poisson-inverse Gaussian discrete distribution; zero-truncated and
-zero-modified extensions of the standard discrete distributions. Support
-for phase-type distributions commonly used to compute ruin probabilities.
-Main reference: <doi:10.18637/jss.v025.i07>. Implementation of the
-Feller-Pareto family of distributions: <doi:10.18637/jss.v103.i06>.
+Non-normality could greatly distort the meta-analytic results, according
+to the simulation in Sun and Cheung (2020) <doi:
+10.3758/s13428-019-01334-x>. This package aims to detect non-normality for
+two independent groups with only limited descriptive statistics, including
+mean, standard deviation, minimum, and maximum.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rgovcan
-%global packver   1.0.3
+%global packname  tramvs
+%global packver   0.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Access to the Canadian Open Government Portal
+Summary:          Optimal Subset Selection for Transformation Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ckanr 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-crul 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ckanr 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-crul 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-tram >= 0.6.1
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-variables 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-tram >= 0.6.1
+Requires:         R-stats 
+Requires:         R-CRAN-variables 
+Requires:         R-methods 
 
 %description
-Allows to search for existing resources, including datasets, on the
-Canadian Open Government portal (<https://open.canada.ca/en>). It is also
-designed to allow users to easily download a range of files directly from
-the portal in a reproducible manner.
+Greedy optimal subset selection for transformation models (Hothorn et al.,
+2018, <doi:10.1111/sjos.12291> ) based on the abess algorithm (Zhu et al.,
+2020, <doi:10.1073/pnas.2014241117> ). Applicable to models from packages
+'tram' and 'cotram'.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

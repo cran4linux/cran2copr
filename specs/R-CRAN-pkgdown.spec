@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  pkgdown
-%global packver   2.0.5
+%global packver   2.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          2.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Make Static HTML Documentation for a Package
 
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-rmarkdown >= 1.1
 BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-downlit >= 0.4.0
 BuildRequires:    R-CRAN-bslib >= 0.3.1
-BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-desc 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-jsonlite 
@@ -46,7 +46,7 @@ Requires:         R-CRAN-rmarkdown >= 1.1
 Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-downlit >= 0.4.0
 Requires:         R-CRAN-bslib >= 0.3.1
-Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-desc 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-jsonlite 
