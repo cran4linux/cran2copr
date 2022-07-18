@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  QR
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          QR Factorization without Pivoting
 
@@ -19,9 +19,9 @@ BuildRequires:    R-CRAN-tinytest
 Requires:         R-CRAN-tinytest 
 
 %description
-This function performs QR factorization without pivoting to a numeric
-matrix. It is based on Anderson. E. and ten others (1999) "LAPACK Users'
-Guide". Third Edition. SIAM.
+This function performs QR factorization without pivoting to a real or
+complex matrix. It is based on Anderson. E. and ten others (1999) "LAPACK
+Users' Guide". Third Edition. SIAM.
 
 %prep
 %setup -q -c -n %{packname}

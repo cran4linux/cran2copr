@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  string2path
-%global packver   0.0.4
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rendering Font into 'data.frame'
 
@@ -13,15 +13,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-cli 
 
 %description
-Extract glyph information from a font file, and translate the outline
-curves to flattened paths or tessellated polygons. The converted data is
-returned as a 'data.frame' in easy-to-plot format.
+Extract glyph information from font data, and translate the outline curves
+to flattened paths or tessellated polygons. The converted data is returned
+as a 'data.frame' in easy-to-plot format.
 
 %prep
 %setup -q -c -n %{packname}

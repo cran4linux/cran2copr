@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  argparse
-%global packver   2.1.5
+%global packver   2.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.5
+Version:          2.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Command Line Optional and Positional Argument Parser
 
@@ -14,8 +14,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 Requires:         python3 >= 3.2
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-findpython 
