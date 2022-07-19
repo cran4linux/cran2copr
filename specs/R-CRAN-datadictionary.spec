@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  prt
-%global packver   0.1.5
+%global packname  datadictionary
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tabular Data Backed by Partitioned 'fst' Files
+Summary:          Create a Data Dictionary
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,37 +16,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-fst 
+BuildRequires:    R-CRAN-chron 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-fansi 
-BuildRequires:    R-CRAN-backports 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-fst 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-chron 
 Requires:         R-CRAN-data.table 
-Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-fansi 
-Requires:         R-CRAN-backports 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Intended for larger-than-memory tabular data, 'prt' objects provide an
-interface to read row and/or column subsets into memory as data.table
-objects. Data queries, constructed as 'R' expressions, are evaluated using
-the non-standard evaluation framework provided by 'rlang' and file-backing
-is powered by the fast and efficient 'fst' package.
+Creates a data dictionary from any dataset in your R environment. You can
+opt to add variable labels. You can write the object directly to Excel.
 
 %prep
 %setup -q -c -n %{packname}

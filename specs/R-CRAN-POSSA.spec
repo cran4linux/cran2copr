@@ -1,52 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  prt
-%global packver   0.1.5
+%global packname  POSSA
+%global packver   0.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.5.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tabular Data Backed by Partitioned 'fst' Files
+Summary:          Power Simulation for Sequential Analysis and Multiple Hypotheses
 
-License:          GPL-3
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-fst 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-fansi 
-BuildRequires:    R-CRAN-backports 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-fst 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-data.table 
-Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-fansi 
-Requires:         R-CRAN-backports 
-Requires:         R-CRAN-rlang 
+Requires:         R-methods 
 
 %description
-Intended for larger-than-memory tabular data, 'prt' objects provide an
-interface to read row and/or column subsets into memory as data.table
-objects. Data queries, constructed as 'R' expressions, are evaluated using
-the non-standard evaluation framework provided by 'rlang' and file-backing
-is powered by the fast and efficient 'fst' package.
+Calculates, via simulation, power and appropriate "stopping" alpha
+boundaries (and/or futility bounds) for sequential analyses (i.e., "group
+sequential design") as well as for multiple hypotheses (multiple tests
+included in an analysis), given any specified global error rate. This
+enables the sequential use of practically any significance test, as long
+as the underlying data can be simulated in advance to a reasonable
+approximation.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,52 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  prt
-%global packver   0.1.5
+%global packname  zerotradeflow
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tabular Data Backed by Partitioned 'fst' Files
+Summary:          An Implementation for the Gravitational Models of Trade
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-fst 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-fansi 
-BuildRequires:    R-CRAN-backports 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-fst 
-Requires:         R-CRAN-data.table 
-Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-fansi 
-Requires:         R-CRAN-backports 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-cli 
 
 %description
-Intended for larger-than-memory tabular data, 'prt' objects provide an
-interface to read row and/or column subsets into memory as data.table
-objects. Data queries, constructed as 'R' expressions, are evaluated using
-the non-standard evaluation framework provided by 'rlang' and file-backing
-is powered by the fast and efficient 'fst' package.
+A system for creating the bilateral trade flow between a country pair
+equal to zero. You provide the data, tell get_zerotradeflow() which
+variables are of interest and it expands the base by creating the
+bilateral zero trade flow. The bases on the flow of trade between
+countries only report positive trade (greater than zero), however, for
+some analyzes of gravitacional models, data on zero flow is also
+necessary. Some examples for Gravity Model: Figueiredo and Loures (2016)
+<doi:10.5935/0034-7140.20160015> and Yotov, Piermartini, Monteiro and
+Larch <https://vi.unctad.org/tpa/web/docs/vol2/book.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

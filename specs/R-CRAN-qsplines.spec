@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  qsplines
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quaternions Splines
 
@@ -15,15 +15,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 BuildRequires:    R-CRAN-onion 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-onion 
 Requires:         R-CRAN-shiny 
-Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Provides routines to create some quaternions splines: Barry-Goldman

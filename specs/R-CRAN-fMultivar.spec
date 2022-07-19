@@ -1,23 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fMultivar
-%global packver   3042.80.2
+%global packver   4021.83
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3042.80.2
+Version:          4021.83
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rmetrics - Analysing and Modeling Multivariate Financial Return Distributions
+Summary:          Rmetrics - Modeling of Multivariate Financial Return Distributions
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.1
-Requires:         R-core >= 2.15.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-timeDate 
-BuildRequires:    R-CRAN-timeSeries 
 BuildRequires:    R-CRAN-fBasics 
 BuildRequires:    R-CRAN-cubature 
 BuildRequires:    R-CRAN-mvtnorm 
@@ -26,8 +24,6 @@ BuildRequires:    R-methods
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-timeDate 
-Requires:         R-CRAN-timeSeries 
 Requires:         R-CRAN-fBasics 
 Requires:         R-CRAN-cubature 
 Requires:         R-CRAN-mvtnorm 
@@ -38,8 +34,8 @@ Requires:         R-graphics
 Requires:         R-stats 
 
 %description
-Provides a collection of functions to manage, to investigate and to
-analyze bivariate and multivariate data sets of financial returns.
+A collection of functions to manage, investigate and analyze bivariate and
+multivariate data sets of financial returns.
 
 %prep
 %setup -q -c -n %{packname}

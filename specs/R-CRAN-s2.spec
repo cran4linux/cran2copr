@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  s2
-%global packver   1.0.7
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spherical Geometry Operators Using the S2 Geometry Library
 
@@ -16,9 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    openssl-devel >= 1.0.0
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-wk >= 0.5.0
+BuildRequires:    R-CRAN-wk >= 0.6.0
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-wk >= 0.5.0
+Requires:         R-CRAN-wk >= 0.6.0
 Requires:         R-CRAN-Rcpp 
 
 %description

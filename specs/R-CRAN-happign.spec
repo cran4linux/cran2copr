@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  happign
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'IGN' Web Services
 
@@ -16,31 +16,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-sf >= 1.0.7
+BuildRequires:    R-CRAN-stars >= 0.5.5
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stars 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-sf >= 1.0.7
+Requires:         R-CRAN-stars >= 0.5.5
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stars 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-xml2 
 
 %description
 Interface to easily access the National Institute of Geographic and
-Forestry Information open-source data for any area of interest in France
-via WFS (shapefile) and WMS (raster) web services
+Forestry Information open-source data from Geoservice website for any area
+of interest in France via WFS (shapefile) and WMS (raster) web services
 <https://geoservices.ign.fr/services-web-experts>.
 
 %prep

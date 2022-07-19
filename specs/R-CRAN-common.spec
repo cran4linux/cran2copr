@@ -1,36 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  glmm.hp
-%global packver   0.0-5
+%global packname  common
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hierarchical Partitioning of Marginal R2 for Generalized Mixed-Effect Models
+Summary:          Solutions for Common Problems in Base R
 
-License:          GPL
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MuMIn 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lme4 
-Requires:         R-CRAN-MuMIn 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lme4 
+BuildRequires:    R-CRAN-this.path 
+Requires:         R-CRAN-this.path 
 
 %description
-Conducts hierarchical partitioning to calculate individual contributions
-of each fixed effects towards marginal R2 for generalized mixed-effect
-model based on output of r.squaredGLMM() in 'MuMIn', applying the
-algorithm of Lai J.,Zou Y., Zhang J.,Peres-Neto P.(2022) Generalizing
-hierarchical and variation partitioning in multiple regression and
-canonical analyses using the rdacca.hp R package.Methods in Ecology and
-Evolution,13:782-788<DOI:10.1111/2041-210X.13800>.
+Contains functions for solving commonly encountered problems while
+programming in R. This package is intended to provide a lightweight
+supplement to Base R, and will be useful for almost any R user.
 
 %prep
 %setup -q -c -n %{packname}

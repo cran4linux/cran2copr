@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  htmltools
-%global packver   0.5.2
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for HTML
 
@@ -15,18 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.14.1
 Requires:         R-core >= 2.14.1
+BuildRequires:    R-CRAN-fastmap >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 0.4.10
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-fastmap 
+Requires:         R-CRAN-fastmap >= 1.1.0
 Requires:         R-CRAN-rlang >= 0.4.10
 Requires:         R-utils 
 Requires:         R-CRAN-digest 
 Requires:         R-grDevices 
 Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-fastmap 
 
 %description
 Tools for HTML generation and output.

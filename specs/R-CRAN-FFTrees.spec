@@ -1,52 +1,57 @@
 %global __brp_check_rpaths %{nil}
-%global packname  admiral
-%global packver   0.7.1
+%global packname  FFTrees
+%global packver   1.6.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          1.6.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          ADaM in R Asset Library
+Summary:          Generate, Visualise, and Evaluate Fast-and-Frugal Decision Trees
 
-License:          Apache License (>= 2)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rpart 
+Requires:         R-graphics 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-testthat 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tidyselect 
 
 %description
-A toolbox for programming Clinical Data Standards Interchange Consortium
-(CDISC) compliant Analysis Data Model (ADaM) datasets in R. ADaM datasets
-are a mandatory part of any New Drug or Biologics License Application
-submitted to the United States Food and Drug Administration (FDA).
-Analysis derivations are implemented in accordance with the "Analysis Data
-Model Implementation Guide" (CDISC Analysis Data Model Team, 2021,
-<https://www.cdisc.org/standards/foundational/adam/adamig-v1-3-release-package>).
+Create, visualize, and test fast-and-frugal decision trees (FFTs) using
+methods described in Phillips, Neth, Woike & Gaissmaier. (2017). FFTs are
+very simple decision trees for binary classification problems. FFTs can be
+preferable to more complex algorithms because they are easy to
+communicate, require very little information, and are robust against
+overfitting.
 
 %prep
 %setup -q -c -n %{packname}

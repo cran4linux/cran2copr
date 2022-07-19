@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cgam
-%global packver   1.17
+%global packver   1.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.17
+Version:          1.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Constrained Generalized Additive Model
 
@@ -16,10 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-statmod >= 1.4.36
 BuildRequires:    R-CRAN-Matrix >= 1.2.8
 BuildRequires:    R-CRAN-coneproj >= 1.12
 BuildRequires:    R-CRAN-lme4 >= 1.1.13
 BuildRequires:    R-CRAN-svDialogs >= 0.9.57
+Requires:         R-CRAN-statmod >= 1.4.36
 Requires:         R-CRAN-Matrix >= 1.2.8
 Requires:         R-CRAN-coneproj >= 1.12
 Requires:         R-CRAN-lme4 >= 1.1.13

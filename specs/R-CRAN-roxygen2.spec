@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  roxygen2
-%global packver   7.2.0
+%global packver   7.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.2.0
+Version:          7.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          In-Line Documentation for R
 
@@ -53,7 +53,7 @@ Requires:         R-CRAN-xml2
 Generate your Rd documentation, 'NAMESPACE' file, and collation field
 using specially formatted comments. Writing documentation in-line with
 code makes it easier to keep your documentation up-to-date as your
-requirements change. 'Roxygen2' is inspired by the 'Doxygen' system for
+requirements change. 'roxygen2' is inspired by the 'Doxygen' system for
 C++.
 
 %prep

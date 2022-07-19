@@ -1,52 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  prt
-%global packver   0.1.5
+%global packname  codebookr
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tabular Data Backed by Partitioned 'fst' Files
+Summary:          Create Codebooks from Data Frames
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-fst 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-fansi 
-BuildRequires:    R-CRAN-backports 
+BuildRequires:    R-CRAN-haven >= 2.5.0
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-fst 
-Requires:         R-CRAN-data.table 
-Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-fansi 
-Requires:         R-CRAN-backports 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-haven >= 2.5.0
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-officer 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Intended for larger-than-memory tabular data, 'prt' objects provide an
-interface to read row and/or column subsets into memory as data.table
-objects. Data queries, constructed as 'R' expressions, are evaluated using
-the non-standard evaluation framework provided by 'rlang' and file-backing
-is powered by the fast and efficient 'fst' package.
+Quickly and easily create codebooks (i.e. data dictionaries) directly from
+a data frame.
 
 %prep
 %setup -q -c -n %{packname}

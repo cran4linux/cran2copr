@@ -1,50 +1,57 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bootCT
-%global packver   1.1
+%global packname  flipr
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bootstrapping the ARDL Tests for Cointegration
+Summary:          Flexible Inference via Permutations in R
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-aod 
-BuildRequires:    R-CRAN-ARDL 
-BuildRequires:    R-CRAN-dynamac 
-BuildRequires:    R-CRAN-vars 
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-usethis 
-BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-optimParallel 
+BuildRequires:    R-CRAN-rgenoud 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-viridisLite 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-aod 
-Requires:         R-CRAN-ARDL 
-Requires:         R-CRAN-dynamac 
-Requires:         R-CRAN-vars 
-Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-dials 
 Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-optimParallel 
+Requires:         R-CRAN-rgenoud 
 
 %description
-The bootstrap ARDL tests for cointegration is the main functionality of
-this package. It also acts as a wrapper of the most commond ARDL testing
-procedures for cointegration: the bound tests of Pesaran, Shin and Smith
-(PSS; 2001 - <doi:10.1002/jae.616>) and the asymptotic test on the
-independent variables of Sam, McNown and Goh (SMG: 2019 -
-<doi:10.1016/j.econmod.2018.11.001>). Bootstrap and bound tests are
-performed under both the conditional and unconditional ARDL models.
+A flexible permutation framework for making inference such as point
+estimation, confidence intervals or hypothesis testing, on any kind of
+data, be it univariate, multivariate, or more complex such as
+network-valued data, topological data, functional data or density-valued
+data.
 
 %prep
 %setup -q -c -n %{packname}

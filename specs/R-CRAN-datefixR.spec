@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  datefixR
-%global packver   0.1.6
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fix Really Messy Dates
+Summary:          Standardize Dates in Different Formats or with Missing Data
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,14 +16,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-stringr 
 
 %description
-Fixes messy dates in data frames such as those entered via text boxes.
-Standardizes / - and whitespace separation, month abbreviations, and year
-first or day first by converting to R's built-in Date class. Imputes
-missing date or month using user-provided values.
+There are many different formats dates are commonly represented with: the
+order of day, month, or year can differ, different separators ("-", "/",
+or whitespace) can be used, months can be numerical, names, or
+abbreviations and year given as two digits or four. 'datefixR' takes dates
+in all these different formats and converts them to R's built-in date
+class. If 'datefixR' cannot standardize a date, such as because it is too
+malformed, then the user is told which date cannot be standardized and the
+corresponding ID for the row. 'datefixR' also allows the imputation of
+missing days and months with user-controlled behavior.
 
 %prep
 %setup -q -c -n %{packname}

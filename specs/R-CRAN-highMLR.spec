@@ -1,52 +1,51 @@
 %global __brp_check_rpaths %{nil}
-%global packname  prt
-%global packver   0.1.5
+%global packname  highMLR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tabular Data Backed by Partitioned 'fst' Files
+Summary:          Feature Selection for High Dimensional Survival Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-fst 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-mlr3 
+BuildRequires:    R-CRAN-mlr3learners 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-fansi 
-BuildRequires:    R-CRAN-backports 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-fst 
-Requires:         R-CRAN-data.table 
-Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-coxme 
+BuildRequires:    R-CRAN-missForest 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-mlr3 
+Requires:         R-CRAN-mlr3learners 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-fansi 
-Requires:         R-CRAN-backports 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-utils 
+Requires:         R-CRAN-coxme 
+Requires:         R-CRAN-missForest 
+Requires:         R-CRAN-R6 
 
 %description
-Intended for larger-than-memory tabular data, 'prt' objects provide an
-interface to read row and/or column subsets into memory as data.table
-objects. Data queries, constructed as 'R' expressions, are evaluated using
-the non-standard evaluation framework provided by 'rlang' and file-backing
-is powered by the fast and efficient 'fst' package.
+Perform high dimensional Feature Selection in the presence of survival
+outcome. Based on Feature Selection method and different survival
+analysis, it will obtain the best markers with optimal threshold levels
+according to their effect on disease progression and produce the most
+consistent level according to those threshold values. The functions'
+methodology is based on by Sonabend et al (2021)
+<doi:10.1093/bioinformatics/btab039> and Bhattacharjee et al (2021)
+<arXiv:2012.02102>.
 
 %prep
 %setup -q -c -n %{packname}

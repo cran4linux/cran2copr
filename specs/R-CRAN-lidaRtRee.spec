@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  lidaRtRee
-%global packver   4.0.1
+%global packver   4.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.1
+Version:          4.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forest Analysis with Airborne Laser Scanning (LiDAR) Data
 
@@ -50,7 +50,8 @@ complementary steps for forest mapping: co-registration of field plots
 with LiDAR data (Monnet and Mermin (2014) <doi:10.3390/f5092307>);
 extraction of both physical (gaps, edges, trees) and statistical features
 from LiDAR data useful for e.g. habitat suitability modeling (Glad et al.
-(2020) <doi:10.1002/rse2.117>); model calibration with ground reference,
+(2020) <doi:10.1002/rse2.117>) and forest maturity mapping (Fuhr et al.
+(2022) <doi:10.1002/rse2.274>); model calibration with ground reference,
 and maps export.
 
 %prep
