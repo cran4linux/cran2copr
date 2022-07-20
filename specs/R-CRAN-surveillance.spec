@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  surveillance
-%global packver   1.20.0
+%global packver   1.20.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.20.0
+Version:          1.20.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Temporal and Spatio-Temporal Modeling and Monitoring of Epidemic Phenomena
 

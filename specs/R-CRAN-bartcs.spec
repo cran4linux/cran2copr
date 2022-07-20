@@ -1,46 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  WebPower
-%global packver   0.7
+%global packname  bartcs
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Basic and Advanced Statistical Power Analysis
+Summary:          Bayesian Additive Regression Trees for Confounder Selection
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.5
-Requires:         R-core >= 3.2.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-ggcharts 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-invgamma 
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rootSolve 
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-PearsonDS 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ggcharts 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-invgamma 
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rootSolve 
 Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-lavaan 
-Requires:         R-parallel 
-Requires:         R-CRAN-PearsonDS 
 
 %description
-This is a collection of tools for conducting both basic and advanced
-statistical power analysis including correlation, proportion, t-test,
-one-way ANOVA, two-way ANOVA, linear regression, logistic regression,
-Poisson regression, mediation analysis, longitudinal data analysis,
-structural equation modeling and multilevel modeling. It also serves as
-the engine for conducting power analysis online at
-<https://webpower.psychstat.org>.
+Fit Bayesian Regression Additive Trees (BART) models to select relevant
+confounders among a large set of potential confounders and to estimate
+average treatment effect. For more information, see Kim et al. (2022)
+<doi:10.48550/arXiv.2203.11798>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,32 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ORKM
-%global packver   0.4.0.0
+%global packname  DRDID
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0.0
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Online Regularized K-Means Clustering Algorithm
+Summary:          Doubly Robust Difference-in-Differences Estimators
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-BMisc >= 1.4.1
 BuildRequires:    R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-trust 
+Requires:         R-CRAN-BMisc >= 1.4.1
 Requires:         R-stats 
+Requires:         R-CRAN-trust 
 
 %description
-Algorithm of online regularized k-means to deal with online multi(single)
-view data. The philosophy of the package is described in Guo G. (2020)
-<doi:10.1080/02331888.2020.1823979>.
+Implements the locally efficient doubly robust difference-in-differences
+(DiD) estimators for the average treatment effect proposed by Sant'Anna
+and Zhao (2020) <doi:10.1016/j.jeconom.2020.06.003>. The estimator
+combines inverse probability weighting and outcome regression estimators
+(also implemented in the package) to form estimators with more attractive
+statistical properties. Two different estimation methods can be used to
+estimate the nuisance functions.
 
 %prep
 %setup -q -c -n %{packname}

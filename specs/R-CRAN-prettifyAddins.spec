@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  prettifyAddins
-%global packver   2.4.0
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          2.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'RStudio' Addins to Prettify 'JavaScript', 'C++', 'Python', and More
 
@@ -16,22 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-webdriver 
-BuildRequires:    R-CRAN-XRJulia 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-tools 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-webdriver 
-Requires:         R-CRAN-XRJulia 
+BuildRequires:    R-CRAN-webdriver 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-XRJulia 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-shiny 
+Requires:         R-tools 
 Requires:         R-utils 
+Requires:         R-CRAN-webdriver 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-XRJulia 
 
 %description
 Provides 'RStudio' addins to prettify 'HTML', 'CSS', 'SCSS', 'JavaScript',

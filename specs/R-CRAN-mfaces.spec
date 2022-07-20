@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mfaces
-%global packver   0.1-3
+%global packver   0.1-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Covariance Estimation for Multivariate Sparse Functional Data
 
@@ -32,7 +32,7 @@ Requires:         R-CRAN-face
 %description
 Multivariate functional principal component analysis via fast covariance
 estimation for multivariate sparse functional data or longitudinal data
-proposed by Li, Xiao, and Luo (2020) <doi:10.1002/sta4.245>.
+proposed by Li, Xiao, and Luo (2020) <doi: 10.1002/sta4.245>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

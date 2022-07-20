@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  EpiModel
-%global packver   2.2.1
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mathematical Modeling of Infectious Disease Dynamics
 
@@ -15,12 +15,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-statnet.common >= 4.4.0
-BuildRequires:    R-CRAN-tergm >= 4.0
-BuildRequires:    R-CRAN-ergm >= 4.0
+BuildRequires:    R-CRAN-statnet.common >= 4.6.0
+BuildRequires:    R-CRAN-ergm >= 4.2.2
+BuildRequires:    R-CRAN-tergm >= 4.1.0
 BuildRequires:    R-CRAN-deSolve >= 1.21
-BuildRequires:    R-CRAN-network >= 1.17
-BuildRequires:    R-CRAN-networkDynamic >= 0.10
+BuildRequires:    R-CRAN-network >= 1.17.2
+BuildRequires:    R-CRAN-networkDynamic >= 0.11.2
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
@@ -35,12 +35,12 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-statnet.common >= 4.4.0
-Requires:         R-CRAN-tergm >= 4.0
-Requires:         R-CRAN-ergm >= 4.0
+Requires:         R-CRAN-statnet.common >= 4.6.0
+Requires:         R-CRAN-ergm >= 4.2.2
+Requires:         R-CRAN-tergm >= 4.1.0
 Requires:         R-CRAN-deSolve >= 1.21
-Requires:         R-CRAN-network >= 1.17
-Requires:         R-CRAN-networkDynamic >= 0.10
+Requires:         R-CRAN-network >= 1.17.2
+Requires:         R-CRAN-networkDynamic >= 0.11.2
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 

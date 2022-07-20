@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  DEET
-%global packver   1.0.2
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Differential Expression Enrichment Tool
 
@@ -36,11 +36,29 @@ Requires:         R-CRAN-ggrepel
 Requires:         R-CRAN-downloader 
 
 %description
-A bio informatics R package for comparing a list of human genes to
-published RNA-Seq studies containing similar DE genes. Reference:
-Sokolowski,D.J., Ahn J., Erdman,L., Hou,H., Wang L., Goldenberg,A., and
-Wilson,M.D. (2022) Differential Expression Enrichment Tool (DEET): An
-interactive atlas of human differential gene expression. (In Preparation).
+RNA sequencing (RNA-seq) followed by differential gene expression analyses
+is a fundamental approach for making biological discoveries. Ongoing
+large-scale efforts to systematically process and normalize publicly
+available gene expression data facilitate rapid reanalyses of specific
+studies and the development of new methods for querying it. While there
+are several powerful tools for querying systematically processed publicly
+available RNA-seq data at the individual sample level, there are fewer
+options for querying differentially expressed gene (DEG) lists generated
+from these experiments. Here, we present the Differential Expression
+Enrichment Tool (DEET), which allows users to interact with 3162
+consistently processed DEG lists curated from 142 RNA-seq datasets
+obtained from recount2 database, which contains data from consortiums
+(GTex, TCGA) and individual labs (SRA). To establish DEET we integrated
+systematically processed human RNA-seq data from recount2 with reported
+and predicted metadata from multiple sources and developed a CRAN R
+package and Shiny App where users can compare their genes, p-values, and
+coefficients against the DEG lists within DEET. Here we present DEET and
+demonstrate how it can facilitate hypothesis generation and provide
+biological insight from user-defined differential gene expression results.
+Reference: Sokolowski,D.J., Ahn J., Erdman,L., Hou,H., Ellis,K., Wang L.,
+Goldenberg,A., and Wilson,M.D. (2022) Differential Expression Enrichment
+Tool (DEET): An interactive atlas of human differential gene expression.
+(In Preparation).
 
 %prep
 %setup -q -c -n %{packname}

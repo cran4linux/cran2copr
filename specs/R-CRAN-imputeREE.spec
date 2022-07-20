@@ -1,32 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ORKM
-%global packver   0.4.0.0
+%global packname  imputeREE
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Online Regularized K-Means Clustering Algorithm
+Summary:          Impute Missing Rare Earth Element Data Using a Lattice-Strain Derived Method
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-broom 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-broom 
 
 %description
-Algorithm of online regularized k-means to deal with online multi(single)
-view data. The philosophy of the package is described in Guo G. (2020)
-<doi:10.1080/02331888.2020.1823979>.
+Set of functions that fit a linear regression to calculate missing Rare
+Earth Element (REE) in zircon based on a method derived from the lattice
+strain theory of Blundy and Wood (1994)<doi:10.1038/372452a0>.
 
 %prep
 %setup -q -c -n %{packname}

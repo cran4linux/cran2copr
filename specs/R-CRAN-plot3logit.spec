@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  plot3logit
-%global packver   3.1.2
+%global packver   3.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.2
+Version:          3.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ternary Plots for Trinomial Regression Models
 
@@ -60,7 +60,9 @@ An implementation of the ternary plot for interpreting regression
 coefficients of trinomial regression models, as proposed in Santi, Dickson
 and Espa (2019) <doi:10.1080/00031305.2018.1442368>. Ternary plots can be
 drawn using either 'ggtern' package (based on 'ggplot2') or 'Ternary'
-package (based on standard graphics).
+package (based on standard graphics). The package and its features are
+illustrated in Santi, Dickson, Espa and Giuliani (2022)
+<doi:10.18637/jss.v103.c01>.
 
 %prep
 %setup -q -c -n %{packname}

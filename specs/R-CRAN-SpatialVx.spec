@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SpatialVx
-%global packver   0.9
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Forecast Verification
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-spatstat.core
 BuildRequires:    R-CRAN-spatstat.linnet 
 BuildRequires:    R-CRAN-distillery 
 BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-CircStats 
 BuildRequires:    R-CRAN-fastcluster 
@@ -40,6 +41,7 @@ Requires:         R-CRAN-spatstat.core
 Requires:         R-CRAN-spatstat.linnet 
 Requires:         R-CRAN-distillery 
 Requires:         R-CRAN-maps 
+Requires:         R-methods 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-CircStats 
 Requires:         R-CRAN-fastcluster 
@@ -51,7 +53,9 @@ the verification set (forecast and observations) is on a spatial field,
 usually a high-resolution gridded spatial field.  Most of the functions
 here require the forecast and observed fields to be gridded and on the
 same grid. For a thorough review of most of the methods in this package,
-please see Gilleland et al. (2009) <doi: 10.1175/2009WAF2222269.1>.
+please see Gilleland et al. (2009) <doi: 10.1175/2009WAF2222269.1> and for
+a tutorial on some of the main functions available here, see Gilleland
+(2022) <doi: 10.5065/4px3-5a05>.
 
 %prep
 %setup -q -c -n %{packname}

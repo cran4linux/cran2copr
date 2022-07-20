@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ltable
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy to Make (Lazy) Tables
 
@@ -15,28 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-RcppGSL >= 0.3.9
+BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-clipr 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 1.0.5
-Requires:         R-CRAN-RcppGSL >= 0.3.9
 Requires:         R-methods 
 Requires:         R-CRAN-clipr 
 Requires:         R-graphics 
 Requires:         R-stats 
 
 %description
-Constructs tables of counts and proportions out of data sets. It has
-simplified syntax appealing for novice and even for advanced user under
-time pressure. It is particularly suitable for exploratory data analysis
-or presentation to single out most appropriate pieces of tabulated
-information. The other important feature is possibility to insert tables
-to Excel and Word documents. This version also features capacity of
-log-linear and power analyses (original by Oleksandr Ocheredko
-<doi:10.35566/isdsa2019c5>) for tabulated data with GSL.
+Constructs tables of counts and proportions out of data sets with
+possibility to insert tables to Excel, Word, HTML, and PDF documents.
+Transforms tables to data suitable for modelling. Features Gibbs sampling
+based log-linear (NB2) and power analyses (original by Oleksandr Ocheredko
+<doi:10.35566/isdsa2019c5>) for tabulated data.
 
 %prep
 %setup -q -c -n %{packname}

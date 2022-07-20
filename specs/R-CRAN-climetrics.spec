@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ORKM
-%global packver   0.4.0.0
+%global packname  climetrics
+%global packver   1.0-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0.0
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Online Regularized K-Means Clustering Algorithm
+Summary:          Climate Change Metrics
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,17 +16,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-sp >= 1.2.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rts 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-yaImpute 
+BuildRequires:    R-CRAN-xts 
+Requires:         R-CRAN-sp >= 1.2.0
+Requires:         R-methods 
+Requires:         R-CRAN-rts 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-yaImpute 
+Requires:         R-CRAN-xts 
 
 %description
-Algorithm of online regularized k-means to deal with online multi(single)
-view data. The philosophy of the package is described in Guo G. (2020)
-<doi:10.1080/02331888.2020.1823979>.
+A framework that facilitates spatio-temporal analysis of climate dynamics
+through exploring and measuring different dimensions of climate change in
+space and time.
 
 %prep
 %setup -q -c -n %{packname}

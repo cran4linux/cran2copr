@@ -1,32 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ORKM
-%global packver   0.4.0.0
+%global packname  bursts
+%global packver   1.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Online Regularized K-Means Clustering Algorithm
+Summary:          Markov Model for Bursty Behavior in Streams
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
-Requires:         R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-graphics 
 
 %description
-Algorithm of online regularized k-means to deal with online multi(single)
-view data. The philosophy of the package is described in Guo G. (2020)
-<doi:10.1080/02331888.2020.1823979>.
+An implementation of Jon Kleinberg's burst detection algorithm (Kleinberg
+(2003) <doi:10.1023/A:1024940629314>).  Uses an infinite Markov model to
+detect periods of increased activity in a series of discrete events with
+known times, and provides a simple visualization of the results.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  isogeochem
-%global packver   1.0.9
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Carbonate Isotope Geochemistry
+Summary:          Tools for Stable Isotope Geochemistry
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,15 +18,17 @@ Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
 BuildRequires:    R-grDevices 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-methods 
 Requires:         R-grDevices 
 
 %description
-This toolbox makes working with carbonate oxygen, carbon, and clumped
-isotope data reproducible and straightforward. Use it to quickly calculate
-isotope fractionation factors, and apply paleothermometry equations.
+This toolbox makes working with oxygen, carbon, and clumped isotope data
+reproducible and straightforward. Use it to quickly calculate isotope
+fractionation factors, and apply paleothermometry equations.
 
 %prep
 %setup -q -c -n %{packname}
