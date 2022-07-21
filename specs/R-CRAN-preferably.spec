@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  preferably
-%global packver   0.4
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'pkgdown' Template
 
@@ -13,15 +13,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-pkgdown 
 BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rmarkdown 
 Requires:         R-CRAN-pkgdown 
 Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rmarkdown 
 
 %description
 This is an accessible template for 'pkgdown'. It uses two bootstrap

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  educationdata
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve Records from the Urban Institute's Education Data Portal API
 
@@ -27,7 +27,7 @@ Requires:         R-CRAN-readr
 
 %description
 Allows R users to retrieve and parse data from the Urban Institute's
-Education Data API <https://ed-data-portal.urban.org/> into a 'data.frame'
+Education Data API <https://educationdata.urban.org/> into a 'data.frame'
 for analysis.
 
 %prep
@@ -38,6 +38,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

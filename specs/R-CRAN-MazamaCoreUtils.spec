@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  MazamaCoreUtils
-%global packver   0.4.10
+%global packver   0.4.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.10
+Version:          0.4.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utility Functions for Production R Code
 

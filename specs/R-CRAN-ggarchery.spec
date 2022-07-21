@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ggarchery
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Segment Geoms with Arrows for 'ggplot2'
 
@@ -18,14 +18,20 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-grid 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-rlang 
+Requires:         R-grid 
 
 %description
 Geoms for placing arrowheads at multiple points along a segment, not just

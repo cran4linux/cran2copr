@@ -1,50 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  phenocamr
-%global packver   1.1.5
+%global packname  giedata
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Facilitates 'PhenoCam' Data Access and Time Series Post-Processing
+Summary:          API Wrapper for GIE's AGSI+/ALSI+ Natural Gas Storage Transparency Platform
 
-License:          AGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-changepoint 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-daymetr 
-BuildRequires:    R-CRAN-MODISTools 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-changepoint 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-zoo 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-daymetr 
-Requires:         R-CRAN-MODISTools 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
 
 %description
-Programmatic interface to the 'PhenoCam' web services
-(<https://phenocam.nau.edu/webcam>). Allows for easy downloading of
-'PhenoCam' data directly to your R workspace or your computer and provides
-post-processing routines for consistent and easy timeseries outlier
-detection, smoothing and estimation of phenological transition dates.
-Methods for this package are described in detail in Hufkens et. al (2018)
-<doi:10.1111/2041-210X.12970>.
+Functions to access the API for Gas Infrastructure Europe's (GIE)
+AGSI+/ALSI+ natural gas storage transparency platform
+(<https://agsi.gie.eu/> and <https://alsi.gie.eu/>). Lets the user easily
+download metadata on companies and gas storage units covered by the API as
+well as the respective data on regional, country, company or facility
+level.
 
 %prep
 %setup -q -c -n %{packname}

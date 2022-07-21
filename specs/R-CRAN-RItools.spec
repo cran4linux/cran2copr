@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RItools
-%global packver   0.1-18
+%global packver   0.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.18
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Randomization Inference Tools
 
@@ -13,10 +13,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.2.0
-Requires:         R-core >= 2.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SparseM 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-xtable 
@@ -25,7 +25,11 @@ BuildRequires:    R-stats
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-SparseM 
+BuildRequires:    R-CRAN-SparseM 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-xtable 
@@ -34,6 +38,10 @@ Requires:         R-stats
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-SparseM 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
 
 %description
 Tools for randomization-based inference. Current focus is on the d^2

@@ -1,50 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  phenocamr
-%global packver   1.1.5
+%global packname  RadOnc
+%global packver   1.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Facilitates 'PhenoCam' Data Access and Time Series Post-Processing
+Summary:          Analytical Tools for Radiation Oncology
 
-License:          AGPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-changepoint 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-oro.dicom >= 0.5.0
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ptinpoly 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-daymetr 
-BuildRequires:    R-CRAN-MODISTools 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-changepoint 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-zoo 
-Requires:         R-utils 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-oro.dicom >= 0.5.0
 Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-methods 
+Requires:         R-CRAN-ptinpoly 
 Requires:         R-stats 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-daymetr 
-Requires:         R-CRAN-MODISTools 
+Requires:         R-utils 
 
 %description
-Programmatic interface to the 'PhenoCam' web services
-(<https://phenocam.nau.edu/webcam>). Allows for easy downloading of
-'PhenoCam' data directly to your R workspace or your computer and provides
-post-processing routines for consistent and easy timeseries outlier
-detection, smoothing and estimation of phenological transition dates.
-Methods for this package are described in detail in Hufkens et. al (2018)
-<doi:10.1111/2041-210X.12970>.
+Designed for the import, analysis, and visualization of dosimetric and
+volumetric data in Radiation Oncology, the tools herein enable import of
+dose-volume histogram information from multiple treatment planning system
+platforms and 3D structural representations and dosimetric information
+from 'DICOM-RT' files.  These tools also enable subsequent visualization
+and statistical analysis of these data.
 
 %prep
 %setup -q -c -n %{packname}

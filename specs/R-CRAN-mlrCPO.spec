@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  mlrCPO
-%global packver   0.3.7-3
+%global packver   0.3.7-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7.3
+Version:          0.3.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Composable Preprocessing Operators and Pipelines for Machine Learning
 

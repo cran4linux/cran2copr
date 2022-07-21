@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  optparse
-%global packver   1.7.1
+%global packver   1.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1
+Version:          1.7.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Command Line Option Parser
 
@@ -13,8 +13,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.9.0
-Requires:         R-core >= 2.9.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-getopt >= 1.20.2
 BuildRequires:    R-methods 

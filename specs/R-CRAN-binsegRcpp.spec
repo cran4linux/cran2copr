@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  binsegRcpp
-%global packver   2022.1.24
+%global packver   2022.7.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2022.1.24
+Version:          2022.7.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Implementation of Binary Segmentation
 

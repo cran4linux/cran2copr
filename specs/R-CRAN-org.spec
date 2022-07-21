@@ -1,38 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ggdensity
-%global packver   0.1.0
+%global packname  org
+%global packver   2022.7.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          2022.7.21
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interpretable Bivariate Density Visualization with 'ggplot2'
+Summary:          Organising Projects
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-isoband 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-isoband 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
-Requires:         R-CRAN-scales 
 
 %description
-The 'ggplot2' package provides simple functions for visualizing contours
-of 2-d kernel density estimates. 'ggdensity' implements several additional
-density estimators as well as more interpretable visualizations based on
-highest density regions instead of the traditional height of the estimated
-density surface.
+A system to help you organize projects. Most analyses have three (or more)
+main sections: code, results, and data, each with different requirements
+(version control/sharing/encryption). You provide folder locations and
+'org' helps you take care of the details.
 
 %prep
 %setup -q -c -n %{packname}

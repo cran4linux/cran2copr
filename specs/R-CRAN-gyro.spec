@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  gyro
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hyperbolic Geometry
 
@@ -16,27 +16,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-cxhull >= 0.3.0
+BuildRequires:    R-CRAN-clipr 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-Morpho 
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-Rvcg 
-BuildRequires:    R-CRAN-Morpho 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-clipr 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Rvcg 
+BuildRequires:    R-CRAN-RCDT 
+BuildRequires:    R-CRAN-randomcoloR 
 Requires:         R-CRAN-cxhull >= 0.3.0
+Requires:         R-CRAN-clipr 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-Morpho 
+Requires:         R-CRAN-plotrix 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-Rvcg 
-Requires:         R-CRAN-Morpho 
-Requires:         R-CRAN-purrr 
-Requires:         R-grDevices 
 Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-clipr 
-Requires:         R-CRAN-plotrix 
-Requires:         R-graphics 
+Requires:         R-CRAN-Rvcg 
+Requires:         R-CRAN-RCDT 
+Requires:         R-CRAN-randomcoloR 
 
 %description
 Hyperbolic geometry in the Minkowski model and the Poincaré model. The

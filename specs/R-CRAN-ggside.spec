@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ggside
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Side Grammar Graphics
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-grid 
 Requires:         R-CRAN-gtable 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-glue 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 
 %description
 The grammar of graphics as shown in 'ggplot2' has provided an expressive

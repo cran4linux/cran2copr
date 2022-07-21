@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  Rogue
-%global packver   2.1.0
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identify Rogue Taxa in Sets of Phylogenetic Trees
 
@@ -17,7 +17,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ape >= 5.0
 BuildRequires:    R-CRAN-cli >= 3.0
-BuildRequires:    R-CRAN-TreeTools >= 1.6.0
+BuildRequires:    R-CRAN-TreeTools >= 1.6.0.9007
 BuildRequires:    R-CRAN-Rdpack >= 0.7
 BuildRequires:    R-CRAN-TreeDist > 2.2.0
 BuildRequires:    R-CRAN-fastmatch 
@@ -28,7 +28,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ape >= 5.0
 Requires:         R-CRAN-cli >= 3.0
-Requires:         R-CRAN-TreeTools >= 1.6.0
+Requires:         R-CRAN-TreeTools >= 1.6.0.9007
 Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-CRAN-TreeDist > 2.2.0
 Requires:         R-CRAN-fastmatch 

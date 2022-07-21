@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  geoknife
-%global packver   1.6.6
+%global packver   1.6.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.6
+Version:          1.6.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Web-Processing of Large Gridded Datasets
 
@@ -22,16 +22,16 @@ BuildRequires:    R-CRAN-whisker
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-sf 
 Requires:         R-CRAN-progress >= 1.1.2
 Requires:         R-CRAN-httr >= 1.0.0
 Requires:         R-CRAN-whisker 
 Requires:         R-CRAN-xml2 
 Requires:         R-methods 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-sp 
 Requires:         R-utils 
+Requires:         R-CRAN-sf 
 
 %description
 Processes gridded datasets found on the U.S. Geological Survey Geo Data

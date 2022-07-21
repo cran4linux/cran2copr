@@ -1,38 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ggdensity
-%global packver   0.1.0
+%global packname  mallet
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interpretable Bivariate Density Visualization with 'ggplot2'
+Summary:          An R Wrapper for the Java Mallet Topic Modeling Toolkit
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+Requires:         java
+BuildRequires:    R-devel >= 3.6.3
+Requires:         R-core >= 3.6.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-isoband 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-isoband 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-rJava 
+BuildRequires:    R-CRAN-checkmate 
+Requires:         R-CRAN-rJava 
+Requires:         R-CRAN-checkmate 
 
 %description
-The 'ggplot2' package provides simple functions for visualizing contours
-of 2-d kernel density estimates. 'ggdensity' implements several additional
-density estimators as well as more interpretable visualizations based on
-highest density regions instead of the traditional height of the estimated
-density surface.
+An R interface for the Java Machine Learning for Language Toolkit (mallet)
+<http://mallet.cs.umass.edu/> to estimate probabilistic topic models, such
+as Latent Dirichlet Allocation. We can use the R package to read textual
+data into mallet from R objects, run the Java implementation of mallet
+directly in R, and extract results as R objects. The Mallet toolkit has
+many functions, this wrapper focuses on the topic modeling sub-package
+written by David Mimno. The package uses the rJava package to connect to a
+JVM.
 
 %prep
 %setup -q -c -n %{packname}

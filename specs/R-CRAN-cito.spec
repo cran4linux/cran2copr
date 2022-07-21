@@ -1,44 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  qgg
-%global packver   1.1.0
+%global packname  cito
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Tools for Quantitative Genetic Analyses
+Summary:          Building and Training Neural Networks
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-data.table 
-Requires:         R-parallel 
-Requires:         R-CRAN-statmod 
-Requires:         R-stats 
-Requires:         R-CRAN-MCMCpack 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-coro 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-torch 
+Requires:         R-CRAN-coro 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-torch 
 
 %description
-Provides an infrastructure for efficient processing of large-scale genetic
-and phenotypic data including core functions for: 1) fitting linear mixed
-models, 2) constructing marker-based genomic relationship matrices, 3)
-estimating genetic parameters (heritability and correlation), 4)
-performing genomic prediction and genetic risk profiling, and 5) single or
-multi-marker association analyses. Rohde et al. (2019)
-<doi:10.1101/503631>.
+Building and training custom neural networks in the typical R syntax. The
+'torch' package is used for numerical calculations, which allows for
+training on CPU as well as on a graphics card.
 
 %prep
 %setup -q -c -n %{packname}
