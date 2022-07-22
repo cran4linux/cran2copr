@@ -1,29 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  overlapping
-%global packver   1.8
+%global packname  EnrichIntersect
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Overlapping in Empirical Distributions
+Summary:          Enrichment Analysis and Intersecting Sankey Diagram
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-networkD3 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-webshot2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-testthat 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-networkD3 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-webshot2 
+Requires:         R-grDevices 
+Requires:         R-methods 
 
 %description
-Functions for estimating the overlapping area of two or more kernel
-density estimations from empirical data.
+A flexible tool for enrichment analysis based on user-defined sets is
+provided. It allows users to perform over-representation analysis of the
+custom sets among any specified ranked feature list, hence making
+enrichment analysis applicable to various types of data from different
+scientific fields. 'EnrichIntersect' also enables an interactive means to
+visualize identified associations based on, for example, the mix-lasso
+model (Zhao et al. (2022) <doi:10.1016/j.isci.2022.104767>) or similar
+methods.
 
 %prep
 %setup -q -c -n %{packname}

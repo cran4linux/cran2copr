@@ -1,14 +1,14 @@
 %global __brp_check_rpaths %{nil}
-%global packname  multiColl
-%global packver   2.0
+%global packname  robustmeta
+%global packver   1.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collinearity Detection in a Multiple Linear Regression Model
+Summary:          Robust Inference for Meta-Analysis with Influential Outlying Studies
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,15 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-metafor 
+Requires:         R-stats 
+Requires:         R-CRAN-metafor 
 
 %description
-The detection of worrying approximate collinearity in a multiple linear
-regression model is a problem addressed in all existing statistical
-packages. However, we have detected deficits regarding to the incorrect
-treatment of qualitative independent variables and the role of the
-intercept of the model. The objective of this package is to correct these
-deficits. In this package will be available detection and treatment
-techniques traditionally used as the recently developed.
+Robust inference methods for fixed-effect and random-effects models of
+meta-analysis are implementable. The robust methods are developed using
+the density power divergence that is a robust estimating criterion
+developed in machine learning theory, and can effectively circumvent
+biases and misleading results caused by influential outliers. The density
+power divergence is originally introduced by Basu et al. (1998)
+<doi:10.1093/biomet/85.3.549>, and the meta-analysis methods are developed
+by Noma et al. (2022) <forthcoming>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,42 +1,60 @@
 %global __brp_check_rpaths %{nil}
-%global packname  fossilbrush
-%global packver   1.0.3
+%global packname  did2s
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automated Cleaning of Fossil Occurrence Data
+Summary:          Two-Stage Difference-in-Differences Following Gardner (2021)
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-fixest >= 0.10.1
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-did 
+BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-staggered 
+BuildRequires:    R-CRAN-didimputation 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-fixest >= 0.10.1
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glue 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-did 
+Requires:         R-CRAN-broom 
 Requires:         R-methods 
+Requires:         R-CRAN-staggered 
+Requires:         R-CRAN-didimputation 
+Requires:         R-CRAN-boot 
 
 %description
-Functions to automate the detection and resolution of taxonomic and
-stratigraphic errors in fossil occurrence datasets. Functions were
-developed using data from the Paleobiology Database.
+Estimates Two-way Fixed Effects difference-in-differences/event-study
+models using the approach proposed by Gardner (2021). To avoid the
+problems caused by OLS estimation of the Two-way Fixed Effects model, this
+function first estimates the fixed effects and covariates using untreated
+observations and then in a second stage, estimates the treatment effects.
 
 %prep
 %setup -q -c -n %{packname}

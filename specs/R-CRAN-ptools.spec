@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ptools
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Poisson Data
 
@@ -22,8 +22,8 @@ BuildRequires:    R-CRAN-raster
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.utils 
 BuildRequires:    R-CRAN-rgeos 
-BuildRequires:    R-CRAN-maptools 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-partitions 
@@ -32,19 +32,19 @@ Requires:         R-CRAN-raster
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.utils 
 Requires:         R-CRAN-rgeos 
-Requires:         R-CRAN-maptools 
 Requires:         R-stats 
 Requires:         R-methods 
 
 %description
 Functions used for analyzing count data, mostly crime counts. Includes
 checking difference in two Poisson counts (e-test), checking the fit for a
-Poisson distribution, small sample tests for counts in bins (Wheeler,
-????) <doi:10.1002/jip.1449>, Weighted Displacement Difference test
-(Wheeler and Ratcliffe, 2018) <doi:10.1186/s40163-018-0085-5>, to evaluate
-crime changes over time in treated/control areas. Additionally includes
-functions for aggregating spatial data and spatial feature engineering.
+Poisson distribution, small sample tests for counts in bins, Weighted
+Displacement Difference test (Wheeler and Ratcliffe, 2018)
+<doi:10.1186/s40163-018-0085-5>, to evaluate crime changes over time in
+treated/control areas. Additionally includes functions for aggregating
+spatial data and spatial feature engineering.
 
 %prep
 %setup -q -c -n %{packname}

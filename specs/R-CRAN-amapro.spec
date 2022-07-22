@@ -1,31 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  factset.protobuf.stach.v2
-%global packver   1.0.3
+%global packname  amapro
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'FactSet' 'STACH V2' Library
+Summary:          Thin Wrapper for Mapping Library 'AMap' by 'AutoNavi'
 
-License:          Apache License 2.0
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RProtoBuf 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-RProtoBuf 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-tcltk >= 4.2.0
+BuildRequires:    R-CRAN-shiny >= 1.7.0
+BuildRequires:    R-CRAN-htmlwidgets 
+Requires:         R-tcltk >= 4.2.0
+Requires:         R-CRAN-shiny >= 1.7.0
+Requires:         R-CRAN-htmlwidgets 
 
 %description
-Generates 'RProtobuf' classes for 'FactSet' 'STACH V2' tabular format
-which represents complex multi-dimensional array of data. These classes
-help in the 'serialization' and 'deserialization' of 'STACH V2' formatted
-data. See 'GitHub' repository documentation for more information.
+Build and control interactive 2D and 3D maps with 'R/Shiny'.  Lean set of
+powerful commands wrapping native calls to 'AMap'
+<https://lbs.amap.com/api/jsapi-v2/summary/>. Deliver rich mapping
+functionality with minimal overhead.
 
 %prep
 %setup -q -c -n %{packname}

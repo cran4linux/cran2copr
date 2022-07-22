@@ -1,30 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  multiColl
-%global packver   2.0
+%global packname  MetaSKAT
+%global packver   0.82
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          0.82
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collinearity Detection in a Multiple Linear Regression Model
+Summary:          Meta Analysis for SNP-Set (Sequence) Kernel Association Test
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 2.13.0
+Requires:         R-core >= 2.13.0
+BuildRequires:    R-CRAN-SKAT >= 2.0.1
+Requires:         R-CRAN-SKAT >= 2.0.1
 
 %description
-The detection of worrying approximate collinearity in a multiple linear
-regression model is a problem addressed in all existing statistical
-packages. However, we have detected deficits regarding to the incorrect
-treatment of qualitative independent variables and the role of the
-intercept of the model. The objective of this package is to correct these
-deficits. In this package will be available detection and treatment
-techniques traditionally used as the recently developed.
+Functions for Meta-analysis Burden Test, Sequence Kernel Association Test
+(SKAT) and Optimal SKAT (SKAT-O) by Lee et al. (2013)
+<doi:10.1016/j.ajhg.2013.05.010>. These methods use summary-level score
+statistics to carry out gene-based meta-analysis for rare variants.
 
 %prep
 %setup -q -c -n %{packname}

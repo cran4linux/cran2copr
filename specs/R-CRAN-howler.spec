@@ -1,30 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  multiColl
-%global packver   2.0
+%global packname  howler
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collinearity Detection in a Multiple Linear Regression Model
+Summary:          'Shiny' Extension of 'howler.js'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-htmlwidgets 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
-The detection of worrying approximate collinearity in a multiple linear
-regression model is a problem addressed in all existing statistical
-packages. However, we have detected deficits regarding to the incorrect
-treatment of qualitative independent variables and the role of the
-intercept of the model. The objective of this package is to correct these
-deficits. In this package will be available detection and treatment
-techniques traditionally used as the recently developed.
+Audio interactivity within 'shiny' applications using 'howler.js'. Enables
+the status of the audio player to be sent from the UI to the server, and
+events such as playing and pausing the audio can be triggered from the
+server.
 
 %prep
 %setup -q -c -n %{packname}

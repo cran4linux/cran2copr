@@ -1,32 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cito
-%global packver   1.0.0
+%global packname  ensModelVis
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Building and Training Neural Networks
+Summary:          Visualisations for Model Ensembles
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-coro 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-torch 
-Requires:         R-CRAN-coro 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-torch 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
 
 %description
-Building and training custom neural networks in the typical R syntax. The
-'torch' package is used for numerical calculations, which allows for
-training on CPU as well as on a graphics card.
+Displays for model fits of multiple models and their ensembles. For
+classification models, the plots are heatmaps, for regression,
+scatterplots.
 
 %prep
 %setup -q -c -n %{packname}

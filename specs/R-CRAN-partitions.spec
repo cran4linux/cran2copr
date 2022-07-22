@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  partitions
-%global packver   1.10-4
+%global packver   1.10-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.4
+Version:          1.10.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Additive Partitions of Integers
 
@@ -19,16 +19,18 @@ BuildRequires:    R-CRAN-gmp
 BuildRequires:    R-CRAN-polynom 
 BuildRequires:    R-CRAN-sets 
 BuildRequires:    R-CRAN-mathjaxr 
+BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-gmp 
 Requires:         R-CRAN-polynom 
 Requires:         R-CRAN-sets 
 Requires:         R-CRAN-mathjaxr 
+Requires:         R-CRAN-Rdpack 
 
 %description
 Additive partitions of integers.  Enumerates the partitions, unequal
 partitions, and restricted partitions of an integer; the three
-corresponding partition functions are also given.  Set partitions and now
-compositions are included.
+corresponding partition functions are also given. Set partitions and now
+compositions and riffle shuffles are included.
 
 %prep
 %setup -q -c -n %{packname}

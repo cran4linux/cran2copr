@@ -1,30 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  multiColl
-%global packver   2.0
+%global packname  nextGenShinyApps
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collinearity Detection in a Multiple Linear Regression Model
+Summary:          Advanced Tools for Building the Next Generation of 'Shiny' Applications and Dashboards
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-htmltools 
+Requires:         R-utils 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-htmltools 
 
 %description
-The detection of worrying approximate collinearity in a multiple linear
-regression model is a problem addressed in all existing statistical
-packages. However, we have detected deficits regarding to the incorrect
-treatment of qualitative independent variables and the role of the
-intercept of the model. The objective of this package is to correct these
-deficits. In this package will be available detection and treatment
-techniques traditionally used as the recently developed.
+Responsive tools for designing and developing 'Shiny' dashboards and
+applications. The scripts and style sheets are based on 'jQuery'
+<https://jquery.com/> and 'Bootstrap' <https://getbootstrap.com/>.
 
 %prep
 %setup -q -c -n %{packname}

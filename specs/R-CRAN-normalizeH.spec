@@ -1,30 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  multiColl
-%global packver   2.0
+%global packname  normalizeH
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collinearity Detection in a Multiple Linear Regression Model
+Summary:          Normalize Hadamard Matrix
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 
 %description
-The detection of worrying approximate collinearity in a multiple linear
-regression model is a problem addressed in all existing statistical
-packages. However, we have detected deficits regarding to the incorrect
-treatment of qualitative independent variables and the role of the
-intercept of the model. The objective of this package is to correct these
-deficits. In this package will be available detection and treatment
-techniques traditionally used as the recently developed.
+Normalize a given Hadamard matrix. A Hadamard matrix is said to be
+normalized when its first row and first column entries are all 1, see
+Hedayat, A. and Wallis, W. D. (1978) "Hadamard matrices and their
+applications. The Annals of Statistics, 1184-1238."
+<doi:10.1214/aos/1176344370>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  AdaptFitOS
-%global packver   0.68
+%global packver   0.69
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.68
+Version:          0.69
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adaptive Semiparametric Additive Regression with Simultaneous Confidence Bands and Specification Tests
 

@@ -1,30 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  multiColl
-%global packver   2.0
+%global packname  rgrass
+%global packver   0.3-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collinearity Detection in a Multiple Linear Regression Model
+Summary:          Interface Between 'GRASS' Geographical Information System and 'R'
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-XML 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-methods 
 
 %description
-The detection of worrying approximate collinearity in a multiple linear
-regression model is a problem addressed in all existing statistical
-packages. However, we have detected deficits regarding to the incorrect
-treatment of qualitative independent variables and the role of the
-intercept of the model. The objective of this package is to correct these
-deficits. In this package will be available detection and treatment
-techniques traditionally used as the recently developed.
+An interface between the 'GRASS' geographical information system ('GIS')
+and 'R', based on starting 'R' from within the 'GRASS' 'GIS' environment,
+or running a free-standing 'R' session in a temporary 'GRASS' location;
+the package provides facilities for using all 'GRASS' commands from the
+'R' command line. The original interface package for 'GRASS 5' (2000-2010)
+is described in Bivand (2000) <doi:10.1016/S0098-3004(00)00057-1> and
+Bivand (2001)
+<https://www.r-project.org/conferences/DSC-2001/Proceedings/Bivand.pdf>.
+This was succeeded by 'spgrass6' for 'GRASS 6' (2006-2016) and 'rgrass7'
+for 'GRASS 7' (2015-present). The 'rgrass' package modernizes the
+interface for 'GRASS 8' while still permitting the use of 'GRASS 7'.
 
 %prep
 %setup -q -c -n %{packname}

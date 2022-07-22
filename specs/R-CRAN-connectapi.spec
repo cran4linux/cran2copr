@@ -1,61 +1,62 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dm
-%global packver   1.0.0
+%global packname  connectapi
+%global packver   0.1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Relational Data Models
+Summary:          Utilities for Interacting with the 'RStudio Connect' Server API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.0.0
-BuildRequires:    R-CRAN-cli >= 2.2.0
-BuildRequires:    R-CRAN-pillar >= 1.7.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.9
-BuildRequires:    R-CRAN-rlang >= 1.0.2
-BuildRequires:    R-CRAN-tidyselect >= 1.0.1
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-vctrs >= 0.3.2
-BuildRequires:    R-CRAN-backports 
-BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-rlang >= 0.4.2
+BuildRequires:    R-CRAN-vctrs >= 0.3.0
+BuildRequires:    R-CRAN-config 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-tibble >= 3.0.0
-Requires:         R-CRAN-cli >= 2.2.0
-Requires:         R-CRAN-pillar >= 1.7.0
-Requires:         R-CRAN-dplyr >= 1.0.9
-Requires:         R-CRAN-rlang >= 1.0.2
-Requires:         R-CRAN-tidyselect >= 1.0.1
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-vctrs >= 0.3.2
-Requires:         R-CRAN-backports 
-Requires:         R-CRAN-DBI 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-bit64 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-rlang >= 0.4.2
+Requires:         R-CRAN-vctrs >= 0.3.0
+Requires:         R-CRAN-config 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fs 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-memoise 
-Requires:         R-methods 
+Requires:         R-CRAN-progress 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-bit64 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Provides tools for working with multiple related tables, stored as data
-frames or in a relational database.  Multiple tables (data and metadata)
-are stored in a compound object, which can then be manipulated with a
-pipe-friendly syntax.
+Provides a helpful 'R6' class and methods for interacting with the
+'RStudio Connect' Server API along with some meaningful utility functions
+for regular tasks. API documentation varies by 'RStudio Connect'
+installation and version, but the latest documentation is also hosted
+publicly at <https://docs.rstudio.com/connect/api/>.
 
 %prep
 %setup -q -c -n %{packname}

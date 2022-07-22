@@ -1,30 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  multiColl
-%global packver   2.0
+%global packname  rGV
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collinearity Detection in a Multiple Linear Regression Model
+Summary:          Analysis of Continuous Glucose Monitor Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-chron 
+BuildRequires:    R-CRAN-pastecs 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-chron 
+Requires:         R-CRAN-pastecs 
+Requires:         R-CRAN-zoo 
 
 %description
-The detection of worrying approximate collinearity in a multiple linear
-regression model is a problem addressed in all existing statistical
-packages. However, we have detected deficits regarding to the incorrect
-treatment of qualitative independent variables and the role of the
-intercept of the model. The objective of this package is to correct these
-deficits. In this package will be available detection and treatment
-techniques traditionally used as the recently developed.
+Reads in continuous glucose monitor data of many different formats,
+calculates a host of glycemic variability metrics, and plots glucose over
+time.
 
 %prep
 %setup -q -c -n %{packname}
