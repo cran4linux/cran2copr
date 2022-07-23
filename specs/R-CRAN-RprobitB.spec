@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RprobitB
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayes Estimation of Latent Class Mixed Multinomial Probit Models
+Summary:          Bayesian Probit Choice Modeling
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,17 +18,45 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-mixtools 
+BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-plotROC 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-mixtools 
+Requires:         R-CRAN-doSNOW 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-plotROC 
+Requires:         R-CRAN-MASS 
 
 %description
-Fitting latent class mixed multinomial probit (LCMMNP) models to simulated
-or empirical choice data via Bayesian estimation. The number of latent
-classes can be updated within the algorithm on a weight-based strategy.
-For a reference on the method see Oelschlaeger and Bauer (2021)
-<https://trid.trb.org/view/1759753>.
+Bayes estimation of probit choice models, both in the cross-sectional and
+panel setting. The package can analyze binary, multivariate, ordered, and
+ranked choices, and places a special focus on modeling heterogeneity of
+choice behavior among deciders. The main functionality includes model
+fitting via Markov chain Monte Carlo methods, tools for convergence
+diagnostic, choice data simulation, in-sample and out-of-sample choice
+prediction, and model selection using information criteria and Bayes
+factors. The latent class model extension facilitates preference-based
+decider classification, where the number of latent classes can be inferred
+via the Dirichlet process or a weight-based updating scheme. This allows
+for flexible modeling of choice behavior without the need to impose
+structural constraints. For a reference on the method see Oelschlaeger and
+Bauer (2021) <https://trid.trb.org/view/1759753>.
 
 %prep
 %setup -q -c -n %{packname}

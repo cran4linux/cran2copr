@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  audubon
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Japanese Text Processing Tools
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-memoise
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-V8 
 Requires:         R-CRAN-rlang >= 0.4.11
 Requires:         R-CRAN-dplyr 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-memoise
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-V8 
 
 %description

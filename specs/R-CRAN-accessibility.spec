@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  accessibility
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Transport Accessibility Metrics
+Summary:          Transport Accessibility Measures
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,22 +16,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Rdpack >= 0.7
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
 Requires:         R-utils 
 
 %description
 A set of fast and convenient functions to calculate multiple transport
-accessibility measures. Given a pre-computed travel cost matrix in long
-format combined with land-use data (e.g. location of jobs, healthcare,
-population), the package allows one to calculate active and passive
-accessibility levels using multiple accessibility metrics such as:
-cumulative opportunity measure (using either travel time cutoff or
-interval), minimum travel cost to closest N number of activities,
-gravitational measures and different floating catchment area methods.
+accessibility measures. Given a pre-computed travel cost matrix and a land
+use dataset (containing the location of jobs, healthcare and population,
+for example), the package allows one to calculate active and passive
+accessibility levels using multiple accessibility measures, such as:
+cumulative opportunities (using either travel cost cutoffs or intervals),
+minimum travel cost to closest N number of activities, gravity-based (with
+different decay functions) and different floating catchment area methods.
 
 %prep
 %setup -q -c -n %{packname}

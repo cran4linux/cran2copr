@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  treePlotArea
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Correction Factors for Tree Plot Areas Intersected by Stand Boundaries
 
@@ -19,9 +19,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-fritools 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-fritools 
 Requires:         R-graphics 
 Requires:         R-CRAN-sf 
+Requires:         R-stats 
 
 %description
 The German national forest inventory uses angle count sampling, a sampling
