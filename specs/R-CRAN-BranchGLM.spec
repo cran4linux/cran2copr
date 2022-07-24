@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  BranchGLM
-%global packver   1.1.3
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Branch and Bound Variable Selection for GLMs using 'RcppArmadillo'
 

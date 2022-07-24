@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  radiant.basics
-%global packver   1.4.1
+%global packver   1.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Basics Menu for Radiant: Business Analytics using R and Shiny
 
@@ -21,7 +21,7 @@ BuildRequires:    R-CRAN-psych >= 1.8.3.3
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
 BuildRequires:    R-CRAN-shiny >= 1.7.1
 BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-radiant.data >= 1.4.1
+BuildRequires:    R-CRAN-radiant.data >= 1.4.4
 BuildRequires:    R-CRAN-import >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.7
 BuildRequires:    R-CRAN-patchwork >= 1.0.0
@@ -33,7 +33,7 @@ Requires:         R-CRAN-psych >= 1.8.3.3
 Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-shiny >= 1.7.1
 Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-radiant.data >= 1.4.1
+Requires:         R-CRAN-radiant.data >= 1.4.4
 Requires:         R-CRAN-import >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.7
 Requires:         R-CRAN-patchwork >= 1.0.0
