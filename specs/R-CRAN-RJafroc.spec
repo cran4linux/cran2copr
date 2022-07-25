@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  RJafroc
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Artificial Intelligence Systems and Observer Performance
 
@@ -44,24 +44,24 @@ Requires:         R-utils
 
 %description
 Analyzing the performance of artificial intelligence (AI)
-systems/algorithms characterized by a "search-and-report" strategy. While
-historically observer performance has dealt with measuring radiologists'
-performance in search tasks – i.e., searching for lesions in medical
-images and reporting them - the software described here applies equally to
-any task involving searching for and reporting arbitrary targets in
-images. The package can be used to analyze the performance of AI systems,
-compare AI performance to a group of human readers or optimize the
-reporting threshold of an AI system. In addition to performing
-conventional receiver operating characteristic (ROC) analysis
-(localization information ignored), the software also performs
-free-response receiver operating characteristic (FROC) analysis, where
-lesion localization information is integral to the analyzed data. A book
+systems/algorithms characterized by a 'search-and-report' strategy.
+Historically observer performance has dealt with measuring radiologists'
+performances in search tasks, e.g., searching for lesions in medical
+images and reporting them, but the implicit location information has been
+ignored. The implemented methods apply to analyzing the absolute and
+relative performances of AI systems, comparing AI performance to a group
+of human readers or optimizing the reporting threshold of an AI system. In
+addition to performing historical receiver operating receiver operating
+characteristic (ROC) analysis (localization information ignored), the
+software also performs free-response receiver operating characteristic
+(FROC) analysis, where lesion localization information is used. A book
 using the software has been published: Chakraborty DP: Observer
 Performance Methods for Diagnostic Imaging - Foundations, Modeling, and
-Applications with R-Based Examples, Taylor-Francis LLC; 2017. An online
-update of this book is at <https://dpc10ster.github.io/RJafrocBook/>.
-Illustrations of the software (vignettes) are at
-<https://dpc10ster.github.io/RJafroc/>. Supported data collection
+Applications with R-Based Examples, Taylor-Francis LLC; 2017. Online
+updates to this book, which use the software, are at
+<https://dpc10ster.github.io/RJafrocQuickStart/>,
+<https://dpc10ster.github.io/RJafrocRocBook/> and at
+<https://dpc10ster.github.io/RJafrocFrocBook/>. Supported data collection
 paradigms are the ROC, FROC and the location ROC (LROC). ROC data consists
 of single ratings per images, where a rating is the perceived confidence
 level that the image is that of a diseased patient. An ROC curve is a plot
@@ -74,21 +74,21 @@ models of observer performance, and curve-fitting software, are
 implemented: the binormal model (BM), the contaminated binormal model
 (CBM), the correlated contaminated binormal model (CORCBM), and the
 radiological search model (RSM). Unlike the binormal model, CBM, CORCBM
-and RSM predict "proper" ROC curves that do not inappropriately cross the
+and RSM predict 'proper' ROC curves that do not inappropriately cross the
 chance diagonal. Additionally, RSM parameters are related to search
 performance (not measured in conventional ROC analysis) and classification
 performance. Search performance refers to finding lesions, i.e., true
 positives, while simultaneously not finding false positive locations.
 Classification performance measures the ability to distinguish between
 true and false positive locations. Knowing these separate performances
-allows principled optimization of reader or AI system performance. RJafroc
-supersedes Windows JAFROC (jackknife alternative FROC) software V4.2.1,
-<https://github.com/dpc10ster/WindowsJafroc>. Package functions are
-organized as follows. Data file related function names are preceded by
-"Df", curve fitting functions by "Fit", included data sets by "dataset",
-plotting functions by "Plot", significance testing functions by "St",
-sample size related functions by "Ss", data simulation functions by
-"Simulate" and utility functions by "Util". Implemented are figures of
+allows principled optimization of reader or AI system performance. This
+package supersedes Windows JAFROC (jackknife alternative FROC) software
+V4.2.1, <https://github.com/dpc10ster/WindowsJafroc>. Package functions
+are organized as follows. Data file related function names are preceded by
+'Df', curve fitting functions by 'Fit', included data sets by 'dataset',
+plotting functions by 'Plot', significance testing functions by 'St',
+sample size related functions by 'Ss', data simulation functions by
+'Simulate' and utility functions by 'Util'. Implemented are figures of
 merit (FOMs) for quantifying performance and functions for visualizing
 empirical or fitted operating characteristics: e.g., ROC, FROC,
 alternative FROC (AFROC) and weighted AFROC (wAFROC) curves. For fully
@@ -107,9 +107,10 @@ study to achieve the desired power. Utility and data file manipulation
 functions allow data to be read in any of the currently used input
 formats, including Excel, and the results of the analysis can be viewed in
 text or Excel output files. The methods are illustrated with several
-included datasets from the author's collaborations. This version corrects
-bugs, simplifies usage of the software and updates the dataset structure.
-All changes are noted in NEWS.
+included datasets from the author's collaborations. This update includes
+improvements to the code, some as a result of user-reported bugs and new
+feature requests, and others discovered during ongoing testing and code
+simplification.
 
 %prep
 %setup -q -c -n %{packname}
@@ -119,6 +120,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
