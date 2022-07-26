@@ -27,29 +27,13 @@ jobs:
       run:  echo "IMAGE=${IMAGE,,}" >> ${GITHUB_ENV}
 
     - name: Checkout
-      uses: actions/checkout@v2
-
-    # See https://bugzilla.redhat.com/show_bug.cgi?id=1988199
-    # source: https://github.com/gotmax23/Containerfiles/blob/main/.github/workflows/systemd-Fedora.35-ci.yml
-    - name: Download Docker with patched seccomp
-      run: |
-        sudo systemctl stop docker containerd
-        sudo apt-get remove --autoremove -y moby-engine moby-cli moby-buildx moby-containerd moby-runc
-        sudo add-apt-repository -y ppa:pascallj/docker.io-clone3
-        sudo apt-get install -y docker.io
-        mkdir ~/.docker/cli-plugins
-        DOCKER_BUILDX_RELEASE=$(curl -sX GET "https://api.github.com/repos/docker/buildx/releases/latest" | jq -r .tag_name)
-        wget https://github.com/docker/buildx/releases/download/"${DOCKER_BUILDX_RELEASE}"/buildx-"${DOCKER_BUILDX_RELEASE}".linux-amd64 -O ~/.docker/cli-plugins/docker-buildx
-        chmod a+x ~/.docker/cli-plugins/docker-buildx
+      uses: actions/checkout@v3
 
     - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v1
-      # required for patched seccomp
-      with:
-          driver-opts: image=moby/buildkit:master
+      uses: docker/setup-buildx-action@v2
 
     - name: Cache Docker layers
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: /tmp/.buildx-cache
         key: ${{ runner.os }}-buildx-${{ matrix.release }}-${{ github.sha }}
@@ -57,14 +41,14 @@ jobs:
           ${{ runner.os }}-buildx-${{ matrix.release }}-
 
     - name: Login to registry
-      uses: docker/login-action@v1
+      uses: docker/login-action@v2
       with:
         registry: ${{ env.REGISTRY }}
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Build and push
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v3
       with:
         context: docker
         pull: true
