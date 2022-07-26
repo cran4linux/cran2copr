@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  rassta
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Raster-Based Spatial Stratification Algorithms
 
@@ -17,7 +17,6 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-plotly >= 4.9.4.1
-BuildRequires:    R-CRAN-raster >= 3.4.13
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
 BuildRequires:    R-CRAN-kohonen >= 3.0.10
 BuildRequires:    R-CRAN-KernSmooth >= 2.23.18
@@ -38,7 +37,6 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-plotly >= 4.9.4.1
-Requires:         R-CRAN-raster >= 3.4.13
 Requires:         R-CRAN-ggplot2 >= 3.3.5
 Requires:         R-CRAN-kohonen >= 3.0.10
 Requires:         R-CRAN-KernSmooth >= 2.23.18

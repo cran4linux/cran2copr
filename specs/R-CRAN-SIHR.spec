@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  SIHR
-%global packver   0.2.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Inference in High Dimensional Regression
 
@@ -17,26 +17,19 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-CVXR 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-scalreg 
-BuildRequires:    R-CRAN-qpdf 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-CVXR 
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-scalreg 
-Requires:         R-CRAN-qpdf 
+Requires:         R-stats 
 
 %description
 Inference procedures in the high-dimensional setting for (1) linear
-functionals and quadratic functionals in linear regression ('Cai et al.'
-(2019) <arXiv:1904.12891>, 'Guo et al.' (2019) <arXiv:1909.01503>), (2)
-linear functional in logistic regression ('Guo et al.'
-<arXiv:2012.07133>), (3) individual treatment effects in linear and
-logistic regression, (4) single regression coefficient in binary outcome
-regression.
+functionals in generalized linear regression ('Cai et al.' (2019)
+<arXiv:1904.12891>, 'Guo et al.' (2020) <arXiv:2012.07133>, 'Cai et al.'
+(2021)), (2) individual treatment effects in generalized linear
+regression, (3) quadratic functionals in linear regression ('Guo et al.'
+(2019) <arXiv:1909.01503>).
 
 %prep
 %setup -q -c -n %{packname}
