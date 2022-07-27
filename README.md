@@ -1,4 +1,4 @@
-# cran2copr: RPM repository of CRAN packages for Fedora
+# cran2copr: RPM repo of CRAN packages for Fedora
 
 [![Daily sync](https://github.com/Enchufa2/cran2copr/actions/workflows/sync.yml/badge.svg)](https://github.com/Enchufa2/cran2copr/actions/workflows/sync.yml)
 [![Docker images](https://github.com/Enchufa2/cran2copr/actions/workflows/docker.yml/badge.svg)](https://github.com/Enchufa2/cran2copr/actions/workflows/docker.yml)
