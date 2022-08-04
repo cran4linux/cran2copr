@@ -1,5 +1,5 @@
 pkg,build,run,revised,comment
-abn,gsl-devel,,FALSE,Gnu Scientific Library version
+abn,gsl-devel,,TRUE,Gnu Scientific Library version
 adimpro,,ImageMagick dcraw,FALSE,"Image Magick (for reading non PPM format), dcraw(for reading RAW images)."
 admixr,,,FALSE,ADMIXTOOLS suite of command-line utilities forpopulation genetics. See<https://reich.hms.harvard.edu/software> for the most recentinstallation instructions and further information.
 alfr,,,FALSE,Alfresco Content Repository (Community orEnterprise)
@@ -40,7 +40,7 @@ bayesplot,,pandoc,FALSE,"pandoc, pandoc-citeproc"
 BayesPostEst,,,TRUE,JAGS (http://mcmc-jags.sourceforge.io)
 BayesSAE,gsl-devel,,TRUE,
 BayesTools,,,TRUE,JAGS(https://mcmc-jags.sourceforge.io/)
-BayesVarSel,gsl-devel,,FALSE,GNU Scientific Library
+BayesVarSel,gsl-devel,,TRUE,GNU Scientific Library
 bbl,gsl-devel,,TRUE,
 bbsBayes,,,TRUE,JAGS(https://sourceforge.net/projects/mcmc-jags/)
 bcgam,,,FALSE,"Rtools for Windows, Xcode for MacOS X"
@@ -188,13 +188,13 @@ docxtractr,,libreoffice,FALSE,LibreOffice (<https://www.libreoffice.org/>)requir
 domino,,,FALSE,domino (~>1.7.1)
 dpa,xorg-x11-server-Xvfb,tcl tk bwidget,TRUE,
 DRIP,gsl-devel,,TRUE,
-dti,gsl-devel,,FALSE,gsl
+dti,gsl-devel,,TRUE,gsl
 duckdb,,,FALSE,GCC on Solaris
 DynareR,,,FALSE,"Dynare, Octave"
 dynaSpec,,,FALSE,ffmpeg
 dynBiplotGUI,xorg-x11-server-Xvfb,,FALSE,gmake
 dynr,gsl-devel,,TRUE,
-eaf,gsl-devel,,FALSE,Gnu Scientific Library
+eaf,gsl-devel,,TRUE,Gnu Scientific Library
 easyNCDF,netcdf-devel,,FALSE,netcdf development libraries
 ech,,,FALSE,"'unrar' (Linux/macOS) or '7-Zip' (Windows) to workwith '.rar' files, GDAL, GEOS, PROJ"
 EcoDiet,,,TRUE,JAGS
@@ -245,7 +245,7 @@ forestFloor,mesa-libGL-devel mesa-libGLU-devel zlib-devel,,TRUE,
 forImage,,,FALSE,"Python, numpy, imutils, scipy, pandas, Pillow, opencv"
 forsearch,,,FALSE,gmp
 frequency,,pandoc,FALSE,pandoc - http://pandoc.org
-fRLR,gsl-devel,,FALSE,GNU Scientific Library (GSL). Note: users shouldhave GSL installed.
+fRLR,gsl-devel,,TRUE,GNU Scientific Library (GSL). Note: users shouldhave GSL installed.
 fsdaR,,,FALSE,"(license-free) MATLAB Runtime (MCR) V, Java(>=8)"
 fst,,,FALSE,little-endian platform
 fstcore,,,FALSE,little-endian platform
@@ -261,7 +261,7 @@ gdalUtils,,gdal,TRUE,
 gdata,,perl,FALSE,perl
 gdtools,cairo-devel,,FALSE,"cairo, freetype2, fontconfig"
 GeneralizedUmatrix,,,FALSE,"pandoc, needed forvignettes)"
-GeneralizedWendland,,,FALSE,gsl
+GeneralizedWendland,gsl-devel,,TRUE,gsl
 genie,,,FALSE,"OpenMP,"
 genieclust,,,FALSE,"OpenMP,"
 genlogis,,,FALSE,RStudio - http://www.rstudio.com/products/rstudio/
@@ -295,7 +295,7 @@ gmp,gmp-devel,,FALSE,gmp
 gmt,,GMT,FALSE,gmt
 gnn,,,FALSE,TensorFlow (https://www.tensorflow.org/)
 govdown,,,FALSE,pandoc - http://pandoc.org
-GPBayes,,,FALSE,GNU Scientific Library version
+GPBayes,gsl-devel,,TRUE,GNU Scientific Library version
 gpg,gpgme-devel haveged-devel,,FALSE,"GPGME: libgpgme-dev (deb), gpgme-devel (rpm) gpgme(brew). On Linux 'haveged' is recommended for generatingentropy when using the GPG key generator."
 gpuR,pocl-devel,,TRUE,
 GRANBase,,subversion git,FALSE,"svn, git"
@@ -308,8 +308,8 @@ gridGraphviz,,,FALSE,graphviz
 grImport,,ghostscript,FALSE,ghostscript
 GroupSeq,xorg-x11-server-Xvfb,,TRUE,
 grwat,,,FALSE,pandoc
-gsl,gsl-devel,,FALSE,Gnu Scientific Library version
-gslnls,,,FALSE,GSL
+gsl,gsl-devel,,TRUE,Gnu Scientific Library version
+gslnls,gsl-devel,,TRUE,GSL
 gsynth,,,FALSE,A  compiler.
 gWidgets2tcltk,xorg-x11-server-Xvfb,,TRUE,
 gWidgetstcltk,xorg-x11-server-Xvfb,,TRUE,
@@ -320,7 +320,7 @@ h2o,,java,FALSE,"Java, <="
 h2o4gpu,python3-devel,,FALSE,Python with header files and sharedlibrary; H2O4GPU (https://github.com/h2oai/h2o4gpu)
 h3jsr,,,FALSE,"V8 engine version+ is needed for modern JS andWASM support. On Debian / Ubuntu install either libv8-dev orlibnode-dev, on Fedora use v8-devel."
 h5,hdf5-devel,,TRUE,
-hadron,gsl-devel,,FALSE,Gnu Scientific Library version
+hadron,gsl-devel,,TRUE,Gnu Scientific Library version
 haven,,,FALSE,"zlib: zlib1g-dev (deb), zlib-devel(rpm)"
 hdf5r,hdf5-devel,,FALSE,HDF5
 hdfqlr,,,FALSE,HDFql
@@ -391,19 +391,19 @@ KoNLP,,java,TRUE,
 KRIG,gsl-devel,,TRUE,
 KSgeneral,fftw-devel,,FALSE,"fftw3,"
 kza,fftw-devel,,FALSE,fftw
-landsepi,gsl-devel gdal-devel,,FALSE,gsl
+landsepi,gsl-devel,,TRUE,gsl
 languageserversetup,,,FALSE,"procps (linux), ps (macos), wmic (windows)"
 latdiag,,graphviz,FALSE,dot from graphviz
 latexdiffr,,,FALSE,latexdiff
 latte,,4ti2,FALSE,"LattE <https://www.math.ucdavis.edu/~latte/>,ti2<http://www.4ti2.de/>"
 lazyarray,,,FALSE,little-endian platform
-LCMCR,gsl-devel,,FALSE,Gnu Scientific Library version
+LCMCR,gsl-devel,,TRUE,Gnu Scientific Library version
 lcra,,,TRUE,JAGSx.y or WinBUGS
 LeafArea,,imagej,FALSE,"ImageJ, ij.jar (seehttp://imagej.nih.gov/ij/), Java"
 ledger,,ledger hledger,FALSE,"ledger, hledger, beancount"
 leidenAlg,,,FALSE,"(optional), libxml2 (optional),glpk, optional)"
 libamtrack,gsl-devel,,TRUE,
-Libra,gsl-devel,,FALSE,GNU Scientific Library (GSL)
+Libra,gsl-devel,,TRUE,GNU Scientific Library (GSL)
 libsoc,libxml2-devel,,FALSE,"libxml2: libxml2-dev (deb), libxml2-devel (rpm)"
 libstableR,gsl-devel,,FALSE,GNU GSL
 liftr,,docker,FALSE,Docker (see <https://docs.docker.com/install/>)
@@ -746,7 +746,7 @@ rGroovy,,java,FALSE,Java
 RGtk2,cairo-devel atk-devel pango-devel gtk2-devel glib2-devel,,TRUE,
 RH2,,java,FALSE,java runtime
 Rhpc,openmpi-devel,,TRUE,
-ridge,gsl-devel,,FALSE,Gnu Scientific Library version
+ridge,gsl-devel,,TRUE,Gnu Scientific Library version
 rim,,,FALSE,"Maxima (https://sourceforge.net/projects/maxima/,tested with versions, needs to be on PATH"
 riot,,,FALSE,cmake used only but systematically onmacOS and Linux platforms to build VTK from source.
 RJaCGH,zlib-devel,,TRUE,
@@ -839,7 +839,7 @@ RTD,,,FALSE,"embulk, embulk-output-td"
 RTest,ImageMagick-c++-devel,,TRUE,
 rtiff,libtiff-devel,,TRUE,
 rtika,,java,TRUE,
-rtmpt,gsl-devel,,FALSE,GSL
+rtmpt,gsl-devel,,TRUE,GSL
 rTorch,,,FALSE,"""conda (python>=3.6 pytorch torchvision cpuonlynumpy matplotlib pandas -c pytorch);python-minimal, pandoc pandoc-citeproc, qpdf; Python,pytorch, torchvision, cpuonly, numpy;pandoc, qpdf on Solaris"""
 runjags,jags-devel,,TRUE,JAGS(https://mcmc-jags.sourceforge.io/)
 ruta,,,FALSE,Python; keras <https://keras.io/>
@@ -889,9 +889,9 @@ shortcuts,,,FALSE,RStudio
 showtext,zlib-devel libpng-devel freetype-devel,,FALSE,"zlib, libpng, FreeType"
 SIBER,,,TRUE,JAGS
 simhelpers,,,FALSE,RStudio
-SimInf,gsl-devel,,FALSE,GNU Scientific Library (GSL)
+SimInf,gsl-devel,,TRUE,GNU Scientific Library (GSL)
 simplermarkdown,,,FALSE,Pandoc (http://pandoc.org) needs to installed andavailable in the search path.
-simplexreg,gsl-devel,,FALSE,GNU Scientific Library version
+simplexreg,gsl-devel,,TRUE,GNU Scientific Library version
 slowraker,,java,FALSE,Java
 smam,gsl-devel,,FALSE,"GNU GSL,"
 smile,,,FALSE,"GDAL, GEOS, PROJ"
@@ -990,7 +990,7 @@ tkrplot,,,FALSE,Windows or X11
 tkRplotR,xorg-x11-server-Xvfb,tcl tk,FALSE,Tcl/Tk
 TMB,,gcc-c++,TRUE,
 TooManyCellsR,,,FALSE,'TooManyCells'(https://github.com/GregorySchwartz/too-many-cells)
-topicmodels,gsl-devel,,FALSE,"GNU Scientific Library version,"
+topicmodels,gsl-devel,,TRUE,"GNU Scientific Library version,"
 topicmodels.etm,,,FALSE,LibTorch (https://pytorch.org/)
 torch,,,FALSE,LibTorch (https://pytorch.org/)
 trackdem,,,FALSE,"Python, Libav, ExifTool"
@@ -1013,7 +1013,7 @@ valection,,,FALSE,valection
 vapour,gdal-devel proj-devel sqlite-devel,,FALSE,"GDAL, PROJ.4,"
 varitas,,,FALSE,"perl, bedtools, bwa"
 vaultr,,,FALSE,vault
-VBLPCM,gsl-devel,,FALSE,Gnu Scientific Library
+VBLPCM,gsl-devel,,TRUE,Gnu Scientific Library
 vcfR,devscripts-checkbashisms,,TRUE,
 vdiffr,,,FALSE,libpng
 vegawidget,,,FALSE,To use image functions for MacOS: X11
