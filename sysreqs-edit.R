@@ -5,7 +5,7 @@ names(cran) <- c("pkg", "nc", "dep", "imp")
 deps <- read.csv("sysreqs.csv", na.strings="", stringsAsFactors=FALSE)
 deps <- merge(deps, cran, all.x=TRUE)
 deps$revised <- as.factor(deps$revised)
-deps$nc <- deps$nc == "yes"
+deps$nc <- as.factor(deps$nc == "yes")
 comment <- deps$comment; deps$comment <- NULL; deps$comment <- comment
 
 deps <- DataEditR::data_edit(
