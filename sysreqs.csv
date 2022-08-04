@@ -7,7 +7,7 @@ altair,,,TRUE,"Python, (Python) Altair,vega_datasets. To use image functions for
 altmeta,,,TRUE,JAGSx.y (http://mcmc-jags.sourceforge.net)
 AMAPVox,,R-java,TRUE,Java-Bit (Oracle or Corretto)
 AncestryMapper,,,FALSE,"None, but greater thanGB of RAM highlyrecommended."
-animation,,ImageMagick tex(latex),FALSE,ImageMagick (http://imagemagick.org) orGraphicsMagick (http://www.graphicsmagick.org) or LyX(http://www.lyx.org) for saveGIF(); (PDF)LaTeX for saveLatex();SWF Tools (http://swftools.org) for saveSWF(); FFmpeg(http://ffmpeg.org) or avconv (https://libav.org/avconv.html)for saveVideo()
+animation,,tex(latex),TRUE,ImageMagick (http://imagemagick.org) orGraphicsMagick (http://www.graphicsmagick.org) or LyX(http://www.lyx.org) for saveGIF(); (PDF)LaTeX for saveLatex();SWF Tools (http://swftools.org) for saveSWF(); FFmpeg(http://ffmpeg.org) or avconv (https://libav.org/avconv.html)for saveVideo()
 anticlust,glpk-devel,,TRUE,The exact (anti)clustering algorithms require thatthe GNU linear programming kit (GLPK library) is installed(<http://www.gnu.org/software/glpk/>). Rendering the vignetterequires pandoc.
 apache.sedona,,,FALSE,'Apache Spark'x orx
 apcf,geos-devel,,TRUE,GEOS
@@ -119,7 +119,7 @@ cogmapr,,,FALSE,libcurl: libcurl-devel (rpm) orlibcurl4-openssl-dev (deb).
 CollapsABEL,,java mariadb-server,TRUE,
 collector,,pandoc,TRUE,
 collUtils,,"",TRUE,Java
-colorizer,,,FALSE,ImageMagick++: ImageMagick-c++-devel (rpm) orlibmagick++-dev (deb)
+colorizer,,,TRUE,ImageMagick++: ImageMagick-c++-devel (rpm) orlibmagick++-dev (deb)
 COMBIA,,perl,TRUE,
 CommonJavaJars,,R-java,TRUE,Java
 concaveman,,,FALSE,"GDAL, GEOS, PROJ.4"
@@ -338,7 +338,7 @@ HydeNet,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
 iai,,,TRUE,Julia and Interpretable AI System Image(>=
 IceSat2R,,,FALSE,"gdal-bin: apt install -y gdal-bin (deb),libgdal-dev: apt install -y libgdal-dev (deb), libudunits2-dev:apt install -y libudunits2-dev (deb), libgeos-dev: apt install-y libgeos-dev (deb), libproj-dev: apt install -y libproj-dev(deb), unzip: apt install unzip (deb)"
 idiogramFISH,,,FALSE,pandoc
-idm,,ImageMagick,FALSE,ImageMagick (http://imagemagick.org) orGraphicsMagick (http://www.graphicsmagick.org)
+idm,,"",TRUE,ImageMagick (http://imagemagick.org) orGraphicsMagick (http://www.graphicsmagick.org)
 ieeeround,,,TRUE,A C library with the fesetround/fegetroundfunctions.
 igate,,,FALSE,pandoc - http://pandoc.org
 igraph,gmp-devel libxml2-devel glpk-devel,,TRUE,"gmp (optional), libxml2 (optional), glpk,optional),"
@@ -419,7 +419,7 @@ lubridate,,,TRUE,A system with zoneinfo data (e.g./usr/share/zoneinfo). On Windo
 lwgeom,geos-devel proj-devel sqlite-devel,,TRUE,"GEOS, PROJ, sqlite3"
 m2r,,,TRUE,Macaulay2 <http://www.math.uiuc.edu/Macaulay2/>
 magick,ImageMagick-c++-devel,,TRUE,ImageMagick++: ImageMagick-c++-devel (rpm) orlibmagick++-dev (deb)
-magickGUI,,ImageMagick,FALSE,ImageMagick
+magickGUI,,"",TRUE,ImageMagick
 maGUI,,,FALSE,Tktable
 mailR,,"",TRUE,Java
 mallet,,"",TRUE,java
@@ -466,7 +466,7 @@ MonetDB.R,,,TRUE,"MonetDB, available from http://www.monetdb.org"
 mongolite,openssl-devel cyrus-sasl-devel,,TRUE,"OpenSSL, Cyrus SASL (aka libsasl2)"
 monoreg,gsl-devel,,TRUE,GNU GSL
 motifr,,python3dist(numpy) python3dist(pandas),TRUE,"Python, numpy, pandas"
-moveVis,,,FALSE,"ImageMagick, FFmpeg, libav"
+moveVis,,,TRUE,"ImageMagick, FFmpeg, libav"
 MplusTrees,,,FALSE,'Mplus' (<http://www.statmodel.com>)
 mscstexta4r,,,FALSE,"A valid account MUST be registered with Microsoft'sCognitive Services website<https://www.microsoft.com/cognitive-services/> in order toobtain a (free) API key. Without an API key, this package willnot work properly."
 mscsweblm4r,,,FALSE,"A valid account MUST be registered with Microsoft'sCognitive Services website<https://www.microsoft.com/cognitive-services/> in order toobtain a (free) API key. Without an API key, this package willnot work properly."
@@ -499,7 +499,7 @@ nmslibR,,,TRUE,"python3-dev: apt-get install -y python3-dev (deb),python3-pip: a
 NobBS,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net/) foranalysis of Bayesian hierarchical models
 nomnoml,,,FALSE,PhantomJS (http://phantomjs.org) for takingscreenshots
 nucim,,,FALSE,tiff fftw libcurl openssl
-oceanmap,,ImageMagick,FALSE,ImageMagick
+oceanmap,,ImageMagick,TRUE,ImageMagick
 ODB,,zip,FALSE,zip
 odbc,unixODBC-devel,,TRUE,An ODBC3 driver manager anddrivers.
 oddsapiR,,,FALSE,"pandoc, pandoc-citeproc"
@@ -977,7 +977,7 @@ tfestimators,,,FALSE,TensorFlow (https://www.tensorflow.org/)
 tfhub,,,FALSE,TensorFlow(https://www.tensorflow.org/)
 tfio,,,FALSE,TensorFlow(https://www.tensorflow.org/)and TensorFlow IO(https://github.com/tensorflow/io)
 tfprobability,,,FALSE,TensorFlow Probability(https://www.tensorflow.org/probability)
-Thermimage,,perl(Image::ExifTool) ImageMagick,FALSE,"exiftool, perl, ffmpeg, imagemagick"
+Thermimage,,perl(Image::ExifTool) ImageMagick,TRUE,"exiftool, perl, ffmpeg, imagemagick"
 tidycwl,,,FALSE,"PhantomJS (https://phantomjs.org), pandoc - https://pandoc.org."
 tiff,libjpeg-turbo-devel libtiff-devel,,TRUE,tiff and jpeg libraries
 tikzDevice,texlive-pgf,texlive-pgf,TRUE,pgf
