@@ -4,7 +4,7 @@ adimpro,,ImageMagick dcraw,FALSE,"Image Magick (for reading non PPM format), dcr
 admixr,,,FALSE,ADMIXTOOLS suite of command-line utilities forpopulation genetics. See<https://reich.hms.harvard.edu/software> for the most recentinstallation instructions and further information.
 alfr,,,FALSE,Alfresco Content Repository (Community orEnterprise)
 altair,,,FALSE,"Python, (Python) Altair,vega_datasets. To use image functions for MacOS: X11"
-altmeta,,,FALSE,JAGSx.y (http://mcmc-jags.sourceforge.net)
+altmeta,,,TRUE,JAGSx.y (http://mcmc-jags.sourceforge.net)
 AMAPVox,,,FALSE,Java-Bit (Oracle or Corretto)
 AncestryMapper,,,FALSE,"None, but greater thanGB of RAM highlyrecommended."
 animation,,ImageMagick tex(latex),FALSE,ImageMagick (http://imagemagick.org) orGraphicsMagick (http://www.graphicsmagick.org) or LyX(http://www.lyx.org) for saveGIF(); (PDF)LaTeX for saveLatex();SWF Tools (http://swftools.org) for saveSWF(); FFmpeg(http://ffmpeg.org) or avconv (https://libav.org/avconv.html)for saveVideo()
@@ -25,34 +25,34 @@ av,,,FALSE,"FFmpeg; with at least libx264 and lame(mp3) drivers. Debian/Ubuntu: 
 AWR,,,FALSE,AWS Java SDK (see README.md for more details)
 babelwhale,,docker singularity,FALSE,Docker and/or Singularity
 babette,,,FALSE,BEAST2 (https://www.beast2.org/)
-bacistool,,,FALSE,JAGS
+bacistool,,,TRUE,JAGS
 BALD,jags-devel,,TRUE,
-bamdit,,,FALSE,JAGS (seehttp://mcmc-jags.sourceforge.net)
-BANOVA,,,FALSE,"JAGS-4.3.0,"
+bamdit,,,TRUE,JAGS (seehttp://mcmc-jags.sourceforge.net)
+BANOVA,,,TRUE,"JAGS-4.3.0,"
 bartMachine,,java,FALSE,Java
 bartMachineJARs,,java,FALSE,Java
-BayesCACE,,,FALSE,JAGSx.y (http://mcmc-jags.sourceforge.net)
+BayesCACE,,,TRUE,JAGSx.y (http://mcmc-jags.sourceforge.net)
 bayesCL,pocl-devel,,TRUE,
-bayescount,,,FALSE,JAGS (http://mcmc-jags.sourceforge.net)
+bayescount,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
 BAYESDEF,xorg-x11-server-Xvfb,tcl tk,TRUE,
-BayesGWQS,,,FALSE,JAGS
+BayesGWQS,,,TRUE,JAGS
 bayesplot,,pandoc,FALSE,"pandoc, pandoc-citeproc"
-BayesPostEst,,,FALSE,JAGS (http://mcmc-jags.sourceforge.io)
+BayesPostEst,,,TRUE,JAGS (http://mcmc-jags.sourceforge.io)
 BayesSAE,gsl-devel,,TRUE,
-BayesTools,,,FALSE,JAGS(https://mcmc-jags.sourceforge.io/)
+BayesTools,,,TRUE,JAGS(https://mcmc-jags.sourceforge.io/)
 BayesVarSel,gsl-devel,,FALSE,GNU Scientific Library
 bbl,gsl-devel,,TRUE,
-bbsBayes,,,FALSE,JAGS(https://sourceforge.net/projects/mcmc-jags/)
+bbsBayes,,,TRUE,JAGS(https://sourceforge.net/projects/mcmc-jags/)
 bcgam,,,FALSE,"Rtools for Windows, Xcode for MacOS X"
-BCHM,,,FALSE,JAGS
+BCHM,,,TRUE,JAGS
 bcputility,,,FALSE,bcp Utility
 bdpar,,python2,FALSE,Pythonor
-bdpopt,,,FALSE,JAGS (seehttp://mcmc-jags.sourceforge.net)
+bdpopt,,,TRUE,JAGS (seehttp://mcmc-jags.sourceforge.net)
 beastier,,,FALSE,BEAST2 (https://www.beast2.org/)
 BeastJar,,,FALSE,Java
 bedr,,,FALSE,"Preferred genomic operations engine: 'BEDTools','BEDOPS' and 'Tabix'."
-bfw,,,FALSE,"JAGS<https://mcmc-jags.sourceforge.io>,Java JDK<https://www.java.com/en/download/manual.jsp>"
-bhmbasket,,,FALSE,JAGSx.y (http://mcmc-jags.sourceforge.net)
+bfw,,,TRUE,"JAGS<https://mcmc-jags.sourceforge.io>,Java JDK<https://www.java.com/en/download/manual.jsp>"
+bhmbasket,,,TRUE,JAGSx.y (http://mcmc-jags.sourceforge.net)
 BiBitR,,java,FALSE,Java
 biblio,,,FALSE,pandoc - http://pandoc.org
 bigGP,openmpi-devel,,FALSE,OpenMPI or MPICH2
@@ -79,11 +79,11 @@ breathteststan,,pandoc,TRUE,
 bridger,,,FALSE,LaTeX(texi2dvi) must be present in the system tocreate PDF reports
 brinton,,,FALSE,"Pandoc, web browser"
 BRugs,,,FALSE,"OpenBUGS, hence Windows or Linux"
-bsam,,,FALSE,JAGS
+bsam,,,TRUE,JAGS
 bspm,,,FALSE,"systemd, dbus-python, PyGObject,python-(dnf|apt|alpm)"
 bssm,,,FALSE,"pandoc, needed for vignettes)"
 bsub,,,FALSE,"Platform LSF, bsub"
-BTSPAS,,,FALSE,JAGS
+BTSPAS,,,TRUE,JAGS
 BuildSys,,,FALSE,"'Microsoft Visual Code', 'Rtools' on 'Windows','gdb' or 'lldb' depending on which OS"
 c2d4u.tools,,,FALSE,Ubuntu: at least apt-get and apt-cache.
 Cairo,cairo-devel libXt-devel,,FALSE,cairohttp://www.cairographics.org/)
@@ -161,9 +161,9 @@ datelife,,,FALSE,PATHd8
 datr,,,FALSE,dat
 dbmss,,pandoc,FALSE,"pandoc,"
 dccvalidator,,,FALSE,synapseclient (pypi.org/project/synapseclient)
-dclone,,,FALSE,"none, one or more of JAGS, WinBUGS, OpenBUGS, Stan"
+dclone,,,TRUE,"none, one or more of JAGS, WinBUGS, OpenBUGS, Stan"
 DCM,xorg-x11-server-Xvfb,tcl tk,TRUE,
-dcmle,,,FALSE,JAGS
+dcmle,,,TRUE,JAGS
 Deducer,,java,FALSE,"Java, JRI"
 DeducerSpatial,,java,TRUE,
 DeducerText,,java,TRUE,
@@ -197,7 +197,7 @@ dynr,gsl-devel,,TRUE,
 eaf,gsl-devel,,FALSE,Gnu Scientific Library
 easyNCDF,netcdf-devel,,FALSE,netcdf development libraries
 ech,,,FALSE,"'unrar' (Linux/macOS) or '7-Zip' (Windows) to workwith '.rar' files, GDAL, GEOS, PROJ"
-EcoDiet,,,FALSE,JAGS
+EcoDiet,,,TRUE,JAGS
 edeR,,java,TRUE,
 eDMA,,,FALSE,"Requires the OpenMP library for parallel computing.If the OpenMP library is not available, the code is executedsequentially and a warning is printed."
 elbird,,,FALSE,"A valid Kiwi installation. Dynamic library isdownloaded from <https://github.com/bab2min/Kiwi/releases>during the build step. See <https://github.com/bab2min/Kiwi> aswell as for API documentation. A recent-enough compiler with support is required. git, curl and cmake required tobuild from source for kiwi."
@@ -334,7 +334,7 @@ hSDM,gsl-devel,,TRUE,
 httpgd,,,FALSE,"libpng, cairo, freetype2, fontconfig"
 httpuv,,,FALSE,zlib
 huxtable,,,FALSE,"LaTeX packages: adjustbox, array, calc, caption,colortbl, fontspec, graphicx, hhline, hyperref, multirow,siunitx, tabularx, threeparttable, ulem, wrapfig"
-HydeNet,,,FALSE,JAGS (http://mcmc-jags.sourceforge.net)
+HydeNet,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
 iai,,,FALSE,Julia and Interpretable AI System Image(>=
 IceSat2R,,,FALSE,"gdal-bin: apt install -y gdal-bin (deb),libgdal-dev: apt install -y libgdal-dev (deb), libudunits2-dev:apt install -y libudunits2-dev (deb), libgeos-dev: apt install-y libgeos-dev (deb), libproj-dev: apt install -y libproj-dev(deb), unzip: apt install unzip (deb)"
 idiogramFISH,,,FALSE,pandoc
@@ -358,17 +358,17 @@ ip2proxy,,,FALSE,IP2Proxy Python library<https://www.ip2location.com/development
 iplots,xorg-x11-server-Xvfb,,TRUE,
 IRkernel,python3dist(jupyter-kernel-test) python3dist(ndjson-testrunner),python-jupyter-filesystem,FALSE,"jupyter, jupyter_kernel_test (Python package fortesting)"
 island,gsl-devel,,TRUE,
-jagstargets,,,FALSE,JAGSx.y (https://mcmc-jags.sourceforge.net)
-jagsUI,,,FALSE,JAGS (http://mcmc-jags.sourceforge.net)
-jarbes,,,FALSE,JAGS (seehttp://mcmc-jags.sourceforge.net)
+jagstargets,,,TRUE,JAGSx.y (https://mcmc-jags.sourceforge.net)
+jagsUI,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
+jarbes,,,TRUE,JAGS (seehttp://mcmc-jags.sourceforge.net)
 JavaGD,R-java-devel,,FALSE,and Java JDKor higher
 jdx,,java,TRUE,
 JFE,xorg-x11-server-Xvfb,,TRUE,
 JGR,,java,FALSE,Java JDKor higher
-JMbayes,,,FALSE,JAGS (http://mcmc-jags.sourceforge.net)
+JMbayes,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
 JMcmprsk,gsl-devel,,TRUE,
 jmvconnect,,,FALSE,"jamovi,"
-JointAI,,,FALSE,JAGS (https://mcmc-jags.sourceforge.io/)
+JointAI,,,TRUE,JAGS (https://mcmc-jags.sourceforge.io/)
 jpeg,libjpeg-turbo-devel,,FALSE,libjpeg
 jqr,jq-devel,,FALSE,libjq: jq-devel (rpm) or libjq-dev (deb)
 jSDM,gsl-devel,,FALSE,GNU GSL
@@ -398,7 +398,7 @@ latexdiffr,,,FALSE,latexdiff
 latte,,4ti2,FALSE,"LattE <https://www.math.ucdavis.edu/~latte/>,ti2<http://www.4ti2.de/>"
 lazyarray,,,FALSE,little-endian platform
 LCMCR,gsl-devel,,FALSE,Gnu Scientific Library version
-lcra,,,FALSE,JAGSx.y or WinBUGS
+lcra,,,TRUE,JAGSx.y or WinBUGS
 LeafArea,,imagej,FALSE,"ImageJ, ij.jar (seehttp://imagej.nih.gov/ij/), Java"
 ledger,,ledger hledger,FALSE,"ledger, hledger, beancount"
 leidenAlg,,,FALSE,"(optional), libxml2 (optional),glpk, optional)"
@@ -408,7 +408,7 @@ libsoc,libxml2-devel,,FALSE,"libxml2: libxml2-dev (deb), libxml2-devel (rpm)"
 libstableR,gsl-devel,,FALSE,GNU GSL
 liftr,,docker,FALSE,Docker (see <https://docs.docker.com/install/>)
 lightsout,,pandoc,FALSE,pandoc with https support
-lira,,,FALSE,JAGS (seehttp://mcmc-jags.sourceforge.net)
+lira,,,TRUE,JAGS (seehttp://mcmc-jags.sourceforge.net)
 littler,,,FALSE,libR
 localsolver,,,FALSE,At least trial version of LocalSolver to bedownloaded from http://www.localsolver.com/download.html
 LOMAR,,,FALSE,"gmp, fftw3"
@@ -431,8 +431,8 @@ matchingMarkets,,java,FALSE,"Java,"
 matlabr,,,FALSE,MATLAB
 mauricer,,,FALSE,BEAST2 (https://www.beast2.org/)
 MaxentVariableSelection,,java,FALSE,maxent.jar file
-MBNMAdose,,,FALSE,JAGS(https://mcmc-jags.sourceforge.net/)
-MBNMAtime,,,FALSE,JAGS (http://mcmc-jags.sourceforge.net)
+MBNMAdose,,,TRUE,JAGS(https://mcmc-jags.sourceforge.net/)
+MBNMAtime,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
 mboxr,,,FALSE,Anaconda (https://www.anaconda.com/download/)
 mBvs,gsl-devel,,TRUE,
 mdbr,,,FALSE,mdbtools: mdbtools (deb).
@@ -444,19 +444,19 @@ metagear,,,FALSE,Tcl/Tk toolkit (X11 Quarts for Mac)
 metaMix,openmpi-devel,,FALSE,Open MPI
 metapost,,,FALSE,mpost
 MetaSKAT,,,FALSE,Little Endian
-MethComp,,,FALSE,JAGS (http://mcmc-jags.sourceforge.net)
+MethComp,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
 MFPCA,fftw-devel,,FALSE,libfftw3
 MFSIS,,,FALSE,Python
 microbenchmark,,,FALSE,"On a Unix-alike, one of the C functionsmach_absolute_time (macOS), clock_gettime or gethrtime. If noneof these is found, the obsolescent POSIX function gettimeofdaywill be tried."
 MIMSunit,,,FALSE,"memoryGB) Ubuntu: build-essential,libxml2-dev, libssl-dev, libcurl4-openssl-dev Windows: Rtools(>="
 minidown,,,FALSE,pandoc - http://pandoc.org
 mixcat,gsl-devel,,TRUE,
-MixSIAR,,,FALSE,JAGS
+MixSIAR,,,TRUE,JAGS
 mixture,,,FALSE,GNU GSL
 ML2Pvae,,,FALSE,"TensorFlow (https://www.tensorflow.org), Keras(https://keras.io), TensorFlow Probability(https://www.tensorflow.org/probability)"
 mleap,,java,TRUE,
 mlpack,,,FALSE,"A  compiler. Versions*,* or later ofGCC will be fine."
-mlr,,,FALSE,"gdal (optional), geos (optional), proj (optional),udunits (optional), gsl (optional), gmp (optional), glu(optional), jags (optional), mpfr (optional), openmpi(optional)"
+mlr,,,TRUE,"gdal (optional), geos (optional), proj (optional),udunits (optional), gsl (optional), gmp (optional), glu(optional), jags (optional), mpfr (optional), openmpi(optional)"
 mmpca,gsl-devel,,TRUE,
 mod09nrt,,,FALSE,MRTSwath
 modeltime.h2o,,,FALSE,Java
@@ -496,7 +496,7 @@ nhdR,,p7zip,FALSE,7-zip command line toolz)
 nloptr,cmake,,FALSE,cmake which is used only on Linux ormacOS systems when no system build of nlopt can befound.
 nlrx,,java,FALSE,"NetLogo, Java (JDK, pandoc,OpenSSL, udunits-2, PROJ.4, GEOS, GDAL, libxml2"
 nmslibR,,,FALSE,"python3-dev: apt-get install -y python3-dev (deb),python3-pip: apt-get install -y python3-pip (deb), numpy: pip3install numpy (deb), scipy: pip3 install scipy (deb), nmslib:pip3 install --no-binary :all: nmslib (deb)"
-NobBS,,,FALSE,JAGS (http://mcmc-jags.sourceforge.net/) foranalysis of Bayesian hierarchical models
+NobBS,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net/) foranalysis of Bayesian hierarchical models
 nomnoml,,,FALSE,PhantomJS (http://phantomjs.org) for takingscreenshots
 nucim,,,FALSE,tiff fftw libcurl openssl
 oceanmap,,ImageMagick,FALSE,ImageMagick
@@ -515,12 +515,12 @@ openNLPdata,,java,FALSE,Java
 openssl,openssl-devel,,FALSE,OpenSSL
 OpenStreetMap,,java,FALSE,"Java, JRI"
 optbdmaeAT,xorg-x11-server-Xvfb,,TRUE,
-optimalThreshold,,,FALSE,JAGSx.y
+optimalThreshold,,,TRUE,JAGSx.y
 optrcdmaeAT,xorg-x11-server-Xvfb,,TRUE,
 ora,,,FALSE,Oracle client
 Orcs,,p7zip dos2unix,FALSE,"zip, unix2dos"
 orderly,,,FALSE,git
-ordinalbayes,,,FALSE,JAGS
+ordinalbayes,,,TRUE,JAGS
 osmose,,java,FALSE,Java
 osrmr,,,FALSE,"To use the Localhost of OSRM, you need to buildOSRM<https://github.com/Project-OSRM/osrm-backend/wiki/Building-OSRM>locally"
 otsad,,,FALSE,Python; bencode-python3
@@ -547,7 +547,7 @@ pbdZMQ,zeromq-devel,,FALSE,"Linux, Mac OSX, and Windows, or 'ZeroMQ' librarySola
 pbixr,,,FALSE,"'Microsoft' 'PowerShell'(<https://docs.microsoft.com/en-us/powershell/>), 'Microsoft''Power BI' (<https://powerbi.microsoft.com>)"
 PBSmodelling,xorg-x11-server-Xvfb,bwidget,FALSE,BWidget
 pcaL1,,,FALSE,COIN-OR Clp
-pcnetmeta,,,FALSE,JAGSx.y (http://mcmc-jags.sourceforge.net)
+pcnetmeta,,,TRUE,JAGSx.y (http://mcmc-jags.sourceforge.net)
 PDE,,,FALSE,XPDF(4.02)(https://github.com/erikstricker/PDE/tree/master/inst/examples/bin)
 pdfminer,,,FALSE,"Python>=3.6, pdfminer.six>=20200402, pandas"
 pdftools,poppler-cpp-devel poppler-data,,FALSE,"Poppler C++ API: libpoppler-cpp-dev (deb) orpoppler-cpp-devel (rpm), and poppler-data (rpm/deb) package."
@@ -555,7 +555,7 @@ pedometrics,,,FALSE,pandoc
 pedprobr,,,FALSE,MERLIN (https://csg.sph.umich.edu/abecasis/merlin/)for calculations involving multiple linked markers.
 pexm,jags-devel,,TRUE,
 pharmr,,,FALSE,Python
-phase1PRMD,,,FALSE,JAGS (http://mcmc-jags.sourceforge.net)
+phase1PRMD,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
 phonfieldwork,,,FALSE,pandoc - http://pandoc.org
 PhViD,,,FALSE,Tcl/Tk package TkTable.
 Phxnlme,,,FALSE,Phoenix NLME with Phoenix Modeling Language (PML)license
@@ -576,7 +576,7 @@ poisbinom,fftw-devel,,FALSE,fftw
 PoissonBinomial,fftw-devel,,FALSE,fftw3
 PoissonMultinomial,,,FALSE,fftw3(>=3.3)
 pomp,,,FALSE,"For Windows users, Rtools (seehttps://cran.r-project.org/bin/windows/Rtools/)."
-popbayes,,,FALSE,JAGS
+popbayes,,,TRUE,JAGS
 PopGenome,zlib-devel,,FALSE,zlib headers and library.
 popRange,,python3dist(numpy),TRUE,
 PortfolioEffectEstim,,java,FALSE,Java
@@ -586,7 +586,7 @@ pRecipe,,,FALSE,"PROJ, https://proj.org/download.html) andGDAL, https://gdal.org
 precommit,,,FALSE,git
 PreKnitPostHTMLRender,,pandoc,FALSE,pandoc -http://johnmacfarlane.net/pandoc
 prettydoc,,pandoc,FALSE,pandoc
-prevalence,,,FALSE,JAGS (seehttps://mcmc-jags.sourceforge.io/)
+prevalence,,,TRUE,JAGS (seehttps://mcmc-jags.sourceforge.io/)
 PRIMME,,,FALSE,A POSIX system. Currently Linux and OS X are knownto work. .
 proccalibrad,,,FALSE,MRTSwath
 ProcData,,,FALSE,"Python, Keras, TensorFlow"
@@ -598,7 +598,7 @@ protr,,,FALSE,ncbi-blast+ (see<https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYP
 psbcGroup,gsl-devel,,TRUE,
 PTXQC,,,FALSE,pandoc (http://pandoc.org) for building Vignettesand output reports as HTML
 pureseqtmr,,,FALSE,PureseqTM(https://github.com/PureseqTM/pureseqTM_package)
-PVAClone,,,FALSE,JAGS
+PVAClone,,,TRUE,JAGS
 pylintR,,,FALSE,pylint
 pysd2r,,,FALSE,'python3' needs to built for the same architectureR is built fororbit).
 qCBA,,java,FALSE,Java
@@ -611,7 +611,7 @@ quarto,,,FALSE,Quarto command line tools(https://github.com/quarto-dev/quarto-cl
 questionr,,xclip,FALSE,xclip (Linux)
 r.blip,,java,FALSE,Java
 R2admb,,,FALSE,AD Model Builder <http://admb-project.org>
-R2jags,,,FALSE,JAGS (http://mcmc-jags.sourceforge.net)
+R2jags,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
 R2MLwiN,,,FALSE,"MLwiN, (OpenBUGS, WinBUGS optional)"
 R2OpenBUGS,,,FALSE,OpenBUGS
 r2pmml,,java,FALSE,Java
@@ -673,7 +673,7 @@ RcmdrPlugin.plotByGroup,xorg-x11-server-Xvfb,,TRUE,
 RcmdrPlugin.pointG,xorg-x11-server-Xvfb,,TRUE,
 RcmdrPlugin.qual,xorg-x11-server-Xvfb,,TRUE,
 RcmdrPlugin.RiskDemo,xorg-x11-server-Xvfb,,TRUE,
-RcmdrPlugin.RMTCJags,xorg-x11-server-Xvfb,,FALSE,jags
+RcmdrPlugin.RMTCJags,xorg-x11-server-Xvfb,,TRUE,jags
 RcmdrPlugin.ROC,xorg-x11-server-Xvfb,,TRUE,
 RcmdrPlugin.sampling,xorg-x11-server-Xvfb,,TRUE,
 RcmdrPlugin.SCDA,xorg-x11-server-Xvfb,,TRUE,
@@ -715,7 +715,7 @@ REBayes,,,FALSE,MOSEK (http://www.mosek.com) and MOSEK license.
 redist,gmp-devel libxml2-devel,,FALSE,"OpenMPI, gmp, libxml2, python,"
 redland,redland-devel,,FALSE,"Mac OSX: redland ; Linux: librdf0, librdf0-dev"
 redux,hiredis-devel,,FALSE,hiredis
-remiod,,,FALSE,JAGS (http://mcmc-jags.sourceforge.net/)
+remiod,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net/)
 remotes,,subversion git,FALSE,"Subversion for install_svn, git for install_git"
 RenextGUI,xorg-x11-server-Xvfb,,TRUE,
 REPLesentR,,,FALSE,Presentations written in (R)Markdown require Pandoc(http://pandoc.org).
@@ -750,7 +750,7 @@ ridge,gsl-devel,,FALSE,Gnu Scientific Library version
 rim,,,FALSE,"Maxima (https://sourceforge.net/projects/maxima/,tested with versions, needs to be on PATH"
 riot,,,FALSE,cmake used only but systematically onmacOS and Linux platforms to build VTK from source.
 RJaCGH,zlib-devel,,TRUE,
-rjags,jags-devel,,FALSE,JAGSx.y
+rjags,jags-devel,,TRUE,JAGSx.y
 rJava,R-java-devel,java,FALSE,"Java JDKor higher (for JRI/REngine JDKorhigher),"
 RJDemetra,,java,FALSE,Java JREor higher.
 rjdmarkdown,,,FALSE,Java SEor higher
@@ -786,8 +786,8 @@ rnetcarto,gsl-devel,,FALSE,GNU GSL
 RNetCDF,netcdf-develudunits2-devel,,FALSE,netcdf udunits-2
 RNetLogo,,java,FALSE,"Java, NetLogo"
 Rnightlights,,aria2 curl gdal wget,TRUE,
-RoBMA,jags-devel,,FALSE,JAGS(https://mcmc-jags.sourceforge.io/)
-RoBSA,,,FALSE,JAGS(https://mcmc-jags.sourceforge.io/)
+RoBMA,jags-devel,,TRUE,JAGS(https://mcmc-jags.sourceforge.io/)
+RoBSA,jags-devel,,TRUE,JAGS(https://mcmc-jags.sourceforge.io/)
 RODBC,unixODBC-devel,,FALSE,An ODBC3 driver manager and drivers.
 RODBCext,unixODBC-devel,,TRUE,
 rodeo,,,FALSE,The tools to run 'R CMD SHLIB' on 'Fortran' code.The used 'Fortran' compiler must support pointer initializationwhich is a feature of thestandard. The compiler fromOracle Developer Studioon Solariscurrently does notmeet this requirement.
@@ -841,7 +841,7 @@ rtiff,libtiff-devel,,TRUE,
 rtika,,java,TRUE,
 rtmpt,gsl-devel,,FALSE,GSL
 rTorch,,,FALSE,"""conda (python>=3.6 pytorch torchvision cpuonlynumpy matplotlib pandas -c pytorch);python-minimal, pandoc pandoc-citeproc, qpdf; Python,pytorch, torchvision, cpuonly, numpy;pandoc, qpdf on Solaris"""
-runjags,jags-devel,,FALSE,JAGS(https://mcmc-jags.sourceforge.io/)
+runjags,jags-devel,,TRUE,JAGS(https://mcmc-jags.sourceforge.io/)
 ruta,,,FALSE,Python; keras <https://keras.io/>
 rviewgraph,,,FALSE,'Java' version
 RVowpalWabbit,boost-devel,boost-program-options,FALSE,The Boost 'program_options' library<https://boost.org> is required.
@@ -853,13 +853,13 @@ rzmq,zeromq-devel,,FALSE,ZeroMQ: libzmq3-dev (deb) or zeromq-devel(rpm)
 s2,openssl-devel,,FALSE,OpenSSL
 s2dv,,,FALSE,cdo
 s2dverification,,,FALSE,cdo
-saeHB,,,FALSE,JAGS (http://mcmc-jags.sourceforge.net)
-saeHB.gpois,,,FALSE,JAGS (http://mcmc-jags.sourceforge.net)
-saeHB.hnb,,,FALSE,JAGS (http://mcmc-jags.sourceforge.net)
-saeHB.panel,,,FALSE,JAGS (http://mcmc-jags.sourceforge.net)
-saeHB.spatial,,,FALSE,JAGS (http://mcmc-jags.sourceforge.net)
-saeHB.twofold,,,FALSE,JAGS (http://mcmc-jags.sourceforge.net)
-saeHB.zinb,,,FALSE,JAGS (http://mcmc-jags.sourceforge.net)
+saeHB,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
+saeHB.gpois,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
+saeHB.hnb,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
+saeHB.panel,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
+saeHB.spatial,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
+saeHB.twofold,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
+saeHB.zinb,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
 salso,,,FALSE,Cargo for installation from sources:see INSTALL file
 saotd,,,FALSE,"GSL, MPFR, udunits2-3)"
 sarsop,,,FALSE,"mallinfo, hence Linux, MacOS or Windows"
@@ -880,14 +880,14 @@ sequenza,,,FALSE,pandoc
 sf,gdal-devel geos-devel proj-devel sqlite-devel,,FALSE,"GDAL, GEOS, PROJ, sqlite3"
 sgmcmc,,,FALSE,"TensorFlow (https://www.tensorflow.org/),TensorFlow Probability(https://www.tensorflow.org/probability/)"
 SGP,,tex(latex) tex(pdfpages.sty),FALSE,(PDF)LaTeX (https://www.latex-project.org/) with'pdfpages' package for studentGrowthPlot option in visualizeSGPto bind together student growth plots into school catalogs
-sharx,,,FALSE,jags
+sharx,,,TRUE,jags
 shinyalert,,pandoc,TRUE,
 shinyjs,,pandoc,TRUE,
 shinyloadtest,,,FALSE,pandoc - http://pandoc.org
 shinytest,,,FALSE,PhantomJS (http://phantomjs.org/)
 shortcuts,,,FALSE,RStudio
 showtext,zlib-devel libpng-devel freetype-devel,,FALSE,"zlib, libpng, FreeType"
-SIBER,,,FALSE,JAGS
+SIBER,,,TRUE,JAGS
 simhelpers,,,FALSE,RStudio
 SimInf,gsl-devel,,FALSE,GNU Scientific Library (GSL)
 simplermarkdown,,,FALSE,Pandoc (http://pandoc.org) needs to installed andavailable in the search path.
@@ -995,7 +995,7 @@ topicmodels.etm,,,FALSE,LibTorch (https://pytorch.org/)
 torch,,,FALSE,LibTorch (https://pytorch.org/)
 trackdem,,,FALSE,"Python, Libav, ExifTool"
 trackter,,,FALSE,FFmpeg
-TreeBUGS,,,FALSE,JAGS (http://mcmc-jags.sourceforge.net)
+TreeBUGS,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
 tsapp,,,FALSE,"under Linux, fftwtools needs libfftw3-dev"
 TTAinterfaceTrendAnalysis,xorg-x11-server-Xvfb,,TRUE,
 tutorial,,pandoc,FALSE,pandoc -http://johnmacfarlane.net/pandoc
