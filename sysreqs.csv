@@ -5,7 +5,7 @@ admixr,,,FALSE,ADMIXTOOLS suite of command-line utilities forpopulation genetics
 alfr,,,FALSE,Alfresco Content Repository (Community orEnterprise)
 altair,,,FALSE,"Python, (Python) Altair,vega_datasets. To use image functions for MacOS: X11"
 altmeta,,,TRUE,JAGSx.y (http://mcmc-jags.sourceforge.net)
-AMAPVox,,,FALSE,Java-Bit (Oracle or Corretto)
+AMAPVox,,R-java,TRUE,Java-Bit (Oracle or Corretto)
 AncestryMapper,,,FALSE,"None, but greater thanGB of RAM highlyrecommended."
 animation,,ImageMagick tex(latex),FALSE,ImageMagick (http://imagemagick.org) orGraphicsMagick (http://www.graphicsmagick.org) or LyX(http://www.lyx.org) for saveGIF(); (PDF)LaTeX for saveLatex();SWF Tools (http://swftools.org) for saveSWF(); FFmpeg(http://ffmpeg.org) or avconv (https://libav.org/avconv.html)for saveVideo()
 anticlust,glpk-devel,,TRUE,The exact (anti)clustering algorithms require thatthe GNU linear programming kit (GLPK library) is installed(<http://www.gnu.org/software/glpk/>). Rendering the vignetterequires pandoc.
@@ -16,21 +16,21 @@ argparse,,python3,FALSE,python
 ari,,,FALSE,ffmpeg
 arrangements,gmp-devel,,TRUE,gmp
 arrow,libarrow-dataset-devel,,TRUE,"for AWS S3 support on Linux, libcurl andopenssl (optional)"
-arulesCBA,,,FALSE,Java
-arulesNBMiner,,java,FALSE,Java
+arulesCBA,,R-java,TRUE,Java
+arulesNBMiner,,R-java,TRUE,Java
 asbio,xorg-x11-server-Xvfb,bwidget,FALSE,BWidget
 asremlPlus,,,FALSE,asreml-Rx
 autoharp,,,FALSE,pandoc - http://pandoc.org
 av,,,FALSE,"FFmpeg; with at least libx264 and lame(mp3) drivers. Debian/Ubuntu: libavfilter-dev, Fedora/CentOS:ffmpeg-devel (via https://rpmfusion.org), MacOS Homebrew:ffmpeg."
-AWR,,,FALSE,AWS Java SDK (see README.md for more details)
+AWR,,,TRUE,AWS Java SDK (see README.md for more details)
 babelwhale,,docker singularity,FALSE,Docker and/or Singularity
 babette,,,FALSE,BEAST2 (https://www.beast2.org/)
 bacistool,,,TRUE,JAGS
 BALD,jags-devel,,TRUE,
 bamdit,,,TRUE,JAGS (seehttp://mcmc-jags.sourceforge.net)
 BANOVA,,,TRUE,"JAGS-4.3.0,"
-bartMachine,,java,FALSE,Java
-bartMachineJARs,,java,FALSE,Java
+bartMachine,,"",TRUE,Java
+bartMachineJARs,,"",TRUE,Java
 BayesCACE,,,TRUE,JAGSx.y (http://mcmc-jags.sourceforge.net)
 bayesCL,pocl-devel,,TRUE,
 bayescount,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
@@ -49,11 +49,11 @@ bcputility,,,FALSE,bcp Utility
 bdpar,,python2,FALSE,Pythonor
 bdpopt,,,TRUE,JAGS (seehttp://mcmc-jags.sourceforge.net)
 beastier,,,FALSE,BEAST2 (https://www.beast2.org/)
-BeastJar,,,FALSE,Java
+BeastJar,,,TRUE,Java
 bedr,,,FALSE,"Preferred genomic operations engine: 'BEDTools','BEDOPS' and 'Tabix'."
-bfw,,,TRUE,"JAGS<https://mcmc-jags.sourceforge.io>,Java JDK<https://www.java.com/en/download/manual.jsp>"
+bfw,,R-java,TRUE,"JAGS<https://mcmc-jags.sourceforge.io>,Java JDK<https://www.java.com/en/download/manual.jsp>"
 bhmbasket,,,TRUE,JAGSx.y (http://mcmc-jags.sourceforge.net)
-BiBitR,,java,FALSE,Java
+BiBitR,,R-java,TRUE,Java
 biblio,,,FALSE,pandoc - http://pandoc.org
 bigGP,openmpi-devel,,FALSE,OpenMPI or MPICH2
 bigIntegerAlgos,gmp-devel,,TRUE,
@@ -96,10 +96,10 @@ cartogramR,fftw-devel,,TRUE,"FFTW; possible package: fftw-devel (rpm),libfftw3-d
 cartography,gdal-devel geos-devel proj-devel sqlite-devel,,TRUE,
 causact,,,FALSE,Python and TensorFlow are needed for Bayesianinference computations; Python with header files andshared library; TensorFlowv1.14;https://www.tensorflow.org/); TensorFlow Probabilityv0.7.0;https://www.tensorflow.org/probability/)
 causalMGM,,java,TRUE,
-CBSr,,,FALSE,Java
+CBSr,,,TRUE,Java
 chebpol,fftw-devel gsl-devel,,TRUE,
 chicane,,,FALSE,bedtools
-ChoR,,java,FALSE,Java
+ChoR,,"",TRUE,Java
 chromote,,,FALSE,Google Chrome or other Chromium-based browser.chromium: chromium (rpm) or chromium-browser (deb)
 cit,gsl-devel,,TRUE,gsl (with development libraries libgsl-dev)
 cld3,protobuf-devel,,TRUE,libprotobuf and protobuf-compiler
@@ -118,10 +118,10 @@ coga,gsl-devel,,TRUE,GNU GSL
 cogmapr,,,FALSE,libcurl: libcurl-devel (rpm) orlibcurl4-openssl-dev (deb).
 CollapsABEL,,java mariadb-server,TRUE,
 collector,,pandoc,TRUE,
-collUtils,,java,FALSE,Java
+collUtils,,"",TRUE,Java
 colorizer,,,FALSE,ImageMagick++: ImageMagick-c++-devel (rpm) orlibmagick++-dev (deb)
 COMBIA,,perl,TRUE,
-CommonJavaJars,,java,FALSE,Java
+CommonJavaJars,,R-java,TRUE,Java
 concaveman,,,FALSE,"GDAL, GEOS, PROJ.4"
 conflr,,,FALSE,pandoc - https://pandoc.org
 CoNI,,,FALSE,python3
@@ -132,25 +132,25 @@ CoordinateCleaner,gdal-devel,,FALSE,GDAL
 CopernicusDEM,,,FALSE,"awscli: apt install -y awscli (deb), aws-configure:aws configure (deb)"
 copula,,,TRUE,pdfcrop (part of TexLive) is required to rebuildthe vignettes.
 cordillera,,,FALSE,ELKIif used)
-corehunter,,java,FALSE,Java JREor higher
-coreNLP,,java,FALSE,Java; Stanford CoreNLP<http://nlp.stanford.edu/ software/corenlp.shtml>
+corehunter,,"",TRUE,Java JREor higher
+coreNLP,,"",TRUE,Java; Stanford CoreNLP<http://nlp.stanford.edu/ software/corenlp.shtml>
 couchDB,,couchdb,FALSE,couchDB instance to connect to and work with.
 coveffectsplot,,pandoc,FALSE,pandoc with https support
 cppcheckR,,,FALSE,cppcheck
 crandep,,,TRUE,pandoc - http://pandoc.org
 credentials,,git,FALSE,git (optional)
 cronR,,cronie,FALSE,cron
-Crossover,,java,FALSE,Java
+Crossover,,"",TRUE,Java
 crypto,libxml2-devel libcurl-devel openssl-devel,,TRUE,
 ctrdata,,,FALSE,"sed, php, cat, perl"
 cuda.ml,,,TRUE,RAPIDS cuML (see https://rapids.ai/start.html)
 cuml4r,,,TRUE,RAPIDS cuML (see https://rapids.ai/start.html)
 curl,libcurl-devel,,TRUE,libcurl: libcurl-devel (rpm) orlibcurl4-openssl-dev (deb).
-cycleRtools,,java,FALSE,Java
+cycleRtools,,R-java,TRUE,Java
 CytOpT,,,FALSE,Python
 DALY,xorg-x11-server-Xvfb,tcl tk,TRUE,"Tcl/Tk, Tktable"
 data.table,zlib-devel,,TRUE,zlib
-DatabaseConnector,,,FALSE,Java versionor higher (https://www.java.com/)
+DatabaseConnector,,,TRUE,Java versionor higher (https://www.java.com/)
 DataExplorer,,pandoc,FALSE,pandoc - http://pandoc.org
 dataframes2xls,,python2,FALSE,python
 dataMaid,,,FALSE,"pandoc; https://pandoc.org), git, whoami"
@@ -164,7 +164,7 @@ dccvalidator,,,FALSE,synapseclient (pypi.org/project/synapseclient)
 dclone,,,TRUE,"none, one or more of JAGS, WinBUGS, OpenBUGS, Stan"
 DCM,xorg-x11-server-Xvfb,tcl tk,TRUE,
 dcmle,,,TRUE,JAGS
-Deducer,,java,FALSE,"Java, JRI"
+Deducer,,"",TRUE,"Java, JRI"
 DeducerSpatial,,java,TRUE,
 DeducerText,,java,TRUE,
 deforestable,,,FALSE,"GDAL, GEOS, PROJ, sqlite3"
@@ -174,12 +174,12 @@ DesignCTPB,,,FALSE,"OpenSSL(>=, NVIDIA CUDA GPU with computecapabilityor above a
 designmatch,,,FALSE,"GLPK library package (e.g., libglpk-dev onDebian/Ubuntu)"
 devEMF,zlib-devel,,TRUE,"FreeType, Xft, or zlib (only needed for platformsother than OSX and Windows)"
 dgmb,xorg-x11-server-Xvfb,bwidget,TRUE,
-dialr,,java,FALSE,java
-dialrjars,,java,FALSE,java
+dialr,,"",TRUE,java
+dialrjars,,"",TRUE,java
 diffeqr,,,FALSE,"Julia, DifferentialEquations.jl,ModelingToolkit.jl"
 digitalDLSorteR,,,FALSE,"Python, TensorFlow(https://www.tensorflow.org/)"
 diskImageR,,imagej,FALSE,"ImageJ (all OS), Xcode (Mac)"
-dismo,,,FALSE,Java
+dismo,,R-java,TRUE,Java
 diversitree,fftw-devel gsl-devel,,TRUE,"fftw3, gsl"
 DIZutils,,,FALSE,libpq: libpq-dev (deb) or postgresql-devel(rpm)
 docknitr,,,FALSE,"Docker, RStudio>=1.2"
@@ -210,7 +210,7 @@ eplusr,,,FALSE,EnergyPlus (optional) (<https://energyplus.net>);udunits2
 ergm,openmpi-devel,,FALSE,OpenMPI
 eseis,,,TRUE,gipptools dataselect
 evaluator,,pandoc,TRUE,
-EvidenceSynthesis,,,FALSE,Java versionor higher (https://www.java.com/)
+EvidenceSynthesis,,,TRUE,Java versionor higher (https://www.java.com/)
 EviewsR,,,FALSE,EViews
 exactextractr,geos-devel,,TRUE,GEOS
 excerptr,,,FALSE,Python
@@ -246,7 +246,7 @@ forImage,,,FALSE,"Python, numpy, imutils, scipy, pandas, Pillow, opencv"
 forsearch,,,FALSE,gmp
 frequency,,pandoc,FALSE,pandoc - http://pandoc.org
 fRLR,gsl-devel,,TRUE,GNU Scientific Library (GSL). Note: users shouldhave GSL installed.
-fsdaR,,,FALSE,"(license-free) MATLAB Runtime (MCR) V, Java(>=8)"
+fsdaR,,,TRUE,"(license-free) MATLAB Runtime (MCR) V, Java(>=8)"
 fst,,,TRUE,little-endian platform
 fstcore,,,TRUE,little-endian platform
 ftExtra,,,FALSE,pandoc - http://pandoc.org
@@ -276,7 +276,7 @@ gert,libgit2-devel,,TRUE,libgit2: libgit2-devel (rpm) orlibgit2-dev (deb)
 GetoptLong,,perl(Getopt::Long),FALSE,"Perl, Getopt::Long"
 gfilogisreg,gmp-devel,,TRUE,gmp
 GGally,openssl-devel,,FALSE,openssl
-ggdemetra,,java,FALSE,Java SEor higher
+ggdemetra,,"",TRUE,Java SEor higher
 GGEBiplotGUI,xorg-x11-server-Xvfb,bwidget,TRUE,
 ggExtra,,pandoc,FALSE,pandoc with https support
 ggiraph,libpng-devel,,TRUE,libpng
@@ -287,10 +287,10 @@ gifski,cargo,"",TRUE,Cargo (rustc package manager)
 git2r,libgit2-devel openssl-devel libssh2-devel zlib-devel,,TRUE,"By default, git2r uses a system installation of thelibgit2 headers and library. However, if a system installationis not available, builds and uses a bundled version of thelibgit2 source. zlib headers and library. OpenSSL headers andlibrary (non-macOS). LibSSH2 (optional on non-Windows) toenable the SSH transport."
 gitcreds,,,FALSE,git
 gittargets,,,FALSE,Git
-glmulti,,java,FALSE,Java
+glmulti,,"",TRUE,Java
 glpkAPI,glpk-devel gmp-devel,,TRUE,GLPK
 gm,,,FALSE,MuseScore - https://musescore.org/
-gMCP,,java,FALSE,Java
+gMCP,,"",TRUE,Java
 gmp,gmp-devel,,TRUE,gmp
 gmt,,GMT,FALSE,gmt
 gnn,,,FALSE,TensorFlow (https://www.tensorflow.org/)
@@ -299,8 +299,8 @@ GPBayes,gsl-devel,,TRUE,GNU Scientific Library version
 gpg,gpgme-devel haveged-devel,,TRUE,"GPGME: libgpgme-dev (deb), gpgme-devel (rpm) gpgme(brew). On Linux 'haveged' is recommended for generatingentropy when using the GPG key generator."
 gpuR,pocl-devel,,TRUE,
 GRANBase,,subversion git,FALSE,"svn, git"
-GreedyExperimentalDesign,,java,FALSE,Java
-GreedyExperimentalDesignJARs,,java,FALSE,Java
+GreedyExperimentalDesign,,"",TRUE,Java
+GreedyExperimentalDesignJARs,,"",TRUE,Java
 greta,python2-devel,,FALSE,Python with header files and sharedlibrary; TensorFlow (v1.14; https://www.tensorflow.org/);TensorFlow Probability (v0.7.0;https://www.tensorflow.org/probability/)
 gretlR,,,FALSE,gretl
 gridDebug,,,FALSE,graphviz
@@ -316,7 +316,7 @@ gWidgetstcltk,xorg-x11-server-Xvfb,,TRUE,
 GWnnegPCA,,,FALSE,"GDAL, GEOS, PROJ"
 GWpcor,,,FALSE,"GDAL, GEOS, PROJ"
 gyro,,,TRUE,C++
-h2o,,java,FALSE,"Java, <="
+h2o,,R-java,TRUE,"Java, <="
 h2o4gpu,python3-devel,,FALSE,Python with header files and sharedlibrary; H2O4GPU (https://github.com/h2oai/h2o4gpu)
 h3jsr,,,FALSE,"V8 engine version+ is needed for modern JS andWASM support. On Debian / Ubuntu install either libv8-dev orlibnode-dev, on Fedora use v8-devel."
 h5,hdf5-devel,,TRUE,
@@ -324,7 +324,7 @@ hadron,gsl-devel,,TRUE,Gnu Scientific Library version
 haven,zlib-devel,,TRUE,"zlib: zlib1g-dev (deb), zlib-devel(rpm)"
 hdf5r,hdf5-devel,,TRUE,HDF5
 hdfqlr,,,FALSE,HDFql
-helloJavaWorld,,java,FALSE,Java
+helloJavaWorld,,"",TRUE,Java
 HiClimR,netcdf-devel,,TRUE,NetCDF
 HiCseg,gsl-devel,,TRUE,
 HierO,xorg-x11-server-Xvfb bwidget,bwidget,TRUE,
@@ -347,11 +347,11 @@ image.CannyEdges,libpng-devel fftw-devel,,TRUE,"libpng, fftw3"
 image.textlinedetector,opencv-devel,,TRUE,"and OpenCVor newer: libopencv-dev (Debian,Ubuntu) or opencv-devel (Fedora)"
 imager,fftw-devel libtiff-devel,,TRUE,"fftw3,libtiff,X11"
 implyr,,,FALSE,Impala driver to support a 'DBI'-compatible Rinterface
-iMRMC,,,FALSE,Java JDKor higher
+iMRMC,,R-java,TRUE,Java JDKor higher
 inlmisc,,,TRUE,pandoc (https://pandoc.org/) and phantomjs(https://phantomjs.org/)
 inlpubs,,,FALSE,Package vignettes require pandoc(https://pandoc.org/) and phantomjs (https://phantomjs.org/).Text mining using n-grams requires Amazon Corretto(https://aws.amazon.com/corretto/).
 inpdfr,,xpdf,FALSE,XPDF (http://www.foolabs.com/xpdf/download.html)
-InSilicoVA,,,FALSE,Java
+InSilicoVA,,,TRUE,Java
 inTextSummaryTable,,,FALSE,pandoc (to export an interactive summary table to afile)
 ip2location,,,FALSE,IP2Location Python library<https://www.ip2location.com/development-libraries/ip2location/python>
 ip2proxy,,,FALSE,IP2Proxy Python library<https://www.ip2location.com/development-libraries/ip2proxy/python>
@@ -361,10 +361,10 @@ island,gsl-devel,,TRUE,
 jagstargets,,,TRUE,JAGSx.y (https://mcmc-jags.sourceforge.net)
 jagsUI,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
 jarbes,,,TRUE,JAGS (seehttp://mcmc-jags.sourceforge.net)
-JavaGD,R-java-devel,,FALSE,and Java JDKor higher
+JavaGD,"",,TRUE,and Java JDKor higher
 jdx,,java,TRUE,
 JFE,xorg-x11-server-Xvfb,,TRUE,
-JGR,,java,FALSE,Java JDKor higher
+JGR,,"",TRUE,Java JDKor higher
 JMbayes,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
 JMcmprsk,gsl-devel,,TRUE,
 jmvconnect,,,TRUE,"jamovi,"
@@ -399,7 +399,7 @@ latte,,4ti2,FALSE,"LattE <https://www.math.ucdavis.edu/~latte/>,ti2<http://www.4
 lazyarray,,,TRUE,little-endian platform
 LCMCR,gsl-devel,,TRUE,Gnu Scientific Library version
 lcra,,,TRUE,JAGSx.y or WinBUGS
-LeafArea,,imagej,FALSE,"ImageJ, ij.jar (seehttp://imagej.nih.gov/ij/), Java"
+LeafArea,,imagej,TRUE,"ImageJ, ij.jar (seehttp://imagej.nih.gov/ij/), Java"
 ledger,,ledger hledger,FALSE,"ledger, hledger, beancount"
 leidenAlg,libxml2-devel glpk-devel,,TRUE,"(optional), libxml2 (optional),glpk, optional)"
 libamtrack,gsl-devel,,TRUE,
@@ -421,13 +421,13 @@ m2r,,,TRUE,Macaulay2 <http://www.math.uiuc.edu/Macaulay2/>
 magick,ImageMagick-c++-devel,,TRUE,ImageMagick++: ImageMagick-c++-devel (rpm) orlibmagick++-dev (deb)
 magickGUI,,ImageMagick,FALSE,ImageMagick
 maGUI,,,FALSE,Tktable
-mailR,,java,FALSE,Java
-mallet,,java,FALSE,java
+mailR,,"",TRUE,Java
+mallet,,"",TRUE,java
 manipulate,,,FALSE,RStudio - http://www.rstudio.com/products/rstudio/
 MaOEA,,,FALSE,"Pythonx with following modules: PyGMO, NumPy,and cloudpickle"
 mapme.biodiversity,,,FALSE,"GDAL, PROJ"
 marked,,,TRUE,ADMB version<http://admb-project.org/> foruse.admb=TRUE; see readme.txt
-matchingMarkets,,java,FALSE,"Java,"
+matchingMarkets,,"",TRUE,"Java,"
 matlabr,,,FALSE,MATLAB
 mauricer,,,FALSE,BEAST2 (https://www.beast2.org/)
 MaxentVariableSelection,,java,FALSE,maxent.jar file
@@ -459,7 +459,7 @@ mlpack,,,TRUE,"A  compiler. Versions*,* or later ofGCC will be fine."
 mlr,,,TRUE,"gdal (optional), geos (optional), proj (optional),udunits (optional), gsl (optional), gmp (optional), glu(optional), jags (optional), mpfr (optional), openmpi(optional)"
 mmpca,gsl-devel,,TRUE,
 mod09nrt,,,FALSE,MRTSwath
-modeltime.h2o,,,FALSE,Java
+modeltime.h2o,,,TRUE,Java
 MODIS,gdal-devel,,TRUE,
 MODIStsp,,,FALSE,"GDAL with support for HDF4 format, PROJ(>=."
 MonetDB.R,,,TRUE,"MonetDB, available from http://www.monetdb.org"
@@ -473,11 +473,11 @@ mscsweblm4r,,,FALSE,"A valid account MUST be registered with Microsoft'sCognitiv
 multibiplotGUI,xorg-x11-server-Xvfb,tcl tk bwidget,FALSE,Tcl/Tk package BWidget.
 multibridge,mpfr-devel,,TRUE,mpfr
 multinet,,,TRUE,A  compiler
-mutossGUI,,,FALSE,Java
+mutossGUI,,,TRUE,Java
 mvst,gsl-devel,,TRUE,
-mwa,,java,FALSE,Java
+mwa,,"",TRUE,Java
 mwaved,fftw-devel,,TRUE,
-mwcsr,,,FALSE,Java
+mwcsr,,R-java,TRUE,Java
 Myrrix,,java,TRUE,
 Myrrixjars,,java,TRUE,
 NACHO,,,FALSE,"pandoc, pandoc-citeproc"
@@ -494,7 +494,7 @@ nFCA,,ruby graphviz,TRUE,
 ngboostForecast,,,FALSE,Python
 nhdR,,p7zip,FALSE,7-zip command line toolz)
 nloptr,cmake,,TRUE,cmake which is used only on Linux ormacOS systems when no system build of nlopt can befound.
-nlrx,,java,FALSE,"NetLogo, Java (JDK, pandoc,OpenSSL, udunits-2, PROJ.4, GEOS, GDAL, libxml2"
+nlrx,,R-java,TRUE,"NetLogo, Java (JDK, pandoc,OpenSSL, udunits-2, PROJ.4, GEOS, GDAL, libxml2"
 nmslibR,,,TRUE,"python3-dev: apt-get install -y python3-dev (deb),python3-pip: apt-get install -y python3-pip (deb), numpy: pip3install numpy (deb), scipy: pip3 install scipy (deb), nmslib:pip3 install --no-binary :all: nmslib (deb)"
 NobBS,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net/) foranalysis of Bayesian hierarchical models
 nomnoml,,,FALSE,PhantomJS (http://phantomjs.org) for takingscreenshots
@@ -510,10 +510,10 @@ OpenCL,pocl-devel,,TRUE,OpenCL library
 opencpu,,pandoc,FALSE,"pandoc, apparmor (optional)"
 opencv,opencv-devel,,TRUE,"OpenCVor newer: libopencv-dev (Debian, Ubuntu)or opencv-devel (Fedora)"
 OpenImageR,,,TRUE,"libarmadillo: apt-get install -y libarmadillo-dev(deb), libblas: apt-get install -y libblas-dev (deb),liblapack: apt-get install -y liblapack-dev (deb),libarpack++2: apt-get install -y libarpack++2-dev (deb),: apt-get install -y  (deb), libjpeg-dev:apt-get install -y libjpeg-dev (deb), libpng-dev: apt-getinstall -y libpng-dev (deb), libfftw3-dev: apt-get install -ylibfftw3-dev (deb), libtiff5-dev: apt-get install -ylibtiff5-dev (deb)"
-openNLP,,java,FALSE,Java
-openNLPdata,,java,FALSE,Java
+openNLP,,"",TRUE,Java
+openNLPdata,,"",TRUE,Java
 openssl,openssl-devel,,TRUE,OpenSSL
-OpenStreetMap,,java,FALSE,"Java, JRI"
+OpenStreetMap,,"",TRUE,"Java, JRI"
 optbdmaeAT,xorg-x11-server-Xvfb,,TRUE,
 optimalThreshold,,,TRUE,JAGSx.y
 optrcdmaeAT,xorg-x11-server-Xvfb,,TRUE,
@@ -521,7 +521,7 @@ ora,,,FALSE,Oracle client
 Orcs,,p7zip dos2unix,TRUE,"zip, unix2dos"
 orderly,,,FALSE,git
 ordinalbayes,,,TRUE,JAGS
-osmose,,java,FALSE,Java
+osmose,,R-java,TRUE,Java
 osrmr,,,FALSE,"To use the Localhost of OSRM, you need to buildOSRM<https://github.com/Project-OSRM/osrm-backend/wiki/Building-OSRM>locally"
 otsad,,,FALSE,Python; bencode-python3
 outbreaker,gsl-devel,,TRUE,
@@ -532,7 +532,7 @@ papaja,,,FALSE,"Rendering the document template requires pandoc; https://pandoc.
 paramlink,,,FALSE,"For multipoint linkage analysis, 'MERLIN'(http://csg.sph.umich.edu/abecasis/merlin/index.html)."
 paramlink2,,,FALSE,MERLIN(http://csg.sph.umich.edu/abecasis/merlin/index.html) formultipoint linkage analysis.
 patchDVI,,,TRUE,The 'Japanese.Rnw' vignette requires uplatex anddvipdfmx.
-pathfindR,,,FALSE,Java
+pathfindR,,R-java,TRUE,Java
 patientProfilesVis,,,FALSE,latex
 paws.common,,pandoc,FALSE,pandoc - http://pandoc.org
 pbdBASE,openmpi-devel,,TRUE,
@@ -579,8 +579,8 @@ pomp,,,TRUE,"For Windows users, Rtools (seehttps://cran.r-project.org/bin/window
 popbayes,,,TRUE,JAGS
 PopGenome,zlib-devel,,TRUE,zlib headers and library.
 popRange,,python3dist(numpy),TRUE,
-PortfolioEffectEstim,,java,FALSE,Java
-PortfolioEffectHFT,,java,FALSE,Java
+PortfolioEffectEstim,,"",TRUE,Java
+PortfolioEffectHFT,,"",TRUE,Java
 potools,,,FALSE,gettext
 pRecipe,,,FALSE,"PROJ, https://proj.org/download.html) andGDAL, https://gdal.org/download.html)."
 precommit,,,FALSE,git
@@ -601,7 +601,7 @@ pureseqtmr,,,FALSE,PureseqTM(https://github.com/PureseqTM/pureseqTM_package)
 PVAClone,,,TRUE,JAGS
 pylintR,,,FALSE,pylint
 pysd2r,,,FALSE,'python3' needs to built for the same architectureR is built fororbit).
-qCBA,,java,FALSE,Java
+qCBA,,"",TRUE,Java
 QF,gsl-devel,,TRUE,GNU GSL
 qpdf,qpdf-devel,,TRUE,libjpeg
 qqconf,fftw-devel,,TRUE,fftw3
@@ -609,19 +609,19 @@ qtbase,cmake qt-devel xorg-x11-server-Xvfb,,TRUE,
 qtpaint,cmake qt-devel xorg-x11-server-Xvfb,,TRUE,
 quarto,,,FALSE,Quarto command line tools(https://github.com/quarto-dev/quarto-cli).
 questionr,,xclip,FALSE,xclip (Linux)
-r.blip,,java,FALSE,Java
+r.blip,,R-java,TRUE,Java
 R2admb,,,FALSE,AD Model Builder <http://admb-project.org>
 R2jags,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
 R2MLwiN,,,FALSE,"MLwiN, (OpenBUGS, WinBUGS optional)"
 R2OpenBUGS,,,FALSE,OpenBUGS
-r2pmml,,java,FALSE,Java
+r2pmml,,R-java,TRUE,Java
 R2SWF,zlib-devel libpng-devel freetype-devel,,TRUE,"zlib, libpng, FreeType"
 R2wd,,,FALSE,Windows
 R2WinBUGS,,,FALSE,OpenBugs for functions bugs() and openbugs() orWinBUGSfor function bugs()
-r5r,,,FALSE,Java JDK
+r5r,,,TRUE,Java JDK
 ragg,freetype-devel libpng-devel libtiff-devel libjpeg-turbo-devel,,TRUE,"freetype2, libpng, libtiff, libjpeg"
 rankUncertainty,,,TRUE,"GNU,"
-rapidraker,,java,FALSE,Java
+rapidraker,,"",TRUE,Java
 RAppArmor,,,TRUE,"linux, libapparmor-dev"
 rapport,,pandoc,FALSE,pandoc (https://johnmacfarlane.net/pandoc) forexporting markdown files to other formats.
 RAQSAPI,,,FALSE,package manual requires pandochttp://pandoc.org
@@ -632,16 +632,16 @@ RBaseX,,,FALSE,Needs a running BaseX server instance.
 rbch,,,FALSE,BCHunlimited
 rbedrock,cmake zlib-devel,,TRUE,"cmake, zlib,  Solaris: g++ is arequirement"
 RBesT,,,TRUE,"pandoc, pandoc-citeproc"
-Rbgs,,java,FALSE,Java JREor higher ; Xuggle-xuggler-5.4.jar inlibrary paths and class paths.
+Rbgs,,"",TRUE,Java JREor higher ; Xuggle-xuggler-5.4.jar inlibrary paths and class paths.
 rbi,,,FALSE,LibBi
 rbi.helpers,,,FALSE,libbi
 Rblpapi,,,TRUE,A valid Bloomberg installation. The API headers anddynamic library are downloaded from<https://github.com/Rblp/blp> during the build step. See<https://bloomberg.github.io/blpapi-docs/cpp/3.8> as well as<https://www.bloomberg.com/professional/support/api-library/>for API documentation. A compiler recent enough for (at leastpartial)  support is required; g++-4.6.* or later shouldbe sufficient and g++-4.9.* or later is preferred.
 rblt,hdf5-devel,,FALSE,libhdf5
 Rborist,,,TRUE,g++
-rCBA,,java,FALSE,Java
+rCBA,,"",TRUE,Java
 RCBR,,,FALSE,"MOSEK (http://www.mosek.com) and MOSEK License foruse of Rmosek,"
 rcdd,gmp-devel,,TRUE,GMP (GNU MP bignum library from<https://gmplib.org/>)
-rcdk,,java,FALSE,Java JDKor higher
+rcdk,,"",TRUE,Java JDKor higher
 rchallenge,,pandoc,FALSE,pandoc -http://johnmacfarlane.net/pandoc
 rchie,v8-314-devel,,FALSE,"V8 <=: libv8-3.14-dev (deb), v8-314-devel(rpm), v8-3.14 (arch), v8@3.15 (homebrew)"
 RclusTool,xorg-x11-server-Xvfb,,TRUE,
@@ -708,7 +708,7 @@ RDieHarder,gsl-devel,,TRUE,GNU GSL for the GSL random-number generators
 rDotNet,mono-devel wine-mono nuget,wine-mono nuget,TRUE,
 rdoxygen,,doxygen,TRUE,doxygen
 Rdrools,,java,TRUE,
-Rdroolsjars,,java,FALSE,Java
+Rdroolsjars,,"",TRUE,Java
 rdwd,,pandoc,TRUE,
 readbitmap,libjpeg-turbo-devel libpng-devel,,TRUE,"libjpeg, libpng"
 REBayes,,,FALSE,MOSEK (http://www.mosek.com) and MOSEK license.
@@ -724,11 +724,11 @@ reportfactory,,,FALSE,pandoc - http://pandoc.org
 reprex,,pandoc,FALSE,pandoc - http://pandoc.org
 reproducible,,,FALSE,'unrar' (Linux/macOS) or '7-Zip' (Windows) to workwith '.rar' files.
 reproj,,,FALSE,PROJ
-restoptr,,,FALSE,Java
+restoptr,,,TRUE,Java
 reticulate,,python2 python3,TRUE,Python
 rextendr,,,FALSE,Rust 'cargo'; the crate 'libR-sys' must compilewithout error
 rfacts,,,FALSE,"FACTS Linux engines, FLFLL,Mono"
-rflsgen,,,FALSE,Java
+rflsgen,,,TRUE,Java
 RFreak,,java,TRUE,
 rfviz,xorg-x11-server-Xvfb,,TRUE,
 rgdal,gdal-devel proj-devel sqlite-devel,,TRUE,"PROJ, https://proj.org/download.html) andGDAL, https://gdal.org/download.html), with versionseither (A) PROJ <and GDAL <or (B) PROJand GDALFor degraded PROJorand GDAL <, use the configureargument '--with-proj_api=""proj_api.h""'."
@@ -742,26 +742,26 @@ rgnparser,,,FALSE,gnparser (<https://github.com/gnames/gnparser>)
 Rgnuplot,gnuplot,gnuplot,TRUE,
 rgrass,,,FALSE,GRASS
 rgrass7,,grass,FALSE,GRASS
-rGroovy,,java,FALSE,Java
+rGroovy,,"",TRUE,Java
 RGtk2,cairo-devel atk-devel pango-devel gtk2-devel glib2-devel,,TRUE,
-RH2,,java,FALSE,java runtime
+RH2,,"",TRUE,java runtime
 Rhpc,openmpi-devel,,TRUE,
 ridge,gsl-devel,,TRUE,Gnu Scientific Library version
 rim,,maxima,TRUE,"Maxima (https://sourceforge.net/projects/maxima/,tested with versions, needs to be on PATH"
 riot,"",,FALSE,cmake used only but systematically onmacOS and Linux platforms to build VTK from source.
 RJaCGH,zlib-devel,,TRUE,
 rjags,jags-devel,,TRUE,JAGSx.y
-rJava,R-java-devel,java,FALSE,"Java JDKor higher (for JRI/REngine JDKorhigher),"
-RJDemetra,,java,FALSE,Java JREor higher.
-rjdmarkdown,,,FALSE,Java SEor higher
-rJPSGCS,zlib-devel,,FALSE,"Java, zlib headers and library."
-RJSDMX,,java,FALSE,Java
+rJava,R-java-devel,"",TRUE,"Java JDKor higher (for JRI/REngine JDKorhigher),"
+RJDemetra,,"",TRUE,Java JREor higher.
+rjdmarkdown,,,TRUE,Java SEor higher
+rJPSGCS,zlib-devel,,TRUE,"Java, zlib headers and library."
+RJSDMX,,"",TRUE,Java
 rJython,,java,TRUE,
-rkafka,,java,FALSE,"Java JDKor higher,Apache Kafka-0.8.1.1"
-rkafkajars,,java,FALSE,Java JDKor higher
-RKEA,,java,FALSE,Java
-RKEAjars,,java,FALSE,Java
-RKEEL,,java,FALSE,Java
+rkafka,,"",TRUE,"Java JDKor higher,Apache Kafka-0.8.1.1"
+rkafkajars,,"",TRUE,Java JDKor higher
+RKEA,,"",TRUE,Java
+RKEAjars,,"",TRUE,Java
+RKEEL,,"",TRUE,Java
 rkeops,cmake,cmake,TRUE,"cmake,  (optional), CUDA(optional but recommended)"
 Rlibeemd,gsl-devel,,TRUE,GNU GSL
 rlo,,libreoffice-pyuno,TRUE,
@@ -769,22 +769,22 @@ RMariaDB,mariadb-devel,,TRUE,"libmariadb-client-lgpl-dev or libmariadb-dev orlib
 RMark,,,FALSE,"notepad.exe, mark.exe (or mark32.exe andmark64.exe) and rel_32.exe (see README.txt)"
 rmarkdown,,pandoc,FALSE,pandoc - http://pandoc.org
 rmatio,zlib-devel,,TRUE,zlib headers and library.
-rmcfs,,java,FALSE,Java
+rmcfs,,"",TRUE,Java
 rmdfiltr,,pandoc,FALSE,pandoc; https://pandoc.org)
 RmecabKo,mecab-devel,,TRUE,
 rMIDAS,,,FALSE,Python
 rminizinc,,,TRUE,"pandoc, needed for the vignette)"
-RMOA,,java,FALSE,Java
-RMOAjars,,java,FALSE,Java
+RMOA,,"",TRUE,Java
+RMOAjars,,"",TRUE,Java
 Rmosek,,,FALSE,MOSEK and MOSEK License
 rMouse,xorg-x11-server-Xvfb,java,TRUE,
 Rmpfr,gmp-devel mpfr-devel,,TRUE,"gmp, mpfr, pdfcrop (part ofTexLive) is required to rebuild the vignettes."
 Rmpi,openmpi-devel,,TRUE,
 RMySQL,mariadb-devel,,TRUE,"libmariadb-client-dev | libmariadb-client-lgpl-dev| libmysqlclient-dev (deb), mariadb-devel (rpm), mariadb |mysql-connector-c (brew), mysql56_dev (csw)"
-RNCBIEUtilsLibs,,java,FALSE,Java
+RNCBIEUtilsLibs,,"",TRUE,Java
 rnetcarto,gsl-devel,,TRUE,GNU GSL
 RNetCDF,netcdf-devel udunits2-devel,,TRUE,netcdf udunits-2
-RNetLogo,,java,FALSE,"Java, NetLogo"
+RNetLogo,,"",TRUE,"Java, NetLogo"
 Rnightlights,,aria2 curl gdal wget,TRUE,
 RoBMA,jags-devel,,TRUE,JAGS(https://mcmc-jags.sourceforge.io/)
 RoBSA,jags-devel,,TRUE,JAGS(https://mcmc-jags.sourceforge.io/)
@@ -818,18 +818,18 @@ rriskDistributions,xorg-x11-server-Xvfb,tcl tk,FALSE,"Tcl/Tk, Tktable"
 RSAGA,,,FALSE,SAGA GISLTS -
 Rsagacmd,,,FALSE,SAGA-GIS
 Rsampletrees,gsl-devel,,TRUE,
-rscala,java,java,FALSE,"Scala, Java"
+rscala,scala,scala,TRUE,"Scala, Java"
 RSclient,openssl-devel,,TRUE,
 Rserve,,,TRUE,"libR,"
 RSiena,xorg-x11-server-Xvfb,tcl tk,TRUE,
 Rsmlx,,,FALSE,'Monolix' (<https://monolix.lixoft.com>)
-rsparkling,,java,FALSE,Java
+rsparkling,,"",TRUE,Java
 Rssa,fftw-devel,,TRUE,fftw
 RsSimulx,,,FALSE,'Simulx' (<http://simulx.lixoft.com/>)
 rstan,,pandoc,TRUE,pandoc
 rstanarm,,pandoc,TRUE,"pandoc, pandoc-citeproc"
 rstantools,,pandoc,FALSE,"pandoc,"
-rsubgroup,,java,FALSE,Java
+rsubgroup,,"",TRUE,Java
 RSurvey,xorg-x11-server-Xvfb,tcl tk,FALSE,"Tcl/Tk, Tktable, optional)"
 rsvg,librsvg2-devel,,TRUE,librsvg2
 Rsymphony,coin-or-SYMPHONY-devel,,TRUE,SYMPHONY libraries and headers
@@ -843,11 +843,11 @@ rtmpt,gsl-devel,,TRUE,GSL
 rTorch,,,FALSE,"""conda (python>=3.6 pytorch torchvision cpuonlynumpy matplotlib pandas -c pytorch);python-minimal, pandoc pandoc-citeproc, qpdf; Python,pytorch, torchvision, cpuonly, numpy;pandoc, qpdf on Solaris"""
 runjags,jags-devel,,TRUE,JAGS(https://mcmc-jags.sourceforge.io/)
 ruta,,,FALSE,Python; keras <https://keras.io/>
-rviewgraph,,,FALSE,'Java' version
+rviewgraph,,,TRUE,'Java' version
 RVowpalWabbit,boost-devel,"",TRUE,The Boost 'program_options' library<https://boost.org> is required.
 RWebLogo,,ghostscript,TRUE,
-RWeka,,,FALSE,Java
-RWekajars,,,FALSE,Java
+RWeka,,,TRUE,Java
+RWekajars,,,TRUE,Java
 RWinEdt,,,TRUE,WinEdt
 rzmq,zeromq-devel,,TRUE,ZeroMQ: libzmq3-dev (deb) or zeromq-devel(rpm)
 s2,openssl-devel,,TRUE,OpenSSL
@@ -864,13 +864,13 @@ salso,cargo,,TRUE,Cargo for installation from sources:see INSTALL file
 saotd,,,FALSE,"GSL, MPFR, udunits2-3)"
 sarsop,,,TRUE,"mallinfo, hence Linux, MacOS or Windows"
 SASmarkdown,,,FALSE,SAS
-SBRect,,java,FALSE,java
+SBRect,,"",TRUE,java
 sbrl,gmp-devel gsl-devel,,TRUE,
 scaffolder,,,FALSE,Python
 scModels,gmp-devel mpfr-devel,,TRUE,"gmp, mpfr"
 sdcTable,glpk-devel,,TRUE,"GLPK library, including -dev or -devel part"
-sdmApp,,,FALSE,Java
-SDMtune,,,FALSE,Java and maxent.jarto use Maxent
+sdmApp,,R-java,TRUE,Java
+SDMtune,,R-java,TRUE,Java and maxent.jarto use Maxent
 seewave,,libsndfile,FALSE,LIBSNDFILE
 SemiCompRisks,gsl-devel,,TRUE,
 sen2r,,,FALSE,"GDAL, PROJ, GEOS,Cairo, Curl, NetCDF, jq, Protocol Buffers, V8, OpenSSL,Libxml2."
@@ -892,7 +892,7 @@ simhelpers,,,FALSE,RStudio
 SimInf,gsl-devel,,TRUE,GNU Scientific Library (GSL)
 simplermarkdown,,,FALSE,Pandoc (http://pandoc.org) needs to installed andavailable in the search path.
 simplexreg,gsl-devel,,TRUE,GNU Scientific Library version
-slowraker,,java,FALSE,Java
+slowraker,,R-java,TRUE,Java
 smam,gsl-devel,,TRUE,"GNU GSL,"
 smile,,,TRUE,"GDAL, GEOS, PROJ"
 sodium,libsodium-devel,,TRUE,libsodium
@@ -911,16 +911,16 @@ SPARSEMODr,gsl-devel,,TRUE,GNU GSL
 spate,fftw-devel,,TRUE,
 spatPomp,,,TRUE,"For Windows users, Rtools (seehttps://cran.r-project.org/bin/windows/Rtools/)."
 spatsoc,geos-devel,,FALSE,GEOS
-spcosa,,java,FALSE,Java
+spcosa,,"",TRUE,Java
 specklestar,fftw-devel,,TRUE,fftw3
 spherepc,,,FALSE,XQuartz (on MacOS)
 spongecake,,,FALSE,FFmpeg (http://ffmpeg.org)
-SqlRender,,,FALSE,Java versionor higher (https://www.java.com/)
+SqlRender,,,TRUE,Java versionor higher (https://www.java.com/)
 ssh,libssh-devel,,TRUE,"libssh(the original, not libssh2)"
 SSHAARP,,,FALSE,"GMTor, Ghostscript"
 stanette,,,TRUE,pandoc
 StanHeaders,,,TRUE,pandoc
-staplr,,,FALSE,Javaor higher
+staplr,,,TRUE,Javaor higher
 startR,,,FALSE,cdo ecFlow
 starvz,,,TRUE,"C++, arrow package with gzip codec, StarPU"
 StatCharrms,,gtk+,TRUE,
@@ -931,12 +931,12 @@ stevedore,,docker,FALSE,docker
 stmgp,,,FALSE,PLINK must be installed
 strawr,libcurl-devel,,TRUE,libcurl: libcurl-devel (rpm) orlibcurl4-openssl-dev (deb)
 streambugs,,,TRUE,C99
-streamMOA,,java,FALSE,Java
+streamMOA,,"",TRUE,Java
 string2path,cargo,,TRUE,Cargo (rustc package manager)
 stringi,libicu-devel,,TRUE,"ICU4C, optional)"
 strm,,,TRUE,"GDAL, GEOS, PROJ"
 stsm,gsl-devel,,TRUE,
-subspace,,java,FALSE,Java
+subspace,,"",TRUE,Java
 sudachir,,,FALSE,Python
 SuperGauss,fftw-devel,,TRUE,fftw3
 survSNP,gsl-devel,,TRUE,GNU GSL
@@ -1017,7 +1017,7 @@ VBLPCM,gsl-devel,,TRUE,Gnu Scientific Library
 vcfR,devscripts-checkbashisms,,TRUE,
 vdiffr,libpng-devel,,TRUE,libpng
 vegawidget,,,FALSE,To use image functions for MacOS: X11
-venneuler,,,FALSE,Javaor higher
+venneuler,,,TRUE,Javaor higher
 VIMGUI,xorg-x11-server-Xvfb,bwidget,TRUE,
 virtuoso,,,FALSE,"virtuoso-opensource (Linux). For Mac & Windows,this package can automate Virtuoso installation."
 vitae,,,FALSE,pandoc - http://pandoc.org
@@ -1031,14 +1031,14 @@ wgaim,,,FALSE,asreml-Rx
 whitebox,,,FALSE,WhiteboxTools(https://github.com/jblindsay/whitebox-tools/releases/latest)
 WhopGenome,zlib-devel,,TRUE,
 worcs,,,FALSE,pandoc - http://pandoc.org
-wordnet,,java wordnet,FALSE,Java; WordNet database files (directdownload:<https://wordnetcode.princeton.edu/3.0/WNdb-3.0.tar.gz>; Debianand Fedora package: wordnet)
+wordnet,,wordnet,TRUE,Java; WordNet database files (directdownload:<https://wordnetcode.princeton.edu/3.0/WNdb-3.0.tar.gz>; Debianand Fedora package: wordnet)
 workflowr,,pandoc,FALSE,pandoc - https://pandoc.org
 WriteXLS,,perl,FALSE,Perl
 x.ent,,perl,FALSE,"Perl, Unitexhttp://www-igm.univ-mlv.fr/~unitex/)"
 XBRL,libxml2-devel,,TRUE,libxml2
-XLConnect,,java,FALSE,"Java, <="
+XLConnect,,"",TRUE,"Java, <="
 XLConnectJars,,java,TRUE,
-xlsx,,java,FALSE,java
+xlsx,,"",TRUE,java
 XML,libxml2-devel,,TRUE,libxml2
 xml2,libxml2-devel,,TRUE,"libxml2: libxml2-dev (deb), libxml2-devel (rpm)"
 XRJulia,,julia,FALSE,"Julia, vor later"
