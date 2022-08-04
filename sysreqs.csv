@@ -149,7 +149,7 @@ curl,libcurl-devel,,TRUE,libcurl: libcurl-devel (rpm) orlibcurl4-openssl-dev (de
 cycleRtools,,java,FALSE,Java
 CytOpT,,,FALSE,Python
 DALY,xorg-x11-server-Xvfb,tcl tk,TRUE,"Tcl/Tk, Tktable"
-data.table,,,TRUE,zlib
+data.table,zlib-devel,,TRUE,zlib
 DatabaseConnector,,,FALSE,Java versionor higher (https://www.java.com/)
 DataExplorer,,pandoc,FALSE,pandoc - http://pandoc.org
 dataframes2xls,,python2,FALSE,python
@@ -251,7 +251,7 @@ fst,,,TRUE,little-endian platform
 fstcore,,,TRUE,little-endian platform
 ftExtra,,,FALSE,pandoc - http://pandoc.org
 fuzzywuzzyR,,,FALSE,"Python, difflib, fuzzywuzzy,python-Levenshtein. Detailed installationinstructions for each operating system can be found in theREADME file."
-fwildclusterboot,,"",FALSE,"Julia, WildBootTests.jl"
+fwildclusterboot,,,FALSE,"Julia, WildBootTests.jl"
 ganDataModel,,,TRUE,TensorFlow (https://www.tensorflow.org)
 ganGenerativeData,,,TRUE,TensorFlow (https://www.tensorflow.org)
 gcbd,,,FALSE,"Debian or Ubuntu system with access to Goto Blas,Intel MKL, Atlas development build as well as a Nvidia GPU withCUDA support"
@@ -284,7 +284,7 @@ ggquickeda,,pandoc,FALSE,pandoc with https support
 ggseg,,,FALSE,"GDAL, GEOS, PROJ"
 ggtrace,,,FALSE,pandoc
 gifski,cargo,cargo,FALSE,Cargo (rustc package manager)
-git2r,libgit2-devel zlib-devel openssl-devel libssh2-devel,,TRUE,"By default, git2r uses a system installation of thelibgit2 headers and library. However, if a system installationis not available, builds and uses a bundled version of thelibgit2 source. zlib headers and library. OpenSSL headers andlibrary (non-macOS). LibSSH2 (optional on non-Windows) toenable the SSH transport."
+git2r,libgit2-devel openssl-devel libssh2-devel zlib-devel,,TRUE,"By default, git2r uses a system installation of thelibgit2 headers and library. However, if a system installationis not available, builds and uses a bundled version of thelibgit2 source. zlib headers and library. OpenSSL headers andlibrary (non-macOS). LibSSH2 (optional on non-Windows) toenable the SSH transport."
 gitcreds,,,FALSE,git
 gittargets,,,FALSE,Git
 glmulti,,java,FALSE,Java
@@ -321,7 +321,7 @@ h2o4gpu,python3-devel,,FALSE,Python with header files and sharedlibrary; H2O4GPU
 h3jsr,,,FALSE,"V8 engine version+ is needed for modern JS andWASM support. On Debian / Ubuntu install either libv8-dev orlibnode-dev, on Fedora use v8-devel."
 h5,hdf5-devel,,TRUE,
 hadron,gsl-devel,,TRUE,Gnu Scientific Library version
-haven,"",,TRUE,"zlib: zlib1g-dev (deb), zlib-devel(rpm)"
+haven,zlib-devel,,TRUE,"zlib: zlib1g-dev (deb), zlib-devel(rpm)"
 hdf5r,hdf5-devel,,TRUE,HDF5
 hdfqlr,,,FALSE,HDFql
 helloJavaWorld,,java,FALSE,Java
@@ -332,7 +332,7 @@ hive,,,FALSE,"Apache Hadoop(https://hadoop.apache.org/releases.html#Download); O
 hoopR,,,FALSE,"pandoc, pandoc-citeproc"
 hSDM,gsl-devel,,TRUE,
 httpgd,libpng-devel cairo-devel freetype-devel,,TRUE,"libpng, cairo, freetype2, fontconfig"
-httpuv,"",,TRUE,zlib
+httpuv,zlib-devel,,TRUE,zlib
 huxtable,,,FALSE,"LaTeX packages: adjustbox, array, calc, caption,colortbl, fontspec, graphicx, hhline, hyperref, multirow,siunitx, tabularx, threeparttable, ulem, wrapfig"
 HydeNet,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
 iai,,,FALSE,Julia and Interpretable AI System Image(>=
@@ -342,7 +342,7 @@ idm,,ImageMagick,FALSE,ImageMagick (http://imagemagick.org) orGraphicsMagick (ht
 ieeeround,,,TRUE,A C library with the fesetround/fegetroundfunctions.
 igate,,,FALSE,pandoc - http://pandoc.org
 igraph,gmp-devel libxml2-devel glpk-devel,,TRUE,"gmp (optional), libxml2 (optional), glpk,optional),"
-ijtiff,libtiff-devel libjpeg-turbo-devel,,TRUE,"libtiff, libjpeg, zlib"
+ijtiff,libtiff-devel libjpeg-turbo-devel zlib-devel,,TRUE,"libtiff, libjpeg, zlib"
 image.CannyEdges,libpng-devel fftw-devel,,TRUE,"libpng, fftw3"
 image.textlinedetector,opencv-devel,,TRUE,"and OpenCVor newer: libopencv-dev (Debian,Ubuntu) or opencv-devel (Fedora)"
 imager,fftw-devel libtiff-devel,,TRUE,"fftw3,libtiff,X11"
@@ -452,7 +452,7 @@ MIMSunit,,,FALSE,"memoryGB) Ubuntu: build-essential,libxml2-dev, libssl-dev, lib
 minidown,,,FALSE,pandoc - http://pandoc.org
 mixcat,gsl-devel,,TRUE,
 MixSIAR,,,TRUE,JAGS
-mixture,"",,TRUE,GNU GSL
+mixture,,,TRUE,GNU GSL
 ML2Pvae,,,FALSE,"TensorFlow (https://www.tensorflow.org), Keras(https://keras.io), TensorFlow Probability(https://www.tensorflow.org/probability)"
 mleap,,java,TRUE,
 mlpack,,,TRUE,"A  compiler. Versions*,* or later ofGCC will be fine."
@@ -484,7 +484,7 @@ NACHO,,,FALSE,"pandoc, pandoc-citeproc"
 nanonext,cmake,,TRUE,'cmake' to compile 'libnng' from source
 nbconvertR,,pandoc python3dist(nbconvert),FALSE,"pandoc, jupyter, jupyter nbconvert (""nbconvert""python package), pywin32 (on windows)"
 ncdf4,netcdf-devel,,TRUE,netcdf library versionor later
-ndjson,"",,TRUE,"zlib,"
+ndjson,zlib-devel,,TRUE,"zlib,"
 neo2R,,,FALSE,neo4jOR <https://neo4j.com/>
 neo4jshell,,,FALSE,"neo4j - http://www.neo4j.com, cypher-shell -https://github.com/neo4j/cypher-shell/releases"
 neptune,,,FALSE,"Python, Neptune (https://neptune.ai/)"
@@ -577,7 +577,7 @@ PoissonBinomial,fftw-devel,,FALSE,fftw3
 PoissonMultinomial,,,FALSE,fftw3(>=3.3)
 pomp,,,FALSE,"For Windows users, Rtools (seehttps://cran.r-project.org/bin/windows/Rtools/)."
 popbayes,,,TRUE,JAGS
-PopGenome,zlib-devel,,FALSE,zlib headers and library.
+PopGenome,zlib-devel,,TRUE,zlib headers and library.
 popRange,,python3dist(numpy),TRUE,
 PortfolioEffectEstim,,java,FALSE,Java
 PortfolioEffectHFT,,java,FALSE,Java
@@ -615,7 +615,7 @@ R2jags,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
 R2MLwiN,,,FALSE,"MLwiN, (OpenBUGS, WinBUGS optional)"
 R2OpenBUGS,,,FALSE,OpenBUGS
 r2pmml,,java,FALSE,Java
-R2SWF,zlib-devel libpng-devel freetype-devel,,FALSE,"zlib, libpng, FreeType"
+R2SWF,zlib-devel libpng-devel freetype-devel,,TRUE,"zlib, libpng, FreeType"
 R2wd,,,FALSE,Windows
 R2WinBUGS,,,FALSE,OpenBugs for functions bugs() and openbugs() orWinBUGSfor function bugs()
 r5r,,,FALSE,Java JDK
@@ -630,7 +630,7 @@ raveio,,,FALSE,little-endian platform
 ravetools,,,FALSE,"fftw3 (libfftw3-dev (deb), or fftw-devel (rpm))"
 RBaseX,,,FALSE,Needs a running BaseX server instance.
 rbch,,,FALSE,BCHunlimited
-rbedrock,,,FALSE,"cmake, zlib,  Solaris: g++ is arequirement"
+rbedrock,cmake zlib-devel,,TRUE,"cmake, zlib,  Solaris: g++ is arequirement"
 RBesT,,,FALSE,"pandoc, pandoc-citeproc"
 Rbgs,,java,FALSE,Java JREor higher ; Xuggle-xuggler-5.4.jar inlibrary paths and class paths.
 rbi,,,FALSE,LibBi
@@ -736,7 +736,7 @@ rGEDI,gsl-devel hdf5-devel libgeotiff-devel zlib-devel,,TRUE,
 rgeos,geos-devel,,FALSE,GEOS; for building from source: GEOSfrom https://libgeos.org; GEOS OSX frameworks built by WilliamKyngesburye at http://www.kyngchaos.com/ may be used for sourceinstalls on OSX.
 RGF,,python3dist(scikit-learn) python3dist(numpy) python3dist(scipy),FALSE,"Python, rgf_python, scikit-learn, scipy, numpy. Detailed installation instructions foreach operating system can be found in the README file."
 rggobi,ggobi-devel,,TRUE,
-rgl,mesa-libGL-devel mesa-libGLU-devel zlib-devel libpng-devel freetype-devel,,FALSE,"OpenGL and GLU Library (Required for display in R.See ""Installing OpenGL support"" in README.md. Not needed ifonly browser displays using rglwidget() are wanted.), zlib(optional), libpng, optional), FreeType (optional),pandoc, needed for vignettes)"
+rgl,mesa-libGL-devel mesa-libGLU-devel zlib-devel libpng-devel freetype-devel,,TRUE,"OpenGL and GLU Library (Required for display in R.See ""Installing OpenGL support"" in README.md. Not needed ifonly browser displays using rglwidget() are wanted.), zlib(optional), libpng, optional), FreeType (optional),pandoc, needed for vignettes)"
 Rglpk,glpk-devel,,FALSE,"GLPK library package (e.g., libglpk-dev onDebian/Ubuntu)"
 rgnparser,,,FALSE,gnparser (<https://github.com/gnames/gnparser>)
 Rgnuplot,gnuplot,gnuplot,TRUE,
@@ -754,7 +754,7 @@ rjags,jags-devel,,TRUE,JAGSx.y
 rJava,R-java-devel,java,FALSE,"Java JDKor higher (for JRI/REngine JDKorhigher),"
 RJDemetra,,java,FALSE,Java JREor higher.
 rjdmarkdown,,,FALSE,Java SEor higher
-rJPSGCS,,,FALSE,"Java, zlib headers and library."
+rJPSGCS,zlib-devel,,FALSE,"Java, zlib headers and library."
 RJSDMX,,java,FALSE,Java
 rJython,,java,TRUE,
 rkafka,,java,FALSE,"Java JDKor higher,Apache Kafka-0.8.1.1"
@@ -768,7 +768,7 @@ rlo,,libreoffice-pyuno,TRUE,
 RMariaDB,mariadb-devel,,FALSE,"libmariadb-client-lgpl-dev or libmariadb-dev orlibmysqlclient-dev, with libssl-dev (deb),mariadb-connector-c-devel or mariadb-devel (rpm),mariadb-connector-c or mysql-connector-c (brew)"
 RMark,,,FALSE,"notepad.exe, mark.exe (or mark32.exe andmark64.exe) and rel_32.exe (see README.txt)"
 rmarkdown,,pandoc,FALSE,pandoc - http://pandoc.org
-rmatio,zlib-devel,,FALSE,zlib headers and library.
+rmatio,zlib-devel,,TRUE,zlib headers and library.
 rmcfs,,java,FALSE,Java
 rmdfiltr,,pandoc,FALSE,pandoc; https://pandoc.org)
 RmecabKo,mecab-devel,,TRUE,
@@ -874,8 +874,8 @@ SDMtune,,,FALSE,Java and maxent.jarto use Maxent
 seewave,,libsndfile,FALSE,LIBSNDFILE
 SemiCompRisks,gsl-devel,,TRUE,
 sen2r,,,FALSE,"GDAL, PROJ, GEOS,Cairo, Curl, NetCDF, jq, Protocol Buffers, V8, OpenSSL,Libxml2."
-seqinr,zlib-devel,,FALSE,zlib headers and library.
-seqminer,zlib-devel,,FALSE,"zlib headers and libraries, optionally also bzip2 and POSIX-compliant regex functions."
+seqinr,zlib-devel,,TRUE,zlib headers and library.
+seqminer,zlib-devel,,TRUE,"zlib headers and libraries, optionally also bzip2 and POSIX-compliant regex functions."
 sequenza,,,FALSE,pandoc
 sf,gdal-devel geos-devel proj-devel sqlite-devel,,FALSE,"GDAL, GEOS, PROJ, sqlite3"
 sgmcmc,,,FALSE,"TensorFlow (https://www.tensorflow.org/),TensorFlow Probability(https://www.tensorflow.org/probability/)"
@@ -886,7 +886,7 @@ shinyjs,,pandoc,TRUE,
 shinyloadtest,,,FALSE,pandoc - http://pandoc.org
 shinytest,,,FALSE,PhantomJS (http://phantomjs.org/)
 shortcuts,,,FALSE,RStudio
-showtext,zlib-devel libpng-devel freetype-devel,,FALSE,"zlib, libpng, FreeType"
+showtext,zlib-devel libpng-devel freetype-devel,,TRUE,"zlib, libpng, FreeType"
 SIBER,,,TRUE,JAGS
 simhelpers,,,FALSE,RStudio
 SimInf,gsl-devel,,TRUE,GNU Scientific Library (GSL)
@@ -950,14 +950,14 @@ sybilSBML,libsbml-devel,,TRUE,
 SymbolicDeterminants,,,FALSE,gmp
 symengine,cmake gmp-devel mpfr-devel,,FALSE,"cmake, gmp, mpfr"
 SymTS,gsl-devel,,TRUE,
-sysfonts,zlib-devel libpng-devel freetype-devel,,FALSE,"zlib, libpng, FreeType"
+sysfonts,zlib-devel libpng-devel freetype-devel,,TRUE,"zlib, libpng, FreeType"
 systemfonts,,,FALSE,"fontconfig, freetype2"
 tables,,,FALSE,pandoc for vignettes
 tabr,,lilypond,FALSE,LilyPond v2.23.0+ (only needed for rendering sheetmusic or writing MIDI files)
 tabulizer,,java,TRUE,
 tabulizerjars,,java,TRUE,
 tapkee,,,FALSE,'tapkee' (http://tapkee.lisitsyn.me/)
-TAQMNGR,zlib-devel,,FALSE,zlib headers and library
+TAQMNGR,zlib-devel,,TRUE,zlib headers and library
 tcltk2,xorg-x11-server-Xvfb,tcl tk,FALSE,"Tcl/Tk, Tktable, optional)"
 TDA,gmp-devel,,FALSE,"gmp,"
 telefit,,,FALSE,A system with a recent-enough  compiler (suchas g++-4.8 or later).
