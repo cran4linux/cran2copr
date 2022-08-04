@@ -571,7 +571,7 @@ plinkQC,,,FALSE,plink
 plumberDeploy,,,FALSE,"libssh(the original, not libssh2)"
 PMCMRplus,gmp-devel mpfr-devel,,FALSE,"gmp, mpfr | file README.md"
 pmparser,,,FALSE,"head, unzip, sqlite"
-png,libpng-devel,,FALSE,libpng
+png,libpng-devel,,TRUE,libpng
 poisbinom,fftw-devel,,FALSE,fftw
 PoissonBinomial,fftw-devel,,FALSE,fftw3
 PoissonMultinomial,,,FALSE,fftw3(>=3.3)
@@ -619,7 +619,7 @@ R2SWF,zlib-devel libpng-devel freetype-devel,,TRUE,"zlib, libpng, FreeType"
 R2wd,,,FALSE,Windows
 R2WinBUGS,,,FALSE,OpenBugs for functions bugs() and openbugs() orWinBUGSfor function bugs()
 r5r,,,FALSE,Java JDK
-ragg,freetype-devel libpng-devel libtiff-devel libjpeg-turbo-devel,,FALSE,"freetype2, libpng, libtiff, libjpeg"
+ragg,freetype-devel libpng-devel libtiff-devel libjpeg-turbo-devel,,TRUE,"freetype2, libpng, libtiff, libjpeg"
 rankUncertainty,,,FALSE,"GNU,"
 rapidraker,,java,FALSE,Java
 RAppArmor,,,FALSE,"linux, libapparmor-dev"
@@ -710,7 +710,7 @@ rdoxygen,,doxygen,FALSE,doxygen
 Rdrools,,java,TRUE,
 Rdroolsjars,,java,FALSE,Java
 rdwd,,pandoc,TRUE,
-readbitmap,libjpeg-turbo-devel libpng-devel,,FALSE,"libjpeg, libpng"
+readbitmap,libjpeg-turbo-devel libpng-devel,,TRUE,"libjpeg, libpng"
 REBayes,,,FALSE,MOSEK (http://www.mosek.com) and MOSEK license.
 redist,gmp-devel libxml2-devel,,FALSE,"OpenMPI, gmp, libxml2, python,"
 redland,redland-devel,,FALSE,"Mac OSX: redland ; Linux: librdf0, librdf0-dev"
@@ -941,7 +941,7 @@ sudachir,,,FALSE,Python
 SuperGauss,fftw-devel,,FALSE,fftw3
 survSNP,gsl-devel,,FALSE,GNU GSL
 svDialogs,,zenity yad,FALSE,"zenity, yad"
-svglite,,,FALSE,libpng
+svglite,libpng-devel,,TRUE,libpng
 svKomodo,,,FALSE,Komodo Edit(https://www.activestate.com/products/komodo-ide/)
 switchboard,,,FALSE,Tcl/Tk toolkit (X11 Quarts for Mac)
 switchr,,git subversion,FALSE,"git, svn"
@@ -985,7 +985,7 @@ tiledb,,,FALSE,"A  compiler is required, and on macOScompilation for versionis r
 tiler,,python3dist(gdal),FALSE,"Python, python-gdal library (For Windows,gdal installed via OSGeo4W <https://trac.osgeo.org/osgeo4w/>recommended) clipboard"
 timechange,,,FALSE,A system with zoneinfo data (e.g./usr/share/zoneinfo) as well as a recent-enough  compiler(such as g++-4.8 or later). On Windows the zoneinfo includedwith R is used.
 TKF,gsl-devel,,TRUE,
-tkImgR,,,FALSE,"Tcl/Tk. To read and write other formatsthan PPM/PGM, PNG and GIF it is required the 'tkImg' for'Tcl/Tk' (https://sourceforge.net/projects/tkimg/), or thedebian 'libtk-img' package (Ubuntu) or the RPM 'tkimg' package(Fedora or openSUSE)."
+tkImgR,xorg-x11-server-Xvfb,tkimg,TRUE,"Tcl/Tk. To read and write other formatsthan PPM/PGM, PNG and GIF it is required the 'tkImg' for'Tcl/Tk' (https://sourceforge.net/projects/tkimg/), or thedebian 'libtk-img' package (Ubuntu) or the RPM 'tkimg' package(Fedora or openSUSE)."
 tkrplot,,,FALSE,Windows or X11
 tkRplotR,xorg-x11-server-Xvfb,tcl tk,FALSE,Tcl/Tk
 TMB,,gcc-c++,TRUE,
@@ -1015,7 +1015,7 @@ varitas,,,FALSE,"perl, bedtools, bwa"
 vaultr,,,FALSE,vault
 VBLPCM,gsl-devel,,TRUE,Gnu Scientific Library
 vcfR,devscripts-checkbashisms,,TRUE,
-vdiffr,,,FALSE,libpng
+vdiffr,libpng-devel,,TRUE,libpng
 vegawidget,,,FALSE,To use image functions for MacOS: X11
 venneuler,,,FALSE,Javaor higher
 VIMGUI,xorg-x11-server-Xvfb,bwidget,TRUE,
@@ -1025,7 +1025,7 @@ VMDecomp,,,FALSE,"libarmadillo: apt-get install -y libarmadillo-dev(deb), libbla
 vmr,,,FALSE,Vagrant <https://www.vagrantup.com>
 webdriver,,,FALSE,PhantomJS (http://phantomjs.org/)
 webp,libwebp-devel,,FALSE,libwebp
-webshot,,ImageMagick,FALSE,"PhantomJS for taking screenshots, ImageMagick orGraphicsMagick and OptiPNG for manipulating images."
+webshot,,ImageMagick,TRUE,"PhantomJS for taking screenshots, ImageMagick orGraphicsMagick and OptiPNG for manipulating images."
 websocket,openssl-devel,,FALSE,OpenSSL
 wgaim,,,FALSE,asreml-Rx
 whitebox,,,FALSE,WhiteboxTools(https://github.com/jblindsay/whitebox-tools/releases/latest)
