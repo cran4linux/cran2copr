@@ -21,6 +21,7 @@ commonsMath
 googleformr
 gifski cargo
 baseflow cargo
+ymd cargo
 traitdataform
 freetypeharfbuzz internet
 pcaL1
