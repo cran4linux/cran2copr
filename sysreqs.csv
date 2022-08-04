@@ -18,7 +18,7 @@ arrangements,gmp-devel,,TRUE,gmp
 arrow,libarrow-dataset-devel,,TRUE,"for AWS S3 support on Linux, libcurl andopenssl (optional)"
 arulesCBA,,R-java,TRUE,Java
 arulesNBMiner,,R-java,TRUE,Java
-asbio,xorg-x11-server-Xvfb,bwidget,FALSE,BWidget
+asbio,xorg-x11-server-Xvfb,bwidget,TRUE,BWidget
 asremlPlus,,,FALSE,asreml-Rx
 autoharp,,,FALSE,pandoc - http://pandoc.org
 av,,,FALSE,"FFmpeg; with at least libx264 and lame(mp3) drivers. Debian/Ubuntu: libavfilter-dev, Fedora/CentOS:ffmpeg-devel (via https://rpmfusion.org), MacOS Homebrew:ffmpeg."
@@ -61,7 +61,7 @@ bigsimr,,,TRUE,"Julia, Bigsimr.jl, Distributions.jl"
 bigsnpr,,,TRUE,A few functions from package 'bigsnpr' wrapexisting software such as 'PLINK'<www.cog-genomics.org/plink2>. Functions are provided todownload these software. Note that these external softwaremight not work for some operating systems (e.g. 'PLINK' mightnot work on Solaris).
 bioacoustics,cmake fftw-devel,,TRUE,"fftw3,"
 bioimagetools,libtiff-devel fftw-devel libcurl-devel openssl-devel,,TRUE,tiff fftw libcurl openssl
-biplotbootGUI,xorg-x11-server-Xvfb,tcl tk bwidget,FALSE,Tcl/Tk package BWidget.
+biplotbootGUI,xorg-x11-server-Xvfb,bwidget,TRUE,Tcl/Tk package BWidget.
 BiplotGUI,,,TRUE,windows
 bisque,,,TRUE,A system with a recent-enough  compiler (suchas g++-4.8 or later).
 blandr,,pandoc,FALSE,pandoc
@@ -112,7 +112,7 @@ clpAPI,coin-or-Clp-devel,,TRUE,
 clustermq,zeromq-devel,,TRUE,ZeroMQ (libzmq)
 ClusterR,,,TRUE,"libarmadillo: apt-get install -y libarmadillo-dev(deb), libblas: apt-get install -y libblas-dev (deb),liblapack: apt-get install -y liblapack-dev (deb),libarpack++2: apt-get install -y libarpack++2-dev (deb),: apt-get install -y  (deb), libgmp3: apt-getinstall -y libgmp3-dev (deb), libfftw3: apt-get install -ylibfftw3-dev (deb), libtiff5: apt-get install -y libtiff5-dev(deb)"
 cmaRs,,,FALSE,MOSEK (http://www.mosek.com) and MOSEK License foruse of Rmosek
-cncaGUI,xorg-x11-server-Xvfb,tcl tk bwidget,FALSE,Tcl/Tk package BWidget.
+cncaGUI,xorg-x11-server-Xvfb,bwidget,TRUE,Tcl/Tk package BWidget.
 codacore,,,FALSE,TensorFlow (https://www.tensorflow.org/)
 coga,gsl-devel,,TRUE,GNU GSL
 cogmapr,,,FALSE,libcurl: libcurl-devel (rpm) orlibcurl4-openssl-dev (deb).
@@ -148,7 +148,7 @@ cuml4r,,,TRUE,RAPIDS cuML (see https://rapids.ai/start.html)
 curl,libcurl-devel,,TRUE,libcurl: libcurl-devel (rpm) orlibcurl4-openssl-dev (deb).
 cycleRtools,,R-java,TRUE,Java
 CytOpT,,,TRUE,Python
-DALY,xorg-x11-server-Xvfb,tcl tk,TRUE,"Tcl/Tk, Tktable"
+DALY,xorg-x11-server-Xvfb,"",TRUE,"Tcl/Tk, Tktable"
 data.table,zlib-devel,,TRUE,zlib
 DatabaseConnector,,,TRUE,Java versionor higher (https://www.java.com/)
 DataExplorer,,pandoc,FALSE,pandoc - http://pandoc.org
@@ -373,7 +373,7 @@ jpeg,libjpeg-turbo-devel,,TRUE,libjpeg
 jqr,jq-devel,,TRUE,libjq: jq-devel (rpm) or libjq-dev (deb)
 jSDM,gsl-devel,,TRUE,GNU GSL
 jsr223,,java,TRUE,
-juicr,,,FALSE,Tcl/Tk toolkit (X11 Quarts for Mac)
+juicr,,,TRUE,Tcl/Tk toolkit (X11 Quarts for Mac)
 JuliaCall,,julia,TRUE,"Julia, RCall.jl"
 JuliaConnectoR,,julia,TRUE,Julia
 JuniperKernel,zeromq-devel,,TRUE,
@@ -420,7 +420,7 @@ lwgeom,geos-devel proj-devel sqlite-devel,,TRUE,"GEOS, PROJ, sqlite3"
 m2r,,,TRUE,Macaulay2 <http://www.math.uiuc.edu/Macaulay2/>
 magick,ImageMagick-c++-devel,,TRUE,ImageMagick++: ImageMagick-c++-devel (rpm) orlibmagick++-dev (deb)
 magickGUI,,"",TRUE,ImageMagick
-maGUI,,,FALSE,Tktable
+maGUI,,,TRUE,Tktable
 mailR,,"",TRUE,Java
 mallet,,"",TRUE,java
 manipulate,,,FALSE,RStudio - http://www.rstudio.com/products/rstudio/
@@ -437,10 +437,10 @@ mboxr,,,FALSE,Anaconda (https://www.anaconda.com/download/)
 mBvs,gsl-devel,,TRUE,
 mdbr,,,FALSE,mdbtools: mdbtools (deb).
 mdendro,,java,TRUE,
-MDSGUI,,,FALSE,"windows, 'BWidget', 'Tktable'"
+MDSGUI,,bwidget,TRUE,"windows, 'BWidget', 'Tktable'"
 meltt,,,TRUE,Python
 memoiR,,,FALSE,pandoc
-metagear,,,FALSE,Tcl/Tk toolkit (X11 Quarts for Mac)
+metagear,,,TRUE,Tcl/Tk toolkit (X11 Quarts for Mac)
 metaMix,openmpi-devel,,FALSE,Open MPI
 metapost,,,FALSE,mpost
 MetaSKAT,,,TRUE,Little Endian
@@ -470,7 +470,7 @@ moveVis,,,TRUE,"ImageMagick, FFmpeg, libav"
 MplusTrees,,,FALSE,'Mplus' (<http://www.statmodel.com>)
 mscstexta4r,,,FALSE,"A valid account MUST be registered with Microsoft'sCognitive Services website<https://www.microsoft.com/cognitive-services/> in order toobtain a (free) API key. Without an API key, this package willnot work properly."
 mscsweblm4r,,,FALSE,"A valid account MUST be registered with Microsoft'sCognitive Services website<https://www.microsoft.com/cognitive-services/> in order toobtain a (free) API key. Without an API key, this package willnot work properly."
-multibiplotGUI,xorg-x11-server-Xvfb,tcl tk bwidget,FALSE,Tcl/Tk package BWidget.
+multibiplotGUI,xorg-x11-server-Xvfb,bwidget,TRUE,Tcl/Tk package BWidget.
 multibridge,mpfr-devel,,TRUE,mpfr
 multinet,,,TRUE,A  compiler
 mutossGUI,,,TRUE,Java
@@ -557,7 +557,7 @@ pexm,jags-devel,,TRUE,
 pharmr,,,TRUE,Python
 phase1PRMD,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
 phonfieldwork,,,FALSE,pandoc - http://pandoc.org
-PhViD,,,FALSE,Tcl/Tk package TkTable.
+PhViD,,,TRUE,Tcl/Tk package TkTable.
 Phxnlme,,,FALSE,Phoenix NLME with Phoenix Modeling Language (PML)license
 piecepackr,,ghostscript,FALSE,ghostscript
 pivmet,,pandoc,FALSE,"pandoc, pandoc-citeproc"
@@ -814,7 +814,7 @@ RQDA,,java,TRUE,
 RQuantLib,QuantLib-devel boost-devel,,TRUE,"QuantLib library fromhttps://quantlib.org, Boost library from https://www.boost.org"
 rrd,rrdtool-devel,,TRUE,"librrd: 'librrd-dev' (DEB), 'rrdtool-devel' (RPM),'rrdtool' (OSX), 'rrdtool' (CSW)"
 Rrdrand,,,TRUE,need the RDRAND instruction on Intel CPU. and Ccompiler must be able to compile a GNU-style in-line assembler.
-rriskDistributions,xorg-x11-server-Xvfb,tcl tk,FALSE,"Tcl/Tk, Tktable"
+rriskDistributions,xorg-x11-server-Xvfb,"",TRUE,"Tcl/Tk, Tktable"
 RSAGA,,,FALSE,SAGA GISLTS -
 Rsagacmd,,,FALSE,SAGA-GIS
 Rsampletrees,gsl-devel,,TRUE,
@@ -830,7 +830,7 @@ rstan,,pandoc,TRUE,pandoc
 rstanarm,,pandoc,TRUE,"pandoc, pandoc-citeproc"
 rstantools,,pandoc,FALSE,"pandoc,"
 rsubgroup,,"",TRUE,Java
-RSurvey,xorg-x11-server-Xvfb,tcl tk,FALSE,"Tcl/Tk, Tktable, optional)"
+RSurvey,xorg-x11-server-Xvfb,"",TRUE,"Tcl/Tk, Tktable, optional)"
 rsvg,librsvg2-devel,,TRUE,librsvg2
 Rsymphony,coin-or-SYMPHONY-devel,,TRUE,SYMPHONY libraries and headers
 rsyncrosim,,,FALSE,SyncroSim
@@ -943,7 +943,7 @@ survSNP,gsl-devel,,TRUE,GNU GSL
 svDialogs,,zenity yad,FALSE,"zenity, yad"
 svglite,libpng-devel,,TRUE,libpng
 svKomodo,,,FALSE,Komodo Edit(https://www.activestate.com/products/komodo-ide/)
-switchboard,,,FALSE,Tcl/Tk toolkit (X11 Quarts for Mac)
+switchboard,,,TRUE,Tcl/Tk toolkit (X11 Quarts for Mac)
 switchr,,git subversion,FALSE,"git, svn"
 swmmr,,,TRUE,SWMM
 sybilSBML,libsbml-devel,,TRUE,
@@ -958,7 +958,7 @@ tabulizer,,java,TRUE,
 tabulizerjars,,java,TRUE,
 tapkee,,,FALSE,'tapkee' (http://tapkee.lisitsyn.me/)
 TAQMNGR,zlib-devel,,TRUE,zlib headers and library
-tcltk2,xorg-x11-server-Xvfb,tcl tk,FALSE,"Tcl/Tk, Tktable, optional)"
+tcltk2,xorg-x11-server-Xvfb,"",TRUE,"Tcl/Tk, Tktable, optional)"
 TDA,gmp-devel,,TRUE,"gmp,"
 telefit,,,TRUE,A system with a recent-enough  compiler (suchas g++-4.8 or later).
 tensorflow,,,FALSE,TensorFlow (https://www.tensorflow.org/)
@@ -987,7 +987,7 @@ timechange,,,TRUE,A system with zoneinfo data (e.g./usr/share/zoneinfo) as well 
 TKF,gsl-devel,,TRUE,
 tkImgR,xorg-x11-server-Xvfb,tkimg,TRUE,"Tcl/Tk. To read and write other formatsthan PPM/PGM, PNG and GIF it is required the 'tkImg' for'Tcl/Tk' (https://sourceforge.net/projects/tkimg/), or thedebian 'libtk-img' package (Ubuntu) or the RPM 'tkimg' package(Fedora or openSUSE)."
 tkrplot,,,TRUE,Windows or X11
-tkRplotR,xorg-x11-server-Xvfb,tcl tk,FALSE,Tcl/Tk
+tkRplotR,xorg-x11-server-Xvfb,"",TRUE,Tcl/Tk
 TMB,,gcc-c++,TRUE,
 TooManyCellsR,,,FALSE,'TooManyCells'(https://github.com/GregorySchwartz/too-many-cells)
 topicmodels,gsl-devel,,TRUE,"GNU Scientific Library version,"
