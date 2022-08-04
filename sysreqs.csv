@@ -1,549 +1,549 @@
 pkg,build,run
-abn,"gsl-devel >= 1.12",""
-adimpro,"","ImageMagick, dcraw"
-animation,"","ImageMagick, tex(latex)"
-apcf,"gdal-devel >= 2.0.0, geos-devel >= 3.4.0",""
-archive,"libarchive-devel",""
-argparse,"","python3 >= 3.2"
-arrangements,"gmp-devel >= 4.2.3",""
-arrow,"libarrow-dataset-devel",""
-arulesNBMiner,"","java"
-asbio,"xorg-x11-server-Xvfb","bwidget"
-babelwhale,"","docker, singularity >= 3.0"
-BALD,"jags-devel >= 4.3.0",""
-bartMachineJARs,"","java"
-bartMachine,"","java"
-bayesCL,"pocl-devel",""
-BAYESDEF,"xorg-x11-server-Xvfb","tcl, tk"
-bayesplot,"","pandoc"
-BayesSAE,"gsl-devel",""
-BayesVarSel,"gsl-devel",""
-bbl,"gsl-devel",""
-bdpar,"","python2"
-BiBitR,"","java"
-bigGP,"openmpi-devel",""
-bigIntegerAlgos,"gmp-devel >= 4.2.3",""
-bioacoustics,"cmake, fftw-devel, soxr-devel",""
-biplotbootGUI,"xorg-x11-server-Xvfb","tcl, tk, bwidget"
-blandr,"","pandoc"
-blogdown,"","hugo, pandoc"
-bnpmr,"gsl-devel",""
-BNSP,"gsl-devel",""
-bookdown,"","pandoc"
-BrailleR,"","python3dist(wxpython) >= 4"
-breathtestcore,"","pandoc"
-breathteststan,"","pandoc"
-cairoDevice,"cairo-devel >= 1.0, gtk2-devel",""
-Cairo,"cairo-devel >= 1.2, libXt-devel",""
-camtrapR,"","perl(Image::ExifTool)"
-CARrampsOcl,"pocl-devel",""
-cartography,"gdal-devel >= 2.0.1, geos-devel >= 3.4.0, proj-devel >= 4.8.0, sqlite-devel",""
-causalMGM,"","java"
-chebpol,"fftw-devel >= 3.1.2, gsl-devel",""
-ChoR,"","java"
-cit,"gsl-devel",""
-cld3,"protobuf-devel, protobuf-compiler",""
-cleanNLP,"","python2, java"
-clipr,"","xclip"
-cloudml,"","python2"
-clpAPI,"coin-or-Clp-devel >= 1.12.0",""
-clustermq,"zeromq-devel",""
-cncaGUI,"xorg-x11-server-Xvfb","tcl, tk, bwidget"
-coga,"gsl-devel",""
-CollapsABEL,"","java, mariadb-server"
-collector,"","pandoc"
-collUtils,"","java"
-COMBIA,"","perl >= 5.10.0"
-CommonJavaJars,"","java"
-CONS,"xorg-x11-server-Xvfb","tcl, tk"
-CoordinateCleaner,"gdal-devel >= 2.0.1",""
-corehunter,"","java"
-coreNLP,"","java"
-couchDB,"","couchdb"
-coveffectsplot,"","pandoc"
-credentials,"","git"
-cronR,"","cronie"
-Crossover,"","java"
-crypto,"libxml2-devel, libcurl-devel, openssl-devel",""
-curl,"libcurl-devel",""
-cycleRtools,"","java"
-DALY,"xorg-x11-server-Xvfb","tcl >= 8.5, tk >= 8.5"
-DataExplorer,"","pandoc"
-dataframes2xls,"","python2"
-DataPackageR,"","pandoc"
-datasailr,"bison, flex, autoconf, automake, libtool",""
-dbmss,"","pandoc"
-DCM,"xorg-x11-server-Xvfb","tcl, tk"
-DeducerSpatial,"","java"
-Deducer,"","java"
-DeducerText,"","java"
-deisotoper,"","java"
-devEMF,"zlib-devel",""
-dgmb,"xorg-x11-server-Xvfb","bwidget"
-dialrjars,"","java"
-dialr,"","java"
-diskImageR,"","imagej"
-diversitree,"fftw-devel >= 3.1.2, gsl-devel >= 1.15",""
-docxtractr,"","libreoffice"
-dpa,"xorg-x11-server-Xvfb","tcl, tk, bwidget"
-DRIP,"gsl-devel >= 1.12",""
-dti,"gsl-devel",""
-dynBiplotGUI,"xorg-x11-server-Xvfb",""
-dynr,"gsl-devel",""
-eaf,"gsl-devel",""
-easyNCDF,"netcdf-devel",""
-edeR,"","java"
-elexr,"","python3"
-elliptic,"","pari"
-entropart,"","pandoc"
-ergm,"openmpi-devel",""
-evaluator,"","pandoc"
-exactextractr,"geos-devel >= 3.5.0",""
-exifr,"perl(Image::ExifTool)","perl(Image::ExifTool)"
-exiftoolr,"perl(Image::ExifTool)","perl(Image::ExifTool)"
-expands,"","java"
-extraTrees,"","java"
-ezknitr,"","pandoc"
-febr,"","pandoc"
-FFD,"xorg-x11-server-Xvfb","bwidget"
-fftw,"fftw-devel >= 3.1.2",""
-fftwtools,"fftw-devel >= 3.1.2",""
-fit4NM,"xorg-x11-server-Xvfb","tcl, tk"
-flan,"gsl-devel",""
-forensim,"xorg-x11-server-Xvfb","tcl, tk"
-forestFloor,"mesa-libGL-devel, mesa-libGLU-devel, zlib-devel",""
-frequency,"","pandoc"
-fRLR,"gsl-devel",""
-gdalcubes,"gdal-devel, proj-devel, libcurl-devel, netcdf-devel, sqlite-devel",""
-gdalUtils,"","gdal"
-gdata,"","perl >= 5.10.0"
-gdtools,"cairo-devel",""
-genotypeR,"","vcftools, perl, gawk, bash"
-geoCount,"gsl-devel",""
-gert,"libgit2-devel >= 0.26",""
-GetoptLong,"","perl(Getopt::Long)"
-gfilogisreg,"gmp-devel",""
-GGally,"openssl-devel",""
-ggdemetra,"","java"
-GGEBiplotGUI,"xorg-x11-server-Xvfb","bwidget"
-ggExtra,"","pandoc"
-ggquickeda,"","pandoc"
-gifski,"cargo","cargo"
-git2r,"libgit2-devel, zlib-devel, openssl-devel, libssh2-devel",""
-glmulti,"","java"
-glpkAPI,"glpk-devel >= 4.42, gmp-devel",""
-gMCP,"","java"
-gmp,"gmp-devel >= 4.2.3",""
-gmt,"","GMT"
-gpg,"gpgme-devel, haveged-devel",""
-gpuR,"pocl-devel",""
-GRANBase,"","subversion, git"
-GreedyExperimentalDesignJARs,"","java"
-GreedyExperimentalDesign,"","java"
-greta,"python2-devel",""
-grImport,"","ghostscript"
-GroupSeq,"xorg-x11-server-Xvfb",""
-gsl,"gsl-devel >= 2.1",""
-gWidgetstcltk,"xorg-x11-server-Xvfb",""
-gWidgets2tcltk,"xorg-x11-server-Xvfb",""
-h2o4gpu,"python3-devel",""
-h2o,"","java"
-h5,"hdf5-devel >= 1.8.12",""
-hadron,"gsl-devel",""
-hdf5r,"hdf5-devel >= 1.8.13",""
-helloJavaWorld,"","java"
-HiClimR,"netcdf-devel >= 4.1",""
-HiCseg,"gsl-devel",""
-HierO,"xorg-x11-server-Xvfb, bwidget","bwidget"
-hSDM,"gsl-devel",""
-idm,"","ImageMagick"
-igraph,"gmp-devel, libxml2-devel, glpk-devel",""
-ijtiff,"libtiff-devel, libjpeg-turbo-devel",""
-image.CannyEdges,"libpng-devel, fftw-devel >= 3",""
-image.textlinedetector,"opencv-devel",""
-imager,"fftw-devel, libtiff-devel",""
-inpdfr,"","xpdf"
-iplots,"xorg-x11-server-Xvfb",""
-IRkernel,"python3dist(jupyter-kernel-test), python3dist(ndjson-testrunner)","python-jupyter-filesystem"
-island,"gsl-devel",""
-JavaGD,"R-java-devel",""
-jdx,"","java"
-JFE,"xorg-x11-server-Xvfb",""
-JGR,"","java"
-JMcmprsk,"gsl-devel",""
-jpeg,"libjpeg-turbo-devel",""
-jqr,"jq-devel",""
-jSDM,"gsl-devel",""
-jsr223,"","java"
-JuliaCall,"","julia"
-JuniperKernel,"zeromq-devel",""
-kantorovich,"gmp-devel",""
-keyring,"libsecret-devel",""
-KFKSDS,"gsl-devel",""
-knitr,"","pandoc"
-KoNLP,"","java"
-KRIG,"gsl-devel",""
-KSgeneral,"fftw-devel >= 3.3.4",""
-kza,"fftw-devel >= 3.2.2",""
-landsepi,"gsl-devel, gdal-devel >= 1.11.0",""
-latdiag,"","graphviz"
-latte,"","4ti2"
-LCMCR,"gsl-devel >= 1.12",""
-LeafArea,"","imagej >= 1.48"
-ledger,"","ledger >= 3.1, hledger >= 1.4"
-libamtrack,"gsl-devel >= 1.8",""
-Libra,"gsl-devel",""
-libsoc,"libxml2-devel",""
-libstableR,"gsl-devel",""
-liftr,"","docker"
-lightsout,"","pandoc"
-loo,"","pandoc"
-loon,"xorg-x11-server-Xvfb",""
-loon.ggplot,"xorg-x11-server-Xvfb",""
-lwgeom,"geos-devel >= 3.3.0, proj-devel >= 4.8.0, sqlite-devel",""
-magickGUI,"","ImageMagick >= 6.9.5.4"
-magick,"ImageMagick-c++-devel",""
-mailR,"","java"
-mallet,"","java"
-matchingMarkets,"","java"
-MaxentVariableSelection,"","java"
-mBvs,"gsl-devel",""
-mdendro,"","java"
-metaMix,"openmpi-devel >= 1.4.3",""
-MFPCA,"fftw-devel >= 3.3.4",""
-mixcat,"gsl-devel",""
-mleap,"","java"
-mmpca,"gsl-devel",""
-MODIS,"gdal-devel >= 1.8.0",""
-mongolite,"openssl-devel, cyrus-sasl-devel",""
-monoreg,"gsl-devel",""
-multibiplotGUI,"xorg-x11-server-Xvfb","tcl, tk, bwidget"
-multibridge,"mpfr-devel >= 3.0.0",""
-mvst,"gsl-devel",""
-mwa,"","java"
-mwaved,"fftw-devel >= 3.3.4",""
-Myrrixjars,"","java"
-Myrrix,"","java"
-nbconvertR,"","pandoc, python3dist(nbconvert)"
-ncdf4,"netcdf-devel >= 4.1",""
-ndjson,"zlib-devel",""
-nFCA,"","ruby, graphviz"
-nhdR,"","p7zip"
-nloptr,"cmake",""
-nlrx,"","java"
-oceanmap,"","ImageMagick"
-odbc,"unixODBC-devel",""
-ODB,"","zip"
-OligoSpecificitySystem,"xorg-x11-server-Xvfb","tcl, tk, bwidget"
-OpenCL,"pocl-devel",""
-opencpu,"","pandoc"
-opencv,"opencv-devel",""
-openNLPdata,"","java"
-openNLP,"","java"
-openssl,"openssl-devel >= 1.0.1",""
-OpenStreetMap,"","java"
-optbdmaeAT,"xorg-x11-server-Xvfb",""
-optrcdmaeAT,"xorg-x11-server-Xvfb",""
-Orcs,"","p7zip, dos2unix"
-osmose,"","java"
-outbreaker,"gsl-devel >= 1.12",""
-pagedown,"","pandoc >= 2.0"
-pander,"","pandoc"
-pandocfilters,"","pandoc"
-paws.common,"","pandoc"
-pbdBASE,"openmpi-devel >= 1.5.4",""
-pbdDEMO,"openmpi-devel >= 1.5.4",""
-pbdDMAT,"openmpi-devel >= 1.5.4",""
-pbdMPI,"openmpi-devel >= 1.5.4",""
-pbdNCDF4,"openmpi-devel >= 1.5.4, netcdf-devel >= 4.1",""
-pbdPROF,"openmpi-devel >= 1.5.4",""
-pbdRPC,"openssh-clients","openssh-clients"
-pbdSLAP,"openmpi-devel >= 1.5.4",""
-pbdZMQ,"zeromq-devel >= 4.0.4",""
-PBSmodelling,"xorg-x11-server-Xvfb","bwidget"
-pdftools,"poppler-cpp-devel, poppler-data",""
-pexm,"jags-devel",""
-piecepackr,"","ghostscript"
-pivmet,"","pandoc"
-pkgdown,"","pandoc"
-PKI,"openssl-devel",""
-Plasmidprofiler,"","pandoc"
-PMCMRplus,"gmp-devel >= 4.2.3, mpfr-devel >= 3.0.0",""
-png,"libpng-devel",""
-poisbinom,"fftw-devel >= 3",""
-PoissonBinomial,"fftw-devel >= 3",""
-PopGenome,"zlib-devel",""
-popRange,"","python3dist(numpy)"
-PortfolioEffectEstim,"","java"
-PortfolioEffectHFT,"","java"
-PreKnitPostHTMLRender,"","pandoc"
-prettydoc,"","pandoc"
-prophet,"R-CRAN-BH",""
-proj4,"proj-devel >= 4.4.6, sqlite-devel",""
-protolite,"protobuf-devel, protobuf-compiler",""
-psbcGroup,"gsl-devel",""
-qCBA,"","java"
-qpdf,"qpdf-devel >= 8.1.0",""
-qtbase,"cmake, qt-devel, xorg-x11-server-Xvfb",""
-qtpaint,"cmake, qt-devel, xorg-x11-server-Xvfb",""
-questionr,"","xclip"
-r2pmml,"","java"
-R2SWF,"zlib-devel, libpng-devel, freetype-devel",""
-ragg,"freetype-devel, libpng-devel, libtiff-devel, libjpeg-turbo-devel",""
-rapidraker,"","java"
-rapport,"","pandoc"
-rasciidoc,"","asciidoc, source-highlight"
-Rbgs,"","java"
-r.blip,"","java"
-rblt,"hdf5-devel >= 1.8.12",""
-rCBA,"","java"
-rcdd,"gmp-devel",""
-rcdk,"","java"
-rchallenge,"","pandoc"
-rchie,"v8-314-devel",""
-RclusTool,"xorg-x11-server-Xvfb",""
-RcmdrMisc,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.aRnova,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.coin,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.depthTools,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.DoE,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.EACSPIR,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.EBM,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.EcoVirtual,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.Export,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.EZR,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.FactoMineR,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.FuzzyClust,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.GWRM,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.HH,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.IPSUR,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.KMggplot2,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.lfstat,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.MA,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.mosaic,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.MPAStats,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.NMBU,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.orloca,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.PcaRobust,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.plotByGroup,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.pointG,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.qual,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.RiskDemo,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.RMTCJags,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.ROC,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.sampling,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.SCDA,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.SLC,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.sos,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.steepness,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.survival,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.sutteForecastR,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.TeachingDemos,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.TeachStat,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.temis,"xorg-x11-server-Xvfb",""
-RcmdrPlugin.UCA,"xorg-x11-server-Xvfb",""
-Rcmdr,"xorg-x11-server-Xvfb",""
-RcppAlgos,"gmp-devel >= 4.2.3",""
-RcppBigIntAlgos,"gmp-devel >= 4.2.3",""
-RcppCWB,"bison, flex, pcre >= 7, glib2-devel, ncurses-devel",""
-RcppGSL,"gsl-devel","gsl-devel"
-RcppMeCab,"mecab-devel >= 0.996",""
-RcppParallel,"tbb-devel","tbb-devel"
-RcppRedis,"hiredis-devel",""
-rcrypt,"gnupg2","gnupg2"
-RCurl,"libcurl-devel",""
-rdataretriever,"python3-devel",""
-rDEA,"glpk-devel >= 4.52",""
-rde,"","xclip"
-RDieHarder,"gsl-devel",""
-rDotNet,"mono-devel, wine-mono, nuget","wine-mono, nuget"
-rdoxygen,"","doxygen"
-Rdroolsjars,"","java"
-Rdrools,"","java"
-rdwd,"","pandoc"
-readbitmap,"libjpeg-turbo-devel, libpng-devel",""
-redist,"gmp-devel, libxml2-devel",""
-redland,"redland-devel >= 1.0.14",""
-redux,"hiredis-devel",""
-remotes,"","subversion, git"
-RenextGUI,"xorg-x11-server-Xvfb",""
-reprex,"","pandoc"
-reticulate,"","python2, python3"
-RFreak,"","java"
-rfviz,"xorg-x11-server-Xvfb",""
-rgdal,"gdal-devel >= 1.11.4, proj-devel >= 4.8.0, sqlite-devel",""
-rGEDI,"gsl-devel >= 2.1, hdf5-devel >= 1.8.13, libgeotiff-devel >= 1.4.0, zlib-devel >= 1.2",""
-rgeos,"geos-devel >= 3.2.0",""
-RGF,"","python3dist(scikit-learn), python3dist(numpy), python3dist(scipy)"
-rggobi,"ggobi-devel",""
-Rglpk,"glpk-devel",""
-rgl,"mesa-libGL-devel, mesa-libGLU-devel, zlib-devel, libpng-devel >= 1.2.9, freetype-devel",""
-Rgnuplot,"gnuplot","gnuplot"
-rgrass7,"","grass >= 7"
-rGroovy,"","java"
-RGtk2,"cairo-devel >= 1.0.0, atk-devel >= 1.10.0, pango-devel >= 1.10.0, gtk2-devel >= 2.8.0, glib2-devel >= 2.8.0",""
-RH2,"","java"
-Rhpc,"openmpi-devel",""
-ridge,"gsl-devel >= 1.14",""
-RJaCGH,"zlib-devel",""
-rjags,"jags-devel",""
-rJava,"R-java-devel","java"
-RJDemetra,"","java"
-RJSDMX,"","java"
-rJython,"","java"
-rkafkajars,"","java"
-rkafka,"","java"
-RKEAjars,"","java"
-RKEA,"","java"
-RKEEL,"","java"
-rkeops,"cmake","cmake"
-Rlibeemd,"gsl-devel",""
-rlo,"","libreoffice-pyuno"
-RMariaDB,"mariadb-devel",""
-rmarkdown,"","pandoc"
-rmatio,"zlib-devel",""
-RmecabKo,"mecab-devel",""
-rmcfs,"","java"
-rmdfiltr,"","pandoc >= 2.0"
-RMOAjars,"","java"
-RMOA,"","java"
-rMouse,"xorg-x11-server-Xvfb","java"
-Rmpfr,"gmp-devel >= 4.2.3, mpfr-devel >= 3.0.0",""
-Rmpi,"openmpi-devel",""
-RMySQL,"mariadb-devel",""
-RNCBIEUtilsLibs,"","java"
-rnetcarto,"gsl-devel",""
-RNetCDF,"netcdf-devel udunits2-devel",""
-RNetLogo,"","java"
-Rnightlights,"","aria2, curl, gdal, wget"
-RoBMA,"jags-devel",""
-RODBCext,"unixODBC-devel",""
-RODBC,"unixODBC-devel",""
-ROI.plugin.symphony,"coin-or-SYMPHONY-devel >= 5.6.16",""
-ROpenCVLite,"cmake",""
-rosr,"","pandoc >= 2.0"
-rpanel,"xorg-x11-server-Xvfb, bwidget","bwidget"
-rpg,"libpq-devel",""
-Rpoppler,"poppler-glib-devel",""
-RPostgres,"libpq-devel >= 9.0",""
-RPostgreSQL,"libpq-devel",""
-RProtoBuf,"protobuf-devel >= 2.2.0, protobuf-compiler",""
-rPython,"python3-devel","python3"
-RQDA,"","java"
-RQuantLib,"QuantLib-devel >= 1.14, boost-devel",""
-rrd,"rrdtool-devel",""
-rriskDistributions,"xorg-x11-server-Xvfb","tcl >= 8.5, tk >= 8.5"
-Rsampletrees,"gsl-devel",""
-rscala,"java","java"
-RSclient,"openssl-devel",""
-RSiena,"xorg-x11-server-Xvfb","tcl >= 8.5, tk >= 8.5"
-rsparkling,"","java"
-Rssa,"fftw-devel >= 3.2",""
-rstanarm,"","pandoc"
-rstan,"","pandoc"
-rstantools,"","pandoc"
-rsubgroup,"","java"
-RSurvey,"xorg-x11-server-Xvfb","tcl >= 8.5, tk >= 8.5"
-rsvg,"librsvg2-devel",""
-Rsymphony,"coin-or-SYMPHONY-devel",""
-RTest,"ImageMagick-c++-devel",""
-rtiff,"libtiff-devel",""
-rtika,"","java"
-rtmpt,"gsl-devel",""
-runjags,"jags-devel",""
-RVowpalWabbit,"boost-devel","boost-program-options"
-RWebLogo,"","ghostscript"
-rzmq,"zeromq-devel >= 3.0.0",""
-s2,"openssl-devel >= 1.0.0",""
-SBRect,"","java"
-sbrl,"gmp-devel >= 4.2.0, gsl-devel",""
-scModels,"mpfr-devel",""
-sdcTable,"glpk-devel, gmp-devel",""
-seewave,"","libsndfile"
-SemiCompRisks,"gsl-devel",""
-seqinr,"zlib-devel",""
-seqminer,"zlib-devel",""
-sf,"gdal-devel >= 2.0.1, geos-devel >= 3.4.0, proj-devel >= 4.8.0, sqlite-devel",""
-SGP,"","tex(latex), tex(pdfpages.sty)"
-shinyalert,"","pandoc"
-shinyjs,"","pandoc"
-showtext,"zlib-devel, libpng-devel, freetype-devel",""
-SimInf,"gsl-devel",""
-simplexreg,"gsl-devel >= 1.8",""
-slowraker,"","java"
-smam,"gsl-devel",""
-sodium,"libsodium-devel >= 1.0.3",""
-soptdmaeA,"xorg-x11-server-Xvfb",""
-SPACECAP,"xorg-x11-server-Xvfb","tcl, tk"
-sparklyr,"","java"
-SparkR,"","java"
-SPARSEMODr,"gsl-devel",""
-spate,"fftw-devel >= 3.1.2",""
-spatsoc,"geos-devel >= 3.2.0",""
-spcosa,"","java"
-specklestar,"fftw-devel >= 3.1.2",""
-ssh,"libssh-devel >= 0.6.0",""
-StatCharrms,"","gtk+ >= 2.8.0"
-stevedore,"","docker"
-strawr,"libcurl-devel",""
-streamMOA,"","java"
-stringi,"libicu-devel >= 52",""
-stsm,"gsl-devel",""
-subspace,"","java"
-SuperGauss,"fftw-devel >= 3.1.2",""
-survSNP,"gsl-devel >= 1.14",""
-svDialogs,"","zenity, yad"
-switchr,"","git, subversion"
-sybilSBML,"libsbml-devel >= 5.16",""
-symengine,"cmake, gmp-devel, mpfr-devel",""
-SymTS,"gsl-devel",""
-sysfonts,"zlib-devel, libpng-devel, freetype-devel",""
-tabr,"","lilypond"
-tabulizerjars,"","java"
-tabulizer,"","java"
-TAQMNGR,"zlib-devel",""
-tcltk2,"xorg-x11-server-Xvfb","tcl >= 8.5, tk >= 8.5"
-TDA,"gmp-devel",""
-terra,"gdal-devel >= 3.0.4, geos-devel >= 3.8.0, proj-devel >= 6.3.1, sqlite-devel",""
-tesseract,"tesseract-devel >= 3.03, leptonica-devel",""
-TexExamRandomizer,"","latexmk"
-texPreview,"","tex(standalone.cls)"
-textshaping,"harfbuzz-devel, fribidi-devel",""
-Thermimage,"","perl(Image::ExifTool), ImageMagick"
-tiff,"libjpeg-turbo-devel, libtiff-devel",""
-tikzDevice,"texlive-pgf","texlive-pgf"
-tiler,"","python3dist(gdal)"
-TKF,"gsl-devel",""
-tkRplotR,"xorg-x11-server-Xvfb","tcl >= 8.6, tk >= 8.6"
-TMB,"","gcc-c++"
-topicmodels,"gsl-devel >= 1.8",""
-TTAinterfaceTrendAnalysis,"xorg-x11-server-Xvfb",""
-tutorial,"","pandoc"
-TVMM,"xorg-x11-server-Xvfb",""
-udunits2,"udunits2-devel",""
-uFTIR,"gdal-devel >= 1.11.4, proj-devel >= 4.8.0, sqlite-devel",""
-uHMM,"xorg-x11-server-Xvfb",""
-units,"udunits2-devel",""
-untb,"","pari-gp >= 2.3.0"
-V8,"v8-devel",""
-vapour,"gdal-devel >= 2.0.0, proj-devel >= 4.8.0, sqlite-devel",""
-vcfR,"devscripts-checkbashisms",""
-VBLPCM,"gsl-devel",""
-VIMGUI,"xorg-x11-server-Xvfb","bwidget"
-webp,"libwebp-devel",""
-webshot,"","ImageMagick"
-websocket,"openssl-devel >= 1.0.1",""
-WhopGenome,"zlib-devel",""
-wordnet,"","java, wordnet"
-workflowr,"","pandoc"
-WriteXLS,"","perl"
-XBRL,"libxml2-devel >= 2.9.1",""
-x.ent,"","perl >= 5.0"
-XLConnectJars,"","java"
-XLConnect,"","java"
-xlsx,"","java"
-xml2,"libxml2-devel",""
-XML,"libxml2-devel >= 2.6.3",""
-zooaRchGUI,"xorg-x11-server-Xvfb",""
-XRJulia,"","julia >= 1.0"
-xslt,"libxslt-devel",""
+abn,gsl-devel,
+adimpro,,ImageMagick dcraw
+animation,,ImageMagick tex(latex)
+apcf,gdal-devel geos-devel,
+archive,libarchive-devel,
+argparse,,python3
+arrangements,gmp-devel,
+arrow,libarrow-dataset-devel,
+arulesNBMiner,,java
+asbio,xorg-x11-server-Xvfb,bwidget
+babelwhale,,docker singularity
+BALD,jags-devel,
+bartMachineJARs,,java
+bartMachine,,java
+bayesCL,pocl-devel,
+BAYESDEF,xorg-x11-server-Xvfb,tcl tk
+bayesplot,,pandoc
+BayesSAE,gsl-devel,
+BayesVarSel,gsl-devel,
+bbl,gsl-devel,
+bdpar,,python2
+BiBitR,,java
+bigGP,openmpi-devel,
+bigIntegerAlgos,gmp-devel,
+bioacoustics,cmake fftw-devel soxr-devel,
+biplotbootGUI,xorg-x11-server-Xvfb,tcl tk bwidget
+blandr,,pandoc
+blogdown,,hugo pandoc
+bnpmr,gsl-devel,
+BNSP,gsl-devel,
+bookdown,,pandoc
+BrailleR,,python3dist(wxpython)
+breathtestcore,,pandoc
+breathteststan,,pandoc
+cairoDevice,cairo-devel gtk2-devel,
+Cairo,cairo-devel libXt-devel,
+camtrapR,,perl(Image::ExifTool)
+CARrampsOcl,pocl-devel,
+cartography,gdal-devel geos-devel proj-devel sqlite-devel,
+causalMGM,,java
+chebpol,fftw-devel gsl-devel,
+ChoR,,java
+cit,gsl-devel,
+cld3,protobuf-devel protobuf-compiler,
+cleanNLP,,python2 java
+clipr,,xclip
+cloudml,,python2
+clpAPI,coin-or-Clp-devel,
+clustermq,zeromq-devel,
+cncaGUI,xorg-x11-server-Xvfb,tcl tk bwidget
+coga,gsl-devel,
+CollapsABEL,,java mariadb-server
+collector,,pandoc
+collUtils,,java
+COMBIA,,perl
+CommonJavaJars,,java
+CONS,xorg-x11-server-Xvfb,tcl tk
+CoordinateCleaner,gdal-devel,
+corehunter,,java
+coreNLP,,java
+couchDB,,couchdb
+coveffectsplot,,pandoc
+credentials,,git
+cronR,,cronie
+Crossover,,java
+crypto,libxml2-devel libcurl-devel openssl-devel,
+curl,libcurl-devel,
+cycleRtools,,java
+DALY,xorg-x11-server-Xvfb,tcl tk
+DataExplorer,,pandoc
+dataframes2xls,,python2
+DataPackageR,,pandoc
+datasailr,bison flex autoconf automake libtool,
+dbmss,,pandoc
+DCM,xorg-x11-server-Xvfb,tcl tk
+DeducerSpatial,,java
+Deducer,,java
+DeducerText,,java
+deisotoper,,java
+devEMF,zlib-devel,
+dgmb,xorg-x11-server-Xvfb,bwidget
+dialrjars,,java
+dialr,,java
+diskImageR,,imagej
+diversitree,fftw-devel gsl-devel,
+docxtractr,,libreoffice
+dpa,xorg-x11-server-Xvfb,tcl tk bwidget
+DRIP,gsl-devel,
+dti,gsl-devel,
+dynBiplotGUI,xorg-x11-server-Xvfb,
+dynr,gsl-devel,
+eaf,gsl-devel,
+easyNCDF,netcdf-devel,
+edeR,,java
+elexr,,python3
+elliptic,,pari
+entropart,,pandoc
+ergm,openmpi-devel,
+evaluator,,pandoc
+exactextractr,geos-devel,
+exifr,perl(Image::ExifTool),perl(Image::ExifTool)
+exiftoolr,perl(Image::ExifTool),perl(Image::ExifTool)
+expands,,java
+extraTrees,,java
+ezknitr,,pandoc
+febr,,pandoc
+FFD,xorg-x11-server-Xvfb,bwidget
+fftw,fftw-devel,
+fftwtools,fftw-devel,
+fit4NM,xorg-x11-server-Xvfb,tcl tk
+flan,gsl-devel,
+forensim,xorg-x11-server-Xvfb,tcl tk
+forestFloor,mesa-libGL-devel mesa-libGLU-devel zlib-devel,
+frequency,,pandoc
+fRLR,gsl-devel,
+gdalcubes,gdal-devel proj-devel libcurl-devel netcdf-devel sqlite-devel,
+gdalUtils,,gdal
+gdata,,perl
+gdtools,cairo-devel,
+genotypeR,,vcftools perl gawk bash
+geoCount,gsl-devel,
+gert,libgit2-devel,
+GetoptLong,,perl(Getopt::Long)
+gfilogisreg,gmp-devel,
+GGally,openssl-devel,
+ggdemetra,,java
+GGEBiplotGUI,xorg-x11-server-Xvfb,bwidget
+ggExtra,,pandoc
+ggquickeda,,pandoc
+gifski,cargo,cargo
+git2r,libgit2-devel zlib-devel openssl-devel libssh2-devel,
+glmulti,,java
+glpkAPI,glpk-devel gmp-devel,
+gMCP,,java
+gmp,gmp-devel,
+gmt,,GMT
+gpg,gpgme-devel haveged-devel,
+gpuR,pocl-devel,
+GRANBase,,subversion git
+GreedyExperimentalDesignJARs,,java
+GreedyExperimentalDesign,,java
+greta,python2-devel,
+grImport,,ghostscript
+GroupSeq,xorg-x11-server-Xvfb,
+gsl,gsl-devel,
+gWidgetstcltk,xorg-x11-server-Xvfb,
+gWidgets2tcltk,xorg-x11-server-Xvfb,
+h2o4gpu,python3-devel,
+h2o,,java
+h5,hdf5-devel,
+hadron,gsl-devel,
+hdf5r,hdf5-devel,
+helloJavaWorld,,java
+HiClimR,netcdf-devel,
+HiCseg,gsl-devel,
+HierO,xorg-x11-server-Xvfb bwidget,bwidget
+hSDM,gsl-devel,
+idm,,ImageMagick
+igraph,gmp-devel libxml2-devel glpk-devel,
+ijtiff,libtiff-devel libjpeg-turbo-devel,
+image.CannyEdges,libpng-devel fftw-devel,
+image.textlinedetector,opencv-devel,
+imager,fftw-devel libtiff-devel,
+inpdfr,,xpdf
+iplots,xorg-x11-server-Xvfb,
+IRkernel,python3dist(jupyter-kernel-test) python3dist(ndjson-testrunner),python-jupyter-filesystem
+island,gsl-devel,
+JavaGD,R-java-devel,
+jdx,,java
+JFE,xorg-x11-server-Xvfb,
+JGR,,java
+JMcmprsk,gsl-devel,
+jpeg,libjpeg-turbo-devel,
+jqr,jq-devel,
+jSDM,gsl-devel,
+jsr223,,java
+JuliaCall,,julia
+JuniperKernel,zeromq-devel,
+kantorovich,gmp-devel,
+keyring,libsecret-devel,
+KFKSDS,gsl-devel,
+knitr,,pandoc
+KoNLP,,java
+KRIG,gsl-devel,
+KSgeneral,fftw-devel,
+kza,fftw-devel,
+landsepi,gsl-devel gdal-devel,
+latdiag,,graphviz
+latte,,4ti2
+LCMCR,gsl-devel,
+LeafArea,,imagej
+ledger,,ledger hledger
+libamtrack,gsl-devel,
+Libra,gsl-devel,
+libsoc,libxml2-devel,
+libstableR,gsl-devel,
+liftr,,docker
+lightsout,,pandoc
+loo,,pandoc
+loon,xorg-x11-server-Xvfb,
+loon.ggplot,xorg-x11-server-Xvfb,
+lwgeom,geos-devel proj-devel sqlite-devel,
+magickGUI,,ImageMagick
+magick,ImageMagick-c++-devel,
+mailR,,java
+mallet,,java
+matchingMarkets,,java
+MaxentVariableSelection,,java
+mBvs,gsl-devel,
+mdendro,,java
+metaMix,openmpi-devel,
+MFPCA,fftw-devel,
+mixcat,gsl-devel,
+mleap,,java
+mmpca,gsl-devel,
+MODIS,gdal-devel,
+mongolite,openssl-devel cyrus-sasl-devel,
+monoreg,gsl-devel,
+multibiplotGUI,xorg-x11-server-Xvfb,tcl tk bwidget
+multibridge,mpfr-devel,
+mvst,gsl-devel,
+mwa,,java
+mwaved,fftw-devel,
+Myrrixjars,,java
+Myrrix,,java
+nbconvertR,,pandoc python3dist(nbconvert)
+ncdf4,netcdf-devel,
+ndjson,zlib-devel,
+nFCA,,ruby graphviz
+nhdR,,p7zip
+nloptr,cmake,
+nlrx,,java
+oceanmap,,ImageMagick
+odbc,unixODBC-devel,
+ODB,,zip
+OligoSpecificitySystem,xorg-x11-server-Xvfb,tcl tk bwidget
+OpenCL,pocl-devel,
+opencpu,,pandoc
+opencv,opencv-devel,
+openNLPdata,,java
+openNLP,,java
+openssl,openssl-devel,
+OpenStreetMap,,java
+optbdmaeAT,xorg-x11-server-Xvfb,
+optrcdmaeAT,xorg-x11-server-Xvfb,
+Orcs,,p7zip dos2unix
+osmose,,java
+outbreaker,gsl-devel,
+pagedown,,pandoc
+pander,,pandoc
+pandocfilters,,pandoc
+paws.common,,pandoc
+pbdBASE,openmpi-devel,
+pbdDEMO,openmpi-devel,
+pbdDMAT,openmpi-devel,
+pbdMPI,openmpi-devel,
+pbdNCDF4,openmpi-devel netcdf-devel,
+pbdPROF,openmpi-devel,
+pbdRPC,openssh-clients,openssh-clients
+pbdSLAP,openmpi-devel,
+pbdZMQ,zeromq-devel,
+PBSmodelling,xorg-x11-server-Xvfb,bwidget
+pdftools,poppler-cpp-devel poppler-data,
+pexm,jags-devel,
+piecepackr,,ghostscript
+pivmet,,pandoc
+pkgdown,,pandoc
+PKI,openssl-devel,
+Plasmidprofiler,,pandoc
+PMCMRplus,gmp-devel mpfr-devel,
+png,libpng-devel,
+poisbinom,fftw-devel,
+PoissonBinomial,fftw-devel,
+PopGenome,zlib-devel,
+popRange,,python3dist(numpy)
+PortfolioEffectEstim,,java
+PortfolioEffectHFT,,java
+PreKnitPostHTMLRender,,pandoc
+prettydoc,,pandoc
+prophet,R-CRAN-BH,
+proj4,proj-devel sqlite-devel,
+protolite,protobuf-devel protobuf-compiler,
+psbcGroup,gsl-devel,
+qCBA,,java
+qpdf,qpdf-devel,
+qtbase,cmake qt-devel xorg-x11-server-Xvfb,
+qtpaint,cmake qt-devel xorg-x11-server-Xvfb,
+questionr,,xclip
+r2pmml,,java
+R2SWF,zlib-devel libpng-devel freetype-devel,
+ragg,freetype-devel libpng-devel libtiff-devel libjpeg-turbo-devel,
+rapidraker,,java
+rapport,,pandoc
+rasciidoc,,asciidoc source-highlight
+Rbgs,,java
+r.blip,,java
+rblt,hdf5-devel,
+rCBA,,java
+rcdd,gmp-devel,
+rcdk,,java
+rchallenge,,pandoc
+rchie,v8-314-devel,
+RclusTool,xorg-x11-server-Xvfb,
+RcmdrMisc,xorg-x11-server-Xvfb,
+RcmdrPlugin.aRnova,xorg-x11-server-Xvfb,
+RcmdrPlugin.coin,xorg-x11-server-Xvfb,
+RcmdrPlugin.depthTools,xorg-x11-server-Xvfb,
+RcmdrPlugin.DoE,xorg-x11-server-Xvfb,
+RcmdrPlugin.EACSPIR,xorg-x11-server-Xvfb,
+RcmdrPlugin.EBM,xorg-x11-server-Xvfb,
+RcmdrPlugin.EcoVirtual,xorg-x11-server-Xvfb,
+RcmdrPlugin.Export,xorg-x11-server-Xvfb,
+RcmdrPlugin.EZR,xorg-x11-server-Xvfb,
+RcmdrPlugin.FactoMineR,xorg-x11-server-Xvfb,
+RcmdrPlugin.FuzzyClust,xorg-x11-server-Xvfb,
+RcmdrPlugin.GWRM,xorg-x11-server-Xvfb,
+RcmdrPlugin.HH,xorg-x11-server-Xvfb,
+RcmdrPlugin.IPSUR,xorg-x11-server-Xvfb,
+RcmdrPlugin.KMggplot2,xorg-x11-server-Xvfb,
+RcmdrPlugin.lfstat,xorg-x11-server-Xvfb,
+RcmdrPlugin.MA,xorg-x11-server-Xvfb,
+RcmdrPlugin.mosaic,xorg-x11-server-Xvfb,
+RcmdrPlugin.MPAStats,xorg-x11-server-Xvfb,
+RcmdrPlugin.NMBU,xorg-x11-server-Xvfb,
+RcmdrPlugin.orloca,xorg-x11-server-Xvfb,
+RcmdrPlugin.PcaRobust,xorg-x11-server-Xvfb,
+RcmdrPlugin.plotByGroup,xorg-x11-server-Xvfb,
+RcmdrPlugin.pointG,xorg-x11-server-Xvfb,
+RcmdrPlugin.qual,xorg-x11-server-Xvfb,
+RcmdrPlugin.RiskDemo,xorg-x11-server-Xvfb,
+RcmdrPlugin.RMTCJags,xorg-x11-server-Xvfb,
+RcmdrPlugin.ROC,xorg-x11-server-Xvfb,
+RcmdrPlugin.sampling,xorg-x11-server-Xvfb,
+RcmdrPlugin.SCDA,xorg-x11-server-Xvfb,
+RcmdrPlugin.SLC,xorg-x11-server-Xvfb,
+RcmdrPlugin.sos,xorg-x11-server-Xvfb,
+RcmdrPlugin.steepness,xorg-x11-server-Xvfb,
+RcmdrPlugin.survival,xorg-x11-server-Xvfb,
+RcmdrPlugin.sutteForecastR,xorg-x11-server-Xvfb,
+RcmdrPlugin.TeachingDemos,xorg-x11-server-Xvfb,
+RcmdrPlugin.TeachStat,xorg-x11-server-Xvfb,
+RcmdrPlugin.temis,xorg-x11-server-Xvfb,
+RcmdrPlugin.UCA,xorg-x11-server-Xvfb,
+Rcmdr,xorg-x11-server-Xvfb,
+RcppAlgos,gmp-devel,
+RcppBigIntAlgos,gmp-devel,
+RcppCWB,bison flex pcre glib2-devel ncurses-devel,
+RcppGSL,gsl-devel,gsl-devel
+RcppMeCab,mecab-devel,
+RcppParallel,tbb-devel,tbb-devel
+RcppRedis,hiredis-devel,
+rcrypt,gnupg2,gnupg2
+RCurl,libcurl-devel,
+rdataretriever,python3-devel,
+rDEA,glpk-devel,
+rde,,xclip
+RDieHarder,gsl-devel,
+rDotNet,mono-devel wine-mono nuget,wine-mono nuget
+rdoxygen,,doxygen
+Rdroolsjars,,java
+Rdrools,,java
+rdwd,,pandoc
+readbitmap,libjpeg-turbo-devel libpng-devel,
+redist,gmp-devel libxml2-devel,
+redland,redland-devel,
+redux,hiredis-devel,
+remotes,,subversion git
+RenextGUI,xorg-x11-server-Xvfb,
+reprex,,pandoc
+reticulate,,python2 python3
+RFreak,,java
+rfviz,xorg-x11-server-Xvfb,
+rgdal,gdal-devel proj-devel sqlite-devel,
+rGEDI,gsl-devel hdf5-devel libgeotiff-devel zlib-devel,
+rgeos,geos-devel,
+RGF,,python3dist(scikit-learn) python3dist(numpy) python3dist(scipy)
+rggobi,ggobi-devel,
+Rglpk,glpk-devel,
+rgl,mesa-libGL-devel mesa-libGLU-devel zlib-devel libpng-devel freetype-devel,
+Rgnuplot,gnuplot,gnuplot
+rgrass7,,grass
+rGroovy,,java
+RGtk2,cairo-devel atk-devel pango-devel gtk2-devel glib2-devel,
+RH2,,java
+Rhpc,openmpi-devel,
+ridge,gsl-devel,
+RJaCGH,zlib-devel,
+rjags,jags-devel,
+rJava,R-java-devel,java
+RJDemetra,,java
+RJSDMX,,java
+rJython,,java
+rkafkajars,,java
+rkafka,,java
+RKEAjars,,java
+RKEA,,java
+RKEEL,,java
+rkeops,cmake,cmake
+Rlibeemd,gsl-devel,
+rlo,,libreoffice-pyuno
+RMariaDB,mariadb-devel,
+rmarkdown,,pandoc
+rmatio,zlib-devel,
+RmecabKo,mecab-devel,
+rmcfs,,java
+rmdfiltr,,pandoc
+RMOAjars,,java
+RMOA,,java
+rMouse,xorg-x11-server-Xvfb,java
+Rmpfr,gmp-devel mpfr-devel,
+Rmpi,openmpi-devel,
+RMySQL,mariadb-devel,
+RNCBIEUtilsLibs,,java
+rnetcarto,gsl-devel,
+RNetCDF,netcdf-develudunits2-devel,
+RNetLogo,,java
+Rnightlights,,aria2 curl gdal wget
+RoBMA,jags-devel,
+RODBCext,unixODBC-devel,
+RODBC,unixODBC-devel,
+ROI.plugin.symphony,coin-or-SYMPHONY-devel,
+ROpenCVLite,cmake,
+rosr,,pandoc
+rpanel,xorg-x11-server-Xvfb bwidget,bwidget
+rpg,libpq-devel,
+Rpoppler,poppler-glib-devel,
+RPostgres,libpq-devel,
+RPostgreSQL,libpq-devel,
+RProtoBuf,protobuf-devel protobuf-compiler,
+rPython,python3-devel,python3
+RQDA,,java
+RQuantLib,QuantLib-devel boost-devel,
+rrd,rrdtool-devel,
+rriskDistributions,xorg-x11-server-Xvfb,tcl tk
+Rsampletrees,gsl-devel,
+rscala,java,java
+RSclient,openssl-devel,
+RSiena,xorg-x11-server-Xvfb,tcl tk
+rsparkling,,java
+Rssa,fftw-devel,
+rstanarm,,pandoc
+rstan,,pandoc
+rstantools,,pandoc
+rsubgroup,,java
+RSurvey,xorg-x11-server-Xvfb,tcl tk
+rsvg,librsvg2-devel,
+Rsymphony,coin-or-SYMPHONY-devel,
+RTest,ImageMagick-c++-devel,
+rtiff,libtiff-devel,
+rtika,,java
+rtmpt,gsl-devel,
+runjags,jags-devel,
+RVowpalWabbit,boost-devel,boost-program-options
+RWebLogo,,ghostscript
+rzmq,zeromq-devel,
+s2,openssl-devel,
+SBRect,,java
+sbrl,gmp-devel gsl-devel,
+scModels,mpfr-devel,
+sdcTable,glpk-devel gmp-devel,
+seewave,,libsndfile
+SemiCompRisks,gsl-devel,
+seqinr,zlib-devel,
+seqminer,zlib-devel,
+sf,gdal-devel geos-devel proj-devel sqlite-devel,
+SGP,,tex(latex) tex(pdfpages.sty)
+shinyalert,,pandoc
+shinyjs,,pandoc
+showtext,zlib-devel libpng-devel freetype-devel,
+SimInf,gsl-devel,
+simplexreg,gsl-devel,
+slowraker,,java
+smam,gsl-devel,
+sodium,libsodium-devel,
+soptdmaeA,xorg-x11-server-Xvfb,
+SPACECAP,xorg-x11-server-Xvfb,tcl tk
+sparklyr,,java
+SparkR,,java
+SPARSEMODr,gsl-devel,
+spate,fftw-devel,
+spatsoc,geos-devel,
+spcosa,,java
+specklestar,fftw-devel,
+ssh,libssh-devel,
+StatCharrms,,gtk+
+stevedore,,docker
+strawr,libcurl-devel,
+streamMOA,,java
+stringi,libicu-devel,
+stsm,gsl-devel,
+subspace,,java
+SuperGauss,fftw-devel,
+survSNP,gsl-devel,
+svDialogs,,zenity yad
+switchr,,git subversion
+sybilSBML,libsbml-devel,
+symengine,cmake gmp-devel mpfr-devel,
+SymTS,gsl-devel,
+sysfonts,zlib-devel libpng-devel freetype-devel,
+tabr,,lilypond
+tabulizerjars,,java
+tabulizer,,java
+TAQMNGR,zlib-devel,
+tcltk2,xorg-x11-server-Xvfb,tcl tk
+TDA,gmp-devel,
+terra,gdal-devel geos-devel proj-devel sqlite-devel,
+tesseract,tesseract-devel leptonica-devel,
+TexExamRandomizer,,latexmk
+texPreview,,tex(standalone.cls)
+textshaping,harfbuzz-devel fribidi-devel,
+Thermimage,,perl(Image::ExifTool) ImageMagick
+tiff,libjpeg-turbo-devel libtiff-devel,
+tikzDevice,texlive-pgf,texlive-pgf
+tiler,,python3dist(gdal)
+TKF,gsl-devel,
+tkRplotR,xorg-x11-server-Xvfb,tcl tk
+TMB,,gcc-c++
+topicmodels,gsl-devel,
+TTAinterfaceTrendAnalysis,xorg-x11-server-Xvfb,
+tutorial,,pandoc
+TVMM,xorg-x11-server-Xvfb,
+udunits2,udunits2-devel,
+uFTIR,gdal-devel proj-devel sqlite-devel,
+uHMM,xorg-x11-server-Xvfb,
+units,udunits2-devel,
+untb,,pari-gp
+V8,v8-devel,
+vapour,gdal-devel proj-devel sqlite-devel,
+vcfR,devscripts-checkbashisms,
+VBLPCM,gsl-devel,
+VIMGUI,xorg-x11-server-Xvfb,bwidget
+webp,libwebp-devel,
+webshot,,ImageMagick
+websocket,openssl-devel,
+WhopGenome,zlib-devel,
+wordnet,,java wordnet
+workflowr,,pandoc
+WriteXLS,,perl
+XBRL,libxml2-devel,
+x.ent,,perl
+XLConnectJars,,java
+XLConnect,,java
+xlsx,,java
+xml2,libxml2-devel,
+XML,libxml2-devel,
+zooaRchGUI,xorg-x11-server-Xvfb,
+XRJulia,,julia
+xslt,libxslt-devel,

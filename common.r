@@ -259,9 +259,9 @@ need_update <- function(pkgs, cran=available_packages()) {
 
   x <- character(0)
   if (!is.na(deps$build))
-    x <- c(x, paste0("BuildRequires:    ", strsplit(deps$build, ", ")[[1]]))
+    x <- c(x, paste0("BuildRequires:    ", strsplit(deps$build, " ")[[1]]))
   if (!is.na(deps$run))
-    x <- c(x, paste0("Requires:         ", strsplit(deps$run, ", ")[[1]]))
+    x <- c(x, paste0("Requires:         ", strsplit(deps$run, " ")[[1]]))
   x
 }
 
