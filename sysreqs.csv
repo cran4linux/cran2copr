@@ -57,7 +57,7 @@ BiBitR,,R-java,TRUE,Java
 biblio,,,FALSE,pandoc - http://pandoc.org
 bigGP,openmpi-devel,,FALSE,OpenMPI or MPICH2
 bigIntegerAlgos,gmp-devel,,TRUE,
-bigsimr,,,FALSE,"Julia, Bigsimr.jl, Distributions.jl"
+bigsimr,,,TRUE,"Julia, Bigsimr.jl, Distributions.jl"
 bigsnpr,,,TRUE,A few functions from package 'bigsnpr' wrapexisting software such as 'PLINK'<www.cog-genomics.org/plink2>. Functions are provided todownload these software. Note that these external softwaremight not work for some operating systems (e.g. 'PLINK' mightnot work on Solaris).
 bioacoustics,cmake fftw-devel,,TRUE,"fftw3,"
 bioimagetools,libtiff-devel fftw-devel libcurl-devel openssl-devel,,TRUE,tiff fftw libcurl openssl
@@ -127,7 +127,7 @@ conflr,,,FALSE,pandoc - https://pandoc.org
 CoNI,,,FALSE,python3
 conquestr,,,TRUE,ACER ConQuest
 CONS,xorg-x11-server-Xvfb,tcl tk,TRUE,
-convexjlr,,,FALSE,"Julia, Convex.jl, SCS.jl, ECOS.jl"
+convexjlr,,,TRUE,"Julia, Convex.jl, SCS.jl, ECOS.jl"
 CoordinateCleaner,gdal-devel,,FALSE,GDAL
 CopernicusDEM,,,FALSE,"awscli: apt install -y awscli (deb), aws-configure:aws configure (deb)"
 copula,,,TRUE,pdfcrop (part of TexLive) is required to rebuildthe vignettes.
@@ -176,7 +176,7 @@ devEMF,zlib-devel,,TRUE,"FreeType, Xft, or zlib (only needed for platformsother 
 dgmb,xorg-x11-server-Xvfb,bwidget,TRUE,
 dialr,,"",TRUE,java
 dialrjars,,"",TRUE,java
-diffeqr,,,FALSE,"Julia, DifferentialEquations.jl,ModelingToolkit.jl"
+diffeqr,,,TRUE,"Julia, DifferentialEquations.jl,ModelingToolkit.jl"
 digitalDLSorteR,,,FALSE,"Python, TensorFlow(https://www.tensorflow.org/)"
 diskImageR,,imagej,FALSE,"ImageJ (all OS), Xcode (Mac)"
 dismo,,R-java,TRUE,Java
@@ -236,7 +236,7 @@ FishResp,,,FALSE,Display resolutionx800; RAMGB
 fit4NM,xorg-x11-server-Xvfb,tcl tk,TRUE,
 fitbitViz,,,FALSE,update: apt-get -y update (deb)
 flan,gsl-devel,,TRUE,GNU GSL
-flimo,,,FALSE,Julia
+flimo,,,TRUE,Julia
 fmf,,,TRUE,"libarmadillo: apt-get install -y libarmadillo-dev(deb), libblas: apt-get install -y libblas-dev (deb),liblapack: apt-get install -y liblapack-dev (deb),libarpack++2: apt-get install -y libarpack++2-dev (deb),: apt-get install -y  (deb)"
 foieGras,,,TRUE,"GDAL, GEOS, PROJ,pandoc"
 footBayes,,,FALSE,"pandoc, pandoc-citeproc"
@@ -251,7 +251,7 @@ fst,,,TRUE,little-endian platform
 fstcore,,,TRUE,little-endian platform
 ftExtra,,,FALSE,pandoc - http://pandoc.org
 fuzzywuzzyR,,,FALSE,"Python, difflib, fuzzywuzzy,python-Levenshtein. Detailed installationinstructions for each operating system can be found in theREADME file."
-fwildclusterboot,,,FALSE,"Julia, WildBootTests.jl"
+fwildclusterboot,,,TRUE,"Julia, WildBootTests.jl"
 ganDataModel,,,TRUE,TensorFlow (https://www.tensorflow.org)
 ganGenerativeData,,,TRUE,TensorFlow (https://www.tensorflow.org)
 gcbd,,,FALSE,"Debian or Ubuntu system with access to Goto Blas,Intel MKL, Atlas development build as well as a Nvidia GPU withCUDA support"
@@ -335,7 +335,7 @@ httpgd,libpng-devel cairo-devel freetype-devel,,TRUE,"libpng, cairo, freetype2, 
 httpuv,zlib-devel,,TRUE,zlib
 huxtable,,,FALSE,"LaTeX packages: adjustbox, array, calc, caption,colortbl, fontspec, graphicx, hhline, hyperref, multirow,siunitx, tabularx, threeparttable, ulem, wrapfig"
 HydeNet,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
-iai,,,FALSE,Julia and Interpretable AI System Image(>=
+iai,,,TRUE,Julia and Interpretable AI System Image(>=
 IceSat2R,,,FALSE,"gdal-bin: apt install -y gdal-bin (deb),libgdal-dev: apt install -y libgdal-dev (deb), libudunits2-dev:apt install -y libudunits2-dev (deb), libgeos-dev: apt install-y libgeos-dev (deb), libproj-dev: apt install -y libproj-dev(deb), unzip: apt install unzip (deb)"
 idiogramFISH,,,FALSE,pandoc
 idm,,ImageMagick,FALSE,ImageMagick (http://imagemagick.org) orGraphicsMagick (http://www.graphicsmagick.org)
@@ -374,8 +374,8 @@ jqr,jq-devel,,TRUE,libjq: jq-devel (rpm) or libjq-dev (deb)
 jSDM,gsl-devel,,TRUE,GNU GSL
 jsr223,,java,TRUE,
 juicr,,,FALSE,Tcl/Tk toolkit (X11 Quarts for Mac)
-JuliaCall,,julia,FALSE,"Julia, RCall.jl"
-JuliaConnectoR,,,FALSE,Julia
+JuliaCall,,julia,TRUE,"Julia, RCall.jl"
+JuliaConnectoR,,julia,TRUE,Julia
 JuniperKernel,zeromq-devel,,TRUE,
 kantorovich,gmp-devel,,FALSE,GMP (https://gmplib.org/)
 kdtools,,,TRUE,A compiler that conforms to the  standard
@@ -1041,7 +1041,7 @@ XLConnectJars,,java,TRUE,
 xlsx,,"",TRUE,java
 XML,libxml2-devel,,TRUE,libxml2
 xml2,libxml2-devel,,TRUE,"libxml2: libxml2-dev (deb), libxml2-devel (rpm)"
-XRJulia,,julia,FALSE,"Julia, vor later"
+XRJulia,,julia,TRUE,"Julia, vor later"
 xslt,libxslt-devel,,TRUE,"libxslt: libxslt1-dev (deb), libxslt-devel (rpm)"
 ymd,cargo,,TRUE,Cargo (rustc package manager)
 youtubecaption,,,FALSE,Anaconda (https://www.anaconda.com/download/)
