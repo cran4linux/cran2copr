@@ -22,13 +22,14 @@ googleformr
 gifski cargo
 baseflow cargo
 ymd cargo
+string2path cargo
 traitdataform
 freetypeharfbuzz internet
 pcaL1
 wrswoR.benchmark
 GeneBook
 rLindo
-salso
+salso cargo
 XLConnect
 bitmexr internet
 dmdScheme internet
