@@ -3,7 +3,7 @@
 %global rlibdir %{_datadir}/R/library
 
 Name:           R-%{packname}
-Version:        0.3.9
+Version:        0.3.10
 Release:        1%{?dist}%{?buildtag}
 Summary:        Package Manager for the 'cran2copr' Project
 
@@ -13,7 +13,7 @@ Source0:        %{url}/archive/v%{version}/%{projname}_%{version}.tar.gz
 
 BuildRequires:  R-devel, python3-devel
 Requires:       python3-dnf
-Recommends:     systemd, python3-dbus, python3-gobject
+Recommends:     /usr/bin/busctl, python3-dbus, python3-gobject
 BuildArch:      noarch
 
 %description
@@ -54,6 +54,7 @@ mkdir -p %{buildroot}%{_libdir}/R/etc/Rprofile.site.d
 cat <<EOF > %{buildroot}%{_libdir}/R/etc/Rprofile.site.d/50-%{packname}.site
 options(%{packname}.sudo.autodetect=TRUE)
 options(%{packname}.always.install.deps=TRUE)
+options(%{packname}.backend.check=FALSE)
 suppressMessages(%{packname}::enable())
 EOF
 cat <<EOF > %{buildroot}%{_libdir}/R/etc/Rprofile.site
