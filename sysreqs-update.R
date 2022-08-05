@@ -1,3 +1,5 @@
+#!/usr/bin/env Rscript
+
 pgsub <- function(x, pattern, replacement, ...) gsub(pattern, replacement, x, ...)
 creplace <- function(x, pattern, replacement) replace(x, x==pattern, replacement)
 
