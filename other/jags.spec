@@ -8,7 +8,7 @@
 
 Name:             jags
 Version:          4.3.0
-Release:          2%{?dist}
+Release:          3%{?dist}%{?buildtag}
 Summary:          Just Another Gibbs Sampler
 
 License:          GPLv2
@@ -33,45 +33,40 @@ Requires:         %{name}%{?_isa} = %{version}-%{release}
 Requires:         gcc-c++, gcc-gfortran
 
 %description devel
-Header files for %{name}.
+Development files for %{name}.
 
 %prep
 %setup -q -n JAGS-%{version}
 export F77=gfortran
 
+%build
 %configure \
   --with-blas=-l%{blaslib}%{blasvar} \
   --with-lapack=-l%{blaslib}%{blasvar}
-
-%build
-make
+%make_build
 
 %install
-make install DESTDIR=${RPM_BUILD_ROOT}
+%make_install
+find %{buildroot} -name *.la -exec rm {} \;
 
 %files
-%{_bindir}/jags
-%{_libexecdir}/jags-terminal
+%{_bindir}/%{name}
+%{_libexecdir}/%{name}-terminal
 %{_libdir}/JAGS
-%{_libdir}/libjags.la
-%{_libdir}/libjags.so.*
-%{_libdir}/libjrmath.la
+%{_libdir}/lib%{name}.so.*
 %{_libdir}/libjrmath.so.*
-%{_mandir}/man1/jags.1*
+%{_mandir}/man1/%{name}.1*
 
 %files devel
-%{_libdir}/pkgconfig/jags.pc
+%{_libdir}/pkgconfig/%{name}.pc
 %{_includedir}/JAGS
-%{_libdir}/libjags.so
+%{_libdir}/lib%{name}.so
 %{_libdir}/libjrmath.so
 
-%post
-/sbin/ldconfig
-
-%postun
-/sbin/ldconfig
-
 %changelog
+* Fri Aug 05 2022 Iñaki Úcar <iucar@fedoraproject.org> - 4.3.0-3
+- Modernize spec
+
 * Sun Oct 04 2020 Iñaki Úcar <iucar@fedoraproject.org> - 4.3.0-2
 - Build against optimized BLAS
 
