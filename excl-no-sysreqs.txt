@@ -39,4 +39,3 @@ RKEELjars internet
 switchr internet
 spiR internet
 packagefinder internet
-tiledb tiledb/internet

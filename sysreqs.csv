@@ -981,7 +981,7 @@ Thermimage,,/usr/bin/exiftool ffmpeg-free ImageMagick,TRUE,"exiftool, perl, ffmp
 tidycwl,,pandoc,TRUE,"PhantomJS (https://phantomjs.org), pandoc - https://pandoc.org."
 tiff,libjpeg-turbo-devel libtiff-devel,,TRUE,tiff and jpeg libraries
 tikzDevice,texlive-pgf,texlive-pgf,TRUE,pgf
-tiledb,,,FALSE,"A  compiler is required, and on macOScompilation for versionis required. Optionally cmake(only when TileDB source build selected), git (only when TileDBsource build selected); on x86_64 and M1 platforms pre-builtTileDB Embedded libraries are available at GitHub and are usedif no TileDB installation is detected, and no other option tobuild or download was specified by the user."
+tiledb,tiledb-devel,,TRUE,"A  compiler is required, and on macOScompilation for versionis required. Optionally cmake(only when TileDB source build selected), git (only when TileDBsource build selected); on x86_64 and M1 platforms pre-builtTileDB Embedded libraries are available at GitHub and are usedif no TileDB installation is detected, and no other option tobuild or download was specified by the user."
 tiler,,python3dist(gdal),TRUE,"Python, python-gdal library (For Windows,gdal installed via OSGeo4W <https://trac.osgeo.org/osgeo4w/>recommended) clipboard"
 timechange,,,TRUE,A system with zoneinfo data (e.g./usr/share/zoneinfo) as well as a recent-enough  compiler(such as g++-4.8 or later). On Windows the zoneinfo includedwith R is used.
 TKF,gsl-devel,,TRUE,
