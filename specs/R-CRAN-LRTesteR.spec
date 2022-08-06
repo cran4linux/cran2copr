@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  LRTesteR
-%global packver   0.1
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Likelihood Ratio Tests
 
@@ -17,11 +17,13 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-CRAN-rlang 
 
 %description
-A collection of hypothesis tests based on the likelihood ratio
-<https://en.wikipedia.org/wiki/Likelihood-ratio_test>.
+A collection of hypothesis tests and confidence intervals based on the
+likelihood ratio <https://en.wikipedia.org/wiki/Likelihood-ratio_test>.
 
 %prep
 %setup -q -c -n %{packname}

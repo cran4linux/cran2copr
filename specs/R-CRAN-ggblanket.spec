@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  ggblanket
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrappers to Simplify Pretty 'ggplot2' Visualisation
+Summary:          Wrappers to Simplify 'ggplot2' Visualisation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -44,8 +44,7 @@ Requires:         R-CRAN-tidyselect
 Requires:         R-CRAN-viridis 
 
 %description
-Wrapper functions around the amazing 'ggplot2' package to simplify pretty
-visualisation.
+Simplify visualisation with 'ggplot2' wrapper functions.
 
 %prep
 %setup -q -c -n %{packname}

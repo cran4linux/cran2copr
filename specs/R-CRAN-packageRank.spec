@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  packageRank
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computation and Visualization of Package Download Counts and Percentiles
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-data.table >= 1.12.2
 BuildRequires:    R-CRAN-cranlogs 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-ISOcodes 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-pkgsearch 
 BuildRequires:    R-CRAN-RCurl 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-data.table >= 1.12.2
 Requires:         R-CRAN-cranlogs 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
+Requires:         R-CRAN-ISOcodes 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-pkgsearch 
 Requires:         R-CRAN-RCurl 

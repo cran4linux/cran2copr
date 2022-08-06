@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  photobiology
-%global packver   0.10.11
+%global packver   0.10.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.11
+Version:          0.10.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Photobiological Calculations
 
@@ -16,27 +16,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.0.4
+BuildRequires:    R-CRAN-tibble >= 3.1.0
 BuildRequires:    R-CRAN-zoo >= 1.8.8
-BuildRequires:    R-CRAN-plyr >= 1.8.4
+BuildRequires:    R-CRAN-plyr >= 1.8.7
 BuildRequires:    R-CRAN-lubridate >= 1.7.8
-BuildRequires:    R-CRAN-polynom >= 1.4.0
+BuildRequires:    R-CRAN-polynom >= 1.4.1
 BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-splus2R >= 1.2.2
-BuildRequires:    R-CRAN-tidyr >= 1.1.2
-BuildRequires:    R-CRAN-dplyr >= 1.0.2
+BuildRequires:    R-CRAN-splus2R >= 1.3.3
+BuildRequires:    R-CRAN-tidyr >= 1.2.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.9
 BuildRequires:    R-CRAN-rlang >= 0.4.8
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-tibble >= 3.0.4
+Requires:         R-CRAN-tibble >= 3.1.0
 Requires:         R-CRAN-zoo >= 1.8.8
-Requires:         R-CRAN-plyr >= 1.8.4
+Requires:         R-CRAN-plyr >= 1.8.7
 Requires:         R-CRAN-lubridate >= 1.7.8
-Requires:         R-CRAN-polynom >= 1.4.0
+Requires:         R-CRAN-polynom >= 1.4.1
 Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-splus2R >= 1.2.2
-Requires:         R-CRAN-tidyr >= 1.1.2
-Requires:         R-CRAN-dplyr >= 1.0.2
+Requires:         R-CRAN-splus2R >= 1.3.3
+Requires:         R-CRAN-tidyr >= 1.2.0
+Requires:         R-CRAN-dplyr >= 1.0.9
 Requires:         R-CRAN-rlang >= 0.4.8
 Requires:         R-stats 
 Requires:         R-grDevices 

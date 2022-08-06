@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  leaflegend
-%global packver   0.6.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Add Custom Legends to 'leaflet' Maps
 
@@ -29,7 +29,8 @@ Requires:         R-CRAN-htmlwidgets
 
 %description
 Provides extensions to the 'leaflet' package to customize legends with
-images, text styling, orientation, sizing, and symbology.
+images, text styling, orientation, sizing, and symbology and functions to
+create symbols to plot on maps.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  hhsmm
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hidden Hybrid Markov/Semi-Markov Model Fitting
 
@@ -48,7 +48,8 @@ regression (Kim et al., 2008 <doi:10.1016/j.jeconom.2007.10.002>) and
 auto-regressive hidden hybrid Markov/semi-Markov model, spline-based
 nonparametric estimation of additive state-switching models (Langrock et
 al., 2018 <doi:10.1111/stan.12133>) and many other useful tools (read for
-more description: <arXiv:2109.12489>).
+more description: Amini et al., 2022 <doi:10.1007/s00180-022-01248-x> and
+its arxiv version: <arXiv:2109.12489>).
 
 %prep
 %setup -q -c -n %{packname}

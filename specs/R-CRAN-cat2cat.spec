@@ -1,12 +1,12 @@
 %global __brp_check_rpaths %{nil}
 %global packname  cat2cat
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Handling an Inconsistent Coded Categorical Variable in a Panel Dataset
+Summary:          Handling an Inconsistently Coded Categorical Variable in a Panel Dataset
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,13 +20,13 @@ BuildRequires:    R-CRAN-MASS
 Requires:         R-CRAN-MASS 
 
 %description
-There are offered automatic methods to map a categorical variable
-according to a specific mappings across different time points. The main
-rule is to replicate the observation if it could be assign to a few
-categories. Then using simple frequencies or statistical methods to
-approximate probabilities of being assign to each of them. This algorithm
-was invented and implemented in the paper by (Nasinski, Majchrowska and
-Broniatowska (2020) <doi:10.24425/cejeme.2020.134747>).
+Unifying of an inconsistently coded categorical variable between two
+different time points in accordance with a mapping table. The main rule is
+to replicate the observation if it could be assign to a few categories.
+Then using simple frequencies or statistical methods to approximate
+probabilities of being assign to each of them. This procedure was invented
+and implemented in the paper by (Nasinski, Majchrowska and Broniatowska
+(2020) <doi:10.24425/cejeme.2020.134747>).
 
 %prep
 %setup -q -c -n %{packname}

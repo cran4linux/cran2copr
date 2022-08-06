@@ -1,38 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  sarp.snowprofile
-%global packver   1.3.1
+%global packname  MLVSBM
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Snow Profile Analysis for Snowpack and Avalanche Research
+Summary:          A Stochastic Block Model for Multilevel Networks
 
-License:          CC BY-SA 4.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-data.table 
-Requires:         R-methods 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-blockmodels 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-cluster 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-blockmodels 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-cluster 
 
 %description
-Analysis and plotting tools for snow profile data produced from manual
-snowpack observations and physical snowpack models. The functions in this
-package support snowpack and avalanche research by reading various formats
-of data (including CAAML, SMET, generic csv, and outputs from the snow
-cover model SNOWPACK), manipulate the data, and produce graphics such as
-stratigraphy and time series profiles. Package developed by the Simon
-Fraser University Avalanche Research Program
-<http://www.avalancheresearch.ca>. Graphics apply visualization concepts
-from Horton, Nowak, and Haegeli (2020, <doi:10.5194/nhess-20-1557-2020>).
+Simulation, inference and clustering of multilevel networks using a
+Stochastic Block Model framework as described in Chabert-Liddell,
+Barbillon, Donnet and Lazega (2021) <doi:10.1016/j.csda.2021.107179>. A
+multilevel network is defined as the junction of two interaction networks,
+the upper level or inter-organizational level and the lower level or
+inter-individual level. The inter-level represents an affiliation
+relationship.
 
 %prep
 %setup -q -c -n %{packname}

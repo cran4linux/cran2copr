@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  shinybrms
-%global packver   1.7.0
+%global packver   1.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          1.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphical User Interface ('shiny' App) for 'brms'
 
@@ -18,12 +18,12 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rstan >= 2.19.3
 BuildRequires:    R-CRAN-brms >= 2.16.0
-BuildRequires:    R-CRAN-shiny >= 1.4.0
+BuildRequires:    R-CRAN-shiny >= 1.7.0
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rstan >= 2.19.3
 Requires:         R-CRAN-brms >= 2.16.0
-Requires:         R-CRAN-shiny >= 1.4.0
+Requires:         R-CRAN-shiny >= 1.7.0
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rstantools
 

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  crops
-%global packver   1.0.1
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Changepoints for a Range of Penalties (CROPS)
 
@@ -22,27 +22,25 @@ BuildRequires:    R-CRAN-tidyverse
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-pacman 
-BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-sets 
 Requires:         R-CRAN-reshape 
 Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-pacman 
-Requires:         R-CRAN-Rdpack 
 Requires:         R-methods 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-Rdpack 
 
 %description
 Implements the Changepoints for a Range of Penalties (CROPS) algorithm of
-Haynes et al. (2014) <doi:10.1007/s11222-016-9687-5> for finding all of
-the optimal segmentations for multiple penalty values over a continuous
+Haynes et al. (2017) <doi:10.1080/10618600.2015.1116445> for finding all
+of the optimal segmentations for multiple penalty values over a continuous
 range.
 
 %prep

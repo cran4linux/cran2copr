@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  fritools
-%global packver   3.5.1
+%global packver   3.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.1
+Version:          3.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for the Forest Research Institute of the State Baden-Wuerttemberg
 
@@ -30,10 +30,11 @@ workspace. These are utilities for packages
 <https://CRAN.R-project.org/package=cleanr>,
 <https://CRAN.R-project.org/package=document>,
 <https://CRAN.R-project.org/package=fakemake>,
-<https://CRAN.R-project.org/package=packager> and
-<https://CRAN.R-project.org/package=rasciidoc>. Does not import or depend
-on any third party package, but on core R only (i.e. it may depend on
-packages with priority 'base').
+<https://CRAN.R-project.org/package=packager>,
+<https://CRAN.R-project.org/package=rasciidoc> and
+<https://CRAN.R-project.org/package=treePlotArea>. Does not import or
+depend on any third party package, but on core R only (i.e. it may depend
+on packages with priority 'base').
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  HDSpatialScan
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate and Functional Spatial Scan Statistics
 
@@ -17,15 +17,16 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-SpatialNP 
 BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-TeachingDemos 
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-fmsb 
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-swfscMisc 
 BuildRequires:    R-CRAN-rgeos 
 BuildRequires:    R-graphics 
@@ -35,15 +36,16 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-parallel 
+Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-SpatialNP 
 Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-TeachingDemos 
 Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-fmsb 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-swfscMisc 
 Requires:         R-CRAN-rgeos 
 Requires:         R-graphics 

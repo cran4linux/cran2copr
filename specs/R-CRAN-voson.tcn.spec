@@ -1,10 +1,10 @@
 %global __brp_check_rpaths %{nil}
 %global packname  voson.tcn
-%global packver   0.3.3
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Twitter Conversation Networks and Analysis
 
@@ -13,13 +13,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
@@ -28,7 +27,6 @@ BuildRequires:    R-CRAN-tidyr
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
