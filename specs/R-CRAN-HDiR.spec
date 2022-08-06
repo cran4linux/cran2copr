@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  HDiR
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Directional Highest Density Regions
 
@@ -34,13 +35,14 @@ Requires:         R-stats
 Requires:         R-grDevices 
 
 %description
-We provide an R tool for nonparametric plug-in estimation of Highest
-Density Regions (HDRs) in the directional setting. Concretely, circular
-and spherical regions can be reconstructed from a data sample following
-Saavedra-Nieves and Crujeiras (2020) <arXiv:2009.08915>. This library also
-contains two real datasets in the circular and spherical settings. The
-first one concerns a problem from animal orientation studies and the
-second one is related to earthquakes occurrences.
+We provide an R tool for computation and nonparametric plug-in estimation
+of Highest Density Regions (HDRs) and general level sets in the
+directional setting. Concretely, circular and spherical HDRs can be
+reconstructed from a data sample following Saavedra-Nieves and Crujeiras
+(2021) <doi:10.1007/s11634-021-00457-4>. This library also contains two
+real datasets in the circular and spherical settings. The first one
+concerns a problem from animal orientation studies and the second one is
+related to earthquakes occurrences.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,6 +52,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

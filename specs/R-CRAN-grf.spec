@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  grf
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Random Forests
 
@@ -30,11 +31,12 @@ Requires:         R-CRAN-Matrix
 Requires:         R-methods 
 
 %description
-A pluggable package for forest-based statistical estimation and inference.
-GRF currently provides methods for non-parametric least-squares
-regression, quantile regression, survival regression and treatment effect
-estimation (optionally using instrumental variables), with support for
-missing values.
+Forest-based statistical estimation and inference. GRF provides
+non-parametric methods for heterogeneous treatment effects estimation
+(optionally using right-censored outcomes, multiple treatment arms or
+outcomes, or instrumental variables), as well as least-squares regression,
+quantile regression, and survival regression, all with support for missing
+covariates.
 
 %prep
 %setup -q -c -n %{packname}

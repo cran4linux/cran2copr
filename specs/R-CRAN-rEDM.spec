@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rEDM
-%global packver   1.13.0
+%global packver   1.13.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.13.0
+Version:          1.13.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Empirical Dynamic Modeling ('EDM')
 

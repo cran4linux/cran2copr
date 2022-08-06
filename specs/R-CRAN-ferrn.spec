@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ferrn
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Facilitate Exploration of touRR optimisatioN
 
@@ -51,7 +52,8 @@ These show paths the optimiser takes in the high-dimensional space in
 multiple ways: by reducing the dimension using principal component
 analysis, and also using the tour to show the path on the high-dimensional
 space. Several botanical colour palettes are included, reflecting the name
-of the package.
+of the package. A paper describing the methodology can be found at
+<https://journal.r-project.org/archive/2021/RJ-2021-105/index.html>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -61,6 +63,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

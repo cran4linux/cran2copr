@@ -1,45 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CNAIM
-%global packver   2.1.2
+%global packname  pbdSLAP
+%global packver   0.3-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Common Network Asset Indices Methodology (CNAIM)
+Summary:          Programming with Big Data -- Scalable Linear Algebra Packages
 
-License:          MIT + file LICENSE
+License:          Mozilla Public License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-r2d3 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-r2d3 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-pbdMPI >= 0.3.1
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlecuyer 
+Requires:         R-CRAN-pbdMPI >= 0.3.1
+Requires:         R-methods 
+Requires:         R-CRAN-rlecuyer 
 
 %description
-Implementation of the CNAIM standard in R. Contains a series of algorithms
-which determine the probability of failure, consequences of failure and
-monetary risk associated with electricity distribution companies' assets
-such as transformers and cables. Results are visualized in an
-easy-to-understand risk matrix.
+Utilizing scalable linear algebra packages mainly including 'BLACS',
+'PBLAS', and 'ScaLAPACK' in double precision via 'pbdMPI' based on
+'ScaLAPACK' version 2.0.2.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  NNS
-%global packver   0.8.70
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.70
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonlinear Nonparametric Statistics
 
@@ -15,18 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dtw 
 BuildRequires:    R-CRAN-dynlm 
 BuildRequires:    R-CRAN-meboot 
+BuildRequires:    R-CRAN-MESS 
 BuildRequires:    R-CRAN-Quandl 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-RcppThread 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tdigest 
 BuildRequires:    R-CRAN-tseries 
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-doParallel 
@@ -35,11 +38,14 @@ Requires:         R-CRAN-data.table
 Requires:         R-CRAN-dtw 
 Requires:         R-CRAN-dynlm 
 Requires:         R-CRAN-meboot 
+Requires:         R-CRAN-MESS 
 Requires:         R-CRAN-Quandl 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppParallel 
+Requires:         R-CRAN-RcppThread 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tdigest 
 Requires:         R-CRAN-tseries 
 Requires:         R-CRAN-zoo 
 

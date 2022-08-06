@@ -1,45 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CNAIM
-%global packver   2.1.2
+%global packname  kazaam
+%global packver   0.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Common Network Asset Indices Methodology (CNAIM)
+Summary:          Tools for Tall Distributed Matrices
 
-License:          MIT + file LICENSE
+License:          BSD 2-clause License + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-r2d3 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-r2d3 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-pbdMPI >= 0.3.0
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-pbdMPI >= 0.3.0
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Implementation of the CNAIM standard in R. Contains a series of algorithms
-which determine the probability of failure, consequences of failure and
-monetary risk associated with electricity distribution companies' assets
-such as transformers and cables. Results are visualized in an
-easy-to-understand risk matrix.
+Many data science problems reduce to operations on very tall, skinny
+matrices.  However, sometimes these matrices can be so tall that they are
+difficult to work with, or do not even fit into main memory.  One strategy
+to deal with such objects is to distribute their rows across several
+processors.  To this end, we offer an 'S4' class for tall, skinny,
+distributed matrices, called the 'shaq'.  We also provide many useful
+numerical methods and statistics operations for operating on these
+distributed objects.  The naming is a bit "tongue-in-cheek", with the
+class a play on the fact that 'Shaquille' 'ONeal' ('Shaq') is very tall,
+and he starred in the film 'Kazaam'.
 
 %prep
 %setup -q -c -n %{packname}

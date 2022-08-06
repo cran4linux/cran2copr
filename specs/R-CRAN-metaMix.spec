@@ -1,45 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CNAIM
-%global packver   2.1.2
+%global packname  metaMix
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Common Network Asset Indices Methodology (CNAIM)
+Summary:          Bayesian Mixture Analysis for Metagenomic Community Profiling
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-r2d3 
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
+BuildRequires:    R-CRAN-data.table >= 1.9.2
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-Rmpi 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-r2d3 
+Requires:         R-CRAN-data.table >= 1.9.2
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-Rmpi 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
 
 %description
-Implementation of the CNAIM standard in R. Contains a series of algorithms
-which determine the probability of failure, consequences of failure and
-monetary risk associated with electricity distribution companies' assets
-such as transformers and cables. Results are visualized in an
-easy-to-understand risk matrix.
+Resolves complex metagenomic mixtures by analysing deep sequencing data,
+using a mixture model based approach. The use of parallel Monte Carlo
+Markov chains for the exploration of the species space enables the
+identification of the set of species more likely to contribute to the
+mixture.
 
 %prep
 %setup -q -c -n %{packname}
