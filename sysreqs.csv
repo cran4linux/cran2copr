@@ -120,7 +120,7 @@ copula,,,TRUE,pdfcrop (part of TexLive) is required to rebuildthe vignettes.
 cordillera,,,TRUE,ELKIif used)
 corehunter,,,TRUE,Java JREor higher
 coreNLP,,,TRUE,Java; Stanford CoreNLP<http://nlp.stanford.edu/ software/corenlp.shtml>
-couchDB,,couchdb,TRUE,couchDB instance to connect to and work with.
+couchDB,,,TRUE,couchDB instance to connect to and work with.
 coveffectsplot,,pandoc,TRUE,pandoc with https support
 cppcheckR,,cppcheck,TRUE,cppcheck
 crandep,,,TRUE,pandoc - http://pandoc.org
