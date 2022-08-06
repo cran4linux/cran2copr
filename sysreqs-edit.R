@@ -20,3 +20,8 @@ deps <- DataEditR::data_edit(
 )
 
 data.table::fwrite(deps[, c(1:4, 8)], "sysreqs.csv")
+
+# cleanup archived
+archived <- is.na(deps$comment) & is.na(deps$nc)
+sum(archived)
+deps <- deps[!archived, ]

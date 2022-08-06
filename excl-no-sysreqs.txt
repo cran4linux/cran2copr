@@ -33,7 +33,6 @@ bitmexr internet
 dmdScheme internet
 nearfar internet
 randstr internet
-Rhpc mpi
 RKEELjars internet
 switchr internet
 spiR internet
