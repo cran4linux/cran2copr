@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    openmpi-devel
-Requires:         openmpi%{_isa}
+Requires:         openmpi-devel
 BuildRequires:    R-devel >= 2.15.1
 Requires:         R-core >= 2.15.1
 BuildRequires:    R-parallel 
@@ -42,6 +42,8 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 
 %install
 %{_openmpi_load}
+export MPI_LIB_PATH=$MPI_LIB
+export MPI_TYPE=OPENMPI
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 %{_openmpi_unload}

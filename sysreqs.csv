@@ -480,7 +480,7 @@ pathfindR,,R-java,TRUE,Java
 patientProfilesVis,,tex(latex),TRUE,latex
 paws.common,,pandoc,TRUE,pandoc - http://pandoc.org
 pbdMPI,openmpi-devel,openmpi%{_isa},TRUE,"OpenMPI on Solaris, Linux, Mac, andFreeBSD. MS-MPI (Microsoft MPI v7.1 (SDK) and Microsoft HPCPackR2 MS-MPI Redistributable Package) on Windows."
-pbdSLAP,,,TRUE,"'OpenMPI' on Solaris, Linux, Mac, andFreeBSD. 'MS-MPI' (Microsoft HPC PackR2 MS-MPIRedistributable Package) on Windows."
+pbdSLAP,openmpi-devel,openmpi%{_isa},TRUE,"'OpenMPI' on Solaris, Linux, Mac, andFreeBSD. 'MS-MPI' (Microsoft HPC PackR2 MS-MPIRedistributable Package) on Windows."
 pbdZMQ,zeromq-devel,,TRUE,"Linux, Mac OSX, and Windows, or 'ZeroMQ' librarySolarisneeds 'ZeroMQ' libraryand 'OpenCSW'."
 pbixr,,,TRUE,"'Microsoft' 'PowerShell'(<https://docs.microsoft.com/en-us/powershell/>), 'Microsoft''Power BI' (<https://powerbi.microsoft.com>)"
 PBSmodelling,xorg-x11-server-Xvfb,bwidget,TRUE,BWidget
@@ -690,7 +690,7 @@ RMOA,,,TRUE,Java
 RMOAjars,,,TRUE,Java
 Rmosek,,,TRUE,MOSEK and MOSEK License
 Rmpfr,gmp-devel mpfr-devel,,TRUE,"gmp, mpfr, pdfcrop (part ofTexLive) is required to rebuild the vignettes."
-Rmpi,openmpi-devel,openmpi%{_isa},TRUE,
+Rmpi,openmpi-devel,openmpi-devel,TRUE,
 RMySQL,mariadb-devel,,TRUE,"libmariadb-client-dev | libmariadb-client-lgpl-dev| libmysqlclient-dev (deb), mariadb-devel (rpm), mariadb |mysql-connector-c (brew), mysql56_dev (csw)"
 RNCBIEUtilsLibs,,,TRUE,Java
 rnetcarto,gsl-devel,,TRUE,GNU GSL
