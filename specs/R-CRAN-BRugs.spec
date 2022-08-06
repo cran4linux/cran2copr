@@ -1,31 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  R2OpenBUGS
-%global packver   3.2-3.2.1
+%global packname  BRugs
+%global packver   0.9-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.3.2.1
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Running OpenBUGS from R
+Summary:          Interface to the 'OpenBUGS' MCMC Software
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         openbugs
-BuildRequires:    R-devel >= 2.13.0
-Requires:         R-core >= 2.13.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-coda >= 0.11.0
-BuildRequires:    R-CRAN-boot 
-Requires:         R-CRAN-coda >= 0.11.0
-Requires:         R-CRAN-boot 
+BuildRequires:    openbugs
+BuildRequires:    glibc-devel(x86-32)
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-coda 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-Using this package, it is possible to call a BUGS model, summarize
-inferences and convergence in a table and graph, and save the simulations
-in arrays for easy access in R.
+Fully-interactive R interface to the 'OpenBUGS' software for Bayesian
+analysis using MCMC sampling.  Runs natively and stably in 32-bit R under
+Windows.  Versions running on Linux and on 64-bit R under Windows are in
+"beta" status and less efficient.
 
 %prep
 %setup -q -c -n %{packname}

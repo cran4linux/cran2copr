@@ -78,7 +78,7 @@ breathtestcore,,pandoc,TRUE,pandoc
 breathteststan,,pandoc,TRUE,
 bridger,,/usr/bin/texi2dvi,TRUE,LaTeX(texi2dvi) must be present in the system tocreate PDF reports
 brinton,,,TRUE,"Pandoc, web browser"
-BRugs,,,TRUE,"OpenBUGS, hence Windows or Linux"
+BRugs,openbugs glibc-devel(x86-32),,TRUE,"OpenBUGS, hence Windows or Linux"
 bsam,,,TRUE,JAGS
 bspm,,python3-dbus python3-gobject python3-dnf,TRUE,"systemd, dbus-python, PyGObject,python-(dnf|apt|alpm)"
 bssm,,,TRUE,"pandoc, needed for vignettes)"
@@ -613,11 +613,11 @@ r.blip,,R-java,TRUE,Java
 R2admb,,,TRUE,AD Model Builder <http://admb-project.org>
 R2jags,,,TRUE,JAGS (http://mcmc-jags.sourceforge.net)
 R2MLwiN,,,TRUE,"MLwiN, (OpenBUGS, WinBUGS optional)"
-R2OpenBUGS,,,TRUE,OpenBUGS
+R2OpenBUGS,,openbugs,TRUE,OpenBUGS
 r2pmml,,R-java,TRUE,Java
 R2SWF,zlib-devel libpng-devel freetype-devel,,TRUE,"zlib, libpng, FreeType"
 R2wd,,,TRUE,Windows
-R2WinBUGS,,,TRUE,OpenBugs for functions bugs() and openbugs() orWinBUGSfor function bugs()
+R2WinBUGS,,openbugs,TRUE,OpenBugs for functions bugs() and openbugs() orWinBUGSfor function bugs()
 r5r,,,TRUE,Java JDK
 ragg,freetype-devel libpng-devel libtiff-devel libjpeg-turbo-devel,,TRUE,"freetype2, libpng, libtiff, libjpeg"
 rankUncertainty,,,TRUE,"GNU,"
