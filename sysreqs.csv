@@ -52,7 +52,7 @@ bfw,,R-java,TRUE,"JAGS<https://mcmc-jags.sourceforge.io>,Java JDK<https://www.ja
 bhmbasket,,,TRUE,JAGSx.y (http://mcmc-jags.sourceforge.net)
 BiBitR,,R-java,TRUE,Java
 biblio,,pandoc,TRUE,pandoc - http://pandoc.org
-bigGP,,,TRUE,OpenMPI or MPICH2
+bigGP,openmpi-devel,openmpi%{_isa},TRUE,OpenMPI or MPICH2
 bigsimr,,,TRUE,"Julia, Bigsimr.jl, Distributions.jl"
 bigsnpr,,,TRUE,A few functions from package 'bigsnpr' wrapexisting software such as 'PLINK'<www.cog-genomics.org/plink2>. Functions are provided todownload these software. Note that these external softwaremight not work for some operating systems (e.g. 'PLINK' mightnot work on Solaris).
 bioacoustics,cmake fftw-devel,,TRUE,"fftw3,"
@@ -479,7 +479,7 @@ patchDVI,,,TRUE,The 'Japanese.Rnw' vignette requires uplatex anddvipdfmx.
 pathfindR,,R-java,TRUE,Java
 patientProfilesVis,,tex(latex),TRUE,latex
 paws.common,,pandoc,TRUE,pandoc - http://pandoc.org
-pbdMPI,openmpi-devel,,TRUE,"OpenMPI on Solaris, Linux, Mac, andFreeBSD. MS-MPI (Microsoft MPI v7.1 (SDK) and Microsoft HPCPackR2 MS-MPI Redistributable Package) on Windows."
+pbdMPI,openmpi-devel,openmpi%{_isa},TRUE,"OpenMPI on Solaris, Linux, Mac, andFreeBSD. MS-MPI (Microsoft MPI v7.1 (SDK) and Microsoft HPCPackR2 MS-MPI Redistributable Package) on Windows."
 pbdSLAP,,,TRUE,"'OpenMPI' on Solaris, Linux, Mac, andFreeBSD. 'MS-MPI' (Microsoft HPC PackR2 MS-MPIRedistributable Package) on Windows."
 pbdZMQ,zeromq-devel,,TRUE,"Linux, Mac OSX, and Windows, or 'ZeroMQ' librarySolarisneeds 'ZeroMQ' libraryand 'OpenCSW'."
 pbixr,,,TRUE,"'Microsoft' 'PowerShell'(<https://docs.microsoft.com/en-us/powershell/>), 'Microsoft''Power BI' (<https://powerbi.microsoft.com>)"
@@ -690,7 +690,7 @@ RMOA,,,TRUE,Java
 RMOAjars,,,TRUE,Java
 Rmosek,,,TRUE,MOSEK and MOSEK License
 Rmpfr,gmp-devel mpfr-devel,,TRUE,"gmp, mpfr, pdfcrop (part ofTexLive) is required to rebuild the vignettes."
-Rmpi,openmpi-devel,,TRUE,
+Rmpi,openmpi-devel,openmpi%{_isa},TRUE,
 RMySQL,mariadb-devel,,TRUE,"libmariadb-client-dev | libmariadb-client-lgpl-dev| libmysqlclient-dev (deb), mariadb-devel (rpm), mariadb |mysql-connector-c (brew), mysql56_dev (csw)"
 RNCBIEUtilsLibs,,,TRUE,Java
 rnetcarto,gsl-devel,,TRUE,GNU GSL

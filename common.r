@@ -383,11 +383,13 @@ pkg_exceptions <- function(tpl, pkg, path) {
     RcppParallel = paste0(
       "export TBB_INC=%{_includedir}/tbb\n",
       "export TBB_LIB=%{_libdir}"),
-    Rmpi = "%{_openmpi_load}"
+    Rmpi=,pbdMPI=,bigGP =
+      "%{_openmpi_load}\nexport MPI_LIB_PATH=$MPI_LIB\nexport MPI_TYPE=OPENMPI"
   ))
   install <- grep("CMD INSTALL", tpl)
   tpl[install] <- paste0(tpl[install], switch(
     pkg,
+    Rmpi=,pbdMPI=,bigGP = "\n%{_openmpi_unload}",
     udunits2 = "\\\n  --configure-args='--with-udunits2-include=/usr/include/udunits2'"
   ))
 
