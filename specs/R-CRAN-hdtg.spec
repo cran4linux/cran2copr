@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  hdtg
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate Samples from Multivariate Truncated Normal Distributions
 
@@ -30,11 +31,11 @@ Requires:         R-stats
 Requires:         R-CRAN-Rdpack 
 
 %description
-Efficient sampling from high-dimensional truncated Gaussian distributions
-(so comes the package name hdtg). Techniques include zigzag Hamiltonian
-Monte Carlo as in Akihiko Nishimura, Zhenyu Zhang and Marc A. Suchard
-(2021) <arXiv:2104.07694>, and harmonic Hamiltonian Monte Carlo in Ari
-Pakman and Liam Paninski (2014) <doi:10.1080/10618600.2013.788448>.
+Efficient sampling from high-dimensional truncated Gaussian distributions,
+or multivariate truncated normal (MTN). Techniques include zigzag
+Hamiltonian Monte Carlo as in Akihiko Nishimura, Zhenyu Zhang and Marc A.
+Suchard (2021) <arXiv:2104.07694>, and harmonic Monte in Ari Pakman and
+Liam Paninski (2014) <doi:10.1080/10618600.2013.788448>.
 
 %prep
 %setup -q -c -n %{packname}
