@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RApiSerialize
-%global packver   0.1.1
+%global packname  brunnermunzel
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R API Serialization
+Summary:          (Permuted) Brunner-Munzel Test
 
-License:          GPL (>= 2)
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,14 +18,12 @@ BuildRequires:    R-devel
 Requires:         R-core
 
 %description
-Access to the internal R serialization code is provided for use by other
-packages at the C function level by using the registration of native
-function mechanism. Client packages simply include a single header file
-RApiSerializeAPI.h provided by this package. This packages builds on the
-Rhpc package by Ei-ji Nakama and Junji Nakano which also includes a
-(partial) copy of the file src/main/serialize.c from R itself. The R Core
-group is the original author of the serialization code made available by
-this package.
+Provides the functions for Brunner-Munzel test and permuted Brunner-Munzel
+test, which enable to use formula, matrix, and table as argument. These
+functions are based on Brunner and Munzel (2000)
+<doi:10.1002/(SICI)1521-4036(200001)42:1%%3C17::AID-BIMJ17%%3E3.0.CO;2-U>
+and Neubert and Brunner (2007) <doi:10.1016/j.csda.2006.05.024>, and are
+written with FORTRAN.
 
 %prep
 %setup -q -c -n %{packname}

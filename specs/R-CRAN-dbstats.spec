@@ -1,31 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RApiSerialize
-%global packver   0.1.1
+%global packname  dbstats
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R API Serialization
+Summary:          Distance-Based Statistics
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-pls 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-pls 
 
 %description
-Access to the internal R serialization code is provided for use by other
-packages at the C function level by using the registration of native
-function mechanism. Client packages simply include a single header file
-RApiSerializeAPI.h provided by this package. This packages builds on the
-Rhpc package by Ei-ji Nakama and Junji Nakano which also includes a
-(partial) copy of the file src/main/serialize.c from R itself. The R Core
-group is the original author of the serialization code made available by
-this package.
+Prediction methods where explanatory information is coded as a matrix of
+distances between individuals. Distances can either be directly input as a
+distances matrix, a squared distances matrix, an inner-products matrix or
+computed from observed predictors.
 
 %prep
 %setup -q -c -n %{packname}

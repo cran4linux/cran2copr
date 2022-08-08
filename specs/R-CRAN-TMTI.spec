@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  TMTI
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Too Many, Too Improbable' (TMTI) Test Procedures
 
@@ -15,11 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-stats 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Methods for computing joint tests, controlling the Familywise Error Rate

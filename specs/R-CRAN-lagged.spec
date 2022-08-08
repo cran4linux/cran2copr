@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  lagged
-%global packver   0.3-1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classes and Methods for Lagged Objects
 
@@ -20,7 +21,11 @@ BuildRequires:    R-methods
 Requires:         R-methods 
 
 %description
-Provides classes and methods for lagged objects.
+Provides classes and methods for objects, whose indexing naturally starts
+from zero. Subsetting, indexing and mathematical operations are defined
+naturally between lagged objects and lagged and base R objects. Recycling
+is not used, except for singletons. The single bracket operator doesn't
+drop dimensions by default.
 
 %prep
 %setup -q -c -n %{packname}

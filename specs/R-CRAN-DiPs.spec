@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  DiPs
-%global packver   0.6.3
+%global packver   0.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Directional Penalties for Optimal Matching in Observational Studies
 
@@ -20,10 +21,12 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-mvnfast 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlemon 
 Requires:         R-stats 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-mvnfast 
 Requires:         R-methods 
+Requires:         R-CRAN-rlemon 
 
 %description
 Improves the balance of optimal matching with near-fine balance by giving

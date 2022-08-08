@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  stdmod
-%global packver   0.1.7.1
+%global packver   0.1.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7.1
+Version:          0.1.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Standardized Moderation Effect and Its Confidence Interval
 
@@ -26,7 +27,7 @@ Requires:         R-stats
 %description
 Functions for computing a standardized moderation effect in moderated
 regression and forming its confidence interval by nonparametric
-bootstrapping as proposed in Cheung, Cheung, Lau, Hui, and Vong (2002)
+bootstrapping as proposed in Cheung, Cheung, Lau, Hui, and Vong (2022)
 <doi:10.1037/hea0001188>. Also includes simple-to-use functions for
 computing conditional effects (unstandardized or standardized) and
 plotting moderation effects.

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  FIESTAutils
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utility Functions for Forest Inventory Estimation and Analysis
 
@@ -36,6 +37,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-largeList 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-DBI 
 Requires:         R-graphics 
@@ -57,6 +59,7 @@ Requires:         R-stats
 Requires:         R-CRAN-units 
 Requires:         R-utils 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-largeList 
 
 %description
 A set of tools for data wrangling, spatial data analysis, statistical

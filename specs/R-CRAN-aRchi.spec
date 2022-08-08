@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  aRchi
-%global packver   2.1.0
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantitative Structural Model ('QSM') Treatment for Tree Architecture
 
@@ -34,6 +35,7 @@ BuildRequires:    R-CRAN-VoxR
 BuildRequires:    R-CRAN-fastcluster 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-pkgcond 
+BuildRequires:    R-CRAN-R.matlab 
 BuildRequires:    R-CRAN-svMisc 
 BuildRequires:    R-CRAN-circular 
 Requires:         R-CRAN-data.table 
@@ -54,6 +56,7 @@ Requires:         R-CRAN-VoxR
 Requires:         R-CRAN-fastcluster 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-pkgcond 
+Requires:         R-CRAN-R.matlab 
 Requires:         R-CRAN-svMisc 
 Requires:         R-CRAN-circular 
 

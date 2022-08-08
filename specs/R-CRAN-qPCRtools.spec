@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  qPCRtools
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for qPCR
 
@@ -50,7 +51,7 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-xlsx 
 
 %description
-qPCR is a widely used method to detect the expression level of genes in
+RT-qPCR is a widely used method to detect the expression level of genes in
 biological research. A crucial step in processing qPCR data is to
 calculate the amplification efficiency of genes to determine which method
 should be used to calculate expression level of genes. This Package can do

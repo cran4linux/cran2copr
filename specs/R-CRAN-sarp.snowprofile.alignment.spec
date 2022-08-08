@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sarp.snowprofile.alignment
-%global packver   1.1.4
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Snow Profile Alignment, Aggregation, and Clustering
 
@@ -19,12 +20,10 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-sarp.snowprofile >= 1.2.0
 BuildRequires:    R-CRAN-dtw 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-sarp.snowprofile >= 1.2.0
 Requires:         R-CRAN-dtw 
 Requires:         R-grid 
-Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-data.table 
 
 %description
@@ -44,7 +43,7 @@ and thereby facilitates the computation of individual layer distributions
 and summary statistics that are relevant for avalanche forecasting
 purposes. For more background information refer to Herla, Horton, Mair,
 and Haegeli (2021) <doi:10.5194/gmd-14-239-2021>, and Herla, Mair, and
-Haegeli (2022, in review) <doi:10.5194/tc-2022-29>.
+Haegeli (2022) <doi:10.5194/tc-16-3149-2022>.
 
 %prep
 %setup -q -c -n %{packname}

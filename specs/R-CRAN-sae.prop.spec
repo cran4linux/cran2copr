@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sae.prop
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Small Area Estimation using Fay-Herriot Models with Additive Logistic Transformation
 
@@ -36,10 +37,10 @@ Implements Additive Logistic Transformation (alr) for Small Area
 Estimation under Fay Herriot Model. Small Area Estimation is used to
 borrow strength from auxiliary variables to improve the effectiveness of a
 domain sample size. This package uses Empirical Best Linear Unbiased
-Prediction (EBLUP) estimator. The Additive Logistic Transformation (alr)
-are based on transformation by Aitchison J (1986). The covariance matrix
-for multivariate application is base on covariance matrix used by Esteban
-M, Lombardía M, López-Vizcaíno E, Morales D, and Pérez A
+Prediction (EBLUP). The Additive Logistic Transformation (alr) are based
+on transformation by Aitchison J (1986). The covariance matrix for
+multivariate application is based on covariance matrix used by Esteban M,
+Lombardía M, López-Vizcaíno E, Morales D, and Pérez A
 <doi:10.1007/s11749-019-00688-w>. The non-sampled models are modified
 area-level models based on models proposed by Anisa R, Kurnia A, and
 Indahwati I <doi:10.9790/5728-10121519>, with univariate model using

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  spnaf
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Network Autocorrelation for Flow Data
 
@@ -18,17 +19,19 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-tmap 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-spdep 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-tmap 
 
 %description

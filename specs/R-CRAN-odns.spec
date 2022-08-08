@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  odns
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Scottish Health and Social Care Open Data
 
@@ -20,13 +21,11 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httr 
 Requires:         R-utils 
 Requires:         R-CRAN-data.table 
-Requires:         R-methods 
 Requires:         R-CRAN-jsonlite 
 
 %description

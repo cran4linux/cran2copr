@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Renvlp
-%global packver   3.1
+%global packver   3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1
+Version:          3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computing Envelope Estimators
 
@@ -13,13 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Rsolnp 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-orthogonalsplinebasis 
 Requires:         R-CRAN-Rsolnp 
 Requires:         R-stats 
+Requires:         R-CRAN-orthogonalsplinebasis 
 
 %description
 Provides a general routine, envMU, which allows estimation of the M
@@ -28,11 +31,12 @@ routine envMU does not presume a model.  This package implements response
 envelopes, partial response envelopes, envelopes in the predictor space,
 heteroscedastic envelopes, simultaneous envelopes, scaled response
 envelopes, scaled envelopes in the predictor space, groupwise envelopes,
-weighted envelopes, envelopes in logistic regression and envelopes in
-Poisson regression. For each of these model-based routines the package
-provides inference tools including bootstrap, cross validation, estimation
-and prediction, hypothesis testing on coefficients are included except for
-weighted envelopes. Tools for selection of dimension include AIC, BIC and
+weighted envelopes, envelopes in logistic regression, envelopes in Poisson
+regression and envelopes in function-on-function linear regression. For
+each of these model-based routines the package provides inference tools
+including bootstrap, cross validation, estimation and prediction,
+hypothesis testing on coefficients are included except for weighted
+envelopes. Tools for selection of dimension include AIC, BIC and
 likelihood ratio testing.  Background is available at Cook, R. D.,
 Forzani, L. and Su, Z. (2016) <doi:10.1016/j.jmva.2016.05.006>.
 Optimization is based on a clockwise coordinate descent algorithm.

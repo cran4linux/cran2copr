@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  robustlmm
-%global packver   2.5-1
+%global packver   3.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.1
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Linear Mixed Effects Models
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-lme4 >= 1.1.9
 BuildRequires:    R-CRAN-Matrix >= 1.0.13
 BuildRequires:    R-CRAN-robustbase >= 0.93
@@ -26,6 +27,9 @@ BuildRequires:    R-CRAN-nlme
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-fastGHQuad 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-lme4 >= 1.1.9
 Requires:         R-CRAN-Matrix >= 1.0.13
@@ -37,11 +41,19 @@ Requires:         R-CRAN-nlme
 Requires:         R-methods 
 Requires:         R-CRAN-xtable 
 Requires:         R-CRAN-fastGHQuad 
+Requires:         R-parallel 
+Requires:         R-CRAN-rlang 
+Requires:         R-utils 
 
 %description
-A method to fit linear mixed effects models robustly. Robustness is
-achieved by modification of the scoring equations combined with the Design
-Adaptive Scale approach.
+Implements the Robust Scoring Equations estimator to fit linear mixed
+effects models robustly. Robustness is achieved by modification of the
+scoring equations combined with the Design Adaptive Scale approach.
+Includes some references to the archived packages 'robustvarComp' and
+'heavy'. Both packages are only needed to reproduce a simulation study and
+are not required for the running of the regular package functions. You can
+install both packages by downloading the latest version from the CRAN
+archive.
 
 %prep
 %setup -q -c -n %{packname}
