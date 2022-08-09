@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mlr3db
-%global packver   0.4.2
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Base Backend for 'mlr3'
 
@@ -16,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mlr3misc >= 0.9.3
 BuildRequires:    R-CRAN-mlr3 >= 0.13.0
+BuildRequires:    R-CRAN-mlr3misc >= 0.10.0
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-mlr3misc >= 0.9.3
 Requires:         R-CRAN-mlr3 >= 0.13.0
+Requires:         R-CRAN-mlr3misc >= 0.10.0
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-backports 
 Requires:         R-CRAN-checkmate 
@@ -31,10 +32,11 @@ Requires:         R-CRAN-data.table
 
 %description
 Extends the 'mlr3' package with a backend to transparently work with
-databases. Includes two extra backends: One relies on relies on the
-abstraction of package 'dbplyr' to interact with one of the many supported
-database management systems (DBMS). The other one is specialized for
-package 'duckdb'.
+databases such as 'SQLite', 'DuckDB', 'MySQL', 'MariaDB', or 'PostgreSQL'.
+The package provides two additional backends: 'DataBackendDplyr' relies on
+the abstraction of package 'dbplyr' to interact with most DBMS.
+'DataBackendDuckDB' operates on 'DuckDB' data bases and also on Apache
+Parquet files.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rmcorr
-%global packver   0.4.6
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Repeated Measures Correlation
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.1
-Requires:         R-core >= 3.2.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
@@ -34,7 +35,9 @@ measures assessed on two or more occasions, first introduced by Bland and
 Altman (1995). Includes functions for diagnostics, p-value, effect size
 with confidence interval including optional bootstrapping, as well as
 graphing. Also includes several example datasets. For more details, see
-Bakdash and Marusich (2017) <doi:10.3389/fpsyg.2017.00456>.
+the web documentation <https://lmarusich.github.io/rmcorr/index.html> and
+the original paper: Bakdash and Marusich (2017)
+<doi:10.3389/fpsyg.2017.00456>.
 
 %prep
 %setup -q -c -n %{packname}

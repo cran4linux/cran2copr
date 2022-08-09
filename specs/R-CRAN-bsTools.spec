@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bsTools
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create HTML Content with Bootstrap 5 Classes and Layouts
 
@@ -17,7 +18,9 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-html5 >= 1.0.0
+BuildRequires:    R-CRAN-toolbox 
 Requires:         R-CRAN-html5 >= 1.0.0
+Requires:         R-CRAN-toolbox 
 
 %description
 Functions are pre-configured to utilize Bootstrap 5 classes and HTML

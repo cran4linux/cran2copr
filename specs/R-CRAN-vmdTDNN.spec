@@ -1,46 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  babette
-%global packver   2.3.1
+%global __requires_exclude ^libmpi
+%global packname  vmdTDNN
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Control 'BEAST2'
+Summary:          VMD Based Time Delay Neural Network Model
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-beautier >= 2.6.4
-BuildRequires:    R-CRAN-mauricer >= 2.5
-BuildRequires:    R-CRAN-beastier >= 2.4.10
-BuildRequires:    R-CRAN-tracerer 
-BuildRequires:    R-CRAN-phangorn 
-BuildRequires:    R-CRAN-remotes 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-beautier >= 2.6.4
-Requires:         R-CRAN-mauricer >= 2.5
-Requires:         R-CRAN-beastier >= 2.4.10
-Requires:         R-CRAN-tracerer 
-Requires:         R-CRAN-phangorn 
-Requires:         R-CRAN-remotes 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-nnfor 
+BuildRequires:    R-CRAN-VMDecomp 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-nnfor 
+Requires:         R-CRAN-VMDecomp 
 
 %description
-'BEAST2' (<https://www.beast2.org>) is a widely used Bayesian phylogenetic
-tool, that uses DNA/RNA/protein data and many model priors to create a
-posterior of jointly estimated phylogenies and parameters. 'BEAST2' is
-commonly accompanied by 'BEAUti 2', 'Tracer' and 'DensiTree'. 'babette'
-provides for an alternative workflow of using all these tools separately.
-This allows doing complex Bayesian phylogenetics easily and reproducibly
-from 'R'.
+Forecasting univariate time series with Variational Mode Decomposition
+(VMD) based time delay neural network models.For method details see
+Konstantin, D.and Dominique, Z. (2014). <doi:10.1109/TSP.2013.2288675>.
 
 %prep
 %setup -q -c -n %{packname}

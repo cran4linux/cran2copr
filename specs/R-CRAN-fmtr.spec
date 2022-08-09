@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  fmtr
-%global packver   1.5.7
+%global packver   1.5.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.7
+Version:          1.5.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Apply Formats to Data
 
@@ -15,10 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-common 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-common 
 Requires:         R-CRAN-tibble 
 Requires:         R-stats 
 Requires:         R-CRAN-crayon 

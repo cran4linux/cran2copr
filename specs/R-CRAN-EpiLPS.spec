@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  EpiLPS
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Bayesian Tool for Approximate Real-Time Estimation of the Reproduction Number
+Summary:          A Bayesian Tool for Fast and Flexible Estimation of the Reproduction Number
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}

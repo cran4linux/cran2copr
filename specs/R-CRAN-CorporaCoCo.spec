@@ -1,43 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tibblify
-%global packver   0.2.0
+%global __requires_exclude ^libmpi
+%global packname  CorporaCoCo
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rectangle Nested Lists
+Summary:          Corpora Co-Occurrence Comparison
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-cli >= 3.3.0
-BuildRequires:    R-CRAN-withr >= 2.5.0
-BuildRequires:    R-CRAN-rlang >= 1.0.3
-BuildRequires:    R-CRAN-cpp11 >= 0.4.2
-BuildRequires:    R-CRAN-vctrs >= 0.4.1
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-plogr 
-Requires:         R-CRAN-cli >= 3.3.0
-Requires:         R-CRAN-withr >= 2.5.0
-Requires:         R-CRAN-rlang >= 1.0.3
-Requires:         R-CRAN-vctrs >= 0.4.1
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table >= 1.11.2
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-rlist 
+Requires:         R-CRAN-data.table >= 1.11.2
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-rlist 
 
 %description
-A tool to rectangle a nested list, that is to convert it into a tibble.
-This is done automatically or according to a given specification.  A
-common use case is for nested lists coming from parsing JSON files or the
-JSON response of REST APIs. It is supported by the 'vctrs' package and
-therefore offers a wide support of vector types.
+Identifies significant difference in co-occurrence counts for a given node
+or set of nodes across two corpora, using a Fisher’s Exact test.
 
 %prep
 %setup -q -c -n %{packname}

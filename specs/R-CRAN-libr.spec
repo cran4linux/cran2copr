@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  libr
-%global packver   1.2.3
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Libraries, Data Dictionaries, and a Data Step for R
 
@@ -15,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-common 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-haven 
@@ -25,6 +27,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-common 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-haven 

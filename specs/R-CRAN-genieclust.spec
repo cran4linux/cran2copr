@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  genieclust
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Genie++ Hierarchical Clustering Algorithm with Noise Points Detection
 
@@ -23,20 +24,22 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-A retake on the Genie algorithm - a robust hierarchical clustering method
-(Gagolewski, Bartoszuk, Cena, 2016 <DOI:10.1016/j.ins.2016.05.003>). Now
-faster and more memory efficient; determining the whole hierarchy for
-datasets of 10M points in low dimensional Euclidean spaces or 100K points
-in high-dimensional ones takes only 1-2 minutes. Allows clustering with
-respect to mutual reachability distances so that it can act as a noise
-point detector or a robustified version of 'HDBSCAN*' (that is able to
-detect a predefined number of clusters and hence it does not dependent on
-the somewhat fragile 'eps' parameter). The package also features an
-implementation of economic inequity indices (the Gini, Bonferroni index)
-and external cluster validity measures (partition similarity scores; e.g.,
-the adjusted Rand, Fowlkes-Mallows, adjusted mutual information, pair sets
-index). See also the 'Python' version of 'genieclust' available on 'PyPI',
-which supports sparse data, more metrics, and even larger datasets.
+A retake on the Genie algorithm (Gagolewski, 2021
+<DOI:10.1016/j.softx.2021.100722>) - a robust hierarchical clustering
+method (Gagolewski, Bartoszuk, Cena, 2016
+<DOI:10.1016/j.ins.2016.05.003>). Now faster and more memory efficient;
+determining the whole hierarchy for datasets of 10M points in low
+dimensional Euclidean spaces or 100K points in high-dimensional ones takes
+only 1-2 minutes. Allows clustering with respect to mutual reachability
+distances so that it can act as a noise point detector or a robustified
+version of 'HDBSCAN*' (that is able to detect a predefined number of
+clusters and hence it does not dependent on the somewhat fragile 'eps'
+parameter). The package also features an implementation of economic
+inequity indices (the Gini, Bonferroni index) and external cluster
+validity measures (partition similarity scores; e.g., the adjusted Rand,
+Fowlkes-Mallows, adjusted mutual information, pair sets index). See also
+the 'Python' version of 'genieclust' available on 'PyPI', which supports
+sparse data, more metrics, and even larger datasets.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,6 +49,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

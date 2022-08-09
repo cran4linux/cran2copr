@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  hypr
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hypothesis Matrix Translation
 
@@ -21,18 +22,20 @@ BuildRequires:    R-CRAN-pracma
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-pracma 
 Requires:         R-methods 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Matrix 
 
 %description
 Translation between experimental null hypotheses, hypothesis matrices, and
 contrast matrices as used in linear regression models. The package is
-based on the method described in Schad, Vasishth, Hohenstein, and Kliegl
-(2019) <doi:10.1016/j.jml.2019.104038> and Rabe, Vasishth, Hohenstein,
-Kliegl, and Schad (2020) <doi:10.21105/joss.02134>.
+based on the method described in Schad et al. (2019)
+<doi:10.1016/j.jml.2019.104038> and Rabe et al. (2020)
+<doi:10.21105/joss.02134>.
 
 %prep
 %setup -q -c -n %{packname}

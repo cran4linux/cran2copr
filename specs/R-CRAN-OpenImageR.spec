@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  OpenImageR
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Image Processing Toolkit
 
@@ -18,6 +19,7 @@ Requires:         R-core >= 3.2.3
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.8.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.17
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-jpeg 
@@ -26,6 +28,7 @@ BuildRequires:    R-CRAN-tiff
 BuildRequires:    R-CRAN-R6 
 Requires:         R-CRAN-Rcpp >= 0.12.17
 Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-grid 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-jpeg 

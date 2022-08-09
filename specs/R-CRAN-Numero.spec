@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Numero
-%global packver   1.9.0
+%global packver   1.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.0
+Version:          1.9.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Framework to Define Subgroups in Complex Datasets
 
@@ -15,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.4
-Requires:         R-CRAN-Rcpp >= 0.11.4
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-Rcpp >= 1.0.0
 
 %description
 High-dimensional datasets that do not exhibit a clear intrinsic clustered

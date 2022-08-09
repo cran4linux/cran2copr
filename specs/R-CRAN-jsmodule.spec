@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  jsmodule
-%global packver   1.3.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'RStudio' Addins and 'Shiny' Modules for Medical Research
 
@@ -37,7 +38,6 @@ BuildRequires:    R-CRAN-survival
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-geepack 
 BuildRequires:    R-CRAN-maxstat 
-BuildRequires:    R-CRAN-survC1 
 BuildRequires:    R-CRAN-survIDINRI 
 BuildRequires:    R-CRAN-timeROC 
 BuildRequires:    R-CRAN-shinyWidgets 
@@ -49,7 +49,6 @@ BuildRequires:    R-CRAN-RColorBrewer
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-rvg 
-BuildRequires:    R-CRAN-devEMF 
 BuildRequires:    R-CRAN-epiDisplay 
 Requires:         R-CRAN-MatchIt >= 3.0.0
 Requires:         R-CRAN-jskm >= 0.4.2
@@ -72,7 +71,6 @@ Requires:         R-CRAN-survival
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-geepack 
 Requires:         R-CRAN-maxstat 
-Requires:         R-CRAN-survC1 
 Requires:         R-CRAN-survIDINRI 
 Requires:         R-CRAN-timeROC 
 Requires:         R-CRAN-shinyWidgets 
@@ -84,7 +82,6 @@ Requires:         R-CRAN-RColorBrewer
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-officer 
 Requires:         R-CRAN-rvg 
-Requires:         R-CRAN-devEMF 
 Requires:         R-CRAN-epiDisplay 
 
 %description

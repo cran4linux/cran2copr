@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  simer
-%global packver   0.9.0.0
+%global packver   0.9.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0.0
+Version:          0.9.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Simulation for Life Science and Breeding
 
@@ -21,7 +22,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-rMVP 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rjson 
 BuildRequires:    R-CRAN-igraph 
@@ -34,7 +34,6 @@ Requires:         R-stats
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-rMVP 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rjson 
 Requires:         R-CRAN-igraph 

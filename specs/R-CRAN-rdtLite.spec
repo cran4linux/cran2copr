@@ -1,37 +1,57 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rebmix
-%global packver   2.14.1
+%global __requires_exclude ^libmpi
+%global packname  rdtLite
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.14.1
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Finite Mixture Modeling, Clustering & Classification
+Summary:          Provenance Collector
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-provViz >= 1.0.6
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-grDevices 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-sessioninfo 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-XML 
+Requires:         R-CRAN-provViz >= 1.0.6
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-digest 
 Requires:         R-grDevices 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-knitr 
+Requires:         R-methods 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-sessioninfo 
+Requires:         R-CRAN-stringi 
+Requires:         R-tools 
+Requires:         R-utils 
+Requires:         R-CRAN-XML 
 
 %description
-Random univariate and multivariate finite mixture model generation,
-estimation, clustering, latent class analysis and classification.
-Variables can be continuous, discrete, independent or dependent and may
-follow normal, lognormal, Weibull, gamma, Gumbel, binomial, Poisson,
-Dirac, uniform or circular von Mises parametric families.
+Defines functions that can be used to collect provenance as an 'R' script
+executes or during a console session. The output is a text file in
+'PROV-JSON' format.
 
 %prep
 %setup -q -c -n %{packname}

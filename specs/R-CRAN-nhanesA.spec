@@ -1,50 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  beastier
-%global packver   2.4.10
+%global __requires_exclude ^libmpi
+%global packname  nhanesA
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.10
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Call 'BEAST2'
+Summary:          NHANES Data Retrieval
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-beautier >= 2.6.4
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-assertive 
-BuildRequires:    R-CRAN-devtools 
-BuildRequires:    R-CRAN-phangorn 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rJava 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-foreign 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-beautier >= 2.6.4
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-assertive 
-Requires:         R-CRAN-devtools 
-Requires:         R-CRAN-phangorn 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rJava 
+BuildRequires:    R-CRAN-plyr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-foreign 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-plyr 
 
 %description
-'BEAST2' (<https://www.beast2.org>) is a widely used Bayesian phylogenetic
-tool, that uses DNA/RNA/protein data and many model priors to create a
-posterior of jointly estimated phylogenies and parameters. 'BEAST2' is a
-command-line tool. This package provides a way to call 'BEAST2' from an
-'R' function call.
+Utility to retrieve data from the National Health and Nutrition
+Examination Survey (NHANES) website
+<https://www.cdc.gov/nchs/nhanes/index.htm>.
 
 %prep
 %setup -q -c -n %{packname}
