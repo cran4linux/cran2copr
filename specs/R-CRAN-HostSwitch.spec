@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  HostSwitch
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate the Extent of Host Switching by Consumers
 
@@ -16,22 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate >= 2.1.0
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tippy 
+Requires:         R-CRAN-checkmate >= 2.1.0
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-checkmate 
 Requires:         R-methods 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tippy 
 

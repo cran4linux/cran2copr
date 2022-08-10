@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rqPen
-%global packver   2.3
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3
+Version:          3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Penalized Quantile Regression
 
@@ -15,16 +16,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-quantreg 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-hqreg 
+BuildRequires:    R-CRAN-hrqglas 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-plyr 
 Requires:         R-methods 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-hqreg 
+Requires:         R-CRAN-hrqglas 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-plyr 
 
 %description
-Performs penalized quantile regression for LASSO, SCAD and MCP functions
-including group penalties. Provides a function that automatically
-generates lambdas and evaluates different models with cross validation or
-BIC, including a large p version of BIC.
+Performs penalized quantile regression with LASSO, elastic net, SCAD and
+MCP penalty functions including group penalties. Provides a function that
+automatically generates lambdas and evaluates different models with cross
+validation or BIC, including a large p version of BIC.
 
 %prep
 %setup -q -c -n %{packname}

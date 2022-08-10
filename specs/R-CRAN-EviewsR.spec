@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  EviewsR
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Seamless Integration of 'Eviews' and R
 
@@ -18,8 +19,12 @@ Requires:         R-core >= 3.2.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-knitr >= 1.20
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-knitr >= 1.20
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
 
 %description
 It allows running 'EViews'(<https://eviews.com>) program from R, R

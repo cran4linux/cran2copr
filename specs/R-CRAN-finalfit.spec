@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  finalfit
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quickly Create Elegant Regression Results Tables and Plots when Modelling
 
@@ -36,6 +37,7 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-bdsmatrix 
 Requires:         R-CRAN-boot 
@@ -56,6 +58,7 @@ Requires:         R-CRAN-scales
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-tidyselect 
 
 %description
 Generate regression results tables and plots in final format for

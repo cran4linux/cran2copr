@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  immunarch
-%global packver   0.6.9
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.9
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bioinformatics Analysis of T-Cell and B-Cell Immune Repertoires
 
@@ -59,6 +60,7 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-phangorn 
 BuildRequires:    R-CRAN-uuid 
 BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-ggraph 
 Requires:         R-CRAN-MASS >= 7.3
 Requires:         R-CRAN-ggplot2 >= 3.1.0
 Requires:         R-CRAN-reshape2 >= 1.4.2
@@ -103,14 +105,15 @@ Requires:         R-CRAN-glue
 Requires:         R-CRAN-phangorn 
 Requires:         R-CRAN-uuid 
 Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-ggraph 
 
 %description
 A comprehensive framework for bioinformatics exploratory analysis of bulk
 and single-cell T-cell receptor and antibody repertoires. It provides
 seamless data loading, analysis and visualisation for AIRR (Adaptive
 Immune Receptor Repertoire) data, both bulk immunosequencing (RepSeq) and
-single-cell sequencing (scRNAseq). It implements most of the widely used
-AIRR analysis methods, such as: clonality analysis, estimation of
+single-cell sequencing (scRNAseq). Immunarch implements most of the widely
+used AIRR analysis methods, such as: clonality analysis, estimation of
 repertoire similarities in distribution of clonotypes and gene segments,
 repertoire diversity analysis, annotation of clonotypes using external
 immune receptor databases and clonotype tracking in vaccination and cancer

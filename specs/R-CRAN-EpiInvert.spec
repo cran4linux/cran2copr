@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  EpiInvert
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of Time Varying Reproduction Numbers and Restored Incidence Curves Using Variational Techniques
 
@@ -23,7 +24,10 @@ Estimation, by inverting a renewal equation, of time-varying reproduction
 numbers and restored incidence curves with festive days and weekly biases
 corrected as described in Alvarez et al. (2021)
 <doi:10.1073/pnas.2105112118> and Alvarez et al. (2022)
-<doi:10.3390/biology11040540>.
+<doi:10.3390/biology11040540>. EpiInvert can manage daily incidence data
+and weekly aggregated incidence data. This version of the package also
+includes EpiInvertForecast, a learning method for the short time forecast
+of the restored incidence curve.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nutrientr
-%global packver   0.1
+%global __requires_exclude ^libmpi
+%global packname  Omisc
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Wrapper for the Canadian Nutrient File API
+Summary:          Univariate Bootstrapping and Other Things
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,31 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-qpdf 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-testthat 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-qpdf 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-base 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-copula 
+Requires:         R-CRAN-MASS 
+Requires:         R-base 
+Requires:         R-stats 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-copula 
 
 %description
-Contains functions that wraps the Canadian Nutrient File API available at
-<https://hc-sc.api.canada.ca/en/detail?api=cnf>. This database reports the
-quantity of nutrients in foods commonly consumed in Canada.
+Primarily devoted to implementing the Univariate Bootstrap (as well as the
+Traditional Bootstrap). In addition there are multiple functions for
+DeFries-Fulker behavioral genetics models. The univariate bootstrapping
+functions, DeFries-Fulker functions, regression and traditional
+bootstrapping functions form the original core. Additional features may
+come online later, however this software is a work in progress. For more
+information about univariate bootstrapping see: Lee and Rodgers (1998) and
+Beasley et al (2007) <doi:10.1037/1082-989X.12.4.414>.
 
 %prep
 %setup -q -c -n %{packname}

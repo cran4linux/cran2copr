@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  latentcor
-%global packver   1.2.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Computation of Latent Correlations for Mixed Data
 
@@ -15,7 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
-BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-pcaPP 
 BuildRequires:    R-CRAN-fMultivar 
@@ -26,6 +26,12 @@ BuildRequires:    R-CRAN-heatmaply
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-geometry 
+BuildRequires:    R-CRAN-doFuture 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-CRAN-microbenchmark 
 Requires:         R-stats 
 Requires:         R-CRAN-pcaPP 
 Requires:         R-CRAN-fMultivar 
@@ -36,6 +42,12 @@ Requires:         R-CRAN-heatmaply
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-plotly 
 Requires:         R-graphics 
+Requires:         R-CRAN-geometry 
+Requires:         R-CRAN-doFuture 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-doRNG 
+Requires:         R-CRAN-microbenchmark 
 
 %description
 The first stand-alone R package for computation of latent correlation that
@@ -45,12 +57,13 @@ footprint, and is computationally efficient, essentially making latent
 correlation estimation almost as fast as rank-based correlation
 estimation. The estimation is based on latent copula Gaussian models. For
 continuous/binary types, see Fan, J., Liu, H., Ning, Y., and Zou, H.
-(2017) <doi:10.1111/rssb.12168>. For ternary type, see Quan X., Booth J.G.
-and Wells M.T. (2018) <arXiv:1809.06255>. For truncated type or
-zero-inflated type, see Yoon G., Carroll R.J. and Gaynanova I. (2020)
-<doi:10.1093/biomet/asaa007>. For approximation method of computation, see
-Yoon G., Müller C.L. and Gaynanova I. (2021)
-<doi:10.1080/10618600.2021.1882468>.
+(2017). For ternary type, see Quan X., Booth J.G. and Wells M.T. (2018)
+<arXiv:1809.06255>. For truncated type or zero-inflated type, see Yoon G.,
+Carroll R.J. and Gaynanova I. (2020) <doi:10.1093/biomet/asaa007>. For
+approximation method of computation, see Yoon G., Müller C.L. and
+Gaynanova I. (2021) <doi:10.1080/10618600.2021.1882468>. The latter method
+uses multi-linear interpolation originally implemented in the R package
+<https://cran.r-project.org/package=chebpol>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  movecost
-%global packver   1.6
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculation of Slope-Dependant Accumulated Cost Surface, Least-Cost Paths, Least-Cost Corridors, Least-Cost Networks Related to Human Movement Across the Landscape
 
@@ -21,6 +22,7 @@ BuildRequires:    R-utils >= 4.0.0
 BuildRequires:    R-CRAN-raster >= 2.8.4
 BuildRequires:    R-CRAN-chron >= 2.3.56
 BuildRequires:    R-CRAN-spatstat.geom >= 2.2.0
+BuildRequires:    R-CRAN-leastcostpath >= 1.8.0
 BuildRequires:    R-CRAN-rgdal >= 1.5.0
 BuildRequires:    R-CRAN-sp >= 1.4.0
 BuildRequires:    R-CRAN-gdistance >= 1.2.2
@@ -32,6 +34,7 @@ Requires:         R-utils >= 4.0.0
 Requires:         R-CRAN-raster >= 2.8.4
 Requires:         R-CRAN-chron >= 2.3.56
 Requires:         R-CRAN-spatstat.geom >= 2.2.0
+Requires:         R-CRAN-leastcostpath >= 1.8.0
 Requires:         R-CRAN-rgdal >= 1.5.0
 Requires:         R-CRAN-sp >= 1.4.0
 Requires:         R-CRAN-gdistance >= 1.2.2

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rnrfa
-%global packver   2.0.4
+%global packver   2.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          2.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          UK National River Flow Archive Data from R
 
@@ -16,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rgdal 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
@@ -26,10 +26,9 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-ggmap 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-rgdal 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
@@ -39,7 +38,7 @@ Requires:         R-CRAN-httr
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-ggmap 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
 Requires:         R-parallel 
 Requires:         R-CRAN-tibble 
 
@@ -62,6 +61,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

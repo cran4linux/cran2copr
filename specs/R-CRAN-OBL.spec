@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  OBL
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimum Block Length
 
@@ -18,17 +19,17 @@ Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
-Requires:         R-parallel 
-Requires:         R-CRAN-future 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 

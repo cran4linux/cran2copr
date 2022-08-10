@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rxylib
-%global packver   0.2.7
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import XY-Data into R
 
@@ -13,13 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildRequires:    R-CRAN-BH >= 1.78.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 1.0.8
+Requires:         R-CRAN-Rcpp >= 1.0.9
 Requires:         R-utils 
 Requires:         R-methods 
 

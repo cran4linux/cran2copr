@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  blogdown
-%global packver   1.10
+%global packver   1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10
+Version:          1.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Blogs and Websites with R Markdown
 
@@ -14,7 +15,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 Requires:         hugo
-Requires:         pandoc
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch

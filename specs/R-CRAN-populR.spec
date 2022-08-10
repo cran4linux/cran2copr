@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  populR
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Areal Interpolation of Population Data
+Summary:          Population Downscaling
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,18 +21,22 @@ BuildRequires:    R-CRAN-sf
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-Metrics 
 BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-areal 
+BuildRequires:    R-CRAN-microbenchmark 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-Metrics 
 Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-areal 
+Requires:         R-CRAN-microbenchmark 
 
 %description
-Areal interpolation of population data obtained by census surveys. Given a
-set of source zone polygons such as census tracts or city blocks alongside
-with population counts and a target zone of incogruent yet superimposed
-polygon features (such as individual buildings) populR transforms
-population counts from the former to the latter using Areal Weighting and
-Volume Weighting Interpolation methods.
+Downscaling of population data obtained by census surveys using areal
+interpolation. Given a set of source zone polygons such as census tracts
+or city blocks alongside with population counts and a target zone of
+incogruent yet superimposed polygon features (such as individual
+buildings) populR transforms population counts from the former to the
+latter using Areal Weighting and Volume Weighting Interpolation methods.
 
 %prep
 %setup -q -c -n %{packname}

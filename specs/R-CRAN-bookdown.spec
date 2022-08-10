@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bookdown
-%global packver   0.27
+%global packver   0.28
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.27
+Version:          0.28
 Release:          1%{?dist}%{?buildtag}
 Summary:          Authoring Books and Technical Documents with R Markdown
 
@@ -13,7 +14,6 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         pandoc
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch

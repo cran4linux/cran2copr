@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sensitivity
-%global packver   1.27.0
+%global packver   1.27.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.27.0
+Version:          1.27.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Global Sensitivity Analysis of Model Outputs
 
@@ -30,10 +31,11 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-CRAN-foreach 
 
 %description
-A collection of functions for factor screening, global sensitivity
-analysis and robustness analysis. Most of the functions have to be applied
-on model with scalar output, but several functions support
-multi-dimensional outputs.
+A collection of functions for sensitivity analysis of model outputs
+(factor screening, global sensitivity analysis and robustness analysis),
+as well as for interpretability of machine learning models. Most of the
+functions have to be applied on scalar output, but several functions
+support multi-dimensional outputs.
 
 %prep
 %setup -q -c -n %{packname}

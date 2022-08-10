@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  qs
-%global packver   0.25.3
+%global packver   0.25.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.25.3
+Version:          0.25.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quick Serialization of R Objects
 
@@ -16,11 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
 BuildRequires:    R-CRAN-stringfish >= 0.15.1
+BuildRequires:    R-CRAN-RApiSerialize >= 0.1.1
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RApiSerialize 
 Requires:         R-CRAN-stringfish >= 0.15.1
+Requires:         R-CRAN-RApiSerialize >= 0.1.1
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RApiSerialize 
 
 %description
 Provides functions for quickly writing and reading any R object to and
