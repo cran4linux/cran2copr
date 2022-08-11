@@ -1,25 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  lasso2
-%global packver   1.2-22
+%global __requires_exclude ^libmpi
+%global packname  iapws
+%global packver   0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.22
+Version:          0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          L1 Constrained Estimation aka `lasso'
+Summary:          Formulations of International Association for the Properties of Water and Steam
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.3.1
+Requires:         R-core >= 3.3.1
 
 %description
-Routines and documentation for solving regression problems while imposing
-an L1 constraint on the estimates, based on the algorithm of Osborne et
-al. (1998).
+Implementation of some of the formulations for the thermodynamic and
+transport properties of ordinary water and steam released by the
+International Association for the Properties of Water and Steam (IAPWS).
+More specifically, the releases referenced R6-95(2018), R7-97(2012),
+R12-08 and R15-11 at <http://iapws.org/release.html>.
 
 %prep
 %setup -q -c -n %{packname}

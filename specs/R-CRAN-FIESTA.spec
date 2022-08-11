@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  FIESTA
-%global packver   3.4.1
+%global packver   3.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.1
+Version:          3.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forest Inventory Estimation and Analysis
 
@@ -16,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-FIESTAutils >= 1.1.2
+BuildRequires:    R-CRAN-FIESTAutils >= 1.1.3
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-grDevices 
@@ -27,7 +28,8 @@ BuildRequires:    R-CRAN-RSQLite
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-sqldf 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-FIESTAutils >= 1.1.2
+BuildRequires:    R-CRAN-largeList 
+Requires:         R-CRAN-FIESTAutils >= 1.1.3
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-DBI 
 Requires:         R-grDevices 
@@ -38,6 +40,7 @@ Requires:         R-CRAN-RSQLite
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-sqldf 
 Requires:         R-utils 
+Requires:         R-CRAN-largeList 
 
 %description
 A research estimation tool for analysts that work with sample-based

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  qqconf
-%global packver   1.2.3
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creates Simultaneous Testing Bands for QQ-Plots
 
@@ -13,19 +14,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    fftw-devel
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-MASS >= 7.3.50
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-robustbase >= 0.93.4
-BuildRequires:    R-CRAN-rlang >= 0.4.9
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-MASS >= 7.3.50
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-robustbase >= 0.93.4
-Requires:         R-CRAN-rlang >= 0.4.9
 Requires:         R-CRAN-Rcpp 
 
 %description

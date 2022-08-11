@@ -1,59 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TidyDensity
-%global packver   1.2.2
+%global packname  Cyclops
+%global packver   3.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          3.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Tidy Analysis and Generation of Random Data
+Summary:          Cyclic Coordinate Descent for Logistic, Poisson and Survival Analysis
 
-License:          MIT + file LICENSE
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.4.11
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-BH >= 1.51.0
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.2
+BuildRequires:    R-CRAN-Andromeda >= 0.3.1
+BuildRequires:    R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-actuar 
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-CRAN-broom 
-Requires:         R-CRAN-rlang >= 0.4.11
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-bit64 
+Requires:         R-CRAN-Andromeda >= 0.3.1
+Requires:         R-CRAN-Rcpp >= 0.12.12
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-actuar 
 Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-survival 
-Requires:         R-CRAN-nloptr 
-Requires:         R-CRAN-broom 
+Requires:         R-CRAN-bit64 
 
 %description
-To make it easy to generate random numbers based upon the underlying stats
-distribution functions. All data is returned in a tidy and structured
-format making working with the data simple and straight forward. Given
-that the data is returned in a tidy 'tibble' it lends itself to working
-with the rest of the 'tidyverse'.
+This model fitting tool incorporates cyclic coordinate descent and
+majorization-minimization approaches to fit a variety of regression models
+found in large-scale observational healthcare data.  Implementations focus
+on computational optimization and fine-scale parallelization to yield
+efficient inference in massive datasets.  Please see: Suchard, Simpson,
+Zorych, Ryan and Madigan (2013) <doi:10.1145/2414416.2414791>.
 
 %prep
 %setup -q -c -n %{packname}

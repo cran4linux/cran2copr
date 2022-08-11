@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  StepBeta
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Stepwise Procedure for Beta Regression Models
+Summary:          Stepwise Procedure for Beta, Beta-Binomial and Negative Binomial Regression Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,13 +21,17 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-betareg 
 BuildRequires:    R-CRAN-combinat 
+BuildRequires:    R-CRAN-aod 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-glue 
 Requires:         R-stats 
 Requires:         R-CRAN-betareg 
 Requires:         R-CRAN-combinat 
+Requires:         R-CRAN-aod 
+Requires:         R-CRAN-MASS 
 
 %description
-Starting from a Beta Regression Model, it provides a stepwise procedure to
+Starting from a Regression Model, it provides a stepwise procedure to
 select the linear predictor.
 
 %prep

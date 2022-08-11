@@ -1,39 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MaximinInfer
-%global packver   1.0.0
+%global __requires_exclude ^libmpi
+%global packname  waywiser
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inference for Maximin Effect in High-Dimensional Settings
+Summary:          Yardstick Extensions for Measuring Spatial Structure in Model Residuals
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-CVXR 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-intervals 
-BuildRequires:    R-CRAN-SIHR 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
-Requires:         R-CRAN-CVXR 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-intervals 
-Requires:         R-CRAN-SIHR 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-yardstick 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-yardstick 
 
 %description
-Implementation of the sampling and aggregation method for the covariate
-shift maximin effect, which was proposed in <arXiv:2011.07568>. It
-constructs the confidence interval for any linear combination of the
-high-dimensional maximin effect.
+Predictive models of spatial data may have spatially structured errors,
+with "hot spots" of higher than expected error clustered geographically
+due to spatial structure in the underlying data. These functions provide
+methods for measuring the spatial structure of model errors for models,
+and are particularly useful for models fit using the 'tidymodels'
+framework. Methods include Moran's I ('Moran' (1950)
+<doi:10.2307/2332142>), Geary's C ('Geary' (1954) <doi:10.2307/2986645>)
+and Getis-Ord's G ('Ord' and 'Getis' (1995)
+<doi:10.1111/j.1538-4632.1995.tb00912.x>).
 
 %prep
 %setup -q -c -n %{packname}

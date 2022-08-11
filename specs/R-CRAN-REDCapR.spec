@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  REDCapR
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interaction Between R and REDCap
 
@@ -24,6 +25,7 @@ BuildRequires:    R-CRAN-httr >= 1.4.0
 BuildRequires:    R-CRAN-dplyr >= 1.0
 BuildRequires:    R-CRAN-tidyr >= 1.0
 BuildRequires:    R-CRAN-rlang >= 0.4
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-checkmate >= 2.0
 Requires:         R-CRAN-readr >= 2.0
@@ -33,6 +35,7 @@ Requires:         R-CRAN-httr >= 1.4.0
 Requires:         R-CRAN-dplyr >= 1.0
 Requires:         R-CRAN-tidyr >= 1.0
 Requires:         R-CRAN-rlang >= 0.4
+Requires:         R-CRAN-jsonlite 
 Requires:         R-methods 
 
 %description

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  EnrichIntersect
-%global packver   0.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Enrichment Analysis and Intersecting Sankey Diagram
 
@@ -34,14 +35,13 @@ Requires:         R-grDevices
 Requires:         R-methods 
 
 %description
-A flexible tool for enrichment analysis based on user-defined sets is
-provided. It allows users to perform over-representation analysis of the
-custom sets among any specified ranked feature list, hence making
-enrichment analysis applicable to various types of data from different
-scientific fields. 'EnrichIntersect' also enables an interactive means to
-visualize identified associations based on, for example, the mix-lasso
-model (Zhao et al. (2022) <doi:10.1016/j.isci.2022.104767>) or similar
-methods.
+A flexible tool for enrichment analysis based on user-defined sets. It
+allows users to perform over-representation analysis of the custom sets
+among any specified ranked feature list, hence making enrichment analysis
+applicable to various types of data from different scientific fields.
+'EnrichIntersect' also enables an interactive means to visualize
+identified associations based on, for example, the mix-lasso model (Zhao
+et al. (2022) <doi:10.1016/j.isci.2022.104767>) or similar methods.
 
 %prep
 %setup -q -c -n %{packname}

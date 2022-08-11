@@ -1,59 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TidyDensity
-%global packver   1.2.2
+%global packname  nser
+%global packver   1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.4.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Tidy Analysis and Generation of Random Data
+Summary:          Bhavcopy and Live Market Data from National Stock Exchange (NSE) & Bombay Stock Exchange (BSE) India for Equities and Equity Derivatives (F&O)
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.4.11
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-actuar 
-BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-CRAN-broom 
-Requires:         R-CRAN-rlang >= 0.4.11
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-actuar 
-Requires:         R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-RSelenium 
+BuildRequires:    R-CRAN-googleVis 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-curl 
 Requires:         R-stats 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-nloptr 
-Requires:         R-CRAN-broom 
+Requires:         R-utils 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-RSelenium 
+Requires:         R-CRAN-googleVis 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-curl 
 
 %description
-To make it easy to generate random numbers based upon the underlying stats
-distribution functions. All data is returned in a tidy and structured
-format making working with the data simple and straight forward. Given
-that the data is returned in a tidy 'tibble' it lends itself to working
-with the rest of the 'tidyverse'.
+Download Current & Historical Bhavcopy from NSE (National Stock Exchnage)
+and BSE (Bombay Stock Exchange). Get Live Market data from NSE India of
+Equities and Derivatives(F&O) segment. Data source
+<https://www.nseindia.com/>.
 
 %prep
 %setup -q -c -n %{packname}

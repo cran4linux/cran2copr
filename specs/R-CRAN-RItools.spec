@@ -1,39 +1,55 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ebmstate
-%global packver   0.1.3
+%global __requires_exclude ^libmpi
+%global packname  RItools
+%global packver   0.3-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Empirical Bayes Multi-State Cox Model
+Summary:          Randomization Inference Tools
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-survival >= 2.44.1.1
-BuildRequires:    R-CRAN-mstate >= 0.2.11
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-HDInterval 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-xtable 
+BuildRequires:    R-CRAN-svd 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-survival >= 2.44.1.1
-Requires:         R-CRAN-mstate >= 0.2.11
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-HDInterval 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-SparseM 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-svd 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-graphics 
 Requires:         R-methods 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-SparseM 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
 
 %description
-Implements an empirical Bayes, multi-state Cox model for survival
-analysis. Run "?'ebmstate-package'" for details. See also Schall (1991)
-<doi:10.1093/biomet/78.4.719>.
+Tools for randomization-based inference. Current focus is on the d^2
+omnibus test of differences of means following Hansen and Bowers (2008)
+<doi:10.1214/08-STS254> . This test is useful for assessing balance in
+matched observational studies or for analysis of outcomes in
+block-randomized experiments.
 
 %prep
 %setup -q -c -n %{packname}

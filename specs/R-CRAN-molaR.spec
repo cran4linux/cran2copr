@@ -1,30 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ccboost
-%global packver   0.1-1.3
+%global __requires_exclude ^libmpi
+%global packname  molaR
+%global packver   5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1.3
+Version:          5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Robust Boosting
+Summary:          Dental Surface Complexity Measurement Tools
 
-License:          GPL (>= 2)
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mpath 
-BuildRequires:    R-CRAN-xgboost 
-Requires:         R-CRAN-mpath 
-Requires:         R-CRAN-xgboost 
+BuildRequires:    R-CRAN-alphahull 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-Rvcg 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-alphahull 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-Rvcg 
+Requires:         R-CRAN-pracma 
 
 %description
-Robust functional descent algorithm for concave-convex family through
-composite optimization by conjugation operator. Wang (2021)
-<arXiv:2101.07718>.
+Surface topography calculations of Dirichlet's normal energy, relief
+index, surface slope, and orientation patch count for teeth using scans of
+enamel caps. Importantly, for the relief index and orientation patch count
+calculations to work, the scanned tooth files must be oriented with the
+occlusal plane parallel to the x and y axes, and perpendicular to the z
+axis. The files should also be simplified, and smoothed in some other
+software prior to uploading into R.
 
 %prep
 %setup -q -c -n %{packname}
@@ -34,6 +43,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

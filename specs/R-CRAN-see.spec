@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  see
-%global packver   0.7.1
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Visualisation Toolbox for 'easystats' and 'ggplot2'
 
@@ -17,21 +18,19 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
-BuildRequires:    R-CRAN-scales >= 1.2.0
 BuildRequires:    R-CRAN-effectsize >= 0.7.0
-BuildRequires:    R-CRAN-datawizard >= 0.4.1
+BuildRequires:    R-CRAN-datawizard >= 0.5
 BuildRequires:    R-CRAN-parameters >= 0.18.1
-BuildRequires:    R-CRAN-insight >= 0.17.1
+BuildRequires:    R-CRAN-insight >= 0.18.0
 BuildRequires:    R-CRAN-bayestestR >= 0.12.1
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 >= 3.3.6
-Requires:         R-CRAN-scales >= 1.2.0
 Requires:         R-CRAN-effectsize >= 0.7.0
-Requires:         R-CRAN-datawizard >= 0.4.1
+Requires:         R-CRAN-datawizard >= 0.5
 Requires:         R-CRAN-parameters >= 0.18.1
-Requires:         R-CRAN-insight >= 0.17.1
+Requires:         R-CRAN-insight >= 0.18.0
 Requires:         R-CRAN-bayestestR >= 0.12.1
 Requires:         R-graphics 
 Requires:         R-grDevices 

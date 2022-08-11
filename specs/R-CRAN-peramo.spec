@@ -1,36 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SIHR
-%global packver   1.0.1
+%global packname  peramo
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Inference in High Dimensional Regression
+Summary:          Permutation Tests for Randomization Model
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CVXR 
-BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-magrittr >= 2.0.3
+BuildRequires:    R-CRAN-dplyr >= 1.0.9
 BuildRequires:    R-stats 
-Requires:         R-CRAN-CVXR 
-Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-magrittr >= 2.0.3
+Requires:         R-CRAN-dplyr >= 1.0.9
 Requires:         R-stats 
 
 %description
-Inference procedures in the high-dimensional setting for (1) linear
-functionals in generalized linear regression ('Cai et al.' (2019)
-<arXiv:1904.12891>, 'Guo et al.' (2020) <arXiv:2012.07133>, 'Cai et al.'
-(2021)), (2) individual treatment effects in generalized linear
-regression, (3) quadratic functionals in linear regression ('Guo et al.'
-(2019) <arXiv:1909.01503>).
+Perform permutation-based hypothesis testing for randomized experiments,
+as described in Ernst (2004) <doi:10.1214/088342304000000396>.
 
 %prep
 %setup -q -c -n %{packname}
