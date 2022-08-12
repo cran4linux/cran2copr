@@ -1,26 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SyncRNG
-%global packver   1.3.1
+%global packname  cito
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Synchronized Tausworthe RNG for R and Python
+Summary:          Building and Training Neural Networks
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-coro 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-torch 
+Requires:         R-CRAN-coro 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-torch 
 
 %description
-Generate the same random numbers in R and Python.
+Building and training custom neural networks in the typical R syntax. The
+'torch' package is used for numerical calculations, which allows for
+training on CPU as well as on a graphics card.
 
 %prep
 %setup -q -c -n %{packname}

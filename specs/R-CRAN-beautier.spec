@@ -1,26 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SyncRNG
-%global packver   1.3.1
+%global packname  beautier
+%global packver   2.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          2.6.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Synchronized Tausworthe RNG for R and Python
+Summary:          'BEAUti' from R
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-assertive 
+BuildRequires:    R-CRAN-pryr 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-seqinr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-testit 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-assertive 
+Requires:         R-CRAN-pryr 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-seqinr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-testit 
 
 %description
-Generate the same random numbers in R and Python.
+'BEAST2' (<https://www.beast2.org>) is a widely used Bayesian phylogenetic
+tool, that uses DNA/RNA/protein data and many model priors to create a
+posterior of jointly estimated phylogenies and parameters. 'BEAUti 2'
+(which is part of 'BEAST2') is a GUI tool that allows users to specify the
+many possible setups and generates the XML file 'BEAST2' needs to run.
+This package provides a way to create 'BEAST2' input files without active
+user input, but using R function calls instead.
 
 %prep
 %setup -q -c -n %{packname}

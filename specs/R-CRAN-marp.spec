@@ -1,26 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SyncRNG
-%global packver   1.3.1
+%global packname  marp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Synchronized Tausworthe RNG for R and Python
+Summary:          Model-Averaged Renewal Process
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 2.15
+Requires:         R-core >= 2.15
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-VGAM 
+Requires:         R-stats 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-statmod 
+Requires:         R-CRAN-VGAM 
 
 %description
-Generate the same random numbers in R and Python.
+To implement a model-averaging approach with different renewal models,
+with a primary focus on forecasting large earthquakes. Based on six
+renewal models (i.e., Poisson, Gamma, Log-Logistics, Weibull, Log-Normal
+and BPT), model-averaged point estimates are calculated using AIC (or BIC)
+weights. Additionally, both percentile and studentized bootstrapped
+model-averaged confidence intervals are constructed. In comparison, point
+and interval estimation from the individual or "best" model (determined
+via model selection) can be retrieved.
 
 %prep
 %setup -q -c -n %{packname}

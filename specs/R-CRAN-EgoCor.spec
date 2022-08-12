@@ -1,52 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rmoo
-%global packver   0.1.8
+%global packname  EgoCor
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multi-Objective Optimization in R
+Summary:          Simple Presentation of Estimated Exponential Semi-Variograms
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-ecr 
 BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-cdata 
-BuildRequires:    R-CRAN-plotly 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-ecr 
+BuildRequires:    R-CRAN-gstat 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-SpatialTools 
+BuildRequires:    R-stats 
 Requires:         R-graphics 
-Requires:         R-methods 
 Requires:         R-grDevices 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-cdata 
-Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-gstat 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-SpatialTools 
+Requires:         R-stats 
 
 %description
-A multiobjective optimization package based on K. Deb's algorithm and
-inspired in 'GA' package by Luca Scrucca (2017)
-<DOI:10.32614/RJ-2017-008>. The 'rmoo' package is a framework for multi-
-and many-objective optimization, allowing to work with representation of
-real numbers, permutations and binaries, offering a high range of
-configurations.
+User friendly interface based on the R package 'gstat' to fit exponential
+parametric models to empirical semi-variograms in order to model the
+spatial correlation structure of health data. Geo-located health outcomes
+of survey participants may be used to model spatial effects on health in
+an ego-centred approach.  The package contains a range of functions to
+help explore the spatial structure of the data as well as visualize the
+fit of exponential models for various metaparameter combinations with
+respect to the number of lag intervals and maximal distance.  Furthermore,
+the outcome of interest can be adjusted for covariates by fitting a linear
+regression in a preliminary step before the semi-variogram fitting
+process.
 
 %prep
 %setup -q -c -n %{packname}

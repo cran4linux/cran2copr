@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ergm.multi
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit, Simulate and Diagnose Exponential-Family Models for Multiple or Multilayer Networks
 
@@ -19,7 +20,7 @@ BuildRequires:    R-CRAN-statnet.common >= 4.6.0
 BuildRequires:    R-CRAN-ergm >= 4.2.2
 BuildRequires:    R-CRAN-tibble >= 1.4.2
 BuildRequires:    R-CRAN-network >= 1.17
-BuildRequires:    R-CRAN-Rdpack >= 0.8.2
+BuildRequires:    R-CRAN-Rdpack >= 0.8
 BuildRequires:    R-CRAN-purrr >= 0.2.4
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-Matrix 
@@ -31,7 +32,7 @@ Requires:         R-CRAN-statnet.common >= 4.6.0
 Requires:         R-CRAN-ergm >= 4.2.2
 Requires:         R-CRAN-tibble >= 1.4.2
 Requires:         R-CRAN-network >= 1.17
-Requires:         R-CRAN-Rdpack >= 0.8.2
+Requires:         R-CRAN-Rdpack >= 0.8
 Requires:         R-CRAN-purrr >= 0.2.4
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-Matrix 

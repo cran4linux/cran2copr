@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bruceR
-%global packver   0.8.8
+%global packver   0.8.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.8
+Version:          0.8.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Broadly Useful Convenient and Efficient R Functions
 

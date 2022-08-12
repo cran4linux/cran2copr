@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sarima
-%global packver   0.9
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation and Prediction with Seasonal ARIMA Models
 
@@ -49,7 +50,11 @@ various kinds of theoretical and sample autocorrelations. This is work in
 progress, see the documentation and vignettes for the current
 functionality.  Function sarima() fits extended multiplicative seasonal
 ARIMA models with trends, exogenous variables and arbitrary roots on the
-unit circle, which can be fixed or estimated.
+unit circle, which can be fixed or estimated (for the algebraic basis for
+this see <arXiv:2208.05055>, a paper on the methodology is being
+prepared). The suggested package 'FitARMA' can be installed with
+'remotes::install_github("cran/FitARMA")' if necessary but is no longer
+needed in normal use.
 
 %prep
 %setup -q -c -n %{packname}

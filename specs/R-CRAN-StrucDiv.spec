@@ -1,26 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SyncRNG
-%global packver   1.3.1
+%global packname  StrucDiv
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Synchronized Tausworthe RNG for R and Python
+Summary:          Spatial Structural Diversity Quantification in Raster Data
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-raster >= 3.1.5
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4
+BuildRequires:    R-CRAN-RcppProgress 
+Requires:         R-CRAN-raster >= 3.1.5
+Requires:         R-CRAN-Rcpp >= 1.0.4
 
 %description
-Generate the same random numbers in R and Python.
+Spatial structural diversity refers to the spatial arrangement of
+landscape elements and can reveal itself as landscape features, such as
+patches and line features. The 'R' package 'StrucDiv' provides methods to
+quantify spatial structural diversity in continuous remote sensing data,
+or in other data in gridded field format. The methods are based on
+second-order texture metrics, considering the spatial arrangement of pixel
+pairs.
 
 %prep
 %setup -q -c -n %{packname}

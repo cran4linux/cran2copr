@@ -1,26 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SyncRNG
-%global packver   1.3.1
+%global packname  bayess
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Synchronized Tausworthe RNG for R and Python
+Summary:          Bayesian Essentials with R
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mnormt 
+BuildRequires:    R-CRAN-gplots 
+BuildRequires:    R-CRAN-combinat 
+Requires:         R-stats 
+Requires:         R-CRAN-mnormt 
+Requires:         R-CRAN-gplots 
+Requires:         R-CRAN-combinat 
 
 %description
-Generate the same random numbers in R and Python.
+Allows the reenactment of the R programs used in the book Bayesian
+Essentials with R without further programming. R code being available as
+well, they can be modified by the user to conduct one's own simulations.
+Marin J.-M. and Robert C. P. (2014) <doi:10.1007/978-1-4614-8687-9>.
 
 %prep
 %setup -q -c -n %{packname}

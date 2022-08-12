@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  lpcde
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Boundary Adaptive Local Polynomial Conditional Density Estimator
 
@@ -20,6 +21,8 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-combinat 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.8
@@ -27,6 +30,8 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-combinat 
+Requires:         R-CRAN-Matrix 
 Requires:         R-stats 
 
 %description

@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  flimo
-%global packver   0.1.1
+%global __requires_exclude ^libmpi
+%global packname  bigmatch
+%global packver   0.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.6.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fixed Landscape Inference MethOd
+Summary:          Making Optimal Matching Size-Scalable Using Optimal Calipers
 
-License:          CeCILL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,20 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-JuliaConnectoR 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-JuliaConnectoR 
+BuildRequires:    R-CRAN-rcbalance 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-liqueueR 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-mvnfast 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-rcbalance 
+Requires:         R-stats 
+Requires:         R-CRAN-liqueueR 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-mvnfast 
+Requires:         R-methods 
 
 %description
-Likelihood-free inference method for stochastic models. Uses a
-deterministic optimizer on simple simulations of the model that are
-performed with a prior drawn randomness by applying the inverse transform
-method. Is designed to work on its own and also by using the Julia package
-Jflimo. See the git page of the project :
-<https://metabarcoding.org/flimo>.
+Implements optimal matching with near-fine balance in large observational
+studies with the use of optimal calipers to get a sparse network. The
+caliper is optimal in the sense that it is as small as possible such that
+a matching exists. The main functions in the 'bigmatch' package are
+optcal() to find the optimal caliper, optconstant() to find the optimal
+number of nearest neighbors, and nfmatch() to find a near-fine balance
+match with a caliper and a restriction on the number of nearest neighbors.
+Yu, R., Silber, J. H., and Rosenbaum, P. R. (2020).
+<DOI:10.1214/19-sts699>.
 
 %prep
 %setup -q -c -n %{packname}

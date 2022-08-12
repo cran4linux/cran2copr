@@ -1,47 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  webtools
-%global packver   0.7.12
+%global packname  beastier
+%global packver   2.4.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.12
+Version:          2.4.11
 Release:          1%{?dist}%{?buildtag}
-Summary:          Various Useful Web Tools (Including Full CRAN Dataset Search and Fetch)
+Summary:          Call 'BEAST2'
 
-License:          CC0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-beautier >= 2.6.5
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-assertive 
+BuildRequires:    R-CRAN-devtools 
+BuildRequires:    R-CRAN-phangorn 
+BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-pkgsearch 
+BuildRequires:    R-CRAN-rJava 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-RCurl 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-beautier >= 2.6.5
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-assertive 
+Requires:         R-CRAN-devtools 
+Requires:         R-CRAN-phangorn 
+Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-pkgsearch 
+Requires:         R-CRAN-rJava 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-xml2 
 
 %description
-A set of useful web tools to improve your productivity. Including:
-searching DuckDuckGo; finding and loading datasets across all CRAN
-packages (not just those you've installed); sharing a file to a paste-bin;
-getting a fast GUID; useful info on all countries; Random Seinfeld show
-quotes; Seinfeld guessing game.
+'BEAST2' (<https://www.beast2.org>) is a widely used Bayesian phylogenetic
+tool, that uses DNA/RNA/protein data and many model priors to create a
+posterior of jointly estimated phylogenies and parameters. 'BEAST2' is a
+command-line tool. This package provides a way to call 'BEAST2' from an
+'R' function call.
 
 %prep
 %setup -q -c -n %{packname}

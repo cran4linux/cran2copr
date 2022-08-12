@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  proceduralnames
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Several Methods for Procedural Name Generation
 
@@ -20,7 +21,7 @@ BuildArch:        noarch
 %description
 A small, dependency-free way to generate random names. Methods provided
 include the adjective-surname approach of Docker containers
-('<https://github.com/moby/moby/blob/master/pkg/namesgenerator/names-generator.go'),
+('<https://github.com/moby/moby/blob/master/pkg/namesgenerator/names-generator.go>'),
 and combinations of common English or Spanish words.
 
 %prep

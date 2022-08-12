@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  huito
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Flexible and Reproducible Label Designs
+Summary:          Reproducible and Flexible Label Design
 
 License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -40,7 +41,7 @@ Requires:         R-CRAN-qrcode
 Requires:         R-CRAN-pdftools 
 
 %description
-An open-source R package to deploys flexible and reproducible labels using
+An open-source R package to deploys reproducible and flexible labels using
 layers. The 'huito' package is part of the 'inkaverse' project for
 developing different procedures and tools used in plant science and
 experimental designs. Learn more about the 'inkaverse' project at

@@ -1,36 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SurfaceReconstruction
-%global packver   0.1.0
+%global packname  RGBM
+%global packver   1.0-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Surface Reconstruction Using the 'CGAL' C++ Library
+Summary:          LS-TreeBoost and LAD-TreeBoost for Gene Regulatory Network Reconstruction
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-Rvcg 
-BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-RcppCGAL 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-Rvcg 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-doParallel 
 
 %description
-Provides some 3d surface reconstruction algorithms: Poisson surface
-reconstruction and advanced front surface reconstruction. They generate a
-mesh from a given point cloud. The mesh can be plotted with the 'rgl'
-package.
+Provides an implementation of Regularized LS-TreeBoost & LAD-TreeBoost
+algorithm for Regulatory Network inference from any type of expression
+data (Microarray/RNA-seq etc).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,26 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SyncRNG
-%global packver   1.3.1
+%global packname  GENLIB
+%global packver   1.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Synchronized Tausworthe RNG for R and Python
+Summary:          Genealogical Data Analysis
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-Rcpp >= 0.9.10
+BuildRequires:    R-CRAN-kinship2 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-bootstrap 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 0.9.10
+Requires:         R-CRAN-kinship2 
 Requires:         R-methods 
+Requires:         R-CRAN-bootstrap 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
 
 %description
-Generate the same random numbers in R and Python.
+Genealogical data analysis including descriptive statistics (e.g., kinship
+and inbreeding coefficients) and gene-dropping simulations. See: "GENLIB:
+an R package for the analysis of genealogical data" Gauvin et al. (2015)
+<doi:10.1186/s12859-015-0581-5>.
 
 %prep
 %setup -q -c -n %{packname}

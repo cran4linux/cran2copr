@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mirtCAT
-%global packver   1.12
+%global packver   1.12.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.12
+Version:          1.12.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computerized Adaptive Testing with Multidimensional Item Response Theory
 
@@ -15,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-mirt >= 1.25
+BuildRequires:    R-CRAN-mirt >= 1.37
 BuildRequires:    R-CRAN-shiny >= 1.0.1
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-stats 
@@ -25,7 +26,7 @@ BuildRequires:    R-CRAN-markdown
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-lpSolve 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-mirt >= 1.25
+Requires:         R-CRAN-mirt >= 1.37
 Requires:         R-CRAN-shiny >= 1.0.1
 Requires:         R-CRAN-lattice 
 Requires:         R-stats 

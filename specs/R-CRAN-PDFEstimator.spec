@@ -1,26 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SyncRNG
-%global packver   1.3.1
+%global packname  PDFEstimator
+%global packver   4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Synchronized Tausworthe RNG for R and Python
+Summary:          Nonparametric Probability Density Estimator
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-plot3D 
+BuildRequires:    R-CRAN-MultiRNG 
 BuildRequires:    R-methods 
+Requires:         R-CRAN-plot3D 
+Requires:         R-CRAN-MultiRNG 
 Requires:         R-methods 
 
 %description
-Generate the same random numbers in R and Python.
+Farmer, J., D. Jacobs (2108) <DOI:10.1371/journal.pone.0196937>. A
+multivariate nonparametric density estimator based on the maximum-entropy
+method.  Accurately predicts a probability density function (PDF) for
+random data using a novel iterative scoring function to determine the best
+fit without overfitting to the sample.
 
 %prep
 %setup -q -c -n %{packname}
