@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  fields
-%global packver   14.0
+%global packver   14.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          14.0
+Version:          14.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Spatial Data
 

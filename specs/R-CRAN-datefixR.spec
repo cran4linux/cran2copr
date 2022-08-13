@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  datefixR
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Standardize Dates in Different Formats or with Missing Data
 
@@ -17,8 +18,10 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 
 %description

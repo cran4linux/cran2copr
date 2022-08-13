@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ggpmisc
-%global packver   0.4.7
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.7
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Extensions to 'ggplot2'
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3.51.6
 BuildRequires:    R-CRAN-quantreg >= 5.93
@@ -30,6 +31,7 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.6
 BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-ggpp >= 0.4.4
 BuildRequires:    R-CRAN-generics >= 0.1.2
+BuildRequires:    R-CRAN-confintr >= 0.1.2
 BuildRequires:    R-grid 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-MASS >= 7.3.51.6
@@ -46,6 +48,7 @@ Requires:         R-CRAN-dplyr >= 1.0.6
 Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-ggpp >= 0.4.4
 Requires:         R-CRAN-generics >= 0.1.2
+Requires:         R-CRAN-confintr >= 0.1.2
 Requires:         R-grid 
 Requires:         R-stats 
 

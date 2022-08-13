@@ -1,35 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ipaddress
-%global packver   0.5.5
+%global packname  codified
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy IP Addresses
+Summary:          Produce Standard/Formalized Demographics Tables
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-vctrs >= 0.3.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-AsioHeaders 
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-vctrs >= 0.3.0
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate >= 1.8.4
+BuildRequires:    R-CRAN-tibble >= 1.4.0
+BuildRequires:    R-CRAN-knitr >= 1.18
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-checkmate >= 1.8.4
+Requires:         R-CRAN-tibble >= 1.4.0
+Requires:         R-CRAN-knitr >= 1.18
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-rlang 
 
 %description
-Classes and functions for working with IP (Internet Protocol) addresses
-and networks, inspired by the Python 'ipaddress' module. Offers full
-support for both IPv4 and IPv6 (Internet Protocol versions 4 and 6)
-address spaces. It is specifically designed to work well with the
-'tidyverse'.
+Augment clinical data with metadata to create output used in conventional
+publications and reports.
 
 %prep
 %setup -q -c -n %{packname}

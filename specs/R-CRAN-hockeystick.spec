@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  hockeystick
-%global packver   0.6.1
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Visualize Essential Climate Change Data
 
@@ -45,9 +46,9 @@ CO2, emissions, instrumental and proxy temperature records, sea levels,
 Arctic/Antarctic sea-ice, Hurricanes, and Paleoclimate data. Sources
 include: NOAA Mauna Loa Laboratory
 <https://gml.noaa.gov/ccgg/trends/data.html>, Global Carbon Project
-<https://www.globalcarbonproject.org/carbonbudget/20/data.htm>, NASA
-GISTEMP <https://data.giss.nasa.gov/gistemp/>, National Snow and Sea Ice
-Data Center <https://nsidc.org/data/seaice_index/archives>, CSIRO
+<https://www.globalcarbonproject.org/carbonbudget/>, NASA GISTEMP
+<https://data.giss.nasa.gov/gistemp/>, National Snow and Sea Ice Data
+Center <https://nsidc.org/>, CSIRO
 <https://research.csiro.au/slrwavescoast/sea-level/measurements-and-data/sea-level-data/>,
 NOAA Laboratory for Satellite Altimetry
 <https://www.star.nesdis.noaa.gov/socd/lsa/SeaLevelRise/> and HURDAT

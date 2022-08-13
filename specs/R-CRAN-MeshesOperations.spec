@@ -1,35 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ipaddress
-%global packver   0.5.5
+%global packname  MeshesOperations
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy IP Addresses
+Summary:          Operations on 3D Meshes
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-vctrs >= 0.3.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-AsioHeaders 
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-vctrs >= 0.3.0
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-gmp 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-Rvcg 
+BuildRequires:    R-CRAN-RcppCGAL 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-gmp 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-Rvcg 
 
 %description
-Classes and functions for working with IP (Internet Protocol) addresses
-and networks, inspired by the Python 'ipaddress' module. Offers full
-support for both IPv4 and IPv6 (Internet Protocol versions 4 and 6)
-address spaces. It is specifically designed to work well with the
-'tidyverse'.
+Uses the 'CGAL' C++ library to perform operations on 3D meshes: Boolean
+operations (intersection, union, difference), Minkowski sum, smoothing,
+clipping, decomposition into convex parts.
 
 %prep
 %setup -q -c -n %{packname}

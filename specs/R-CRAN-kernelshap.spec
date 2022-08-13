@@ -1,36 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  PPLasso
-%global packver   1.0
+%global __requires_exclude ^libmpi
+%global packname  kernelshap
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Prognostic Predictive Lasso for Biomarker Selection
+Summary:          Kernel SHAP
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-genlasso 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-cvCovEst 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-genlasso 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-cvCovEst 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-We provide new tools for the identification of prognostic and predictive
-biomarkers. For further details we refer the reader to the paper
-<arXiv:2202.01970> (Zhu et al., 2022).
+Implementation of the model-agnostic Kernel SHAP algorithm by Ian Covert
+and Su-In Lee (2021) <http://proceedings.mlr.press/v130/covert21a>.  Due
+to its iterative nature, standard errors of the SHAP values are provided
+and convergence is monitored.  The package allows to work with any model
+that provides numeric predictions.  Examples include linear regression,
+logistic regression (logit or probability scale), other generalized linear
+models, generalized additive models, and neural networks. The package
+plays well together with meta-learning packages like 'caret' or 'mlr3'.
+Visualizations can be done using the R package 'shapviz'.
 
 %prep
 %setup -q -c -n %{packname}

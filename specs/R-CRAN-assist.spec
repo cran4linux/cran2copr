@@ -1,38 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nse
-%global packver   1.20
+%global __requires_exclude ^libmpi
+%global packname  assist
+%global packver   3.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.20
+Version:          3.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Numerical Standard Errors Computation in R
+Summary:          A Suite of R Functions Implementing Spline Smoothing Techniques
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-mcmc 
-BuildRequires:    R-CRAN-mcmcse 
-BuildRequires:    R-CRAN-np 
-BuildRequires:    R-CRAN-sandwich 
-Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-mcmc 
-Requires:         R-CRAN-mcmcse 
-Requires:         R-CRAN-np 
-Requires:         R-CRAN-sandwich 
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-lattice 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-lattice 
 
 %description
-Collection of functions designed to calculate numerical standard error
-(NSE) of univariate time series as described in Ardia et al. (2018)
-<doi:10.1515/jtse-2017-0011> and Ardia and Bluteau (2017)
-<doi:10.21105/joss.00172>.
+Fit various smoothing spline models. Includes an ssr() function for
+smoothing spline regression, an nnr() function for nonparametric nonlinear
+regression, an snr() function for semiparametric nonlinear regression, an
+slm() function for semiparametric linear mixed-effects models, and an
+snm() function for semiparametric nonlinear mixed-effects models. See Wang
+(2011) <doi:10.1201/b10954> for an overview.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,6 +37,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

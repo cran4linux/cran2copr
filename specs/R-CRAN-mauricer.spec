@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ipaddress
-%global packver   0.5.5
+%global packname  mauricer
+%global packver   2.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          2.5.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy IP Addresses
+Summary:          Work with 'BEAST2' Packages
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-vctrs >= 0.3.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-AsioHeaders 
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-vctrs >= 0.3.0
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-beastier >= 2.4.7
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-beastier >= 2.4.7
+Requires:         R-CRAN-stringr 
 
 %description
-Classes and functions for working with IP (Internet Protocol) addresses
-and networks, inspired by the Python 'ipaddress' module. Offers full
-support for both IPv4 and IPv6 (Internet Protocol versions 4 and 6)
-address spaces. It is specifically designed to work well with the
-'tidyverse'.
+'BEAST2' (<https://www.beast2.org>) is a widely used Bayesian phylogenetic
+tool, that uses DNA/RNA/protein data and many model priors to create a
+posterior of jointly estimated phylogenies and parameters. 'BEAST2' is
+commonly accompanied by 'BEAUti 2' (<https://www.beast2.org>), which,
+among others, allows one to install 'BEAST2' package. This package allows
+to work with 'BEAST2' packages from 'R'.
 
 %prep
 %setup -q -c -n %{packname}

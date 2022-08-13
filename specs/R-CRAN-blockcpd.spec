@@ -1,35 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ipaddress
-%global packver   0.5.5
+%global packname  blockcpd
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy IP Addresses
+Summary:          Change Point Detection for Multiple Aligned Independent Time Series
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-vctrs >= 0.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-AsioHeaders 
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-vctrs >= 0.3.0
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-Classes and functions for working with IP (Internet Protocol) addresses
-and networks, inspired by the Python 'ipaddress' module. Offers full
-support for both IPv4 and IPv6 (Internet Protocol versions 4 and 6)
-address spaces. It is specifically designed to work well with the
-'tidyverse'.
+Implementation of statistical models based on regularized likelihood for
+offline change point detection on multiple aligned independent time
+series. It detects changes in parameters for the specified family for the
+series as group or block. As a reference for the method, see Prates et al.
+(2021) <arXiv:2111.10187>.
 
 %prep
 %setup -q -c -n %{packname}

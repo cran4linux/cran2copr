@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RJafroc
-%global packver   2.1.0
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Artificial Intelligence Systems and Observer Performance
 
@@ -57,8 +58,9 @@ software also performs free-response receiver operating characteristic
 (FROC) analysis, where lesion localization information is used. A book
 using the software has been published: Chakraborty DP: Observer
 Performance Methods for Diagnostic Imaging - Foundations, Modeling, and
-Applications with R-Based Examples, Taylor-Francis LLC; 2017. Online
-updates to this book, which use the software, are at
+Applications with R-Based Examples, Taylor-Francis LLC; 2017:
+<https://www.routledge.com/Observer-Performance-Methods-for-Diagnostic-Imaging-Foundations-Modeling/Chakraborty/p/book/9781482214840>.
+Online updates to this book, which use the software, are at
 <https://dpc10ster.github.io/RJafrocQuickStart/>,
 <https://dpc10ster.github.io/RJafrocRocBook/> and at
 <https://dpc10ster.github.io/RJafrocFrocBook/>. Supported data collection

@@ -1,35 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RCALI
-%global packver   0.3.3
+%global packname  digiRhythm
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculation of the Integrated Flow of Particles Between Polygons
+Summary:          Analyzing Animal's Rhythmicity
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-splancs 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-splancs 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-readr >= 2.0.1
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-readr >= 2.0.1
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-crayon 
+Requires:         R-stats 
 
 %description
-Calculate the flow of particles between polygons by two integration
-methods: integration by a cubature method and integration on a grid of
-points. Annie Bouvier, Kien Kieu, Kasia Adamczyk and Herve Monod (2009)
-<doi:10.1016/j.envsoft.2008.11.006>.
+Analyze and visualize the rhythmic behavior of animals using the degree of
+functional coupling (See Scheibe (1999) <doi:10.1076/brhm.30.2.216.1420>),
+compute and visualize harmonic power, actograms, average activity and
+diurnality index.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,45 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SimEvolEnzCons
-%global packver   2.0.0
+%global __requires_exclude ^libmpi
+%global packname  spmodel
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulation of Evolution of Enzyme Under Constraints
+Summary:          Spatial Statistical Modeling and Prediction
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-ade4 
 BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-scatterplot3d 
-Requires:         R-stats 
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-ade4 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-parallel 
 Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-scatterplot3d 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-sf 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-parallel 
 
 %description
-Simulate the evolution of enzyme concentrations under selection for
-increased flux in a metabolic pathway, with cellular constraints. Create
-graphics for the simulation results. Compute evolutionary equilibrium and
-Range of Neutral Variations of enzyme concentrations. This package is part
-of "Coton, C., Talbot, G., Le Louarn, M., Dillmann, C., de Vienne, D.
-(2021) <bioRxiv:10.1101/2021.05.04.442631>". Version 2.0.0 and more takes
-account of regulation groups, and is part of a second article "Coton, C.,
-Dillmann, C., de Vienne, D. (in progress)".
+Fit, summarize, and predict for a variety of spatial statistical models.
+Parameters are estimated using various methods. Additional modeling
+features include anisotropy, random effects, partition factors, big data
+approaches, and more. Model-fit statistics are used to summarize,
+visualize, and compare models. Predictions at unobserved locations are
+readily obtainable.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ipaddress
-%global packver   0.5.5
+%global packname  aopdata
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy IP Addresses
+Summary:          Data from the 'Access to Opportunities Project (AOP)'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-vctrs >= 0.3.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-AsioHeaders 
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-vctrs >= 0.3.0
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr >= 1.4.1
+BuildRequires:    R-CRAN-sf >= 0.9.3
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-httr >= 1.4.1
+Requires:         R-CRAN-sf >= 0.9.3
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-data.table 
+Requires:         R-methods 
+Requires:         R-utils 
 
 %description
-Classes and functions for working with IP (Internet Protocol) addresses
-and networks, inspired by the Python 'ipaddress' module. Offers full
-support for both IPv4 and IPv6 (Internet Protocol versions 4 and 6)
-address spaces. It is specifically designed to work well with the
-'tidyverse'.
+Download data from the 'Access to Opportunities Project (AOP)'. The
+'aopdata' package brings annual estimates of access to employment, health,
+education and social assistance services by transport mode, as well as
+data on the spatial distribution of population, jobs, health care, schools
+and social assistance facilities at a fine spatial resolution for all
+cities included in the project. More info on the 'AOP' website
+<https://www.ipea.gov.br/acessooportunidades/en/>.
 
 %prep
 %setup -q -c -n %{packname}

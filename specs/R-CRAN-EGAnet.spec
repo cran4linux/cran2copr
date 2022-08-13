@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  EGAnet
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploratory Graph Analysis – a Framework for Estimating the Number of Dimensions in Multivariate Data using Network Psychometrics
 
@@ -16,38 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-GGally >= 2.0.0
-BuildRequires:    R-CRAN-qgraph >= 1.4.1
-BuildRequires:    R-CRAN-Matrix >= 1.2
-BuildRequires:    R-CRAN-network >= 1.16.0
-BuildRequires:    R-CRAN-glasso >= 1.10
-BuildRequires:    R-CRAN-matrixcalc >= 1.0.3
-BuildRequires:    R-CRAN-semPlot >= 1.0.1
-BuildRequires:    R-CRAN-igraph >= 1.0.1
-BuildRequires:    R-CRAN-lavaan >= 0.5.22
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-fitdistrplus 
-BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-igraph >= 1.3.0
+BuildRequires:    R-CRAN-glasso 
+BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-ggdendro 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-network 
 BuildRequires:    R-CRAN-OpenMx 
-Requires:         R-CRAN-GGally >= 2.0.0
-Requires:         R-CRAN-qgraph >= 1.4.1
-Requires:         R-CRAN-Matrix >= 1.2
-Requires:         R-CRAN-network >= 1.16.0
-Requires:         R-CRAN-glasso >= 1.10
-Requires:         R-CRAN-matrixcalc >= 1.0.3
-Requires:         R-CRAN-semPlot >= 1.0.1
-Requires:         R-CRAN-igraph >= 1.0.1
-Requires:         R-CRAN-lavaan >= 0.5.22
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-CRAN-fitdistrplus 
-Requires:         R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-qgraph 
+BuildRequires:    R-CRAN-semPlot 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-igraph >= 1.3.0
+Requires:         R-CRAN-glasso 
+Requires:         R-CRAN-GGally 
+Requires:         R-CRAN-ggdendro 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-methods 
+Requires:         R-CRAN-network 
 Requires:         R-CRAN-OpenMx 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-qgraph 
+Requires:         R-CRAN-semPlot 
+Requires:         R-stats 
 
 %description
 Implements the Exploratory Graph Analysis (EGA) framework for

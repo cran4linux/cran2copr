@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  multilinguer
-%global packver   0.2.2
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gentle Language Installer for R User
 
@@ -26,8 +27,7 @@ Requires:         R-CRAN-usethis
 Requires:         R-CRAN-askpass 
 
 %description
-Provides install functions of other languages such as 'java', 'python' for
-Windows and MacOS. (Trying to Others.)
+Provides install functions of other languages such as 'java', 'python'.
 
 %prep
 %setup -q -c -n %{packname}

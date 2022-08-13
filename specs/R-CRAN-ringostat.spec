@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ringostat
-%global packver   0.1.3
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Load Data from 'Ringostat API'
 
@@ -16,16 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-readr >= 2.0.0
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-readr >= 2.0.0
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-lifecycle 
 
 %description
 Loading calls data from 'Ringostat API'. See

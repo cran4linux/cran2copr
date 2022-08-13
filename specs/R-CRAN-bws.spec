@@ -1,35 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RCALI
-%global packver   0.3.3
+%global packname  bws
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculation of the Integrated Flow of Particles Between Polygons
+Summary:          Bayesian Weighted Sums
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-splancs 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
+BuildRequires:    R-CRAN-rstan >= 2.18.1
+BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
+BuildRequires:    R-CRAN-rstantools >= 2.1.1
+BuildRequires:    R-CRAN-BH >= 1.66.0
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-methods 
-Requires:         R-CRAN-splancs 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-RcppParallel >= 5.0.1
+Requires:         R-CRAN-rstan >= 2.18.1
+Requires:         R-CRAN-rstantools >= 2.1.1
+Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-methods 
+Requires:         R-CRAN-rstantools
 
 %description
-Calculate the flow of particles between polygons by two integration
-methods: integration by a cubature method and integration on a grid of
-points. Annie Bouvier, Kien Kieu, Kasia Adamczyk and Herve Monod (2009)
-<doi:10.1016/j.envsoft.2008.11.006>.
+An interface to the Bayesian Weighted Sums model implemented in 'RStan'.
+It estimates the summed effect of multiple, often moderately to highly
+correlated, continuous predictors. Its applications can be found in
+analysis of exposure mixtures. The model was proposed by Hamra, Maclehose,
+Croen, Kauffman, and Newschaffer (2021) <doi:10.3390/ijerph18041373>. This
+implementation includes an extension to model binary outcome.
 
 %prep
 %setup -q -c -n %{packname}
