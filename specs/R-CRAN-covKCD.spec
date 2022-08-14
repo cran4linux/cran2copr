@@ -1,43 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rSAFE
-%global packver   0.1.4
+%global packname  covKCD
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Surrogate-Assisted Feature Extraction
+Summary:          Covariance Estimation for Matrix Data with the Kronecker-Core Decomposition
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DALEX 
-BuildRequires:    R-CRAN-dendextend 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ingredients 
-BuildRequires:    R-CRAN-sets 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-DALEX 
-Requires:         R-CRAN-dendextend 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-grDevices 
-Requires:         R-CRAN-ingredients 
-Requires:         R-CRAN-sets 
-Requires:         R-stats 
 
 %description
-Provides a model agnostic tool for white-box model trained on features
-extracted from a black-box model. For more information see: Gosiewska et
-al. (2020) <doi:10.1016/j.dss.2021.113556>.
+Matrix-variate covariance estimation via the Kronecker-core decomposition.
+Computes the Kronecker and core covariance matrices corresponding to an
+arbitrary covariance matrix, and provides an empirical Bayes covariance
+estimator that adaptively shrinks towards the space of separable
+covariance matrices. For details, see Hoff, McCormack and Zhang (2022)
+<arXiv:2207.12484> "Core Shrinkage Covariance Estimation for
+Matrix-variate data".
 
 %prep
 %setup -q -c -n %{packname}

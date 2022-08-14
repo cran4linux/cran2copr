@@ -1,43 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rSAFE
-%global packver   0.1.4
+%global packname  brassica
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Surrogate-Assisted Feature Extraction
+Summary:          1970s BASIC Interpreter
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DALEX 
-BuildRequires:    R-CRAN-dendextend 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ingredients 
-BuildRequires:    R-CRAN-sets 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-DALEX 
-Requires:         R-CRAN-dendextend 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-grDevices 
-Requires:         R-CRAN-ingredients 
-Requires:         R-CRAN-sets 
-Requires:         R-stats 
 
 %description
-Provides a model agnostic tool for white-box model trained on features
-extracted from a black-box model. For more information see: Gosiewska et
-al. (2020) <doi:10.1016/j.dss.2021.113556>.
+Executes BASIC programs from the 1970s, for historical and educational
+purposes. This enables famous examples of early machine learning,
+artificial intelligence, natural language processing, cellular automata,
+and so on, to be run in their original form.
 
 %prep
 %setup -q -c -n %{packname}

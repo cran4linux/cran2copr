@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rSAFE
-%global packver   0.1.4
+%global packname  ndi
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Surrogate-Assisted Feature Extraction
+Summary:          Neighborhood Deprivation Indices
 
-License:          GPL-3
+License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,27 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DALEX 
-BuildRequires:    R-CRAN-dendextend 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ingredients 
-BuildRequires:    R-CRAN-sets 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-DALEX 
-Requires:         R-CRAN-dendextend 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-grDevices 
-Requires:         R-CRAN-ingredients 
-Requires:         R-CRAN-sets 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidycensus 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-psych 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidycensus 
+Requires:         R-CRAN-tidyr 
 
 %description
-Provides a model agnostic tool for white-box model trained on features
-extracted from a black-box model. For more information see: Gosiewska et
-al. (2020) <doi:10.1016/j.dss.2021.113556>.
+Compute various neighborhood deprivation indices (NDI), including: (1)
+based on Messer et al. (2006) <doi:10.1007/s11524-006-9094-x> and (2)
+based on Andrews et al. (2020) <doi:10.1080/17445647.2020.1750066> and
+Slotman et al. (2022) <doi:10.1016/j.dib.2022.108002> who uses variables
+chosen by Roux and Mair (2010) <doi:10.1111/j.1749-6632.2009.05333.x>.
+Both are a decomposition of multiple demographic characteristics from the
+U.S. Census Bureau American Community Survey 5-year estimates.
 
 %prep
 %setup -q -c -n %{packname}

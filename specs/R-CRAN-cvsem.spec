@@ -1,43 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rSAFE
-%global packver   0.1.4
+%global packname  cvsem
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Surrogate-Assisted Feature Extraction
+Summary:          SEM Model Comparison with K-Fold Cross-Validation
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DALEX 
-BuildRequires:    R-CRAN-dendextend 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ingredients 
-BuildRequires:    R-CRAN-sets 
+BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-DALEX 
-Requires:         R-CRAN-dendextend 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-grDevices 
-Requires:         R-CRAN-ingredients 
-Requires:         R-CRAN-sets 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-lavaan 
 Requires:         R-stats 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Provides a model agnostic tool for white-box model trained on features
-extracted from a black-box model. For more information see: Gosiewska et
-al. (2020) <doi:10.1016/j.dss.2021.113556>.
+The goal of 'cvsem' is to provide functions that allow for comparing
+Structural Equation Models (SEM) using cross-validation. Users can specify
+multiple SEMs using 'lavaan' syntax. 'cvsem' computes the Kullback Leibler
+(KL) Divergence between 1) the model implied covariance matrix estimated
+from the training data and 2) the sample covariance matrix estimated from
+the test data described in Cudeck, Robert & Browne (1983)
+<doi:10.18637/jss.v048.i02>. The KL Divergence is computed for each of the
+specified SEMs allowing for the models to be compared based on their
+prediction errors.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,43 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rSAFE
-%global packver   0.1.4
+%global packname  bondAnalyst
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Surrogate-Assisted Feature Extraction
+Summary:          Methods for Fixed-Income Valuation, Risk and Return
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DALEX 
-BuildRequires:    R-CRAN-dendextend 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ingredients 
-BuildRequires:    R-CRAN-sets 
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-DALEX 
-Requires:         R-CRAN-dendextend 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-grDevices 
-Requires:         R-CRAN-ingredients 
-Requires:         R-CRAN-sets 
+Requires:         R-CRAN-Rdpack 
 Requires:         R-stats 
 
 %description
-Provides a model agnostic tool for white-box model trained on features
-extracted from a black-box model. For more information see: Gosiewska et
-al. (2020) <doi:10.1016/j.dss.2021.113556>.
+Bond Pricing and Fixed-Income Valuation of Selected Securities included
+here serve as a quick reference of Quantitative Methods for undergraduate
+courses on Fixed-Income and CFA Level I Readings on Fixed-Income
+Valuation, Risk and Return. CFA Institute ("CFA Program Curriculum 2020
+Level I Volumes 1-6. (Vol. 5, pp. 107-151, pp. 237-299)", 2019, ISBN:
+9781119593577). Barbara S. Petitt ("Fixed Income Analysis", 2019, ISBN:
+9781119628132). Frank J. Fabozzi ("Handbook of Finance: Financial Markets
+and Instruments", 2008, ISBN: 9780470078143). Frank J. Fabozzi ("Fixed
+Income Analysis", 2007, ISBN: 9780470052211).
 
 %prep
 %setup -q -c -n %{packname}
